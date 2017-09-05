@@ -1495,7 +1495,7 @@ public class CustomerService {
 <p>Currently Keycloak supports securing your web applications running inside <a href="http://developers.redhat.com/products/fuse/overview/">JBoss Fuse</a>.</p>
 </div>
 <div class="paragraph">
-<p>It leverages <a href="#_jetty9_adapter">Jetty 9 adapter</a> as JBoss Fuse 6.3.0 Rollup 1 is bundled with <a href="http://eclipse.org/jetty/">Jetty 9.2 server</a>
+<p>It leverages <a href="#_jetty9_adapter">Jetty 9 adapter</a> as JBoss Fuse 6.3.0 Rollup 5 is bundled with <a href="http://eclipse.org/jetty/">Jetty 9.2 server</a>
 under the covers and Jetty is used for running various kinds of web applications.</p>
 </div>
 <div class="admonitionblock warning">
@@ -1505,7 +1505,7 @@ under the covers and Jetty is used for running various kinds of web applications
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-The only supported version of Fuse is JBoss Fuse 6.3.0 Rollup 1. If you use earlier versions of Fuse, it is possible that some functions will not work correctly. In particular, the <a href="http://hawt.io">Hawtio</a> integration will not work with earlier versions of Fuse.
+The only supported version of Fuse is JBoss Fuse 6.3.0 Rollup 5. If you use earlier versions of Fuse, it is possible that some functions will not work correctly. In particular, the <a href="http://hawt.io">Hawtio</a> integration will not work with earlier versions of Fuse.
 </td>
 </tr>
 </table>
@@ -1568,7 +1568,7 @@ understanding the demo.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Start JBoss Fuse 6.3.0 Rollup 1; then in the Karaf terminal type:</p>
+<p>Start JBoss Fuse 6.3.0 Rollup 5; then in the Karaf terminal type:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/3.3.0.CR1/xml/features
@@ -1590,7 +1590,7 @@ features:install keycloak</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you are using JBoss Fuse 6.2 or later, use <code>keycloak-jetty8-adapter</code>. However, upgrading to JBoss Fuse 6.3.0 Rollup 1 is recommended.
+If you are using JBoss Fuse 6.2 or later, use <code>keycloak-jetty8-adapter</code>. However, upgrading to JBoss Fuse 6.3.0 Rollup 5 is recommended.
 </td>
 </tr>
 </table>
@@ -1623,7 +1623,7 @@ If you are using JBoss Fuse 6.2 or later, use <code>keycloak-jetty8-adapter</cod
 <li>
 <p>Unzip it into the root directory of JBoss Fuse. The dependencies are then installed under the <code>system</code> directory. You can overwrite all existing jar files.</p>
 <div class="paragraph">
-<p>Use this for JBoss Fuse 6.3.0 Rollup 1:</p>
+<p>Use this for JBoss Fuse 6.3.0 Rollup 5:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2326,7 +2326,7 @@ features:install keycloak-jaas</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-On some later operating systems, you might also need to use the SSH command&#8217;s -o option <code>-o HostKeyAlgorithms=+ssh-dss</code> because later SSH clients do not allow use of the <code>ssh-dss</code> algorithm, by default. However, by default, it is currently used in JBoss Fuse 6.3.0 Rollup 1.
+On some later operating systems, you might also need to use the SSH command&#8217;s -o option <code>-o HostKeyAlgorithms=+ssh-dss</code> because later SSH clients do not allow use of the <code>ssh-dss</code> algorithm, by default. However, by default, it is currently used in JBoss Fuse 6.3.0 Rollup 5.
 </td>
 </tr>
 </table>
@@ -2384,7 +2384,7 @@ On some later operating systems, you might also need to use the SSH command&#821
 <div class="content">
 <pre class="CodeRay highlight"><code>hawtio.keycloakEnabled=true
 hawtio.realm=keycloak
-hawtio.keycloakClientConfig=${karaf.base}/etc/keycloak-hawtio-client.json
+hawtio.keycloakClientConfig=file://${karaf.base}/etc/keycloak-hawtio-client.json
 hawtio.rolePrincipalClasses=org.keycloak.adapters.jaas.RolePrincipal,org.apache.karaf.jaas.boot.principal.RolePrincipal</code></pre>
 </div>
 </div>
@@ -2423,7 +2423,7 @@ hawtio.rolePrincipalClasses=org.keycloak.adapters.jaas.RolePrincipal,org.apache.
 </div>
 </li>
 <li>
-<p>Start JBoss Fuse 6.3.0 Rollup 1 and install the keycloak feature if you have not already done so. The commands in Karaf terminal are similar to this example:</p>
+<p>Start JBoss Fuse 6.3.0 Rollup 5 and install the keycloak feature if you have not already done so. The commands in Karaf terminal are similar to this example:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/3.3.0.CR1/xml/features
@@ -7774,7 +7774,7 @@ command to save the new token in configuration file, and have <code>Client Regis
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-04 19:04:24 UTC
+Last updated 2017-09-05 03:49:12 UTC
 </div>
 </div>
 </body>
