@@ -509,6 +509,87 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .change .change{color:#66f}
 .CodeRay .head .head{color:#f4f}
 </style>
+<style>
+/* Global Navbar */
+
+ul#globalnav {
+    background-color: #ededed;
+    font-family: "Open Sans","DejaVu Sans",sans-serif;
+
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    font-size: 0.6em;
+    height: 30px;
+}
+
+ul#globalnav::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+ul#globalnav li {
+    float: left;
+}
+
+ul#globalnav li a {
+    display: inline-block;
+    color: #004670;
+    text-align: center;
+    padding: 0.75em;
+    text-decoration: none;
+}
+
+ul#globalnav li a:hover {
+    color: #428bca;
+}
+
+#toc.toc2 {
+    top: 30px;
+}
+
+body.toc2 {
+    padding-top: 30px;
+}
+
+@media only screen and (min-width:768px) {
+    ul#globalnav {
+        font-size: 0.75em;
+        height: 40px;
+    }
+
+    #toc.toc2 {
+        top: 40px;
+    }
+
+    body.toc2 {
+        padding-top: 40px;
+    }
+}
+
+@media only screen and (min-width:1280px) {
+    ul#globalnav {
+        font-size: 1em;
+        height: 48px;
+    }
+
+    #toc.toc2 {
+        top: 48px;
+    }
+
+    body.toc2 {
+        padding-top: 48px;
+    }
+}
+
+</style>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
@@ -9478,8 +9559,17 @@ at least one digit character, not be equal to user&#8217;s <code>username</code>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-05 17:37:49 UTC
+Last updated 2017-09-06 03:36:44 UTC
 </div>
 </div>
+<ul id="globalnav">
+    <li><a href="../getting_started/index.html">Getting Started</a></li>
+    <li><a href="../server_installation/index.html">Server Installation</a></li>
+    <li><a href="../securing_apps/index.html">Securing Apps</a></li>
+    <li><a href="../server_admin/index.html">Server Admin</a></li>
+    <li><a href="../server_development/index.html">Server Development</a></li>
+    <li><a href="../authorization_services/index.html">Authorization Services</a></li>
+    <li><a href="../upgrading/index.html">Upgrading</a></li>
+</ul>
 </body>
 </html>
