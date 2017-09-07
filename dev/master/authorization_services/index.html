@@ -1041,7 +1041,7 @@ what you want to protect (resource or scope) and the policies that must be satis
 <div class="sect4">
 <h5 id="protection-api"><a class="anchor" href="#protection-api"></a>Protection API</h5>
 <div class="paragraph">
-<p>The <strong>Protection API</strong> is a <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA-compliant</a> endpoint providing a small set of operations
+<p>The <strong>Protection API</strong> is a <a href="https://kantarainitiative.org/confluence/display/uma/UMA+1.0+Core+Protocol">UMA-compliant</a> endpoint providing a small set of operations
 for resource servers to help them manage their resources and scopes. Only resource servers are allowed to access this API, which also requires a
 <strong>uma_protection</strong> scope.</p>
 </div>
@@ -1106,7 +1106,7 @@ By default, Remote Resource Management is enabled. You can change that using the
 <div class="sect4">
 <h5 id="authorization-api"><a class="anchor" href="#authorization-api"></a>Authorization API</h5>
 <div class="paragraph">
-<p>The Authorization API is also a <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA-compliant</a> endpoint providing a single operation that exchanges an Access Token and <a href="#_overview_terminology_permission_ticket">Permission Ticket</a> with a Requesting Party Token (RPT).</p>
+<p>The Authorization API is also a <a href="https://kantarainitiative.org/confluence/display/uma/UMA+1.0+Core+Protocol">UMA-compliant</a> endpoint providing a single operation that exchanges an Access Token and <a href="#_overview_terminology_permission_ticket">Permission Ticket</a> with a Requesting Party Token (RPT).</p>
 </div>
 <div class="paragraph">
 <p>The RPT contains all permissions granted to a client and can be used to call a resource server to get access to its protected resources.</p>
@@ -1257,7 +1257,7 @@ policy providers, and you can create your own policy types to support your speci
 <div class="sect3">
 <h4 id="_overview_terminology_permission_ticket"><a class="anchor" href="#_overview_terminology_permission_ticket"></a>1.2.7. Permission Ticket</h4>
 <div class="paragraph">
-<p>A permission ticket is a special type of token defined by the <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">OAuth2&#8217;s User-Managed Access (UMA) Profile</a> specification that provides an opaque structure whose form is determined by the authorization server. This
+<p>A permission ticket is a special type of token defined by the <a href="https://kantarainitiative.org/confluence/display/uma/UMA+1.0+Core+Protocol">OAuth2&#8217;s User-Managed Access (UMA) Profile</a> specification that provides an opaque structure whose form is determined by the authorization server. This
 structure represents the resources and/or scopes being requested by a client as well as the policies that must be applied to a request for authorization data (requesting party token [RPT]).</p>
 </div>
 <div class="paragraph">
@@ -1267,7 +1267,7 @@ structure represents the resources and/or scopes being requested by a client as 
 <p>In the UMA workflow, permission tickets are issued by the authorization server to a resource server, which returns the permission ticket to the client trying to access a protected resource. Once the client receives the ticket, it can make a request for an RPT (a final token holding authorization data) by sending the ticket back to the authorization server.</p>
 </div>
 <div class="paragraph">
-<p>For more information on permission tickets, see <a href="#_service_authorization_api">Authorization API</a> and the <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA</a> specification.</p>
+<p>For more information on permission tickets, see <a href="#_service_authorization_api">Authorization API</a> and the <a href="https://kantarainitiative.org/confluence/display/uma/UMA+1.0+Core+Protocol">UMA</a> specification.</p>
 </div>
 </div>
 </div>
@@ -1277,8 +1277,8 @@ structure represents the resources and/or scopes being requested by a client as 
 <h2 id="_getting_started_overview"><a class="anchor" href="#_getting_started_overview"></a>2. Getting Started</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Before you can use this tutorial, you need to complete the installation of Keycloak and create the initial admin user as shown in the <a href="http://www.keycloak.org/docs/3.3/getting_started/">Getting Started Guide</a> tutorial.
-There is one caveat to this. You have to run a separate {appServer} instance on the same machine as Keycloak Server. This separate instance will run your Java Servlet application. Because of this you will have to run the Keycloak under a different port so that there are no port conflicts when running on the same machine. Use the <code>jboss.socket.binding.port-offset</code> system property on the command line. The value of this property is a number that will be added to the base value of every port opened by Keycloak Server.</p>
+<p>Before you can use this tutorial, you need to complete the installation of Keycloak and create the initial admin user as shown in the <a href="http://www.keycloak.org/docs/3.4/getting_started/">Getting Started Guide</a> tutorial.
+There is one caveat to this. You have to run a separate WildFly instance on the same machine as Keycloak Server. This separate instance will run your Java Servlet application. Because of this you will have to run the Keycloak under a different port so that there are no port conflicts when running on the same machine. Use the <code>jboss.socket.binding.port-offset</code> system property on the command line. The value of this property is a number that will be added to the base value of every port opened by Keycloak Server.</p>
 </div>
 <div class="paragraph">
 <p>To boot Keycloak Server:</p>
@@ -1296,10 +1296,10 @@ There is one caveat to this. You have to run a separate {appServer} instance on 
 </div>
 </div>
 <div class="paragraph">
-<p>For more details about how to install and configure a {appServer}, please follow the steps on the <a href="http://www.keycloak.org/docs/3.3/securing_apps/">Securing Applications and Services Guide</a> tutorial.</p>
+<p>For more details about how to install and configure a WildFly, please follow the steps on the <a href="http://www.keycloak.org/docs/3.4/securing_apps/">Securing Applications and Services Guide</a> tutorial.</p>
 </div>
 <div class="paragraph">
-<p>After installing and booting both servers you should be able to access Keycloak Admin Console at <a href="http://localhost:8180/auth/admin/" class="bare">http://localhost:8180/auth/admin/</a> and also the {appServer} instance at
+<p>After installing and booting both servers you should be able to access Keycloak Admin Console at <a href="http://localhost:8180/auth/admin/" class="bare">http://localhost:8180/auth/admin/</a> and also the WildFly instance at
 <a href="http://localhost:8080" class="bare">http://localhost:8080</a>.</p>
 </div>
 <div class="sect2">
@@ -1604,7 +1604,7 @@ own applications.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>keycloak-demo-3.3.0.CR1.[zip|tar.gz]</strong></p>
+<p><strong>keycloak-demo-3.4.0.CR1.[zip|tar.gz]</strong></p>
 </li>
 </ul>
 </div>
@@ -1617,7 +1617,7 @@ own applications.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Or you can get them from <a href="https://github.com/keycloak/keycloak/tree/3.3.0.CR1/examples/authz">GitHub</a>.</p>
+<p>Or you can get them from <a href="https://github.com/keycloak/keycloak/tree/3.4.0.CR1/examples/authz">GitHub</a>.</p>
 </div>
 <div class="paragraph">
 <p>Each example has a <code>README</code> file with instructions about how to build, deploy, and test the example.</p>
@@ -1639,15 +1639,15 @@ own applications.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak/tree/3.3.0.CR1/examples/authz/hello-world-authz-service">hello-world-authz-service</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak/tree/3.4.0.CR1/examples/authz/hello-world-authz-service">hello-world-authz-service</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A single-page application that is protected by a policy enforcer that decides whether a user can access that page based on the permissions obtained from a Keycloak Server.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak/tree/3.3.0.CR1/examples/authz/photoz">photoz</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak/tree/3.4.0.CR1/examples/authz/photoz">photoz</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A simple application based on HTML5+AngularJS+JAX-RS that demonstrates how to enable fine-grained permissions to RESTFul based services and HTML5 clients.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak/tree/3.3.0.CR1/examples/authz/servlet-authz">servlet-authz</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak/tree/3.4.0.CR1/examples/authz/servlet-authz">servlet-authz</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A simple Servlet-based application that demonstrates how to enable fine-grained authorization to a JBoss/Wildfly Servlet Application.</p></td>
 </tr>
 </tbody>
@@ -2665,7 +2665,7 @@ can identify them more easily and also know what they mean.</p>
 </div>
 <div class="paragraph">
 <div class="title">Add a Client-Based Policy</div>
-<p><span class="image"><img src="./keycloak-images/policy/create-client.png" alt="Add Client-Based Policy"></span></p>
+<p><span class="image"><img src="./images/policy/create-client.png" alt="Add Client-Based Policy"></span></p>
 </div>
 <div class="sect3">
 <h4 id="configuration-7"><a class="anchor" href="#configuration-7"></a>5.8.1. Configuration</h4>
@@ -2772,7 +2772,7 @@ is the default behavior, the policy result will be kept as it is.</p>
 <p>Policies determine this by invoking the <code>grant()</code> or <code>deny()</code> methods on an <code>Evaluation</code> instance. By default, the state of the <code>Evaluation</code> instance is denied, which means that your policies must explicitly invoke the <code>grant()</code> method to indicate to the policy evaluation engine that permission should be granted.</p>
 </div>
 <div class="paragraph">
-<p>For more information about the Evaluation API see the <a href="http://www.keycloak.org/docs/javadocs/index.html">JavaDocs</a>.</p>
+<p>For more information about the Evaluation API see the <a href="http://www.keycloak.org/docs/3.4/api_documentation/">JavaDocs</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="the-evaluation-context"><a class="anchor" href="#the-evaluation-context"></a>5.10.1. The Evaluation Context</h4>
@@ -4603,7 +4603,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-06 03:36:44 UTC
+Last updated 2017-09-07 12:13:53 UTC
 </div>
 </div>
 <ul id="globalnav">

@@ -637,7 +637,7 @@ body.toc2 {
 <li><a href="#logout">2.1.13. Logout</a></li>
 <li><a href="#parameters-forwarding">2.1.14. Parameters Forwarding</a></li>
 <li><a href="#_client_authentication_adapter">2.1.15. Client Authentication</a></li>
-<li><a href="#multi-tenancy-2">2.1.16. Multi Tenancy</a></li>
+<li><a href="#_multi_tenancy">2.1.16. Multi Tenancy</a></li>
 <li><a href="#_applicationclustering">2.1.17. Application Clustering</a></li>
 </ul>
 </li>
@@ -1326,7 +1326,7 @@ Both methods are described in this section.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>$ cd $WILDFLY_HOME
-$ unzip keycloak-wildfly-adapter-dist-3.3.0.CR1.zip</code></pre>
+$ unzip keycloak-wildfly-adapter-dist-3.4.0.CR1.zip</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1335,7 +1335,7 @@ $ unzip keycloak-wildfly-adapter-dist-3.3.0.CR1.zip</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>$ cd $WILDFLY_HOME
-$ unzip keycloak-wf8-adapter-dist-3.3.0.CR1.zip</code></pre>
+$ unzip keycloak-wf8-adapter-dist-3.4.0.CR1.zip</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1344,7 +1344,7 @@ $ unzip keycloak-wf8-adapter-dist-3.3.0.CR1.zip</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>$ cd $EAP_HOME
-$ unzip keycloak-eap7-adapter-dist-3.3.0.CR1.zip</code></pre>
+$ unzip keycloak-eap7-adapter-dist-3.4.0.CR1.zip</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1353,7 +1353,7 @@ $ unzip keycloak-eap7-adapter-dist-3.3.0.CR1.zip</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>$ cd $EAP_HOME
-$ unzip keycloak-eap6-adapter-dist-3.3.0.CR1.zip</code></pre>
+$ unzip keycloak-eap6-adapter-dist-3.4.0.CR1.zip</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1362,7 +1362,7 @@ $ unzip keycloak-eap6-adapter-dist-3.3.0.CR1.zip</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>$ cd $JBOSS_HOME
-$ unzip keycloak-as7-adapter-dist-3.3.0.CR1.zip</code></pre>
+$ unzip keycloak-as7-adapter-dist-3.4.0.CR1.zip</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1573,10 +1573,10 @@ public class CustomerService {
 <div class="sect3">
 <h4 id="_fuse_adapter"><a class="anchor" href="#_fuse_adapter"></a>2.1.3. JBoss Fuse Adapter</h4>
 <div class="paragraph">
-<p>Currently Keycloak supports securing your web applications running inside <a href="http://developers.redhat.com/products/fuse/overview/">JBoss Fuse</a>.</p>
+<p>Currently Keycloak supports securing your web applications running inside <a href="https://developers.redhat.com/products/fuse/overview/">JBoss Fuse</a>.</p>
 </div>
 <div class="paragraph">
-<p>It leverages <a href="#_jetty9_adapter">Jetty 9 adapter</a> as JBoss Fuse 6.3.0 Rollup 5 is bundled with <a href="http://eclipse.org/jetty/">Jetty 9.2 server</a>
+<p>It leverages <a href="#_jetty9_adapter">Jetty 9 adapter</a> as JBoss Fuse 6.3.0 Rollup 5 is bundled with <a href="http://www.eclipse.org/jetty/">Jetty 9.2 server</a>
 under the covers and Jetty is used for running various kinds of web applications.</p>
 </div>
 <div class="admonitionblock warning">
@@ -1652,7 +1652,7 @@ understanding the demo.</p>
 <p>Start JBoss Fuse 6.3.0 Rollup 5; then in the Karaf terminal type:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/3.3.0.CR1/xml/features
+<pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/3.4.0.CR1/xml/features
 features:install keycloak</code></pre>
 </div>
 </div>
@@ -1709,7 +1709,7 @@ If you are using JBoss Fuse 6.2 or later, use <code>keycloak-jetty8-adapter</cod
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>cd /path-to-fuse/jboss-fuse-6.3.0.redhat-254
-unzip -q /path-to-adapter-zip/keycloak-fuse-adapter-3.3.0.CR1.zip</code></pre>
+unzip -q /path-to-adapter-zip/keycloak-fuse-adapter-3.4.0.CR1.zip</code></pre>
 </div>
 </div>
 </li>
@@ -1717,7 +1717,7 @@ unzip -q /path-to-adapter-zip/keycloak-fuse-adapter-3.3.0.CR1.zip</code></pre>
 <p>Start Fuse and run these commands in the fuse/karaf terminal:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/3.3.0.CR1/xml/features
+<pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/3.4.0.CR1/xml/features
 features:install keycloak</code></pre>
 </div>
 </div>
@@ -1825,11 +1825,11 @@ Note that "*" resolution for the package does not import the <code>org.keycloak.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>org.keycloak.adapters.jetty;version="3.3.0.CR1",
-org.keycloak.adapters;version="3.3.0.CR1",
-org.keycloak.constants;version="3.3.0.CR1",
-org.keycloak.util;version="3.3.0.CR1",
-org.keycloak.*;version="3.3.0.CR1",
+<pre class="CodeRay highlight"><code>org.keycloak.adapters.jetty;version="3.4.0.CR1",
+org.keycloak.adapters;version="3.4.0.CR1",
+org.keycloak.constants;version="3.4.0.CR1",
+org.keycloak.util;version="3.4.0.CR1",
+org.keycloak.*;version="3.4.0.CR1",
 *;resolution:=optional</code></pre>
 </div>
 </div>
@@ -1937,11 +1937,11 @@ Note you don&#8217;t need the <code>web.xml</code> file as the security-constrai
 <p>The <code>Import-Package</code> in <code>META-INF/MANIFEST.MF</code> must contain at least these imports:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>org.keycloak.adapters.jetty;version="3.3.0.CR1",
-org.keycloak.adapters;version="3.3.0.CR1",
-org.keycloak.constants;version="3.3.0.CR1",
-org.keycloak.util;version="3.3.0.CR1",
-org.keycloak.*;version="3.3.0.CR1",
+<pre class="CodeRay highlight"><code>org.keycloak.adapters.jetty;version="3.4.0.CR1",
+org.keycloak.adapters;version="3.4.0.CR1",
+org.keycloak.constants;version="3.4.0.CR1",
+org.keycloak.util;version="3.4.0.CR1",
+org.keycloak.*;version="3.4.0.CR1",
 *;resolution:=optional</code></pre>
 </div>
 </div>
@@ -2042,7 +2042,7 @@ org.apache.camel;version="[2.13,3)",
 org.eclipse.jetty.security;version="[8,10)",
 org.eclipse.jetty.server.nio;version="[8,10)",
 org.eclipse.jetty.util.security;version="[8,10)",
-org.keycloak.*;version="3.3.0.CR1",
+org.keycloak.*;version="3.4.0.CR1",
 org.osgi.service.blueprint,
 org.osgi.service.blueprint.container,
 org.osgi.service.event,</code></pre>
@@ -2224,7 +2224,7 @@ org.apache.cxf.*;version="[2.7,3.2)",
 org.springframework.beans.factory.config,
 org.eclipse.jetty.security;version="[8,10)",
 org.eclipse.jetty.util.security;version="[8,10)",
-org.keycloak.*;version="3.3.0.CR1"</code></pre>
+org.keycloak.*;version="3.4.0.CR1"</code></pre>
 </div>
 </div>
 </div>
@@ -2324,8 +2324,8 @@ org.apache.cxf.*;version="[2.7,3.2)",
 com.fasterxml.jackson.jaxrs.json;version="[2.5,3)",
 org.eclipse.jetty.security;version="[8,10)",
 org.eclipse.jetty.util.security;version="[8,10)",
-org.keycloak.*;version="3.3.0.CR1",
-org.keycloak.adapters.jetty;version="3.3.0.CR1",
+org.keycloak.*;version="3.4.0.CR1",
+org.keycloak.adapters.jetty;version="3.4.0.CR1",
 *;resolution:=optional</code></pre>
 </div>
 </div>
@@ -2382,7 +2382,7 @@ This client needs to have <code>Direct Access Grants Enabled</code> selected to 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/3.3.0.CR1/xml/features
+<pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/3.4.0.CR1/xml/features
 features:install keycloak-jaas</code></pre>
 </div>
 </div>
@@ -2507,7 +2507,7 @@ hawtio.rolePrincipalClasses=org.keycloak.adapters.jaas.RolePrincipal,org.apache.
 <p>Start JBoss Fuse 6.3.0 Rollup 5 and install the keycloak feature if you have not already done so. The commands in Karaf terminal are similar to this example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/3.3.0.CR1/xml/features
+<pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/3.4.0.CR1/xml/features
 features:install keycloak</code></pre>
 </div>
 </div>
@@ -2521,9 +2521,9 @@ features:install keycloak</code></pre>
 </ol>
 </div>
 <div class="sect5">
-<h6 id="securing-hawtio-on-hawtioeapversion"><a class="anchor" href="#securing-hawtio-on-hawtioeapversion"></a>Securing Hawtio on {hawtioEAPVersion}</h6>
+<h6 id="securing-hawtio-on-jboss-eap-6-4"><a class="anchor" href="#securing-hawtio-on-jboss-eap-6-4"></a>Securing Hawtio on JBoss EAP 6.4</h6>
 <div class="paragraph">
-<p>To run Hawtio on the {hawtioEAPVersion} server, complete the following steps:</p>
+<p>To run Hawtio on the JBoss EAP 6.4 server, complete the following steps:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2538,19 +2538,19 @@ features:install keycloak</code></pre>
 <p>your Keycloak is running on <code>localhost:8080</code></p>
 </li>
 <li>
-<p>the {hawtioEAPVersion} server with deployed Hawtio will be running on <code>localhost:8181</code>. The directory with this server is referred in next steps as <code>$EAP_HOME</code>.</p>
+<p>the JBoss EAP 6.4 server with deployed Hawtio will be running on <code>localhost:8181</code>. The directory with this server is referred in next steps as <code>$EAP_HOME</code>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Copy the <code>{hawtioWARVersion}</code> archive to the <code>$EAP_HOME/standalone/configuration</code> directory. For more details about deploying Hawtio see the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html-single/deploying_into_a_web_server/eapcamelsubsystem#idm140313338064000">Fuse Hawtio documentation</a>.</p>
+<p>Copy the <code>hawtio-wildfly-1.4.0.redhat-630254.war</code> archive to the <code>$EAP_HOME/standalone/configuration</code> directory. For more details about deploying Hawtio see the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html-single/deploying_into_a_web_server/">Fuse Hawtio documentation</a>.</p>
 </li>
 <li>
 <p>Copy the <code>keycloak-hawtio.json</code> and <code>keycloak-hawtio-client.json</code> files with the above content to the <code>$EAP_HOME/standalone/configuration</code> directory.</p>
 </li>
 <li>
-<p>Install the Keycloak adapter subsystem to your {hawtioEAPVersion} server as described in the <a href="#_jboss_adapter">JBoss adapter documentation</a>.</p>
+<p>Install the Keycloak adapter subsystem to your JBoss EAP 6.4 server as described in the <a href="#_jboss_adapter">JBoss adapter documentation</a>.</p>
 </li>
 <li>
 <p>In the <code>$EAP_HOME/standalone/configuration/standalone.xml</code> file configure the system properties as in this example:</p>
@@ -2591,13 +2591,13 @@ features:install keycloak</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:keycloak:1.1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;secure-deployment</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">{hawtioWARVersion}</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;secure-deployment</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">hawtio-wildfly-1.4.0.redhat-630254.war</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
 <span class="tag">&lt;/subsystem&gt;</span></code></pre>
 </div>
 </div>
 </li>
 <li>
-<p>Restart the {hawtioEAPVersion} server with Hawtio:</p>
+<p>Restart the JBoss EAP 6.4 server with Hawtio:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml">cd $EAP_HOME/bin
@@ -2939,7 +2939,7 @@ To add it manually and if you are using Maven, add the following to your depende
     <span class="tag">&lt;dependency&gt;</span>
       <span class="tag">&lt;groupId&gt;</span>org.keycloak.bom<span class="tag">&lt;/groupId&gt;</span>
       <span class="tag">&lt;artifactId&gt;</span>keycloak-adapter-bom<span class="tag">&lt;/artifactId&gt;</span>
-      <span class="tag">&lt;version&gt;</span>3.3.0.CR1<span class="tag">&lt;/version&gt;</span>
+      <span class="tag">&lt;version&gt;</span>3.4.0.CR1<span class="tag">&lt;/version&gt;</span>
       <span class="tag">&lt;type&gt;</span>pom<span class="tag">&lt;/type&gt;</span>
       <span class="tag">&lt;scope&gt;</span>import<span class="tag">&lt;/scope&gt;</span>
     <span class="tag">&lt;/dependency&gt;</span>
@@ -3028,7 +3028,7 @@ However, keycloak.json is still required.</p>
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;dependency&gt;</span>
     <span class="tag">&lt;groupId&gt;</span>org.keycloak<span class="tag">&lt;/groupId&gt;</span>
     <span class="tag">&lt;artifactId&gt;</span>keycloak-spring-security-adapter<span class="tag">&lt;/artifactId&gt;</span>
-    <span class="tag">&lt;version&gt;</span>3.3.0.CR1<span class="tag">&lt;/version&gt;</span>
+    <span class="tag">&lt;version&gt;</span>3.4.0.CR1<span class="tag">&lt;/version&gt;</span>
 <span class="tag">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -3041,7 +3041,7 @@ However, keycloak.json is still required.</p>
 <div class="sect5">
 <h6 id="java-configuration"><a class="anchor" href="#java-configuration"></a>Java Configuration</h6>
 <div class="paragraph">
-<p>Keycloak provides a KeycloakWebSecurityConfigurerAdapter as a convenient base class for creating a <a href="http://docs.spring.io/spring-security/site/docs/4.0.x/apidocs/org/springframework/security/config/annotation/web/WebSecurityConfigurer.html">WebSecurityConfigurer</a>                instance.
+<p>Keycloak provides a KeycloakWebSecurityConfigurerAdapter as a convenient base class for creating a <a href="https://docs.spring.io/spring-security/site/docs/4.0.x/apidocs/org/springframework/security/config/annotation/web/WebSecurityConfigurer.html">WebSecurityConfigurer</a>                instance.
 The implementation allows customization by overriding methods.
 While its use is not required, it greatly simplifies your security context configuration.</p>
 </div>
@@ -3405,7 +3405,7 @@ So, the Admin URL in this example should be <code>http[s]://hostname/{context-ro
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;dependency&gt;</span>
     <span class="tag">&lt;groupId&gt;</span>org.keycloak<span class="tag">&lt;/groupId&gt;</span>
     <span class="tag">&lt;artifactId&gt;</span>keycloak-servlet-filter-adapter<span class="tag">&lt;/artifactId&gt;</span>
-    <span class="tag">&lt;version&gt;</span>3.3.0.CR1<span class="tag">&lt;/version&gt;</span>
+    <span class="tag">&lt;version&gt;</span>3.4.0.CR1<span class="tag">&lt;/version&gt;</span>
 <span class="tag">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -3570,7 +3570,7 @@ the particular parameter will be forwarded to the Keycloak authorization endpoin
 <div class="paragraph">
 <p>Most of the parameters are described in the <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">OIDC specification</a>.
 The only exception is parameter <code>kc_idp_hint</code>, which is specific to Keycloak and contains the name of the identity provider to automatically use.
-For more information see the <code>Identity Brokering</code> section in <a href="http://www.keycloak.org/docs/3.3/server_admin/">Server Administration Guide</a>.</p>
+For more information see the <code>Identity Brokering</code> section in <a href="http://www.keycloak.org/docs/3.4/server_admin/">Server Administration Guide</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3620,7 +3620,7 @@ Then you can choose to either:</p>
 <li>
 <p>Upload the client&#8217;s public key or certificate, either in PEM format, in JWK format, or from the keystore. With this option, the public key is hardcoded and must be changed when the client generates a new key pair.
 You can even generate your own keystore from the Keycloak admininstration console if you don&#8217;t have your own available.
-For more details on how to set up the Keycloak administration console see <a href="http://www.keycloak.org/docs/3.3/server_admin/">Server Administration Guide</a>.</p>
+For more details on how to set up the Keycloak administration console see <a href="http://www.keycloak.org/docs/3.4/server_admin/">Server Administration Guide</a>.</p>
 </li>
 </ul>
 </div>
@@ -3655,12 +3655,12 @@ you can point to any file on the file system where the client application is run
 <div class="sect4">
 <h5 id="add-your-own-client-authentication-method"><a class="anchor" href="#add-your-own-client-authentication-method"></a>Add Your Own Client Authentication Method</h5>
 <div class="paragraph">
-<p>You can add your own client authentication method as well. You will need to implement both client-side and server-side providers. For more details see the <code>Authentication SPI</code> section in <a href="http://www.keycloak.org/docs/3.3/server_development/">Server Developer Guide</a>.</p>
+<p>You can add your own client authentication method as well. You will need to implement both client-side and server-side providers. For more details see the <code>Authentication SPI</code> section in <a href="http://www.keycloak.org/docs/3.4/server_development/">Server Developer Guide</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="multi-tenancy-2"><a class="anchor" href="#multi-tenancy-2"></a>2.1.16. Multi Tenancy</h4>
+<h4 id="_multi_tenancy"><a class="anchor" href="#_multi_tenancy"></a>2.1.16. Multi Tenancy</h4>
 <div class="paragraph">
 <p>Multi Tenancy, in our context, means that a single target application (WAR) can be secured with multiple Keycloak realms. The realms can be located
 one the same Keycloak instance or on different instances.</p>
@@ -4496,7 +4496,7 @@ This can be useful if application has detected the session was expired, for exam
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">    "dependencies": {
-        "keycloak-connect": "3.3.0-cr.1"
+        "keycloak-connect": "3.4.0-cr.1"
     }</code></pre>
 </div>
 </div>
@@ -4783,7 +4783,7 @@ The token endpoint is also used to obtain new access tokens when they expire.</p
 </div>
 </div>
 <div class="paragraph">
-<p>The certificate endpoint returns the public keys enabled by the realm, encoded as a JSON Web Key (JWK). Depending on the realm settings there can be one or more keys enabled for verifying tokens. For more information see the <a href="http://www.keycloak.org/docs/3.3/server_admin/">Server Administration Guide</a> and the <a href="https://tools.ietf.org/html/rfc7517">JSON Web Key specification</a>.</p>
+<p>The certificate endpoint returns the public keys enabled by the realm, encoded as a JSON Web Key (JWK). Depending on the realm settings there can be one or more keys enabled for verifying tokens. For more information see the <a href="http://www.keycloak.org/docs/3.4/server_admin/">Server Administration Guide</a> and the <a href="https://tools.ietf.org/html/rfc7517">JSON Web Key specification</a>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -5111,8 +5111,8 @@ This is what one might look like:</p>
 </div>
 <div class="paragraph">
 <p>Some of these configuration switches may be adapter specific and some are common across all adapters.
-For Java adapters you can use <code>$\{&#8230;&#8203;}</code> enclosure as System property replacement.
-For example <code>$\{jboss.server.config.dir}</code>.</p>
+For Java adapters you can use <code>${&#8230;&#8203;}</code> enclosure as System property replacement.
+For example <code>${jboss.server.config.dir}</code>.</p>
 </div>
 <div class="sect4">
 <h5 id="sp-element"><a class="anchor" href="#sp-element"></a>SP Element</h5>
@@ -5378,7 +5378,7 @@ and defaults to <code>RSA_SHA256</code>.</p>
 <dt class="hdlist1">signatureCanonicalizationMethod</dt>
 <dd>
 <p>This is the signature canonicalization method that the IDP expects signed documents to use.  This setting is  <em>OPTIONAL</em>.
-The default value is <code><a href="http://www.w3.org/2001/10/xml-exc-c14n#" class="bare">http://www.w3.org/2001/10/xml-exc-c14n#</a></code> and should be good for most IDPs.</p>
+The default value is <code>http://www.w3.org/2001/10/xml-exc-c14n#</code> and should be good for most IDPs.</p>
 </dd>
 </dl>
 </div>
@@ -5428,7 +5428,7 @@ The default is that the client will not request a specific binding type for resp
 <dd>
 <p>URL of the assertion consumer service (ACS) where the IDP login service should send responses to.
 This setting is <em>OPTIONAL</em>. By default it is unset, relying on the configuration in the IdP.
-When set, it must end in <code>/saml</code>, e.g. <code><a href="http://sp.domain.com/my/endpoint/for/saml" class="bare">http://sp.domain.com/my/endpoint/for/saml</a></code>. The value
+When set, it must end in <code>/saml</code>, e.g. <code>http://sp.domain.com/my/endpoint/for/saml</code>. The value
 of this property is sent in <code>AssertionConsumerServiceURL</code> attribute of SAML <code>AuthnRequest</code> message.
 This property is typically  accompanied by the <code>responseBinding</code> attribute.</p>
 </dd>
@@ -6241,7 +6241,7 @@ You must have a filter mapping that covers <code>/saml</code>.
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;dependency&gt;</span>
    <span class="tag">&lt;groupId&gt;</span>org.keycloak<span class="tag">&lt;/groupId&gt;</span>
    <span class="tag">&lt;artifactId&gt;</span>keycloak-saml-servlet-filter-adapter<span class="tag">&lt;/artifactId&gt;</span>
-   <span class="tag">&lt;version&gt;</span>3.3.0.CR1<span class="tag">&lt;/version&gt;</span>
+   <span class="tag">&lt;version&gt;</span>3.4.0.CR1<span class="tag">&lt;/version&gt;</span>
 <span class="tag">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -6967,7 +6967,7 @@ Configtest is equivalent to the -t argument to apachectl. If the configuration t
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Docker authentication is disabled by default. To enable see <a href="http://www.keycloak.org/docs/3.3/server_installation//#profiles">Profiles</a>.
+Docker authentication is disabled by default. To enable see <a href="http://www.keycloak.org/docs/3.4/server_installation/#_profiles">Profiles</a>.
 </td>
 </tr>
 </table>
@@ -7125,7 +7125,7 @@ There is an alternative to register new client without any token as well, but th
 <div class="sect3">
 <h4 id="bearer-token"><a class="anchor" href="#bearer-token"></a>5.1.1. Bearer Token</h4>
 <div class="paragraph">
-<p>The bearer token can be issued on behalf of a user or a Service Account. The following permissions are required to invoke the endpoints (see <a href="http://www.keycloak.org/docs/3.3/server_admin/">Server Administration Guide</a> for more details):</p>
+<p>The bearer token can be issued on behalf of a user or a Service Account. The following permissions are required to invoke the endpoints (see <a href="http://www.keycloak.org/docs/3.4/server_admin/">Server Administration Guide</a> for more details):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -7141,7 +7141,7 @@ There is an alternative to register new client without any token as well, but th
 </ul>
 </div>
 <div class="paragraph">
-<p>If you are using a bearer token to create clients it&#8217;s recommend to use a token from a Service Account with only the <code>create-client</code> role (see <a href="http://www.keycloak.org/docs/3.3/server_admin/">Server Administration Guide</a> for more details).</p>
+<p>If you are using a bearer token to create clients it&#8217;s recommend to use a token from a Service Account with only the <code>create-client</code> role (see <a href="http://www.keycloak.org/docs/3.4/server_admin/">Server Administration Guide</a> for more details).</p>
 </div>
 </div>
 <div class="sect3">
@@ -7855,7 +7855,7 @@ command to save the new token in configuration file, and have <code>Client Regis
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-06 03:36:44 UTC
+Last updated 2017-09-07 12:13:53 UTC
 </div>
 </div>
 <ul id="globalnav">

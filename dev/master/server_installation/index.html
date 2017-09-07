@@ -832,27 +832,27 @@ system property on startup to <code>file:/dev/urandom</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>'keycloak-3.3.0.CR1.[zip|tar.gz]'</p>
+<p>'keycloak-3.4.0.CR1.[zip|tar.gz]'</p>
 </li>
 <li>
-<p>'keycloak-overlay-3.3.0.CR1.[zip|tar.gz]'</p>
+<p>'keycloak-overlay-3.4.0.CR1.[zip|tar.gz]'</p>
 </li>
 <li>
-<p>'keycloak-demo-3.3.0.CR1.[zip|tar.gz]'</p>
+<p>'keycloak-demo-3.4.0.CR1.[zip|tar.gz]'</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The 'keycloak-3.3.0.CR1.[zip|tar.gz]' file is the server only distribution.  It contains nothing other than the scripts and binaries
+<p>The 'keycloak-3.4.0.CR1.[zip|tar.gz]' file is the server only distribution.  It contains nothing other than the scripts and binaries
 to run the Keycloak Server.  To unpack this file just run your operating system&#8217;s <code>unzip</code> or <code>gunzip</code> and <code>tar</code> utilities.</p>
 </div>
 <div class="paragraph">
-<p>The 'keycloak-overlay-3.3.0.CR1.[zip|tar.gz]' file is a Wildfly add-on that allows you to install Keycloak Server on top of an existing
+<p>The 'keycloak-overlay-3.4.0.CR1.[zip|tar.gz]' file is a Wildfly add-on that allows you to install Keycloak Server on top of an existing
 WildFly distribution.  We do not support users that want to run their applications and Keycloak on the same server instance.  To install the Keycloak Service Pack, just unzip it in the root directory
 of your WildFly distribution, open the bin directory in a shell and run <code>./jboss-cli.[sh|bat] --file=keycloak-install.cli</code>.</p>
 </div>
 <div class="paragraph">
-<p>The 'keycloak-demo-3.3.0.CR1.[zip|tar.gz]' contains the server binaries, all documentation and all examples.  It is preconfigured with both the
+<p>The 'keycloak-demo-3.4.0.CR1.[zip|tar.gz]' contains the server binaries, all documentation and all examples.  It is preconfigured with both the
 OIDC and SAML client application adapters and can deploy any of the distribution examples out of the box with no configuration.  This distribution is only
 recommended for those that want to test drive Keycloak.  We do not support users that run the demo distribution in production.</p>
 </div>
@@ -888,7 +888,7 @@ recommended for those that want to test drive Keycloak.  We do not support users
 </dd>
 <dt class="hdlist1"><em>providers/</em></dt>
 <dd>
-<p>If you are writing extensions to keycloak, you can put your extensions here.  See the <a href="http://www.keycloak.org/docs/3.3/server_development/">Server Developer Guide</a> for more information on this.</p>
+<p>If you are writing extensions to keycloak, you can put your extensions here.  See the <a href="http://www.keycloak.org/docs/3.4/server_development/">Server Developer Guide</a> for more information on this.</p>
 </dd>
 <dt class="hdlist1"><em>standalone/</em></dt>
 <dd>
@@ -897,7 +897,7 @@ recommended for those that want to test drive Keycloak.  We do not support users
 <dt class="hdlist1"><em>themes/</em></dt>
 <dd>
 <p>This directory contains all the html, style sheets, javascript files, and images used to display any UI screen displayed by the server.
-Here you can modify an existing theme or create your own.  See the <a href="http://www.keycloak.org/docs/3.3/server_development/">Server Developer Guide</a> for more information on this.</p>
+Here you can modify an existing theme or create your own.  See the <a href="http://www.keycloak.org/docs/3.4/server_development/">Server Developer Guide</a> for more information on this.</p>
 </dd>
 </dl>
 </div>
@@ -2386,7 +2386,7 @@ Keycloak is not set up by default to handle SSL/HTTPS.
 </div>
 <div class="paragraph">
 <p>This default behavior is defined by the SSL/HTTPS mode of each Keycloak realm.  This is discussed in more detail in the
-<a href="http://www.keycloak.org/docs/3.3/server_admin/">Server Administration Guide</a>, but let&#8217;s give some context and a brief overview of these modes.</p>
+<a href="http://www.keycloak.org/docs/3.4/server_admin/">Server Administration Guide</a>, but let&#8217;s give some context and a brief overview of these modes.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -2462,7 +2462,7 @@ For testing purposes, <code>localhost</code> should be used.
 After executing this command, the <code>keycloak.jks</code> file will be generated in the same directory as you executed the <code>keytool</code> command in.</p>
 </div>
 <div class="paragraph">
-<p>If you want a third-party signed certificate, but don&#8217;t have one, you can obtain one for free at <a href="http://cacert.org">cacert.org</a>.
+<p>If you want a third-party signed certificate, but don&#8217;t have one, you can obtain one for free at <a href="http://www.cacert.org">cacert.org</a>.
 You&#8217;ll have to do a little set up first before doing this though.</p>
 </div>
 <div class="paragraph">
@@ -2930,8 +2930,8 @@ socket binding you also need to define.</p>
 <h4 id="verify-configuration"><a class="anchor" href="#verify-configuration"></a>8.3.3. Verify Configuration</h4>
 <div class="paragraph">
 <p>You can verify the reverse proxy or load balancer configuration by opening the path <code>/auth/realms/master/.well-known/openid-configuration</code>
-through the reverse proxy. For example if the reverse proxy address is <code><a href="https://acme.com/" class="bare">https://acme.com/</a></code> then open the URL
-<code><a href="https://acme.com/auth/realms/master/.well-known/openid-configuration" class="bare">https://acme.com/auth/realms/master/.well-known/openid-configuration</a></code>. This will show a JSON document listing a number
+through the reverse proxy. For example if the reverse proxy address is <code>https://acme.com/</code> then open the URL
+<code>https://acme.com/auth/realms/master/.well-known/openid-configuration</code>. This will show a JSON document listing a number
 of endpoints for Keycloak. Make sure the endpoints starts with the address (scheme, domain and port) of your
 reverse proxy or load balancer. By doing this you make sure that Keycloak is using the correct endpoint.</p>
 </div>
@@ -3885,7 +3885,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-06 03:36:45 UTC
+Last updated 2017-09-07 12:13:54 UTC
 </div>
 </div>
 <ul id="globalnav">

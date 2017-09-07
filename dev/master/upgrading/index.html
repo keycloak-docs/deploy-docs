@@ -757,15 +757,14 @@ body.toc2 {
 <li><a href="#social-migration-to-identity-brokering">4.18.6. Social migration to identity brokering</a></li>
 </ul>
 </li>
-<li><a href="#migrating-from-1-1-0-beta2-to-1-1-0-final">4.19. Migrating from 1.1.0.Beta2 to 1.1.0.Final</a></li>
-<li><a href="#migrating-from-1-1-0-beta1-to-1-1-0-beta2">4.20. Migrating from 1.1.0.Beta1 to 1.1.0.Beta2</a></li>
-<li><a href="#migrating-from-1-0-x-final-to-1-1-0-beta1">4.21. Migrating from 1.0.x.Final to 1.1.0.Beta1</a></li>
-<li><a href="#migrating-from-1-0-rc-1-to-rc-2">4.22. Migrating from 1.0 RC-1 to RC-2</a></li>
-<li><a href="#migrating-from-1-0-beta-4-to-rc-1">4.23. Migrating from 1.0 Beta 4 to RC-1</a></li>
-<li><a href="#migrating-from-1-0-beta-1-to-beta-4">4.24. Migrating from 1.0 Beta 1 to Beta 4</a></li>
-<li><a href="#migrating-from-1-0-alpha-4-to-beta-1">4.25. Migrating from 1.0 Alpha 4 to Beta 1</a></li>
-<li><a href="#migrating-from-1-0-alpha-2-to-alpha-3">4.26. Migrating from 1.0 Alpha 2 to Alpha 3</a></li>
-<li><a href="#migrating-from-1-0-alpha-1-to-alpha-2">4.27. Migrating from 1.0 Alpha 1 to Alpha 2</a></li>
+<li><a href="#migrating-from-1-1-0-beta1-to-1-1-0-beta2">4.19. Migrating from 1.1.0.Beta1 to 1.1.0.Beta2</a></li>
+<li><a href="#migrating-from-1-0-x-final-to-1-1-0-beta1">4.20. Migrating from 1.0.x.Final to 1.1.0.Beta1</a></li>
+<li><a href="#migrating-from-1-0-rc-1-to-rc-2">4.21. Migrating from 1.0 RC-1 to RC-2</a></li>
+<li><a href="#migrating-from-1-0-beta-4-to-rc-1">4.22. Migrating from 1.0 Beta 4 to RC-1</a></li>
+<li><a href="#migrating-from-1-0-beta-1-to-beta-4">4.23. Migrating from 1.0 Beta 1 to Beta 4</a></li>
+<li><a href="#migrating-from-1-0-alpha-4-to-beta-1">4.24. Migrating from 1.0 Alpha 4 to Beta 1</a></li>
+<li><a href="#migrating-from-1-0-alpha-2-to-alpha-3">4.25. Migrating from 1.0 Alpha 2 to Alpha 3</a></li>
+<li><a href="#migrating-from-1-0-alpha-1-to-alpha-2">4.26. Migrating from 1.0 Alpha 1 to Alpha 2</a></li>
 </ul>
 </li>
 </ul>
@@ -1504,7 +1503,7 @@ These libraries are now only added to your deployment if you have Keycloak authe
 <div class="sect3">
 <h4 id="client-registration-service-endpoints-moved"><a class="anchor" href="#client-registration-service-endpoints-moved"></a>4.11.3. Client Registration service endpoints moved</h4>
 <div class="paragraph">
-<p>The Client Registration service endpoints have been moved from <code>{realm}/clients</code> to <code>{realm}/clients-registrations</code>.</p>
+<p>The Client Registration service endpoints have been moved from <code>{realm-name}/clients</code> to <code>{realm-name}/clients-registrations</code>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1555,22 +1554,21 @@ You can turn off this behavior check adapter config switches.</p>
 <h4 id="admin-account"><a class="anchor" href="#admin-account"></a>4.12.1. Admin account</h4>
 <div class="paragraph">
 <p>In previous releases we shipped with a default admin user with a default password, this has now been removed.
-If you are doing a new installation of 1.8 you will have to create an admin user as a first step.
-This can be done easily by following the steps in <a href="#_create_admin_user">Admin User</a>.</p>
+If you are doing a new installation of 1.8 you will have to create an admin user as a first step.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="oauth2-token-introspection"><a class="anchor" href="#oauth2-token-introspection"></a>4.12.2. OAuth2 Token Introspection</h4>
 <div class="paragraph">
 <p>In order to add more compliance with OAuth2 specification, we added a new endpoint for token introspection.
-The new endpoint can reached at <code>/realms/{realm}/protocols/openid-connect/token/introspect</code> and it is solely based on <code>RFC-7662.</code></p>
+The new endpoint can reached at <code>/realms/{realm-name}/protocols/openid-connect/token/introspect</code> and it is solely based on <code>RFC-7662.</code></p>
 </div>
 <div class="paragraph">
-<p>The <code>/realms/{realm}/protocols/openid-connect/validate</code> endpoint is now deprecated and we strongly recommend you to move to the new introspection endpoint as soon as possible.
+<p>The <code>/realms/{realm-name}/protocols/openid-connect/validate</code> endpoint is now deprecated and we strongly recommend you to move to the new introspection endpoint as soon as possible.
 The reason for this change is that RFC-7662 provides a more standard and secure introspection endpoint.</p>
 </div>
 <div class="paragraph">
-<p>The new token introspection URL can now be obtained from OpenID Connect Provider&#8217;s configuration at <code>/realms/{realm}/.well-known/openid-configuration</code>.
+<p>The new token introspection URL can now be obtained from OpenID Connect Provider&#8217;s configuration at <code>/realms/{realm-name}/.well-known/openid-configuration</code>.
 There you will find a claim with name <code>token_introspection_endpoint</code> within the response.
 Only <code>confidential clients</code> are allowed to invoke the new endpoint, where these clients will be usually acting as a resource server and looking for token metadata in order to perform local authorization checks.</p>
 </div>
@@ -1758,7 +1756,7 @@ WildFly 8.2.0.Final is no longer supported for the server.</p>
 </div>
 <div class="paragraph">
 <p>You also need to update standalone.xml as the extension module and subsystem definition has changed.
-See <a href="#_jboss_adapter_installation">Adapter Installation</a> for details.</p>
+See <a href="http://www.keycloak.org/docs/3.4/securing_apps/">{adapterguide_name</a> for details.</p>
 </div>
 </div>
 </div>
@@ -1816,7 +1814,7 @@ If you&#8217;re using another library (or RSATokenVerifier) you need to make the
 <div class="paragraph">
 <p>To comply with OpenID Connect specification the authentication and token endpoints have been changed to having a single authentication endpoint and a single token endpoint.
 As per-spec <code>response_type</code> and <code>grant_type</code> parameters are used to select the required flow.
-The old endpoints (<code>/realms/{realm}/protocols/openid-connect/login</code>, <code>/realms/{realm}/protocols/openid-connect/grants/access</code>, <code>/realms/{realm}/protocols/openid-connect/refresh</code>, <code>/realms/{realm}/protocols/openid-connect/access/codes)</code> are now deprecated and will be removed in a future version.</p>
+The old endpoints (<code>/realms/{realm-name}/protocols/openid-connect/login</code>, <code>/realms/{realm-name}/protocols/openid-connect/grants/access</code>, <code>/realms/{realm-name}/protocols/openid-connect/refresh</code>, <code>/realms/{realm-name}/protocols/openid-connect/access/codes)</code> are now deprecated and will be removed in a future version.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1829,8 +1827,7 @@ This change was done to make it easier to have group the different types for the
 </div>
 <div class="paragraph">
 <p>If you deployed themes as a JAR in the past you had to create a custom theme loader which required Java code.
-This has been simplified to only requiring a plain text file (<code>META-INF/keycloak-themes.json</code>) to describe the themes included in a JAR.
-See the <a href="#_themes">themes</a> section in the docs for more information.</p>
+This has been simplified to only requiring a plain text file (<code>META-INF/keycloak-themes.json</code>) to describe the themes included in a JAR.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1838,7 +1835,7 @@ See the <a href="#_themes">themes</a> section in the docs for more information.<
 <div class="paragraph">
 <p>Previously there was <code>Claims</code> tab in admin console for application and OAuth clients.
 This was used to configure which attributes should go into access token for particular application/client.
-This was removed and replaced with <a href="#_mappers">Protocol mappers</a>, which are more flexible.</p>
+This was removed and replaced with protocol mappers which are more flexible.</p>
 </div>
 <div class="paragraph">
 <p>You don&#8217;t need to care about migration of database from previous version.
@@ -1848,7 +1845,7 @@ We did migration scripts for both RDBMS and Mongo, which should ensure that clai
 <div class="sect3">
 <h4 id="social-migration-to-identity-brokering"><a class="anchor" href="#social-migration-to-identity-brokering"></a>4.18.6. Social migration to identity brokering</h4>
 <div class="paragraph">
-<p>We refactored social providers SPI and replaced it with <a href="#_identity_broker">identity brokering SPI</a>, which is more flexible.
+<p>We refactored social providers SPI and replaced it with Identity Brokering SPI, which is more flexible.
 The <code>Social</code> tab in admin console is renamed to <code>Identity Provider</code> tab.</p>
 </div>
 <div class="paragraph">
@@ -1864,18 +1861,7 @@ Facebook admin console).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-1-1-0-beta2-to-1-1-0-final"><a class="anchor" href="#migrating-from-1-1-0-beta2-to-1-1-0-final"></a>4.19. Migrating from 1.1.0.Beta2 to 1.1.0.Final</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>WEB-INF/lib
-+<code>standalone/configuration/providers</code><a href="#_providers">+providers</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="migrating-from-1-1-0-beta1-to-1-1-0-beta2"><a class="anchor" href="#migrating-from-1-1-0-beta1-to-1-1-0-beta2"></a>4.20. Migrating from 1.1.0.Beta1 to 1.1.0.Beta2</h3>
+<h3 id="migrating-from-1-1-0-beta1-to-1-1-0-beta2"><a class="anchor" href="#migrating-from-1-1-0-beta1-to-1-1-0-beta2"></a>4.19. Migrating from 1.1.0.Beta1 to 1.1.0.Beta2</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1901,7 +1887,7 @@ For AS7 only, the extension module name is org.keycloak.keycloak-as7-subsystem.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-1-0-x-final-to-1-1-0-beta1"><a class="anchor" href="#migrating-from-1-0-x-final-to-1-1-0-beta1"></a>4.21. Migrating from 1.0.x.Final to 1.1.0.Beta1</h3>
+<h3 id="migrating-from-1-0-x-final-to-1-1-0-beta1"><a class="anchor" href="#migrating-from-1-0-x-final-to-1-1-0-beta1"></a>4.20. Migrating from 1.0.x.Final to 1.1.0.Beta1</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1918,7 +1904,7 @@ claim must be the client id, we were storing the realm name in there and validat
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-1-0-rc-1-to-rc-2"><a class="anchor" href="#migrating-from-1-0-rc-1-to-rc-2"></a>4.22. Migrating from 1.0 RC-1 to RC-2</h3>
+<h3 id="migrating-from-1-0-rc-1-to-rc-2"><a class="anchor" href="#migrating-from-1-0-rc-1-to-rc-2"></a>4.21. Migrating from 1.0 RC-1 to RC-2</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1929,7 +1915,7 @@ If you want log output when users login, logout, change passwords, etc. enable t
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-1-0-beta-4-to-rc-1"><a class="anchor" href="#migrating-from-1-0-beta-4-to-rc-1"></a>4.23. Migrating from 1.0 Beta 4 to RC-1</h3>
+<h3 id="migrating-from-1-0-beta-4-to-rc-1"><a class="anchor" href="#migrating-from-1-0-beta-4-to-rc-1"></a>4.22. Migrating from 1.0 Beta 4 to RC-1</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1942,7 +1928,7 @@ The signature is the same as refresh token minus the grant type form parameter. 
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-1-0-beta-1-to-beta-4"><a class="anchor" href="#migrating-from-1-0-beta-1-to-beta-4"></a>4.24. Migrating from 1.0 Beta 1 to Beta 4</h3>
+<h3 id="migrating-from-1-0-beta-1-to-beta-4"><a class="anchor" href="#migrating-from-1-0-beta-1-to-beta-4"></a>4.23. Migrating from 1.0 Beta 1 to Beta 4</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1975,7 +1961,7 @@ user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-1-0-alpha-4-to-beta-1"><a class="anchor" href="#migrating-from-1-0-alpha-4-to-beta-1"></a>4.25. Migrating from 1.0 Alpha 4 to Beta 1</h3>
+<h3 id="migrating-from-1-0-alpha-4-to-beta-1"><a class="anchor" href="#migrating-from-1-0-alpha-4-to-beta-1"></a>4.24. Migrating from 1.0 Alpha 4 to Beta 1</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2003,7 +1989,7 @@ will not allow you to log in unless you have specified a valid redirect URI for 
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-1-0-alpha-2-to-alpha-3"><a class="anchor" href="#migrating-from-1-0-alpha-2-to-alpha-3"></a>4.26. Migrating from 1.0 Alpha 2 to Alpha 3</h3>
+<h3 id="migrating-from-1-0-alpha-2-to-alpha-3"><a class="anchor" href="#migrating-from-1-0-alpha-2-to-alpha-3"></a>4.25. Migrating from 1.0 Alpha 2 to Alpha 3</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2025,7 +2011,7 @@ attempt to invoke a refresh on the auth server using a saved refresh token.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="migrating-from-1-0-alpha-1-to-alpha-2"><a class="anchor" href="#migrating-from-1-0-alpha-1-to-alpha-2"></a>4.27. Migrating from 1.0 Alpha 1 to Alpha 2</h3>
+<h3 id="migrating-from-1-0-alpha-1-to-alpha-2"><a class="anchor" href="#migrating-from-1-0-alpha-1-to-alpha-2"></a>4.26. Migrating from 1.0 Alpha 1 to Alpha 2</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2056,7 +2042,7 @@ credentials tab in the administration console.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-06 03:36:45 UTC
+Last updated 2017-09-07 12:13:54 UTC
 </div>
 </div>
 <ul id="globalnav">
