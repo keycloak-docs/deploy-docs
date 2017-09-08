@@ -18,444 +18,444 @@
 [INFO] Building Keycloak Documentation Parent 1.0.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.pom (7 KB at 28.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.pom (7 KB at 38.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom (10 KB at 466.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-plugins/25/maven-plugins-25.pom (10 KB at 129.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/24/maven-parent-24.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/24/maven-parent-24.pom (37 KB at 766.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/24/maven-parent-24.pom (37 KB at 632.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/14/apache-14.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/14/apache-14.pom (15 KB at 551.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/14/apache-14.pom (15 KB at 349.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.jar (33 KB at 874.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-install-plugin/2.5.2/maven-install-plugin-2.5.2.jar (33 KB at 752.1 KB/sec)
 [INFO] 
 [INFO] --- maven-install-plugin:2.5.2:install (default-install) @ documentation-parent ---
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.pom (2 KB at 89.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.pom (2 KB at 47.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/2.2.1/maven-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/2.2.1/maven-2.2.1.pom (22 KB at 683.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/2.2.1/maven-2.2.1.pom (22 KB at 1215.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/11/maven-parent-11.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/11/maven-parent-11.pom (32 KB at 565.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/11/maven-parent-11.pom (32 KB at 555.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/5/apache-5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/5/apache-5.pom (5 KB at 117.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/5/apache-5.pom (5 KB at 174.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.pom (3 KB at 75.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.pom (3 KB at 96.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.pom (3 KB at 30.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.pom (3 KB at 73.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.pom (4 KB at 121.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.pom (4 KB at 50.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.pom (7 KB at 238.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.pom (7 KB at 180.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.2/plexus-2.0.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.2/plexus-2.0.2.pom (12 KB at 944.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.2/plexus-2.0.2.pom (12 KB at 1133.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.pom (889 B at 11.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.pom (889 B at 12.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/1.1.14/plexus-components-1.1.14.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/1.1.14/plexus-components-1.1.14.pom (6 KB at 80.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/1.1.14/plexus-components-1.1.14.pom (6 KB at 82.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.pom (4 KB at 214.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.pom (4 KB at 116.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.0.3/plexus-containers-1.0.3.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.0.3/plexus-containers-1.0.3.pom (492 B at 60.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.0.3/plexus-containers-1.0.3.pom (492 B at 53.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/1.0.4/plexus-1.0.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/1.0.4/plexus-1.0.4.pom (6 KB at 560.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/1.0.4/plexus-1.0.4.pom (6 KB at 431.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/junit/junit/3.8.1/junit-3.8.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/junit/junit/3.8.1/junit-3.8.1.pom (998 B at 60.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/junit/junit/3.8.1/junit-3.8.1.pom (998 B at 69.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.0.4/plexus-utils-1.0.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.0.4/plexus-utils-1.0.4.pom (7 KB at 372.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.0.4/plexus-utils-1.0.4.pom (7 KB at 669.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.pom (4 KB at 138.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.pom (3 KB at 60.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.pom (3 KB at 75.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.pom (4 KB at 126.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.pom (4 KB at 303.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.pom (2 KB at 87.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.pom (2 KB at 114.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.pom (2 KB at 90.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.pom (880 B at 35.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.pom (880 B at 45.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.pom (2 KB at 55.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.pom (2 KB at 99.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.6/commons-codec-1.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.6/commons-codec-1.6.pom (11 KB at 151.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.6/commons-codec-1.6.pom (11 KB at 157.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/22/commons-parent-22.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/22/commons-parent-22.pom (41 KB at 620.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/22/commons-parent-22.pom (41 KB at 518.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/9/apache-9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/9/apache-9.pom (15 KB at 435.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/9/apache-9.pom (15 KB at 361.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/0.4/maven-shared-utils-0.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/0.4/maven-shared-utils-0.4.pom (4 KB at 112.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/0.4/maven-shared-utils-0.4.pom (4 KB at 84.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/19/maven-shared-components-19.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/19/maven-shared-components-19.pom (7 KB at 110.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/19/maven-shared-components-19.pom (7 KB at 155.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/23/maven-parent-23.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/23/maven-parent-23.pom (32 KB at 1767.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/23/maven-parent-23.pom (32 KB at 2121.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/13/apache-13.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/13/apache-13.pom (14 KB at 290.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/13/apache-13.pom (14 KB at 341.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.pom (965 B at 55.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.pom (965 B at 52.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.15/plexus-utils-3.0.15.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.15/plexus-utils-3.0.15.pom (4 KB at 170.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.15/plexus-utils-3.0.15.pom (4 KB at 219.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom (20 KB at 525.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom (20 KB at 344.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/spice/spice-parent/17/spice-parent-17.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/spice/spice-parent/17/spice-parent-17.pom (7 KB at 440.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/spice/spice-parent/17/spice-parent-17.pom (7 KB at 388.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/10/forge-parent-10.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/10/forge-parent-10.pom (14 KB at 662.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/10/forge-parent-10.pom (14 KB at 575.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.jar (48 KB at 704.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.jar (35 KB at 627.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.jar (153 KB at 2034.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.jar (48 KB at 665.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.jar (35 KB at 442.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.jar (13 KB at 147.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/junit/junit/3.8.1/junit-3.8.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.jar (13 KB at 132.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.jar (153 KB at 1201.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.jar (50 KB at 487.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.jar (30 KB at 234.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.jar (30 KB at 226.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.jar (50 KB at 397.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar (37 KB at 286.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar (190 KB at 1384.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.jar (86 KB at 491.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/junit/junit/3.8.1/junit-3.8.1.jar (119 KB at 850.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar (190 KB at 1065.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.jar (66 KB at 338.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/junit/junit/3.8.1/junit-3.8.1.jar (119 KB at 660.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.jar (86 KB at 447.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.6/commons-codec-1.6.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.jar (66 KB at 289.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar (37 KB at 180.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/0.4/maven-shared-utils-0.4.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.jar (79 KB at 336.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar (324 KB at 1535.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.6/commons-codec-1.6.jar (228 KB at 888.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/0.4/maven-shared-utils-0.4.jar (152 KB at 588.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.15/plexus-utils-3.0.15.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.jar (26 KB at 89.2 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar (324 KB at 1132.7 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/0.4/maven-shared-utils-0.4.jar (152 KB at 523.5 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar (32 KB at 106.9 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.15/plexus-utils-3.0.15.jar (234 KB at 788.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.jar (79 KB at 289.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar (32 KB at 111.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.6/commons-codec-1.6.jar (228 KB at 794.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.jar (26 KB at 85.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.15/plexus-utils-3.0.15.jar (234 KB at 760.1 KB/sec)
 [INFO] Installing /tmp/build/pom.xml to /home/maven/.m2/repository/org/keycloak/documentation/documentation-parent/1.0.0-SNAPSHOT/documentation-parent-1.0.0-SNAPSHOT.pom
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building API Documentation 1.0.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctor-maven-plugin/1.5.5/asciidoctor-maven-plugin-1.5.5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctor-maven-plugin/1.5.5/asciidoctor-maven-plugin-1.5.5.pom (18 KB at 1586.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctor-maven-plugin/1.5.5/asciidoctor-maven-plugin-1.5.5.pom (18 KB at 758.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/oss/oss-parent/7/oss-parent-7.pom (5 KB at 673.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/oss/oss-parent/7/oss-parent-7.pom (5 KB at 65.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctor-maven-plugin/1.5.5/asciidoctor-maven-plugin-1.5.5.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctor-maven-plugin/1.5.5/asciidoctor-maven-plugin-1.5.5.jar (54 KB at 1480.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctor-maven-plugin/1.5.5/asciidoctor-maven-plugin-1.5.5.jar (54 KB at 819.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-antrun-plugin/1.8/maven-antrun-plugin-1.8.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-antrun-plugin/1.8/maven-antrun-plugin-1.8.pom (4 KB at 51.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-antrun-plugin/1.8/maven-antrun-plugin-1.8.pom (4 KB at 404.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-plugins/27/maven-plugins-27.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-plugins/27/maven-plugins-27.pom (12 KB at 231.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-plugins/27/maven-plugins-27.pom (12 KB at 1009.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/26/maven-parent-26.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/26/maven-parent-26.pom (39 KB at 588.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/26/maven-parent-26.pom (39 KB at 1494.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/16/apache-16.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/16/apache-16.pom (16 KB at 442.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/16/apache-16.pom (16 KB at 1074.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-antrun-plugin/1.8/maven-antrun-plugin-1.8.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-antrun-plugin/1.8/maven-antrun-plugin-1.8.jar (36 KB at 2929.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-antrun-plugin/1.8/maven-antrun-plugin-1.8.jar (36 KB at 2197.4 KB/sec)
 [INFO] 
 [INFO] --- asciidoctor-maven-plugin:1.5.5:process-asciidoc (asciidoc-to-html) @ api-documentation ---
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-complete/1.7.26/jruby-complete-1.7.26.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-complete/1.7.26/jruby-complete-1.7.26.pom (9 KB at 261.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-complete/1.7.26/jruby-complete-1.7.26.pom (9 KB at 368.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-artifacts/1.7.26/jruby-artifacts-1.7.26.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-artifacts/1.7.26/jruby-artifacts-1.7.26.pom (4 KB at 424.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-artifacts/1.7.26/jruby-artifacts-1.7.26.pom (4 KB at 62.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-parent/1.7.26/jruby-parent-1.7.26.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-parent/1.7.26/jruby-parent-1.7.26.pom (24 KB at 966.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-parent/1.7.26/jruby-parent-1.7.26.pom (24 KB at 2109.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0/maven-plugin-api-2.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0/maven-plugin-api-2.0.pom (601 B at 32.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0/maven-plugin-api-2.0.pom (601 B at 13.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/2.0/maven-2.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/2.0/maven-2.0.pom (9 KB at 342.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/2.0/maven-2.0.pom (9 KB at 450.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.0/maven-filtering-3.1.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.0/maven-filtering-3.1.0.pom (6 KB at 433.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.0/maven-filtering-3.1.0.pom (6 KB at 312.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/22/maven-shared-components-22.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/22/maven-shared-components-22.pom (5 KB at 237.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/22/maven-shared-components-22.pom (5 KB at 277.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/27/maven-parent-27.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/27/maven-parent-27.pom (40 KB at 2484.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/27/maven-parent-27.pom (40 KB at 4969.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/17/apache-17.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/17/apache-17.pom (16 KB at 980.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/17/apache-17.pom (16 KB at 1206.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/3.0/maven-core-3.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/3.0/maven-core-3.0.pom (7 KB at 404.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/3.0/maven-core-3.0.pom (7 KB at 359.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/3.0/maven-3.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/3.0/maven-3.0.pom (22 KB at 1644.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/3.0/maven-3.0.pom (22 KB at 929.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/15/maven-parent-15.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/15/maven-parent-15.pom (24 KB at 1674.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/15/maven-parent-15.pom (24 KB at 2604.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/6/apache-6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/6/apache-6.pom (13 KB at 568.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/6/apache-6.pom (13 KB at 1041.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/3.0/maven-model-3.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/3.0/maven-model-3.0.pom (4 KB at 140.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/3.0/maven-model-3.0.pom (4 KB at 152.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.pom (4 KB at 191.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom (17 KB at 1637.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.6/plexus-2.0.6.pom (17 KB at 1818.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom (2 KB at 131.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/3.0/maven-settings-3.0.pom (2 KB at 49.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom (3 KB at 103.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.pom (3 KB at 54.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.pom (910 B at 59.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.pom (910 B at 20.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/1.1.18/plexus-components-1.1.18.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/1.1.18/plexus-components-1.1.18.pom (6 KB at 522.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/1.1.18/plexus-components-1.1.18.pom (6 KB at 108.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom (17 KB at 1689.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.7/plexus-2.0.7.pom (17 KB at 337.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom (815 B at 49.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom (815 B at 39.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom (5 KB at 591.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom (5 KB at 318.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.pom (3 KB at 192.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.pom (3 KB at 321.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/spice/spice-parent/12/spice-parent-12.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/spice/spice-parent/12/spice-parent-12.pom (7 KB at 829.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/spice/spice-parent/12/spice-parent-12.pom (7 KB at 663.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/4/forge-parent-4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/4/forge-parent-4.pom (9 KB at 117.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/4/forge-parent-4.pom (9 KB at 1171.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.5.5/plexus-utils-1.5.5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.5.5/plexus-utils-1.5.5.pom (6 KB at 279.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.5.5/plexus-utils-1.5.5.pom (6 KB at 173.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom (9 KB at 875.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom (9 KB at 673.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.pom (3 KB at 126.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.pom (3 KB at 183.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom (2 KB at 94.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.pom (2 KB at 53.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.pom (2 KB at 75.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.pom (3 KB at 77.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.pom (3 KB at 171.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.pom (6 KB at 218.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/inject/guice-plexus/1.4.2/guice-plexus-1.4.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/inject/guice-plexus/1.4.2/guice-plexus-1.4.2.pom (4 KB at 62.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/inject/guice-plexus/1.4.2/guice-plexus-1.4.2.pom (4 KB at 67.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/inject/guice-bean/1.4.2/guice-bean-1.4.2.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/inject/guice-bean/1.4.2/guice-bean-1.4.2.pom (3 KB at 282.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject/1.4.2/sisu-inject-1.4.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject/1.4.2/sisu-inject-1.4.2.pom (2 KB at 93.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject/1.4.2/sisu-inject-1.4.2.pom (2 KB at 101.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-parent/1.4.2/sisu-parent-1.4.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-parent/1.4.2/sisu-parent-1.4.2.pom (8 KB at 949.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-parent/1.4.2/sisu-parent-1.4.2.pom (8 KB at 690.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/6/forge-parent-6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/6/forge-parent-6.pom (11 KB at 583.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/6/forge-parent-6.pom (11 KB at 875.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.5.4/plexus-component-annotations-1.5.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.5.4/plexus-component-annotations-1.5.4.pom (815 B at 20.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.5.4/plexus-component-annotations-1.5.4.pom (815 B at 46.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.5.4/plexus-containers-1.5.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.5.4/plexus-containers-1.5.4.pom (5 KB at 517.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.5.4/plexus-containers-1.5.4.pom (5 KB at 180.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.5/plexus-2.0.5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.5/plexus-2.0.5.pom (17 KB at 1882.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/2.0.5/plexus-2.0.5.pom (17 KB at 677.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom (4 KB at 487.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.pom (4 KB at 177.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom (4 KB at 407.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/2.0.5/plexus-utils-2.0.5.pom (4 KB at 171.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.pom (6 KB at 532.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.pom (6 KB at 88.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7.pom (11 KB at 675.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7.pom (11 KB at 432.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.pom (3 KB at 182.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.pom (3 KB at 73.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom (3 KB at 172.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.pom (3 KB at 83.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom (2 KB at 56.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-api/1.7/aether-api-1.7.pom (2 KB at 39.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom (8 KB at 628.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-parent/1.7/aether-parent-1.7.pom (8 KB at 377.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom (3 KB at 223.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-util/1.7/aether-util-1.7.pom (3 KB at 74.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom (4 KB at 360.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.pom (4 KB at 80.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom (2 KB at 188.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.pom (2 KB at 65.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.0.0/maven-shared-utils-3.0.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.0.0/maven-shared-utils-3.0.0.pom (6 KB at 454.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.0.0/maven-shared-utils-3.0.0.pom (6 KB at 69.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/21/maven-shared-components-21.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/21/maven-shared-components-21.pom (5 KB at 249.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/21/maven-shared-components-21.pom (5 KB at 63.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/25/maven-parent-25.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/25/maven-parent-25.pom (37 KB at 5223.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/25/maven-parent-25.pom (37 KB at 988.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/15/apache-15.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/15/apache-15.pom (15 KB at 743.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/15/apache-15.pom (15 KB at 531.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.4/commons-io-2.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.4/commons-io-2.4.pom (10 KB at 709.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.4/commons-io-2.4.pom (10 KB at 125.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/25/commons-parent-25.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/25/commons-parent-25.pom (48 KB at 6738.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/25/commons-parent-25.pom (48 KB at 1123.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.22/plexus-utils-3.0.22.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.22/plexus-utils-3.0.22.pom (4 KB at 83.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.22/plexus-utils-3.0.22.pom (4 KB at 129.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.pom (2 KB at 79.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.pom (2 KB at 65.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/1.3.1/plexus-components-1.3.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/1.3.1/plexus-components-1.3.1.pom (3 KB at 249.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/1.3.1/plexus-components-1.3.1.pom (3 KB at 83.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.pom (4 KB at 240.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.pom (4 KB at 60.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/spice/spice-parent/15/spice-parent-15.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/spice/spice-parent/15/spice-parent-15.pom (9 KB at 233.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/spice/spice-parent/15/spice-parent-15.pom (9 KB at 145.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/5/forge-parent-5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/5/forge-parent-5.pom (9 KB at 1166.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/forge/forge-parent/5/forge-parent-5.pom (9 KB at 408.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.5.8/plexus-utils-1.5.8.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.5.8/plexus-utils-1.5.8.pom (8 KB at 715.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.5.8/plexus-utils-1.5.8.pom (8 KB at 315.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.22/plexus-interpolation-1.22.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.22/plexus-interpolation-1.22.pom (2 KB at 167.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.22/plexus-interpolation-1.22.pom (2 KB at 57.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.23/plexus-utils-3.0.23.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.23/plexus-utils-3.0.23.pom (5 KB at 503.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.23/plexus-utils-3.0.23.pom (5 KB at 125.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom (21 KB at 2624.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/4.0/plexus-4.0.pom (21 KB at 617.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctorj/1.5.5/asciidoctorj-1.5.5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctorj/1.5.5/asciidoctorj-1.5.5.pom (3 KB at 78.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctorj/1.5.5/asciidoctorj-1.5.5.pom (3 KB at 42.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/com/beust/jcommander/1.35/jcommander-1.35.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/beust/jcommander/1.35/jcommander-1.35.pom (8 KB at 110.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/beust/jcommander/1.35/jcommander-1.35.pom (8 KB at 81.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/oss/oss-parent/3/oss-parent-3.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/oss/oss-parent/3/oss-parent-3.pom (4 KB at 181.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/oss/oss-parent/3/oss-parent-3.pom (4 KB at 51.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec-http/4.0.38.Final/netty-codec-http-4.0.38.Final.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec-http/4.0.38.Final/netty-codec-http-4.0.38.Final.pom (2 KB at 137.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec-http/4.0.38.Final/netty-codec-http-4.0.38.Final.pom (2 KB at 23.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-parent/4.0.38.Final/netty-parent-4.0.38.Final.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-parent/4.0.38.Final/netty-parent-4.0.38.Final.pom (44 KB at 6262.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-parent/4.0.38.Final/netty-parent-4.0.38.Final.pom (44 KB at 827.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/oss/oss-parent/9/oss-parent-9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/oss/oss-parent/9/oss-parent-9.pom (7 KB at 427.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/oss/oss-parent/9/oss-parent-9.pom (7 KB at 237.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec/4.0.38.Final/netty-codec-4.0.38.Final.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec/4.0.38.Final/netty-codec-4.0.38.Final.pom (3 KB at 99.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec/4.0.38.Final/netty-codec-4.0.38.Final.pom (3 KB at 35.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-transport/4.0.38.Final/netty-transport-4.0.38.Final.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-transport/4.0.38.Final/netty-transport-4.0.38.Final.pom (2 KB at 27.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-transport/4.0.38.Final/netty-transport-4.0.38.Final.pom (2 KB at 15.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-buffer/4.0.38.Final/netty-buffer-4.0.38.Final.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-buffer/4.0.38.Final/netty-buffer-4.0.38.Final.pom (2 KB at 46.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-buffer/4.0.38.Final/netty-buffer-4.0.38.Final.pom (2 KB at 14.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-common/4.0.38.Final/netty-common-4.0.38.Final.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-common/4.0.38.Final/netty-common-4.0.38.Final.pom (7 KB at 471.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-common/4.0.38.Final/netty-common-4.0.38.Final.pom (7 KB at 88.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-handler/4.0.38.Final/netty-handler-4.0.38.Final.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-handler/4.0.38.Final/netty-handler-4.0.38.Final.pom (3 KB at 292.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-handler/4.0.38.Final/netty-handler-4.0.38.Final.pom (3 KB at 27.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-core/1.6/doxia-core-1.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-core/1.6/doxia-core-1.6.pom (5 KB at 85.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-core/1.6/doxia-core-1.6.pom (5 KB at 36.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia/1.6/doxia-1.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia/1.6/doxia-1.6.pom (19 KB at 349.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia/1.6/doxia-1.6.pom (19 KB at 386.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-sink-api/1.6/doxia-sink-api-1.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-sink-api/1.6/doxia-sink-api-1.6.pom (2 KB at 29.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-sink-api/1.6/doxia-sink-api-1.6.pom (2 KB at 37.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-logging-api/1.6/doxia-logging-api-1.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-logging-api/1.6/doxia-logging-api-1.6.pom (2 KB at 20.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-logging-api/1.6/doxia-logging-api-1.6.pom (2 KB at 107.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-30/plexus-container-default-1.0-alpha-30.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-30/plexus-container-default-1.0-alpha-30.pom (4 KB at 50.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-30/plexus-container-default-1.0-alpha-30.pom (4 KB at 261.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.0-alpha-30/plexus-containers-1.0-alpha-30.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.0-alpha-30/plexus-containers-1.0-alpha-30.pom (2 KB at 40.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.4.5/plexus-utils-1.4.5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.4.5/plexus-utils-1.4.5.pom (3 KB at 33.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/1.4.5/plexus-utils-1.4.5.pom (3 KB at 81.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-classworlds/1.2-alpha-9/plexus-classworlds-1.2-alpha-9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-classworlds/1.2-alpha-9/plexus-classworlds-1.2-alpha-9.pom (4 KB at 49.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-classworlds/1.2-alpha-9/plexus-classworlds-1.2-alpha-9.pom (4 KB at 104.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/1.0.10/plexus-1.0.10.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/1.0.10/plexus-1.0.10.pom (9 KB at 179.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/1.0.10/plexus-1.0.10.pom (9 KB at 171.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom (2 KB at 25.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom (2 KB at 19.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/4/apache-4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/4/apache-4.pom (5 KB at 129.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/4/apache-4.pom (5 KB at 52.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.pom (2 KB at 111.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.pom (2 KB at 27.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/3/apache-3.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/3/apache-3.pom (4 KB at 335.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/3/apache-3.pom (4 KB at 50.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-lang/commons-lang/2.4/commons-lang-2.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-lang/commons-lang/2.4/commons-lang-2.4.pom (14 KB at 1240.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-lang/commons-lang/2.4/commons-lang-2.4.pom (14 KB at 257.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/9/commons-parent-9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/9/commons-parent-9.pom (22 KB at 1127.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/9/commons-parent-9.pom (22 KB at 285.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.pom (8 KB at 563.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.pom (8 KB at 97.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcomponents-client/4.0.2/httpcomponents-client-4.0.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcomponents-client/4.0.2/httpcomponents-client-4.0.2.pom (9 KB at 336.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcomponents-client/4.0.2/httpcomponents-client-4.0.2.pom (9 KB at 132.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/project/4.1/project-4.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/project/4.1/project-4.1.pom (16 KB at 1142.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/project/4.1/project-4.1.pom (16 KB at 266.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.pom (5 KB at 596.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.pom (5 KB at 70.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcomponents-core/4.0.1/httpcomponents-core-4.0.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcomponents-core/4.0.1/httpcomponents-core-4.0.1.pom (10 KB at 1014.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcomponents-core/4.0.1/httpcomponents-core-4.0.1.pom (10 KB at 145.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/project/4.0/project-4.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/project/4.0/project-4.0.pom (13 KB at 1600.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/project/4.0/project-4.0.pom (13 KB at 142.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom (18 KB at 1379.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.pom (18 KB at 221.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/5/commons-parent-5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/5/commons-parent-5.pom (16 KB at 2237.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/5/commons-parent-5.pom (16 KB at 340.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.3/commons-codec-1.3.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.3/commons-codec-1.3.pom (6 KB at 175.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.3/commons-codec-1.3.pom (6 KB at 72.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/xmlunit/xmlunit/1.5/xmlunit-1.5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xmlunit/xmlunit/1.5/xmlunit-1.5.pom (3 KB at 175.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xmlunit/xmlunit/1.5/xmlunit-1.5.pom (3 KB at 39.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-module-xhtml/1.6/doxia-module-xhtml-1.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-module-xhtml/1.6/doxia-module-xhtml-1.6.pom (2 KB at 113.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-module-xhtml/1.6/doxia-module-xhtml-1.6.pom (2 KB at 19.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-modules/1.6/doxia-modules-1.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-modules/1.6/doxia-modules-1.6.pom (3 KB at 320.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-modules/1.6/doxia-modules-1.6.pom (3 KB at 32.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-complete/1.7.26/jruby-complete-1.7.26.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0/maven-plugin-api-2.0.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.0/maven-filtering-3.1.0.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/3.0/maven-core-3.0.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0/maven-plugin-api-2.0.jar (10 KB at 309.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0/maven-plugin-api-2.0.jar (10 KB at 90.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar (37 KB at 737.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings-builder/3.0/maven-settings-builder-3.0.jar (37 KB at 358.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.0/maven-filtering-3.1.0.jar (50 KB at 868.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/3.0/maven-core-3.0.jar (515 KB at 3574.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/3.0/maven-core-3.0.jar (515 KB at 8169.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.0/maven-filtering-3.1.0.jar (50 KB at 321.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.jar (50 KB at 549.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-aether-provider/3.0/maven-aether-provider-3.0.jar (50 KB at 264.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar (145 KB at 1505.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model-builder/3.0/maven-model-builder-3.0.jar (145 KB at 752.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar (104 KB at 603.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-impl/1.7/aether-impl-1.7.jar (104 KB at 449.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar (14 KB at 75.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar (73 KB at 274.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-api/1.7/aether-api-1.7.jar (73 KB at 395.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-spi/1.7/aether-spi-1.7.jar (14 KB at 47.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar (106 KB at 569.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/aether/aether-util/1.7/aether-util-1.7.jar (106 KB at 342.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar (46 KB at 206.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar (197 KB at 582.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar (150 KB at 619.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-classworlds/2.2.3/plexus-classworlds-2.2.3.jar (46 KB at 122.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar (461 KB at 1888.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-bean/1.4.2/sisu-inject-bean-1.4.2.jar (150 KB at 403.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.0.0/maven-shared-utils-3.0.0.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-inject-plexus/1.4.2/sisu-inject-plexus-1.4.2.jar (197 KB at 772.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar (28 KB at 66.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar (28 KB at 103.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/sisu/sisu-guice/2.1.7/sisu-guice-2.1.7-noaop.jar (461 KB at 1081.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.22/plexus-interpolation-1.22.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.jar (9 KB at 28.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar (14 KB at 30.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.23/plexus-utils-3.0.23.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar (14 KB at 43.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.22/plexus-interpolation-1.22.jar (76 KB at 142.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctorj/1.5.5/asciidoctorj-1.5.5.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.0.0/maven-shared-utils-3.0.0.jar (152 KB at 478.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.0.0/maven-shared-utils-3.0.0.jar (152 KB at 286.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/com/beust/jcommander/1.35/jcommander-1.35.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.22/plexus-interpolation-1.22.jar (76 KB at 218.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/sonatype/plexus/plexus-build-api/0.0.7/plexus-build-api-0.0.7.jar (9 KB at 15.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec-http/4.0.38.Final/netty-codec-http-4.0.38.Final.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/beust/jcommander/1.35/jcommander-1.35.jar (60 KB at 159.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.23/plexus-utils-3.0.23.jar (241 KB at 413.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec/4.0.38.Final/netty-codec-4.0.38.Final.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.23/plexus-utils-3.0.23.jar (241 KB at 639.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/beust/jcommander/1.35/jcommander-1.35.jar (60 KB at 100.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-transport/4.0.38.Final/netty-transport-4.0.38.Final.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec/4.0.38.Final/netty-codec-4.0.38.Final.jar (146 KB at 357.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec/4.0.38.Final/netty-codec-4.0.38.Final.jar (146 KB at 209.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-handler/4.0.38.Final/netty-handler-4.0.38.Final.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctorj/1.5.5/asciidoctorj-1.5.5.jar (701 KB at 1649.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-transport/4.0.38.Final/netty-transport-4.0.38.Final.jar (359 KB at 471.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-buffer/4.0.38.Final/netty-buffer-4.0.38.Final.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-transport/4.0.38.Final/netty-transport-4.0.38.Final.jar (359 KB at 829.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/asciidoctor/asciidoctorj/1.5.5/asciidoctorj-1.5.5.jar (701 KB at 919.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-common/4.0.38.Final/netty-common-4.0.38.Final.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec-http/4.0.38.Final/netty-codec-http-4.0.38.Final.jar (443 KB at 1007.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-handler/4.0.38.Final/netty-handler-4.0.38.Final.jar (287 KB at 347.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-core/1.6/doxia-core-1.6.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-handler/4.0.38.Final/netty-handler-4.0.38.Final.jar (287 KB at 634.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-buffer/4.0.38.Final/netty-buffer-4.0.38.Final.jar (216 KB at 260.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-sink-api/1.6/doxia-sink-api-1.6.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-buffer/4.0.38.Final/netty-buffer-4.0.38.Final.jar (216 KB at 464.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-codec-http/4.0.38.Final/netty-codec-http-4.0.38.Final.jar (443 KB at 507.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-logging-api/1.6/doxia-logging-api-1.6.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-core/1.6/doxia-core-1.6.jar (159 KB at 327.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-common/4.0.38.Final/netty-common-4.0.38.Final.jar (499 KB at 568.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-sink-api/1.6/doxia-sink-api-1.6.jar (11 KB at 22.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-sink-api/1.6/doxia-sink-api-1.6.jar (11 KB at 12.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/io/netty/netty-common/4.0.38.Final/netty-common-4.0.38.Final.jar (499 KB at 974.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-core/1.6/doxia-core-1.6.jar (159 KB at 169.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-logging-api/1.6/doxia-logging-api-1.6.jar (12 KB at 21.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-logging-api/1.6/doxia-logging-api-1.6.jar (12 KB at 11.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-lang/commons-lang/2.4/commons-lang-2.4.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar (5 KB at 7.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar (5 KB at 4.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar (190 KB at 332.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar (190 KB at 173.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-lang/commons-lang/2.4/commons-lang-2.4.jar (256 KB at 446.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-lang/commons-lang/2.4/commons-lang-2.4.jar (256 KB at 229.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.3/commons-codec-1.3.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.jar (287 KB at 460.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.jar (287 KB at 255.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar (60 KB at 95.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar (60 KB at 51.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/xmlunit/xmlunit/1.5/xmlunit-1.5.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.3/commons-codec-1.3.jar (46 KB at 72.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-codec/commons-codec/1.3/commons-codec-1.3.jar (46 KB at 38.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.4/commons-io-2.4.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar (1201 KB at 1905.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.jar (169 KB at 139.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-module-xhtml/1.6/doxia-module-xhtml-1.6.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xmlunit/xmlunit/1.5/xmlunit-1.5.jar (96 KB at 142.1 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.jar (169 KB at 249.4 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.4/commons-io-2.4.jar (181 KB at 265.9 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-module-xhtml/1.6/doxia-module-xhtml-1.6.jar (16 KB at 22.0 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-complete/1.7.26/jruby-complete-1.7.26.jar (23796 KB at 23891.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xmlunit/xmlunit/1.5/xmlunit-1.5.jar (96 KB at 78.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar (1201 KB at 961.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/doxia/doxia-module-xhtml/1.6/doxia-module-xhtml-1.6.jar (16 KB at 12.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.4/commons-io-2.4.jar (181 KB at 140.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/jruby/jruby-complete/1.7.26/jruby-complete-1.7.26.jar (23796 KB at 12510.9 KB/sec)
 [INFO] Using 'ANSI_X3.4-1968' encoding to copy filtered resources.
 [INFO] ignoreDelta true
 [INFO] Copying 0 resource
@@ -463,19 +463,19 @@
 [INFO] 
 [INFO] --- maven-antrun-plugin:1.8:run (echo-output) @ api-documentation ---
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.20/plexus-utils-3.0.20.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.20/plexus-utils-3.0.20.pom (4 KB at 103.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.20/plexus-utils-3.0.20.pom (4 KB at 90.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant/1.9.4/ant-1.9.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant/1.9.4/ant-1.9.4.pom (10 KB at 138.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant/1.9.4/ant-1.9.4.pom (10 KB at 154.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant-parent/1.9.4/ant-parent-1.9.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant-parent/1.9.4/ant-parent-1.9.4.pom (6 KB at 103.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant-parent/1.9.4/ant-parent-1.9.4.pom (6 KB at 147.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom (3 KB at 41.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.pom (3 KB at 71.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.20/plexus-utils-3.0.20.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant/1.9.4/ant-1.9.4.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.20/plexus-utils-3.0.20.jar (238 KB at 3044.0 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar (18 KB at 233.1 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant/1.9.4/ant-1.9.4.jar (1972 KB at 14607.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar (18 KB at 309.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.20/plexus-utils-3.0.20.jar (238 KB at 2698.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/ant/ant/1.9.4/ant-1.9.4.jar (1972 KB at 22156.7 KB/sec)
 [INFO] Executing tasks
 
 main:
@@ -885,15 +885,15 @@ main:
 [INFO] Building Aggregation 1.0.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-resources-plugin/3.0.2/maven-resources-plugin-3.0.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-resources-plugin/3.0.2/maven-resources-plugin-3.0.2.pom (7 KB at 136.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-resources-plugin/3.0.2/maven-resources-plugin-3.0.2.pom (7 KB at 240.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-plugins/30/maven-plugins-30.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-plugins/30/maven-plugins-30.pom (10 KB at 342.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-plugins/30/maven-plugins-30.pom (10 KB at 310.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/30/maven-parent-30.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/30/maven-parent-30.pom (41 KB at 1834.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/30/maven-parent-30.pom (41 KB at 2017.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/18/apache-18.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/18/apache-18.pom (16 KB at 1176.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/18/apache-18.pom (16 KB at 1275.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-resources-plugin/3.0.2/maven-resources-plugin-3.0.2.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-resources-plugin/3.0.2/maven-resources-plugin-3.0.2.jar (31 KB at 2211.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-resources-plugin/3.0.2/maven-resources-plugin-3.0.2.jar (31 KB at 703.7 KB/sec)
 [INFO] 
 [INFO] --- maven-antrun-plugin:1.8:run (echo-output) @ aggregation ---
 [INFO] Executing tasks
@@ -904,43 +904,43 @@ main:
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:copy-resources (asciidoc-copy-resources) @ aggregation ---
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.pom (748 B at 17.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.pom (748 B at 27.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.6/plexus-containers-1.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.6/plexus-containers-1.6.pom (4 KB at 334.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-containers/1.6/plexus-containers-1.6.pom (4 KB at 153.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/3.3.2/plexus-3.3.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/3.3.2/plexus-3.3.2.pom (22 KB at 1911.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/3.3.2/plexus-3.3.2.pom (22 KB at 618.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.pom (5 KB at 503.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.pom (5 KB at 161.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.1/maven-filtering-3.1.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.1/maven-filtering-3.1.1.pom (6 KB at 616.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.1/maven-filtering-3.1.1.pom (6 KB at 163.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/30/maven-shared-components-30.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/30/maven-shared-components-30.pom (5 KB at 745.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/30/maven-shared-components-30.pom (5 KB at 179.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.5/commons-io-2.5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.5/commons-io-2.5.pom (13 KB at 223.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.5/commons-io-2.5.pom (13 KB at 332.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/39/commons-parent-39.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/39/commons-parent-39.pom (61 KB at 7565.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-parent/39/commons-parent-39.pom (61 KB at 1780.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.24/plexus-interpolation-1.24.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.24/plexus-interpolation-1.24.pom (3 KB at 320.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.24/plexus-interpolation-1.24.pom (3 KB at 80.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar (46 KB at 1139.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/3.0/maven-settings-3.0.jar (46 KB at 584.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/3.0/maven-model-3.0.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar (51 KB at 1056.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar (48 KB at 468.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar (30 KB at 699.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar (51 KB at 545.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.1/maven-filtering-3.1.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/3.0/maven-plugin-api-3.0.jar (48 KB at 487.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.1/maven-filtering-3.1.1.jar (50 KB at 813.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.5/commons-io-2.5.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/3.0/maven-model-3.0.jar (161 KB at 2203.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/3.0/maven-model-3.0.jar (161 KB at 2365.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.24/plexus-interpolation-1.24.jar
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.jar (242 KB at 3096.8 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-filtering/3.1.1/maven-filtering-3.1.1.jar (50 KB at 628.2 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.jar (5 KB at 42.1 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.5/commons-io-2.5.jar (204 KB at 1978.7 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.24/plexus-interpolation-1.24.jar (78 KB at 726.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/3.0/maven-repository-metadata-3.0.jar (30 KB at 222.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/commons-io/commons-io/2.5/commons-io-2.5.jar (204 KB at 1941.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.24/plexus-interpolation-1.24.jar (78 KB at 706.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-component-annotations/1.6/plexus-component-annotations-1.6.jar (5 KB at 33.1 KB/sec)
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:copy-resources (copy-api_documentation) @ aggregation ---
@@ -993,33 +993,33 @@ main:
 [INFO] Building Tests 1.0.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-compiler-plugin/3.6.1/maven-compiler-plugin-3.6.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-compiler-plugin/3.6.1/maven-compiler-plugin-3.6.1.pom (11 KB at 273.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-compiler-plugin/3.6.1/maven-compiler-plugin-3.6.1.pom (11 KB at 218.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-compiler-plugin/3.6.1/maven-compiler-plugin-3.6.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-compiler-plugin/3.6.1/maven-compiler-plugin-3.6.1.jar (58 KB at 3816.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-compiler-plugin/3.6.1/maven-compiler-plugin-3.6.1.jar (58 KB at 1168.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.pom (11 KB at 1278.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.pom (11 KB at 465.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire/2.12.4/surefire-2.12.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire/2.12.4/surefire-2.12.4.pom (14 KB at 464.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire/2.12.4/surefire-2.12.4.pom (14 KB at 408.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/22/maven-parent-22.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/22/maven-parent-22.pom (30 KB at 2074.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/22/maven-parent-22.pom (30 KB at 3227.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/11/apache-11.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/11/apache-11.pom (15 KB at 1607.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/11/apache-11.pom (15 KB at 1205.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.jar (30 KB at 2974.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugins/maven-surefire-plugin/2.12.4/maven-surefire-plugin-2.12.4.jar (30 KB at 782.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/junit/junit/4.12/junit-4.12.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/junit/junit/4.12/junit-4.12.pom (24 KB at 3853.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/junit/junit/4.12/junit-4.12.pom (24 KB at 1541.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom (766 B at 28.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom (2 KB at 101.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/hamcrest/hamcrest-parent/1.3/hamcrest-parent-1.3.pom (2 KB at 83.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/log4j/log4j/1.2.17/log4j-1.2.17.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/log4j/log4j/1.2.17/log4j-1.2.17.pom (22 KB at 482.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/log4j/log4j/1.2.17/log4j-1.2.17.pom (22 KB at 471.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/junit/junit/4.12/junit-4.12.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/log4j/log4j/1.2.17/log4j-1.2.17.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/junit/junit/4.12/junit-4.12.jar (308 KB at 7152.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/junit/junit/4.12/junit-4.12.jar (308 KB at 6276.5 KB/sec)
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar (44 KB at 1072.4 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/log4j/log4j/1.2.17/log4j-1.2.17.jar (479 KB at 12266.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/log4j/log4j/1.2.17/log4j-1.2.17.jar (479 KB at 12589.5 KB/sec)
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ tests ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -1032,67 +1032,67 @@ main:
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.pom (5 KB at 231.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.pom (5 KB at 356.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.pom (5 KB at 661.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/2.2.1/maven-core-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/2.2.1/maven-core-2.2.1.pom (12 KB at 1262.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/2.2.1/maven-core-2.2.1.pom (12 KB at 811.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-parameter-documenter/2.2.1/maven-plugin-parameter-documenter-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-parameter-documenter/2.2.1/maven-plugin-parameter-documenter-2.2.1.pom (2 KB at 191.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-parameter-documenter/2.2.1/maven-plugin-parameter-documenter-2.2.1.pom (2 KB at 46.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.pom (2 KB at 74.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.pom (2 KB at 24.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/slf4j-parent/1.5.6/slf4j-parent-1.5.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/slf4j-parent/1.5.6/slf4j-parent-1.5.6.pom (8 KB at 483.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/slf4j-parent/1.5.6/slf4j-parent-1.5.6.pom (8 KB at 203.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/slf4j-api/1.5.6/slf4j-api-1.5.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/slf4j-api/1.5.6/slf4j-api-1.5.6.pom (3 KB at 242.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/slf4j-api/1.5.6/slf4j-api-1.5.6.pom (3 KB at 56.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/jcl-over-slf4j/1.5.6/jcl-over-slf4j-1.5.6.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/jcl-over-slf4j/1.5.6/jcl-over-slf4j-1.5.6.pom (3 KB at 264.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/slf4j/jcl-over-slf4j/1.5.6/jcl-over-slf4j-1.5.6.pom (3 KB at 37.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom (2 KB at 119.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-error-diagnostics/2.2.1/maven-error-diagnostics-2.2.1.pom (2 KB at 25.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-descriptor/2.2.1/maven-plugin-descriptor-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-descriptor/2.2.1/maven-plugin-descriptor-2.2.1.pom (3 KB at 106.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-descriptor/2.2.1/maven-plugin-descriptor-2.2.1.pom (3 KB at 30.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-monitor/2.2.1/maven-monitor-2.2.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-monitor/2.2.1/maven-monitor-2.2.1.pom (2 KB at 61.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-monitor/2.2.1/maven-monitor-2.2.1.pom (2 KB at 16.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/0.1/maven-shared-utils-0.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/0.1/maven-shared-utils-0.1.pom (4 KB at 494.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/0.1/maven-shared-utils-0.1.pom (4 KB at 82.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/18/maven-shared-components-18.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/18/maven-shared-components-18.pom (5 KB at 803.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/18/maven-shared-components-18.pom (5 KB at 133.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/ow2/asm/asm/6.0_ALPHA/asm-6.0_ALPHA.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/ow2/asm/asm/6.0_ALPHA/asm-6.0_ALPHA.pom (2 KB at 145.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/ow2/asm/asm/6.0_ALPHA/asm-6.0_ALPHA.pom (2 KB at 31.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/ow2/asm/asm-parent/6.0_ALPHA/asm-parent-6.0_ALPHA.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/ow2/asm/asm-parent/6.0_ALPHA/asm-parent-6.0_ALPHA.pom (6 KB at 1074.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/ow2/asm/asm-parent/6.0_ALPHA/asm-parent-6.0_ALPHA.pom (6 KB at 767.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/ow2/ow2/1.3/ow2-1.3.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/ow2/ow2/1.3/ow2-1.3.pom (10 KB at 442.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/ow2/ow2/1.3/ow2-1.3.pom (10 KB at 546.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/com/thoughtworks/qdox/qdox/2.0-M5/qdox-2.0-M5.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/thoughtworks/qdox/qdox/2.0-M5/qdox-2.0-M5.pom (16 KB at 1384.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/thoughtworks/qdox/qdox/2.0-M5/qdox-2.0-M5.pom (16 KB at 1268.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-api/2.8.1/plexus-compiler-api-2.8.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-api/2.8.1/plexus-compiler-api-2.8.1.pom (893 B at 14.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-api/2.8.1/plexus-compiler-api-2.8.1.pom (893 B at 39.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler/2.8.1/plexus-compiler-2.8.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler/2.8.1/plexus-compiler-2.8.1.pom (5 KB at 111.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler/2.8.1/plexus-compiler-2.8.1.pom (5 KB at 143.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/4.0/plexus-components-4.0.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/4.0/plexus-components-4.0.pom (3 KB at 63.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-components/4.0/plexus-components-4.0.pom (3 KB at 432.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-manager/2.8.1/plexus-compiler-manager-2.8.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-manager/2.8.1/plexus-compiler-manager-2.8.1.pom (713 B at 13.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-manager/2.8.1/plexus-compiler-manager-2.8.1.pom (713 B at 49.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-javac/2.8.1/plexus-compiler-javac-2.8.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-javac/2.8.1/plexus-compiler-javac-2.8.1.pom (794 B at 10.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-javac/2.8.1/plexus-compiler-javac-2.8.1.pom (794 B at 86.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compilers/2.8.1/plexus-compilers-2.8.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compilers/2.8.1/plexus-compilers-2.8.1.pom (2 KB at 38.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compilers/2.8.1/plexus-compilers-2.8.1.pom (2 KB at 225.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/ow2/asm/asm/6.0_ALPHA/asm-6.0_ALPHA.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar (60 KB at 441.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar (160 KB at 2049.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/com/thoughtworks/qdox/qdox/2.0-M5/qdox-2.0-M5.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-utils/3.1.0/maven-shared-utils-3.1.0.jar (160 KB at 1268.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar (60 KB at 641.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-api/2.8.1/plexus-compiler-api-2.8.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.jar (14 KB at 116.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.jar (217 KB at 1972.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-manager/2.8.1/plexus-compiler-manager-2.8.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/2.0.4/plexus-utils-2.0.4.jar (217 KB at 1390.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-api/2.8.1/plexus-compiler-api-2.8.1.jar (26 KB at 238.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-javac/2.8.1/plexus-compiler-javac-2.8.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/thoughtworks/qdox/qdox/2.0-M5/qdox-2.0-M5.jar (307 KB at 2318.9 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-api/2.8.1/plexus-compiler-api-2.8.1.jar (26 KB at 183.7 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-javac/2.8.1/plexus-compiler-javac-2.8.1.jar (20 KB at 127.3 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/ow2/asm/asm/6.0_ALPHA/asm-6.0_ALPHA.jar (55 KB at 293.1 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-manager/2.8.1/plexus-compiler-manager-2.8.1.jar (5 KB at 22.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/com/thoughtworks/qdox/qdox/2.0-M5/qdox-2.0-M5.jar (307 KB at 2733.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/ow2/asm/asm/6.0_ALPHA/asm-6.0_ALPHA.jar (55 KB at 446.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.jar (14 KB at 108.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-javac/2.8.1/plexus-compiler-javac-2.8.1.jar (20 KB at 160.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-compiler-manager/2.8.1/plexus-compiler-manager-2.8.1.jar (5 KB at 36.7 KB/sec)
 [INFO] No sources to compile
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ tests ---
@@ -1105,71 +1105,71 @@ main:
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ tests ---
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0.9/maven-plugin-api-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0.9/maven-plugin-api-2.0.9.pom (2 KB at 69.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0.9/maven-plugin-api-2.0.9.pom (2 KB at 22.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/2.0.9/maven-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/2.0.9/maven-2.0.9.pom (19 KB at 879.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven/2.0.9/maven-2.0.9.pom (19 KB at 275.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/8/maven-parent-8.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/8/maven-parent-8.pom (24 KB at 1309.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/8/maven-parent-8.pom (24 KB at 346.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-booter/2.12.4/surefire-booter-2.12.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-booter/2.12.4/surefire-booter-2.12.4.pom (3 KB at 98.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-booter/2.12.4/surefire-booter-2.12.4.pom (3 KB at 45.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.pom (3 KB at 54.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.pom (3 KB at 45.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.pom (6 KB at 73.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.pom (6 KB at 75.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.pom (2 KB at 88.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.pom (2 KB at 22.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugin-tools/maven-plugin-tools/3.1/maven-plugin-tools-3.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugin-tools/maven-plugin-tools/3.1/maven-plugin-tools-3.1.pom (16 KB at 1756.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugin-tools/maven-plugin-tools/3.1/maven-plugin-tools-3.1.pom (16 KB at 427.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/21/maven-parent-21.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/21/maven-parent-21.pom (26 KB at 4290.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/21/maven-parent-21.pom (26 KB at 402.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/10/apache-10.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/10/apache-10.pom (15 KB at 2890.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/apache/10/apache-10.pom (15 KB at 314.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.0.9/maven-artifact-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.0.9/maven-artifact-2.0.9.pom (2 KB at 98.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.0.9/maven-artifact-2.0.9.pom (2 KB at 31.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.pom (4 KB at 161.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.pom (4 KB at 127.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/3.2/plexus-3.2.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/3.2/plexus-3.2.pom (19 KB at 2615.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus/3.2/plexus-3.2.pom (19 KB at 2288.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.0.9/maven-project-2.0.9.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.0.9/maven-project-2.0.9.pom (3 KB at 264.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.0.9/maven-settings-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.0.9/maven-settings-2.0.9.pom (3 KB at 100.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.0.9/maven-settings-2.0.9.pom (3 KB at 34.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.0.9/maven-model-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.0.9/maven-model-2.0.9.pom (4 KB at 235.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.0.9/maven-model-2.0.9.pom (4 KB at 219.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.0.9/maven-profile-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.0.9/maven-profile-2.0.9.pom (3 KB at 111.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.0.9/maven-profile-2.0.9.pom (3 KB at 35.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.0.9/maven-artifact-manager-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.0.9/maven-artifact-manager-2.0.9.pom (3 KB at 87.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.0.9/maven-artifact-manager-2.0.9.pom (3 KB at 109.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.0.9/maven-repository-metadata-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.0.9/maven-repository-metadata-2.0.9.pom (2 KB at 154.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.0.9/maven-repository-metadata-2.0.9.pom (2 KB at 265.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.0.9/maven-plugin-registry-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.0.9/maven-plugin-registry-2.0.9.pom (2 KB at 175.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.0.9/maven-plugin-registry-2.0.9.pom (2 KB at 160.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/2.0.9/maven-core-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/2.0.9/maven-core-2.0.9.pom (8 KB at 691.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/2.0.9/maven-core-2.0.9.pom (8 KB at 844.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-parameter-documenter/2.0.9/maven-plugin-parameter-documenter-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-parameter-documenter/2.0.9/maven-plugin-parameter-documenter-2.0.9.pom (2 KB at 119.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-parameter-documenter/2.0.9/maven-plugin-parameter-documenter-2.0.9.pom (2 KB at 174.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.pom (2 KB at 23.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.pom (2 KB at 160.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/reporting/maven-reporting/2.0.9/maven-reporting-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/reporting/maven-reporting/2.0.9/maven-reporting-2.0.9.pom (2 KB at 30.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/reporting/maven-reporting/2.0.9/maven-reporting-2.0.9.pom (2 KB at 180.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-error-diagnostics/2.0.9/maven-error-diagnostics-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-error-diagnostics/2.0.9/maven-error-diagnostics-2.0.9.pom (2 KB at 26.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-error-diagnostics/2.0.9/maven-error-diagnostics-2.0.9.pom (2 KB at 68.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-descriptor/2.0.9/maven-plugin-descriptor-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-descriptor/2.0.9/maven-plugin-descriptor-2.0.9.pom (3 KB at 106.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-descriptor/2.0.9/maven-plugin-descriptor-2.0.9.pom (3 KB at 202.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-monitor/2.0.9/maven-monitor-2.0.9.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-monitor/2.0.9/maven-monitor-2.0.9.pom (2 KB at 20.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-monitor/2.0.9/maven-monitor-2.0.9.pom (2 KB at 156.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1/classworlds-1.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1/classworlds-1.1.pom (4 KB at 120.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1/classworlds-1.1.pom (4 KB at 162.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-toolchain/2.0.9/maven-toolchain-2.0.9.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-toolchain/2.0.9/maven-toolchain-2.0.9.pom (4 KB at 199.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.pom (17 KB at 741.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.pom (17 KB at 1088.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.pom (4 KB at 180.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.pom (4 KB at 150.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/12/maven-shared-components-12.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-shared-components/12/maven-shared-components-12.pom (10 KB at 1519.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/13/maven-parent-13.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/13/maven-parent-13.pom (23 KB at 3683.9 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-parent/13/maven-parent-13.pom (23 KB at 3157.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.pom
 [INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-container-default/1.0-alpha-9/plexus-container-default-1.0-alpha-9.pom (2 KB at 150.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0.9/maven-plugin-api-2.0.9.jar
@@ -1177,195 +1177,195 @@ main:
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.jar
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-booter/2.12.4/surefire-booter-2.12.4.jar (34 KB at 342.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.jar (115 KB at 1531.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-api/2.12.4/surefire-api-2.12.4.jar (115 KB at 1234.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0.9/maven-plugin-api-2.0.9.jar (13 KB at 138.3 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.jar (257 KB at 2757.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/maven-surefire-common/2.12.4/maven-surefire-common-2.12.4.jar (257 KB at 2230.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.0.9/maven-artifact-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-api/2.0.9/maven-plugin-api-2.0.9.jar (13 KB at 107.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-booter/2.12.4/surefire-booter-2.12.4.jar (34 KB at 250.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.0.9/maven-project-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.jar (227 KB at 1652.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.jar (227 KB at 2058.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.0.9/maven-settings-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.0.9/maven-artifact-2.0.9.jar (87 KB at 611.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.jar (31 KB at 252.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.0.9/maven-profile-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.0.9/maven-project-2.0.9.jar (119 KB at 809.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact/2.0.9/maven-artifact-2.0.9.jar (87 KB at 536.0 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.0.9/maven-model-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.0.9/maven-settings-2.0.9.jar (48 KB at 301.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-project/2.0.9/maven-project-2.0.9.jar (119 KB at 725.2 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.0.9/maven-artifact-manager-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/shared/maven-common-artifact-filters/1.3/maven-common-artifact-filters-1.3.jar (31 KB at 177.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar (309 KB at 1782.7 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.0.9/maven-plugin-registry-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.0.9/maven-profile-2.0.9.jar (35 KB at 197.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-settings/2.0.9/maven-settings-2.0.9.jar (48 KB at 274.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/2.0.9/maven-core-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.0.9/maven-model-2.0.9.jar (86 KB at 468.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.0.9/maven-artifact-manager-2.0.9.jar (57 KB at 271.5 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-parameter-documenter/2.0.9/maven-plugin-parameter-documenter-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar (309 KB at 1504.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-model/2.0.9/maven-model-2.0.9.jar (86 KB at 400.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-artifact-manager/2.0.9/maven-artifact-manager-2.0.9.jar (57 KB at 288.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-profile/2.0.9/maven-profile-2.0.9.jar (35 KB at 143.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.0.9/maven-repository-metadata-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.0.9/maven-plugin-registry-2.0.9.jar (29 KB at 118.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-registry/2.0.9/maven-plugin-registry-2.0.9.jar (29 KB at 117.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-error-diagnostics/2.0.9/maven-error-diagnostics-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-parameter-documenter/2.0.9/maven-plugin-parameter-documenter-2.0.9.jar (21 KB at 80.0 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/2.0.9/maven-core-2.0.9.jar (156 KB at 621.1 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-descriptor/2.0.9/maven-plugin-descriptor-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.jar (10 KB at 37.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-parameter-documenter/2.0.9/maven-plugin-parameter-documenter-2.0.9.jar (21 KB at 74.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-monitor/2.0.9/maven-monitor-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-core/2.0.9/maven-core-2.0.9.jar (156 KB at 579.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/reporting/maven-reporting-api/2.0.9/maven-reporting-api-2.0.9.jar (10 KB at 35.9 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1/classworlds-1.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.0.9/maven-repository-metadata-2.0.9.jar (24 KB at 80.2 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-monitor/2.0.9/maven-monitor-2.0.9.jar (11 KB at 35.4 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-toolchain/2.0.9/maven-toolchain-2.0.9.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-error-diagnostics/2.0.9/maven-error-diagnostics-2.0.9.jar (14 KB at 44.7 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1/classworlds-1.1.jar (37 KB at 128.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/classworlds/classworlds/1.1/classworlds-1.1.jar (37 KB at 121.6 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-descriptor/2.0.9/maven-plugin-descriptor-2.0.9.jar (37 KB at 114.1 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-monitor/2.0.9/maven-monitor-2.0.9.jar (11 KB at 31.0 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.jar (14 KB at 41.2 KB/sec)
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-toolchain/2.0.9/maven-toolchain-2.0.9.jar (38 KB at 111.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-repository-metadata/2.0.9/maven-repository-metadata-2.0.9.jar (24 KB at 82.4 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-plugin-descriptor/2.0.9/maven-plugin-descriptor-2.0.9.jar (37 KB at 124.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-error-diagnostics/2.0.9/maven-error-diagnostics-2.0.9.jar (14 KB at 46.3 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/maven-toolchain/2.0.9/maven-toolchain-2.0.9.jar (38 KB at 126.1 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/plugin-tools/maven-plugin-annotations/3.1/maven-plugin-annotations-3.1.jar (14 KB at 46.4 KB/sec)
 [INFO] Surefire report directory: /tmp/build/tests/target/surefire-reports
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.pom (3 KB at 43.6 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.pom (3 KB at 42.8 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom (3 KB at 46.8 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-providers/2.12.4/surefire-providers-2.12.4.pom (3 KB at 54.6 KB/sec)
 [INFO] Downloading: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.jar
-[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.jar (37 KB at 974.5 KB/sec)
+[INFO] Downloaded: http://172.17.0.1/dawbrn/mavencentral/org/apache/maven/surefire/surefire-junit4/2.12.4/surefire-junit4-2.12.4.jar (37 KB at 667.7 KB/sec)
 
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
 Running org.keycloak.documentation.test.SecuringAppsTest
-06:57:26,833 INFO  [org.keycloak.documentation.test.Config] Testing community documentation
-06:57:28,207 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/keycloak/keycloak-nodejs-connect
-06:57:28,470 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/keycloak/keycloak-nodejs-auth-utils
-06:57:28,686 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/dylanplecki/KeycloakOwinAuthentication
-06:57:28,759 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://pypi.python.org/pypi/oic/
-06:57:29,062 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/openid/AppAuth-Android
-06:57:29,311 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/aerogear/aerogear-android-authz
-06:57:29,573 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/openid/AppAuth-iOS
-06:57:29,839 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/aerogear/aerogear-ios-oauth2
-06:57:30,158 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/pingidentity/mod_auth_openidc
-06:57:30,848 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/connect/
-06:57:31,623 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6749
-06:57:31,750 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://jwt.io
-06:57:31,864 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://saml.xml.org/saml-specifications
-06:57:32,186 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-session-1_0.html#ChangeNotification
-06:57:32,255 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://developers.redhat.com/products/fuse/overview/
-06:57:32,320 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.eclipse.org/jetty/
-06:57:32,348 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://hawt.io
-06:57:32,763 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://ops4j1.jira.com/wiki/display/ops4j/Pax+Web+Extender+-+War
-06:57:32,878 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://ops4j1.jira.com/wiki/display/ops4j/Pax+Web+Extender+-+Whiteboard
-06:57:33,059 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://camel.apache.org/
-06:57:33,237 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://camel.apache.org/jetty.html
-06:57:33,417 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://cxf.apache.org/
-06:57:33,592 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://cxf.apache.org/docs/jetty-configuration.html
-06:57:33,647 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html-single/deploying_into_a_web_server/
-06:57:33,792 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.eclipse.org/jetty/documentation/current/startup-base-and-home.html
-06:57:33,898 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://start.spring.io/
-06:57:34,296 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.spring.io/spring-security/site/docs/4.0.x/apidocs/org/springframework/security/config/annotation/web/WebSecurityConfigurer.html
-06:57:35,265 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
-06:57:35,446 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7523
-06:57:35,549 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://self-issued.info/docs/draft-ietf-jose-json-web-key.html
-06:57:36,751 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth
-06:57:37,956 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#ImplicitFlowAuth
-06:57:38,840 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth
-06:57:39,068 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/davidchambers/Base64.js
-06:57:39,310 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/devote/HTML5-History-API
-06:57:39,563 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/senchalabs/connect
-06:57:39,984 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.npmjs.com/package/keycloak-connect
-06:57:40,129 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://nodejs.org
-06:57:41,251 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint
-06:57:42,375 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#UserInfo
-06:57:42,712 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7517
-06:57:43,034 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7662
-06:57:43,408 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://openid.net/specs/openid-connect-registration-1_0.html
-06:57:44,190 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6749#section-4.3
-06:57:44,984 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6749#section-4.4
-06:57:45,010 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html/Administration_and_Configuration_Guide/chap-Externalize_Sessions.html#Externalize_HTTP_Session_from_JBoss_EAP_6.x_to_JBoss_Data_Grid
-06:57:45,326 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/UNINETT/mod_auth_mellon
-06:57:45,574 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.docker.com/registry/configuration/
-06:57:45,908 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7591
-06:57:46,247 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7592
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.875 sec
+11:50:53,949 INFO  [org.keycloak.documentation.test.Config] Testing community documentation
+11:50:55,301 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/keycloak/keycloak-nodejs-connect
+11:50:55,663 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/keycloak/keycloak-nodejs-auth-utils
+11:50:55,889 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/dylanplecki/KeycloakOwinAuthentication
+11:50:55,953 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://pypi.python.org/pypi/oic/
+11:50:56,266 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/openid/AppAuth-Android
+11:50:56,508 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/aerogear/aerogear-android-authz
+11:50:56,933 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/openid/AppAuth-iOS
+11:50:57,249 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/aerogear/aerogear-ios-oauth2
+11:50:57,537 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/pingidentity/mod_auth_openidc
+11:50:58,272 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/connect/
+11:50:58,762 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6749
+11:50:58,991 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://jwt.io
+11:50:59,177 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://saml.xml.org/saml-specifications
+11:50:59,477 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-session-1_0.html#ChangeNotification
+11:50:59,762 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://developers.redhat.com/products/fuse/overview/
+11:50:59,823 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.eclipse.org/jetty/
+11:50:59,937 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://hawt.io
+11:51:00,610 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://ops4j1.jira.com/wiki/display/ops4j/Pax+Web+Extender+-+War
+11:51:00,733 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://ops4j1.jira.com/wiki/display/ops4j/Pax+Web+Extender+-+Whiteboard
+11:51:00,984 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://camel.apache.org/
+11:51:01,171 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://camel.apache.org/jetty.html
+11:51:01,330 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://cxf.apache.org/
+11:51:01,507 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://cxf.apache.org/docs/jetty-configuration.html
+11:51:01,599 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html-single/deploying_into_a_web_server/
+11:51:01,750 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.eclipse.org/jetty/documentation/current/startup-base-and-home.html
+11:51:01,960 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://start.spring.io/
+11:51:02,346 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.spring.io/spring-security/site/docs/4.0.x/apidocs/org/springframework/security/config/annotation/web/WebSecurityConfigurer.html
+11:51:03,324 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
+11:51:03,507 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7523
+11:51:03,660 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://self-issued.info/docs/draft-ietf-jose-json-web-key.html
+11:51:04,849 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth
+11:51:06,187 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#ImplicitFlowAuth
+11:51:07,078 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#HybridFlowAuth
+11:51:07,319 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/davidchambers/Base64.js
+11:51:07,651 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/devote/HTML5-History-API
+11:51:08,308 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/senchalabs/connect
+11:51:08,770 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.npmjs.com/package/keycloak-connect
+11:51:08,953 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://nodejs.org
+11:51:10,293 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint
+11:51:11,848 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#UserInfo
+11:51:12,190 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7517
+11:51:12,537 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7662
+11:51:12,878 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://openid.net/specs/openid-connect-registration-1_0.html
+11:51:13,311 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6749#section-4.3
+11:51:14,098 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6749#section-4.4
+11:51:14,159 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html/Administration_and_Configuration_Guide/chap-Externalize_Sessions.html#Externalize_HTTP_Session_from_JBoss_EAP_6.x_to_JBoss_Data_Grid
+11:51:14,519 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/UNINETT/mod_auth_mellon
+11:51:14,882 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.docker.com/registry/configuration/
+11:51:15,274 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7591
+11:51:15,629 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7592
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.091 sec
 Running org.keycloak.documentation.test.AuthorizationServicesTest
-06:57:46,725 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://kantarainitiative.org/confluence/display/uma/UMA+1.0+Core+Protocol
-06:57:46,931 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/keycloak/keycloak-quickstarts
-06:57:47,261 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.drools.org
-06:57:47,293 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.kantarainitiative.org/uma/rec-oauth-resource-reg-v1_0_1.html
-06:57:47,477 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7519
-06:57:47,793 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.rfc-editor.org/rfc/rfc7515.txt
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.409 sec
+11:51:16,148 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://kantarainitiative.org/confluence/display/uma/UMA+1.0+Core+Protocol
+11:51:16,383 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/keycloak/keycloak-quickstarts
+11:51:16,756 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.drools.org
+11:51:16,858 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.kantarainitiative.org/uma/rec-oauth-resource-reg-v1_0_1.html
+11:51:17,079 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7519
+11:51:17,722 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.rfc-editor.org/rfc/rfc7515.txt
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.978 sec
 Running org.keycloak.documentation.test.GettingStartedTest
-06:57:48,009 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.keycloak.org/downloads.html
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec
+11:51:17,916 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.keycloak.org/downloads.html
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 sec
 Running org.keycloak.documentation.test.ServerDeveloperTest
-06:57:48,290 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://freemarker.org
-06:57:48,453 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://freemarker.org/docs/index.html
-06:57:48,639 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/jax-rs
-06:57:48,753 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.liquibase.org/
-06:57:48,914 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.961 sec
+11:51:18,424 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://freemarker.org
+11:51:18,575 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://freemarker.org/docs/index.html
+11:51:18,814 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/jax-rs
+11:51:19,095 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.liquibase.org/
+11:51:19,245 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.364 sec
 Running org.keycloak.documentation.test.ServerAdminTest
-06:57:49,151 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://en.wikipedia.org/wiki/Bounce_address
-06:57:49,404 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://developers.google.com/recaptcha/
-06:57:49,534 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.microhowto.info/howto/configure_firefox_to_authenticate_using_spnego_and_kerberos.html
-06:57:50,560 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.docker.com/
-06:57:50,763 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.freeipa.org/page/Main_Page
-06:57:50,922 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/mposolda/keycloak-freeipa-docker/blob/master/README.md
-06:57:51,088 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://directory.apache.org/apacheds/
-06:57:51,245 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/keycloak/keycloak/blob/master/misc/Testsuite.md#user-content-kerberos-server
-06:57:51,672 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-EnableSSL
-06:57:51,732 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-%7B%7B%3Cssl%2F%3E%7D%7D
-06:57:51,791 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-HTTPSlistener
-06:57:52,779 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
-06:57:53,822 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc5280#section-4.2.1.12
-06:57:53,873 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.docker.com/registry/spec/auth/
-06:57:53,924 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.docker.com/registry/spec/auth/token/
-06:57:54,247 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc2617
-06:57:55,060 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6749#section-4.1.3
-06:57:55,087 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.w3.org/TR/cors/
-06:57:55,758 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6749#section-4.4.3
-06:57:55,915 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://console.cloud.google.com/project
-06:57:55,933 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://developers.google.com/oauthplayground/
-06:57:56,097 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://developers.facebook.com/
-06:57:56,817 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://developers.facebook.com/docs/graph-api
-06:57:57,013 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://apps.twitter.com
-06:57:57,078 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/settings/developers
-06:57:57,213 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.linkedin.com/developer/apps
-06:57:57,764 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://account.live.com/developers/applications/create
-06:57:57,902 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://stackapps.com/
-06:57:57,954 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://stackapps.com/apps/oauth/register
-06:57:58,146 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.openshift.org/latest/architecture/additional_concepts/authentication.html#oauth
-06:57:59,119 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess
-06:57:59,480 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://fedoraproject.org/wiki/Features/SSSD
-06:57:59,510 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System-Level_Authentication_Guide/SSSD.html
-06:57:59,555 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html
-06:57:59,595 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Linux_Domain_Identity_Authentication_and_Policy_Guide/index.html
-06:57:59,738 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.freeipa.org/page/Docker
-06:57:59,887 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.freeipa.org/page/Quick_Start_Guide
-06:58:00,048 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.matthew.ath.cx/projects/java/
-06:58:00,222 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/keycloak/libunix-dbus-java/releases
-06:58:00,254 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://freeotp.github.io/
-06:58:00,356 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2
-06:58:00,678 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6819
-06:58:01,217 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.fail2ban.org/wiki/index.php/Main_Page
-06:58:01,585 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7034
-06:58:01,626 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.w3.org/TR/CSP/
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.751 sec
+11:51:19,448 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://en.wikipedia.org/wiki/Bounce_address
+11:51:19,715 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://developers.google.com/recaptcha/
+11:51:20,039 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.microhowto.info/howto/configure_firefox_to_authenticate_using_spnego_and_kerberos.html
+11:51:21,342 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.docker.com/
+11:51:21,569 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.freeipa.org/page/Main_Page
+11:51:21,708 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/mposolda/keycloak-freeipa-docker/blob/master/README.md
+11:51:22,058 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://directory.apache.org/apacheds/
+11:51:22,293 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/keycloak/keycloak/blob/master/misc/Testsuite.md#user-content-kerberos-server
+11:51:22,732 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-EnableSSL
+11:51:22,793 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-%7B%7B%3Cssl%2F%3E%7D%7D
+11:51:22,853 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-HTTPSlistener
+11:51:23,755 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc5280#section-4.2.1.3
+11:51:24,610 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc5280#section-4.2.1.12
+11:51:24,780 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.docker.com/registry/spec/auth/
+11:51:24,953 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.docker.com/registry/spec/auth/token/
+11:51:25,305 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc2617
+11:51:26,052 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6749#section-4.1.3
+11:51:26,394 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.w3.org/TR/cors/
+11:51:26,975 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6749#section-4.4.3
+11:51:27,141 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://console.cloud.google.com/project
+11:51:27,247 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://developers.google.com/oauthplayground/
+11:51:27,608 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://developers.facebook.com/
+11:51:28,362 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://developers.facebook.com/docs/graph-api
+11:51:28,482 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://apps.twitter.com
+11:51:28,555 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/settings/developers
+11:51:28,690 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.linkedin.com/developer/apps
+11:51:28,913 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://account.live.com/developers/applications/create
+11:51:29,165 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://stackapps.com/
+11:51:29,222 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://stackapps.com/apps/oauth/register
+11:51:29,417 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.openshift.org/latest/architecture/additional_concepts/authentication.html#oauth
+11:51:30,537 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess
+11:51:30,888 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://fedoraproject.org/wiki/Features/SSSD
+11:51:30,932 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System-Level_Authentication_Guide/SSSD.html
+11:51:31,302 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html
+11:51:31,990 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Linux_Domain_Identity_Authentication_and_Policy_Guide/index.html
+11:51:32,125 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.freeipa.org/page/Docker
+11:51:32,276 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://www.freeipa.org/page/Quick_Start_Guide
+11:51:32,818 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.matthew.ath.cx/projects/java/
+11:51:33,025 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://github.com/keycloak/libunix-dbus-java/releases
+11:51:33,099 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://freeotp.github.io/
+11:51:33,249 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2
+11:51:33,603 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc6819
+11:51:34,306 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.fail2ban.org/wiki/index.php/Main_Page
+11:51:34,504 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://tools.ietf.org/html/rfc7034
+11:51:34,533 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.w3.org/TR/CSP/
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.358 sec
 Running org.keycloak.documentation.test.ServerInstallationTest
-06:58:01,999 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Documentation
-06:58:02,059 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/DataSource+configuration
-06:58:02,120 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/JPA+Reference+Guide#JPAReferenceGuide-Hibernateproperties
-06:58:02,180 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Interfaces+and+ports
-06:58:02,398 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.cacert.org
-06:58:02,521 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html
-06:58:02,582 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/JGroups+Subsystem
-06:58:02,643 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/High+Availability+Guide
-06:58:02,816 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://infinispan.org/docs/8.2.x/user_guide/user_guide.html#distribution_mode
-06:58:03,028 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://mod-cluster.jboss.org/
-06:58:03,147 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/configuring_high_availability#securing_cluster
-06:58:03,207 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Infinispan+Subsystem
-06:58:03,626 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://issues.jboss.org/browse/KEYCLOAK-3873
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.935 sec
+11:51:34,930 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Documentation
+11:51:34,990 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/DataSource+configuration
+11:51:35,050 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/JPA+Reference+Guide#JPAReferenceGuide-Hibernateproperties
+11:51:35,110 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Interfaces+and+ports
+11:51:36,134 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://www.cacert.org
+11:51:36,318 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html
+11:51:36,378 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/JGroups+Subsystem
+11:51:36,439 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/High+Availability+Guide
+11:51:36,749 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://infinispan.org/docs/8.2.x/user_guide/user_guide.html#distribution_mode
+11:51:37,057 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: http://mod-cluster.jboss.org/
+11:51:37,210 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/configuring_high_availability#securing_cluster
+11:51:37,270 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://docs.jboss.org/author/display/WFLY10/Infinispan+Subsystem
+11:51:37,692 DEBUG [org.keycloak.documentation.test.utils.LinkUtils] Checked link: https://issues.jboss.org/browse/KEYCLOAK-3873
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.072 sec
 Running org.keycloak.documentation.test.UpgradingTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec
 
 Results :
 
@@ -1377,21 +1377,21 @@ Tests run: 35, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] Keycloak Documentation Parent ...................... SUCCESS [  3.288 s]
-[INFO] API Documentation .................................. SUCCESS [ 13.988 s]
-[INFO] Authorization Services ............................. SUCCESS [  4.950 s]
-[INFO] Getting Started .................................... SUCCESS [  1.917 s]
-[INFO] Securing Applications and Services ................. SUCCESS [  4.017 s]
-[INFO] Server Administration .............................. SUCCESS [  3.716 s]
-[INFO] Server Developer ................................... SUCCESS [  2.407 s]
-[INFO] Server Installation and Configuration .............. SUCCESS [  1.745 s]
-[INFO] Upgrading Guide .................................... SUCCESS [  1.237 s]
-[INFO] Aggregation ........................................ SUCCESS [  1.419 s]
-[INFO] Tests .............................................. SUCCESS [ 48.797 s]
+[INFO] Keycloak Documentation Parent ...................... SUCCESS [  5.063 s]
+[INFO] API Documentation .................................. SUCCESS [ 17.881 s]
+[INFO] Authorization Services ............................. SUCCESS [  4.796 s]
+[INFO] Getting Started .................................... SUCCESS [  1.886 s]
+[INFO] Securing Applications and Services ................. SUCCESS [  3.899 s]
+[INFO] Server Administration .............................. SUCCESS [  4.203 s]
+[INFO] Server Developer ................................... SUCCESS [  2.325 s]
+[INFO] Server Installation and Configuration .............. SUCCESS [  1.958 s]
+[INFO] Upgrading Guide .................................... SUCCESS [  1.276 s]
+[INFO] Aggregation ........................................ SUCCESS [  1.538 s]
+[INFO] Tests .............................................. SUCCESS [ 51.339 s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:27 min
-[INFO] Finished at: 2017-09-08T06:58:04+00:00
-[INFO] Final Memory: 93M/237M
+[INFO] Total time: 01:37 min
+[INFO] Finished at: 2017-09-08T11:51:37+00:00
+[INFO] Final Memory: 92M/237M
 [INFO] ------------------------------------------------------------------------
