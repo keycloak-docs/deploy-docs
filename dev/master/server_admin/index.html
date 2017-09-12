@@ -846,8 +846,10 @@ span.image img {
 <li><a href="#github">12.4.4. Github</a></li>
 <li><a href="#linkedin">12.4.5. LinkedIn</a></li>
 <li><a href="#microsoft">12.4.6. Microsoft</a></li>
-<li><a href="#stackoverflow">12.4.7. StackOverflow</a></li>
-<li><a href="#openshift">12.4.8. Openshift</a></li>
+<li><a href="#paypal">12.4.7. PayPal</a></li>
+<li><a href="#do-the-following-changes">12.4.8. Do the following changes:</a></li>
+<li><a href="#stackoverflow">12.4.9. StackOverflow</a></li>
+<li><a href="#openshift">12.4.10. Openshift</a></li>
 </ul>
 </li>
 <li><a href="#openid-connect-v1-0-identity-providers">12.5. OpenID Connect v1.0 Identity Providers</a></li>
@@ -5654,7 +5656,72 @@ Go back to Keycloak and specify those items.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="stackoverflow"><a class="anchor" href="#stackoverflow"></a>12.4.7. StackOverflow</h4>
+<h4 id="paypal"><a class="anchor" href="#paypal"></a>12.4.7. PayPal</h4>
+<div class="paragraph">
+<p>There are a number of steps you have to complete to be able to login to PayPal.  First, go to the <code>Identity Providers</code> left menu item
+and select <code>PayPal</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
+</div>
+<div class="paragraph">
+<div class="title">Add Identity Provider</div>
+<p><span class="image"><img src="./keycloak-images/paypal-add-identity-provider.png" alt="paypal add identity provider"></span></p>
+</div>
+<div class="paragraph">
+<p>You can&#8217;t click save yet, as you&#8217;ll need to obtain a <code>Client ID</code> and <code>Client Secret</code> from PayPal.  One piece of data you&#8217;ll need from this
+page is the <code>Redirect URI</code>.  You&#8217;ll have to provide that to PayPal when you register Keycloak as a client there, so
+copy this URI to your clipboard.</p>
+</div>
+<div class="paragraph">
+<p>To enable login with PayPal you first have to register an application project in
+<a href="https://developer.paypal.com/developer/applications">PayPal Developer applications</a>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Add a New App</div>
+<p><span class="image"><img src="./images/paypal-developer-applications.png" alt="paypal developer applications"></span></p>
+</div>
+<div class="paragraph">
+<p>Click the <code>Create App</code> button.</p>
+</div>
+<div class="paragraph">
+<div class="title">Register App</div>
+<p><span class="image"><img src="./images/paypal-register-app.png" alt="paypal register app"></span></p>
+</div>
+<div class="paragraph">
+<p>You will now be brought to the app settings page.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="do-the-following-changes"><a class="anchor" href="#do-the-following-changes"></a>12.4.8. Do the following changes:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Choose to configure either Sandbox or Live (choose Live if you haven&#8217;t enabled the <code>Target Sandbox</code> switch on the <code>Add identity provider</code> page)</p>
+</li>
+<li>
+<p>Copy Client ID and Secret so you can paste them into the Keycloak <code>Add identity provider</code> page.</p>
+</li>
+<li>
+<p>Scroll down to <code>App Settings</code></p>
+</li>
+<li>
+<p>Copy the <code>Redirect URI</code> from the Keycloak <code>Add Identity Provider</code> page and enter it into the <code>Return URL</code> field.</p>
+</li>
+<li>
+<p>Check the <code>Log In with PayPal</code> checkbox.</p>
+</li>
+<li>
+<p>Check the <code>Full name</code> checkbox under the personal information section.</p>
+</li>
+<li>
+<p>Check the <code>Email address</code> checkbox under the address information section.</p>
+</li>
+<li>
+<p>Add both a privacy and a user agreement URL pointing to the respective pages on your domain.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="stackoverflow"><a class="anchor" href="#stackoverflow"></a>12.4.9. StackOverflow</h4>
 <div class="paragraph">
 <p>There are a number of steps you have to complete to be able to login to StackOverflow.  First, go to the <code>Identity Providers</code> left menu item
 and select <code>StackOverflow</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
@@ -5698,7 +5765,7 @@ Go back to Keycloak and specify those items.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="openshift"><a class="anchor" href="#openshift"></a>12.4.8. Openshift</h4>
+<h4 id="openshift"><a class="anchor" href="#openshift"></a>12.4.10. Openshift</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -9598,7 +9665,7 @@ at least one digit character, not be equal to user&#8217;s <code>username</code>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-08 11:49:51 UTC
+Last updated 2017-09-12 10:03:37 UTC
 </div>
 </div>
 <ul id="globalnav">
