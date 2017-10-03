@@ -671,13 +671,14 @@ span.image img {
 <li><a href="#_spring_security_adapter">2.1.8. Spring Security Adapter</a></li>
 <li><a href="#_servlet_filter_adapter">2.1.9. Java Servlet Filter Adapter</a></li>
 <li><a href="#_jaas_adapter">2.1.10. JAAS plugin</a></li>
-<li><a href="#security-context">2.1.11. Security Context</a></li>
-<li><a href="#_adapter_error_handling">2.1.12. Error Handling</a></li>
-<li><a href="#logout">2.1.13. Logout</a></li>
-<li><a href="#parameters-forwarding">2.1.14. Parameters Forwarding</a></li>
-<li><a href="#_client_authentication_adapter">2.1.15. Client Authentication</a></li>
-<li><a href="#_multi_tenancy">2.1.16. Multi Tenancy</a></li>
-<li><a href="#_applicationclustering">2.1.17. Application Clustering</a></li>
+<li><a href="#_installed_adapter">2.1.11. CLI / Desktop Applications</a></li>
+<li><a href="#security-context">2.1.12. Security Context</a></li>
+<li><a href="#_adapter_error_handling">2.1.13. Error Handling</a></li>
+<li><a href="#logout">2.1.14. Logout</a></li>
+<li><a href="#parameters-forwarding">2.1.15. Parameters Forwarding</a></li>
+<li><a href="#_client_authentication_adapter">2.1.16. Client Authentication</a></li>
+<li><a href="#_multi_tenancy">2.1.17. Multi Tenancy</a></li>
+<li><a href="#_applicationclustering">2.1.18. Application Clustering</a></li>
 </ul>
 </li>
 <li><a href="#_javascript_adapter">2.2. Javascript Adapter</a>
@@ -691,7 +692,7 @@ span.image img {
 <li><a href="#_nodejs_adapter">2.3. Node.js Adapter</a>
 <ul class="sectlevel3">
 <li><a href="#installation">2.3.1. Installation</a></li>
-<li><a href="#usage">2.3.2. Usage</a></li>
+<li><a href="#usage-2">2.3.2. Usage</a></li>
 <li><a href="#installing-middleware">2.3.3. Installing Middleware</a></li>
 <li><a href="#protecting-resources">2.3.4. Protecting Resources</a></li>
 <li><a href="#additional-urls">2.3.5. Additional URLs</a></li>
@@ -3496,7 +3497,200 @@ Default value is <code>org.keycloak.adapters.jaas.RolePrincipal</code>. Note: Th
 </div>
 </div>
 <div class="sect3">
-<h4 id="security-context"><a class="anchor" href="#security-context"></a>2.1.11. Security Context</h4>
+<h4 id="_installed_adapter"><a class="anchor" href="#_installed_adapter"></a>2.1.11. CLI / Desktop Applications</h4>
+<div class="paragraph">
+<p>Keycloak supports securing desktop
+(e.g. Swing, JavaFX) or CLI applications via the
+<code>KeycloakInstalled</code> adapter by performing the authentication step via the system browser.</p>
+</div>
+<div class="paragraph">
+<p>The <code>KeycloakInstalled</code> adapter supports a <code>desktop</code> and a <code>manual</code>
+variant. The desktop variant uses the system browser
+to gather the user credentials. The manual variant
+reads the user credentials from <code>STDIN</code>.</p>
+</div>
+<div class="paragraph">
+<p>Tip: Google provides some more information about this approach on at
+<a href="https://developers.google.com/identity/protocols/OAuth2InstalledApp">OAuth2InstalledApp</a>.</p>
+</div>
+<div class="sect4">
+<h5 id="how-it-works"><a class="anchor" href="#how-it-works"></a>How it works</h5>
+<div class="paragraph">
+<p>To authenticate a user with the <code>desktop</code> variant the <code>KeycloakInstalled</code>
+adapter opens a desktop browser window where a user uses the regular Keycloak
+login pages to login when the <code>loginDesktop()</code> method is called on the <code>KeycloakInstalled</code> object.</p>
+</div>
+<div class="paragraph">
+<p>The login page URL is opened with redirect parameter
+that points to a local <code>ServerSocket</code> listening on a free ephemeral port
+on <code>localhost</code> which is started by the adapter.</p>
+</div>
+<div class="paragraph">
+<p>After a succesful login the <code>KeycloakInstalled</code> receives the authorization code
+from the incoming HTTP request and performs the authorization code flow.
+Once the code to token exchange is completed the <code>ServerSocket</code> is shutdown.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If the user already has an active Keycloak session then
+the login form is not shown but the code to token exchange is continued,
+which enables a smooth Web based SSO experience.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The client eventually receives the tokens (access_token, refresh_token,
+id_token) which can then be used to call backend services.</p>
+</div>
+<div class="paragraph">
+<p>The <code>KeycloakInstalled</code> adapter provides support for reneval of stale tokens.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_installed_adapter_installation"><a class="anchor" href="#_installed_adapter_installation"></a>Adapter Installation</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;dependency&gt;</span>
+        <span class="tag">&lt;groupId&gt;</span>org.keycloak<span class="tag">&lt;/groupId&gt;</span>
+        <span class="tag">&lt;artifactId&gt;</span>keycloak-installed-adapter<span class="tag">&lt;/artifactId&gt;</span>
+        <span class="tag">&lt;version&gt;</span>3.4.0.CR1<span class="tag">&lt;/version&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="client-configuration"><a class="anchor" href="#client-configuration"></a>Client Configuration</h5>
+<div class="paragraph">
+<p>The application needs to be configured as a <code>public</code> openid connect client with
+<code>Standard Flow Enabled</code> and http://localhost:* as an allowed <code>Valid Redirect URI</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="usage"><a class="anchor" href="#usage"></a>Usage</h5>
+<div class="paragraph">
+<p>The <code>KeycloakInstalled</code> adapter reads it&#8217;s configuration from
+<code>META-INF/keycloak.json</code> on the classpath. Custom configurations
+can be supplied with an <code>InputStream</code> or a <code>KeycloakDeployment</code>
+through the <code>KeycloakInstalled</code> constructor.</p>
+</div>
+<div class="paragraph">
+<p>In the example below, the client configuration for <code>desktop-app</code>
+uses the following <code>keycloak.json</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>{
+  "realm": "desktop-app-auth",
+  "auth-server-url": "http://localhost:8081/auth",
+  "ssl-required": "external",
+  "resource": "desktop-app",
+  "public-client": true,
+  "use-resource-role-mappings": true
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>the following sketch demonstrates working with the <code>KeycloakInstalled</code> adapter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>// reads the configuration from classpath: META-INF/keycloak.json
+KeycloakInstalled keycloak = new KeycloakInstalled();
+
+// opens desktop browser
+keycloak.loginDesktop();
+
+AccessToken token = keycloak.getToken();
+// use token to send backend request
+
+// ensure token is valid for at least 30 seconds
+long minValidity = 30L;
+String tokenString = keycloak.getTokenString(minValidity, TimeUnit.SECONDS);
+
+
+ // when you want to logout the user.
+keycloak.logout();</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>KeycloakInstalled</code> class supports customization of the http responses returned by
+login / logout requests via the <code>loginResponseWriter</code> and <code>logoutResponseWriter</code> attributes.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="example"><a class="anchor" href="#example"></a>Example</h5>
+<div class="paragraph">
+<p>The following provides an example for the configuration mentioned above.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>import java.util.Locale;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+import org.keycloak.adapters.installed.KeycloakInstalled;
+import org.keycloak.representations.AccessToken;
+
+public class DesktopApp {
+
+	public static void main(String[] args) throws Exception {
+
+		KeycloakInstalled keycloak = new KeycloakInstalled();
+		keycloak.setLocale(Locale.ENGLISH);
+		keycloak.loginDesktop();
+
+		AccessToken token = keycloak.getToken();
+		Executors.newSingleThreadExecutor().submit(() -&gt; {
+
+			System.out.println("Logged in...");
+			System.out.println("Token: " + token.getSubject());
+			System.out.println("Username: " + token.getPreferredUsername());
+			try {
+				System.out.println("AccessToken: " + keycloak.getTokenString());
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+
+			int timeoutSeconds = 20;
+			System.out.printf("Logging out in...%d Seconds%n", timeoutSeconds);
+			try {
+				TimeUnit.SECONDS.sleep(timeoutSeconds);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			try {
+				keycloak.logout();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			System.out.println("Exiting...");
+			System.exit(0);
+		});
+	}
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="security-context"><a class="anchor" href="#security-context"></a>2.1.12. Security Context</h4>
 <div class="paragraph">
 <p>The <code>KeycloakSecurityContext</code> interface is available if you need to access to the tokens directly. This could be useful if you want to retrieve additional
 details from the token (such as user profile information) or you want to invoke a RESTful service that is protected by Keycloak.</p>
@@ -3521,7 +3715,7 @@ details from the token (such as user profile information) or you want to invoke 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_adapter_error_handling"><a class="anchor" href="#_adapter_error_handling"></a>2.1.12. Error Handling</h4>
+<h4 id="_adapter_error_handling"><a class="anchor" href="#_adapter_error_handling"></a>2.1.13. Error Handling</h4>
 <div class="paragraph">
 <p>Keycloak has some error handling facilities for servlet based client adapters.
 When an error is encountered in authentication, Keycloak will call <code>HttpServletResponse.sendError()</code>.
@@ -3558,7 +3752,7 @@ Reason reason = error.getReason();
 </div>
 </div>
 <div class="sect3">
-<h4 id="logout"><a class="anchor" href="#logout"></a>2.1.13. Logout</h4>
+<h4 id="logout"><a class="anchor" href="#logout"></a>2.1.14. Logout</h4>
 <div class="paragraph">
 <p>You can log out of a web application in multiple ways.
 For Java EE servlet containers, you can call HttpServletRequest.logout(). For other browser applications, you can redirect the browser to
@@ -3566,7 +3760,7 @@ For Java EE servlet containers, you can call HttpServletRequest.logout(). For ot
 </div>
 </div>
 <div class="sect3">
-<h4 id="parameters-forwarding"><a class="anchor" href="#parameters-forwarding"></a>2.1.14. Parameters Forwarding</h4>
+<h4 id="parameters-forwarding"><a class="anchor" href="#parameters-forwarding"></a>2.1.15. Parameters Forwarding</h4>
 <div class="paragraph">
 <p>The Keycloak  initial authorization endpoint request has support for various parameters. Most of the parameters are described in
 <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">OIDC specification</a>. Some parameters are added automatically by the adapter based
@@ -3613,7 +3807,7 @@ For more information see the <code>Identity Brokering</code> section in <a href=
 </div>
 </div>
 <div class="sect3">
-<h4 id="_client_authentication_adapter"><a class="anchor" href="#_client_authentication_adapter"></a>2.1.15. Client Authentication</h4>
+<h4 id="_client_authentication_adapter"><a class="anchor" href="#_client_authentication_adapter"></a>2.1.16. Client Authentication</h4>
 <div class="paragraph">
 <p>When a confidential OIDC client needs to send a backchannel request (for example, to exchange code for the token, or to refresh the token) it needs to authenticate against the Keycloak server. By default, there are two ways to authenticate the client: client ID and client secret, or client authentication with signed JWT.</p>
 </div>
@@ -3699,7 +3893,7 @@ you can point to any file on the file system where the client application is run
 </div>
 </div>
 <div class="sect3">
-<h4 id="_multi_tenancy"><a class="anchor" href="#_multi_tenancy"></a>2.1.16. Multi Tenancy</h4>
+<h4 id="_multi_tenancy"><a class="anchor" href="#_multi_tenancy"></a>2.1.17. Multi Tenancy</h4>
 <div class="paragraph">
 <p>Multi Tenancy, in our context, means that a single target application (WAR) can be secured with multiple Keycloak realms. The realms can be located
 one the same Keycloak instance or on different instances.</p>
@@ -3760,7 +3954,7 @@ and you may also want to select the realm based on something else than context-p
 </div>
 </div>
 <div class="sect3">
-<h4 id="_applicationclustering"><a class="anchor" href="#_applicationclustering"></a>2.1.17. Application Clustering</h4>
+<h4 id="_applicationclustering"><a class="anchor" href="#_applicationclustering"></a>2.1.18. Application Clustering</h4>
 <div class="paragraph">
 <p>This chapter is related to supporting clustered applications deployed to JBoss EAP, WildFly and JBoss AS.</p>
 </div>
@@ -4541,7 +4735,7 @@ This can be useful if application has detected the session was expired, for exam
 </div>
 </div>
 <div class="sect3">
-<h4 id="usage"><a class="anchor" href="#usage"></a>2.3.2. Usage</h4>
+<h4 id="usage-2"><a class="anchor" href="#usage-2"></a>2.3.2. Usage</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Instantiate a Keycloak class</dt>
@@ -7894,7 +8088,7 @@ command to save the new token in configuration file, and have <code>Client Regis
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-02 13:24:25 UTC
+Last updated 2017-10-03 03:54:38 UTC
 </div>
 </div>
 <ul id="globalnav">
