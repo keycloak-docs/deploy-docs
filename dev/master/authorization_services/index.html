@@ -715,35 +715,41 @@ span.image img {
 <li><a href="#_policy_rbac">5.2. Role-Based Policy</a>
 <ul class="sectlevel3">
 <li><a href="#configuration-2">5.2.1. Configuration</a></li>
+<li><a href="#_policy_rbac_required">5.2.2. Defining a Role as Required</a></li>
 </ul>
 </li>
-<li><a href="#_policy_rbac_required">5.3. Defining a Role as Required</a></li>
-<li><a href="#_policy_js">5.4. JavaScript-Based Policy</a>
+<li><a href="#_policy_js">5.3. JavaScript-Based Policy</a>
 <ul class="sectlevel3">
-<li><a href="#configuration-3">5.4.1. Configuration</a></li>
-<li><a href="#examples">5.4.2. Examples</a></li>
+<li><a href="#configuration-3">5.3.1. Configuration</a></li>
+<li><a href="#examples">5.3.2. Examples</a></li>
 </ul>
 </li>
-<li><a href="#_policy_drools">5.5. Rule-Based Policy</a>
+<li><a href="#_policy_drools">5.4. Rule-Based Policy</a>
 <ul class="sectlevel3">
-<li><a href="#configuration-4">5.5.1. Configuration</a></li>
-<li><a href="#examples-2">5.5.2. Examples</a></li>
+<li><a href="#configuration-4">5.4.1. Configuration</a></li>
+<li><a href="#examples-2">5.4.2. Examples</a></li>
 </ul>
 </li>
-<li><a href="#_policy_time">5.6. Time-Based Policy</a>
+<li><a href="#_policy_time">5.5. Time-Based Policy</a>
 <ul class="sectlevel3">
-<li><a href="#configuration-5">5.6.1. Configuration</a></li>
+<li><a href="#configuration-5">5.5.1. Configuration</a></li>
 </ul>
 </li>
-<li><a href="#_policy_aggregated">5.7. Aggregated Policy</a>
+<li><a href="#_policy_aggregated">5.6. Aggregated Policy</a>
 <ul class="sectlevel3">
-<li><a href="#configuration-6">5.7.1. Configuration</a></li>
-<li><a href="#decision-strategy-for-aggregated-policies">5.7.2. Decision Strategy for Aggregated Policies</a></li>
+<li><a href="#configuration-6">5.6.1. Configuration</a></li>
+<li><a href="#decision-strategy-for-aggregated-policies">5.6.2. Decision Strategy for Aggregated Policies</a></li>
 </ul>
 </li>
-<li><a href="#_policy_client">5.8. Client-Based Policy</a>
+<li><a href="#_policy_client">5.7. Client-Based Policy</a>
 <ul class="sectlevel3">
-<li><a href="#configuration-7">5.8.1. Configuration</a></li>
+<li><a href="#configuration-7">5.7.1. Configuration</a></li>
+</ul>
+</li>
+<li><a href="#_policy_group">5.8. Group-Based Policy</a>
+<ul class="sectlevel3">
+<li><a href="#configuration-8">5.8.1. Configuration</a></li>
+<li><a href="#_policy_group_extend_access_children">5.8.2. Extending Access to Child Groups</a></li>
 </ul>
 </li>
 <li><a href="#_policy_logic">5.9. Positive and Negative Logic</a></li>
@@ -758,13 +764,13 @@ span.image img {
 <ul class="sectlevel2">
 <li><a href="#_permission_create_resource">6.1. Creating Resource-Based Permissions</a>
 <ul class="sectlevel3">
-<li><a href="#configuration-8">6.1.1. Configuration</a></li>
+<li><a href="#configuration-9">6.1.1. Configuration</a></li>
 <li><a href="#_permission_typed_resource">6.1.2. Typed Resource Permission</a></li>
 </ul>
 </li>
 <li><a href="#_permission_create_scope">6.2. Creating Scope-Based Permissions</a>
 <ul class="sectlevel3">
-<li><a href="#configuration-9">6.2.1. Configuration</a></li>
+<li><a href="#configuration-10">6.2.1. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#_permission_decision_strategies">6.3. Policy Decision Strategies</a></li>
@@ -798,19 +804,19 @@ span.image img {
 <li><a href="#_service_entitlement_request_metadata">8.3.2. Entitlement Request Metadata</a></li>
 <li><a href="#decide-whether-or-not-resource-s-name-should-be-included-the-response">8.3.3. Decide whether or not resource&#8217;s name should be included the response</a></li>
 <li><a href="#limiting-the-number-of-permissions-within-a-rpt">8.3.4. Limiting the number of permissions within a RPT</a></li>
-<li><a href="#_service_rpt_overview">8.3.5. Requesting Party Token</a></li>
 </ul>
 </li>
-<li><a href="#_service_protection_token_introspection">8.4. Introspecting a Requesting Party Token</a>
+<li><a href="#_service_rpt_overview">8.4. Requesting Party Token</a>
 <ul class="sectlevel3">
-<li><a href="#obtaining-information-about-an-rpt">8.4.1. Obtaining Information about an RPT</a></li>
-<li><a href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt">8.4.2. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</a></li>
+<li><a href="#_service_protection_token_introspection">8.4.1. Introspecting a Requesting Party Token</a></li>
+<li><a href="#obtaining-information-about-an-rpt">8.4.2. Obtaining Information about an RPT</a></li>
+<li><a href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt">8.4.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</a></li>
 </ul>
 </li>
 <li><a href="#_service_client_api">8.5. Authorization Client Java API</a>
 <ul class="sectlevel3">
 <li><a href="#maven-dependency">8.5.1. Maven Dependency</a></li>
-<li><a href="#configuration-10">8.5.2. Configuration</a></li>
+<li><a href="#configuration-11">8.5.2. Configuration</a></li>
 <li><a href="#creating-the-authorization-client">8.5.3. Creating the Authorization Client</a></li>
 <li><a href="#obtaining-user-entitlements">8.5.4. Obtaining User Entitlements</a></li>
 <li><a href="#creating-a-resource-using-the-protection-api">8.5.5. Creating a Resource Using the Protection API</a></li>
@@ -1931,6 +1937,10 @@ to the default resource or any other resource you create using the same type.</p
 <div class="paragraph">
 <p>You can change the default configuration by removing the default resource, policy, or permission definitions and creating your own.</p>
 </div>
+<div class="paragraph">
+<p>The default resource is created with an <strong>URI</strong> that maps to any resource or path in your application using a <strong>/</strong>* pattern. Before creating your own resources, permissions and policies, make
+sure the default configuration doesn&#8217;t conflict with your own settings.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2268,9 +2278,8 @@ can identify them more easily.</p>
 </ul>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_policy_rbac_required"><a class="anchor" href="#_policy_rbac_required"></a>5.3. Defining a Role as Required</h3>
+<div class="sect3">
+<h4 id="_policy_rbac_required"><a class="anchor" href="#_policy_rbac_required"></a>5.2.2. Defining a Role as Required</h4>
 <div class="paragraph">
 <p>When creating a role-based policy, you can specify a specific role as <code>Required</code>. When you do that, the policy will grant access
 only if the user requesting access has been granted <strong>all</strong> the <strong>required</strong> roles. Both realm and client roles can be configured as such.</p>
@@ -2287,8 +2296,9 @@ only if the user requesting access has been granted <strong>all</strong> the <st
 even more fine-grained role-based access control (RBAC) model for your application. For example, you can have policies specific for a client and require a specific client role associated with that client. Or you can enforce that access is granted only in the presence of a specific realm role. You can also combine both approaches within the same policy.</p>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="_policy_js"><a class="anchor" href="#_policy_js"></a>5.4. JavaScript-Based Policy</h3>
+<h3 id="_policy_js"><a class="anchor" href="#_policy_js"></a>5.3. JavaScript-Based Policy</h3>
 <div class="paragraph">
 <p>You can use this type of policy to define conditions for your permissions using JavaScript. It is one of the rule-based policy types
 supported by Keycloak, and provides flexibility to write any policy based on the <a href="#_policy_evaluation_api">Evaluation API</a>.</p>
@@ -2301,7 +2311,7 @@ supported by Keycloak, and provides flexibility to write any policy based on the
 <p><span class="image"><img src="./keycloak-images/policy/create-js.png" alt="Add JavaScript Policy"></span></p>
 </div>
 <div class="sect3">
-<h4 id="configuration-3"><a class="anchor" href="#configuration-3"></a>5.4.1. Configuration</h4>
+<h4 id="configuration-3"><a class="anchor" href="#configuration-3"></a>5.3.1. Configuration</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2333,7 +2343,7 @@ can identify them more easily.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples"><a class="anchor" href="#examples"></a>5.4.2. Examples</h4>
+<h4 id="examples"><a class="anchor" href="#examples"></a>5.3.2. Examples</h4>
 <div class="paragraph">
 <p>Here is a simple example of a JavaScript-based policy that uses attribute-based access control (ABAC) to define a condition based on an attribute
 obtained from the execution context:</p>
@@ -2382,7 +2392,7 @@ obtained from the execution context:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_policy_drools"><a class="anchor" href="#_policy_drools"></a>5.5. Rule-Based Policy</h3>
+<h3 id="_policy_drools"><a class="anchor" href="#_policy_drools"></a>5.4. Rule-Based Policy</h3>
 <div class="paragraph">
 <p>With this type of policy you can define conditions for your permissions using <a href="http://www.drools.org">Drools</a>, which is a rule evaluation environment. It is one of the <em>Rule-Based</em> policy types
 supported by Keycloak, and provides flexibility to write any policy based on the <a href="#_policy_evaluation_api">Evaluation API</a>.</p>
@@ -2396,7 +2406,7 @@ supported by Keycloak, and provides flexibility to write any policy based on the
 <p><span class="image"><img src="./keycloak-images/policy/create-drools.png" alt="Add Rule Policy"></span></p>
 </div>
 <div class="sect3">
-<h4 id="configuration-4"><a class="anchor" href="#configuration-4"></a>5.5.1. Configuration</h4>
+<h4 id="configuration-4"><a class="anchor" href="#configuration-4"></a>5.4.1. Configuration</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2468,7 +2478,7 @@ can identify them more easily and also know what they actually mean.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="examples-2"><a class="anchor" href="#examples-2"></a>5.5.2. Examples</h4>
+<h4 id="examples-2"><a class="anchor" href="#examples-2"></a>5.4.2. Examples</h4>
 <div class="paragraph">
 <p>Here is a simple example of a Drools-based policy that uses attribute-based access control (ABAC) to define a condition that evaluates to a GRANT
 only if the authenticated user is the owner of the requested resource:</p>
@@ -2513,7 +2523,7 @@ end</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_policy_time"><a class="anchor" href="#_policy_time"></a>5.6. Time-Based Policy</h3>
+<h3 id="_policy_time"><a class="anchor" href="#_policy_time"></a>5.5. Time-Based Policy</h3>
 <div class="paragraph">
 <p>You can use this type of policy to define time conditions for your permissions.</p>
 </div>
@@ -2525,7 +2535,7 @@ end</code></pre>
 <p><span class="image"><img src="./keycloak-images/policy/create-time.png" alt="Add Time Policy"></span></p>
 </div>
 <div class="sect3">
-<h4 id="configuration-5"><a class="anchor" href="#configuration-5"></a>5.6.1. Configuration</h4>
+<h4 id="configuration-5"><a class="anchor" href="#configuration-5"></a>5.5.1. Configuration</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2597,7 +2607,7 @@ can identify them more easily.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_policy_aggregated"><a class="anchor" href="#_policy_aggregated"></a>5.7. Aggregated Policy</h3>
+<h3 id="_policy_aggregated"><a class="anchor" href="#_policy_aggregated"></a>5.6. Aggregated Policy</h3>
 <div class="paragraph">
 <p>As mentioned previously, Keycloak allows you to build a policy of policies, a concept referred to as policy aggregation. You can use policy aggregation to reuse existing policies to build more complex ones and keep your permissions even more decoupled from the policies that are evaluated during the processing of authorization requests.</p>
 </div>
@@ -2628,7 +2638,7 @@ When creating aggregated policies, be mindful that you are not introducing a cir
 </table>
 </div>
 <div class="sect3">
-<h4 id="configuration-6"><a class="anchor" href="#configuration-6"></a>5.7.1. Configuration</h4>
+<h4 id="configuration-6"><a class="anchor" href="#configuration-6"></a>5.6.1. Configuration</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2666,7 +2676,7 @@ can identify them more easily and also know what they mean.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="decision-strategy-for-aggregated-policies"><a class="anchor" href="#decision-strategy-for-aggregated-policies"></a>5.7.2. Decision Strategy for Aggregated Policies</h4>
+<h4 id="decision-strategy-for-aggregated-policies"><a class="anchor" href="#decision-strategy-for-aggregated-policies"></a>5.6.2. Decision Strategy for Aggregated Policies</h4>
 <div class="paragraph">
 <p>When creating aggregated policies, you can also define the decision strategy that will be used to determine the final decision based on the outcome from each policy.</p>
 </div>
@@ -2695,7 +2705,7 @@ can identify them more easily and also know what they mean.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_policy_client"><a class="anchor" href="#_policy_client"></a>5.8. Client-Based Policy</h3>
+<h3 id="_policy_client"><a class="anchor" href="#_policy_client"></a>5.7. Client-Based Policy</h3>
 <div class="paragraph">
 <p>You can use this type of policy to define conditions for your permissions where a set of one or more clients is permitted to access an object.</p>
 </div>
@@ -2707,7 +2717,7 @@ can identify them more easily and also know what they mean.</p>
 <p><span class="image"><img src="./images/policy/create-client.png" alt="Add Client-Based Policy"></span></p>
 </div>
 <div class="sect3">
-<h4 id="configuration-7"><a class="anchor" href="#configuration-7"></a>5.8.1. Configuration</h4>
+<h4 id="configuration-7"><a class="anchor" href="#configuration-7"></a>5.7.1. Configuration</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2736,6 +2746,77 @@ can identify them more easily.</p>
 </div>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_policy_group"><a class="anchor" href="#_policy_group"></a>5.8. Group-Based Policy</h3>
+<div class="paragraph">
+<p>You can use this type of policy to define conditions for your permissions where a set of one or more groups (and their hierarchies) is permitted to access an object.</p>
+</div>
+<div class="paragraph">
+<p>To create a new group-based policy, select <strong>Group</strong> in the dropdown list in the upper right corner of the policy listing.</p>
+</div>
+<div class="paragraph">
+<div class="title">Add Group-Based Policy</div>
+<p><span class="image"><img src="./keycloak-images/policy/create-group.png" alt="Add Group-Based Policy"></span></p>
+</div>
+<div class="sect3">
+<h4 id="configuration-8"><a class="anchor" href="#configuration-8"></a>5.8.1. Configuration</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name</strong></p>
+<div class="paragraph">
+<p>A human-readable and unique string describing the policy. A best practice is to use names that are closely related to your business and security requirements, so you
+can identify them more easily.</p>
+</div>
+</li>
+<li>
+<p><strong>Description</strong></p>
+<div class="paragraph">
+<p>A string containing details about this policy.</p>
+</div>
+</li>
+<li>
+<p><strong>Groups Claim</strong></p>
+<div class="paragraph">
+<p>Specifies the name of the claim in the token holding the group names and/or paths. Usually, authorization requests are processed based on an ID Token or Access Token
+previously issued to a client acting on behalf of some user. The token must include a claim from where this policy is going to obtain the groups
+the user is a member.</p>
+</div>
+</li>
+<li>
+<p><strong>Groups</strong></p>
+<div class="paragraph">
+<p>Allows you to select the groups that should be enforced by this policy when evaluating permissions. After adding a group, you can extend access to children of the group
+by marking the checkbox <strong>Extend to Children</strong>. If left unmarked, access restrictions only applies to the selected group.</p>
+</div>
+</li>
+<li>
+<p><strong>Logic</strong></p>
+<div class="paragraph">
+<p>The <a href="#_policy_logic">Logic</a> of this policy to apply after the other conditions have been evaluated.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_policy_group_extend_access_children"><a class="anchor" href="#_policy_group_extend_access_children"></a>5.8.2. Extending Access to Child Groups</h4>
+<div class="paragraph">
+<p>By default, when you add a group to this policy, access restrictions will only apply to members of the selected group.</p>
+</div>
+<div class="paragraph">
+<p>Under some circumstances, it might be necessary to allow access not only to the group itself but to any child group in the hierarchy. For any group
+added you can mark a checkbox <strong>Extend to Children</strong> in order to extend access to child groups.</p>
+</div>
+<div class="paragraph">
+<div class="title">Extending Access to Child Groups</div>
+<p><span class="image"><img src="./keycloak-images/policy/create-group-extend-children.png" alt="Extending Access to Child Groups"></span></p>
+</div>
+<div class="paragraph">
+<p>In the example above, the policy is granting access for any user member of <strong>IT</strong> or any of its children.</p>
 </div>
 </div>
 </div>
@@ -2953,7 +3034,7 @@ you can start managing permissions. To manage permissions, click the <strong>Per
 <p><span class="image"><img src="./keycloak-images/permission/create-resource.png" alt="Add Resource-Based Permission"></span></p>
 </div>
 <div class="sect3">
-<h4 id="configuration-8"><a class="anchor" href="#configuration-8"></a>6.1.1. Configuration</h4>
+<h4 id="configuration-9"><a class="anchor" href="#configuration-9"></a>6.1.1. Configuration</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3054,7 +3135,7 @@ you can specify the type that you want to protect as well as the policies that a
 <p><span class="image"><img src="./keycloak-images/permission/create-scope.png" alt="Add Scope-Based Permission"></span></p>
 </div>
 <div class="sect3">
-<h4 id="configuration-9"><a class="anchor" href="#configuration-9"></a>6.2.1. Configuration</h4>
+<h4 id="configuration-10"><a class="anchor" href="#configuration-10"></a>6.2.1. Configuration</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3726,8 +3807,9 @@ will include the first permissions defined there.</p>
 is capable of sending previously issued RPTs while asking for new permissions (a.k.a.: incremental authorization).</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_service_rpt_overview"><a class="anchor" href="#_service_rpt_overview"></a>8.3.5. Requesting Party Token</h4>
+</div>
+<div class="sect2">
+<h3 id="_service_rpt_overview"><a class="anchor" href="#_service_rpt_overview"></a>8.4. Requesting Party Token</h3>
 <div class="paragraph">
 <p>A requesting party token (RPT) is a <a href="https://tools.ietf.org/html/rfc7519">JSON web token (JWT)</a> digitally signed using <a href="https://www.rfc-editor.org/rfc/rfc7515.txt">JSON web signature (JWS)</a>. The token is built based on the OAuth2 access token previously issued by Keycloak to a specific client acting on behalf of an user
 or on its own behalf.</p>
@@ -3763,10 +3845,8 @@ or on its own behalf.</p>
 <p>Also note that permissions are directly related with the resources/scopes you are protecting and complete decoupled from
 the access control methods that were used to actually grant and issue these same permissions.</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_service_protection_token_introspection"><a class="anchor" href="#_service_protection_token_introspection"></a>8.4. Introspecting a Requesting Party Token</h3>
+<div class="sect3">
+<h4 id="_service_protection_token_introspection"><a class="anchor" href="#_service_protection_token_introspection"></a>8.4.1. Introspecting a Requesting Party Token</h4>
 <div class="paragraph">
 <p>Sometimes you might want to introspect a requesting party token (RPT) to check its validity or obtain the permissions within the token to enforce authorization decisions on the resource server side.</p>
 </div>
@@ -3783,8 +3863,9 @@ the access control methods that were used to actually grant and issue these same
 </li>
 </ul>
 </div>
+</div>
 <div class="sect3">
-<h4 id="obtaining-information-about-an-rpt"><a class="anchor" href="#obtaining-information-about-an-rpt"></a>8.4.1. Obtaining Information about an RPT</h4>
+<h4 id="obtaining-information-about-an-rpt"><a class="anchor" href="#obtaining-information-about-an-rpt"></a>8.4.2. Obtaining Information about an RPT</h4>
 <div class="paragraph">
 <p>The token introspection is essentially a <a href="https://tools.ietf.org/html/rfc7662">OAuth2 token introspection</a>-compliant endpoint from which you can obtain information about an RPT.</p>
 </div>
@@ -3868,7 +3949,7 @@ The request above is using HTTP BASIC and passing the client&#8217;s credentials
 </div>
 </div>
 <div class="sect3">
-<h4 id="do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"><a class="anchor" href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"></a>8.4.2. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</h4>
+<h4 id="do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"><a class="anchor" href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"></a>8.4.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</h4>
 <div class="paragraph">
 <p>No. Both <a href="#_service_entitlement_api">Entitlement</a> APIs use the
  <a href="https://tools.ietf.org/html/rfc7519">JSON web token (JWT)</a> specification as the default format for RPTs.</p>
@@ -3916,7 +3997,7 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 </div>
 </div>
 <div class="sect3">
-<h4 id="configuration-10"><a class="anchor" href="#configuration-10"></a>8.5.2. Configuration</h4>
+<h4 id="configuration-11"><a class="anchor" href="#configuration-11"></a>8.5.2. Configuration</h4>
 <div class="paragraph">
 <p>The client configuration is defined in a <code>keycloak.json</code> file as follows:</p>
 </div>
@@ -4642,7 +4723,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-03 03:54:38 UTC
+Last updated 2017-10-04 06:07:31 UTC
 </div>
 </div>
 <ul id="globalnav">

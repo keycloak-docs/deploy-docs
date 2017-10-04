@@ -1308,19 +1308,27 @@ The image above shows the tooltip in action.</p>
 <div class="sect2">
 <h3 id="the-master-realm"><a class="anchor" href="#the-master-realm"></a>3.1. The Master Realm</h3>
 <div class="paragraph">
-<p>When you boot Keycloak for the first time a pre-defined realm is created for you.  This initial realm is called
-the <em>master</em> realm and is the king of all realms.  Admins in this realm have permissions to view and manage any
-other realm created on the server instance.  When you define your initial admin account, you are creating an account in the <em>master</em> realm.
-Your initial login to the admin console will also be through the <em>master</em> realm.</p>
+<p>When you boot Keycloak for the first time Keycloak creates a
+pre-defined realm for you. This initial realm is the <em>master</em> realm. It is the
+highest level in the hierarchy of realms. Admin accounts in this realm have
+permissions to view and manage any other realm created on the server instance.
+When you define your initial admin account, you create an account in the
+<em>master</em> realm. Your initial login to the admin console will also be via the
+<em>master</em> realm.</p>
 </div>
 <div class="paragraph">
-<p>It is recommended that you do not use the <em>master</em> realm to manage the users and applications in your organization.  Keep the <em>master</em> realm
-as a place for <em>super</em> admins to create and manage the realms in your system.  This keeps things clean and organized.</p>
+<p>We recommend that you do not use the <em>master</em> realm to manage the users
+and applications in your organization. Reserve use of the <em>master</em> realm for
+<em>super</em> admins to create and manage the realms in your system. Following this
+security model helps prevent accidental changes and follows the tradition
+of permitting user accounts access to only those privileges and powers necessary
+for the successful completion of their current task.</p>
 </div>
 <div class="paragraph">
-<p>It is possible to disable the <em>master</em> realm and define admin accounts at each individual new realm you create.  Each realm has its own
-dedicated Admin Console that you can log into with local accounts.  This guide talks more about this in the
-<a href="#_per_realm_admin_permissions">Dedicated Realm Admin Consoles</a>
+<p>It is possible to disable the <em>master</em> realm and define admin accounts within
+each individual new realm you create. Each realm has its own dedicated Admin
+Console that you can log into with local accounts. This guide talks more about
+this in the <a href="#_per_realm_admin_permissions">Dedicated Realm Admin Consoles</a>
 chapter.</p>
 </div>
 </div>
@@ -9656,7 +9664,7 @@ at least one digit character, not be equal to user&#8217;s <code>username</code>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-03 03:54:39 UTC
+Last updated 2017-10-04 06:07:32 UTC
 </div>
 </div>
 <ul id="globalnav">
