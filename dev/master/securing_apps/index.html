@@ -1330,7 +1330,7 @@ See <a href="#_applicationclustering">Application Clustering</a> for details</p>
 </dd>
 <dt class="hdlist1">principal-attribute</dt>
 <dd>
-<p>OpenID Connection ID Token attribute to populate the UserPrincipal name with.
+<p>OpenID Connect ID Token attribute to populate the UserPrincipal name with.
 If token attribute is null, defaults to <code>sub</code>.
 Possible values are <code>sub</code>, <code>preferred_username</code>, <code>email</code>, <code>name</code>, <code>nickname</code>, <code>given_name</code>, <code>family_name</code>.</p>
 </dd>
@@ -7463,27 +7463,27 @@ It uses Keycloak Client Representation format which provides support for configu
 console, including for example configuring protocol mappers.</p>
 </div>
 <div class="paragraph">
-<p>To create a client create a Client Representation (JSON) then do a HTTP POST to <code>/realms/&lt;realm&gt;/clients-registrations/default</code>.</p>
+<p>To create a client create a Client Representation (JSON) then perform an HTTP POST request to <code>/realms/&lt;realm&gt;/clients-registrations/default</code>.</p>
 </div>
 <div class="paragraph">
 <p>It will return a Client Representation that also includes the registration access token.
 You should save the registration access token somewhere if you want to retrieve the config, update or delete the client later.</p>
 </div>
 <div class="paragraph">
-<p>To retrieve the Client Representation then do a HTTP GET to <code>/realms/&lt;realm&gt;/clients-registrations/default/&lt;client id&gt;</code>.</p>
+<p>To retrieve the Client Representation perform an HTTP GET request to <code>/realms/&lt;realm&gt;/clients-registrations/default/&lt;client id&gt;</code>.</p>
 </div>
 <div class="paragraph">
 <p>It will also return a new registration access token.</p>
 </div>
 <div class="paragraph">
-<p>To update the Client Representation then do a HTTP PUT to with the updated Client Representation to:
+<p>To update the Client Representation perform an HTTP PUT request with the updated Client Representation to:
 <code>/realms/&lt;realm&gt;/clients-registrations/default/&lt;client id&gt;</code>.</p>
 </div>
 <div class="paragraph">
 <p>It will also return a new registration access token.</p>
 </div>
 <div class="paragraph">
-<p>To delete the Client Representation then do a HTTP DELETE to:
+<p>To delete the Client Representation perform an HTTP DELETE request to:
 <code>/realms/&lt;realm&gt;/clients-registrations/default/&lt;client id&gt;</code></p>
 </div>
 </div>
@@ -7500,7 +7500,7 @@ To do this include the following header in the request:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To retrieve the Adapter Configuration then do a HTTP GET to <code>/realms/&lt;realm&gt;/clients-registrations/install/&lt;client id&gt;</code>.</p>
+<p>To retrieve the Adapter Configuration then perfrom an HTTP GET request to <code>/realms/&lt;realm&gt;/clients-registrations/install/&lt;client id&gt;</code>.</p>
 </div>
 <div class="paragraph">
 <p>No authentication is required for public clients.
@@ -7528,7 +7528,7 @@ For those operations the Keycloak representation endpoints should be used.
 When creating a client a Keycloak Client Representation is returned with details about the created client, including a registration access token.</p>
 </div>
 <div class="paragraph">
-<p>To create a client do a HTTP POST with the SAML Entity Descriptor to <code>/realms/&lt;realm&gt;/clients-registrations/saml2-entity-descriptor</code>.</p>
+<p>To create a client perform an HTTP POST request with the SAML Entity Descriptor to <code>/realms/&lt;realm&gt;/clients-registrations/saml2-entity-descriptor</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -8756,7 +8756,7 @@ a valid user.  You can also specify an <code>audience</code> parameter if you wi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-04 06:07:32 UTC
+Last updated 2017-10-05 11:24:22 UTC
 </div>
 </div>
 <ul id="globalnav">
