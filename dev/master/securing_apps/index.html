@@ -810,6 +810,8 @@ span.image img {
 <li><a href="#making-the-request-4">7.5.2. Making the Request</a></li>
 </ul>
 </li>
+<li><a href="#expand-permission-model-with-service-accounts">7.6. Expand Permission Model With Service Accounts</a></li>
+<li><a href="#exchange-vulnerabilities">7.7. Exchange Vulnerabilities</a></li>
 </ul>
 </li>
 </ul>
@@ -8570,9 +8572,7 @@ new access token.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only OIDC identity providers are support at this time.  Validate signatures switch is required and you must
-       provide either the public key to validate external token signatures, or a valid key URL to lookup key
-       identifiers contained in the token.
+SAML identity providers are not supported at this time.  Twitter tokens cannot be exchanged either.
 </td>
 </tr>
 </table>
@@ -8592,11 +8592,15 @@ to do this is <a href="#_client_to_client_permission">discussed earlier</a> in t
 <div class="sect3">
 <h4 id="making-the-request-2"><a class="anchor" href="#making-the-request-2"></a>7.3.2. Making the Request</h4>
 <div class="paragraph">
-<p>When your client is exchanging an existing internal token to an external one, you must provide the
-<code>subject_issuer</code> parameter.  This parameter must be the alias of a configured identity provider.  The
-<code>subject_token_type</code> parameter must be specified and either be an identity token, <code>urn:ietf:params:oauth:token-type:id_token</code>,
-or a JWT access token type <code>urn:ietf:params:oauth:token-type:jwt:access_token</code>.  The <code>subject_token</code> must be a JWT
-irregardless and must be signed using Json Web Signatures.</p>
+<p>The <code>subject_token_type</code> must either be <code>urn:ietf:params:oauth:token-type:access_token</code> or <code>urn:ietf:params:oauth:token-type:jwt</code>.
+If the type is <code>urn:ietf:params:oauth:token-type:access_token</code> you must specify the <code>subject_issuer</code> parameter and it must be the
+alias of the configured identity provider.  If the type is <code>urn:ietf:params:oauth:token-type:jwt</code>, the provider will be matched via
+the <code>issuer</code> claim within the JWT which must be the alias of the provider, or a registered issuer within the providers configuration.</p>
+</div>
+<div class="paragraph">
+<p>For validation, if the token is an access token, the provider&#8217;s user info service will be invoked to validate the token.  A successful call
+will mean that the access token is valid.  If the subject token is a JWT and if the provider has signature validation enabled, that will be attempted,
+otherwise, it will default to also invoking on the user info service to validate the token.</p>
 </div>
 <div class="paragraph">
 <p>By default, the internal token minted will use the calling client to determine what&#8217;s in the token using the protocol
@@ -8611,7 +8615,7 @@ parameter.</p>
     --data-urlencode &quot;grant_type=urn:ietf:params:oauth:grant-type:token-exchange&quot; \
     -d &quot;subject_token=....&quot; \
     -d &quot;subject_issuer=myOidcProvider&quot; \
-    --data-urlencode &quot;subject_token_type=urn:ietf:params:oauth:token-type:id_token&quot;
+    --data-urlencode &quot;subject_token_type=urn:ietf:params:oauth:token-type:access_token&quot;
     -d &quot;audience=target-client&quot; \
     http://localhost:8080/auth/realms/myrealm/protocol/openid-connect/token</code></pre>
 </div>
@@ -8660,7 +8664,7 @@ value of this parameter must be a username or user id.</p>
     -d &quot;client_secret=geheim&quot; \
     --data-urlencode &quot;grant_type=urn:ietf:params:oauth:grant-type:token-exchange&quot; \
     -d &quot;subject_token=....&quot; \
-    --data-urlencode &quot;requested_token_type=urn:ietf:params:oauth:token-type:refresh_token&quot; \
+    --data-urlencode &quot;requested_token_type=urn:ietf:params:oauth:token-type:access_token&quot; \
     -d &quot;audience=target-client&quot; \
     -d &quot;requested_subject=wburke&quot; \
     http://localhost:8080/auth/realms/myrealm/protocol/openid-connect/token</code></pre>
@@ -8771,12 +8775,44 @@ a valid user.  You can also specify an <code>audience</code> parameter if you wi
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="expand-permission-model-with-service-accounts"><a class="anchor" href="#expand-permission-model-with-service-accounts"></a>7.6. Expand Permission Model With Service Accounts</h3>
+<div class="paragraph">
+<p>When granting clients permission to exchange, you don&#8217;t necessarily have to manually enable those permissions for each and every client.
+If the client has a service account associated with it, you can use a role to group permissions together and assign exchange permissions
+by assigning a role to the client&#8217;s service account.  For example, you might define a <code>naked-exchange</code> role and any service account that has that
+role can do a naked exchange.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exchange-vulnerabilities"><a class="anchor" href="#exchange-vulnerabilities"></a>7.7. Exchange Vulnerabilities</h3>
+<div class="paragraph">
+<p>When you start allowing token exchanges, there&#8217;s various things you have to both be aware of and careful of.</p>
+</div>
+<div class="paragraph">
+<p>The first is public clients.  Public clients do not have or require a client credential in order to perform an exchange.  Anybody that has a valid
+token will be able to <em>impersonate</em> the public client and perform the exchanges that public client is allowed to perform.  If there
+are any untrustworthy clients that are managed by your realm, public clients may open up vulnerabilities in your permission models.
+This is why direct naked exchanges do not allow public clients and will abort with an error if the calling client is public.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to exchange social tokens provided by Facebook, Google, etc. for a realm token.  Be careful and vigilante on what
+the exchange token is allowed to do as its not hard to create fake accounts on these social websites.  Use default roles, groups, and identity provider mappers to control what attributes and roles
+are assigned to the external social user.</p>
+</div>
+<div class="paragraph">
+<p>Direct naked exchanges are quite dangerous.  You are putting a lot of trust in the calling client that it will never leak out
+its client credentials.  If those credentials are leaked, then the thief can impersonate anybody in your system.  This is in direct
+contrast to confidential clients that have existing tokens.  You have two factors of authentication, the access token and the client
+credentials, and you&#8217;re only dealing with one user.  So use direct naked exchanges sparingly.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-16 13:01:07 UTC
+Last updated 2017-10-16 22:18:20 UTC
 </div>
 </div>
 <ul id="globalnav">
