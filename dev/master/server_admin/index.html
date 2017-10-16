@@ -7627,7 +7627,7 @@ that you limit the roles an access token is assigned by using the <a href="#_cli
 <h2 id="admin-cli"><a class="anchor" href="#admin-cli"></a>19. Admin CLI</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In previous chapters we have described how to use the Keycloak Admin Console to perform administrative tasks.
+<p>In previous chapters we have described how to use Keycloak Admin Console to perform administrative tasks.
 All those tasks can also be performed from command line by using Admin CLI command line tool.</p>
 </div>
 <div class="sect2">
@@ -7639,7 +7639,7 @@ All those tasks can also be performed from command line by using Admin CLI comma
 <p>The Linux script is called <code>kcadm.sh</code>, and the one for Windows is called <code>kcadm.bat</code>.</p>
 </div>
 <div class="paragraph">
-<p>In order to setup the client to be used from any location on the filesystem you may want to add Keycloak server directory to your PATH.</p>
+<p>In order to use the client from any location on your filesystem you may want to add Keycloak server directory to your PATH.</p>
 </div>
 <div class="paragraph">
 <p>On Linux:</p>
@@ -7659,6 +7659,9 @@ $ kcadm.sh</pre>
 c:\&gt; kcadm</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>We assume KEYCLOAK_HOME env variable is set to the path where you extracted Keycloak Server distribution.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -7676,7 +7679,22 @@ in command line is more than just in <code>kcadm</code> command name.
 <div class="sect2">
 <h3 id="using-admin-cli"><a class="anchor" href="#using-admin-cli"></a>19.2. Using Admin CLI</h3>
 <div class="paragraph">
-<p>Usually a user will first start an authenticated session by providing credentials, then perform some CRUD operations.</p>
+<p>Admin CLI works by making HTTP requests to Admin REST endpoints. Access to them is protected and requires authentication.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Consult Admin REST API documentation for details about JSON attributes for specific endpoints.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You start an authenticated session by providing credentials (i.e. logging in), then you are ready to perform some CRUD operations.</p>
 </div>
 <div class="paragraph">
 <p>For example on Linux:</p>
@@ -7726,20 +7744,17 @@ need to prepare a truststore.jks file, and instruct <code>Admin CLI</code> to us
 <div class="sect2">
 <h3 id="authenticating"><a class="anchor" href="#authenticating"></a>19.3. Authenticating</h3>
 <div class="paragraph">
-<p>Admin CLI works by making HTTP requests to Admin REST endpoints. Access to them is protected and requires authentication.</p>
-</div>
-<div class="paragraph">
 <p>When logging in with <code>Admin CLI</code> you specify a server endpoint url, and a realm. Then you specify a username,
-or alternatively you can only specify a client id, which will result in special service account being used. In the first case,
-a password for the specified user has to be used at login. In the latter case there is no user password - only client secret
-or a <code>Signed JWT</code> is used.</p>
+or alternatively you can specify only a client id, which will result in special, so called 'service account' being used. In the first case,
+a password for the specified user has to be used at login. In the latter case there is no user password - only client secret.
+Alternatively, <code>Signed JWT</code> can be used.</p>
 </div>
 <div class="paragraph">
-<p>The account that logs in needs to have proper permissions in order to be able to invoke Admin REST API operations.
-Specifically - <code>realm-admin</code> role of <code>realm-management</code> client is required for user to administer the realm within which the user is defined.</p>
+<p>The account used for the session needs to have proper permissions in order to be able to invoke Admin REST API operations.
+For example, <code>realm-admin</code> role of <code>realm-management</code> client allows user to administer the realm within which the user is defined.</p>
 </div>
 <div class="paragraph">
-<p>There are two primary mechanisms to authenticate. One is by using <code>kcadm config credentials</code> to start an authenticated session:</p>
+<p>There are two primary mechanisms for authentication. One is using <code>kcadm config credentials</code> to start an authenticated session:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -7748,17 +7763,12 @@ Specifically - <code>realm-admin</code> role of <code>realm-management</code> cl
 </div>
 <div class="paragraph">
 <p>This approach maintains an authenticated session between <code>kcadm</code> command invocations by saving the obtained access token, and
-associated refresh token, possibly other secrets as well in a private configuration file. By default this file is called <code>kcadm.config</code>
-and is located under user&#8217;s home directory - it&#8217;s full pathname is <code>$HOME/.keycloak/kcadm.config</code> (on Windows it&#8217;s <code>%HOMEPATH%\.keycloak\kcadm.config</code>).
-The file can be named something else by using <code>-c, --config</code> option.</p>
-</div>
-<div class="paragraph">
-<p>See <a href="#_working_with_alternative_configurations">next chapter</a> for more info on configuration file.</p>
+associated refresh token, possibly other secrets as well in a private configuration file. See <a href="#_working_with_alternative_configurations">next chapter</a> for more info on configuration file.</p>
 </div>
 <div class="paragraph">
 <p>Another approach is to authenticate with each command invocation for the duration of that invocation only. This approach results
 in more load on the server, and more time spent with round-trips obtaining tokens, but has a benefit of not needing to save any
-tokens between invocations, thus nothing is saved to disk.</p>
+tokens between invocations, thus nothing is saved to disk. This mode is used when <code>--no-config</code> argument is specified.</p>
 </div>
 <div class="paragraph">
 <p>For example, when performing an operation we specify all the information required for authentication:</p>
@@ -7786,27 +7796,41 @@ tokens between invocations, thus nothing is saved to disk.</p>
 <div class="sect2">
 <h3 id="_working_with_alternative_configurations"><a class="anchor" href="#_working_with_alternative_configurations"></a>19.4. Working with alternative configurations</h3>
 <div class="paragraph">
-<p>By default, <code>Admin CLI</code> automatically maintains a configuration file at a default location - <code>.keycloak/kcadm.config</code>
-under user&#8217;s home directory.</p>
+<p>By default, <code>Admin CLI</code> automatically maintains a configuration file called <code>kcadm.config</code> located under user&#8217;s home
+directory - it&#8217;s full pathname is <code>$HOME/.keycloak/kcadm.config</code> (on Windows it&#8217;s <code>%HOMEPATH%\.keycloak\kcadm.config</code>).</p>
 </div>
 <div class="paragraph">
-<p>You can use <code>--config</code> option at any time to point to a different file / location. This way you can maintain multiple authenticated
-sessions in parallel. It is safest to perform operations tied to a single config file from a single thread.</p>
+<p>You can use <code>--config</code> option to point to a different file / location. This way you can maintain multiple authenticated
+sessions in parallel.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It&#8217;s best to perform operations tied to a single config file from a single thread.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Make sure to not make a config file visible to other users on the system as it contains access tokens, and secrets that should be kept private.</p>
+<p>Make sure to not make config file visible to other users on the system as it contains access tokens, and secrets that should be kept private.
+By default the ~/.keycloak directory and its content will be automatically created with proper access limits. However if directory will
+exist already with non-default permissions, those will not be updated.</p>
 </div>
 <div class="paragraph">
 <p>You may want to avoid storing any secrets at all inside a config file for the price of less convenience and having to do more token requests.
-In that case you can use <code>--no-config</code> option with all your commands. You will have to specify all authentication info with each
-<code>kcadm</code> invocation.</p>
+In that case you can use <code>--no-config</code> option with all your commands. In that case you will have to specify all the authentication info needed by
+<code>config credentials</code> command with each <code>kcadm</code> invocation.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="basic-operations-and-resource-uris"><a class="anchor" href="#basic-operations-and-resource-uris"></a>19.5. Basic operations, and resource URIs</h3>
 <div class="paragraph">
 <p>Admin CLI allows you to perform CRUD operations against Admin REST API endpoints in quite a generic way, with additional commands
-that simplify performing certain actions.</p>
+that simplify performing certain tasks.</p>
 </div>
 <div class="paragraph">
 <p>Main usage pattern is the following:</p>
@@ -7849,7 +7873,7 @@ will result in the following resource URL: <code><a href="http://localhost:8080/
 </div>
 <div class="paragraph">
 <p>When authenticating as a user with realm-admin powers you may need to perform operations on multiple different realms. In that case
-you can specify <code>-r, --target-realm</code> option to tell explicitly which realm the operation should be executed against.
+you can specify <code>-r</code> option to tell explicitly which realm the operation should be executed against.
 Instead of using REALM as specified via <code>--realm</code> option of <code>kcadm.sh config credentials</code>, the TARGET_REALM will be used:</p>
 </div>
 <div class="literalblock">
@@ -7875,6 +7899,41 @@ resource URL:</p>
 <pre>http://localhost:8080/auth/admin/realms/demorealm/users</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Commands <code>create</code> and <code>update</code> by default send JSON body to the server. You can use <code>-f FILENAME</code> to read a pre-made document from a file.
+You can use <code>-f -</code>, and message body will be read from standard input.
+But you can also specify individual attributes and their values as seen in the previous <code>create users</code> example, and they will be composed into a JSON body and sent to the server.</p>
+</div>
+<div class="paragraph">
+<p>When using <code>update</code> there are several ways to update a resource. You can first get current state of a resource, and save it into a file,
+then edit that file and send it to the server for update. For example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ kcadm.sh get realms/demorealm &gt; demorealm.json
+$ vi demorealm.json
+$ kcadm.sh update realms/demorealm -f demorealm.json</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This way the resource on the server will be updated with all the attributes in the sent JSON document.</p>
+</div>
+<div class="paragraph">
+<p>Another option is to perform an update on-the-fly using <code>-s, --set</code> options to set new values. For example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ kcadm.sh update realms/demorealm -s enabled=false</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That would only update <code>enabled</code> attribute to <code>false</code>.</p>
+</div>
+<div class="paragraph">
+<p>By default <code>update</code> operation first performs a <code>get</code>, and then merges new attribute values with existing.
+Mostly this is a preferred behaviour. In some cases the endpoint may support <code>PUT</code> but not <code>GET</code>.
+You can use <code>-n</code> option to perform a so called 'no-merge' update which performs a PUT, without first doing a GET.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="realm-operations"><a class="anchor" href="#realm-operations"></a>19.6. Realm operations</h3>
@@ -7882,8 +7941,7 @@ resource URL:</p>
 <dl>
 <dt class="hdlist1">Creating a new realm</dt>
 <dd>
-<p>A new realm can be created by specifying individual attributes on command line. They will be converted into a JSON document
-and sent to the server:</p>
+<p>To create a new enabled realm use <code>create</code> operation on <code>realms</code> endpoint, and set attributes <code>realm</code> and <code>enabled</code>:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh create realms -s realm=demorealm -s enabled=true</pre>
@@ -7928,7 +7986,7 @@ EOF</pre>
 <dl>
 <dt class="hdlist1">Listing existing realms</dt>
 <dd>
-<p>The following will return a list of all the realms:</p>
+<p>The following will return a list of all realms:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh get realms</pre>
@@ -7938,11 +7996,11 @@ EOF</pre>
 </dl>
 </div>
 <div class="paragraph">
-<p>Note, that the list of realms returned is additionally filtered on the server to only return realms the user has permissions for.</p>
+<p>Note that a list of realms is additionally filtered on the server to only return realms user is allowed to see.</p>
 </div>
 <div class="paragraph">
-<p>Often that is too much information as we may only be interested in realm name, or - for example - if it is enabled or not.
-You can specify the attributes to return by using <code>--fields</code> option:</p>
+<p>Returning the whole realm description is often too much information as we are often only interested in a subset of attributes like realm name, and if realm is enabled or not.
+You can specify which attributes to return by using <code>--fields</code> option:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -7950,7 +8008,7 @@ You can specify the attributes to return by using <code>--fields</code> option:<
 </div>
 </div>
 <div class="paragraph">
-<p>You may even display the result as comma separated values:</p>
+<p>You can even display the result as comma separated values:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -7970,8 +8028,18 @@ You can specify the attributes to return by using <code>--fields</code> option:<
 </dd>
 <dt class="hdlist1">Updating a realm</dt>
 <dd>
-<p>There are several options when updating any resource. You can first get current state of resource, and save it into a file,
-then edit that file, and send it to server for update. For example:</p>
+<p>In order to only change some attributes of the realm use <code>-s</code> to set new values for the attributes. For example:</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ kcadm.sh update realms/demorealm -s enabled=false</pre>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>If you want to set all writable attributes with new values, perform a <code>get</code> first, edit current values in JSON file, and resubmit. For example:</p>
+</div>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh get realms/demorealm &gt; demorealm.json
@@ -7979,28 +8047,11 @@ $ vi demorealm.json
 $ kcadm.sh update realms/demorealm -f demorealm.json</pre>
 </div>
 </div>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>This way the resource on the server will be updated with all the attributes in the sent JSON document.</p>
-</div>
-<div class="paragraph">
-<p>Another option is to perform the update on-the-fly using <code>-s, --set</code> options to set new values:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ kcadm.sh update realms/demorealm -s enabled=false</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>That would only update <code>enabled</code> attribute to <code>false</code>.</p>
-</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Deleting a realm</dt>
 <dd>
-<p>It&#8217;s very simple to delete a realm:</p>
+<p>Here is how to delete a realm:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh delete realms/demorealm</pre>
@@ -8025,7 +8076,7 @@ $ kcadm.sh update realms/demorealm -f demorealm.json</pre>
 <dl>
 <dt class="hdlist1">Listing the realm keys</dt>
 <dd>
-<p>It&#8217;s very simple to list the realm keys for a specific realm:</p>
+<p>Use <code>get</code> operation on <code>keys</code> endpoint of the target realm:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh get keys -r demorealm</pre>
@@ -8034,7 +8085,7 @@ $ kcadm.sh update realms/demorealm -f demorealm.json</pre>
 </dd>
 <dt class="hdlist1">Generating new realm keys</dt>
 <dd>
-<p>To add a new RSA generated keypair, first get <code>id</code> of the target realm. For example, to get <code>id</code> for a realm whose <code>realm</code> attribute is 'demorealm':</p>
+<p>To add a new RSA generated keypair, first get <code>id</code> of the target realm. For example:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh get realms/demorealm --fields id --format csv --noquotes</pre>
@@ -8093,7 +8144,7 @@ $ kcadm.sh update realms/demorealm -f demorealm.json</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>And change attribute values for <code>keystore</code>, <code>keystorePassword</code>, <code>keyPassword</code>, and <code>alias</code> to match your specific keystore.</p>
+<p>Make sure to change attribute values for <code>keystore</code>, <code>keystorePassword</code>, <code>keyPassword</code>, and <code>alias</code> to match your specific keystore.</p>
 </div>
 <div class="paragraph">
 <p>Attribute <code>parentId</code> should be set to the value of target realm&#8217;s <code>id</code>.</p>
@@ -8168,18 +8219,18 @@ held by applications and users from abruptly failing to work.</p>
 <dl>
 <dt class="hdlist1">Configuring event logging for a realm</dt>
 <dd>
-<p>Use <code>update</code> against <code>events/config</code> endpoint.</p>
+<p>Use <code>update</code> on <code>events/config</code> endpoint.</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>Attribute 'eventsListeners' sets the list of EventListenerProviderFactory 'id&#8217;s specifying all the event listeners receiving events.
-Separately from that there are attributes that control a built-in event storage which allows querying of past events via Admin REST API.
+<p>Attribute <code>eventsListeners</code> contains a list of EventListenerProviderFactory ids, specifying all event listeners receiving events.
+Separately, there are attributes that control a built-in event storage which allows querying past events via Admin REST API.
 There is separate control over logging of service calls - 'eventsEnabled', and auditing events triggered during Admin Console or Admin REST API - 'adminEventsEnabled'.
-You may want to limit the time when old events expire so that your database doesn&#8217;t get filled up - 'eventsExpiration' is set to time-to-live expressed in seconds.</p>
+You may want to setup expiry of old events so that your database doesn&#8217;t get filled up - 'eventsExpiration' is set to time-to-live expressed in seconds.</p>
 </div>
 <div class="paragraph">
-<p>For example, this is how you set a built-in event listener that will receive all the events and log them through jboss-logging (error events are logged as <code>WARN</code>, others as <code>DEBUG</code>, using a logger called <code>org.keycloak.events</code>):</p>
+<p>Here is an example of setting up a built-in event listener that will receive all the events and log them through jboss-logging (error events are logged as <code>WARN</code>, others as <code>DEBUG</code>, using a logger called <code>org.keycloak.events</code>):</p>
 </div>
 <div class="paragraph">
 <p>On Linux:</p>
@@ -8198,7 +8249,7 @@ You may want to limit the time when old events expire so that your database does
 </div>
 </div>
 <div class="paragraph">
-<p>This is how you turn on storage of all available ERROR events - not auditing events - for 2 days so they can be retrieved via Admin REST:</p>
+<p>Here is an example of turning on storage of all available ERROR events - not including auditing events - for 2 days so they can be retrieved via Admin REST:</p>
 </div>
 <div class="paragraph">
 <p>On Linux:</p>
@@ -8217,7 +8268,7 @@ You may want to limit the time when old events expire so that your database does
 </div>
 </div>
 <div class="paragraph">
-<p>This is how you reset stored event types to <code>all available event types</code> - setting to empty list is the same as enumerating all:</p>
+<p>Here is how you reset stored event types to <strong>all available event types</strong> - setting to empty list is the same as enumerating all:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -8225,7 +8276,7 @@ You may want to limit the time when old events expire so that your database does
 </div>
 </div>
 <div class="paragraph">
-<p>And this is how you turn on auditing events:</p>
+<p>And here is how you enable storage of auditing events:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -8303,7 +8354,7 @@ You may want to limit the time when old events expire so that your database does
 </dl>
 </div>
 <div class="paragraph">
-<p>Then create a new role by using client&#8217;s <code>id</code> attribute to construct an endpoint uri - <code>clients/ID/roles</code>.</p>
+<p>Then, create a new role by using client&#8217;s <code>id</code> attribute to construct an endpoint uri - <code>clients/ID/roles</code>.</p>
 </div>
 <div class="paragraph">
 <p>For example:</p>
@@ -8317,7 +8368,7 @@ You may want to limit the time when old events expire so that your database does
 <dl>
 <dt class="hdlist1">Listing realm roles</dt>
 <dd>
-<p>To list existing realm roles use <code>get</code> command:</p>
+<p>To list existing realm roles use <code>get</code> command on <code>roles</code> endpoint:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh get roles -r demorealm</pre>
@@ -8338,9 +8389,13 @@ You may want to limit the time when old events expire so that your database does
 <dl>
 <dt class="hdlist1">Listing client roles</dt>
 <dd>
-<p>Use special <code>get-roles</code> command, passing it either <code>clientId</code> (via <code>--cclientid</code> option) or <code>id</code> (via <code>--cid</code> option) to identify the client, and list defined roles:</p>
+<p>There is a dedicated <code>get-roles</code> command to simplify listing of both realm and client roles. It is an extension of <code>get</code> command and so it behaves
+the same with additional semantics for listing roles.</p>
 </dd>
 </dl>
+</div>
+<div class="paragraph">
+<p>To list client roles use <code>get-roles</code> command, passing it either <code>clientId</code> (via <code>--cclientid</code> option) or <code>id</code> (via <code>--cid</code> option) to identify the client.</p>
 </div>
 <div class="paragraph">
 <p>For example:</p>
@@ -8384,8 +8439,8 @@ You may want to limit the time when old events expire so that your database does
 <dl>
 <dt class="hdlist1">Getting a specific client role</dt>
 <dd>
-<p>Use special <code>get-roles</code> command, passing it either <code>clientId</code> (via <code>--cclientid</code> option) or <code>id</code> (via <code>--cid</code> option) to identify the client,
-and passing it either role <code>name</code> (via <code>--rolename</code> option) or 'id' (via --roleid) to identify a specific client role:</p>
+<p>Use a dedicated <code>get-roles</code> command, passing it either <code>clientId</code> (via <code>--cclientid</code> option) or <code>id</code> (via <code>--cid</code> option) to identify the client,
+and passing it either role <code>name</code> (via <code>--rolename</code> option) or 'id' (via <code>--roleid</code>) to identify a specific client role:</p>
 </dd>
 </dl>
 </div>
@@ -8437,8 +8492,7 @@ and passing it either role <code>name</code> (via <code>--rolename</code> option
 </dd>
 <dt class="hdlist1">Listing assigned, available and effective realm roles for a composite role</dt>
 <dd>
-<p>There is a dedicated <code>get-roles</code> command to simplify listing of both realm and client roles. It is an extension of <code>get</code> command thus it behaves
-like <code>get</code> command with additional semantics for listing roles.</p>
+<p>Use a dedicated <code>get-roles</code> command.</p>
 </dd>
 </dl>
 </div>
@@ -8479,7 +8533,7 @@ like <code>get</code> command with additional semantics for listing roles.</p>
 <dl>
 <dt class="hdlist1">Listing assigned, available, and effective client roles for a composite role</dt>
 <dd>
-<p>You can again use <code>get-roles</code> command to simplify listing of roles.</p>
+<p>Use a dedicated <code>get-roles</code> command.</p>
 </dd>
 </dl>
 </div>
@@ -8551,11 +8605,14 @@ or <code>id</code> (via --rid option), and client by either <code>clientId</code
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Adding client roles to a composite role</dt>
+<dt class="hdlist1">Adding client roles to a realm role</dt>
 <dd>
-<p>There is a dedicated <code>add-roles</code> operation that can be used for adding both realm roles and client roles.</p>
+<p>This is how you create or modify a composite realm role.</p>
 </dd>
 </dl>
+</div>
+<div class="paragraph">
+<p>Use a dedicated <code>add-roles</code> command that can be used for adding both realm roles and client roles.</p>
 </div>
 <div class="paragraph">
 <p>For example, to add to <code>testrole</code> composite role two roles defined on client <code>realm-management</code> - <code>create-client</code> role and <code>view-users</code> role:</p>
@@ -8567,9 +8624,47 @@ or <code>id</code> (via --rid option), and client by either <code>clientId</code
 </div>
 <div class="dlist">
 <dl>
+<dt class="hdlist1">Adding client roles to a client role</dt>
+<dd>
+<p>This is how you create or modify a composite client role.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>First, find out an <code>id</code> of the composite client role - by using <code>get-roles</code> command for example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ kcadm.sh get-roles -r demorealm --cclientid test-client --rolename operations</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s assume that there exists a client with "clientId": 'test-client', a client role called 'support', and another client role - that will become composite role - that has an "id": "fc400897-ef6a-4e8c-872b-1581b7fa8a71", "name":"operations".</p>
+</div>
+<div class="paragraph">
+<p>In this example 'operations' is our target composite role, and we just got its <code>id</code>.</p>
+</div>
+<div class="paragraph">
+<p>We can now add another role to it:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ kcadm.sh add-roles -r demorealm --cclientid test-client --rid fc400897-ef6a-4e8c-872b-1581b7fa8a71 --rolename support</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Afterwards all the roles of a composite role can be listed by using <code>get-roles --all</code>. For example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ kcadm.sh get-roles --rid fc400897-ef6a-4e8c-872b-1581b7fa8a71 --all</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1">Removing client roles from a composite role</dt>
 <dd>
-<p>There is a dedicated <code>remove-roles</code> operation that can be used for removing both realm roles and client roles.</p>
+<p>Use a dedicated <code>remove-roles</code> command.</p>
 </dd>
 </dl>
 </div>
@@ -8588,16 +8683,28 @@ or <code>id</code> (via --rid option), and client by either <code>clientId</code
 <dl>
 <dt class="hdlist1">Creating a client</dt>
 <dd>
-<p>A new client can be created by using <code>create</code> command against <code>clients</code> endpoint. For example:</p>
+<p>To create a new client perform <code>create</code> command on <code>clients</code> endpoint. For example:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh create clients -r demorealm -s clientId=myapp -s enabled=true</pre>
 </div>
 </div>
 </dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>If you want to set a secret for adapters to authenticate specify a <code>secret</code>. For example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ kcadm.sh create clients -r demorealm -s clientId=myapp -s enabled=true -s clientAuthenticatorType=client-secret -s secret=d0b8122f-8dfb-46b7-b68a-f5cc4e25d000</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1">Listing clients</dt>
 <dd>
-<p>It&#8217;s very easy to list existing clients. For example:</p>
+<p>Use <code>get</code> operation on <code>clients</code> endpoint. For example:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh get clients -r demorealm --fields id,clientId</pre>
@@ -8617,6 +8724,15 @@ or <code>id</code> (via --rid option), and client by either <code>clientId</code
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh get clients/c7b8547f-e748-4333-95d0-410b76b3f4a3 -r demorealm</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">Getting current secret for specific client</dt>
+<dd>
+<p>Use client&#8217;s <code>id</code> to construct an endpoint uri - <code>clients/ID/client-secret</code>. For example</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ kcadm.sh get clients/$CID/client-secret</pre>
 </div>
 </div>
 </dd>
@@ -8691,7 +8807,7 @@ or <code>id</code> (via --rid option), and client by either <code>clientId</code
 <dl>
 <dt class="hdlist1">Creating a user</dt>
 <dd>
-<p>A new user can be created using the <code>create</code> command against the <code>users</code> endpoint. For example:</p>
+<p>To create a new user perform <code>create</code> operation on <code>users</code> endpoint. For example:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh create users -r demorealm -s username=testuser -s enabled=true</pre>
@@ -8729,7 +8845,7 @@ that match condition for all the attributes.</p>
 <dl>
 <dt class="hdlist1">Getting a specific user</dt>
 <dd>
-<p>Use user <code>id</code> to compose an endpoint uri matching a specific user - <code>users/USER_ID</code>.</p>
+<p>Use user&#8217;s <code>id</code> to compose an endpoint uri - <code>users/USER_ID</code>.</p>
 </dd>
 </dl>
 </div>
@@ -8778,7 +8894,7 @@ that match condition for all the attributes.</p>
 <p>There is a dedicated <code>set-password</code> command specifically to reset user&#8217;s password. For example:</p>
 <div class="literalblock">
 <div class="content">
-<pre>$ kcadm.sh set-password -r demorealm --username testuser --password NEWPASSWORD --temporary</pre>
+<pre>$ kcadm.sh set-password -r demorealm --username testuser --new-password NEWPASSWORD --temporary</pre>
 </div>
 </div>
 </dd>
@@ -8791,7 +8907,7 @@ that match condition for all the attributes.</p>
 <p>You can use <code>--userid</code> if you want to specify the user by using <code>id</code> attribute.</p>
 </div>
 <div class="paragraph">
-<p>The same can be achieved using the <code>update</code> operation against an endpoint constructed from one for getting a specific user - <code>users/USER_ID/reset-password</code>.</p>
+<p>The same can be achieved using <code>update</code> operation on an endpoint constructed from one for getting a specific user - <code>users/USER_ID/reset-password</code>.</p>
 </div>
 <div class="paragraph">
 <p>For example:</p>
@@ -8802,15 +8918,13 @@ that match condition for all the attributes.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The last parameter (<code>-n</code>) forces a so called 'no-merge' update which performs a PUT only, without first doing a GET to retrieve current
-state of the resource. In this case it is necessary since <code>reset-password</code> endpoint doesn&#8217;t support GET.</p>
+<p>The last parameter (<code>-n</code>) ensures that only PUT is performed without a prior GET. In this case it is necessary since <code>reset-password</code> endpoint doesn&#8217;t support GET.</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Listing assigned, available, and effective realm roles for a user</dt>
 <dd>
-<p>There is a dedicated <code>get-roles</code> command to simplify listing of both realm and client roles. It is an extension of <code>get</code> command thus it behaves
-like <code>get</code> command with additional semantics for listing roles.</p>
+<p>Use a dedicated <code>get-roles</code> command.</p>
 </dd>
 </dl>
 </div>
@@ -8851,7 +8965,7 @@ like <code>get</code> command with additional semantics for listing roles.</p>
 <dl>
 <dt class="hdlist1">Listing assigned, available, and effective client roles for a user</dt>
 <dd>
-<p>You can again use <code>get-roles</code> command to simplify listing of roles.</p>
+<p>Use a dedicated <code>get-roles</code> command.</p>
 </dd>
 </dl>
 </div>
@@ -8893,7 +9007,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <dl>
 <dt class="hdlist1">Adding realm roles to a user</dt>
 <dd>
-<p>There is a dedicated <code>add-roles</code> command that can be used for adding both realm roles and client roles.</p>
+<p>Use a dedicated <code>add-roles</code> command.</p>
 </dd>
 </dl>
 </div>
@@ -8909,7 +9023,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <dl>
 <dt class="hdlist1">Removing realm roles from a user</dt>
 <dd>
-<p>There is a dedicated <code>remove-roles</code> command that can be used to remove both realm roles and client roles.</p>
+<p>Use a dedicated <code>remove-roles</code> command.</p>
 </dd>
 </dl>
 </div>
@@ -8925,7 +9039,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <dl>
 <dt class="hdlist1">Adding client roles to a user</dt>
 <dd>
-<p>There is a dedicated <code>add-roles</code> operation that can be used for adding both realm roles and client roles.</p>
+<p>Use a dedicated <code>add-roles</code> command.</p>
 </dd>
 </dl>
 </div>
@@ -8941,7 +9055,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <dl>
 <dt class="hdlist1">Removing client roles from a user</dt>
 <dd>
-<p>There is a dedicated <code>remove-roles</code> operation that can be used for removing both realm roles and client roles.</p>
+<p>Use a dedicated <code>remove-roles</code> command.</p>
 </dd>
 </dl>
 </div>
@@ -8976,7 +9090,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <dl>
 <dt class="hdlist1">Logging out user from specific session</dt>
 <dd>
-<p>To invalidate a session you only need session&#8217;s <code>id</code>. You can get it by listing user&#8217;s sessions.</p>
+<p>To logout the user&#8217;s session first get session&#8217;s <code>id</code> as described above.</p>
 </dd>
 </dl>
 </div>
@@ -8984,7 +9098,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <p>Use session&#8217;s <code>id</code> to compose an endpoint uri - <code>sessions/ID</code>.</p>
 </div>
 <div class="paragraph">
-<p>The use <code>delete</code> to invalidate it. For example:</p>
+<p>Then use <code>delete</code> to invalidate it. For example:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -9000,7 +9114,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 </dl>
 </div>
 <div class="paragraph">
-<p>Use 'create' to send logout-from-all-sessions request:</p>
+<p>Use 'create' to perform POST on that endpoint uri:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -9014,7 +9128,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <dl>
 <dt class="hdlist1">Creating a group</dt>
 <dd>
-<p>Use <code>create</code> operation, and <code>groups</code> endpoint to create a new group:</p>
+<p>Use <code>create</code> operation on <code>groups</code> endpoint to create a new group:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh create groups -r demorealm -s name=Group</pre>
@@ -9023,7 +9137,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 </dd>
 <dt class="hdlist1">Listing groups</dt>
 <dd>
-<p>Use <code>get</code> operation, and <code>groups</code> endpoint to list groups:</p>
+<p>Use <code>get</code> operation on <code>groups</code> endpoint to list groups:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh get groups -r demorealm</pre>
@@ -9087,7 +9201,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 </dl>
 </div>
 <div class="paragraph">
-<p>Make 'create' operation against this endpoint, and pass child group <code>id</code> as JSON body. For example:</p>
+<p>Perform 'create' operation on this endpoint, and pass child group <code>id</code> as JSON body. For example:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -9098,7 +9212,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <dl>
 <dt class="hdlist1">Get groups for specific user</dt>
 <dd>
-<p>To get user&#8217;s membership in groups, use user&#8217;s <code>id</code> to compose a resource URI - <code>users/USER_ID/groups</code></p>
+<p>To get user&#8217;s membership in groups, use user&#8217;s <code>id</code> to compose an endpoint URI - <code>users/USER_ID/groups</code></p>
 </dd>
 </dl>
 </div>
@@ -9114,7 +9228,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <dl>
 <dt class="hdlist1">Adding user to a group</dt>
 <dd>
-<p>To join user to a group use <code>update</code> operation against a resource uri composed from user&#8217;s <code>id</code>, and group&#8217;s <code>id</code> - users/USER_ID/groups/GROUP_ID.</p>
+<p>To join user to a group use <code>update</code> operation with an endpoint uri composed from user&#8217;s <code>id</code>, and group&#8217;s <code>id</code> - users/USER_ID/groups/GROUP_ID.</p>
 </dd>
 </dl>
 </div>
@@ -9130,7 +9244,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <dl>
 <dt class="hdlist1">Removing user from a group</dt>
 <dd>
-<p>To remove user from a group use <code>delete</code> operation against the same resource uri as used for adding user to a group - users/USER_ID/groups/GROUP_ID.</p>
+<p>To remove user from a group use <code>delete</code> operation on the same endpoint uri as used for adding user to a group - users/USER_ID/groups/GROUP_ID.</p>
 </dd>
 </dl>
 </div>
@@ -9146,8 +9260,7 @@ and client by either <code>clientId</code> (via --cclientid option) or <code>id<
 <dl>
 <dt class="hdlist1">Listing assigned, available, and effective realm roles for a group</dt>
 <dd>
-<p>There is a dedicated 'get-roles' command to simplify listing of roles. It is an extension of <code>get</code> command thus it behaves
-like <code>get</code> command with additional semantics for listing roles.</p>
+<p>Use a dedicated 'get-roles' command.</p>
 </dd>
 </dl>
 </div>
@@ -9189,7 +9302,7 @@ like <code>get</code> command with additional semantics for listing roles.</p>
 <dl>
 <dt class="hdlist1">Listing assigned, available, and effective client roles for a group</dt>
 <dd>
-<p>A dedicated 'get-roles' command can be used to list for both realm roles and client roles.</p>
+<p>Use a dedicated 'get-roles' command.</p>
 </dd>
 </dl>
 </div>
@@ -9244,8 +9357,8 @@ and client by either <code>clientId</code> (via <code>--cclientid</code> option)
 </dl>
 </div>
 <div class="paragraph">
-<p>Note that <code>serverinfo</code> endpoint is handled similarly to <code>realms</code> endpoint in that it is not resolved into resource URI as
-relative to target realm.</p>
+<p>Note that <code>serverinfo</code> endpoint is handled similarly to <code>realms</code> endpoint in that it is not resolved
+relative to target realm, because it exists outside any specific realm.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -9260,7 +9373,7 @@ relative to target realm.</p>
 </dd>
 <dt class="hdlist1">Getting a specific configured identity provider</dt>
 <dd>
-<p>To get a specific identity provider use an <code>alias</code> attribute of identity provider to construct an endpoint uri - <code>identity-provider/instances/ALIAS</code>.</p>
+<p>To get a specific identity provider use <code>alias</code> attribute of identity provider to construct an endpoint uri - <code>identity-provider/instances/ALIAS</code>.</p>
 </dd>
 </dl>
 </div>
@@ -9285,7 +9398,7 @@ relative to target realm.</p>
 </dd>
 <dt class="hdlist1">Configuring a Keycloak OpenID Connect identity provider</dt>
 <dd>
-<p>For Keycloak OpenID Connect use <code>keycloak-oidc</code> as <code>providerId</code> when creating a new identity provider instance.</p>
+<p>Use <code>keycloak-oidc</code> as <code>providerId</code> when creating a new identity provider instance.</p>
 </dd>
 </dl>
 </div>
@@ -9309,7 +9422,7 @@ relative to target realm.</p>
 </dd>
 <dt class="hdlist1">Configuring a SAML 2 identity provider</dt>
 <dd>
-<p>Use <code>saml</code> as <code>providerId</code> when creating a new identity provider instance. Provide <code>config</code> attributes - <code>singleSignOnServiceUrl</code>, <code>nameIDPolicyFormat</code>, and <code>signatureAlgorithm</code>.</p>
+<p>Use <code>saml</code> as <code>providerId</code>. Provide <code>config</code> attributes - <code>singleSignOnServiceUrl</code>, <code>nameIDPolicyFormat</code>, and <code>signatureAlgorithm</code>.</p>
 </dd>
 </dl>
 </div>
@@ -9325,7 +9438,7 @@ relative to target realm.</p>
 <dl>
 <dt class="hdlist1">Configuring a Facebook identity provider</dt>
 <dd>
-<p>Use <code>facebook</code> as <code>providerId</code> when creating a new identity provider instance. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
+<p>Use <code>facebook</code> as <code>providerId</code>. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
 as obtained from Facebook Developers application configuration page for your application.</p>
 <div class="literalblock">
 <div class="content">
@@ -9335,7 +9448,7 @@ as obtained from Facebook Developers application configuration page for your app
 </dd>
 <dt class="hdlist1">Configuring a Google identity provider</dt>
 <dd>
-<p>Use <code>google</code> as <code>providerId</code> when creating a new identity provider instance. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
+<p>Use <code>google</code> as <code>providerId</code>. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
 as obtained from Google Developers application configuration page for your application.</p>
 <div class="literalblock">
 <div class="content">
@@ -9345,7 +9458,7 @@ as obtained from Google Developers application configuration page for your appli
 </dd>
 <dt class="hdlist1">Configuring a Twitter identity provider</dt>
 <dd>
-<p>Use <code>twitter</code> as <code>providerId</code> when creating a new identity provider instance. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
+<p>Use <code>twitter</code> as <code>providerId</code>. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
 as obtained from Twitter Application Management application configuration page for your application.</p>
 <div class="literalblock">
 <div class="content">
@@ -9355,7 +9468,7 @@ as obtained from Twitter Application Management application configuration page f
 </dd>
 <dt class="hdlist1">Configuring a GitHub identity provider</dt>
 <dd>
-<p>Use <code>github</code> as <code>providerId</code> when creating a new identity provider instance. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
+<p>Use <code>github</code> as <code>providerId</code>. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
 as obtained from GitHub Developer Application Settings page for your application.</p>
 <div class="literalblock">
 <div class="content">
@@ -9365,7 +9478,7 @@ as obtained from GitHub Developer Application Settings page for your application
 </dd>
 <dt class="hdlist1">Configuring a LinkedIn identity provider</dt>
 <dd>
-<p>Use <code>linkedin</code> as <code>providerId</code> when creating a new identity provider instance. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
+<p>Use <code>linkedin</code> as <code>providerId</code>. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
 as obtained from LinkedIn Developer Console application page for your application.</p>
 <div class="literalblock">
 <div class="content">
@@ -9375,7 +9488,7 @@ as obtained from LinkedIn Developer Console application page for your applicatio
 </dd>
 <dt class="hdlist1">Configuring a Microsoft Live identity provider</dt>
 <dd>
-<p>Use <code>microsoft</code> as <code>providerId</code> when creating a new identity provider instance. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
+<p>Use <code>microsoft</code> as <code>providerId</code>. Provide <code>config</code> attributes - <code>clientId</code> and <code>clientSecret</code>
 as obtained from Microsoft Application Registration Portal page for your application.</p>
 <div class="literalblock">
 <div class="content">
@@ -9385,7 +9498,7 @@ as obtained from Microsoft Application Registration Portal page for your applica
 </dd>
 <dt class="hdlist1">Configuring a StackOverflow identity provider</dt>
 <dd>
-<p>Use <code>stackoverflow</code> as <code>providerId</code> when creating a new identity provider instance. Provide <code>config</code> attributes - <code>clientId</code>, <code>clientSecret</code> and <code>key</code>
+<p>Use <code>stackoverflow</code> as <code>providerId</code>. Provide <code>config</code> attributes - <code>clientId</code>, <code>clientSecret</code> and <code>key</code>
 as obtained from Stack Apps OAuth page for your application.</p>
 <div class="literalblock">
 <div class="content">
@@ -9451,7 +9564,7 @@ as obtained from Stack Apps OAuth page for your application.</p>
 <dt class="hdlist1">Triggering synchronization of all users for specific user storage provider</dt>
 <dd>
 <p>Use storage provider&#8217;s <code>id</code> attribute to compose an endpoint uri - user-storage/ID_OF_USER_STORAGE_INSTANCE/sync
-Add <code>action=triggerFullSync</code> query parameter and use <code>create</code>.</p>
+Add <code>action=triggerFullSync</code> query parameter and perform <code>create</code> command.</p>
 </dd>
 </dl>
 </div>
@@ -9484,7 +9597,7 @@ Add <code>action=triggerChangedUsersSync</code> query parameter and use <code>cr
 <dl>
 <dt class="hdlist1">Test LDAP user storage connectivity</dt>
 <dd>
-<p>Perform <code>get</code> operation against <code>testLDAPConnection</code> endpoint. Provide query parameters <code>bindCredential</code>, <code>bindDn</code>, <code>connectionUrl</code>, and <code>useTruststoreSpi</code>, and set <code>action</code> query parameter to <code>testConnection</code>.</p>
+<p>Perform <code>get</code> operation on <code>testLDAPConnection</code> endpoint. Provide query parameters <code>bindCredential</code>, <code>bindDn</code>, <code>connectionUrl</code>, and <code>useTruststoreSpi</code>, and set <code>action</code> query parameter to <code>testConnection</code>.</p>
 </dd>
 </dl>
 </div>
@@ -9500,7 +9613,7 @@ Add <code>action=triggerChangedUsersSync</code> query parameter and use <code>cr
 <dl>
 <dt class="hdlist1">Test LDAP user storage authentication</dt>
 <dd>
-<p>Perform <code>get</code> operation against <code>testLDAPConnection</code> endpoint. Provide query parameters <code>bindCredential</code>, <code>bindDn</code>, <code>connectionUrl</code>, and <code>useTruststoreSpi</code>, and set <code>action</code> query parameter to <code>testAuthentication</code>.</p>
+<p>Perform <code>get</code> operation on <code>testLDAPConnection</code> endpoint. Provide query parameters <code>bindCredential</code>, <code>bindDn</code>, <code>connectionUrl</code>, and <code>useTruststoreSpi</code>, and set <code>action</code> query parameter to <code>testAuthentication</code>.</p>
 </dd>
 </dl>
 </div>
@@ -9519,7 +9632,7 @@ Add <code>action=triggerChangedUsersSync</code> query parameter and use <code>cr
 <dl>
 <dt class="hdlist1">Adding a hardcoded role LDAP mapper</dt>
 <dd>
-<p>Use <code>create</code> against <code>components</code> endpoint. Set <code>providerType</code> attribute to <code>org.keycloak.storage.ldap.mappers.LDAPStorageMapper</code>. Set <code>parentId</code> attribute to <code>id</code> of LDAP provider instance.
+<p>Use <code>create</code> on <code>components</code> endpoint. Set <code>providerType</code> attribute to <code>org.keycloak.storage.ldap.mappers.LDAPStorageMapper</code>. Set <code>parentId</code> attribute to <code>id</code> of LDAP provider instance.
 Set <code>providerId</code> attribute to <code>hardcoded-ldap-role-mapper</code>. Make sure to provide a value of <code>role</code> config parameter.</p>
 </dd>
 </dl>
@@ -9536,7 +9649,7 @@ Set <code>providerId</code> attribute to <code>hardcoded-ldap-role-mapper</code>
 <dl>
 <dt class="hdlist1">Adding a MS Active Directory mapper</dt>
 <dd>
-<p>Use <code>create</code> against <code>components</code> endpoint. Set <code>providerType</code> attribute to <code>org.keycloak.storage.ldap.mappers.LDAPStorageMapper</code>. Set <code>parentId</code> attribute to <code>id</code> of LDAP provider instance.
+<p>Use <code>create</code> on <code>components</code> endpoint. Set <code>providerType</code> attribute to <code>org.keycloak.storage.ldap.mappers.LDAPStorageMapper</code>. Set <code>parentId</code> attribute to <code>id</code> of LDAP provider instance.
 Set <code>providerId</code> attribute to <code>msad-user-account-control-mapper</code>.</p>
 </dd>
 </dl>
@@ -9551,9 +9664,9 @@ Set <code>providerId</code> attribute to <code>msad-user-account-control-mapper<
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Adding a user attribute LDAP mapper</dt>
+<dt class="hdlist1">Adding an user attribute LDAP mapper</dt>
 <dd>
-<p>Use <code>create</code> against <code>components</code> endpoint. Set <code>providerType</code> attribute to <code>org.keycloak.storage.ldap.mappers.LDAPStorageMapper</code>. Set <code>parentId</code> attribute to <code>id</code> of LDAP provider instance.
+<p>Use <code>create</code> on <code>components</code> endpoint. Set <code>providerType</code> attribute to <code>org.keycloak.storage.ldap.mappers.LDAPStorageMapper</code>. Set <code>parentId</code> attribute to <code>id</code> of LDAP provider instance.
 Set <code>providerId</code> attribute to <code>user-attribute-ldap-mapper</code>.</p>
 </dd>
 </dl>
@@ -9570,7 +9683,7 @@ Set <code>providerId</code> attribute to <code>user-attribute-ldap-mapper</code>
 <dl>
 <dt class="hdlist1">Adding a group LDAP mapper</dt>
 <dd>
-<p>Use <code>create</code> against <code>components</code> endpoint. Set <code>providerType</code> attribute to <code>org.keycloak.storage.ldap.mappers.LDAPStorageMapper</code>. Set <code>parentId</code> attribute to <code>id</code> of LDAP provider instance.
+<p>Use <code>create</code> on <code>components</code> endpoint. Set <code>providerType</code> attribute to <code>org.keycloak.storage.ldap.mappers.LDAPStorageMapper</code>. Set <code>parentId</code> attribute to <code>id</code> of LDAP provider instance.
 Set <code>providerId</code> attribute to <code>group-ldap-mapper</code>.</p>
 </dd>
 </dl>
@@ -9587,7 +9700,7 @@ Set <code>providerId</code> attribute to <code>group-ldap-mapper</code>.</p>
 <dl>
 <dt class="hdlist1">Adding a full name LDAP mapper</dt>
 <dd>
-<p>Use <code>create</code> against <code>components</code> endpoint. Set <code>providerType</code> attribute to <code>org.keycloak.storage.ldap.mappers.LDAPStorageMapper</code>. Set <code>parentId</code> attribute to <code>id</code> of LDAP provider instance.
+<p>Use <code>create</code> on <code>components</code> endpoint. Set <code>providerType</code> attribute to <code>org.keycloak.storage.ldap.mappers.LDAPStorageMapper</code>. Set <code>parentId</code> attribute to <code>id</code> of LDAP provider instance.
 Set <code>providerId</code> attribute to <code>full-name-ldap-mapper</code>.</p>
 </dd>
 </dl>
@@ -9607,12 +9720,12 @@ Set <code>providerId</code> attribute to <code>full-name-ldap-mapper</code>.</p>
 <dl>
 <dt class="hdlist1">Setting a password policy</dt>
 <dd>
-<p>Set realm&#8217;s <code>passwordPolicy</code> attribute to an enumeration expression including specific policy provider id, and an optional configuration:</p>
+<p>Set realm&#8217;s <code>passwordPolicy</code> attribute to enumeration expression that includes the specific policy provider id, and optional configuration.</p>
 </dd>
 </dl>
 </div>
 <div class="paragraph">
-<p>For example, to set password policy to 20000 hash iterations, requiring at least one special character, at least one uppercase character,
+<p>For example, to set password policy to default values - i.e.: 27500 hashing iterations, requiring at least one special character, at least one uppercase character,
 at least one digit character, not be equal to user&#8217;s <code>username</code>, and be at least 8 characters long you would use the following:</p>
 </div>
 <div class="literalblock">
@@ -9651,7 +9764,7 @@ at least one digit character, not be equal to user&#8217;s <code>username</code>
 <dl>
 <dt class="hdlist1">Listing authentication flows</dt>
 <dd>
-<p>Use <code>get</code> operation against <code>authentication/flows</code> endpoint. For example:</p>
+<p>Use <code>get</code> operation on <code>authentication/flows</code> endpoint. For example:</p>
 <div class="literalblock">
 <div class="content">
 <pre>$ kcadm.sh get authentication/flows -r demorealm</pre>
@@ -9666,7 +9779,7 @@ at least one digit character, not be equal to user&#8217;s <code>username</code>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-16 07:06:44 UTC
+Last updated 2017-10-16 13:01:07 UTC
 </div>
 </div>
 <ul id="globalnav">

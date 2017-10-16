@@ -745,8 +745,8 @@ span.image img {
 <li><a href="#authentication">5.1. Authentication</a>
 <ul class="sectlevel3">
 <li><a href="#bearer-token">5.1.1. Bearer Token</a></li>
-<li><a href="#initial-access-token">5.1.2. Initial Access Token</a></li>
-<li><a href="#registration-access-token">5.1.3. Registration Access Token</a></li>
+<li><a href="#_initial_access_token">5.1.2. Initial Access Token</a></li>
+<li><a href="#_registration_access_token">5.1.3. Registration Access Token</a></li>
 </ul>
 </li>
 <li><a href="#keycloak-representations">5.2. Keycloak Representations</a></li>
@@ -768,8 +768,11 @@ span.image img {
 <li><a href="#_logging_in">6.4.1. Logging In</a></li>
 <li><a href="#_working_with_alternative_configurations">6.4.2. Working with alternative configurations</a></li>
 <li><a href="#_initial_access_and_registration_access_tokens">6.4.3. Initial Access and Registration Access Tokens</a></li>
-<li><a href="#_performing_crud_operations">6.4.4. Performing CRUD operations</a></li>
-<li><a href="#_refreshing_invalid_registration_access_tokens">6.4.5. Refreshing Invalid Registration Access Tokens</a></li>
+<li><a href="#_performing_crud_operations">6.4.4. Creating client configuration</a></li>
+<li><a href="#retrieving-client-configuration">6.4.5. Retrieving client configuration</a></li>
+<li><a href="#modifying-client-configuration">6.4.6. Modifying client configuration</a></li>
+<li><a href="#deleting-client-configuration">6.4.7. Deleting client configuration</a></li>
+<li><a href="#_refreshing_invalid_registration_access_tokens">6.4.8. Refreshing Invalid Registration Access Tokens</a></li>
 </ul>
 </li>
 <li><a href="#_troubleshooting_2">6.5. Troubleshooting</a></li>
@@ -6605,7 +6608,7 @@ share HTTP sessions).</p>
 <div class="paragraph">
 <p>To cover this case, the SAML session cache described <a href="#_saml_logout_in_cluster">above</a> needs to be replicated
 not only within individual clusters but across all the data centers e.g.
-<a href="https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_Data_Grid/6.6/html/Administration_and_Configuration_Guide/chap-Externalize_Sessions.html#Externalize_HTTP_Session_from_JBoss_EAP_6.x_to_JBoss_Data_Grid">via standalone Infinispan/JDG server</a>:</p>
+<a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/6.6/html/administration_and_configuration_guide/chap-externalize_sessions#Externalize_HTTP_Session_from_JBoss_EAP_6.x_to_JBoss_Data_Grid">via standalone Infinispan/JDG server</a>:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -7414,7 +7417,7 @@ There is an alternative to register new client without any token as well, but th
 </div>
 </div>
 <div class="sect3">
-<h4 id="initial-access-token"><a class="anchor" href="#initial-access-token"></a>5.1.2. Initial Access Token</h4>
+<h4 id="_initial_access_token"><a class="anchor" href="#_initial_access_token"></a>5.1.2. Initial Access Token</h4>
 <div class="paragraph">
 <p>The recommended approach to registering new clients is by using initial access tokens.
 An initial access token can only be used to create clients and has a configurable expiration as well as a configurable limit on how many clients can be created.</p>
@@ -7443,7 +7446,7 @@ For example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="registration-access-token"><a class="anchor" href="#registration-access-token"></a>5.1.3. Registration Access Token</h4>
+<h4 id="_registration_access_token"><a class="anchor" href="#_registration_access_token"></a>5.1.3. Registration Access Token</h4>
 <div class="paragraph">
 <p>When you create a client through the Client Registration Service the response will include a registration access token.
 The registration access token provides access to retrieve the client configuration later, but also to update or delete the client.
@@ -7661,61 +7664,63 @@ This policy is not used by default even for anonymous registration.</p>
 <h2 id="_client_registration_cli"><a class="anchor" href="#_client_registration_cli"></a>6. Client Registration CLI</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>Client Registration CLI</code> is a command line interface tool that can be used by application developers to configure new clients
-to integrate with Keycloak. It is specifically designed to interact with Keycloak Client Registration REST endpoints.</p>
+<p><code>Client Registration CLI</code> is a command line interface tool for application developers to configure new clients in self-service manner
+when integrating with Keycloak. It is specifically designed to interact with Keycloak Client Registration REST endpoints.</p>
 </div>
 <div class="paragraph">
-<p>It is necessary to create a new client configuration for each new application hosted on a unique hostname in order for Keycloak
-to be able to interact with the application (and vice-versa) and perform its function of providing a login page, SSO session management etc.</p>
+<p>In order for any application to be able to use Keycloak it is necessary to create or obtain a client configuration. Usually a new client is configured for
+each new application hosted on a unique hostname. When application interacts with Keycloak it needs to identify itself with a <code>client_id</code> in order for Keycloak
+to be able to provide login page, SSO session management, and other services.</p>
 </div>
 <div class="paragraph">
 <p><code>Client Registration CLI</code> allows you to configure application clients from a command line, and can be used in shell scripts as well.</p>
 </div>
 <div class="paragraph">
-<p>To allow a particular user to use <code>Client Registration CLI</code> a Keycloak administrator will typically use <code>Admin Console</code> to configure
- a new user, or configure a new client, and a client secret, to protect access to <code>Client Registration REST API</code>.</p>
+<p>To allow a particular user to use <code>Client Registration CLI</code> the Keycloak administrator will typically use <code>Admin Console</code> to configure
+ a new user with proper roles, or configure a new client and client secret to grant access to <code>Client Registration REST API</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="_configuring_a_user_for_client_registration_cli"><a class="anchor" href="#_configuring_a_user_for_client_registration_cli"></a>6.1. Configuring a new regular user for use with Client Registration CLI</h3>
 <div class="paragraph">
 <p>Login as <code>admin</code> into <code>Admin Console</code> (e.g. <code><a href="http://localhost:8080/auth/admin" class="bare">http://localhost:8080/auth/admin</a></code>). Select a realm you want to administer.
-If you want to use existing user, select it for edit, otherwise create a new user. Go to <code>Role Mappings</code> tab. Under
-<code>Client Roles</code> select <code>realm-management</code>. Under <code>Available Roles</code> select <code>manage-client</code> for full set of client management
-permissions. Alternatively you can choose <code>view-clients</code> for read-only or <code>create-client</code> for ability to create new clients.
-These permissions grant user the capability to perform operations without the use of <code>Initial Access Token</code> or
-<code>Registration Access Token</code>.</p>
+If you want to use existing user, select that user for edit, otherwise create a new user. Go to <code>Role Mappings</code> tab. Under
+<code>Client Roles</code> select <code>realm-management</code> (if in master realm, select <code>NAME-realm</code> where NAME is name of the target realm - users in master realm can have access to any other realms).
+Under <code>Available Roles</code> select <code>manage-client</code> for full set of client management permissions. Alternatively you can choose
+<code>view-clients</code> for read-only or <code>create-client</code> for ability to create new clients.
+These permissions grant user the capability to perform operations without the use of <a href="#_initial_access_token">Initial Access Token</a> or
+<a href="#_registration_access_token">Registration Access Token</a>.</p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s possible to not assign users any of <code>realm-management</code> roles. In that case user can still login with <code>Registration Client CLI</code>
-but will not be able to use it without having possession of an <code>Initial Access Token</code>. Trying to perform any operations
+but will not be able to use it without being in possession of an <code>Initial Access Token</code>. Trying to perform any operations
 without it will result in <code>403 Forbidden</code> error.</p>
 </div>
 <div class="paragraph">
-<p>Administrator can issue <code>Initial Access Tokens</code> from <code>Admin Console</code> by selecting <code>Initial Access Token</code> tab under <code>Realm Settings</code>.</p>
+<p>Administrator can issue <code>Initial Access Tokens</code> from <code>Admin Console</code> by selecting <code>Client Registration</code> tab under <code>Realm Settings</code>, then <code>Initial Access Token</code> sub-tab.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_configuring_a_client_for_use_with_client_registration_cli"><a class="anchor" href="#_configuring_a_client_for_use_with_client_registration_cli"></a>6.2. Configuring a client for use with Client Registration CLI</h3>
 <div class="paragraph">
-<p>By default the <code>Client Registration CLI</code> identifies as <code>admin-cli</code> client which is automatically configured for every new realm.
-No additional client configuration is required when using login with a username. You may wish to strengthen security by
+<p>By default the <code>Client Registration CLI</code> identifies to the server as <code>admin-cli</code> client which is automatically configured for every new realm.
+No additional client configuration is necessary when logging in with username. You may wish to strengthen security by
 configuring the client <code>Access Type</code> as <code>Confidential</code>, and under <code>Credentials</code> tab select <code>ClientId and Secret</code>. When
-running <code>kcreg config credentials</code> you would then also have to provide a secret e.g. by using <code>--secret</code>.</p>
+running <code>kcreg config credentials</code> you would then also have to provide a secret by using <code>--secret</code> option.</p>
 </div>
 <div class="paragraph">
-<p>If you want to use a separate client configuration for <code>Registration Client CLI</code> then you can create a new client - for
-example you can call it <code>reg-cli</code>. When running <code>kcreg config credentials</code> you then need to specify a <code>clientId</code> to use e.g. <code>--client reg-cli</code>.</p>
+<p>If you want to use a separate client configuration for <code>Registration Client CLI</code> then you can create a new client - you can call it <code>reg-cli</code>
+for example. When running <code>kcreg config credentials</code> you then need to specify which <code>clientId</code> to use e.g. <code>--client reg-cli</code>.</p>
 </div>
 <div class="paragraph">
-<p>If you want to use a service account associated with the client, then you need to enable a service account. In <code>Admin Client</code>
-you go to <code>Clients</code> section, and select a client for edit. Then under <code>Settings</code> first change <code>Access Type</code> to <code>Confidential</code>.
-Then toggle <code>Service Accounts Enabled</code> setting to <code>On</code>, and <code>Save</code> the configuration.</p>
+<p>If you want to use a service account associated with the client, you first need to enable service accounts. In <code>Admin Console</code>
+go to <code>Clients</code> section, and select a client for edit. Then under <code>Settings</code> change the <code>Access Type</code> to <code>Confidential</code>, and toggle
+<code>Service Accounts Enabled</code> setting to <code>On</code>. Make sure to <code>Save</code> the configuration.</p>
 </div>
 <div class="paragraph">
 <p>Under <code>Credentials</code> tab you can choose to configure either <code>Client Id and Secret</code>, or <code>Signed JWT</code>.</p>
 </div>
 <div class="paragraph">
-<p>You can now avoid specifying user when using <code>kcreg config credentials</code> and only provide a client secret or keystore info.</p>
+<p>Having done that you can then omit specifying user during <code>kcreg config credentials</code>, and only provide client secret or keystore info.</p>
 </div>
 </div>
 <div class="sect2">
@@ -7727,7 +7732,7 @@ Then toggle <code>Service Accounts Enabled</code> setting to <code>On</code>, an
 <p>The Linux script is called <code>kcreg.sh</code>, and the one for Windows is called <code>kcreg.bat</code>.</p>
 </div>
 <div class="paragraph">
-<p>In order to setup the client to be used from any location on the filesystem you may want to add Keycloak server directory to your PATH.</p>
+<p>In order to setup the client for use from any location on the filesystem you may want to add Keycloak server directory to your PATH.</p>
 </div>
 <div class="paragraph">
 <p>On Linux:</p>
@@ -7747,11 +7752,14 @@ $ kcreg.sh</code></pre>
 c:\&gt; kcreg</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Where KEYCLOAK_HOME refers to a directory where Keycloak Server distribution was unpacked.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_using_client_registration_cli"><a class="anchor" href="#_using_client_registration_cli"></a>6.4. Using Client Registration CLI</h3>
 <div class="paragraph">
-<p>Usually a user will first start an authenticated session by providing credentials, then perform some CRUD operations.</p>
+<p>First you need to start an authenticated session (i.e. logging in) by providing credentials. Then you perform operations on Client Registration REST endpoint.</p>
 </div>
 <div class="paragraph">
 <p>For example on Linux:</p>
@@ -7775,7 +7783,7 @@ c:\&gt; kcreg get my_client</code></pre>
 </div>
 <div class="paragraph">
 <p>In a production environment Keycloak has to be accessed with <code>https:</code> to avoid exposing tokens to network sniffers. If server&#8217;s
-certificate is not issued by one of the trusted CAs that are included in Java&#8217;s default certificate truststore, then you will
+certificate is not issued by one of the trusted CAs that are included in Java&#8217;s default certificate truststore, you will
 need to prepare a truststore.jks file, and instruct <code>Client Registration CLI</code> to use it.</p>
 </div>
 <div class="paragraph">
@@ -7797,22 +7805,23 @@ need to prepare a truststore.jks file, and instruct <code>Client Registration CL
 <div class="sect3">
 <h4 id="_logging_in"><a class="anchor" href="#_logging_in"></a>6.4.1. Logging In</h4>
 <div class="paragraph">
-<p>When logging in with <code>Client Registration CLI</code> you specify a server endpoint url, and a realm. Then you specify a username,
-or alternatively you can only specify a client id, which will result in special service account being used. In the first case,
+<p>When logging in with <code>Client Registration CLI</code> you specify a server endpoint url, and a realm. Then you specify a username
+or, alternatively, a client id, which will result in special service account being used. In the first case,
 a password for the specified user has to be used at login. In the latter case there is no user password - only client secret
 or a <code>Signed JWT</code> is used.</p>
 </div>
 <div class="paragraph">
-<p>Regardless of the method, the account that logs in needs to have proper permissions in order to be able to perform client
-registration operations. Keep in mind that any account can only have permissions to manage clients within the same realm.
-If you need to manage different realms, you need to configure users in different realms with permissions to manage clients.</p>
+<p>Regardless of the method, the account that logs in needs proper permissions to be able to perform client
+registration operations. Keep in mind that any account in non-master realm can only have permissions to manage clients within the same realm.
+If you need to manage different realms, you can either configure multiple users in different realms, or you can create a single user in <code>master</code> realm and
+add it roles for managing clients in different realms.</p>
 </div>
 <div class="paragraph">
-<p><code>Client Registration CLI</code> by itself does not support configuring the users, for that you would need to use <code>Admin Console</code>
-web interface or <code>Admin Client CLI</code> once it&#8217;s available.</p>
+<p><code>Client Registration CLI</code> by itself does not support configuring users, for that you would need to use <code>Admin Console</code>
+web interface or Admin Client CLI command line tool (see <a href="http://www.keycloak.org/docs/3.4/server_admin/">Server Administration Guide</a> for more details).</p>
 </div>
 <div class="paragraph">
-<p>When <code>kcreg</code> successfully logs in it receives authorization tokens and saves them into a private config file so they can be
+<p>When <code>kcreg</code> successfully logs in it receives authorization tokens and saves them into private config file so they can be
 used for subsequent invocations. See <a href="#_working_with_alternative_configurations">next chapter</a> for more info on configuration file.</p>
 </div>
 <div class="paragraph">
@@ -7841,15 +7850,15 @@ used for subsequent invocations. See <a href="#_working_with_alternative_configu
 <div class="sect3">
 <h4 id="_working_with_alternative_configurations"><a class="anchor" href="#_working_with_alternative_configurations"></a>6.4.2. Working with alternative configurations</h4>
 <div class="paragraph">
-<p>By default, <code>Client Registration CLI</code> automatically maintains a configuration file at a default location - <code>.keycloak/kcreg.config</code>
+<p>By default, <code>Client Registration CLI</code> automatically maintains a configuration file at a default location - <code>./.keycloak/kcreg.config</code>
 under user&#8217;s home directory.</p>
 </div>
 <div class="paragraph">
-<p>You can use <code>--config</code> option at any time to point to a different file / location. This way you can mantain multiple authenticated
+<p>You can always use <code>--config</code> option to point to a different file / location. This way you can mantain multiple authenticated
 sessions in parallel. It is safest to perform operations tied to a single config file from a single thread.</p>
 </div>
 <div class="paragraph">
-<p>Make sure to not make a config file visible to other users on the system as it contains access tokens, and secrets that should be kept private.</p>
+<p>Make sure to not make the config file visible to other users on the system as it contains access tokens, and secrets that should be kept private.</p>
 </div>
 <div class="paragraph">
 <p>You may want to avoid storing any secrets at all inside a config file for the price of less convenience and having to do more token requests.
@@ -7862,8 +7871,9 @@ In that case you can use <code>--no-config</code> option with all your commands.
 <div class="paragraph">
 <p><code>Client Registration CLI</code> can be used by developers who don&#8217;t have an account configured at Keycloak server they want to use.
 That&#8217;s possible when realm administrator issues developer an <code>Initial Access Token</code>. It is up to realm administrator to decide
-how to issue and distribute these tokens. Admin can limit an Initial Access Token by maximum age, and a total number of clients
-that can be created with it. Many Initial Access Tokens can be created, and it&#8217;s up to realm administrator to distribute them.</p>
+how to issue and distribute these tokens. Admin can limit Initial Access Token&#8217;s maximum age, and a total number of clients
+that can be created with it. Many Initial Access Tokens can be created, and it&#8217;s up to realm administrator to distribute them
+to application developers.</p>
 </div>
 <div class="paragraph">
 <p>Once a developer is in possession of Initial Access Token they can use it to create new clients without authenticating
@@ -7905,13 +7915,13 @@ c:\&gt; kcreg create -s clientId=myclient</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When Initial Access Token is used, the server response will include a newly issued Registration Access Token for client that was
-just created. Any subsequent operation for that client needs to be performed by authenticating with that token.</p>
+<p>When Initial Access Token is used, the server response will include a newly issued Registration Access Token.
+Any subsequent operation for that client needs to be performed by authenticating with that token which is only valid for that client.</p>
 </div>
 <div class="paragraph">
-<p><code>Client Registration CLI</code> automatically uses its private configuration file to save, and make use of this token for each
-created client. As long as the same configuration file is used for all client operations, the developer will not need to
-authenticate in order to read, update, or delete a client they created.</p>
+<p><code>Client Registration CLI</code> automatically uses its private configuration file to save, and use this token with its associated client.
+As long as the same configuration file is used for all client operations, the developer will not need to
+authenticate in order to read, update, or delete a client that was created this way.</p>
 </div>
 <div class="paragraph">
 <p>You can read more about Initial Access and Registration Access Tokens in <a href="#_client_registration">Client Registration chapter</a>.</p>
@@ -7921,22 +7931,21 @@ authenticate in order to read, update, or delete a client they created.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_performing_crud_operations"><a class="anchor" href="#_performing_crud_operations"></a>6.4.4. Performing CRUD operations</h4>
+<h4 id="_performing_crud_operations"><a class="anchor" href="#_performing_crud_operations"></a>6.4.4. Creating client configuration</h4>
 <div class="paragraph">
 <p>After authenticating with credentials or configuring Initial Access Token, the first operation will usually be to create a new client.</p>
 </div>
 <div class="paragraph">
-<p>We&#8217;ve seen the simplest command to create a new client already. Often we may want to use a prepared JSON file as a template,
-and set / override some of the attributes. For example, this is how you read a JSON file in default client configuration format,
-override any clientId it may contain with a new one, override / set any other attributes as well, and after successful creation
-print the new client configuration to standard output.</p>
+<p>We&#8217;ve seen the simplest create command already. Often we may want to use a prepared JSON file as a template and set / override
+some of the attributes. For example, here is how you read a JSON file, override any <code>clientId</code> it may contain,
+set any other attributes as well, and after successful creation print the configuration to standard output.</p>
 </div>
 <div class="paragraph">
 <p>On Linux:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ kcreg.sh create -s clientId=myclient -f client-template.json -s baseUrl=/myclient -s 'redirectUris=[&quot;/myclient/*&quot;]' -o</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ kcreg.sh create -f client-template.json -s clientId=myclient -s baseUrl=/myclient -s 'redirectUris=[&quot;/myclient/*&quot;]' -o</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7944,22 +7953,25 @@ print the new client configuration to standard output.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">C:\&gt; kcreg create -s clientId=myclient -f client-template.json -s baseUrl=/myclient -s &quot;redirectUris=[\&quot;/myclient/*\&quot;]&quot; -o</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">C:\&gt; kcreg create -f client-template.json -s clientId=myclient -s baseUrl=/myclient -s &quot;redirectUris=[\&quot;/myclient/*\&quot;]&quot; -o</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>See <code>kcreg create --help</code> for more information about <code>kcreg create</code>.</p>
 </div>
 <div class="paragraph">
-<p>You can use <code>kcreg attrs</code> to list the available attributes. Note, that many configuration attributes are not checked for
-validity or consistency. It is up to you to specify proper values. Also note, that you should not have any <code>id</code> fields in your
-template or specify them as arguments to <code>kcreg create</code>.</p>
+<p>You can use <code>kcreg attrs</code> to list available attributes. Keep in mind that many configuration attributes are not checked for
+validity or consistency. It is up to you to specify proper values. Also note that you should not have any <code>id</code> fields in your
+template and should not specify them as arguments to <code>kcreg create</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="retrieving-client-configuration"><a class="anchor" href="#retrieving-client-configuration"></a>6.4.5. Retrieving client configuration</h4>
+<div class="paragraph">
+<p>You can retrieve an existing client by using <code>kcreg get</code>.</p>
 </div>
 <div class="paragraph">
-<p>Once a new client is created you can retrieve it again by using <code>kcreg get</code>.</p>
-</div>
-<div class="paragraph">
-<p>On Linux:</p>
+<p>For example, on Linux:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -7975,14 +7987,14 @@ template or specify them as arguments to <code>kcreg create</code>.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also get an adapter configuration which you can drop into your web application in order to integrate with Keycloak server.</p>
+<p>You can also get client configuration as adapter configuration file which you can package with your web application.</p>
 </div>
 <div class="paragraph">
-<p>On Linux:</p>
+<p>For example, on Linux:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ kcreg.sh get myclient -e install</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ kcreg.sh get myclient -e install &gt; keycloak.json</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7990,14 +8002,17 @@ template or specify them as arguments to <code>kcreg create</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">C:\&gt; kcreg get myclient -e install</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">C:\&gt; kcreg get myclient -e install &gt; keycloak.json</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>See <code>kcreg get --help</code> for more information about <code>kcreg get</code>.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="modifying-client-configuration"><a class="anchor" href="#modifying-client-configuration"></a>6.4.6. Modifying client configuration</h4>
 <div class="paragraph">
-<p>It&#8217;s simple to update client configurations as well. There are two modes of updating.</p>
+<p>There are two modes of updating client configuration.</p>
 </div>
 <div class="paragraph">
 <p>One is to submit a complete new state to the server after getting current configuration, saving it into a file, editing it, and posting it back.</p>
@@ -8023,10 +8038,10 @@ C:\&gt; kcreg update myclient -f myclient.json</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Another is to get current client, set or delete fields on it, and post it back all in one single step.</p>
+<p>Another way is to fetch current client, set or delete fields on it, and post it back all in one single step.</p>
 </div>
 <div class="paragraph">
-<p>On Linux:</p>
+<p>For example, on Linux:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -8042,9 +8057,9 @@ C:\&gt; kcreg update myclient -f myclient.json</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can even use a file that contains only changes to be applied so you don&#8217;t have to specify too many values as arguments.
-In this case we specify <code>--merge</code> to tell <code>Client Registration CLI</code> that rather than treating mychanges.json as full
-new configuration, it should see it as a set of attributes to be applied over existing configuration.</p>
+<p>You can even use a file that only contains changes to be applied so you don&#8217;t have to specify too many values as arguments.
+In this case specify <code>--merge</code> to tell <code>Client Registration CLI</code> that rather than treating JSON file as full
+new configuration, it should treat it as a set of attributes to be applied over existing configuration.</p>
 </div>
 <div class="paragraph">
 <p>On Linux:</p>
@@ -8065,6 +8080,9 @@ new configuration, it should see it as a set of attributes to be applied over ex
 <div class="paragraph">
 <p>See <code>kcreg update --help</code> for more information about <code>kcreg update</code>.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="deleting-client-configuration"><a class="anchor" href="#deleting-client-configuration"></a>6.4.7. Deleting client configuration</h4>
 <div class="paragraph">
 <p>You may sometimes also need to delete a client.</p>
 </div>
@@ -8089,16 +8107,16 @@ new configuration, it should see it as a set of attributes to be applied over ex
 </div>
 </div>
 <div class="sect3">
-<h4 id="_refreshing_invalid_registration_access_tokens"><a class="anchor" href="#_refreshing_invalid_registration_access_tokens"></a>6.4.5. Refreshing Invalid Registration Access Tokens</h4>
+<h4 id="_refreshing_invalid_registration_access_tokens"><a class="anchor" href="#_refreshing_invalid_registration_access_tokens"></a>6.4.8. Refreshing Invalid Registration Access Tokens</h4>
 <div class="paragraph">
-<p>When performing CRUD operation using <code>no-config</code> mode <code>Client Registration CLI</code> can no longer handle Registration Access Tokens for you.
+<p>When performing a CRUD operation using <code>--no-config</code> mode, <code>Client Registration CLI</code> can no longer handle Registration Access Tokens for you.
 In that case it is possible to lose track of most recently issued Registration Access Token for a client, which makes it impossible to
-perform any further CRUD operations on that client without using credentials of an account with 'manage-clients' permissions.</p>
+perform any further CRUD operations on that client without authenticating with account that has 'manage-clients' permissions.</p>
 </div>
 <div class="paragraph">
-<p>If you have permissions you can reissue a new Registration Access Token for the client, and have it printed to stdout or saved to a config
-file of your choice. If not you have to ask realm administrator to reissue a new Registration Access Token for your client, and send it
-to you. You can then use the token by passing it to any CRUD command via <code>--token</code> option. You can also use <code>kcreg config registration-token</code>
+<p>If you have permissions, you can issue a new Registration Access Token for the client, and have it printed to stdout or saved to a config
+file of your choice. Otherwise you have to ask realm administrator to issue new Registration Access Token for your client, and send it
+to you. You can then pass it to any CRUD command via <code>--token</code> option. You can also use <code>kcreg config registration-token</code>
 command to save the new token in configuration file, and have <code>Client Registration CLI</code> automatically handle it for you from that point on.</p>
 </div>
 <div class="paragraph">
@@ -8758,7 +8776,7 @@ a valid user.  You can also specify an <code>audience</code> parameter if you wi
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-16 07:06:44 UTC
+Last updated 2017-10-16 13:01:07 UTC
 </div>
 </div>
 <ul id="globalnav">
