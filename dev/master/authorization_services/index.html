@@ -4361,6 +4361,14 @@ The HTTP methods (for example, GET, POST, PATCH) to protect and how they are ass
 <p>An array of strings with the scopes associated with the method. When you associate scopes with a specific method, the client trying to access a protected resource (or path) must provide an RPT that grants permission to all scopes specified in the list. For example, if you define a method <em>POST</em> with a scope <em>create</em>, the RPT must contain a permission granting access to the <em>create</em> scope when performing a POST to the path.</p>
 </div>
 </li>
+<li>
+<p><strong>scopes-enforcement-mode</strong></p>
+<div class="paragraph">
+<p>A string referencing the enforcement mode for the scopes associated with a method. Values can be <strong>ALL</strong> or <strong>ANY</strong>. If <strong>ALL</strong>,
+all defined scopes must be granted in order to access the resource using that method. If <strong>ANY</strong>, at least one scope should be
+granted in order to gain access to the resource using that method. By default, enforcement mode is set to <strong>ALL</strong>.</p>
+</div>
+</li>
 </ul>
 </div>
 </li>
@@ -4729,7 +4737,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-19 11:39:32 UTC
+Last updated 2017-11-07 09:05:03 UTC
 </div>
 </div>
 <ul id="globalnav">
