@@ -2977,7 +2977,7 @@ Your new required action should now be displayed and enabled in the required act
 <div class="sect2">
 <h3 id="modifying-extending-the-registration-form"><a class="anchor" href="#modifying-extending-the-registration-form"></a>8.5. Modifying/Extending the Registration Form</h3>
 <div class="paragraph">
-<p>It is entirely possible for you to implement your own flow with a set of Authenticators to totally change how regisration is done in Keycloak.
+<p>It is entirely possible for you to implement your own flow with a set of Authenticators to totally change how registration is done in Keycloak.
 But what you&#8217;ll usually want to do is just add a little bit of validation to the out of the box registration page.
 An additional SPI was created to be able to do this.
 It basically allows you to add validation of form elements on the page as well as to initialize UserModel attributes and data after the user has been registered.
@@ -3887,7 +3887,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre>
 <p>The <code>isConfiguredFor()</code> method is called by the runtime to determine if a specific credential type is configured for the user. This method checks to see that the password is set for the user.</p>
 </div>
 <div class="paragraph">
-<p>The <code>suportsCredentialType()</code> method returns whether validation is supported for a specific credential type. We check to see if the credential type is <code>password</code>.</p>
+<p>The <code>supportsCredentialType()</code> method returns whether validation is supported for a specific credential type. We check to see if the credential type is <code>password</code>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>isValid()</code> method is responsible for validating passwords. The <code>CredentialInput</code> parameter is really just an abstract interface for all credential types. We make sure that we support the credential type and also that it is an instance of <code>UserCredentialModel</code>. When a user logs in through the login page, the plain text of the password input is put into an instance of <code>UserCredentialModel</code>. The <code>isValid()</code> method checks this value against the plain text password stored in the properties file. A return value of <code>true</code> means the password is valid.</p>
@@ -4911,6 +4911,9 @@ When using JPA any additional datasource must be an XA datasource. The Keycloak 
 <div class="paragraph">
 <p>See the JBoss/Wildfly manual for more details on deploying an XA datasource.</p>
 </div>
+<div class="paragraph">
+<p>CDI is not supported.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="rest-management-api"><a class="anchor" href="#rest-management-api"></a>11.12. REST Management API</h3>
@@ -5164,7 +5167,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-08 07:36:28 UTC
+Last updated 2017-11-08 07:59:56 UTC
 </div>
 </div>
 <ul id="globalnav">
