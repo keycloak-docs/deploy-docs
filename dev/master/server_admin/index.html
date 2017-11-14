@@ -6421,6 +6421,10 @@ OIDC client adapter installed.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Default Admin-Initiated Action Lifespan</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Maximum time before an action permit sent to a user by an admin is expired. This value is recommended to be long to allow admins send e-mails for users that are currently offline. The default timeout can be overridden right before issuing the token.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Override User-Initiated Action Lifespan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Permits the possibility of having independent timeouts per operation (e.g. e-mail verification, forgot password, user actions and Identity Provider E-mail Verification). This field is non mandatory and if nothing is specified it defaults to the value configured at <em>User-Initiated Action Lifespan</em>.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -9779,7 +9783,7 @@ at least one digit character, not be equal to user&#8217;s <code>username</code>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 10:40:22 UTC
+Last updated 2017-11-14 08:20:12 UTC
 </div>
 </div>
 <ul id="globalnav">
