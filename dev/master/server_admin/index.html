@@ -2415,7 +2415,7 @@ URI <code>.mydomain.org</code> must be allowed in the <code>network.negotiate-au
 <div class="sect4">
 <h5 id="keycloak-and-freeipa-docker-image"><a class="anchor" href="#keycloak-and-freeipa-docker-image"></a>Keycloak and FreeIPA docker image</h5>
 <div class="paragraph">
-<p>Once you install <a href="https://www.docker.com/">docker</a>, you can run docker image with <a href="http://www.freeipa.org/page/Main_Page">FreeIPA</a>         server installed.
+<p>Once you install <a href="https://www.docker.com/">docker</a>, you can run docker image with FreeIPA server installed.
 FreeIPA provides integrated security solution with MIT Kerberos and 389 LDAP server among other things . The image provides also Keycloak
 server configured with LDAP Federation provider and enabled SPNEGO/Kerberos authentication against the FreeIPA server.
 See details <a href="https://github.com/mposolda/keycloak-freeipa-docker/blob/master/README.md">here</a> .</p>
@@ -6710,7 +6710,7 @@ Admin console provides tooltips, which should help with configuring the correspo
 <p>Keycloak also comes with a built-in <a href="https://fedoraproject.org/wiki/Features/SSSD">SSSD</a> (System Security Services Daemon) plugin. SSSD is part of the latest Fedora or Red Hat Enterprise Linux and provides access to multiple identity and authentication providers. It provides benefits such as failover and offline support. To see configuration options and for more information see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system-level_authentication_guide/sssd">the Red Hat Enterprise Linux Identity Management documentation</a>.</p>
 </div>
 <div class="paragraph">
-<p>SSSD also integrates with the <a href="http://www.freeipa.org/page/Main_Page">FreeIPA identity management (IdM)</a> server, providing authentication and access control. For Keycloak, we benefit from this integration authenticating against <a href="http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html">PAM</a> services and retrieving user data from SSSD. For more information about using Red Hat Identity Management in Linux environments, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/index">the Red Hat Enterprise Linux Identity Management documentation</a>.</p>
+<p>SSSD also integrates with the FreeIPA identity management (IdM) server, providing authentication and access control. For Keycloak, we benefit from this integration authenticating against <a href="http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html">PAM</a> services and retrieving user data from SSSD. For more information about using Red Hat Identity Management in Linux environments, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/index">the Red Hat Enterprise Linux Identity Management documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./keycloak-images/keycloak-sssd-freeipa-integration-overview.png" alt="keycloak sssd freeipa integration overview"></span></p>
@@ -6736,7 +6736,7 @@ Groups and roles are automatically registered, but not synchronized, so any chan
 <div class="sect3">
 <h4 id="freeipa-idm-server"><a class="anchor" href="#freeipa-idm-server"></a>14.3.1. FreeIPA/IdM Server</h4>
 <div class="paragraph">
-<p>As a matter of simplicity, a <a href="https://www.freeipa.org/page/Docker">FreeIPA Docker image</a> already available is used. To set up a server, see the <a href="https://www.freeipa.org/page/Quick_Start_Guide">FreeIPA documentation</a>.</p>
+<p>As a matter of simplicity, a <a href="https://hub.docker.com/r/freeipa/freeipa-server/">FreeIPA Docker image</a> already available is used. To set up a server, see the <a href="https://www.freeipa.org/page/Quick_Start_Guide">FreeIPA documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p>Running a FreeIPA server with Docker requires this command:</p>
@@ -9783,7 +9783,7 @@ at least one digit character, not be equal to user&#8217;s <code>username</code>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-16 12:20:10 UTC
+Last updated 2017-11-27 19:06:38 UTC
 </div>
 </div>
 <ul id="globalnav">
