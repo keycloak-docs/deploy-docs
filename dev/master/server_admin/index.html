@@ -2614,6 +2614,18 @@ Credential delegation has some security implications so only use it if you reall
 <div class="paragraph">
 <p>The certificate identity mapping can be configured to map the extracted user identity to an existing user&#8217;s username or e-mail or to a custom attribute which value matches the certificate identity. For example, setting the <code>Identity source</code> to <em>Subject&#8217;s e-mail</em> and <code>User mapping method</code> to <em>Username or email</em> will have the X.509 client certificate authenticator use the e-mail attribute in the certificate&#8217;s Subject DN  as a search criteria to look up an existing user by username or by e-mail.</p>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Please notice that if we disable <code>Login with email</code> at realm settings, the same rules will be applied to certificate authentication. In other words, users won&#8217;t be able to log in using e-mail attribute.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="other-features-extended-certificate-validation"><a class="anchor" href="#other-features-extended-certificate-validation"></a>6.6.4. Other Features: Extended Certificate Validation</h4>
@@ -9785,7 +9797,7 @@ at least one digit character, not be equal to user&#8217;s <code>username</code>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-29 19:13:48 UTC
+Last updated 2017-11-29 19:27:18 UTC
 </div>
 </div>
 <ul id="globalnav">
