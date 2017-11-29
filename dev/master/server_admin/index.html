@@ -7331,7 +7331,8 @@ Examples:</p>
 Export of users is not supported.</p>
 </div>
 <div class="paragraph">
-<p>Note: Attributes containing secrets or private information will be masked in export file.</p>
+<p>Note: Attributes containing secrets or private information will be masked in export file. Export files obtained via Admin Console
+are thus not appropriate for backups or data transfer between servers. Only boot-time exports are appropriate for that.</p>
 </div>
 <div class="paragraph">
 <p>The files created during a "startup" export can also be used to import from the admin UI.
@@ -7346,7 +7347,8 @@ Note: The admin console export/import allows just one realm per file.</p>
 </td>
 <td class="content">
 The admin console import allows you to "overwrite" resources if you choose.
-Use this feature with caution, especially on a production system.
+Use this feature with caution, especially on a production system. Export .json files from Admin Console Export operation
+are generally not appropriate for data import since they contain invalid values for secrets.
 </td>
 </tr>
 </table>
@@ -9783,7 +9785,7 @@ at least one digit character, not be equal to user&#8217;s <code>username</code>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-29 13:27:18 UTC
+Last updated 2017-11-29 19:13:48 UTC
 </div>
 </div>
 <ul id="globalnav">
