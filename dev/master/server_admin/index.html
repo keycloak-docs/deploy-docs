@@ -2847,11 +2847,11 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 </dd>
 <dt class="hdlist1"><code>Validate Key Usage</code> (optional)</dt>
 <dd>
-<p>Verifies whether the certificate&#8217;s KeyUsage extension bits are set. For example, "digitalSignature,KeyEncipherment" will verify if  bits 0 and 2 in the KeyUsage extension are asserted. Leave the parameter empty to disable the Key Usage validaion. See <a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.3">RFC5280, Section-4.2.1.3</a></p>
+<p>Verifies whether the certificate&#8217;s KeyUsage extension bits are set. For example, "digitalSignature,KeyEncipherment" will verify if  bits 0 and 2 in the KeyUsage extension are asserted. Leave the parameter empty to disable the Key Usage validaion. See <a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.3">RFC5280, Section-4.2.1.3</a>. The server will raise an error only when flagged as critical by the issuing CA and there is a key usage extension mismatch.</p>
 </dd>
 <dt class="hdlist1"><code>Validate Extended Key Usage</code> (optional)</dt>
 <dd>
-<p>Verifies one or more purposes as defined in the Extended Key Usage extension. See <a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.12">RFC5280, Section-4.2.1.12</a>. Leave the parameter empty to disable the Extended Key Usage validation.</p>
+<p>Verifies one or more purposes as defined in the Extended Key Usage extension. See <a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.12">RFC5280, Section-4.2.1.12</a>. Leave the parameter empty to disable the Extended Key Usage validation. The server will raise an error only when flagged as critical by the issuing CA and there is a key usage extension mismatch.</p>
 </dd>
 <dt class="hdlist1"><code>Bypass identity confirmation</code></dt>
 <dd>
@@ -9797,7 +9797,7 @@ at least one digit character, not be equal to user&#8217;s <code>username</code>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-30 09:39:44 UTC
+Last updated 2017-11-30 09:44:09 UTC
 </div>
 </div>
 <ul id="globalnav">
