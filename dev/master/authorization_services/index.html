@@ -3305,9 +3305,8 @@ creates a role, <em>uma_protection</em>, for the corresponding client applicatio
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
-    -H &quot;Authorization: Basic aGVsbG8td29ybGQtYXV0aHotc2VydmljZTpwYXNzd29yZA==&quot; \
     -H &quot;Content-Type: application/x-www-form-urlencoded&quot; \
-    -d 'grant_type=client_credentials' \
+    -d 'grant_type=client_credentials&amp;client_id=${client_id}&amp;client_secret=${client_secret}' \
     &quot;http://localhost:8080/auth/realms/${realm_name}/protocol/openid-connect/token&quot;</code></pre>
 </div>
 </div>
@@ -4737,7 +4736,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-30 09:44:08 UTC
+Last updated 2017-11-30 10:41:33 UTC
 </div>
 </div>
 <ul id="globalnav">
