@@ -767,7 +767,8 @@ span.image img {
 </li>
 <li><a href="#sticky-sessions">8.4. Sticky sessions</a>
 <ul class="sectlevel3">
-<li><a href="#example-cluster-setup-with-mod_cluster">8.4.1. Example cluster setup with mod_cluster</a></li>
+<li><a href="#disable-adding-the-route">8.4.1. Disable adding the route</a></li>
+<li><a href="#_example-setup-with-mod-cluster">8.4.2. Example cluster setup with mod_cluster</a></li>
 </ul>
 </li>
 <li><a href="#multicast-network-setup">8.5. Multicast Network Setup</a></li>
@@ -4255,13 +4256,44 @@ and hence Infinispan can lookup this session locally. After authentication is fi
 over the <code>AUTH_SESSION_ID</code> cookie. How exactly do this is dependent on your loadbalancer.</p>
 </div>
 <div class="paragraph">
-<p>Some loadbalancers can be configured to add the route information by themselves instead of rely on the backend Keycloak node. However adding the route by
-the Keycloak is more clever as Keycloak knows, who is the owner of particular session entity and can route it to that node, which is not necessarily the local node.
-We plan to support the setup where the route info won&#8217;t be added to AUTH_SESSION_ID cookie by the Keycloak server, but instead by the load balancer. However
-adding the cookie by Keycloak would be still the preferred option.</p>
+<p>It is recommended on the Keycloak side to use the system property <code>jboss.node.name</code> during startup, with the value corresponding
+to the name of your route. For example, <code>-Djboss.node.name=node1</code> will use <code>node1</code> to identify the route. This route will be used by
+Infinispan caches and will be attached to the AUTH_SESSION_ID cookie when the node is the owner of the particular key. An example of the
+start up command with this system property can be seen in <a href="#_example-setup-with-mod-cluster">Mod Cluster Example</a>.</p>
+</div>
+<div class="paragraph">
+<p>Typically, the route name be the same name as your backend host, but it is not necessary. You can use a different route name,
+for example if you want to hide the host name of your Keycloak server inside your private network.</p>
 </div>
 <div class="sect3">
-<h4 id="example-cluster-setup-with-mod_cluster"><a class="anchor" href="#example-cluster-setup-with-mod_cluster"></a>8.4.1. Example cluster setup with mod_cluster</h4>
+<h4 id="disable-adding-the-route"><a class="anchor" href="#disable-adding-the-route"></a>8.4.1. Disable adding the route</h4>
+<div class="paragraph">
+<p>Some load balancers can be configured to add the route information by themselves instead of relying on the back end Keycloak node.
+However, as described above, adding the route by the Keycloak is recommended. This is because when done this way performance improves,
+since Keycloak is aware of the entity that is the owner of particular session and can route to that node, which is not necessarily the local node.</p>
+</div>
+<div class="paragraph">
+<p>You are permitted to disable adding route information to the AUTH_SESSION_ID cookie by Keycloak, if you prefer, by adding the following
+into your <code>RHSSO_HOME/standalone/configuration/standalone-ha.xml</code> file in the Keycloak subsystem configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:keycloak-server:1.1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  ...
+    <span class="tag">&lt;spi</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stickySessionEncoder</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;provider</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">infinispan</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;properties&gt;</span>
+                <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">shouldAttachRoute</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;/properties&gt;</span>
+        <span class="tag">&lt;/provider&gt;</span>
+    <span class="tag">&lt;/spi&gt;</span>
+
+<span class="tag">&lt;/subsystem&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example-setup-with-mod-cluster"><a class="anchor" href="#_example-setup-with-mod-cluster"></a>8.4.2. Example cluster setup with mod_cluster</h4>
 <div class="paragraph">
 <p>In the example, we will use <a href="http://mod-cluster.jboss.org/">Mod Cluster</a> as load balancer. One of the key features of mod cluster is, that there is not much
 configuration on the load balancer side. Instead it requires support on the backend node side. Backend nodes communicate with the load balancer through the
@@ -4482,6 +4514,10 @@ depends on your <a href="#_operating-mode">operating mode</a>.</p>
 <pre class="CodeRay highlight"><code>$ bin/domain.sh --host-config=host-master.xml
 $ bin/domain.sh --host-config=host-slave.xml</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>You may need to use additional parameters or system properties. For example, the parameter <code>-b</code> for the binding host or the system property
+<code>jboss.node.name</code> to specify the name of the route, as described in <a href="#sticky-sessions">Sticky Sessions</a> section.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5019,7 +5055,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-06 05:47:26 UTC
+Last updated 2017-12-06 21:12:14 UTC
 </div>
 </div>
 <ul id="globalnav">
