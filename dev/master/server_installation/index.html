@@ -1848,8 +1848,8 @@ Details about the configuration options inside <code>replicated-cache-configurat
 <div class="content">
 <pre class="CodeRay highlight"><code>cd JDG1_HOME/bin
 ./standalone.sh -c clustered.xml -Djava.net.preferIPv4Stack=true \
--Djboss.default.multicast.address=234.56.78.99 \
--Djboss.node.name=jdg1</code></pre>
+  -Djboss.default.multicast.address=234.56.78.99 \
+  -Djboss.node.name=jdg1 -b <em>PUBLIC_IP_ADDRESS</em></code></pre>
 </div>
 </div>
 </li>
@@ -1859,8 +1859,8 @@ Details about the configuration options inside <code>replicated-cache-configurat
 <div class="content">
 <pre class="CodeRay highlight"><code>cd JDG2_HOME/bin
 ./standalone.sh -c clustered.xml -Djava.net.preferIPv4Stack=true \
--Djboss.default.multicast.address=234.56.78.100 \
--Djboss.node.name=jdg2</code></pre>
+  -Djboss.default.multicast.address=234.56.78.100 \
+  -Djboss.node.name=jdg2 -b <em>PUBLIC_IP_ADDRESS</em></code></pre>
 </div>
 </div>
 </li>
@@ -2058,18 +2058,20 @@ In production, you can have more Infinispan servers in every data center. You ju
 <div class="content">
 <pre class="CodeRay highlight"><code>cd NODE11/bin
 ./standalone.sh -c standalone-ha.xml -Djboss.node.name=node11 -Djboss.site.name=site1 \
--Djboss.default.multicast.address=234.56.78.1 -Dremote.cache.host=jdg1 -Djava.net.preferIPv4Stack=true</code></pre>
+  -Djboss.default.multicast.address=234.56.78.1 -Dremote.cache.host=jdg1 \
+  -Djava.net.preferIPv4Stack=true -b <em>PUBLIC_IP_ADDRESS</em></code></pre>
 </div>
 </div>
 </li>
 <li>
 <p>Start <code>NODE12</code> :</p>
-<div class="paragraph">
-<p><code><code>`
-cd NODE12/bin
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>cd NODE12/bin
 ./standalone.sh -c standalone-ha.xml -Djboss.node.name=node12 -Djboss.site.name=site1 \
--Djboss.default.multicast.address=234.56.78.1 -Dremote.cache.host=jdg1 -Djava.net.preferIPv4Stack=true
-</code>`</code></p>
+  -Djboss.default.multicast.address=234.56.78.1 -Dremote.cache.host=jdg1 \
+  -Djava.net.preferIPv4Stack=true -b <em>PUBLIC_IP_ADDRESS</em></code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The cluster nodes should be connected. Something like this should be in the log of both NODE11 and NODE12:</p>
@@ -2098,7 +2100,8 @@ The channel name in the log might be different.
 <div class="content">
 <pre class="CodeRay highlight"><code>cd NODE21/bin
 ./standalone.sh -c standalone-ha.xml -Djboss.node.name=node21 -Djboss.site.name=site2 \
--Djboss.default.multicast.address=234.56.78.2 -Dremote.cache.host=jdg2 -Djava.net.preferIPv4Stack=true</code></pre>
+  -Djboss.default.multicast.address=234.56.78.2 -Dremote.cache.host=jdg2 \
+  -Djava.net.preferIPv4Stack=true -b <em>PUBLIC_IP_ADDRESS</em></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2116,7 +2119,8 @@ The channel name in the log might be different.
 <div class="content">
 <pre class="CodeRay highlight"><code>cd NODE22/bin
 ./standalone.sh -c standalone-ha.xml -Djboss.node.name=node22 -Djboss.site.name=site2 \
--Djboss.default.multicast.address=234.56.78.2 -Dremote.cache.host=jdg2 -Djava.net.preferIPv4Stack=true</code></pre>
+  -Djboss.default.multicast.address=234.56.78.2 -Dremote.cache.host=jdg2 \
+  -Djava.net.preferIPv4Stack=true -b <em>PUBLIC_IP_ADDRESS</em></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5055,7 +5059,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-06 21:12:14 UTC
+Last updated 2017-12-07 08:57:19 UTC
 </div>
 </div>
 <ul id="globalnav">
