@@ -3680,11 +3680,11 @@ the keystore and enable HTTPS.  (See <a href="#_operating-mode">operating mode</
 </div>
 </div>
 <div class="paragraph">
-<p>Find the element <code>server name="default-server"</code> (it&#8217;s a child element of <code>subsystem xmlns="urn:jboss:domain:undertow:3.1"</code>) and add:</p>
+<p>Find the element <code>server name="default-server"</code> (it&#8217;s a child element of <code>subsystem xmlns="urn:jboss:domain:undertow:4.0"</code>) and add:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:3.1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
    <span class="tag">&lt;buffer-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
    <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;https-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">security-realm</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">UndertowRealm</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -3985,12 +3985,12 @@ any black or white listing of IP addresses.</p>
 If your proxy is forwarding requests via the HTTP protocol, then you need to configure Keycloak to pull the client&#8217;s
 IP address from the <code>X-Forwarded-For</code> header rather than from the network packet.
 To do this, open up the profile configuration file (<em>standalone.xml</em>, <em>standalone-ha.xml</em>, or <em>domain.xml</em> depending on your
-<a href="#_operating-mode">operating mode</a>) and look for the <code>urn:jboss:domain:undertow:3.1</code> XML block.</p>
+<a href="#_operating-mode">operating mode</a>) and look for the <code>urn:jboss:domain:undertow:4.0</code> XML block.</p>
 </div>
 <div class="listingblock">
 <div class="title"><code>X-Forwarded-For</code> HTTP Config</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:3.1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
    <span class="tag">&lt;buffer-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
    <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;ajp-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4013,7 +4013,7 @@ pull this information from the AJP packets.</p>
 <div class="listingblock">
 <div class="title"><code>X-Forwarded-For</code> AJP Config</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:3.1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
      <span class="tag">&lt;buffer-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
      <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
          <span class="tag">&lt;ajp-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4041,7 +4041,7 @@ pull this information from the AJP packets.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:3.1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     ...
     <span class="tag">&lt;http-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http</span><span class="delimiter">&quot;</span></span>
         <span class="attribute-name">proxy-address-forwarding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">redirect-socket</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">proxy-https</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4125,7 +4125,7 @@ file and go to the undertow configuration in the <code>load-balancer</code> prof
 <div class="listingblock">
 <div class="title">domain.xml reverse-proxy config</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:3.1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
   ...
   <span class="tag">&lt;handlers&gt;</span>
       <span class="tag">&lt;reverse-proxy</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lb-handler</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
@@ -5059,7 +5059,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-08 08:43:40 UTC
+Last updated 2017-12-20 09:55:24 UTC
 </div>
 </div>
 <ul id="globalnav">
