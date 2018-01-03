@@ -871,25 +871,26 @@ span.image img {
 <li><a href="#_user-storage-federation">14. User Storage Federation</a>
 <ul class="sectlevel2">
 <li><a href="#adding-a-provider">14.1. Adding a Provider</a></li>
-<li><a href="#_ldap">14.2. LDAP and Active Directory</a>
+<li><a href="#dealing-with-provider-failures">14.2. Dealing with Provider Failures</a></li>
+<li><a href="#_ldap">14.3. LDAP and Active Directory</a>
 <ul class="sectlevel3">
-<li><a href="#storage-mode">14.2.1. Storage Mode</a></li>
-<li><a href="#edit-mode">14.2.2. Edit Mode</a></li>
-<li><a href="#other-config-options">14.2.3. Other config options</a></li>
-<li><a href="#connect-to-ldap-over-ssl">14.2.4. Connect to LDAP over SSL</a></li>
-<li><a href="#sync-of-ldap-users-to-keycloak">14.2.5. Sync of LDAP users to Keycloak</a></li>
-<li><a href="#_ldap_mappers">14.2.6. LDAP Mappers</a></li>
+<li><a href="#storage-mode">14.3.1. Storage Mode</a></li>
+<li><a href="#edit-mode">14.3.2. Edit Mode</a></li>
+<li><a href="#other-config-options">14.3.3. Other config options</a></li>
+<li><a href="#connect-to-ldap-over-ssl">14.3.4. Connect to LDAP over SSL</a></li>
+<li><a href="#sync-of-ldap-users-to-keycloak">14.3.5. Sync of LDAP users to Keycloak</a></li>
+<li><a href="#_ldap_mappers">14.3.6. LDAP Mappers</a></li>
 </ul>
 </li>
-<li><a href="#_sssd">14.3. SSSD and FreeIPA Identity Management Integration</a>
+<li><a href="#_sssd">14.4. SSSD and FreeIPA Identity Management Integration</a>
 <ul class="sectlevel3">
-<li><a href="#freeipa-idm-server">14.3.1. FreeIPA/IdM Server</a></li>
-<li><a href="#sssd-and-d-bus">14.3.2. SSSD and D-Bus</a></li>
-<li><a href="#enabling-the-sssd-federation-provider">14.3.3. Enabling the SSSD Federation Provider</a></li>
+<li><a href="#freeipa-idm-server">14.4.1. FreeIPA/IdM Server</a></li>
+<li><a href="#sssd-and-d-bus">14.4.2. SSSD and D-Bus</a></li>
+<li><a href="#enabling-the-sssd-federation-provider">14.4.3. Enabling the SSSD Federation Provider</a></li>
 </ul>
 </li>
-<li><a href="#configuring-a-federated-sssd-store">14.4. Configuring a Federated SSSD Store</a></li>
-<li><a href="#custom-providers">14.5. Custom Providers</a></li>
+<li><a href="#configuring-a-federated-sssd-store">14.5. Configuring a Federated SSSD Store</a></li>
+<li><a href="#custom-providers">14.6. Custom Providers</a></li>
 </ul>
 </li>
 <li><a href="#auditing-and-events">15. Auditing and Events</a>
@@ -6546,7 +6547,30 @@ external user store may not support OTP.  Depending on the provider, this OTP su
 </div>
 </div>
 <div class="sect2">
-<h3 id="_ldap"><a class="anchor" href="#_ldap"></a>14.2. LDAP and Active Directory</h3>
+<h3 id="dealing-with-provider-failures"><a class="anchor" href="#dealing-with-provider-failures"></a>14.2. Dealing with Provider Failures</h3>
+<div class="paragraph">
+<p>If a User Storage Provider fails, i.e. if your LDAP server is down, you may have trouble logging in and may not be able to view users in the admin console.
+Keycloak does not catch failures when using a Storage Provider to lookup a user.  It will abort the invocation.  So, if you have a Storage Provider with a higher
+priority that fails during user lookup, the login or user query will fail entirely with an exception and abort.  It will not fail over to the next configured provider.</p>
+</div>
+<div class="paragraph">
+<p>The local Keycloak user database is always searched first to resolve users before any LDAP or custom User Storage Provider.
+You may want to consider creating an admin account that is stored in the local Keycloak user database just in case any problems come up in connecting
+to your LDAP and custom back ends.</p>
+</div>
+<div class="paragraph">
+<p>Each LDAP and custom User Storage Provider has an <code>enable</code> switch on its admin console page.  Disabling the User Storage Provider will skip the provider when
+doing user queries so that you can view and login with users that might be stored in a different provider with lower priority.  If your provider is using an
+<code>import</code> strategy and you disable it, imported users are still available for lookup, but only in read only mode.  You will not be able to modify these users until
+you re-enable the provider.</p>
+</div>
+<div class="paragraph">
+<p>The reason why Keycloak does not fail over if a Storage Provider lookup fails is that user databases often have duplicate usernames or duplicate emails between them.
+This can cause security issues and unforeseen problems as the user may be loaded from one external store when the admin is expecting the user to be loaded from another.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ldap"><a class="anchor" href="#_ldap"></a>14.3. LDAP and Active Directory</h3>
 <div class="paragraph">
 <p>Keycloak comes with a built-in LDAP/AD provider.  It is possible to federate multiple different LDAP servers in the same
 Keycloak realm.  You can map LDAP user attributes into the Keycloak common user model.
@@ -6561,7 +6585,7 @@ You should see <em>ldap</em> within this list.
 Selecting <em>ldap</em> will bring you to the ldap configuration page.</p>
 </div>
 <div class="sect3">
-<h4 id="storage-mode"><a class="anchor" href="#storage-mode"></a>14.2.1. Storage Mode</h4>
+<h4 id="storage-mode"><a class="anchor" href="#storage-mode"></a>14.3.1. Storage Mode</h4>
 <div class="paragraph">
 <p>By default, Keycloak will import users from LDAP into the local Keycloak user database. This copy of the user
 is either synchronized on demand, or through a periodic background task.
@@ -6584,7 +6608,7 @@ Keycloak user database.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-mode"><a class="anchor" href="#edit-mode"></a>14.2.2. Edit Mode</h4>
+<h4 id="edit-mode"><a class="anchor" href="#edit-mode"></a>14.3.2. Edit Mode</h4>
 <div class="paragraph">
 <p>Users, through the <a href="#_account-service">User Account Service</a>, and admins through the Admin Console
 have the ability to modify user metadata.  Depending on your setup you may or may not have LDAP update privileges.  The
@@ -6612,7 +6636,7 @@ updates of user metadata on a read-only LDAP server.  This option only applies w
 </div>
 </div>
 <div class="sect3">
-<h4 id="other-config-options"><a class="anchor" href="#other-config-options"></a>14.2.3. Other config options</h4>
+<h4 id="other-config-options"><a class="anchor" href="#other-config-options"></a>14.3.3. Other config options</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Console Display Name</dt>
@@ -6642,7 +6666,7 @@ You can mouseover the tooltips in Admin Console to see some more details about t
 </div>
 </div>
 <div class="sect3">
-<h4 id="connect-to-ldap-over-ssl"><a class="anchor" href="#connect-to-ldap-over-ssl"></a>14.2.4. Connect to LDAP over SSL</h4>
+<h4 id="connect-to-ldap-over-ssl"><a class="anchor" href="#connect-to-ldap-over-ssl"></a>14.3.4. Connect to LDAP over SSL</h4>
 <div class="paragraph">
 <p>When you configure a secured connection URL to your LDAP store(for example <code>ldaps://myhost.com:636</code> ),
 Keycloak will use SSL for the communication with LDAP server.
@@ -6660,7 +6684,7 @@ if the connection to LDAP starts with <code>ldaps</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sync-of-ldap-users-to-keycloak"><a class="anchor" href="#sync-of-ldap-users-to-keycloak"></a>14.2.5. Sync of LDAP users to Keycloak</h4>
+<h4 id="sync-of-ldap-users-to-keycloak"><a class="anchor" href="#sync-of-ldap-users-to-keycloak"></a>14.3.5. Sync of LDAP users to Keycloak</h4>
 <div class="paragraph">
 <p>If you have import enabled, the LDAP Provider will automatically take care of synchronization (import) of needed LDAP users into the Keycloak local database.
 As users log in, the LDAP provider will import the LDAP user
@@ -6692,7 +6716,7 @@ then set up a periodic sync of changed users.  The configuration page for your L
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ldap_mappers"><a class="anchor" href="#_ldap_mappers"></a>14.2.6. LDAP Mappers</h4>
+<h4 id="_ldap_mappers"><a class="anchor" href="#_ldap_mappers"></a>14.3.6. LDAP Mappers</h4>
 <div class="paragraph">
 <p>LDAP mappers are <code>listeners</code>, which are triggered by the LDAP Provider at various points, provide another extension point to LDAP integration.
 They are triggered when a user logs in via LDAP and needs to be imported, during Keycloak initiated registration, or when a user is queried from the Admin Console.
@@ -6750,7 +6774,7 @@ Admin console provides tooltips, which should help with configuring the correspo
 </div>
 </div>
 <div class="sect2">
-<h3 id="_sssd"><a class="anchor" href="#_sssd"></a>14.3. SSSD and FreeIPA Identity Management Integration</h3>
+<h3 id="_sssd"><a class="anchor" href="#_sssd"></a>14.4. SSSD and FreeIPA Identity Management Integration</h3>
 <div class="paragraph">
 <p>Keycloak also comes with a built-in <a href="https://fedoraproject.org/wiki/Features/SSSD">SSSD</a> (System Security Services Daemon) plugin. SSSD is part of the latest Fedora or Red Hat Enterprise Linux and provides access to multiple identity and authentication providers. It provides benefits such as failover and offline support. To see configuration options and for more information see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system-level_authentication_guide/sssd">the Red Hat Enterprise Linux Identity Management documentation</a>.</p>
 </div>
@@ -6779,7 +6803,7 @@ Groups and roles are automatically registered, but not synchronized, so any chan
 <p>Information on how to configure the FreeIPA/IdM server follows.</p>
 </div>
 <div class="sect3">
-<h4 id="freeipa-idm-server"><a class="anchor" href="#freeipa-idm-server"></a>14.3.1. FreeIPA/IdM Server</h4>
+<h4 id="freeipa-idm-server"><a class="anchor" href="#freeipa-idm-server"></a>14.4.1. FreeIPA/IdM Server</h4>
 <div class="paragraph">
 <p>As a matter of simplicity, a <a href="https://hub.docker.com/r/freeipa/freeipa-server/">FreeIPA Docker image</a> already available is used. To set up a server, see the <a href="https://www.freeipa.org/page/Quick_Start_Guide">FreeIPA documentation</a>.</p>
 </div>
@@ -6834,7 +6858,7 @@ Groups and roles are automatically registered, but not synchronized, so any chan
 </div>
 </div>
 <div class="sect3">
-<h4 id="sssd-and-d-bus"><a class="anchor" href="#sssd-and-d-bus"></a>14.3.2. SSSD and D-Bus</h4>
+<h4 id="sssd-and-d-bus"><a class="anchor" href="#sssd-and-d-bus"></a>14.4.2. SSSD and D-Bus</h4>
 <div class="paragraph">
 <p>As mentioned previously, the federation provider obtains the data from SSSD using D-BUS and authentication occurs using <a href="http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html">PAM</a>.</p>
 </div>
@@ -6905,7 +6929,7 @@ allowed_uids = root, your_username</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="enabling-the-sssd-federation-provider"><a class="anchor" href="#enabling-the-sssd-federation-provider"></a>14.3.3. Enabling the SSSD Federation Provider</h4>
+<h4 id="enabling-the-sssd-federation-provider"><a class="anchor" href="#enabling-the-sssd-federation-provider"></a>14.4.3. Enabling the SSSD Federation Provider</h4>
 <div class="paragraph">
 <p>Keycloak uses DBus-Java to communicate at a low level with D-Bus, which depends on the <a href="http://www.matthew.ath.cx/projects/java/">Unix Sockets Library</a>.</p>
 </div>
@@ -6942,7 +6966,7 @@ $ sudo yum install libunix-dbus-java-0.8.0-1.fc24.x86_64.rpm</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuring-a-federated-sssd-store"><a class="anchor" href="#configuring-a-federated-sssd-store"></a>14.4. Configuring a Federated SSSD Store</h3>
+<h3 id="configuring-a-federated-sssd-store"><a class="anchor" href="#configuring-a-federated-sssd-store"></a>14.5. Configuring a Federated SSSD Store</h3>
 <div class="paragraph">
 <p>After installation, you need to configure a federated SSSD store.</p>
 </div>
@@ -6970,7 +6994,7 @@ $ sudo yum install libunix-dbus-java-0.8.0-1.fc24.x86_64.rpm</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="custom-providers"><a class="anchor" href="#custom-providers"></a>14.5. Custom Providers</h3>
+<h3 id="custom-providers"><a class="anchor" href="#custom-providers"></a>14.6. Custom Providers</h3>
 <div class="paragraph">
 <p>Keycloak does have an SPI for User Storage Federation that you can use to write your own custom providers.
 You can find documentation for this in our <a href="http://www.keycloak.org/docs/3.4/server_development/">Server Developer Guide</a>.</p>
@@ -10208,7 +10232,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-03 18:18:09 UTC
+Last updated 2018-01-03 21:18:19 UTC
 </div>
 </div>
 <ul id="globalnav">
