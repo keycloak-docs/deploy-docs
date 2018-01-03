@@ -6549,7 +6549,7 @@ external user store may not support OTP.  Depending on the provider, this OTP su
 <div class="sect2">
 <h3 id="dealing-with-provider-failures"><a class="anchor" href="#dealing-with-provider-failures"></a>14.2. Dealing with Provider Failures</h3>
 <div class="paragraph">
-<p>If a User Storage Provider fails, i.e. if your LDAP server is down, you may have trouble logging in and may not be able to view users in the admin console.
+<p>If a User Storage Provider fails, that is, if your LDAP server is down, you may have trouble logging in and may not be able to view users in the admin console.
 Keycloak does not catch failures when using a Storage Provider to lookup a user.  It will abort the invocation.  So, if you have a Storage Provider with a higher
 priority that fails during user lookup, the login or user query will fail entirely with an exception and abort.  It will not fail over to the next configured provider.</p>
 </div>
@@ -10232,7 +10232,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-03 21:18:19 UTC
+Last updated 2018-01-03 21:24:30 UTC
 </div>
 </div>
 <ul id="globalnav">
