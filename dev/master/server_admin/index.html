@@ -1982,6 +1982,15 @@ There may be more cost effective ways of protecting your password stores.</p>
 <p>This policy saves a history of previous passwords. The number of old passwords stored is configurable. When a user changes their password
 they cannot use any stored passwords.</p>
 </dd>
+<dt class="hdlist1">Password Blacklist</dt>
+<dd>
+<p>This policy checks if a given password is contained in a blacklist file, which is potentially a very large file.
+Password blacklists are UTF-8 plain-text files with Unix line endings where every line represents a blacklisted password.
+The file name of the blacklist file must be provided as the password policy value, e.g. <code>10_million_password_list_top_1000000.txt</code>.
+Blacklist files are resolved against <code>${jboss.server.data.dir}/password-blacklists/</code> by default.
+This path can be customized via the <code>keycloak.password.blacklists.path</code> system property,
+or the <code>blacklistsPath</code> property of the <code>passwordBlacklist</code> policy SPI configuration.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -10199,7 +10208,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-21 08:25:18 UTC
+Last updated 2018-01-03 18:18:09 UTC
 </div>
 </div>
 <ul id="globalnav">

@@ -1,21 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Upgrading Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.3"/><meta name="description" content="This book is a guide to upgrading your application from a previous version of Red Hat Single Sign-On 7.2."/><link rel="next" href="#intro" title="Chapter 1. Introduction"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm140002883995152"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Single Sign-On</span> <span class="productnumber">7.2</span></div><div><h1 class="title">Upgrading Guide</h1></div><div><h2 class="subtitle">For Use with Red Hat Single Sign-On 7.2</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services </span></div></div><div><a href="#idm140002882302192">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Upgrading Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.3"/><meta name="description" content="This book is a guide to upgrading your application from a previous version of Red Hat Single Sign-On 7.2."/><link rel="next" href="#intro" title="Chapter 1. Introduction"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm140455466864688"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Single Sign-On</span> <span class="productnumber">7.2</span></div><div><h1 class="title">Upgrading Guide</h1></div><div><h2 class="subtitle">For Use with Red Hat Single Sign-On 7.2</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services </span></div></div><div><a href="#idm140455467552016">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				This book is a guide to upgrading your application from a previous version of Red Hat Single Sign-On 7.2.
 			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#intro">1. Introduction</a></span><ul><li><span class="section"><a href="#about_upgrades">1.1. About Upgrades</a></span><ul><li><span class="section"><a href="#major_upgrades">1.1.1. Major Upgrades</a></span></li><li><span class="section"><a href="#minor_updates">1.1.2. Minor Updates</a></span></li><li><span class="section"><a href="#micro_updates">1.1.3. Micro Updates</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#changes">2. Changes</a></span><ul><li><span class="section"><a href="#rh_sso_7_2">2.1. RH-SSO 7.2</a></span><ul><li><span class="section"><a href="#new_password_hashing_algorithms">2.1.1. New Password Hashing algorithms</a></span></li><li><span class="section"><a href="#id_token_requires_scope_openid">2.1.2. ID Token requires scope=openid</a></span></li><li><span class="section"><a href="#microsoft_sql_server_requires_extra_dependency">2.1.3. Microsoft SQL Server requires extra dependency</a></span></li></ul></li><li><span class="section"><a href="#rh_sso_7_1">2.2. RH-SSO 7.1</a></span><ul><li><span class="section"><a href="#realm_keys">2.2.1. Realm Keys</a></span></li><li><span class="section"><a href="#client_redirect_uri_matching">2.2.2. Client Redirect URI Matching</a></span></li><li><span class="section"><a href="#automatically_redirect_to_identity_provider">2.2.3. Automatically Redirect to Identity Provider</a></span></li><li><span class="section"><a href="#admin_rest_api">2.2.4. Admin REST API</a></span></li><li><span class="section"><a href="#server_configuration">2.2.5. Server Configuration</a></span></li><li><span class="section"><a href="#key_encryption_algorithm_in_saml_assertions">2.2.6. Key Encryption Algorithm in SAML Assertions</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#upgrading">3. Upgrading Red Hat Single Sign-On Server</a></span><ul><li><span class="section"><a href="#upgrading_minor">3.1. Minor Upgrades</a></span><ul><li><span class="section"><a href="#prep_migration">3.1.1. Preparing for Upgrading</a></span></li><li><span class="section"><a href="#install_new_version">3.1.2. Upgrading Red Hat Single Sign-On server</a></span></li><li><span class="section"><a href="#migrate_db">3.1.3. Migrating the Database</a></span></li><li><span class="section"><a href="#migrate_themes">3.1.4. Migrating Themes</a></span></li></ul></li><li><span class="section"><a href="#upgrading_micro">3.2. Micro Upgrades</a></span><ul><li><span class="section"><a href="#zip-patching">3.2.1. Patching a ZIP/Installer Installation</a></span></li><li><span class="section"><a href="#rpm-patching">3.2.2. Patching an RPM Installation</a></span></li><li><span class="section"><a href="#patching_local_maven">3.2.3. Patching a local Maven installation</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#upgrading_red_hat_single_sign_on_adapters">4. Upgrading Red Hat Single Sign-On Adapters</a></span><ul><li><span class="section"><a href="#upgrade_eap_adapter">4.1. Upgrading the EAP Adapter</a></span></li><li><span class="section"><a href="#upgrade_js_adapter">4.2. Upgrading the JavaScript Adapter</a></span></li><li><span class="section"><a href="#upgrade_nodejs_adapter">4.3. Upgrading the Node.js Adapter</a></span></li></ul></li></ul></div><section class="chapter" id="intro"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Introduction</h1></div></div></div><p>
-			Red Hat Single Sign-On (RH-SSO) 7.1 is based on the Keycloak project and provides security for your web applications by providing Web single sign-on capabilities based on popular standards such as SAML 2.0, OpenID Connect, and OAuth 2.0. The Red Hat Single Sign-On Server can act as a SAML or OpenID Connect-based identity provider, mediating with your enterprise user directory or third-party SSO provider for identity information and your applications using standards-based tokens.
+			Red Hat Single Sign-On (RH-SSO) 7.2 is based on the Keycloak project and provides security for your web applications by providing Web single sign-on capabilities based on popular standards such as SAML 2.0, OpenID Connect, and OAuth 2.0. The Red Hat Single Sign-On Server can act as a SAML or OpenID Connect-based identity provider, mediating with your enterprise user directory or third-party SSO provider for identity information and your applications using standards-based tokens.
 		</p><p>
 			RH-SSO provides two operating modes: standalone server or managed domain. The standalone server operating mode represents running RH-SSO as a single server instance. The managed domain operating mode allows for the management of multiple RH-SSO instances from a single control point. The upgrade process differs depending on which operating mode has been implemented. Specific instructions for each mode are provided where applicable.
 		</p><p>
-			The purpose of this guide is to document the steps that are required to successfully upgrade from Red Hat Single Sign-On 7.0 to Red Hat Single Sign-On 7.1.
+			The purpose of this guide is to document the steps that are required to successfully upgrade from Red Hat Single Sign-On 7.1 to Red Hat Single Sign-On 7.2.
 		</p><section class="section" id="about_upgrades"><div class="titlepage"><div><div><h2 class="title">1.1. About Upgrades</h2></div></div></div><section class="section" id="major_upgrades"><div class="titlepage"><div><div><h3 class="title">1.1.1. Major Upgrades</h3></div></div></div><p>
-					A major upgrade or migration is required when RH-SSO is upgraded from one major release to another, for example, from Red Hat Single Sign-On 7.0 to Red Hat Single Sign-On 8.0. There may be breaking API changes between major releases that could require rewriting parts of applications or server extensions.
+					A major upgrade or migration is required when RH-SSO is upgraded from one major release to another, for example, from Red Hat Single Sign-On 7.2 to Red Hat Single Sign-On 8.0. There may be breaking API changes between major releases that could require rewriting parts of applications or server extensions.
 				</p></section><section class="section" id="minor_updates"><div class="titlepage"><div><div><h3 class="title">1.1.2. Minor Updates</h3></div></div></div><p>
-					Red Hat Single Sign-On periodically provides point releases, which are minor updates that include bug fixes, security fixes, and new features. If you plan to upgrade from one Red Hat Single Sign-On point release to another, for example, from Red Hat Single Sign-On 7.0 to Red Hat Single Sign-On 7.1, code changes should not be required for applications or custom server extensions as long as no private, unsupported, or tech preview APIs are used.
+					Red Hat Single Sign-On periodically provides point releases, which are minor updates that include bug fixes, security fixes, and new features. If you plan to upgrade from one Red Hat Single Sign-On point release to another, for example, from Red Hat Single Sign-On 7.1 to Red Hat Single Sign-On 7.2, code changes should not be required for applications or custom server extensions as long as no private, unsupported, or tech preview APIs are used.
 				</p></section><section class="section" id="micro_updates"><div class="titlepage"><div><div><h3 class="title">1.1.3. Micro Updates</h3></div></div></div><p>
-					Red Hat Single Sign-On 7 also periodically provides micro releases that contain bug and security fixes. Micro releases increment the minor release version by the last digit, for example from 7.1.0 to 7.1.1. These release do not require migration and should not impact the server configuration files. The patch management system for ZIP installations can also rollback the patch and server configuration.
+					Red Hat Single Sign-On 7 also periodically provides micro releases that contain bug and security fixes. Micro releases increment the minor release version by the last digit, for example from 7.2.0 to 7.2.1. These release do not require migration and should not impact the server configuration files. The patch management system for ZIP installations can also rollback the patch and server configuration.
 				</p><p>
-					A micro release only contains the artifacts that have changed. For example if Red Hat Single Sign-On 7.1.1 contains changes to the server and the JavaScript adapter, but not the EAP adapter, only the server and JavaScript adapter are released and require updating.
+					A micro release only contains the artifacts that have changed. For example if Red Hat Single Sign-On 7.2.1 contains changes to the server and the JavaScript adapter, but not the EAP adapter, only the server and JavaScript adapter are released and require updating.
 				</p></section></section></section><section class="chapter" id="changes"><div class="titlepage"><div><div><h1 class="title">Chapter 2. Changes</h1></div></div></div><p>
 			Review these changes carefully before upgrading.
 		</p><section class="section" id="rh_sso_7_2"><div class="titlepage"><div><div><h2 class="title">2.1. RH-SSO 7.2</h2></div></div></div><p>
@@ -182,45 +182,131 @@
 							If you have customized messages you might need to change the key or value or to add additional messages.
 						</li></ul></div><p>
 					Each step is described in more detail below the list of changes.
-				</p><p>
-					The changes that have been made for RH-SSO 7.1 include:
-				</p><p>
-					<span class="strong strong"><strong>Templates</strong></span>
-				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-							Account: account.ftl
-						</li><li class="listitem">
-							Account: federatedIdentity.ftl
-						</li><li class="listitem">
-							Account: totp.ftl
-						</li><li class="listitem">
-							Login: info.ftl
-						</li><li class="listitem">
-							Login: login-config-totp.ftl
-						</li><li class="listitem">
-							Login: login-reset-password.ftl
-						</li><li class="listitem">
-							Login: login.ftl
-						</li></ul></div><p>
-					<span class="strong strong"><strong>Messages</strong></span>
-				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-							Account: editAccountHtmlTtile renamed to editAccountHtmlTitle
-						</li><li class="listitem">
-							Account: role_uma_authorization added
-						</li><li class="listitem">
-							Login: loginTotpStep1 value changed
-						</li><li class="listitem">
-							Login: invalidPasswordGenericMessage added
-						</li><li class="listitem">
-							Login: invlidRequesterMessage renamed to invalidRequesterMessage
-						</li><li class="listitem">
-							Login: clientDisabledMessage added
-						</li></ul></div><p>
-					<span class="strong strong"><strong>Styles</strong></span>
-				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-							Account: account.css
-						</li><li class="listitem">
-							Login: login.css
-						</li></ul></div><section class="section" id="migrating_templates"><div class="titlepage"><div><div><h4 class="title">3.1.4.1. Migrating Templates</h4></div></div></div><p>
+				</p><section class="section" id="theme_changes_rh_sso_7_2"><div class="titlepage"><div><div><h4 class="title">3.1.4.1. Theme changes RH-SSO 7.2</h4></div></div></div><p>
+						<span class="strong strong"><strong>Templates</strong></span>
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								Account: account.ftl
+							</li><li class="listitem">
+								Account: applications.ftl
+							</li><li class="listitem">
+								Account: federatedIdentity.ftl
+							</li><li class="listitem">
+								Account: password.ftl
+							</li><li class="listitem">
+								Account: sessions.ftl
+							</li><li class="listitem">
+								Account: template.ftl
+							</li><li class="listitem">
+								Account: totp.ftl
+							</li><li class="listitem">
+								Admin: index.ftl
+							</li><li class="listitem">
+								Email: email-test.ftl (new)
+							</li><li class="listitem">
+								Email: email-verification.ftl
+							</li><li class="listitem">
+								Email: event-login_error.ftl
+							</li><li class="listitem">
+								Email: event-removed_totp.ftl
+							</li><li class="listitem">
+								Email: event-update_password.ftl
+							</li><li class="listitem">
+								Email: event-update_totp.ftl
+							</li><li class="listitem">
+								Email: executeActions.ftl
+							</li><li class="listitem">
+								Email: identity-provider-link.ftl
+							</li><li class="listitem">
+								Email: password-reset.ftl
+							</li><li class="listitem">
+								Login: bypass_kerberos.ftl (removed)
+							</li><li class="listitem">
+								Login: error.ftl
+							</li><li class="listitem">
+								Login: info.ftl
+							</li><li class="listitem">
+								Login: login-config-totp.ftl
+							</li><li class="listitem">
+								Login: login-idp-link-email.ftl
+							</li><li class="listitem">
+								Login: login-oauth-grant.ftl
+							</li><li class="listitem">
+								Login: login-page-expired.ftl (new)
+							</li><li class="listitem">
+								Login: login-reset-password.ftl
+							</li><li class="listitem">
+								Login: login-totp.ftl
+							</li><li class="listitem">
+								Login: login-update-password.ftl
+							</li><li class="listitem">
+								Login: login-update-profile.ftl
+							</li><li class="listitem">
+								Login: login-verify-email.ftl
+							</li><li class="listitem">
+								Login: login-x509-info.ftl (new)
+							</li><li class="listitem">
+								Login: login.ftl (new)
+							</li><li class="listitem">
+								Login: register.ftl (new)
+							</li><li class="listitem">
+								Login: template.ftl (new)
+							</li><li class="listitem">
+								Login: terms.ftl (new)
+							</li></ul></div><p>
+						<span class="strong strong"><strong>Messages</strong></span>
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								Account: messages_en.properties
+							</li><li class="listitem">
+								Admin: admin-messages_en.properties
+							</li><li class="listitem">
+								Admin: messages_en.properties
+							</li><li class="listitem">
+								Email: messages_en.properties
+							</li><li class="listitem">
+								Login: messages_en.properties
+							</li></ul></div><p>
+						<span class="strong strong"><strong>Styles</strong></span>
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								Account: account.css
+							</li><li class="listitem">
+								Login: login.css
+							</li></ul></div></section><section class="section" id="theme_changes_rh_sso_7_1"><div class="titlepage"><div><div><h4 class="title">3.1.4.2. Theme changes RH-SSO 7.1</h4></div></div></div><p>
+						<span class="strong strong"><strong>Templates</strong></span>
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								Account: account.ftl
+							</li><li class="listitem">
+								Account: federatedIdentity.ftl
+							</li><li class="listitem">
+								Account: totp.ftl
+							</li><li class="listitem">
+								Login: info.ftl
+							</li><li class="listitem">
+								Login: login-config-totp.ftl
+							</li><li class="listitem">
+								Login: login-reset-password.ftl
+							</li><li class="listitem">
+								Login: login.ftl
+							</li></ul></div><p>
+						<span class="strong strong"><strong>Messages</strong></span>
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								Account: editAccountHtmlTtile renamed to editAccountHtmlTitle
+							</li><li class="listitem">
+								Account: role_uma_authorization added
+							</li><li class="listitem">
+								Login: loginTotpStep1 value changed
+							</li><li class="listitem">
+								Login: invalidPasswordGenericMessage added
+							</li><li class="listitem">
+								Login: invlidRequesterMessage renamed to invalidRequesterMessage
+							</li><li class="listitem">
+								Login: clientDisabledMessage added
+							</li></ul></div><p>
+						<span class="strong strong"><strong>Styles</strong></span>
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								Account: account.css
+							</li><li class="listitem">
+								Login: login.css
+							</li></ul></div></section><section class="section" id="migrating_templates"><div class="titlepage"><div><div><h4 class="title">3.1.4.3. Migrating Templates</h4></div></div></div><p>
 						If you have customized any of the templates you need to carefully review the changes that have been made to the templates to decide if you need to apply these changes to your customized templates. Most likely you will need to apply the same changes to your customized templates. If you have not customized any of the listed templates you can skip this section.
 					</p><p>
 						A best practice is to use a diff tool to compare the templates to see what changes you might need to make to your customized template. If you have only made minor changes it is simpler to compare the updated template to your customized template. However, if you have made many changes it might be easier to compare the new template to your customized old template, as this will show you what changes you need to make.
@@ -236,7 +322,7 @@
 							<span class="inlinemediaobject"><img src="images/theme-migration-meld-info-2.png" alt="theme migration meld info 2"/></span>
 						</p></div><p>
 						From this comparison it is easy to identify what has been changed in the base template. You will then manually have to make the same changes to your modified template. Since this approach is not as simple as the first approach, only use this approach if the first one is not feasible.
-					</p></section><section class="section" id="migrating_messages"><div class="titlepage"><div><div><h4 class="title">3.1.4.2. Migrating Messages</h4></div></div></div><p>
+					</p></section><section class="section" id="migrating_messages"><div class="titlepage"><div><div><h4 class="title">3.1.4.4. Migrating Messages</h4></div></div></div><p>
 						If you have added support for another language, you need to apply all the changes listed above. If you have not added support for another language, you might not need to change anything; you only have to make changes if you have changed an affected message in your theme.
 					</p><p>
 						For added values, review the value of the message in the base theme to determine if you need to customize that message.
@@ -244,7 +330,7 @@
 						For renamed keys, rename the key in your custom theme.
 					</p><p>
 						For changed values, check the value in the base theme to determine if you need to make changes to your custom theme.
-					</p></section><section class="section" id="migrating_styles"><div class="titlepage"><div><div><h4 class="title">3.1.4.3. Migrating Styles</h4></div></div></div><p>
+					</p></section><section class="section" id="migrating_styles"><div class="titlepage"><div><div><h4 class="title">3.1.4.5. Migrating Styles</h4></div></div></div><p>
 						If you are inheriting styles from the keycloak or rh-sso themes you might need to update your custom styles to reflect changes made to the styles from the built-in themes.
 					</p><p>
 						A best practice is to use a diff tool to compare the changes to stylesheets between the old server installation and the new server installation.
@@ -415,7 +501,7 @@ RHSSO_HOME_NEW/themes/keycloak/login/resources/css/login.css</pre><p>
 						Unzip the updated file into its place
 					</li><li class="listitem">
 						Change the dependency for keycloak-connect in the package.json of your application
-					</li></ol></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm140002882302192"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+					</li></ol></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm140455467552016"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 				Copyright <span class="trademark"/>© 2016 Red Hat, Inc.
 			</div><div class="para">
 				Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at

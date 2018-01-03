@@ -864,10 +864,10 @@ require less boilerplate code than what is typically required by a library.</p>
 <p><a href="#_servlet_filter_adapter">Servlet Filter</a></p>
 </li>
 <li>
-<p><a href="#_spring_security_adapter">Spring Security</a> (community)</p>
+<p><a href="#_spring_boot_adapter">Spring Boot</a></p>
 </li>
 <li>
-<p><a href="#_spring_boot_adapter">Spring Boot</a> (community)</p>
+<p><a href="#_spring_security_adapter">Spring Security</a></p>
 </li>
 </ul>
 </div>
@@ -888,26 +888,6 @@ require less boilerplate code than what is typically required by a library.</p>
 <ul>
 <li>
 <p><a href="#_nodejs_adapter">Node.js</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="javascript"><a class="anchor" href="#javascript"></a>JavaScript</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#_javascript_adapter">JavaScript</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="node-js"><a class="anchor" href="#node-js"></a>Node.js</h5>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/keycloak/keycloak-nodejs-connect">Keycloak Connect</a> (community)</p>
 </li>
 </ul>
 </div>
@@ -2466,7 +2446,7 @@ This client needs to have <code>Direct Access Grants Enabled</code> selected to 
 </div>
 </li>
 <li>
-<p>Start Fuse and install the <code>keycloak</code> JAAS realm. The easiest way is to install the <code>keycloak-jaas</code> feature, which has the JAAS realm predefined. You can override the feature&#8217;s predefined realm by using your own <code>keycloak</code> JAAS realm with higher ranking. For details see the https:access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html-single/security_guide/#ESBSecureContainer[JBoss Fuse documentation].</p>
+<p>Start Fuse and install the <code>keycloak</code> JAAS realm. The easiest way is to install the <code>keycloak-jaas</code> feature, which has the JAAS realm predefined. You can override the feature&#8217;s predefined realm by using your own <code>keycloak</code> JAAS realm with higher ranking. For details see the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html-single/security_guide/#ESBSecureContainer">JBoss Fuse documentation</a>.</p>
 <div class="paragraph">
 <p>Use these commands in the Fuse terminal:</p>
 </div>
@@ -4831,14 +4811,14 @@ object, rather than the <code>keycloak.json</code> file:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript">    let kcConfig = {
-    <span class="key">clientId</span>: <span class="string"><span class="delimiter">'</span><span class="content">myclient</span><span class="delimiter">'</span></span>,
-    <span class="key">bearerOnly</span>: <span class="predefined-constant">true</span>,
-    <span class="key">serverUrl</span>: <span class="string"><span class="delimiter">'</span><span class="content">http://localhost:8080/auth</span><span class="delimiter">'</span></span>,
-    <span class="key">realm</span>: <span class="string"><span class="delimiter">'</span><span class="content">myrealm</span><span class="delimiter">'</span></span>,
-    <span class="key">realmPublicKey</span>: <span class="string"><span class="delimiter">'</span><span class="content">MIIBIjANB...</span><span class="delimiter">'</span></span>
-};
+        <span class="key">clientId</span>: <span class="string"><span class="delimiter">'</span><span class="content">myclient</span><span class="delimiter">'</span></span>,
+        <span class="key">bearerOnly</span>: <span class="predefined-constant">true</span>,
+        <span class="key">serverUrl</span>: <span class="string"><span class="delimiter">'</span><span class="content">http://localhost:8080/auth</span><span class="delimiter">'</span></span>,
+        <span class="key">realm</span>: <span class="string"><span class="delimiter">'</span><span class="content">myrealm</span><span class="delimiter">'</span></span>,
+        <span class="key">realmPublicKey</span>: <span class="string"><span class="delimiter">'</span><span class="content">MIIBIjANB...</span><span class="delimiter">'</span></span>
+    };
 
-let keycloak = <span class="keyword">new</span> Keycloak({ <span class="key">store</span>: memoryStore }, kcConfig);</code></pre>
+    let keycloak = <span class="keyword">new</span> Keycloak({ <span class="key">store</span>: memoryStore }, kcConfig);</code></pre>
 </div>
 </div>
 <div class="dlist">
@@ -8997,7 +8977,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-12-21 08:25:18 UTC
+Last updated 2018-01-03 18:18:09 UTC
 </div>
 </div>
 <ul id="globalnav">

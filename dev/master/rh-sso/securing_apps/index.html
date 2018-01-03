@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Securing Applications and Services Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.3"/><meta name="description" content="This guide consists of information for securing applications and services using Red Hat Single Sign-On 7.2"/><link rel="next" href="#overview" title="Chapter 1. Overview"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm139717174056528"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Single Sign-On</span> <span class="productnumber">7.2</span></div><div><h1 class="title">Securing Applications and Services Guide</h1></div><div><h2 class="subtitle">For Use with Red Hat Single Sign-On 7.2</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm139717169386112">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Securing Applications and Services Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.3"/><meta name="description" content="This guide consists of information for securing applications and services using Red Hat Single Sign-On 7.2"/><link rel="next" href="#overview" title="Chapter 1. Overview"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm140231659112000"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Single Sign-On</span> <span class="productnumber">7.2</span></div><div><h1 class="title">Securing Applications and Services Guide</h1></div><div><h2 class="subtitle">For Use with Red Hat Single Sign-On 7.2</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm140231654913008">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				This guide consists of information for securing applications and services using Red Hat Single Sign-On 7.2
-			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#overview">1. Overview</a></span><ul><li><span class="section"><a href="#what_are_client_adapters">1.1. What are Client Adapters?</a></span></li><li><span class="section"><a href="#supported_platforms">1.2. Supported Platforms</a></span><ul><li><span class="section"><a href="#openid_connect">1.2.1. OpenID Connect</a></span></li><li><span class="section"><a href="#saml">1.2.2. SAML</a></span></li></ul></li><li><span class="section"><a href="#supported_protocols">1.3. Supported Protocols</a></span><ul><li><span class="section"><a href="#openid_connect_2">1.3.1. OpenID Connect</a></span></li><li><span class="section"><a href="#saml_2_0">1.3.2. SAML 2.0</a></span></li><li><span class="section"><a href="#openid_connect_vs_saml">1.3.3. OpenID Connect vs. SAML</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#openid_connect_3">2. OpenID Connect</a></span><ul><li><span class="section"><a href="#java_adapters">2.1. Java Adapters</a></span><ul><li><span class="section"><a href="#java_adapter_config">2.1.1. Java Adapter Config</a></span></li><li><span class="section"><a href="#jboss_adapter">2.1.2. JBoss EAP Adapter</a></span></li><li><span class="section"><a href="#fuse_adapter">2.1.3. JBoss Fuse Adapter</a></span></li><li><span class="section"><a href="#spring_boot_adapter">2.1.4. Spring Boot Adapter</a></span></li><li><span class="section"><a href="#adapter_error_handling">2.1.5. Error Handling</a></span></li><li><span class="section"><a href="#logout">2.1.6. Logout</a></span></li><li><span class="section"><a href="#parameters_forwarding">2.1.7. Parameters Forwarding</a></span></li><li><span class="section"><a href="#client_authentication_adapter">2.1.8. Client Authentication</a></span></li><li><span class="section"><a href="#multi_tenancy">2.1.9. Multi Tenancy</a></span></li><li><span class="section"><a href="#applicationclustering">2.1.10. Application Clustering</a></span></li></ul></li><li><span class="section"><a href="#javascript_adapter">2.2. Javascript Adapter</a></span><ul><li><span class="section"><a href="#session_status_iframe">2.2.1. Session Status iframe</a></span></li><li><span class="section"><a href="#javascript_implicit_flow">2.2.2. Implicit and Hybrid Flow</a></span></li><li><span class="section"><a href="#earlier_browsers">2.2.3. Earlier Browsers</a></span></li><li><span class="section"><a href="#javascript_adapter_reference">2.2.4. JavaScript Adapter Reference</a></span></li></ul></li><li><span class="section"><a href="#nodejs_adapter">2.3. Node.js Adapter</a></span><ul><li><span class="section"><a href="#installation">2.3.1. Installation</a></span></li><li><span class="section"><a href="#usage">2.3.2. Usage</a></span></li><li><span class="section"><a href="#installing_middleware">2.3.3. Installing Middleware</a></span></li><li><span class="section"><a href="#protecting_resources">2.3.4. Protecting Resources</a></span></li><li><span class="section"><a href="#additional_urls">2.3.5. Additional URLs</a></span></li></ul></li><li><span class="section"><a href="#other_openid_connect_libraries">2.4. Other OpenID Connect Libraries</a></span><ul><li><span class="section"><a href="#endpoints">2.4.1. Endpoints</a></span></li><li><span class="section"><a href="#flows">2.4.2. Flows</a></span></li><li><span class="section"><a href="#redirect_uris">2.4.3. Redirect URIs</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#saml_2">3. SAML</a></span><ul><li><span class="section"><a href="#java_adapters_2">3.1. Java Adapters</a></span><ul><li><span class="section"><a href="#saml-general-config">3.1.1. General Adapter Config</a></span></li><li><span class="section"><a href="#saml_jboss_adapter">3.1.2. JBoss EAP Adapter</a></span></li><li><span class="section"><a href="#registering_with_an_identity_provider">3.1.3. Registering with an Identity Provider</a></span></li><li><span class="section"><a href="#logout_2">3.1.4. Logout</a></span></li><li><span class="section"><a href="#obtaining_assertion_attributes">3.1.5. Obtaining Assertion Attributes</a></span></li><li><span class="section"><a href="#error_handling">3.1.6. Error Handling</a></span></li><li><span class="section"><a href="#troubleshooting">3.1.7. Troubleshooting</a></span></li></ul></li><li><span class="section"><a href="#mod_auth_mellon">3.2. mod_auth_mellon Apache HTTPD Module</a></span><ul><li><span class="section"><a href="#configuring_mod_auth_mellon_with_red_hat_single_sign_on">3.2.1. Configuring mod_auth_mellon with Red Hat Single Sign-On</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#docker_registry_configuration">4. Docker Registry Configuration</a></span><ul><li><span class="section"><a href="#docker_registry_configuration_file_installation">4.1. Docker Registry Configuration File Installation</a></span></li><li><span class="section"><a href="#docker_registry_environment_variable_override_installation">4.2. Docker Registry Environment Variable Override Installation</a></span></li><li><span class="section"><a href="#docker_compose_yaml_file">4.3. Docker Compose YAML File</a></span></li></ul></li><li><span class="chapter"><a href="#client_registration">5. Client Registration</a></span><ul><li><span class="section"><a href="#authentication">5.1. Authentication</a></span><ul><li><span class="section"><a href="#bearer_token">5.1.1. Bearer Token</a></span></li><li><span class="section"><a href="#initial_access_token">5.1.2. Initial Access Token</a></span></li><li><span class="section"><a href="#registration_access_token">5.1.3. Registration Access Token</a></span></li></ul></li><li><span class="section"><a href="#red_hat_single_sign_on_representations">5.2. Red Hat Single Sign-On Representations</a></span></li><li><span class="section"><a href="#red_hat_single_sign_on_adapter_configuration">5.3. Red Hat Single Sign-On Adapter Configuration</a></span></li><li><span class="section"><a href="#openid_connect_dynamic_client_registration">5.4. OpenID Connect Dynamic Client Registration</a></span></li><li><span class="section"><a href="#saml_entity_descriptors">5.5. SAML Entity Descriptors</a></span></li><li><span class="section"><a href="#example_using_curl_2">5.6. Example using CURL</a></span></li><li><span class="section"><a href="#example_using_java_client_registration_api">5.7. Example using Java Client Registration API</a></span></li><li><span class="section"><a href="#client_registration_policies">5.8. Client Registration Policies</a></span></li></ul></li><li><span class="chapter"><a href="#client_registration_cli">6. Client Registration CLI</a></span><ul><li><span class="section"><a href="#configuring_a_user_for_client_registration_cli">6.1. Configuring a new regular user for use with Client Registration CLI</a></span></li><li><span class="section"><a href="#configuring_a_client_for_use_with_client_registration_cli">6.2. Configuring a client for use with the Client Registration CLI</a></span></li><li><span class="section"><a href="#installing_client_registration_cli">6.3. Installing the Client Registration CLI</a></span></li><li><span class="section"><a href="#using_client_registration_cli">6.4. Using the Client Registration CLI</a></span><ul><li><span class="section"><a href="#logging_in">6.4.1. Logging in</a></span></li><li><span class="section"><a href="#working_with_alternative_configurations">6.4.2. Working with alternative configurations</a></span></li><li><span class="section"><a href="#initial_access_and_registration_access_tokens">6.4.3. Initial Access and Registration Access Tokens</a></span></li><li><span class="section"><a href="#performing_crud_operations">6.4.4. Creating a client configuration</a></span></li><li><span class="section"><a href="#retrieving_a_client_configuration">6.4.5. Retrieving a client configuration</a></span></li><li><span class="section"><a href="#modifying_a_client_configuration">6.4.6. Modifying a client configuration</a></span></li><li><span class="section"><a href="#deleting_a_client_configuration">6.4.7. Deleting a client configuration</a></span></li><li><span class="section"><a href="#refreshing_invalid_registration_access_tokens">6.4.8. Refreshing invalid Registration Access Tokens</a></span></li></ul></li><li><span class="section"><a href="#troubleshooting_2">6.5. Troubleshooting</a></span></li></ul></li><li><span class="chapter"><a href="#token-exchange">7. Token Exchange</a></span><ul><li><span class="section"><a href="#internal_token_to_internal_token_exchange">7.1. Internal Token to Internal Token Exchange</a></span><ul><li><span class="section"><a href="#client_to_client_permission">7.1.1. Granting Permission for the Exchange</a></span></li><li><span class="section"><a href="#making_the_request">7.1.2. Making the Request</a></span></li></ul></li><li><span class="section"><a href="#internal_token_to_external_token_exchange">7.2. Internal Token to External Token Exchange</a></span><ul><li><span class="section"><a href="#grant_permission_external_exchange">7.2.1. Granting Permission for the Exchange</a></span></li><li><span class="section"><a href="#internal_external_making_request">7.2.2. Making the Request</a></span></li></ul></li><li><span class="section"><a href="#external_token_to_internal_token_exchange">7.3. External Token to Internal Token Exchange</a></span><ul><li><span class="section"><a href="#granting_permission_for_the_exchange">7.3.1. Granting Permission for the Exchange</a></span></li><li><span class="section"><a href="#making_the_request_2">7.3.2. Making the Request</a></span></li></ul></li><li><span class="section"><a href="#impersonation">7.4. Impersonation</a></span><ul><li><span class="section"><a href="#granting_permission_for_the_exchange_2">7.4.1. Granting Permission for the Exchange</a></span></li><li><span class="section"><a href="#making_the_request_3">7.4.2. Making the Request</a></span></li></ul></li><li><span class="section"><a href="#direct_naked_impersonation">7.5. Direct Naked Impersonation</a></span><ul><li><span class="section"><a href="#granting_permission_for_the_exchange_3">7.5.1. Granting Permission for the Exchange</a></span></li><li><span class="section"><a href="#making_the_request_4">7.5.2. Making the Request</a></span></li></ul></li><li><span class="section"><a href="#expand_permission_model_with_service_accounts">7.6. Expand Permission Model With Service Accounts</a></span></li><li><span class="section"><a href="#exchange_vulnerabilities">7.7. Exchange Vulnerabilities</a></span></li></ul></li></ul></div><section class="chapter" id="overview"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Overview</h1></div></div></div><p>
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#overview">1. Overview</a></span><ul><li><span class="section"><a href="#what_are_client_adapters">1.1. What are Client Adapters?</a></span></li><li><span class="section"><a href="#supported_platforms">1.2. Supported Platforms</a></span><ul><li><span class="section"><a href="#openid_connect">1.2.1. OpenID Connect</a></span></li><li><span class="section"><a href="#saml">1.2.2. SAML</a></span></li></ul></li><li><span class="section"><a href="#supported_protocols">1.3. Supported Protocols</a></span><ul><li><span class="section"><a href="#openid_connect_2">1.3.1. OpenID Connect</a></span></li><li><span class="section"><a href="#saml_2_0">1.3.2. SAML 2.0</a></span></li><li><span class="section"><a href="#openid_connect_vs_saml">1.3.3. OpenID Connect vs. SAML</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#openid_connect_3">2. OpenID Connect</a></span><ul><li><span class="section"><a href="#java_adapters">2.1. Java Adapters</a></span><ul><li><span class="section"><a href="#java_adapter_config">2.1.1. Java Adapter Config</a></span></li><li><span class="section"><a href="#jboss_adapter">2.1.2. JBoss EAP Adapter</a></span></li><li><span class="section"><a href="#fuse_adapter">2.1.3. JBoss Fuse Adapter</a></span></li><li><span class="section"><a href="#spring_boot_adapter">2.1.4. Spring Boot Adapter</a></span></li><li><span class="section"><a href="#servlet_filter_adapter">2.1.5. Java Servlet Filter Adapter</a></span></li><li><span class="section"><a href="#security_context">2.1.6. Security Context</a></span></li><li><span class="section"><a href="#adapter_error_handling">2.1.7. Error Handling</a></span></li><li><span class="section"><a href="#logout">2.1.8. Logout</a></span></li><li><span class="section"><a href="#parameters_forwarding">2.1.9. Parameters Forwarding</a></span></li><li><span class="section"><a href="#client_authentication_adapter">2.1.10. Client Authentication</a></span></li><li><span class="section"><a href="#multi_tenancy">2.1.11. Multi Tenancy</a></span></li><li><span class="section"><a href="#applicationclustering">2.1.12. Application Clustering</a></span></li></ul></li><li><span class="section"><a href="#javascript_adapter">2.2. Javascript Adapter</a></span><ul><li><span class="section"><a href="#session_status_iframe">2.2.1. Session Status iframe</a></span></li><li><span class="section"><a href="#javascript_implicit_flow">2.2.2. Implicit and Hybrid Flow</a></span></li><li><span class="section"><a href="#earlier_browsers">2.2.3. Earlier Browsers</a></span></li><li><span class="section"><a href="#javascript_adapter_reference">2.2.4. JavaScript Adapter Reference</a></span></li></ul></li><li><span class="section"><a href="#nodejs_adapter">2.3. Node.js Adapter</a></span><ul><li><span class="section"><a href="#installation">2.3.1. Installation</a></span></li><li><span class="section"><a href="#usage">2.3.2. Usage</a></span></li><li><span class="section"><a href="#installing_middleware">2.3.3. Installing Middleware</a></span></li><li><span class="section"><a href="#protecting_resources">2.3.4. Protecting Resources</a></span></li><li><span class="section"><a href="#additional_urls">2.3.5. Additional URLs</a></span></li></ul></li><li><span class="section"><a href="#other_openid_connect_libraries">2.4. Other OpenID Connect Libraries</a></span><ul><li><span class="section"><a href="#endpoints">2.4.1. Endpoints</a></span></li><li><span class="section"><a href="#flows">2.4.2. Flows</a></span></li><li><span class="section"><a href="#redirect_uris">2.4.3. Redirect URIs</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#saml_2">3. SAML</a></span><ul><li><span class="section"><a href="#java_adapters_2">3.1. Java Adapters</a></span><ul><li><span class="section"><a href="#saml-general-config">3.1.1. General Adapter Config</a></span></li><li><span class="section"><a href="#saml_jboss_adapter">3.1.2. JBoss EAP Adapter</a></span></li><li><span class="section"><a href="#registering_with_an_identity_provider">3.1.3. Registering with an Identity Provider</a></span></li><li><span class="section"><a href="#logout_2">3.1.4. Logout</a></span></li><li><span class="section"><a href="#obtaining_assertion_attributes">3.1.5. Obtaining Assertion Attributes</a></span></li><li><span class="section"><a href="#error_handling">3.1.6. Error Handling</a></span></li><li><span class="section"><a href="#troubleshooting">3.1.7. Troubleshooting</a></span></li></ul></li><li><span class="section"><a href="#mod_auth_mellon">3.2. mod_auth_mellon Apache HTTPD Module</a></span><ul><li><span class="section"><a href="#configuring_mod_auth_mellon_with_red_hat_single_sign_on">3.2.1. Configuring mod_auth_mellon with Red Hat Single Sign-On</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#docker_registry_configuration">4. Docker Registry Configuration</a></span><ul><li><span class="section"><a href="#docker_registry_configuration_file_installation">4.1. Docker Registry Configuration File Installation</a></span></li><li><span class="section"><a href="#docker_registry_environment_variable_override_installation">4.2. Docker Registry Environment Variable Override Installation</a></span></li><li><span class="section"><a href="#docker_compose_yaml_file">4.3. Docker Compose YAML File</a></span></li></ul></li><li><span class="chapter"><a href="#client_registration">5. Client Registration</a></span><ul><li><span class="section"><a href="#authentication">5.1. Authentication</a></span><ul><li><span class="section"><a href="#bearer_token">5.1.1. Bearer Token</a></span></li><li><span class="section"><a href="#initial_access_token">5.1.2. Initial Access Token</a></span></li><li><span class="section"><a href="#registration_access_token">5.1.3. Registration Access Token</a></span></li></ul></li><li><span class="section"><a href="#red_hat_single_sign_on_representations">5.2. Red Hat Single Sign-On Representations</a></span></li><li><span class="section"><a href="#red_hat_single_sign_on_adapter_configuration">5.3. Red Hat Single Sign-On Adapter Configuration</a></span></li><li><span class="section"><a href="#openid_connect_dynamic_client_registration">5.4. OpenID Connect Dynamic Client Registration</a></span></li><li><span class="section"><a href="#saml_entity_descriptors">5.5. SAML Entity Descriptors</a></span></li><li><span class="section"><a href="#example_using_curl_2">5.6. Example using CURL</a></span></li><li><span class="section"><a href="#example_using_java_client_registration_api">5.7. Example using Java Client Registration API</a></span></li><li><span class="section"><a href="#client_registration_policies">5.8. Client Registration Policies</a></span></li></ul></li><li><span class="chapter"><a href="#client_registration_cli">6. Client Registration CLI</a></span><ul><li><span class="section"><a href="#configuring_a_user_for_client_registration_cli">6.1. Configuring a new regular user for use with Client Registration CLI</a></span></li><li><span class="section"><a href="#configuring_a_client_for_use_with_client_registration_cli">6.2. Configuring a client for use with the Client Registration CLI</a></span></li><li><span class="section"><a href="#installing_client_registration_cli">6.3. Installing the Client Registration CLI</a></span></li><li><span class="section"><a href="#using_client_registration_cli">6.4. Using the Client Registration CLI</a></span><ul><li><span class="section"><a href="#logging_in">6.4.1. Logging in</a></span></li><li><span class="section"><a href="#working_with_alternative_configurations">6.4.2. Working with alternative configurations</a></span></li><li><span class="section"><a href="#initial_access_and_registration_access_tokens">6.4.3. Initial Access and Registration Access Tokens</a></span></li><li><span class="section"><a href="#performing_crud_operations">6.4.4. Creating a client configuration</a></span></li><li><span class="section"><a href="#retrieving_a_client_configuration">6.4.5. Retrieving a client configuration</a></span></li><li><span class="section"><a href="#modifying_a_client_configuration">6.4.6. Modifying a client configuration</a></span></li><li><span class="section"><a href="#deleting_a_client_configuration">6.4.7. Deleting a client configuration</a></span></li><li><span class="section"><a href="#refreshing_invalid_registration_access_tokens">6.4.8. Refreshing invalid Registration Access Tokens</a></span></li></ul></li><li><span class="section"><a href="#troubleshooting_2">6.5. Troubleshooting</a></span></li></ul></li><li><span class="chapter"><a href="#token-exchange">7. Token Exchange</a></span><ul><li><span class="section"><a href="#internal_token_to_internal_token_exchange">7.1. Internal Token to Internal Token Exchange</a></span><ul><li><span class="section"><a href="#client_to_client_permission">7.1.1. Granting Permission for the Exchange</a></span></li><li><span class="section"><a href="#making_the_request">7.1.2. Making the Request</a></span></li></ul></li><li><span class="section"><a href="#internal_token_to_external_token_exchange">7.2. Internal Token to External Token Exchange</a></span><ul><li><span class="section"><a href="#grant_permission_external_exchange">7.2.1. Granting Permission for the Exchange</a></span></li><li><span class="section"><a href="#internal_external_making_request">7.2.2. Making the Request</a></span></li></ul></li><li><span class="section"><a href="#external_token_to_internal_token_exchange">7.3. External Token to Internal Token Exchange</a></span><ul><li><span class="section"><a href="#granting_permission_for_the_exchange">7.3.1. Granting Permission for the Exchange</a></span></li><li><span class="section"><a href="#making_the_request_2">7.3.2. Making the Request</a></span></li></ul></li><li><span class="section"><a href="#impersonation">7.4. Impersonation</a></span><ul><li><span class="section"><a href="#granting_permission_for_the_exchange_2">7.4.1. Granting Permission for the Exchange</a></span></li><li><span class="section"><a href="#making_the_request_3">7.4.2. Making the Request</a></span></li></ul></li><li><span class="section"><a href="#direct_naked_impersonation">7.5. Direct Naked Impersonation</a></span><ul><li><span class="section"><a href="#granting_permission_for_the_exchange_3">7.5.1. Granting Permission for the Exchange</a></span></li><li><span class="section"><a href="#making_the_request_4">7.5.2. Making the Request</a></span></li></ul></li><li><span class="section"><a href="#expand_permission_model_with_service_accounts">7.6. Expand Permission Model With Service Accounts</a></span></li><li><span class="section"><a href="#exchange_vulnerabilities">7.7. Exchange Vulnerabilities</a></span></li></ul></li></ul></div><section class="chapter" id="overview"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Overview</h1></div></div></div><p>
 			Red Hat Single Sign-On supports both OpenID Connect (an extension to OAuth 2.0) and SAML 2.0. When securing clients and services the first thing you need to decide is which of the two you are going to use. If you want you can also choose to secure some with OpenID Connect and others with SAML.
 		</p><p>
 			To secure clients and services you are also going to need an adapter or library for the protocol you’ve selected. Red Hat Single Sign-On comes with its own adapters for selected platforms, but it is also possible to use generic OpenID Connect Resource Provider and SAML Service Provider libraries.
@@ -12,10 +12,14 @@
 								<a class="link" href="#jboss_adapter" title="2.1.2. JBoss EAP Adapter">JBoss EAP</a>
 							</li><li class="listitem">
 								<a class="link" href="#fuse_adapter" title="2.1.3. JBoss Fuse Adapter">Fuse</a>
-							</li></ul></div></section><section class="section" id="node_js_server_side"><div class="titlepage"><div><div><h4 class="title">1.2.1.2. Node.js (server-side)</h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-								<a class="link" href="#nodejs_adapter" title="2.3. Node.js Adapter">Node.js</a>
-							</li></ul></div></section><section class="section" id="javascript"><div class="titlepage"><div><div><h4 class="title">1.2.1.3. JavaScript</h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							</li><li class="listitem">
+								<a class="link" href="#servlet_filter_adapter" title="2.1.5. Java Servlet Filter Adapter">Servlet Filter</a>
+							</li><li class="listitem">
+								<a class="link" href="#spring_boot_adapter" title="2.1.4. Spring Boot Adapter">Spring Boot</a>
+							</li></ul></div></section><section class="section" id="javascript_client_side"><div class="titlepage"><div><div><h4 class="title">1.2.1.2. JavaScript (client-side)</h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 								<a class="link" href="#javascript_adapter" title="2.2. Javascript Adapter">JavaScript</a>
+							</li></ul></div></section><section class="section" id="node_js_server_side"><div class="titlepage"><div><div><h4 class="title">1.2.1.3. Node.js (server-side)</h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								<a class="link" href="#nodejs_adapter" title="2.3. Node.js Adapter">Node.js</a>
 							</li></ul></div></section></section><section class="section" id="saml"><div class="titlepage"><div><div><h3 class="title">1.2.2. SAML</h3></div></div></div><section class="section" id="java_2"><div class="titlepage"><div><div><h4 class="title">1.2.2.1. Java</h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 								<a class="link" href="#saml_jboss_adapter" title="3.1.2. JBoss EAP Adapter">JBoss EAP</a>
 							</li></ul></div></section><section class="section" id="apache_http_server"><div class="titlepage"><div><div><h4 class="title">1.2.2.2. Apache HTTP Server</h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -147,11 +151,11 @@
 							</dd><dt><span class="term">always-refresh-token</span></dt><dd>
 								If <span class="emphasis"><em>true</em></span>, the adapter will refresh token in every request.
 							</dd><dt><span class="term">register-node-at-startup</span></dt><dd>
-								If <span class="emphasis"><em>true</em></span>, then adapter will send registration request to Red Hat Single Sign-On. It’s <span class="emphasis"><em>false</em></span> by default and useful only when application is clustered. See <a class="link" href="#applicationclustering" title="2.1.10. Application Clustering">Application Clustering</a> for details
+								If <span class="emphasis"><em>true</em></span>, then adapter will send registration request to Red Hat Single Sign-On. It’s <span class="emphasis"><em>false</em></span> by default and useful only when application is clustered. See <a class="link" href="#applicationclustering" title="2.1.12. Application Clustering">Application Clustering</a> for details
 							</dd><dt><span class="term">register-node-period</span></dt><dd>
-								Period for re-registration adapter to Red Hat Single Sign-On. Useful when application is clustered. See <a class="link" href="#applicationclustering" title="2.1.10. Application Clustering">Application Clustering</a> for details
+								Period for re-registration adapter to Red Hat Single Sign-On. Useful when application is clustered. See <a class="link" href="#applicationclustering" title="2.1.12. Application Clustering">Application Clustering</a> for details
 							</dd><dt><span class="term">token-store</span></dt><dd>
-								Possible values are <span class="emphasis"><em>session</em></span> and <span class="emphasis"><em>cookie</em></span>. Default is <span class="emphasis"><em>session</em></span>, which means that adapter stores account info in HTTP Session. Alternative <span class="emphasis"><em>cookie</em></span> means storage of info in cookie. See <a class="link" href="#applicationclustering" title="2.1.10. Application Clustering">Application Clustering</a> for details
+								Possible values are <span class="emphasis"><em>session</em></span> and <span class="emphasis"><em>cookie</em></span>. Default is <span class="emphasis"><em>session</em></span>, which means that adapter stores account info in HTTP Session. Alternative <span class="emphasis"><em>cookie</em></span> means storage of info in cookie. See <a class="link" href="#applicationclustering" title="2.1.12. Application Clustering">Application Clustering</a> for details
 							</dd><dt><span class="term">principal-attribute</span></dt><dd>
 								OpenID Connect ID Token attribute to populate the UserPrincipal name with. If token attribute is null, defaults to <code class="literal">sub</code>. Possible values are <code class="literal">sub</code>, <code class="literal">preferred_username</code>, <code class="literal">email</code>, <code class="literal">name</code>, <code class="literal">nickname</code>, <code class="literal">given_name</code>, <code class="literal">family_name</code>.
 							</dd><dt><span class="term">turn-off-change-session-id-on-login</span></dt><dd>
@@ -181,7 +185,7 @@
 					</p><p>
 						Install the EAP 7 Adapters from a ZIP File:
 					</p><pre class="screen">$ cd $EAP_HOME
-$ unzip rh-sso-7.2.0.DR4-eap7-adapter.zip</pre><p>
+$ unzip rh-sso-7.2.0.GA-eap7-adapter.zip</pre><p>
 						Install the EAP 7 Adapters from an RPM:
 					</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 							With Red Hat Enterprise Linux 7, the term channel was replaced with the term repository. In these instructions only the term repository is used.
@@ -195,9 +199,9 @@ $ unzip rh-sso-7.2.0.DR4-eap7-adapter.zip</pre><p>
 						Using Red Hat Subscription Manager, subscribe to the JBoss EAP 7.0 repository using the following command. Replace &lt;RHEL_VERSION&gt; with either 6 or 7 depending on your Red Hat Enterprise Linux version.
 					</p><pre class="screen">$ sudo subscription-manager repos --enable=jb-eap-7-for-rhel-&lt;RHEL_VERSION&gt;-server-rpms</pre><p>
 						Install the EAP 7 adapters for OIDC using the following command:
-					</p><pre class="screen">$ sudo yum install eap7-keycloak-adapter</pre><p>
+					</p><pre class="screen">$ sudo yum install eap7-keycloak-adapter-sso7_2</pre><p>
 						Install the EAP 7 adapters for SAML using the following command:
-					</p><pre class="screen">$ sudo yum install eap7-keycloak-saml-adapter</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+					</p><pre class="screen">$ sudo yum install eap7-keycloak-saml-adapter-sso7_2</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 							The default EAP_HOME path for the RPM installation is /opt/rh/eap7/root/usr/share/wildfly.
 						</p></div></div><p>
 						Run the appropriate module installation script.
@@ -214,7 +218,7 @@ $ unzip rh-sso-7.2.0.DR4-eap7-adapter.zip</pre><p>
 					</p><p>
 						Install the EAP 6 Adapters from a ZIP File:
 					</p><pre class="screen">$ cd $EAP_HOME
-$ unzip rh-sso-7.2.0.DR4-eap6-adapter.zip</pre><p>
+$ unzip rh-sso-7.2.0.GA-eap6-adapter.zip</pre><p>
 						Install the EAP 6 Adapters from an RPM:
 					</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 							With Red Hat Enterprise Linux 7, the term channel was replaced with the term repository. In these instructions only the term repository is used.
@@ -228,9 +232,9 @@ $ unzip rh-sso-7.2.0.DR4-eap6-adapter.zip</pre><p>
 						Using Red Hat Subscription Manager, subscribe to the JBoss EAP 6.0 repository using the following command. Replace &lt;RHEL_VERSION&gt; with either 6 or 7 depending on your Red Hat Enterprise Linux version.
 					</p><pre class="screen">$ sudo subscription-manager repos --enable=jb-eap-6-for-rhel-&lt;RHEL_VERSION&gt;-server-rpms</pre><p>
 						Install the EAP 6 adapters for OIDC using the following command:
-					</p><pre class="screen">$ sudo yum install eap6-keycloak-adapter</pre><p>
+					</p><pre class="screen">$ sudo yum install keycloak-adapter-sso7_2-eap6</pre><p>
 						Install the EAP 6 adapters for SAML using the following command:
-					</p><pre class="screen">$ sudo yum install eap6-keycloak-saml-adapter</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+					</p><pre class="screen">$ sudo yum install keycloak-saml-adapter-sso7_2-eap6</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 							The default EAP_HOME path for the RPM installation is /opt/rh/eap6/root/usr/share/wildfly.
 						</p></div></div><p>
 						Run the appropriate module installation script.
@@ -403,7 +407,7 @@ public class CustomerService {
 							To install the keycloak feature using the Maven repository, complete the following steps:
 						</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p class="simpara">
 									Start JBoss Fuse 6.3.0 Rollup 5; then in the Karaf terminal type:
-								</p><pre class="screen">features:addurl mvn:org.keycloak/keycloak-osgi-features/3.3.0.Final-redhat1/xml/features
+								</p><pre class="screen">features:addurl mvn:org.keycloak/keycloak-osgi-features/3.4.2.Final-redhat1/xml/features
 features:install keycloak</pre></li><li class="listitem"><p class="simpara">
 									You might also need to install the Jetty 9 feature:
 								</p><pre class="screen">features:install keycloak-jetty9-adapter</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
@@ -421,9 +425,9 @@ features:install keycloak</pre></li><li class="listitem"><p class="simpara">
 								</p><p class="simpara">
 									Use this for JBoss Fuse 6.3.0 Rollup 5:
 								</p><pre class="screen">cd /path-to-fuse/jboss-fuse-6.3.0.redhat-254
-unzip -q /path-to-adapter-zip/rh-sso-7.2.0.DR4-fuse-adapter.zip</pre></li><li class="listitem"><p class="simpara">
+unzip -q /path-to-adapter-zip/rh-sso-7.2.0.GA-fuse-adapter.zip</pre></li><li class="listitem"><p class="simpara">
 									Start Fuse and run these commands in the fuse/karaf terminal:
-								</p><pre class="screen">features:addurl mvn:org.keycloak/keycloak-osgi-features/3.3.0.Final-redhat1/xml/features
+								</p><pre class="screen">features:addurl mvn:org.keycloak/keycloak-osgi-features/3.4.2.Final-redhat1/xml/features
 features:install keycloak</pre></li><li class="listitem">
 									Install the corresponding Jetty adapter. Since the artifacts are available directly in the JBoss Fuse <code class="literal">system</code> directory, you do not need to use the Maven repository.
 								</li></ol></div></section></section><section class="section" id="fuse_adapter_classic_war"><div class="titlepage"><div><div><h4 class="title">2.1.3.3. Securing a Classic WAR Application</h4></div></div></div><p>
@@ -491,11 +495,11 @@ features:install keycloak</pre></li><li class="listitem">
 								Ensure your WAR application imports <code class="literal">org.keycloak.adapters.jetty</code> and maybe some more packages in the <code class="literal">META-INF/MANIFEST.MF</code> file, under the <code class="literal">Import-Package</code> header. Using <code class="literal">maven-bundle-plugin</code> in your project properly generates OSGI headers in manifest. Note that "*" resolution for the package does not import the <code class="literal">org.keycloak.adapters.jetty</code> package, since it is not used by the application or the Blueprint or Spring descriptor, but is rather used in the <code class="literal">jetty-web.xml</code> file.
 							</p><p class="simpara">
 								The list of the packages to import might look like this:
-							</p><pre class="screen">org.keycloak.adapters.jetty;version="3.3.0.Final-redhat1",
-org.keycloak.adapters;version="3.3.0.Final-redhat1",
-org.keycloak.constants;version="3.3.0.Final-redhat1",
-org.keycloak.util;version="3.3.0.Final-redhat1",
-org.keycloak.*;version="3.3.0.Final-redhat1",
+							</p><pre class="screen">org.keycloak.adapters.jetty;version="3.4.2.Final-redhat1",
+org.keycloak.adapters;version="3.4.2.Final-redhat1",
+org.keycloak.constants;version="3.4.2.Final-redhat1",
+org.keycloak.util;version="3.4.2.Final-redhat1",
+org.keycloak.*;version="3.4.2.Final-redhat1",
 *;resolution:=optional</pre></li></ol></div><section class="section" id="config_external_adapter"><div class="titlepage"><div><div><h5 class="title">2.1.3.3.1. Configuring the External Adapter</h5></div></div></div><p>
 							If you do not want the <code class="literal">keycloak.json</code> adapter configuration file to be bundled inside your WAR application, but instead made available externally and loaded based on naming conventions, use this configuration method.
 						</p><p>
@@ -562,11 +566,11 @@ org.keycloak.*;version="3.3.0.Final-redhat1",
 										You might need to have the <code class="literal">WEB-INF</code> directory inside your project (even if your project is not a web application) and create the <code class="literal">/WEB-INF/jetty-web.xml</code> and <code class="literal">/WEB-INF/keycloak.json</code> files as in the <a class="link" href="#fuse_adapter_classic_war" title="2.1.3.3. Securing a Classic WAR Application">Classic WAR application</a> section. Note you don’t need the <code class="literal">web.xml</code> file as the security-constraints are declared in the blueprint configuration file.
 									</li></ul></div></li><li class="listitem"><p class="simpara">
 								The <code class="literal">Import-Package</code> in <code class="literal">META-INF/MANIFEST.MF</code> must contain at least these imports:
-							</p><pre class="screen">org.keycloak.adapters.jetty;version="3.3.0.Final-redhat1",
-org.keycloak.adapters;version="3.3.0.Final-redhat1",
-org.keycloak.constants;version="3.3.0.Final-redhat1",
-org.keycloak.util;version="3.3.0.Final-redhat1",
-org.keycloak.*;version="3.3.0.Final-redhat1",
+							</p><pre class="screen">org.keycloak.adapters.jetty;version="3.4.2.Final-redhat1",
+org.keycloak.adapters;version="3.4.2.Final-redhat1",
+org.keycloak.constants;version="3.4.2.Final-redhat1",
+org.keycloak.util;version="3.4.2.Final-redhat1",
+org.keycloak.*;version="3.4.2.Final-redhat1",
 *;resolution:=optional</pre></li></ol></div></section><section class="section" id="securing_an_apache_camel_application"><div class="titlepage"><div><div><h4 class="title">2.1.3.5. Securing an Apache Camel Application</h4></div></div></div><p>
 						You can secure Apache Camel endpoints implemented with the <a class="link" href="http://camel.apache.org/jetty.html">camel-jetty</a> component by adding securityHandler with <code class="literal">KeycloakJettyAuthenticator</code> and the proper security constraints injected. You can add the <code class="literal">OSGI-INF/blueprint/blueprint.xml</code> file to your Camel application with a similar configuration as below. The roles, security constraint mappings, and Red Hat Single Sign-On adapter configuration might differ slightly depending on your environment and needs.
 					</p><p>
@@ -644,7 +648,7 @@ org.apache.camel;version="[2.13,3)",
 org.eclipse.jetty.security;version="[8,10)",
 org.eclipse.jetty.server.nio;version="[8,10)",
 org.eclipse.jetty.util.security;version="[8,10)",
-org.keycloak.*;version="3.3.0.Final-redhat1",
+org.keycloak.*;version="3.4.2.Final-redhat1",
 org.osgi.service.blueprint,
 org.osgi.service.blueprint.container,
 org.osgi.service.event,</pre></section><section class="section" id="camel_restdsl"><div class="titlepage"><div><div><h4 class="title">2.1.3.6. Camel RestDSL</h4></div></div></div><p>
@@ -789,7 +793,7 @@ org.apache.cxf.*;version="[2.7,3.2)",
 org.springframework.beans.factory.config,
 org.eclipse.jetty.security;version="[8,10)",
 org.eclipse.jetty.util.security;version="[8,10)",
-org.keycloak.*;version="3.3.0.Final-redhat1"</pre></section><section class="section" id="fuse_adapter_cxf_builtin"><div class="titlepage"><div><div><h4 class="title">2.1.3.8. Securing an Apache CXF Endpoint on the Default Jetty Engine</h4></div></div></div><p>
+org.keycloak.*;version="3.4.2.Final-redhat1"</pre></section><section class="section" id="fuse_adapter_cxf_builtin"><div class="titlepage"><div><div><h4 class="title">2.1.3.8. Securing an Apache CXF Endpoint on the Default Jetty Engine</h4></div></div></div><p>
 						Some services automatically come with deployed servlets on startup. One such service is the CXF servlet running in the http://localhost:8181/cxf context. Securing such endpoints can be complicated. One approach, which Red Hat Single Sign-On is currently using, is ServletReregistrationService, which undeploys a built-in servlet at startup, enabling you to redeploy it on a context secured by Red Hat Single Sign-On.
 					</p><p>
 						The configuration file <code class="literal">OSGI-INF/blueprint/blueprint.xml</code> inside your application might resemble the one below. Note that it adds the JAX-RS <code class="literal">customerservice</code> endpoint, which is endpoint-specific to your application, but more importantly, secures the entire <code class="literal">/cxf</code> context.
@@ -865,8 +869,8 @@ org.apache.cxf.*;version="[2.7,3.2)",
 com.fasterxml.jackson.jaxrs.json;version="[2.5,3)",
 org.eclipse.jetty.security;version="[8,10)",
 org.eclipse.jetty.util.security;version="[8,10)",
-org.keycloak.*;version="3.3.0.Final-redhat1",
-org.keycloak.adapters.jetty;version="3.3.0.Final-redhat1",
+org.keycloak.*;version="3.4.2.Final-redhat1",
+org.keycloak.adapters.jetty;version="3.4.2.Final-redhat1",
 *;resolution:=optional</pre></section><section class="section" id="fuse_adapter_admin"><div class="titlepage"><div><div><h4 class="title">2.1.3.9. Securing Fuse Administration Services</h4></div></div></div><section class="section" id="using_ssh_authentication_to_fuse_terminal"><div class="titlepage"><div><div><h5 class="title">2.1.3.9.1. Using SSH Authentication to Fuse Terminal</h5></div></div></div><p>
 							Red Hat Single Sign-On mainly addresses use cases for authentication of web applications; however, if your other web services and applications are protected with Red Hat Single Sign-On, protecting non-web administration services such as SSH with Red Hat Single Sign-On credentials is a best pracrice. You can do this using the JAAS login module, which allows remote connection to Red Hat Single Sign-On and verifies credentials based on <a class="link" href="#resource_owner_password_credentials_flow" title="2.4.2.3. Resource Owner Password Credentials">Resource Owner Password Credentials</a>.
 						</p><p>
@@ -888,10 +892,10 @@ org.keycloak.adapters.jetty;version="3.3.0.Final-redhat1",
 }</pre><p class="simpara">
 									This file specifies the client application configuration, which is used by JAAS DirectAccessGrantsLoginModule from the <code class="literal">keycloak</code> JAAS realm for SSH authentication.
 								</p></li><li class="listitem"><p class="simpara">
-									Start Fuse and install the <code class="literal">keycloak</code> JAAS realm. The easiest way is to install the <code class="literal">keycloak-jaas</code> feature, which has the JAAS realm predefined. You can override the feature’s predefined realm by using your own <code class="literal">keycloak</code> JAAS realm with higher ranking. For details see the https:access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html-single/security_guide/#ESBSecureContainer[JBoss Fuse documentation].
+									Start Fuse and install the <code class="literal">keycloak</code> JAAS realm. The easiest way is to install the <code class="literal">keycloak-jaas</code> feature, which has the JAAS realm predefined. You can override the feature’s predefined realm by using your own <code class="literal">keycloak</code> JAAS realm with higher ranking. For details see the <a class="link" href="https://access.redhat.com/documentation/en-us/red_hat_jboss_fuse/6.3/html-single/security_guide/#ESBSecureContainer">JBoss Fuse documentation</a>.
 								</p><p class="simpara">
 									Use these commands in the Fuse terminal:
-								</p><pre class="screen">features:addurl mvn:org.keycloak/keycloak-osgi-features/3.3.0.Final-redhat1/xml/features
+								</p><pre class="screen">features:addurl mvn:org.keycloak/keycloak-osgi-features/3.4.2.Final-redhat1/xml/features
 features:install keycloak-jaas</pre></li><li class="listitem"><p class="simpara">
 									Log in using SSH as <code class="literal">admin</code> user by typing the following in the terminal:
 								</p><pre class="screen">ssh -o PubkeyAuthentication=no -p 8101 admin@localhost</pre></li><li class="listitem">
@@ -941,7 +945,7 @@ hawtio.rolePrincipalClasses=org.keycloak.adapters.jaas.RolePrincipal,org.apache.
   "principal-attribute": "preferred_username"
 }</pre></li><li class="listitem"><p class="simpara">
 								Start JBoss Fuse 6.3.0 Rollup 5 and install the keycloak feature if you have not already done so. The commands in Karaf terminal are similar to this example:
-							</p><pre class="screen">features:addurl mvn:org.keycloak/keycloak-osgi-features/3.3.0.Final-redhat1/xml/features
+							</p><pre class="screen">features:addurl mvn:org.keycloak/keycloak-osgi-features/3.4.2.Final-redhat1/xml/features
 features:install keycloak</pre></li><li class="listitem"><p class="simpara">
 								Go to <a class="link" href="http://localhost:8181/hawtio">http://localhost:8181/hawtio</a> and log in as a user from your Red Hat Single Sign-On realm.
 							</p><p class="simpara">
@@ -1007,7 +1011,7 @@ features:install keycloak</pre></li><li class="listitem"><p class="simpara">
     &lt;dependency&gt;
       &lt;groupId&gt;org.keycloak.bom&lt;/groupId&gt;
       &lt;artifactId&gt;keycloak-adapter-bom&lt;/artifactId&gt;
-      &lt;version&gt;3.3.0.Final-redhat1&lt;/version&gt;
+      &lt;version&gt;3.4.2.Final-redhat1&lt;/version&gt;
       &lt;type&gt;pom&lt;/type&gt;
       &lt;scope&gt;import&lt;/scope&gt;
     &lt;/dependency&gt;
@@ -1043,16 +1047,57 @@ keycloak.securityConstraints[0].securityCollections[0].patterns[0] = /insecure
 keycloak.securityConstraints[1].authRoles[0] = admin
 keycloak.securityConstraints[1].securityCollections[0].name = admin stuff
 keycloak.securityConstraints[1].securityCollections[0].patterns[0] = /admin</pre><div class="admonition warning"><div class="admonition_header">Warning</div><div><p>
-							If you plan to deploy your Spring Application as a WAR then you should not use the Spring Boot Adapter and use the dedicated adapter for the application server or servlet container you are using. Your Spring Boot should also contain a <code class="literal">web.xml</code> file. ==== Security Context
-						</p></div></div><p>
-						The <code class="literal">KeycloakSecurityContext</code> interface is available if you need to access to the tokens directly. This could be useful if you want to retrieve additional details from the token (such as user profile information) or you want to invoke a RESTful service that is protected by Red Hat Single Sign-On.
-					</p><p>
-						In servlet environments it is available in secured invocations as an attribute in HttpServletRequest:
-					</p><pre class="programlisting language-java">httpServletRequest
+							If you plan to deploy your Spring Application as a WAR then you should not use the Spring Boot Adapter and use the dedicated adapter for the application server or servlet container you are using. Your Spring Boot should also contain a <code class="literal">web.xml</code> file.
+						</p></div></div></section></section><section class="section" id="servlet_filter_adapter"><div class="titlepage"><div><div><h3 class="title">2.1.5. Java Servlet Filter Adapter</h3></div></div></div><p>
+					If you are deploying your Java Servlet application on a platform where there is no Red Hat Single Sign-On adapter you opt to use the servlet filter adapter. This adapter works a bit differently than the other adapters. You do not define security constraints in web.xml. Instead you define a filter mapping using the Red Hat Single Sign-On servlet filter adapter to secure the url patterns you want to secure.
+				</p><div class="admonition warning"><div class="admonition_header">Warning</div><div><p>
+						Backchannel logout works a bit differently than the standard adapters. Instead of invalidating the HTTP session it marks the session id as logged out. There’s no standard way to invalidate an HTTP session based on a session id.
+					</p></div></div><pre class="programlisting language-xml">&lt;web-app xmlns="http://java.sun.com/xml/ns/javaee"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+      version="3.0"&gt;
+
+	&lt;module-name&gt;application&lt;/module-name&gt;
+
+    &lt;filter&gt;
+        &lt;filter-name&gt;Keycloak Filter&lt;/filter-name&gt;
+        &lt;filter-class&gt;org.keycloak.adapters.servlet.KeycloakOIDCFilter&lt;/filter-class&gt;
+    &lt;/filter&gt;
+    &lt;filter-mapping&gt;
+        &lt;filter-name&gt;Keycloak Filter&lt;/filter-name&gt;
+        &lt;url-pattern&gt;/keycloak/*&lt;/url-pattern&gt;
+        &lt;url-pattern&gt;/protected/*&lt;/url-pattern&gt;
+    &lt;/filter-mapping&gt;
+&lt;/web-app&gt;</pre><p>
+					In the snippet above there are two url-patterns. <span class="emphasis"><em>/protected/*</em></span> are the files we want protected, while the <span class="emphasis"><em>/keycloak/*</em></span> url-pattern handles callbacks from the Red Hat Single Sign-On server.
+				</p><p>
+					If you need to exclude some paths beneath the configured <code class="literal">url-patterns</code> you can use the Filter init-param <code class="literal">keycloak.config.skipPattern</code> to configure a regular expression that describes a path-pattern for which the keycloak filter should immediately delegate to the filter-chain. By default no skipPattern is configured.
+				</p><p>
+					Patterns are matched against the <code class="literal">requestURI</code> without the <code class="literal">context-path</code>. Given the context-path <code class="literal">/myapp</code> a request for <code class="literal">/myapp/index.html</code> will be matched with <code class="literal">/index.html</code> against the skip pattern.
+				</p><pre class="programlisting language-xml">&lt;init-param&gt;
+    &lt;param-name&gt;keycloak.config.skipPattern&lt;/param-name&gt;
+    &lt;param-value&gt;^/(path1|path2|path3).*&lt;/param-value&gt;
+&lt;/init-param&gt;</pre><p>
+					Note that you should configure your client in the Red Hat Single Sign-On Admin Console with an Admin URL that points to a secured section covered by the filter’s url-pattern.
+				</p><p>
+					The Admin URL will make callbacks to the Admin URL to do things like backchannel logout. So, the Admin URL in this example should be <code class="literal">http[s]://hostname/{context-root}/keycloak</code>.
+				</p><p>
+					The Red Hat Single Sign-On filter has the same configuration parameters as the other adapters except you must define them as filter init params instead of context params.
+				</p><p>
+					To use this filter, include this maven artifact in your WAR poms:
+				</p><pre class="programlisting language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.keycloak&lt;/groupId&gt;
+    &lt;artifactId&gt;keycloak-servlet-filter-adapter&lt;/artifactId&gt;
+    &lt;version&gt;3.4.2.Final-redhat1&lt;/version&gt;
+&lt;/dependency&gt;</pre></section><section class="section" id="security_context"><div class="titlepage"><div><div><h3 class="title">2.1.6. Security Context</h3></div></div></div><p>
+					The <code class="literal">KeycloakSecurityContext</code> interface is available if you need to access to the tokens directly. This could be useful if you want to retrieve additional details from the token (such as user profile information) or you want to invoke a RESTful service that is protected by Red Hat Single Sign-On.
+				</p><p>
+					In servlet environments it is available in secured invocations as an attribute in HttpServletRequest:
+				</p><pre class="programlisting language-java">httpServletRequest
     .getAttribute(KeycloakSecurityContext.class.getName());</pre><p>
-						Or, it is available in secure and insecure requests in the HttpSession:
-					</p><pre class="programlisting language-java">httpServletRequest.getSession()
-    .getAttribute(KeycloakSecurityContext.class.getName());</pre></section></section><section class="section" id="adapter_error_handling"><div class="titlepage"><div><div><h3 class="title">2.1.5. Error Handling</h3></div></div></div><p>
+					Or, it is available in secure and insecure requests in the HttpSession:
+				</p><pre class="programlisting language-java">httpServletRequest.getSession()
+    .getAttribute(KeycloakSecurityContext.class.getName());</pre></section><section class="section" id="adapter_error_handling"><div class="titlepage"><div><div><h3 class="title">2.1.7. Error Handling</h3></div></div></div><p>
 					Red Hat Single Sign-On has some error handling facilities for servlet based client adapters. When an error is encountered in authentication, Red Hat Single Sign-On will call <code class="literal">HttpServletResponse.sendError()</code>. You can set up an error-page within your <code class="literal">web.xml</code> file to handle the error however you want. Red Hat Single Sign-On can throw 400, 401, 403, and 500 errors.
 				</p><pre class="programlisting language-xml">&lt;error-page&gt;
     &lt;error-code&gt;403&lt;/error-code&gt;
@@ -1069,9 +1114,9 @@ OIDCAuthenticationError error = (OIDCAuthenticationError) httpServletRequest
     .getAttribute('org.keycloak.adapters.spi.AuthenticationError');
 
 Reason reason = error.getReason();
-System.out.println(reason.name());</pre></section><section class="section" id="logout"><div class="titlepage"><div><div><h3 class="title">2.1.6. Logout</h3></div></div></div><p>
+System.out.println(reason.name());</pre></section><section class="section" id="logout"><div class="titlepage"><div><div><h3 class="title">2.1.8. Logout</h3></div></div></div><p>
 					You can log out of a web application in multiple ways. For Java EE servlet containers, you can call HttpServletRequest.logout(). For other browser applications, you can redirect the browser to <code class="literal">http://auth-server/auth/realms/{realm-name}/protocol/openid-connect/logout?redirect_uri=encodedRedirectUri</code>, which logs you out if you have an SSO session with your browser.
-				</p></section><section class="section" id="parameters_forwarding"><div class="titlepage"><div><div><h3 class="title">2.1.7. Parameters Forwarding</h3></div></div></div><p>
+				</p></section><section class="section" id="parameters_forwarding"><div class="titlepage"><div><div><h3 class="title">2.1.9. Parameters Forwarding</h3></div></div></div><p>
 					The Red Hat Single Sign-On initial authorization endpoint request has support for various parameters. Most of the parameters are described in <a class="link" href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">OIDC specification</a>. Some parameters are added automatically by the adapter based on the adapter configuration. However, there are also a few parameters that can be added on a per-invocation basis. When you open the secured application URI, the particular parameter will be forwarded to the Red Hat Single Sign-On authorization endpoint.
 				</p><p>
 					For example, if you request an offline token, then you can open the secured application URI with the <code class="literal">scope</code> parameter like:
@@ -1091,13 +1136,13 @@ System.out.println(reason.name());</pre></section><section class="section" id="l
 							kc_idp_hint
 						</li></ul></div><p>
 					Most of the parameters are described in the <a class="link" href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">OIDC specification</a>. The only exception is parameter <code class="literal">kc_idp_hint</code>, which is specific to Red Hat Single Sign-On and contains the name of the identity provider to automatically use. For more information see the <code class="literal">Identity Brokering</code> section in <a class="link" href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.2/html-single/server_administration_guide/">Server Administration Guide</a>.
-				</p></section><section class="section" id="client_authentication_adapter"><div class="titlepage"><div><div><h3 class="title">2.1.8. Client Authentication</h3></div></div></div><p>
+				</p></section><section class="section" id="client_authentication_adapter"><div class="titlepage"><div><div><h3 class="title">2.1.10. Client Authentication</h3></div></div></div><p>
 					When a confidential OIDC client needs to send a backchannel request (for example, to exchange code for the token, or to refresh the token) it needs to authenticate against the Red Hat Single Sign-On server. By default, there are two ways to authenticate the client: client ID and client secret, or client authentication with signed JWT.
-				</p><section class="section" id="client_id_and_client_secret"><div class="titlepage"><div><div><h4 class="title">2.1.8.1. Client ID and Client Secret</h4></div></div></div><p>
+				</p><section class="section" id="client_id_and_client_secret"><div class="titlepage"><div><div><h4 class="title">2.1.10.1. Client ID and Client Secret</h4></div></div></div><p>
 						This is the traditional method described in the OAuth2 specification. The client has a secret, which needs to be known to both the adapter (application) and the Red Hat Single Sign-On server. You can generate the secret for a particular client in the Red Hat Single Sign-On administration console, and then paste this secret into the <code class="literal">keycloak.json</code> file on the application side:
 					</p><pre class="screen">"credentials": {
     "secret": "19666a4f-32dd-4049-b082-684c74115f28"
-}</pre></section><section class="section" id="client_authentication_with_signed_jwt"><div class="titlepage"><div><div><h4 class="title">2.1.8.2. Client Authentication with Signed JWT</h4></div></div></div><p>
+}</pre></section><section class="section" id="client_authentication_with_signed_jwt"><div class="titlepage"><div><div><h4 class="title">2.1.10.2. Client Authentication with Signed JWT</h4></div></div></div><p>
 						This is based on the <a class="link" href="https://tools.ietf.org/html/rfc7523">RFC7523</a> specification. It works this way:
 					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 								The client must have the private key and certificate. For Red Hat Single Sign-On this is available through the traditional <code class="literal">keystore</code> file, which is either available on the client application’s classpath or somewhere on the file system.
@@ -1124,7 +1169,7 @@ System.out.println(reason.name());</pre></section><section class="section" id="l
   }
 }</pre><p>
 						With this configuration, the keystore file <code class="literal">keystore-client.jks</code> must be available on classpath in your WAR. If you do not use the prefix <code class="literal">classpath:</code> you can point to any file on the file system where the client application is running.
-					</p></section></section><section class="section" id="multi_tenancy"><div class="titlepage"><div><div><h3 class="title">2.1.9. Multi Tenancy</h3></div></div></div><p>
+					</p></section></section><section class="section" id="multi_tenancy"><div class="titlepage"><div><div><h3 class="title">2.1.11. Multi Tenancy</h3></div></div></div><p>
 					Multi Tenancy, in our context, means that a single target application (WAR) can be secured with multiple Red Hat Single Sign-On realms. The realms can be located one the same Red Hat Single Sign-On instance or on different instances.
 				</p><p>
 					In practice, this means that the application needs to have multiple <code class="literal">keycloak.json</code> adapter configuration files.
@@ -1164,7 +1209,7 @@ public class PathBasedKeycloakConfigResolver implements KeycloakConfigResolver {
         &lt;param-name&gt;keycloak.config.resolver&lt;/param-name&gt;
         &lt;param-value&gt;example.PathBasedKeycloakConfigResolver&lt;/param-value&gt;
     &lt;/context-param&gt;
-&lt;/web-app&gt;</pre></section><section class="section" id="applicationclustering"><div class="titlepage"><div><div><h3 class="title">2.1.10. Application Clustering</h3></div></div></div><p>
+&lt;/web-app&gt;</pre></section><section class="section" id="applicationclustering"><div class="titlepage"><div><div><h3 class="title">2.1.12. Application Clustering</h3></div></div></div><p>
 					This chapter is related to supporting clustered applications deployed to JBoss EAP.
 				</p><p>
 					There are a few options available depending on whether your application is:
@@ -1178,7 +1223,7 @@ public class PathBasedKeycloakConfigResolver implements KeycloakConfigResolver {
 							Hosted on same domain as Red Hat Single Sign-On
 						</li></ul></div><p>
 					Dealing with clustering is not quite as simple as for a regular application. Mainly due to the fact that both the browser and the server-side application sends requests to Red Hat Single Sign-On, so it’s not as simple as enabling sticky sessions on your load balancer.
-				</p><section class="section" id="stateless_token_store"><div class="titlepage"><div><div><h4 class="title">2.1.10.1. Stateless token store</h4></div></div></div><p>
+				</p><section class="section" id="stateless_token_store"><div class="titlepage"><div><div><h4 class="title">2.1.12.1. Stateless token store</h4></div></div></div><p>
 						By default, the web application secured by Red Hat Single Sign-On uses the HTTP session to store security context. This means that you either have to enable sticky sessions or replicate the HTTP session.
 					</p><p>
 						As an alternative to storing the security context in the HTTP session the adapter can be configured to store this in a cookie instead. This is useful if you want to make your application stateless or if you don’t want to store the security context in the HTTP session.
@@ -1190,13 +1235,13 @@ public class PathBasedKeycloakConfigResolver implements KeycloakConfigResolver {
 						One limitation of using the cookie store is that the whole security context is passed in the cookie for every HTTP request. This may impact performance.
 					</p><p>
 						Another small limitation is limited support for Single-Sign Out. It works without issues if you init servlet logout (HttpServletRequest.logout) from the application itself as the adapter will delete the KEYCLOAK_ADAPTER_STATE cookie. However, back-channel logout initialized from a different application isn’t propagated by Red Hat Single Sign-On to applications using cookie store. Hence it’s recommended to use a short value for the access token timeout (for example 1 minute).
-					</p></section><section class="section" id="relative_uri_optimization"><div class="titlepage"><div><div><h4 class="title">2.1.10.2. Relative URI optimization</h4></div></div></div><p>
+					</p></section><section class="section" id="relative_uri_optimization"><div class="titlepage"><div><div><h4 class="title">2.1.12.2. Relative URI optimization</h4></div></div></div><p>
 						In deployment scenarios where Red Hat Single Sign-On and the application is hosted on the same domain (through a reverse proxy or load balancer) it can be convenient to use relative URI options in your client configuration.
 					</p><p>
 						With relative URIs the URI is resolved as relative to the URL used to access Red Hat Single Sign-On.
 					</p><p>
 						For example if the URL to your application is <code class="literal">https://acme.org/myapp</code> and the URL to Red Hat Single Sign-On is <code class="literal">https://acme.org/auth</code>, then you can use the redirect-uri <code class="literal">/myapp</code> instead of <code class="literal">https://acme.org/myapp</code>.
-					</p></section><section class="section" id="admin_url_configuration"><div class="titlepage"><div><div><h4 class="title">2.1.10.3. Admin URL configuration</h4></div></div></div><p>
+					</p></section><section class="section" id="admin_url_configuration"><div class="titlepage"><div><div><h4 class="title">2.1.12.3. Admin URL configuration</h4></div></div></div><p>
 						Admin URL for a particular client can be configured in the Red Hat Single Sign-On Administration Console. It’s used by the Red Hat Single Sign-On server to send backend requests to the application for various tasks, like logout users or push revocation policies.
 					</p><p>
 						For example the way backchannel logout works is:
@@ -1212,7 +1257,7 @@ public class PathBasedKeycloakConfigResolver implements KeycloakConfigResolver {
 								When an application receives the logout request it invalidates the corresponding HTTP session
 							</li></ol></div><p>
 						If admin URL contains <code class="literal">${application.session.host}</code> it will be replaced with the URL to the node associated with the HTTP session.
-					</p></section><section class="section" id="registration_app_nodes"><div class="titlepage"><div><div><h4 class="title">2.1.10.4. Registration of application nodes</h4></div></div></div><p>
+					</p></section><section class="section" id="registration_app_nodes"><div class="titlepage"><div><div><h4 class="title">2.1.12.4. Registration of application nodes</h4></div></div></div><p>
 						The previous section describes how Red Hat Single Sign-On can send logout request to node associated with a specific HTTP session. However, in some cases admin may want to propagate admin tasks to all registered cluster nodes, not just one of them. For example to push a new not before policy to the application or to logout all users from the application.
 					</p><p>
 						In this case Red Hat Single Sign-On needs to be aware of all application cluster nodes, so it can send the event to all of them. To achieve this, we support auto-discovery mechanism:
@@ -1233,7 +1278,7 @@ public class PathBasedKeycloakConfigResolver implements KeycloakConfigResolver {
 						This means the adapter will send the registration request on startup and re-register every 10 minutes.
 					</p><p>
 						In the Red Hat Single Sign-On Administration Console you can specify the maximum node re-registration timeout (should be larger than <span class="emphasis"><em>register-node-period</em></span> from the adapter configuration). You can also manually add and remove cluster nodes in through the Adminstration Console, which is useful if you don’t want to rely on the automatic registration feature or if you want to remove stale application nodes in the event your not using the automatic unregistration feature.
-					</p></section><section class="section" id="refresh_token_each_req"><div class="titlepage"><div><div><h4 class="title">2.1.10.5. Refresh token in each request</h4></div></div></div><p>
+					</p></section><section class="section" id="refresh_token_each_req"><div class="titlepage"><div><div><h4 class="title">2.1.12.5. Refresh token in each request</h4></div></div></div><p>
 						By default the application adapter will only refresh the access token when it’s expired. However, you can also configure the adapter to refresh the token on every request. This may have a performance impact as your application will send more requests to the Red Hat Single Sign-On server.
 					</p><p>
 						To enable the feature edit the <code class="literal">WEB-INF/keycloak.json</code> file for your application and add:
@@ -1501,7 +1546,7 @@ new Keycloak({ url: 'http://localhost/auth', realm: 'myrealm', clientId: 'myApp'
 				</p><pre class="literallayout">mkdir myapp &amp;&amp; cd myapp</pre><p>
 					Use <code class="literal">npm init</code> command to create a <code class="literal">package.json</code> for your application. Now add the Red Hat Single Sign-On connect adapter in the dependencies list:
 				</p><pre class="programlisting language-json">    "dependencies": {
-        "keycloak-connect": "file:keycloak-connect-3.3.0.Final-redhat1.tgz"
+        "keycloak-connect": "file:keycloak-connect-3.4.2.Final-redhat1.tgz"
     }</pre></section><section class="section" id="usage"><div class="titlepage"><div><div><h3 class="title">2.3.2. Usage</h3></div></div></div><div class="variablelist"><dl class="variablelist"><dt><span class="term">Instantiate a Keycloak class</span></dt><dd>
 								The <code class="literal">Keycloak</code> class provides a central point for configuration and integration with your application. The simplest creation involves no arguments.
 							</dd></dl></div><pre class="programlisting language-javascript">    var session = require('express-session');
@@ -1513,14 +1558,14 @@ new Keycloak({ url: 'http://localhost/auth', realm: 'myrealm', clientId: 'myApp'
 				</p><p>
 					Instantiation with this method results in all of the reasonable defaults being used. As alternative, it’s also possible to provide a configuration object, rather than the <code class="literal">keycloak.json</code> file:
 				</p><pre class="programlisting language-javascript">    let kcConfig = {
-    clientId: 'myclient',
-    bearerOnly: true,
-    serverUrl: 'http://localhost:8080/auth',
-    realm: 'myrealm',
-    realmPublicKey: 'MIIBIjANB...'
-};
+        clientId: 'myclient',
+        bearerOnly: true,
+        serverUrl: 'http://localhost:8080/auth',
+        realm: 'myrealm',
+        realmPublicKey: 'MIIBIjANB...'
+    };
 
-let keycloak = new Keycloak({ store: memoryStore }, kcConfig);</pre><div class="variablelist"><dl class="variablelist"><dt><span class="term">Configuring a web session store</span></dt><dd>
+    let keycloak = new Keycloak({ store: memoryStore }, kcConfig);</pre><div class="variablelist"><dl class="variablelist"><dt><span class="term">Configuring a web session store</span></dt><dd>
 								If you want to use web sessions to manage server-side state for authentication, you need to initialize the <code class="literal">Keycloak(…​)</code> with at least a <code class="literal">store</code> parameter, passing in the actual session store that <code class="literal">express-session</code> is using.
 							</dd></dl></div><pre class="programlisting language-javascript">    var session = require('express-session');
     var memoryStore = new session.MemoryStore();
@@ -2794,7 +2839,11 @@ C:\&gt; kcreg update myclient -f myclient.json</pre><p>
 						Q: When logging in, I get an error: *Parameter client_assertion_type is missing [invalid_client].
 					</p><p class="simpara">
 						A: This error means your client is configured with <code class="literal filename">Signed JWT</code> token credentials, which means you have to use the <code class="literal command">--keystore</code> parameter when logging in.
-					</p></li></ul></div></section></section><section class="chapter" id="token-exchange"><div class="titlepage"><div><div><h1 class="title">Chapter 7. Token Exchange</h1></div></div></div><p>
+					</p></li></ul></div></section></section><section class="chapter" id="token-exchange"><div class="titlepage"><div><div><h1 class="title">Chapter 7. Token Exchange</h1></div></div></div><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+				Token Exchange is <span class="strong strong"><strong>Technology Preview</strong></span> and is not fully supported. This feature is disabled by default.
+			</p><p>
+				To enable start the server with <code class="literal">-Dkeycloak.profile=preview</code>. For more details see <a class="link" href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.2/html-single/server_installation_and_configuration_guide/#_profiles">Profiles</a>.
+			</p></div></div><p>
 			In Red Hat Single Sign-On, token exchange is the process of using a set of credentials or token to obtain an entirely different token. A client may want to invoke on a less trusted application so it may want to downgrade the current token it has. A client may want to exchange a {project_token} for a token stored for a linked social provider account. You may want to trust external tokens minted by other Red Hat Single Sign-On realms or foreign IDPs. A client may have a need to impersonate a user. Here’s a short summary of the current capabilities of Red Hat Single Sign-On around token exchange.
 		</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 					A client can exchange an existing Red Hat Single Sign-On token created for a specific client for a new token targeted to a different client
@@ -3042,7 +3091,7 @@ C:\&gt; kcreg update myclient -f myclient.json</pre><p>
 				It is possible to exchange social tokens provided by Facebook, Google, etc. for a realm token. Be careful and vigilante on what the exchange token is allowed to do as its not hard to create fake accounts on these social websites. Use default roles, groups, and identity provider mappers to control what attributes and roles are assigned to the external social user.
 			</p><p>
 				Direct naked exchanges are quite dangerous. You are putting a lot of trust in the calling client that it will never leak out its client credentials. If those credentials are leaked, then the thief can impersonate anybody in your system. This is in direct contrast to confidential clients that have existing tokens. You have two factors of authentication, the access token and the client credentials, and you’re only dealing with one user. So use direct naked exchanges sparingly.
-			</p></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm139717169386112"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+			</p></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm140231654913008"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 				Copyright <span class="trademark"/>© 2016 Red Hat, Inc.
 			</div><div class="para">
 				Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
