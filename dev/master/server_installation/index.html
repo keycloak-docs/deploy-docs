@@ -682,15 +682,13 @@ span.image img {
 <li><a href="#cache">3.4.6. Infinispan caches</a></li>
 <li><a href="#communication">3.4.7. Communication details</a></li>
 <li><a href="#setup">3.4.8. Basic setup</a></li>
-<li><a href="#jdgsetup">3.4.9. Infinispan server setup</a></li>
-<li><a href="#serversetup">3.4.10. Keycloak servers setup</a></li>
-<li><a href="#administration">3.4.11. Administration of Cross DC deployment</a></li>
-<li><a href="#onoffline">3.4.12. Bringing sites offline and online</a></li>
-<li><a href="#statetransfer">3.4.13. State transfer</a></li>
-<li><a href="#clearcache">3.4.14. Clear caches</a></li>
-<li><a href="#tuningcache">3.4.15. Tuning the JDG cache configuration</a></li>
-<li><a href="#backups">3.4.16. SYNC or ASYNC backups</a></li>
-<li><a href="#troubleshooting">3.4.17. Troubleshooting</a></li>
+<li><a href="#administration">3.4.9. Administration of Cross DC deployment</a></li>
+<li><a href="#onoffline">3.4.10. Bringing sites offline and online</a></li>
+<li><a href="#statetransfer">3.4.11. State transfer</a></li>
+<li><a href="#clearcache">3.4.12. Clear caches</a></li>
+<li><a href="#tuningcache">3.4.13. Tuning the JDG cache configuration</a></li>
+<li><a href="#backups">3.4.14. SYNC or ASYNC backups</a></li>
+<li><a href="#troubleshooting">3.4.15. Troubleshooting</a></li>
 </ul>
 </li>
 </ul>
@@ -1696,9 +1694,8 @@ They communicate with the Infinispan server <code>jdg1</code> using the HotRod p
 <div class="paragraph">
 <p>Our example setup assumes all that all 4 Keycloak servers talk to the same database. In production, it is recommended to use separate synchronously replicated databases across data centers as described in <a href="#database">Database</a>.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="jdgsetup"><a class="anchor" href="#jdgsetup"></a>3.4.9. Infinispan server setup</h4>
+<div class="sect4">
+<h5 id="jdgsetup"><a class="anchor" href="#jdgsetup"></a>Infinispan server setup</h5>
 <div class="paragraph">
 <p>Follow these steps to set up the Infinispan server:</p>
 </div>
@@ -1911,8 +1908,8 @@ In production, you can have more Infinispan servers in every data center. You ju
 </ol>
 </div>
 </div>
-<div class="sect3">
-<h4 id="serversetup"><a class="anchor" href="#serversetup"></a>3.4.10. Keycloak servers setup</h4>
+<div class="sect4">
+<h5 id="serversetup"><a class="anchor" href="#serversetup"></a>Keycloak servers setup</h5>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2177,8 +2174,9 @@ Event 'CLIENT_CACHE_ENTRY_REMOVED', key '193489e7-e2bc-4069-afe8-f1dfa73084ea', 
 </ol>
 </div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="administration"><a class="anchor" href="#administration"></a>3.4.11. Administration of Cross DC deployment</h4>
+<h4 id="administration"><a class="anchor" href="#administration"></a>3.4.9. Administration of Cross DC deployment</h4>
 <div class="paragraph">
 <p>This section contains some tips and options related to Cross-Datacenter Replication.</p>
 </div>
@@ -2200,7 +2198,7 @@ Event 'CLIENT_CACHE_ENTRY_REMOVED', key '193489e7-e2bc-4069-afe8-f1dfa73084ea', 
 </div>
 </div>
 <div class="sect3">
-<h4 id="onoffline"><a class="anchor" href="#onoffline"></a>3.4.12. Bringing sites offline and online</h4>
+<h4 id="onoffline"><a class="anchor" href="#onoffline"></a>3.4.10. Bringing sites offline and online</h4>
 <div class="paragraph">
 <p>For example, assume this scenario:</p>
 </div>
@@ -2248,7 +2246,7 @@ More details about this are available in the <a href="https://access.redhat.com/
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-This has turned off the backup to <code>site2</code> for the cache <code>sessions</code>. The same steps usually need to be done for all the other Keycloak caches mentioned in <a href="#backups">SYNC or ASYNC backups</a>.
+These steps usually need to be done for all the Keycloak caches mentioned in <a href="#backups">SYNC or ASYNC backups</a>.
 </td>
 </tr>
 </table>
@@ -2300,9 +2298,9 @@ Again, you may need to check all the caches and bring them online.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="statetransfer"><a class="anchor" href="#statetransfer"></a>3.4.13. State transfer</h4>
+<h4 id="statetransfer"><a class="anchor" href="#statetransfer"></a>3.4.11. State transfer</h4>
 <div class="paragraph">
-<p>State transfer is a required, manual step. Infinispan does not do this automatically, for example during split-brain, it is only the admin who may decide which site has preference and hence if state transfer needs to be done bidirectionally between both sites or just unidirectionally, as in only from <code>site1</code> to <code>site2</code>, but not from <code>site2</code> to <code>site1</code>.</p>
+<p>State transfer is a required, manual step. Infinispan server does not do this automatically, for example during split-brain, it is only the admin who may decide which site has preference and hence if state transfer needs to be done bidirectionally between both sites or just unidirectionally, as in only from <code>site1</code> to <code>site2</code>, but not from <code>site2</code> to <code>site1</code>.</p>
 </div>
 <div class="paragraph">
 <p>A bidirectional state transfer will ensure that entities which were created <strong>after</strong> split-brain on <code>site1</code> will be transferred to <code>site2</code>. This is not an issue as they do not yet exist on <code>site2</code>. Similarly, entities created <strong>after</strong> split-brain on <code>site2</code> will be transferred to <code>site1</code>. Possibly problematic parts are those entities which exist <strong>before</strong> split-brain on both sites and which were updated during split-brain on both sites. When this happens, one of the sites will <strong>win</strong> and will overwrite the updates done during split-brain by the second site.</p>
@@ -2311,12 +2309,12 @@ Again, you may need to check all the caches and bring them online.</p>
 <p>Unfortunately, there is no any universal solution to this. Split-brains and network outages are just state, which is usually impossible to be handled 100% correctly with 100% consistent data between sites. In the case of Keycloak, it typically is not a critical issue. In the worst case, users will need to re-login again to their clients, or have the improper count of loginFailures tracked for brute force protection. See the Infinispan/JGroups documentation for more tips how to deal with split-brain.</p>
 </div>
 <div class="paragraph">
-<p>The state transfer can be also done on the Infinispan side through JMX. The operation name is <code>pushState</code>. There are few other operations to monitor status, cancel push state, and so on.
+<p>The state transfer can be also done on the Infinispan server side through JMX. The operation name is <code>pushState</code>. There are few other operations to monitor status, cancel push state, and so on.
 More info about state transfer is available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.1/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#state_transfer_between_sites">Infinispan docs</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="clearcache"><a class="anchor" href="#clearcache"></a>3.4.14. Clear caches</h4>
+<h4 id="clearcache"><a class="anchor" href="#clearcache"></a>3.4.12. Clear caches</h4>
 <div class="paragraph">
 <p>After split-brain it is safe to manually clear caches in the Keycloak admin console. This is because there might be some data changed in the database on <code>site1</code> and because of the event, that the cache should be invalidated wasn&#8217;t transferred during split-brain to <code>site2</code>. Hence Keycloak nodes on <code>site2</code> may still have some stale data in their caches.</p>
 </div>
@@ -2328,7 +2326,7 @@ More info about state transfer is available in the <a href="https://access.redha
 </div>
 </div>
 <div class="sect3">
-<h4 id="tuningcache"><a class="anchor" href="#tuningcache"></a>3.4.15. Tuning the JDG cache configuration</h4>
+<h4 id="tuningcache"><a class="anchor" href="#tuningcache"></a>3.4.13. Tuning the JDG cache configuration</h4>
 <div class="paragraph">
 <p>This section contains tips and options for configuring your JDG cache.</p>
 </div>
@@ -2375,11 +2373,11 @@ You only need to manually restore the site when it is back online as mentioned i
 <p>We see very good consistency and results for concurrent transaction with this configuration, and it is recommended to keep it.</p>
 </div>
 <div class="paragraph">
-<p>The only (non-functional) problem is the exception in the Infinispan log, which happens every time when the lock is not immediately available.</p>
+<p>The only (non-functional) problem is the exception in the Infinispan server log, which happens every time when the lock is not immediately available.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="backups"><a class="anchor" href="#backups"></a>3.4.16. SYNC or ASYNC backups</h4>
+<h4 id="backups"><a class="anchor" href="#backups"></a>3.4.14. SYNC or ASYNC backups</h4>
 <div class="paragraph">
 <p>An important part of the <code>backup</code> element is the <code>strategy</code> attribute. You must decide whether it needs to be <code>SYNC</code> or <code>ASYNC</code>. We have 7 caches which might be Cross-Datacenter Replication aware, and these can be configured in 3 different modes regarding cross-dc:</p>
 </div>
@@ -2400,7 +2398,7 @@ You only need to manually restore the site when it is back online as mentioned i
 <p>If the <code>SYNC</code> backup is used, then the backup is synchronous and operation is considered finished on the caller (Keycloak server) side once the backup is processed on the second site. This has worse performance than <code>ASYNC</code>, but on the other hand, you are sure that subsequent reads of the particular entity, such as user session, on <code>site2</code> will see the updates from <code>site1</code>. Also, it is needed if you want data consistency. As with <code>ASYNC</code> the caller is not notified at all if backup to the other site failed.</p>
 </div>
 <div class="paragraph">
-<p>For some caches, it is even possible to not backup at all and completely skip writing data to the Infinispan server. To set this up, do not use the <code>remote-store</code> element for the particular cache on the Keycloak side (file <code>KEYCLOAK_HOME/standalone/configuration/standalone-ha.xml</code>) and then the particular <code>replicated-cache</code> element is also not needed on the Infinispan side.</p>
+<p>For some caches, it is even possible to not backup at all and completely skip writing data to the Infinispan server. To set this up, do not use the <code>remote-store</code> element for the particular cache on the Keycloak side (file <code>KEYCLOAK_HOME/standalone/configuration/standalone-ha.xml</code>) and then the particular <code>replicated-cache</code> element is also not needed on the Infinispan server side.</p>
 </div>
 <div class="paragraph">
 <p>By default, all 7 caches are configured with <code>SYNC</code> backup, which is the safest option. Here are a few things to consider:</p>
@@ -2408,13 +2406,13 @@ You only need to manually restore the site when it is back online as mentioned i
 <div class="ulist">
 <ul>
 <li>
-<p>If you are using active/passive mode (all Keycloak servers are in single site <code>site1</code> and the Infinispan server in <code>site2</code> is used purely as backup. More details [here](#modes)), then it is usually fine to use <code>ASYNC</code> strategy for all the caches to save the performance.</p>
+<p>If you are using active/passive mode (all Keycloak servers are in single site <code>site1</code> and the Infinispan server in <code>site2</code> is used purely as backup. See <a href="#modes">Modes</a> for more details), then it is usually fine to use <code>ASYNC</code> strategy for all the caches to save the performance.</p>
 </li>
 <li>
 <p>The <code>work</code> cache is used mainly to send some messages, such as cache invalidation events, to the other site. It is also used to ensure that some special events, such as userStorage synchronizations, happen only on single site. It is recommended to keep this set to <code>SYNC</code>.</p>
 </li>
 <li>
-<p>The <code>actionTokens</code> cache is used as single-use cache to track that some tokens/tickets were used just once. For example <a href="#cache">Infinispan caches</a> or OAuth2 codes. It is possible to set this to <code>ASYNC</code> to slightly improved performance, but then it is not guaranteed that particular ticket is really single-use. For example, if there is concurrent request for same ticket in both sites, then it is possible that both requests will be successful with the <code>ASYNC</code> strategy. So what you set here will depend on whether you prefer better security (<code>SYNC</code> strategy) or better performance (<code>ASYNC</code> strategy).</p>
+<p>The <code>actionTokens</code> cache is used as single-use cache to track that some tokens/tickets were used just once. For example action tokens or OAuth2 codes. It is possible to set this to <code>ASYNC</code> to slightly improved performance, but then it is not guaranteed that particular ticket is really single-use. For example, if there is concurrent request for same ticket in both sites, then it is possible that both requests will be successful with the <code>ASYNC</code> strategy. So what you set here will depend on whether you prefer better security (<code>SYNC</code> strategy) or better performance (<code>ASYNC</code> strategy).</p>
 </li>
 <li>
 <p>The <code>loginFailures</code> cache may be used in any of the 3 modes. If there is no backup at all, it means that count of login failures for a user will be counted separately for every site (See <a href="#cache">Infinispan caches</a> for details). This has some security implications, however it has some performance advantages. Also it mitigates the possible risk of denial of service (DoS) attacks. For example, if an attacker simulates 1000 concurrent requests using the username and password of the user on both sites, it will mean lots of messages being passed between the sites, which may result in network congestion. The <code>ASYNC</code> strategy might be even worse as the attacker requests won&#8217;t be blocked by waiting for the backup to the other site, resulting in potentially even more congested network traffic.
@@ -2476,7 +2474,7 @@ Regarding the switch to SYNC/ASYNC backup, make sure that you edit the <code>str
 </div>
 </div>
 <div class="sect3">
-<h4 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>3.4.17. Troubleshooting</h4>
+<h4 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>3.4.15. Troubleshooting</h4>
 <div class="paragraph">
 <p>The following tips are intended to assist you should you need to troubleshoot:</p>
 </div>
@@ -2540,7 +2538,7 @@ Caused by: org.infinispan.client.hotrod.exceptions.TransportException:: Could no
 <p>If you updated the entity, such as <code>user</code>, on Keycloak server on <code>site1</code> and you do not see that entity updated on the Keycloak server on <code>site2</code>, then the issue can be either in the replication of the synchronous database itself or that Keycloak caches are not properly invalidated. You may try to temporarily disable the Keycloak caches as described <a href="http://www.keycloak.org/docs/3.4/server_installation/#disabling-caching">here</a> to nail down if the issue is at the database replication level. Also it may help to manually connect to the database and check if data are updated as expected. This is specific to every database, so you will need to consult the documentation for your database.</p>
 </li>
 <li>
-<p>Sometimes you may see the exceptions related to locks like this in Infinispan log:</p>
+<p>Sometimes you may see the exceptions related to locks like this in Infinispan server log:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>(HotRodServerHandler-6-35) ISPN000136: Error executing command ReplaceCommand,
@@ -5059,7 +5057,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-03 21:24:30 UTC
+Last updated 2018-01-04 14:45:32 UTC
 </div>
 </div>
 <ul id="globalnav">

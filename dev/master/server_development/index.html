@@ -4597,7 +4597,8 @@ begin first by modifying the <code>createAdapter()</code> method.</p>
 </div>
 <div class="paragraph">
 <p>In this method we call the <code>KeycloakSession.userLocalStorage()</code> method to obtain a reference to local Keycloak
-user storage. We see if the user is stored locally, if not, we add it locally. Also note that we call
+user storage. We see if the user is stored locally, if not, we add it locally. Do not set the <code>id</code> of the local user.
+Let Keycloak set auto generate the <code>id</code>.  Also note that we call
 <code>UserModel.setFederationLink()</code> and pass in the ID of the <code>ComponentModel</code> of our provider. This sets a link between
 the provider and the imported user.</p>
 </div>
@@ -4626,7 +4627,9 @@ This class is an implementation of `UserModel</code>. Every method just delegate
 We override the <code>setUsername()</code> method of this delegate class to synchronize automatically with the property file.
 For your providers, you can use this to <em>intercept</em> other methods on the local <code>UserModel</code> to perform synchronization
 with your external store.  For example, get methods could make sure that the local store is in sync. Set methods
-keep the external store in sync with the local one.</p>
+keep the external store in sync with the local one.  One thing to note is that the <code>getId()</code> method should always return
+ the id that was auto generated when you created the user locally.  You should not return a federated id as shown in
+the other non-import examples.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -5166,7 +5169,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-03 21:24:30 UTC
+Last updated 2018-01-04 14:45:32 UTC
 </div>
 </div>
 <ul id="globalnav">
