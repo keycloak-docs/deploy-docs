@@ -722,7 +722,8 @@ span.image img {
 <li><a href="#enable-x-509-client-certificate-user-authentication">6.6.2. Enable X.509 Client Certificate User Authentication</a></li>
 <li><a href="#adding-x-509-client-certificate-authentication-to-a-browser-flow">6.6.3. Adding X.509 Client Certificate Authentication to a Browser Flow</a></li>
 <li><a href="#adding-x-509-client-certificate-authentication-to-a-direct-grant-flow">6.6.4. Adding X.509 Client Certificate Authentication to a Direct Grant Flow</a></li>
-<li><a href="#troubleshooting-2">6.6.5. Troubleshooting</a></li>
+<li><a href="#client-certificate-lookup">6.6.5. Client certificate lookup</a></li>
+<li><a href="#troubleshooting-2">6.6.6. Troubleshooting</a></li>
 </ul>
 </li>
 </ul>
@@ -2680,7 +2681,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 <div class="ulist">
 <ul>
 <li>
-<p>Open $KEYCLOAK_HOME/standalone/configuration/standalone.xml and add a new realm:</p>
+<p>Open KEYCLOAK_HOME/standalone/configuration/standalone.xml and add a new realm:</p>
 </li>
 </ul>
 </div>
@@ -2891,7 +2892,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 <div class="ulist">
 <ul>
 <li>
-<p>Using keycloak admin console, click on "Authentication" and select the "Direct Grant" flow,</p>
+<p>Using Keycloak admin console, click on "Authentication" and select the "Direct Grant" flow,</p>
 </li>
 <li>
 <p>Make a copy of the build-in "Direct Grant" flow. You may want to give the new flow a distinctive name, i.e. "X509 Direct Grant",</p>
@@ -2932,7 +2933,74 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 </div>
 </div>
 <div class="sect3">
-<h4 id="troubleshooting-2"><a class="anchor" href="#troubleshooting-2"></a>6.6.5. Troubleshooting</h4>
+<h4 id="client-certificate-lookup"><a class="anchor" href="#client-certificate-lookup"></a>6.6.5. Client certificate lookup</h4>
+<div class="paragraph">
+<p>When an HTTP request is sent directly to Keycloak server, the WildFly undertow subsystem will establish an SSL handshake and extract the client certificate. The client certificate will be then saved to the attribute <code>javax.servlet.request.X509Certificate</code> of the HTTP request, as specified in the servlet specification. The Keycloak X509 authenticator will be then able to lookup the certificate from this attribute.</p>
+</div>
+<div class="paragraph">
+<p>However, when the Keycloak server listens to HTTP requests behind a load balancer or reverse proxy, it may be the proxy server which extracts the client certificate and establishes the mutual SSL connection. A reverse proxy usually puts the authenticated client certificate in the HTTP header of the underlying request and forwards it to the back end Keycloak server. In this case, Keycloak must be able to look up the X.509 certificate chain from the HTTP headers instead of from the attribute of HTTP request, as is done for Undertow.</p>
+</div>
+<div class="paragraph">
+<p>If Keycloak is behind a reverse proxy, you usually need to configure alternative provider of the <code>x509cert-lookup</code> SPI in KEYCLOAK_HOME/standalone/configuration/standalone.xml. Along with the <code>default</code> provider, which looks up the certificate from the HTTP header, we also have two additional built-in providers: <code>haproxy</code> and <code>apache</code>, which are described next.</p>
+</div>
+<div class="sect4">
+<h5 id="haproxy-certificate-lookup-provider"><a class="anchor" href="#haproxy-certificate-lookup-provider"></a>HAProxy certificate lookup provider</h5>
+<div class="paragraph">
+<p>You can use this provider when your Keycloak server is behind an HAProxy reverse proxy. Configure the server like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;spi</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">x509cert-lookup</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;default-provider&gt;</span>haproxy<span class="tag">&lt;/default-provider&gt;</span>
+    <span class="tag">&lt;provider</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">haproxy</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;properties&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sslClientCert</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SSL_CLIENT_CERT</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sslCertChainPrefix</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">CERT_CHAIN</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">certificateChainLength</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">10</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/properties&gt;</span>
+    <span class="tag">&lt;/provider&gt;</span>
+<span class="tag">&lt;/spi&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example configuration, the client certificate will be looked up from the HTTP header, <code>SSL_CLIENT_CERT</code>, and the other certificates from its chain will be looked up from HTTP headers like <code>CERT_CHAIN_0</code> , <code>CERT_CHAIN_1</code>, &#8230;&#8203;, <code>CERT_CHAIN_9</code> . The attribute <code>certificateChainLength</code> is the maximum length of the chain, so the last one tried attribute would be <code>CERT_CHAIN_9</code> .</p>
+</div>
+<div class="paragraph">
+<p>Consult the HAProxy documentation for the details of how the HTTP Headers for the client certificate and client certificate chain can be configured and their proper names.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="apache-certificate-lookup-provider"><a class="anchor" href="#apache-certificate-lookup-provider"></a>Apache certificate lookup provider</h5>
+<div class="paragraph">
+<p>You can use this provider when your Keycloak server is behind an Apache reverse proxy. Configure the server like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;spi</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">x509cert-lookup</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;default-provider&gt;</span>apache<span class="tag">&lt;/default-provider&gt;</span>
+    <span class="tag">&lt;provider</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">apache</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;properties&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sslClientCert</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SSL_CLIENT_CERT</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sslCertChainPrefix</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">CERT_CHAIN</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">certificateChainLength</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">10</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/properties&gt;</span>
+    <span class="tag">&lt;/provider&gt;</span>
+<span class="tag">&lt;/spi&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The configuration is same as for the <code>haproxy</code> provider. Consult the Apache documentation for the details of how the HTTP Headers for the client certificate and client certificate chain can be configured and their proper names.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="other-reverse-proxy-implementations"><a class="anchor" href="#other-reverse-proxy-implementations"></a>Other reverse proxy implementations</h5>
+<div class="paragraph">
+<p>We do not have built-in support for other reverse proxy implementations. However, it is possible that other reverse proxies can be made to behave in a similar way to <code>apache</code> or <code>haproxy</code> and that some of those providers can be used. If none of those works, you may need to create your own implementation of the <code>org.keycloak.services.x509.X509ClientCertificateLookupFactory</code> and <code>org.keycloak.services.x509.X509ClientCertificateLookup</code> provider. See the <a href="http://www.keycloak.org/docs/3.4/server_development/">Server Developer Guide</a> for the details on how to add your own provider.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="troubleshooting-2"><a class="anchor" href="#troubleshooting-2"></a>6.6.6. Troubleshooting</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Direct Grant authentication with X.509</dt>
@@ -10235,7 +10303,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-10 12:25:28 UTC
+Last updated 2018-01-10 12:37:10 UTC
 </div>
 </div>
 <ul id="globalnav">
