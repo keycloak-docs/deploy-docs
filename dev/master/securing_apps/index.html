@@ -994,7 +994,7 @@ protocol.  OIDC also makes heavy use of the <a href="https://jwt.io">Json Web To
 identity token JSON format and ways to digitally sign and encrypt that data in a compact and web-friendly way.</p>
 </div>
 <div class="paragraph">
-<p>There is really two types of use cases when using OIDC.  The first is an application that asks the Keycloak server to authenticate
+<p>There are really two types of use cases when using OIDC.  The first is an application that asks the Keycloak server to authenticate
 a user for them.  After a successful login, the application will receive an <em>identity token</em> and an <em>access token</em>.  The <em>identity token</em>
 contains information about the user such as username, email, and other profile information.  The <em>access token</em> is digitally signed by
 the realm and contains access information (like user role mappings) that the application can use to determine what resources the user
@@ -1020,7 +1020,7 @@ that works by exchanging XML documents between the authentication server and the
 <p>In Keycloak SAML serves two types of use cases: browser applications and REST invocations.</p>
 </div>
 <div class="paragraph">
-<p>There is really two types of use cases when using SAML.  The first is an application that asks the Keycloak server to authenticate
+<p>There are really two types of use cases when using SAML.  The first is an application that asks the Keycloak server to authenticate
 a user for them.  After a successful login, the application will receive an XML document that contains
 something called a SAML assertion that specifies various attributes about the user.  This XML document is digitally signed by
 the realm and contains access information (like user role mappings) that the application can use to determine what resources the user
@@ -2706,7 +2706,7 @@ To add it manually and if you are using Maven, add the following to your depende
 </div>
 </div>
 <div class="paragraph">
-<p>Make also sure to add the Adapter POM dependency :</p>
+<p>Make also sure to add the Adapter BOM dependency :</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -7734,7 +7734,7 @@ This policy is not used by default even for anonymous registration.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>It is possible to not assign any <code class="command">realm-management</code> roles to a user. In that case, a user can still log in with the Registration Client CLI but cannot use it without an Initial Access Token. Trying to perform any operations without a token results in a <strong>403 Forbidden</strong> error.</p>
+<p>It is possible to not assign any <code class="command">realm-management</code> roles to a user. In that case, a user can still log in with the Client Registration CLI but cannot use it without an Initial Access Token. Trying to perform any operations without a token results in a <strong>403 Forbidden</strong> error.</p>
 </div>
 <div class="paragraph">
 <p>The Administrator can issue Initial Access Tokens from the Admin Console through the <strong>Realm Settings &gt; Client Registration &gt; Initial Access Token</strong> menu.</p>
@@ -7754,7 +7754,7 @@ This policy is not used by default even for anonymous registration.</p>
 <p>Provide a secret when running <code class="command">kcreg config credentials</code> by using the <code class="command">--secret</code> option.</p>
 </li>
 <li>
-<p>Create a new client (for example, <code class="filename">reg-cli</code>) if you want to use a separate client configuration for the Registration Client CLI.</p>
+<p>Create a new client (for example, <code class="filename">reg-cli</code>) if you want to use a separate client configuration for the Client Registration CLI.</p>
 </li>
 <li>
 <p>Specify which <code class="filename">clientId</code> to use (for example, <code class="command">--client reg-cli</code>) when running <code class="command">kcreg config credentials</code>.</p>
@@ -7791,7 +7791,7 @@ This policy is not used by default even for anonymous registration.</p>
 <p>The Client Registration CLI is packaged inside the Keycloak Server distribution. You can find execution scripts inside the <code class="filename">bin</code> directory. The Linux script is called <code class="filename">kcreg.sh</code>, and the Windows script is called <code class="filename">kcreg.bat</code>.</p>
 </div>
 <div class="paragraph">
-<p>Add the Keycloak server directory to your <code class="filename">PATH</code> when setting up the client for use from any location on the file system .</p>
+<p>Add the Keycloak server directory to your <code class="filename">PATH</code> when setting up the client for use from any location on the file system.</p>
 </div>
 <div class="paragraph">
 <p>For example, on:</p>
@@ -7980,7 +7980,7 @@ c:\&gt; kcreg get my_client</pre>
 </table>
 </div>
 <div class="paragraph">
-<p>You might want to avoid storing secrets inside a configuration file by using the <code class="command">--no-config</code> option with all of your commands, even thought it is less convenient and requires more token requests to do so. Specify all authentication information with each <code class="command">kcreg</code> invocation.</p>
+<p>You might want to avoid storing secrets inside a configuration file by using the <code class="command">--no-config</code> option with all of your commands, even though it is less convenient and requires more token requests to do so. Specify all authentication information with each <code class="command">kcreg</code> invocation.</p>
 </div>
 </div>
 <div class="sect3">
@@ -8452,7 +8452,7 @@ a JSON document as described in the <a href="http://www.ietf.org/id/draft-ietf-o
 <div class="paragraph">
 <p>Clients requesting a refresh token will get back both an access and refresh token in the response.  Clients requesting only
 access token type will only get an access token in the response.  Expiration information may or may not be included for
-clients requesting a an external issuer through the `requested_issuer`paramater.</p>
+clients requesting a an external issuer through the <code>requested_issuer</code> paramater.</p>
 </div>
 <div class="paragraph">
 <p>Error responses generally fall under the 400 HTTP response code category, but other error status codes may be returned
@@ -8990,7 +8990,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-05 12:51:07 UTC
+Last updated 2018-01-10 12:25:27 UTC
 </div>
 </div>
 <ul id="globalnav">
