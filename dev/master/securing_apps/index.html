@@ -4227,9 +4227,9 @@ is selected for <code>Access Type</code>.</p>
     <span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
     <span class="tag">&lt;script&gt;</span>
 <span class="inline">        <span class="keyword">var</span> keycloak = Keycloak();
-        keycloak.init().success(<span class="keyword">function</span>(authenticated) {
+        keycloak.init().then(<span class="keyword">function</span>(authenticated) {
             alert(authenticated ? <span class="string"><span class="delimiter">'</span><span class="content">authenticated</span><span class="delimiter">'</span></span> : <span class="string"><span class="delimiter">'</span><span class="content">not authenticated</span><span class="delimiter">'</span></span>);
-        }).error(<span class="keyword">function</span>() {
+        }).<span class="keyword">catch</span>(<span class="keyword">function</span>() {
             alert(<span class="string"><span class="delimiter">'</span><span class="content">failed to initialize</span><span class="delimiter">'</span></span>);
         });</span>
     <span class="tag">&lt;/script&gt;</span>
@@ -4307,9 +4307,9 @@ token was successfully refreshed and for example display an error to the user if
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.updateToken(<span class="integer">30</span>).success(<span class="keyword">function</span>() {
+<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.updateToken(<span class="integer">30</span>).then(<span class="keyword">function</span>() {
     loadData();
-}).error(<span class="keyword">function</span>() {
+}).<span class="keyword">catch</span>(<span class="keyword">function</span>() {
     alert(<span class="string"><span class="delimiter">'</span><span class="content">Failed to refresh token</span><span class="delimiter">'</span></span>);
 });</code></pre>
 </div>
@@ -4395,6 +4395,16 @@ If you need to support browsers that do not have these available (for example, I
 </li>
 <li>
 <p><a href="https://github.com/devote/HTML5-History-API" class="bare">https://github.com/devote/HTML5-History-API</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If available, the JavaScript adapter will use native Promise instances as return values from functions documented as returning promises.  To retain backwards compatibility, the <code>success()</code> and <code>error()</code> functions from previous versions of the adapter are retained.  These remain available whether or not native Promises are provided by the browser.  Promise API polyfills are available for browsers without support:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/stefanpenner/es6-promise" class="bare">https://github.com/stefanpenner/es6-promise</a></p>
 </li>
 </ul>
 </div>
@@ -4648,9 +4658,9 @@ loaded.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.loadUserProfile().success(<span class="keyword">function</span>(profile) {
+<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.loadUserProfile().then(<span class="keyword">function</span>(profile) {
         alert(JSON.stringify(test, <span class="predefined-constant">null</span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">  </span><span class="delimiter">&quot;</span></span>));
-    }).error(<span class="keyword">function</span>() {
+    }).<span class="keyword">catch</span>(<span class="keyword">function</span>() {
         alert(<span class="string"><span class="delimiter">'</span><span class="content">Failed to load user profile</span><span class="delimiter">'</span></span>);
     });</code></pre>
 </div>
@@ -4674,13 +4684,13 @@ For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.updateToken(<span class="integer">5</span>).success(<span class="keyword">function</span>(refreshed) {
+<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.updateToken(<span class="integer">5</span>).then(<span class="keyword">function</span>(refreshed) {
         <span class="keyword">if</span> (refreshed) {
             alert(<span class="string"><span class="delimiter">'</span><span class="content">Token was successfully refreshed</span><span class="delimiter">'</span></span>);
         } <span class="keyword">else</span> {
             alert(<span class="string"><span class="delimiter">'</span><span class="content">Token is still valid</span><span class="delimiter">'</span></span>);
         }
-    }).error(<span class="keyword">function</span>() {
+    }).<span class="keyword">catch</span>(<span class="keyword">function</span>() {
         alert(<span class="string"><span class="delimiter">'</span><span class="content">Failed to refresh the token, or the session has expired</span><span class="delimiter">'</span></span>);
     });</code></pre>
 </div>
@@ -8990,7 +9000,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-25 13:41:43 UTC
+Last updated 2018-01-25 19:42:46 UTC
 </div>
 </div>
 <ul id="globalnav">
