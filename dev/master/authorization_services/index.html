@@ -1043,7 +1043,7 @@ Keycloak provides some built-in <a href="#_enforcer_overview">Policy Enforcers</
 <p>Policies define the conditions that must be satisfied to access or perform operations on something (resource or scope), but they are not tied to what they are protecting. They are generic and can be reused to build permissions or even more complex policies.</p>
 </div>
 <div class="paragraph">
-<p>For instance,to allow access to a group of resources only for users granted with a role "User Premium,"" you can use RBAC (Role-based Access Control).</p>
+<p>For instance,to allow access to a group of resources only for users granted with a role "User Premium", you can use RBAC (Role-based Access Control).</p>
 </div>
 <div class="paragraph">
 <p>Keycloak provides a few built-in policy types (and their respective policy providers) covering the most common access control mechanisms. You can even create policies based on rules written using JavaScript or JBoss Drools.</p>
@@ -1090,7 +1090,7 @@ what you want to protect (resource or scope) and the policies that must be satis
 <div class="sect4">
 <h5 id="protection-api"><a class="anchor" href="#protection-api"></a>Protection API</h5>
 <div class="paragraph">
-<p>The <strong>Protection API</strong> is a <a href="https://kantarainitiative.org/confluence/display/uma/UMA+1.0+Core+Protocol">UMA-compliant</a> endpoint providing a small set of operations
+<p>The <strong>Protection API</strong> is a <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA-compliant</a> endpoint providing a small set of operations
 for resource servers to help them manage their resources and scopes. Only resource servers are allowed to access this API, which also requires a
 <strong>uma_protection</strong> scope.</p>
 </div>
@@ -1155,7 +1155,7 @@ By default, Remote Resource Management is enabled. You can change that using the
 <div class="sect4">
 <h5 id="authorization-api"><a class="anchor" href="#authorization-api"></a>Authorization API</h5>
 <div class="paragraph">
-<p>The Authorization API is also a <a href="https://kantarainitiative.org/confluence/display/uma/UMA+1.0+Core+Protocol">UMA-compliant</a> endpoint providing a single operation that exchanges an Access Token and <a href="#_overview_terminology_permission_ticket">Permission Ticket</a> with a Requesting Party Token (RPT).</p>
+<p>The Authorization API is also a <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA-compliant</a> endpoint providing a single operation that exchanges an Access Token and <a href="#_overview_terminology_permission_ticket">Permission Ticket</a> with a Requesting Party Token (RPT).</p>
 </div>
 <div class="paragraph">
 <p>The RPT contains all permissions granted to a client and can be used to call a resource server to get access to its protected resources.</p>
@@ -1306,7 +1306,7 @@ policy providers, and you can create your own policy types to support your speci
 <div class="sect3">
 <h4 id="_overview_terminology_permission_ticket"><a class="anchor" href="#_overview_terminology_permission_ticket"></a>1.2.7. Permission Ticket</h4>
 <div class="paragraph">
-<p>A permission ticket is a special type of token defined by the <a href="https://kantarainitiative.org/confluence/display/uma/UMA+1.0+Core+Protocol">OAuth2&#8217;s User-Managed Access (UMA) Profile</a> specification that provides an opaque structure whose form is determined by the authorization server. This
+<p>A permission ticket is a special type of token defined by the <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">OAuth2&#8217;s User-Managed Access (UMA) Profile</a> specification that provides an opaque structure whose form is determined by the authorization server. This
 structure represents the resources and/or scopes being requested by a client as well as the policies that must be applied to a request for authorization data (requesting party token [RPT]).</p>
 </div>
 <div class="paragraph">
@@ -1316,7 +1316,7 @@ structure represents the resources and/or scopes being requested by a client as 
 <p>In the UMA workflow, permission tickets are issued by the authorization server to a resource server, which returns the permission ticket to the client trying to access a protected resource. Once the client receives the ticket, it can make a request for an RPT (a final token holding authorization data) by sending the ticket back to the authorization server.</p>
 </div>
 <div class="paragraph">
-<p>For more information on permission tickets, see <a href="#_service_authorization_api">Authorization API</a> and the <a href="https://kantarainitiative.org/confluence/display/uma/UMA+1.0+Core+Protocol">UMA</a> specification.</p>
+<p>For more information on permission tickets, see <a href="#_service_authorization_api">Authorization API</a> and the <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA</a> specification.</p>
 </div>
 </div>
 </div>
@@ -2964,7 +2964,7 @@ is the default behavior, the policy result will be kept as it is.</p>
 </div>
 <div class="paragraph">
 <p>The <code>Identity</code> is built based on the OAuth2 Access Token that was sent along with the authorization request, and this construct has access to all claims
-extracted from the original token. For example, if you are using a <em>Protocol Mapper</em> to include a custom claim in a OAuth2 Access Token you can also access this claim
+extracted from the original token. For example, if you are using a <em>Protocol Mapper</em> to include a custom claim in an OAuth2 Access Token you can also access this claim
 from a policy and use it to build your conditions.</p>
 </div>
 <div class="paragraph">
@@ -3620,7 +3620,7 @@ managed by a specific resource server.</p>
 owned and managed by the resource server itself.</p>
 </li>
 <li>
-<p>Using HTTP <strong>POST</strong> in order to obtain entitlements based on a a set of one or more resources and scopes sent along with an entitlement request.</p>
+<p>Using HTTP <strong>POST</strong> in order to obtain entitlements based on a set of one or more resources and scopes sent along with an entitlement request.</p>
 </li>
 </ul>
 </div>
@@ -4063,8 +4063,10 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 </div>
 </li>
 <li>
-<p><strong>credentials</strong> (required)
-Specifies the credentials of the application. This is an object notation where the key is the credential type and the value is the value of the credential type.</p>
+<p><strong>credentials</strong> (required)</p>
+<div class="paragraph">
+<p>Specifies the credentials of the application. This is an object notation where the key is the credential type and the value is the value of the credential type.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -4367,9 +4369,10 @@ Currently a very basic logic for path matching is supported. Examples of valid p
 </div>
 </li>
 <li>
-<p><strong>methods</strong>
-The HTTP methods (for example, GET, POST, PATCH) to protect and how they are associated with the scopes for a given resource in the server.
-+[/'']</p>
+<p><strong>methods</strong></p>
+<div class="paragraph">
+<p>The HTTP methods (for example, GET, POST, PATCH) to protect and how they are associated with the scopes for a given resource in the server.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -4760,7 +4763,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-24 20:33:35 UTC
+Last updated 2018-01-25 07:41:07 UTC
 </div>
 </div>
 <ul id="globalnav">
