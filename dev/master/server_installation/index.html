@@ -745,7 +745,8 @@ span.image img {
 </li>
 <li><a href="#outgoing-http-requests">7.4. Outgoing HTTP Requests</a>
 <ul class="sectlevel3">
-<li><a href="#_truststore">7.4.1. Outgoing HTTPS Request Truststore</a></li>
+<li><a href="#_proxymappings">7.4.1. Proxy Mappings for Outgoing HTTP Requests</a></li>
+<li><a href="#_truststore">7.4.2. Outgoing HTTPS Request Truststore</a></li>
 </ul>
 </li>
 </ul>
@@ -3764,10 +3765,86 @@ This is <em>REQUIRED</em> if <code>client-keystore</code> is set.</p>
 <p>Password for the client&#8217;s key.
 This is <em>REQUIRED</em> if <code>client-keystore</code> is set.</p>
 </dd>
+<dt class="hdlist1">proxy-mappings</dt>
+<dd>
+<p>Dennotes proxy configurations for outgoing HTTP requests.
+See the section on <a href="#_proxymappings">Proxy Mappings for Outgoing HTTP Requests</a> for more details.</p>
+</dd>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="_truststore"><a class="anchor" href="#_truststore"></a>7.4.1. Outgoing HTTPS Request Truststore</h4>
+<h4 id="_proxymappings"><a class="anchor" href="#_proxymappings"></a>7.4.1. Proxy Mappings for Outgoing HTTP Requests</h4>
+<div class="paragraph">
+<p>Outgoing HTTP requests sent by Keycloak can optionally use a proxy server based on a comma delimited list of proxy-mappings.
+A proxy-mapping denotes the combination of a regex based hostname pattern and a proxy-uri in the form of <code>hostnamePattern;proxyUri</code>,
+e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>.*\.(google|googleapis)\.com;http://www-proxy.acme.com:8080</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To determine the proxy for an outgoing HTTP request the target hostname is matched against the configured
+hostname patterns. The first matching pattern determines the proxy-uri to use.
+If none of the configured patterns match for the given hostname then no proxy is used.</p>
+</div>
+<div class="paragraph">
+<p>The special value <code>NO_PROXY</code> for the proxy-uri can be used to indicate that no proxy
+should be used for hosts matching the associated hostname pattern.
+It is possible to specify a catch-all pattern at the end of the proxy-mappings to define a default
+proxy for all outgoing requests.</p>
+</div>
+<div class="paragraph">
+<p>The following example demonstrates the proxy-mapping configuration.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code># All requests to Google APIs should use http://www-proxy.acme.com:8080 as proxy
+.*\.(google|googleapis)\.com;http://www-proxy.acme.com:8080
+
+# All requests to internal systems should use no proxy
+.*\.acme\.com;NO_PROXY
+
+# All other requests should use http://fallback:8080 as proxy
+.*;http://fallback:8080</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This can be configured via the following <code>jboss-cli</code> command.
+Note that you need to properly escape the regex-pattern as shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>echo SETUP: Configure proxy routes for HttpClient SPI
+
+# In case there is no connectionsHttpClient definition yet
+/subsystem=keycloak-server/spi=connectionsHttpClient/provider=default:add(enabled=true)
+
+# Configure the proxy-mappings
+/subsystem=keycloak-server/spi=connectionsHttpClient/provider=default:write-attribute(name=properties.proxy-mappings,value=[".*\\.(google|googleapis)\\.com;http://www-proxy.acme.com:8080",".*\\.acme\\.com;NO_PROXY",".*;http://fallback:8080"])</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>jboss-cli</code> command results in the following subsystem configuration.
+Note that one needs to encode <code>"</code> characters with <code>&quot;</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;spi</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">connectionsHttpClient</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;provider</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;properties&gt;</span>
+            <span class="tag">&lt;property</span>
+            <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">proxy-mappings</span><span class="delimiter">&quot;</span></span>
+            <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">[</span><span class="entity">&amp;quot;</span><span class="content">.*\\.(google|googleapis)\\.com;http://www-proxy.acme.com:8080</span><span class="entity">&amp;quot;</span><span class="content">,</span><span class="entity">&amp;quot;</span><span class="content">.*\\.acme\\.com;NO_PROXY</span><span class="entity">&amp;quot;</span><span class="content">,</span><span class="entity">&amp;quot;</span><span class="content">.*;http://fallback:8080</span><span class="entity">&amp;quot;</span><span class="content">]</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/properties&gt;</span>
+    <span class="tag">&lt;/provider&gt;</span>
+<span class="tag">&lt;/spi&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_truststore"><a class="anchor" href="#_truststore"></a>7.4.2. Outgoing HTTPS Request Truststore</h4>
 <div class="paragraph">
 <p>When Keycloak invokes on remote HTTPS endpoints, it has to validate the remote server&#8217;s certificate in order to ensure it is connecting to a trusted server.
 This is necessary in order to prevent man-in-the-middle attacks.  The certificates of these remote server&#8217;s or the CA that signed these
@@ -5057,7 +5134,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-25 07:41:09 UTC
+Last updated 2018-01-25 08:31:48 UTC
 </div>
 </div>
 <ul id="globalnav">
