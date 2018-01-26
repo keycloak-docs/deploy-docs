@@ -1381,17 +1381,7 @@ For more information on features or configuration options, see the appropriate s
 <div class="sect2">
 <h3 id="_getting_started_hello_world_create_realm"><a class="anchor" href="#_getting_started_hello_world_create_realm"></a>2.2. Creating a Realm and a User</h3>
 <div class="paragraph">
-<p>The first step is to create a realm and a user in that realm. The realm consists of:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A single user</p>
-</li>
-<li>
-<p>A single client application, which then becomes a <a href="#_overview_terminology">resource server</a> for which you need to enable authorization services.</p>
-</li>
-</ul>
+<p>The first step in this tutorial is to create a realm and a user in that realm. Then, within the realm we will create a single client application, which then becomes a <a href="#_overview_terminology">resource server</a> for which you need to enable authorization services.</p>
 </div>
 <div class="paragraph">
 <p>To create a realm and a user complete the following steps:</p>
@@ -1700,7 +1690,7 @@ own applications.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak/tree/3.4.0.CR1/examples/authz/servlet-authz">servlet-authz</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A simple Servlet-based application that demonstrates how to enable fine-grained authorization to a JBoss/Wildfly Servlet Application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A simple Servlet-based application that demonstrates how to enable fine-grained authorization to a WildFly Servlet Application.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1798,7 +1788,7 @@ own applications.</p>
 </div>
 </li>
 <li>
-<p><strong>Scope</strong></p>
+<p><strong>Authorization Scopes</strong></p>
 <div class="paragraph">
 <p>From this page, you can manage <a href="#_resource_overview">scopes</a>.</p>
 </div>
@@ -1819,6 +1809,12 @@ own applications.</p>
 <p><strong>Evaluate</strong></p>
 <div class="paragraph">
 <p>From this page, you can <a href="#_policy_evaluation_overview">simulate authorization requests</a> and view the result of the evaluation of the permissions and authorization policies you have defined.</p>
+</div>
+</li>
+<li>
+<p><strong>Export Settings</strong></p>
+<div class="paragraph">
+<p>From this page, you can <a href="#_resource_server_import_config">export</a> the authorization settings to a JSON file.</p>
 </div>
 </li>
 </ul>
@@ -1859,15 +1855,9 @@ own applications.</p>
 </div>
 </li>
 <li>
-<p><strong>Allow Remote Resource Management</strong></p>
+<p><strong>Remote Resource Management</strong></p>
 <div class="paragraph">
 <p>Specifies whether resources can be managed remotely by the resource server. If false, resources can be managed only from the administration console.</p>
-</div>
-</li>
-<li>
-<p><strong>Export Settings</strong></p>
-<div class="paragraph">
-<p>You can export the authorization configuration settings to a JSON file. Click <strong>Export</strong> to display the complete JSON configuration for download. The configuration file contains everything defined for a resource server: protected resources, scopes, permissions, and policies.</p>
 </div>
 </li>
 </ul>
@@ -1988,13 +1978,12 @@ The default configuration defines a resource that maps to all paths in your appl
 <ol class="arabic">
 <li>
 <p>Navigate to the <strong>Resource Server Settings</strong> page.</p>
-<div class="paragraph">
-<div class="title">Resource Server Settings</div>
-<p><span class="image"><img src="./keycloak-images/resource-server/authz-settings.png" alt="Resource Server Settings"></span></p>
-</div>
 </li>
 <li>
-<p>On this page, in the Export Settings section, click <strong>Export</strong>.</p>
+<p>Click the <strong>Export Settings</strong> tab.</p>
+</li>
+<li>
+<p>On this page, click <strong>Export</strong>.</p>
 <div class="paragraph">
 <div class="title">Export Settings</div>
 <p><span class="image"><img src="./keycloak-images/resource-server/authz-export.png" alt="Export Settings"></span></p>
@@ -2008,6 +1997,20 @@ The default configuration defines a resource that maps to all paths in your appl
 </div>
 <div class="sect3">
 <h4 id="importing-a-configuration-file"><a class="anchor" href="#importing-a-configuration-file"></a>3.4.2. Importing a Configuration File</h4>
+<div class="paragraph">
+<p>To export a configuration file, complete the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigate to the <strong>Resource Server Settings</strong> page.</p>
+<div class="paragraph">
+<div class="title">Import Settings</div>
+<p><span class="image"><img src="./keycloak-images/resource-server/authz-settings.png" alt="Import Settings"></span></p>
+</div>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p>To import a configuration file for a resource server, click <strong>Select file</strong> to select a file containing the configuration you want to import.</p>
 </div>
@@ -2687,7 +2690,8 @@ can identify them more easily and also know what they mean.</p>
 <li>
 <p><strong>Apply Policy</strong></p>
 <div class="paragraph">
-<p>Defines a set of one or more policies to associate with a policy.</p>
+<p>Defines a set of one or more policies to associate with the aggregated policy. To associate a policy you can either select an existing policy
+or create a new one by selecting the type of the policy you want to create.</p>
 </div>
 </li>
 <li>
@@ -3109,7 +3113,8 @@ can identify them more easily.</p>
 <li>
 <p><strong>Apply Policy</strong></p>
 <div class="paragraph">
-<p>Defines a set of one or more policies to associate with a permission.</p>
+<p>Defines a set of one or more policies to associate with a permission. To associate a policy you can either select an existing policy
+or create a new one by selecting the type of the policy you want to create.</p>
 </div>
 </li>
 <li>
@@ -3196,7 +3201,8 @@ can identify them more easily.</p>
 <li>
 <p><strong>Apply Policy</strong></p>
 <div class="paragraph">
-<p>Defines a set of one or more policies to associate with a permission.</p>
+<p>Defines a set of one or more policies to associate with a permission. To associate a policy you can either select an existing policy
+or create a new one by selecting the type of the policy you want to create.</p>
 </div>
 </li>
 <li>
@@ -4763,7 +4769,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-26 10:00:44 UTC
+Last updated 2018-01-26 13:27:59 UTC
 </div>
 </div>
 <ul id="globalnav">

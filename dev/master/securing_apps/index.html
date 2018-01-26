@@ -988,7 +988,7 @@ require less boilerplate code than what is typically required by a library.</p>
 <div class="sect3">
 <h4 id="openid-connect-2"><a class="anchor" href="#openid-connect-2"></a>1.3.1. OpenID Connect</h4>
 <div class="paragraph">
-<p><a href="http://openid.net/connect/">Open ID Connect</a> (OIDC) is an authentication protocol that is an extension of <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a>.
+<p><a href="http://openid.net/connect/">OpenID Connect</a> (OIDC) is an authentication protocol that is an extension of <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a>.
 While OAuth 2.0 is only a framework for building authorization protocols and is mainly incomplete, OIDC is a full-fledged authentication and authorization
 protocol.  OIDC also makes heavy use of the <a href="https://jwt.io">Json Web Token</a> (JWT) set of standards.  These standards define an
 identity token JSON format and ways to digitally sign and encrypt that data in a compact and web-friendly way.</p>
@@ -1384,6 +1384,18 @@ Both methods are described in this section.</p>
 <h5 id="_jboss_adapter_installation"><a class="anchor" href="#_jboss_adapter_installation"></a>Installing the adapter</h5>
 <div class="paragraph">
 <p>Adapters are available as a separate archive depending on what server version you are using.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+WildFly should be running when you install the adapter. If you have either one running, you must stop it before installing and then restart it after installation is complete.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Install on Wildfly 9, 10 or 11:</p>
@@ -2695,7 +2707,7 @@ You then have to provide some extra configuration via normal Spring Boot configu
 <div class="paragraph">
 <p>The Keycloak Spring Boot adapter takes advantage of Spring Boot&#8217;s autoconfiguration so all you need to do is add the Keycloak Spring Boot starter to your project.
 They Keycloak Spring Boot Starter is also directly available from the <a href="http://start.spring.io/">Spring Start Page</a>.
-To add it manually and if you are using Maven, add the following to your dependencies :</p>
+To add it manually using Maven, add the following to your dependencies:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2706,7 +2718,7 @@ To add it manually and if you are using Maven, add the following to your depende
 </div>
 </div>
 <div class="paragraph">
-<p>Make also sure to add the Adapter BOM dependency :</p>
+<p>Add the Adapter BOM dependency:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5293,7 +5305,7 @@ With this redirect uri it is also possible for a user to use a different device 
 <div class="paragraph">
 <p>The <a href="https://github.com/zmartzone/mod_auth_openidc">mod_auth_openidc</a> is an Apache HTTP plugin for OpenID Connect. If your language/environment supports using Apache HTTPD
 as a proxy, then you can use <em>mod_auth_openidc</em> to secure your web application with OpenID Connect.  Configuration of this module
-is beyond the scope of this document.  Please see the <em>mod_auth_openidc</em> Github repo for more details on configuration.</p>
+is beyond the scope of this document.  Please see the <em>mod_auth_openidc</em> GitHub repo for more details on configuration.</p>
 </div>
 <div class="paragraph">
 <p>To configure <em>mod_auth_openidc</em> you&#8217;ll need</p>
@@ -6572,7 +6584,7 @@ You must have a filter mapping that covers <code>/saml</code>.
 <div class="sect3">
 <h4 id="registering-with-an-identity-provider"><a class="anchor" href="#registering-with-an-identity-provider"></a>3.1.6. Registering with an Identity Provider</h4>
 <div class="paragraph">
-<p>For each servlet-based adapter, the endpoint you register for the assert consumer service URL and and single logout service
+<p>For each servlet-based adapter, the endpoint you register for the assert consumer service URL and single logout service
 must be the base URL of your servlet application with <code>/saml</code> appended to it, that is, <code>https://example.com/contextPath/saml</code>.</p>
 </div>
 </div>
@@ -6849,7 +6861,7 @@ This had to be done because SAML POST binding would eat the request input stream
 <div class="sect2">
 <h3 id="_mod_auth_mellon"><a class="anchor" href="#_mod_auth_mellon"></a>3.2. mod_auth_mellon Apache HTTPD Module</h3>
 <div class="paragraph">
-<p>The <a href="https://github.com/UNINETT/mod_auth_mellon">mod_auth_mellon</a> module is an Apache HTTPD plugin for SAML. If your language/environment supports using Apache HTTPD as a proxy, then you can use mod_auth_mellon to secure your web application with SAML. For more details on this module see the <em>mod_auth_mellon</em> Github repo.</p>
+<p>The <a href="https://github.com/UNINETT/mod_auth_mellon">mod_auth_mellon</a> module is an Apache HTTPD plugin for SAML. If your language/environment supports using Apache HTTPD as a proxy, then you can use mod_auth_mellon to secure your web application with SAML. For more details on this module see the <em>mod_auth_mellon</em> GitHub repo.</p>
 </div>
 <div class="paragraph">
 <p>To configure mod_auth_mellon you&#8217;ll need:</p>
@@ -9018,7 +9030,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-26 10:00:45 UTC
+Last updated 2018-01-26 13:27:59 UTC
 </div>
 </div>
 <ul id="globalnav">

@@ -730,7 +730,7 @@ span.image img {
 </li>
 <li><a href="#sso-protocols">7. SSO Protocols</a>
 <ul class="sectlevel2">
-<li><a href="#_oidc">7.1. Open ID Connect</a>
+<li><a href="#_oidc">7.1. OpenID Connect</a>
 <ul class="sectlevel3">
 <li><a href="#_oidc-auth-flows">7.1.1. OIDC Auth Flows</a></li>
 <li><a href="#keycloak-server-oidc-uri-endpoints">7.1.2. Keycloak Server OIDC URI Endpoints</a></li>
@@ -829,13 +829,12 @@ span.image img {
 <li><a href="#google">12.4.1. Google</a></li>
 <li><a href="#facebook">12.4.2. Facebook</a></li>
 <li><a href="#twitter">12.4.3. Twitter</a></li>
-<li><a href="#github">12.4.4. Github</a></li>
+<li><a href="#github">12.4.4. GitHub</a></li>
 <li><a href="#linkedin">12.4.5. LinkedIn</a></li>
 <li><a href="#microsoft">12.4.6. Microsoft</a></li>
 <li><a href="#paypal">12.4.7. PayPal</a></li>
-<li><a href="#do-the-following-changes">12.4.8. Do the following changes:</a></li>
-<li><a href="#stackoverflow">12.4.9. StackOverflow</a></li>
-<li><a href="#openshift">12.4.10. Openshift</a></li>
+<li><a href="#stackoverflow">12.4.8. StackOverflow</a></li>
+<li><a href="#openshift">12.4.9. Openshift</a></li>
 </ul>
 </li>
 <li><a href="#openid-connect-v1-0-identity-providers">12.5. OpenID Connect v1.0 Identity Providers</a></li>
@@ -1047,7 +1046,7 @@ protocol mappers and many more.</p>
 <h3 id="how-does-security-work"><a class="anchor" href="#how-does-security-work"></a>1.2. How Does Security Work?</h3>
 <div class="paragraph">
 <p>Keycloak is a separate server that you manage on your network.  Applications are configured to point to and
-be secured by this server.  Keycloak uses open protocol standards like <a href="http://openid.net/connect/">Open ID Connect</a>
+be secured by this server.  Keycloak uses open protocol standards like <a href="http://openid.net/connect/">OpenID Connect</a>
 or <a href="http://saml.xml.org/saml-specifications">SAML 2.0</a> to secure
 your applications.  Browser applications redirect a user&#8217;s browser from the application to the Keycloak authentication
 server where they enter their credentials.  This is important because users are completely isolated from applications and
@@ -1181,7 +1180,7 @@ information.  You can point Keycloak to validate credentials from those external
 <dd>
 <p>Keycloak can be configured to delegate authentication to one or more IDPs.  Social login via
 Facebook or Google+ is an example of identity provider federation.  You can also hook Keycloak to delegate
-authentication to any other Open ID Connect or SAML 2.0 IDP.</p>
+authentication to any other OpenID Connect or SAML 2.0 IDP.</p>
 </dd>
 <dt class="hdlist1">identity provider mappers</dt>
 <dd>
@@ -2172,7 +2171,7 @@ Custom authenticators. Authentication scripts must at least provide one of the f
 <code>action(..)</code> which is called from <code>Authenticator#action(AuthenticationFlowContext)</code></p>
 </div>
 <div class="paragraph">
-<p>Custom <code>Authenticator&#8217;s should at least provide the `authenticate(..)</code> function.
+<p>Custom <code>Authenticator</code> should at least provide the <code>authenticate(..)</code> function.
 The following script <code>javax.script.Bindings</code> are available for convenient use within script code.</p>
 </div>
 <div class="dlist">
@@ -2533,7 +2532,7 @@ Credential delegation has some security implications so only use it if you reall
 <p>During SSL/TLS handshake, the server and the client exchange their x.509/v3 certificates</p>
 </li>
 <li>
-<p>The container (wildfly) validates the certificate PKIX path and the certificate expiration</p>
+<p>The container (WildFly) validates the certificate PKIX path and the certificate expiration</p>
 </li>
 <li>
 <p>The x.509 client certificate authenticator validates the client certificate as follows:</p>
@@ -2797,7 +2796,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 <p>Select a realm, click on Authentication link, select the "Browser" flow</p>
 </li>
 <li>
-<p>Make a copy of the buit-in "Browser" flow. You may want to give the new flow a distinctive name, i.e. "X.509 Browser"</p>
+<p>Make a copy of the built-in "Browser" flow. You may want to give the new flow a distinctive name, i.e. "X.509 Browser"</p>
 </li>
 <li>
 <p>Using the drop down, select the copied flow, and click on "Add Execution"</p>
@@ -2874,7 +2873,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 </dd>
 <dt class="hdlist1"><code>Validate Key Usage</code> (optional)</dt>
 <dd>
-<p>Verifies whether the certificate&#8217;s KeyUsage extension bits are set. For example, "digitalSignature,KeyEncipherment" will verify if  bits 0 and 2 in the KeyUsage extension are asserted. Leave the parameter empty to disable the Key Usage validaion. See <a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.3">RFC5280, Section-4.2.1.3</a>. The server will raise an error only when flagged as critical by the issuing CA and there is a key usage extension mismatch.</p>
+<p>Verifies whether the certificate&#8217;s KeyUsage extension bits are set. For example, "digitalSignature,KeyEncipherment" will verify if  bits 0 and 2 in the KeyUsage extension are asserted. Leave the parameter empty to disable the Key Usage validation. See <a href="https://tools.ietf.org/html/rfc5280#section-4.2.1.3">RFC5280, Section-4.2.1.3</a>. The server will raise an error only when flagged as critical by the issuing CA and there is a key usage extension mismatch.</p>
 </dd>
 <dt class="hdlist1"><code>Validate Extended Key Usage</code> (optional)</dt>
 <dd>
@@ -2882,7 +2881,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 </dd>
 <dt class="hdlist1"><code>Bypass identity confirmation</code></dt>
 <dd>
-<p>If set, X.509 client certificate authentication will not prompt the user to confirm the certificate identity and will automatiocally sign in the user upon successful authentication.</p>
+<p>If set, X.509 client certificate authentication will not prompt the user to confirm the certificate identity and will automatically sign in the user upon successful authentication.</p>
 </dd>
 </dl>
 </div>
@@ -3054,9 +3053,9 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 and the applications it secures interact with these protocols.</p>
 </div>
 <div class="sect2">
-<h3 id="_oidc"><a class="anchor" href="#_oidc"></a>7.1. Open ID Connect</h3>
+<h3 id="_oidc"><a class="anchor" href="#_oidc"></a>7.1. OpenID Connect</h3>
 <div class="paragraph">
-<p><a href="http://openid.net/connect/">Open ID Connect</a> (OIDC) is an authentication protocol that is an extension of <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a>.
+<p><a href="http://openid.net/connect/">OpenID Connect</a> (OIDC) is an authentication protocol that is an extension of <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a>.
 While OAuth 2.0 is only a framework for building authorization protocols and is mainly incomplete, OIDC is a full-fledged authentication and authorization
 protocol.  OIDC also makes heavy use of the <a href="https://jwt.io">Json Web Token</a> (JWT) set of standards.  These standards define an
 identity token JSON format and ways to digitally sign and encrypt that data in a compact and web-friendly way.</p>
@@ -3339,7 +3338,7 @@ Docker authentication is disabled by default. To enable see <a href="http://www.
 <div class="sect3">
 <h4 id="docker-auth-flow"><a class="anchor" href="#docker-auth-flow"></a>7.4.1. Docker Auth Flow</h4>
 <div class="paragraph">
-<p>The <a href="https://docs.docker.com/registry/spec/auth/token/">Docker API documentation</a> best describes and illustrates this process, however a brief summary will be given below from the perspective of they Keycloak authentication server.</p>
+<p>The <a href="https://docs.docker.com/registry/spec/auth/token/">Docker API documentation</a> best describes and illustrates this process, however a brief summary will be given below from the perspective of the Keycloak authentication server.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4648,7 +4647,7 @@ role tells the Admin Console that it should render client menus for the <code>sa
 <div class="sect4">
 <h5 id="testing-it-out"><a class="anchor" href="#testing-it-out"></a>Testing It Out.</h5>
 <div class="paragraph">
-<p>Next we log out of the master realm and and re-login to the <a href="#_per_realm_admin_permissions">dedicated admin console</a> for the <code>test</code> realm
+<p>Next we log out of the master realm and re-login to the <a href="#_per_realm_admin_permissions">dedicated admin console</a> for the <code>test</code> realm
 using the <code>sales-admin</code> as a username.  This is located under <code>/auth/admin/test/console</code>.</p>
 </div>
 <div class="paragraph">
@@ -4730,7 +4729,7 @@ allow the admin to view users in the realm he wants to add the <code>sales-appli
 <div class="sect4">
 <h5 id="testing-it-out-2"><a class="anchor" href="#testing-it-out-2"></a>Testing It Out.</h5>
 <div class="paragraph">
-<p>Next we log out of the master realm and and re-login to the <a href="#_per_realm_admin_permissions">dedicated admin console</a> for the <code>test</code> realm
+<p>Next we log out of the master realm and re-login to the <a href="#_per_realm_admin_permissions">dedicated admin console</a> for the <code>test</code> realm
 using the <code>sales-admin</code> as a username.  This is located under <code>/auth/admin/test/console</code>.</p>
 </div>
 <div class="paragraph">
@@ -5336,7 +5335,7 @@ Regardless the identity provider you are creating, you&#8217;ll see the followin
 <p>For Internet facing applications, it is quite burdensome for users to have to register at your site to obtain access.
 It requires them to remember yet another username and password combination.  Social identity providers allow you to delegate
 authentication to a semi-trusted and respected entity where the user probably already has an account.
-Keycloak provides built-in support for the most common social networks out there, such as Google, Facebook, Twitter, Github, LinkedIn, Microsoft and StackOverflow.</p>
+Keycloak provides built-in support for the most common social networks out there, such as Google, Facebook, Twitter, GitHub, LinkedIn, Microsoft and StackOverflow.</p>
 </div>
 <div class="sect3">
 <h4 id="google"><a class="anchor" href="#google"></a>12.4.1. Google</h4>
@@ -5604,22 +5603,22 @@ You cannot use <code>localhost</code> in the <code>Callback URL</code>.  Instead
 </div>
 </div>
 <div class="sect3">
-<h4 id="github"><a class="anchor" href="#github"></a>12.4.4. Github</h4>
+<h4 id="github"><a class="anchor" href="#github"></a>12.4.4. GitHub</h4>
 <div class="paragraph">
-<p>There are a number of steps you have to complete to be able to login to Github.  First, go to the <code>Identity Providers</code> left menu item
-and select <code>Github</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
+<p>There are a number of steps you have to complete to be able to login to GitHub.  First, go to the <code>Identity Providers</code> left menu item
+and select <code>GitHub</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
 </div>
 <div class="paragraph">
 <div class="title">Add Identity Provider</div>
 <p><span class="image"><img src="./keycloak-images/github-add-identity-provider.png" alt="github add identity provider"></span></p>
 </div>
 <div class="paragraph">
-<p>You can&#8217;t click save yet, as you&#8217;ll need to obtain a <code>Client ID</code> and <code>Client Secret</code> from Github.  One piece of data you&#8217;ll need from this
-page is the <code>Redirect URI</code>.  You&#8217;ll have to provide that to Github when you register Keycloak as a client there, so
+<p>You can&#8217;t click save yet, as you&#8217;ll need to obtain a <code>Client ID</code> and <code>Client Secret</code> from GitHub.  One piece of data you&#8217;ll need from this
+page is the <code>Redirect URI</code>.  You&#8217;ll have to provide that to GitHub when you register Keycloak as a client there, so
 copy this URI to your clipboard.</p>
 </div>
 <div class="paragraph">
-<p>To enable login with Github you first have to register an application project in
+<p>To enable login with GitHub you first have to register an application project in
 <a href="https://github.com/settings/developers">GitHub Developer applications</a>.</p>
 </div>
 <div class="admonitionblock note">
@@ -5629,7 +5628,7 @@ copy this URI to your clipboard.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Github often changes the look and feel of application registration, so these directions might not always be up to date and the
+GitHub often changes the look and feel of application registration, so these directions might not always be up to date and the
       configuration steps might be slightly different.
 </td>
 </tr>
@@ -5648,11 +5647,11 @@ Github often changes the look and feel of application registration, so these dir
 </div>
 <div class="paragraph">
 <p>You&#8217;ll have to copy the <code>Redirect URI</code> from the Keycloak <code>Add Identity Provider</code> page and enter it into the
-<code>Authorization callback URL</code> field on the Github <code>Register a new OAuth application</code> page.  Once you&#8217;ve completed this
+<code>Authorization callback URL</code> field on the GitHub <code>Register a new OAuth application</code> page.  Once you&#8217;ve completed this
 page you will be brought to the application&#8217;s management page.</p>
 </div>
 <div class="paragraph">
-<div class="title">Github App Page</div>
+<div class="title">GitHub App Page</div>
 <p><span class="image"><img src="./images/github-app-page.png" alt="github app page"></span></p>
 </div>
 <div class="paragraph">
@@ -5702,7 +5701,7 @@ LinkedIn may change the look and feel of application registration, so these dire
 <p><span class="image"><img src="./images/linked-in-create-app.png" alt="linked in create app"></span></p>
 </div>
 <div class="paragraph">
-<p>Fill in the form with the approriate values, then click the <code>Submit</code> button.  This will bring you to the new application&#8217;s settings page.</p>
+<p>Fill in the form with the appropriate values, then click the <code>Submit</code> button.  This will bring you to the new application&#8217;s settings page.</p>
 </div>
 <div class="paragraph">
 <div class="title">App Settings</div>
@@ -5805,10 +5804,8 @@ copy this URI to your clipboard.</p>
 <div class="paragraph">
 <p>You will now be brought to the app settings page.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="do-the-following-changes"><a class="anchor" href="#do-the-following-changes"></a>12.4.8. Do the following changes:</h4>
 <div class="ulist">
+<div class="title">Do the following changes:</div>
 <ul>
 <li>
 <p>Choose to configure either Sandbox or Live (choose Live if you haven&#8217;t enabled the <code>Target Sandbox</code> switch on the <code>Add identity provider</code> page)</p>
@@ -5838,7 +5835,7 @@ copy this URI to your clipboard.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="stackoverflow"><a class="anchor" href="#stackoverflow"></a>12.4.9. StackOverflow</h4>
+<h4 id="stackoverflow"><a class="anchor" href="#stackoverflow"></a>12.4.8. StackOverflow</h4>
 <div class="paragraph">
 <p>There are a number of steps you have to complete to be able to login to StackOverflow.  First, go to the <code>Identity Providers</code> left menu item
 and select <code>StackOverflow</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
@@ -5882,7 +5879,7 @@ Go back to Keycloak and specify those items.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="openshift"><a class="anchor" href="#openshift"></a>12.4.10. Openshift</h4>
+<h4 id="openshift"><a class="anchor" href="#openshift"></a>12.4.9. Openshift</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -5970,7 +5967,7 @@ and select <code>OpenID Connect v1.0</code> from the <code>Add provider</code> d
 </div>
 <div class="paragraph">
 <p>The initial configuration options on this page are described in <a href="#_general-idp-config">General IDP Configuration</a>.
-You must define the OpenID Connection configuration options as well.  They basically describe the OIDC IDP you are communicating with.</p>
+You must define the OpenID Connect configuration options as well.  They basically describe the OIDC IDP you are communicating with.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 2. OpenID Connect Config</caption>
@@ -6063,7 +6060,7 @@ was compromised, it is obviously good to update your keys, but it&#8217;s also g
 </table>
 <div class="paragraph">
 <p>You can also import all this configuration data by providing a URL or file that points to OpenID Provider Metadata (see OIDC Discovery specification).
-If you are connecting to a Keycloak external IDP, you can import the IDP setttings from the url <code>&lt;root&gt;/auth/realms/{realm-name}/.well-known/openid-configuration</code>.
+If you are connecting to a Keycloak external IDP, you can import the IDP settings from the url <code>&lt;root&gt;/auth/realms/{realm-name}/.well-known/openid-configuration</code>.
 This link is a JSON document describing metadata about the IDP.</p>
 </div>
 </div>
@@ -6156,7 +6153,7 @@ You must define the SAML configuration options as well.  They basically describe
 </table>
 <div class="paragraph">
 <p>You can also import all this configuration data by providing a URL or file that points to the SAML IDP entity descriptor of the external IDP.
-If you are connecting to a Keycloak external IDP, you can import the IDP setttings from the url <code>&lt;root&gt;/auth/realms/{realm-name}/protocol/saml/descriptor</code>.
+If you are connecting to a Keycloak external IDP, you can import the IDP settings from the url <code>&lt;root&gt;/auth/realms/{realm-name}/protocol/saml/descriptor</code>.
 This link is an XML document describing metadata about the IDP.</p>
 </div>
 <div class="paragraph">
@@ -6166,7 +6163,7 @@ This link is an XML document describing metadata about the IDP.</p>
 <h4 id="_identity_broker_saml_sp_descriptor"><a class="anchor" href="#_identity_broker_saml_sp_descriptor"></a>12.6.1. SP Descriptor</h4>
 <div class="paragraph">
 <p>Once you create a SAML provider, there is an <code>EXPORT</code> button that appears when viewing that provider.
-Clicking this button will export a SAML SP entity descriptor which you can use to import into the external SP provider.</p>
+Clicking this button will export a SAML SP entity descriptor which you can use to import into the external SP.</p>
 </div>
 <div class="paragraph">
 <p>This metadata is also available publicly by going to the URL</p>
@@ -6660,7 +6657,7 @@ The LDAP provider also supports password validation via LDAP/AD protocols and di
 Click on the <code>User Federation</code> left menu option.
 When you get to this page there is an <code>Add Provider</code> select box.
 You should see <em>ldap</em> within this list.
-Selecting <em>ldap</em> will bring you to the ldap configuration page.</p>
+Selecting <em>ldap</em> will bring you to the LDAP configuration page.</p>
 </div>
 <div class="sect3">
 <h4 id="storage-mode"><a class="anchor" href="#storage-mode"></a>14.3.1. Storage Mode</h4>
@@ -9192,7 +9189,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Filtering does not use exact matching. For example, the above example would match the value of the <code class="filename">username</code> attribute against the <code class="filename">*testuser*`</code> pattern.</p>
+<p>Filtering does not use exact matching. For example, the above example would match the value of the <code class="filename">username</code> attribute against the <code class="filename">*testuser*</code> pattern.</p>
 </div>
 </td>
 </tr>
@@ -10304,13 +10301,113 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 <pre class="nowrap">$ kcadm.sh get authentication/flows -r demorealm</pre>
 </div>
 </div>
+<h4 id="getting-a-specific-authentication-flow" class="discrete">Getting a specific authentication flow</h4>
+<div class="paragraph">
+<p>Run the <code class="command">get</code> command on the <code class="filename">authentication/flows/FLOW_ID</code> endpoint.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm.sh get authentication/flows/febfd772-e1a1-42fb-b8ae-00c0566fafb8 -r demorealm</pre>
+</div>
+</div>
+<h4 id="listing-executions-for-a-flow" class="discrete">Listing executions for a flow</h4>
+<div class="paragraph">
+<p>Run the <code class="command">get</code> command on the <code class="filename">authentication/flows/FLOW_ALIAS/executions</code> endpoint.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm.sh get authentication/flows/Copy%20of%20browser/executions -r demorealm</pre>
+</div>
+</div>
+<h4 id="adding-configuration-to-an-execution" class="discrete">Adding configuration to an execution</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get execution for a flow, and take note of its ID</p>
+</li>
+<li>
+<p>Run the <code class="command">create</code> command on the <code class="filename">authentication/executions/{executionId}/config</code> endpoint.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm create "authentication/executions/a3147129-c402-4760-86d9-3f2345e401c7/config" -r examplerealm -b '{"config":{"x509-cert-auth.mapping-source-selection":"Match SubjectDN using regular expression","x509-cert-auth.regular-expression":"(.*?)(?:$)","x509-cert-auth.mapper-selection":"Custom Attribute Mapper","x509-cert-auth.mapper-selection.user-attribute-name":"usercertificate","x509-cert-auth.crl-checking-enabled":"","x509-cert-auth.crldp-checking-enabled":false,"x509-cert-auth.crl-relative-path":"crl.pem","x509-cert-auth.ocsp-checking-enabled":"","x509-cert-auth.ocsp-responder-uri":"","x509-cert-auth.keyusage":"","x509-cert-auth.extendedkeyusage":"","x509-cert-auth.confirmation-page-disallowed":""},"alias":"my_otp_config"}'</pre>
+</div>
+</div>
+<h4 id="getting-configuration-for-an-execution" class="discrete">Getting configuration for an execution</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get execution for a flow, and get its <code class="filename">authenticationConfig</code> attribute, containing the config ID.</p>
+</li>
+<li>
+<p>Run the <code class="command">get</code> command on the <code class="filename">authentication/config/ID</code> endpoint.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm get "authentication/config/dd91611a-d25c-421a-87e2-227c18421833" -r examplerealm</pre>
+</div>
+</div>
+<h4 id="updating-configuration-for-an-execution" class="discrete">Updating configuration for an execution</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get execution for a flow, and get its <code class="filename">authenticationConfig</code> attribute, containing the config ID.</p>
+</li>
+<li>
+<p>Run the <code class="command">update</code> command on the <code class="filename">authentication/config/ID</code> endpoint.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm update "authentication/config/dd91611a-d25c-421a-87e2-227c18421833" -r examplerealm -b '{"id":"dd91611a-d25c-421a-87e2-227c18421833","alias":"my_otp_config","config":{"x509-cert-auth.extendedkeyusage":"","x509-cert-auth.mapper-selection.user-attribute-name":"usercertificate","x509-cert-auth.ocsp-responder-uri":"","x509-cert-auth.regular-expression":"(.*?)(?:$)","x509-cert-auth.crl-checking-enabled":"true","x509-cert-auth.confirmation-page-disallowed":"","x509-cert-auth.keyusage":"","x509-cert-auth.mapper-selection":"Custom Attribute Mapper","x509-cert-auth.crl-relative-path":"crl.pem","x509-cert-auth.crldp-checking-enabled":"false","x509-cert-auth.mapping-source-selection":"Match SubjectDN using regular expression","x509-cert-auth.ocsp-checking-enabled":""}}'</pre>
+</div>
+</div>
+<h4 id="deleting-configuration-for-an-execution" class="discrete">Deleting configuration for an execution</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get execution for a flow, and get its <code class="filename">authenticationConfig</code> attribute, containing the config ID.</p>
+</li>
+<li>
+<p>Run the <code class="command">delete</code> command on the <code class="filename">authentication/config/ID</code> endpoint.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm delete "authentication/config/dd91611a-d25c-421a-87e2-227c18421833" -r examplerealm</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-26 10:00:45 UTC
+Last updated 2018-01-26 13:28:00 UTC
 </div>
 </div>
 <ul id="globalnav">
