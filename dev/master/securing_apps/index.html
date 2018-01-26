@@ -3852,7 +3852,7 @@ For more information see the <code>Identity Brokering</code> section in <a href=
 <div class="sect3">
 <h4 id="_client_authentication_adapter"><a class="anchor" href="#_client_authentication_adapter"></a>2.1.16. Client Authentication</h4>
 <div class="paragraph">
-<p>When a confidential OIDC client needs to send a backchannel request (for example, to exchange code for the token, or to refresh the token) it needs to authenticate against the Keycloak server. By default, there are two ways to authenticate the client: client ID and client secret, or client authentication with signed JWT.</p>
+<p>When a confidential OIDC client needs to send a backchannel request (for example, to exchange code for the token, or to refresh the token) it needs to authenticate against the Keycloak server. By default, there are three ways to authenticate the client: client ID and client secret, client authentication with signed JWT, or client authentication with signed JWT using client secret.</p>
 </div>
 <div class="sect4">
 <h5 id="client-id-and-client-secret"><a class="anchor" href="#client-id-and-client-secret"></a>Client ID and Client Secret</h5>
@@ -3926,6 +3926,24 @@ you can point to any file on the file system where the client application is run
 </div>
 <div class="paragraph">
 <p>For inspiration, you can take a look at the examples distribution into the main demo example into the <code>product-portal</code> application.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="client-authentication-with-signed-jwt-using-client-secret"><a class="anchor" href="#client-authentication-with-signed-jwt-using-client-secret"></a>Client Authentication with Signed JWT using Client Secret</h5>
+<div class="paragraph">
+<p>This is the same as Client Authentication with Signed JWT except for using the client secret instead of the private key and certificate.</p>
+</div>
+<div class="paragraph">
+<p>The client has a secret, which needs to be known to both the adapter (application) and the Keycloak server. You need to choose <code>Signed JWT with Client Secret</code> as the method of authenticating your client in the tab <code>Credentials</code> in administration console, and then paste this secret into the <code>keycloak.json</code> file on the application side:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>"credentials": {
+  "secret-jwt": {
+    "secret": "19666a4f-32dd-4049-b082-684c74115f28"
+  }
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -9000,7 +9018,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-25 19:42:46 UTC
+Last updated 2018-01-26 10:00:45 UTC
 </div>
 </div>
 <ul id="globalnav">
