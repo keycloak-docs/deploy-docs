@@ -665,22 +665,23 @@ span.image img {
 <ul class="sectlevel3">
 <li><a href="#_java_adapter_config">2.1.1. Java Adapter Config</a></li>
 <li><a href="#_jboss_adapter">2.1.2. JBoss EAP/Wildfly Adapter</a></li>
-<li><a href="#_fuse_adapter">2.1.3. JBoss Fuse Adapter</a></li>
-<li><a href="#_spring_boot_adapter">2.1.4. Spring Boot Adapter</a></li>
-<li><a href="#_tomcat_adapter">2.1.5. Tomcat 6, 7 and 8 Adapters</a></li>
-<li><a href="#_jetty9_adapter">2.1.6. Jetty 9.x Adapters</a></li>
-<li><a href="#_jetty8_adapter">2.1.7. Jetty 8.1.x Adapter</a></li>
-<li><a href="#_spring_security_adapter">2.1.8. Spring Security Adapter</a></li>
-<li><a href="#_servlet_filter_adapter">2.1.9. Java Servlet Filter Adapter</a></li>
-<li><a href="#_jaas_adapter">2.1.10. JAAS plugin</a></li>
-<li><a href="#_installed_adapter">2.1.11. CLI / Desktop Applications</a></li>
-<li><a href="#security-context">2.1.12. Security Context</a></li>
-<li><a href="#_adapter_error_handling">2.1.13. Error Handling</a></li>
-<li><a href="#logout">2.1.14. Logout</a></li>
-<li><a href="#parameters-forwarding">2.1.15. Parameters Forwarding</a></li>
-<li><a href="#_client_authentication_adapter">2.1.16. Client Authentication</a></li>
-<li><a href="#_multi_tenancy">2.1.17. Multi Tenancy</a></li>
-<li><a href="#_applicationclustering">2.1.18. Application Clustering</a></li>
+<li><a href="#_jboss_adapter_rpm">2.1.3. Installing JBoss EAP Adapter from an RPM</a></li>
+<li><a href="#_fuse_adapter">2.1.4. JBoss Fuse Adapter</a></li>
+<li><a href="#_spring_boot_adapter">2.1.5. Spring Boot Adapter</a></li>
+<li><a href="#_tomcat_adapter">2.1.6. Tomcat 6, 7 and 8 Adapters</a></li>
+<li><a href="#_jetty9_adapter">2.1.7. Jetty 9.x Adapters</a></li>
+<li><a href="#_jetty8_adapter">2.1.8. Jetty 8.1.x Adapter</a></li>
+<li><a href="#_spring_security_adapter">2.1.9. Spring Security Adapter</a></li>
+<li><a href="#_servlet_filter_adapter">2.1.10. Java Servlet Filter Adapter</a></li>
+<li><a href="#_jaas_adapter">2.1.11. JAAS plugin</a></li>
+<li><a href="#_installed_adapter">2.1.12. CLI / Desktop Applications</a></li>
+<li><a href="#security-context">2.1.13. Security Context</a></li>
+<li><a href="#_adapter_error_handling">2.1.14. Error Handling</a></li>
+<li><a href="#logout">2.1.15. Logout</a></li>
+<li><a href="#parameters-forwarding">2.1.16. Parameters Forwarding</a></li>
+<li><a href="#_client_authentication_adapter">2.1.17. Client Authentication</a></li>
+<li><a href="#_multi_tenancy">2.1.18. Multi Tenancy</a></li>
+<li><a href="#_applicationclustering">2.1.19. Application Clustering</a></li>
 </ul>
 </li>
 <li><a href="#_javascript_adapter">2.2. Javascript Adapter</a>
@@ -717,14 +718,15 @@ span.image img {
 <ul class="sectlevel3">
 <li><a href="#_saml-general-config">3.1.1. General Adapter Config</a></li>
 <li><a href="#_saml_jboss_adapter">3.1.2. JBoss EAP/Wildfly Adapter</a></li>
-<li><a href="#_saml-tomcat-adapter">3.1.3. Tomcat SAML adapters</a></li>
-<li><a href="#_jetty_saml_adapter">3.1.4. Jetty SAML Adapters</a></li>
-<li><a href="#java-servlet-filter-adapter">3.1.5. Java Servlet Filter Adapter</a></li>
-<li><a href="#registering-with-an-identity-provider">3.1.6. Registering with an Identity Provider</a></li>
-<li><a href="#logout-2">3.1.7. Logout</a></li>
-<li><a href="#obtaining-assertion-attributes">3.1.8. Obtaining Assertion Attributes</a></li>
-<li><a href="#error-handling">3.1.9. Error Handling</a></li>
-<li><a href="#troubleshooting">3.1.10. Troubleshooting</a></li>
+<li><a href="#_jboss_adapter_rpm">3.1.3. Installing JBoss EAP Adapter from an RPM</a></li>
+<li><a href="#_saml-tomcat-adapter">3.1.4. Tomcat SAML adapters</a></li>
+<li><a href="#_jetty_saml_adapter">3.1.5. Jetty SAML Adapters</a></li>
+<li><a href="#java-servlet-filter-adapter">3.1.6. Java Servlet Filter Adapter</a></li>
+<li><a href="#registering-with-an-identity-provider">3.1.7. Registering with an Identity Provider</a></li>
+<li><a href="#logout-2">3.1.8. Logout</a></li>
+<li><a href="#obtaining-assertion-attributes">3.1.9. Obtaining Assertion Attributes</a></li>
+<li><a href="#error-handling">3.1.10. Error Handling</a></li>
+<li><a href="#troubleshooting">3.1.11. Troubleshooting</a></li>
 </ul>
 </li>
 <li><a href="#_mod_auth_mellon">3.2. mod_auth_mellon Apache HTTPD Module</a>
@@ -1449,13 +1451,13 @@ $ unzip keycloak-as7-adapter-dist-3.4.0.CR1.zip</code></pre>
 <p>To configure the adapter subsystem if the server is not running execute:</p>
 </div>
 <div class="listingblock">
-<div class="title">Wildfly 11</div>
+<div class="title">WildFly 11</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-elytron-install-offline.cli</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Any other server but Wildfly 11</div>
+<div class="title">WildFly 10 or older</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-install-offline.cli</code></pre>
 </div>
@@ -1467,7 +1469,7 @@ $ unzip keycloak-as7-adapter-dist-3.4.0.CR1.zip</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The offline script is not available for JBoss EAP 6
+The offline script is not available for JBoss EAP 6.4
 </td>
 </tr>
 </table>
@@ -1482,7 +1484,7 @@ The offline script is not available for JBoss EAP 6
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Any other server but Wildfly 11</div>
+<div class="title">WildFly 10 or older</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-install.cli</code></pre>
 </div>
@@ -1654,7 +1656,152 @@ public class CustomerService {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fuse_adapter"><a class="anchor" href="#_fuse_adapter"></a>2.1.3. JBoss Fuse Adapter</h4>
+<h4 id="_jboss_adapter_rpm"><a class="anchor" href="#_jboss_adapter_rpm"></a>2.1.3. Installing JBoss EAP Adapter from an RPM</h4>
+<div class="paragraph">
+<p>Install the EAP 7 Adapters from an RPM:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+With Red Hat Enterprise Linux 7, the term channel was replaced with the term repository. In these instructions only the term repository is used.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You must subscribe to the JBoss EAP 7.0 repository before you can install the EAP 7 adapters from an RPM.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Prerequisites</div>
+<ol class="arabic">
+<li>
+<p>Ensure that your Red Hat Enterprise Linux system is registered to your account using Red Hat Subscription Manager. For more information see the <a href="https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html-single/quick_registration_for_rhel/index">Red Hat Subscription Management documentation</a>.</p>
+</li>
+<li>
+<p>If you are already subscribed to another JBoss EAP repository, you must unsubscribe from that repository first.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Using Red Hat Subscription Manager, subscribe to the JBoss EAP 7.0 repository using the following command. Replace &lt;RHEL_VERSION&gt; with either 6 or 7 depending on your Red Hat Enterprise Linux version.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo subscription-manager repos --enable=jb-eap-7-for-rhel-&lt;RHEL_VERSION&gt;-server-rpms</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Install the EAP 7 adapters for OIDC using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo yum install eap7-keycloak-adapter-sso7_2</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The default EAP_HOME path for the RPM installation is /opt/rh/eap7/root/usr/share/wildfly.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Run the appropriate module installation script.</p>
+</div>
+<div class="paragraph">
+<p>For the OIDC module, enter the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ {EAP_HOME}/bin/jboss-cli.sh -c --file=${EAP_HOME}/bin/adapter-install.cli</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Your installation is complete.</p>
+</div>
+<div class="paragraph">
+<p>Install the EAP 6 Adapters from an RPM:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+With Red Hat Enterprise Linux 7, the term channel was replaced with the term repository. In these instructions only the term repository is used.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You must subscribe to the JBoss EAP 6.0 repository before you can install the EAP 6 adapters from an RPM.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Prerequisites</div>
+<ol class="arabic">
+<li>
+<p>Ensure that your Red Hat Enterprise Linux system is registered to your account using Red Hat Subscription Manager. For more information see the <a href="https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html-single/quick_registration_for_rhel/index">Red Hat Subscription Management documentation</a>.</p>
+</li>
+<li>
+<p>If you are already subscribed to another JBoss EAP repository, you must unsubscribe from that repository first.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Using Red Hat Subscription Manager, subscribe to the JBoss EAP 6.0 repository using the following command. Replace &lt;RHEL_VERSION&gt; with either 6 or 7 depending on your Red Hat Enterprise Linux version.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo subscription-manager repos --enable=jb-eap-6-for-rhel-&lt;RHEL_VERSION&gt;-server-rpms</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Install the EAP 6 adapters for OIDC using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo yum install keycloak-adapter-sso7_2-eap6</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The default EAP_HOME path for the RPM installation is /opt/rh/eap6/root/usr/share/wildfly.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Run the appropriate module installation script.</p>
+</div>
+<div class="paragraph">
+<p>For the OIDC module, enter the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ {EAP_HOME}/bin/jboss-cli.sh -c --file=${EAP_HOME}/bin/adapter-install.cli</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Your installation is complete.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_fuse_adapter"><a class="anchor" href="#_fuse_adapter"></a>2.1.4. JBoss Fuse Adapter</h4>
 <div class="paragraph">
 <p>Currently Keycloak supports securing your web applications running inside <a href="https://developers.redhat.com/products/fuse/overview/">JBoss Fuse</a>.</p>
 </div>
@@ -2697,7 +2844,7 @@ features:install keycloak</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_spring_boot_adapter"><a class="anchor" href="#_spring_boot_adapter"></a>2.1.4. Spring Boot Adapter</h4>
+<h4 id="_spring_boot_adapter"><a class="anchor" href="#_spring_boot_adapter"></a>2.1.5. Spring Boot Adapter</h4>
 <div class="paragraph">
 <p>To be able to secure Spring Boot apps you must add the Keycloak Spring Boot adapter JAR to your app.
 You then have to provide some extra configuration via normal Spring Boot configuration (<code>application.properties</code>).  Let&#8217;s go over these steps.</p>
@@ -2809,7 +2956,7 @@ If you plan to deploy your Spring Application as a WAR then you should not use t
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tomcat_adapter"><a class="anchor" href="#_tomcat_adapter"></a>2.1.5. Tomcat 6, 7 and 8 Adapters</h4>
+<h4 id="_tomcat_adapter"><a class="anchor" href="#_tomcat_adapter"></a>2.1.6. Tomcat 6, 7 and 8 Adapters</h4>
 <div class="paragraph">
 <p>To be able to secure WAR apps deployed on Tomcat 6, 7 and 8 you must install the Keycloak Tomcat 6, 7 or 8 adapter into your Tomcat installation.
 You then have to provide some extra configuration in each WAR you deploy to Tomcat.
@@ -2899,7 +3046,7 @@ Here&#8217;s an example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_jetty9_adapter"><a class="anchor" href="#_jetty9_adapter"></a>2.1.6. Jetty 9.x Adapters</h4>
+<h4 id="_jetty9_adapter"><a class="anchor" href="#_jetty9_adapter"></a>2.1.7. Jetty 9.x Adapters</h4>
 <div class="paragraph">
 <p>Keycloak has a separate adapter for Jetty 9.1.x, Jetty 9.2.x and Jetty 9.3.x that you will have to install into your Jetty installation.
 You then have to provide some extra configuration in each WAR you deploy to Jetty.
@@ -3056,7 +3203,7 @@ Here&#8217;s an example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_jetty8_adapter"><a class="anchor" href="#_jetty8_adapter"></a>2.1.7. Jetty 8.1.x Adapter</h4>
+<h4 id="_jetty8_adapter"><a class="anchor" href="#_jetty8_adapter"></a>2.1.8. Jetty 8.1.x Adapter</h4>
 <div class="paragraph">
 <p>Keycloak has a separate adapter for Jetty 8.1.x that you will have to install into your Jetty installation.
 You then have to provide some extra configuration in each WAR you deploy to Jetty.
@@ -3104,7 +3251,7 @@ See <a href="#_jetty9_per_war">Required Per WAR Configuration</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_spring_security_adapter"><a class="anchor" href="#_spring_security_adapter"></a>2.1.8. Spring Security Adapter</h4>
+<h4 id="_spring_security_adapter"><a class="anchor" href="#_spring_security_adapter"></a>2.1.9. Spring Security Adapter</h4>
 <div class="paragraph">
 <p>To secure an application with Spring Security and Keycloak, add this adapter as a dependency to your project.
 You then have to provide some extra beans in your Spring Security configuration file and add the Keycloak security filter to your pipeline.</p>
@@ -3421,7 +3568,7 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter
 </div>
 </div>
 <div class="sect3">
-<h4 id="_servlet_filter_adapter"><a class="anchor" href="#_servlet_filter_adapter"></a>2.1.9. Java Servlet Filter Adapter</h4>
+<h4 id="_servlet_filter_adapter"><a class="anchor" href="#_servlet_filter_adapter"></a>2.1.10. Java Servlet Filter Adapter</h4>
 <div class="paragraph">
 <p>If you are deploying your Java Servlet application on a platform where there is no Keycloak adapter you opt to use the servlet filter adapter.
 This adapter works a bit differently than the other adapters. You do not define security constraints in web.xml.
@@ -3506,7 +3653,7 @@ So, the Admin URL in this example should be <code>http[s]://hostname/{context-ro
 </div>
 </div>
 <div class="sect3">
-<h4 id="_jaas_adapter"><a class="anchor" href="#_jaas_adapter"></a>2.1.10. JAAS plugin</h4>
+<h4 id="_jaas_adapter"><a class="anchor" href="#_jaas_adapter"></a>2.1.11. JAAS plugin</h4>
 <div class="paragraph">
 <p>It&#8217;s generally not needed to use JAAS for most of the applications, especially if they are HTTP based, and you should most likely choose one of our other adapters.
 However, some applications and systems may still rely on pure legacy JAAS solution.
@@ -3552,7 +3699,7 @@ Default value is <code>org.keycloak.adapters.jaas.RolePrincipal</code>. Note: Th
 </div>
 </div>
 <div class="sect3">
-<h4 id="_installed_adapter"><a class="anchor" href="#_installed_adapter"></a>2.1.11. CLI / Desktop Applications</h4>
+<h4 id="_installed_adapter"><a class="anchor" href="#_installed_adapter"></a>2.1.12. CLI / Desktop Applications</h4>
 <div class="paragraph">
 <p>Keycloak supports securing desktop
 (e.g. Swing, JavaFX) or CLI applications via the
@@ -3745,7 +3892,7 @@ public class DesktopApp {
 </div>
 </div>
 <div class="sect3">
-<h4 id="security-context"><a class="anchor" href="#security-context"></a>2.1.12. Security Context</h4>
+<h4 id="security-context"><a class="anchor" href="#security-context"></a>2.1.13. Security Context</h4>
 <div class="paragraph">
 <p>The <code>KeycloakSecurityContext</code> interface is available if you need to access to the tokens directly. This could be useful if you want to retrieve additional
 details from the token (such as user profile information) or you want to invoke a RESTful service that is protected by Keycloak.</p>
@@ -3770,7 +3917,7 @@ details from the token (such as user profile information) or you want to invoke 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_adapter_error_handling"><a class="anchor" href="#_adapter_error_handling"></a>2.1.13. Error Handling</h4>
+<h4 id="_adapter_error_handling"><a class="anchor" href="#_adapter_error_handling"></a>2.1.14. Error Handling</h4>
 <div class="paragraph">
 <p>Keycloak has some error handling facilities for servlet based client adapters.
 When an error is encountered in authentication, Keycloak will call <code>HttpServletResponse.sendError()</code>.
@@ -3807,7 +3954,7 @@ Reason reason = error.getReason();
 </div>
 </div>
 <div class="sect3">
-<h4 id="logout"><a class="anchor" href="#logout"></a>2.1.14. Logout</h4>
+<h4 id="logout"><a class="anchor" href="#logout"></a>2.1.15. Logout</h4>
 <div class="paragraph">
 <p>You can log out of a web application in multiple ways.
 For Java EE servlet containers, you can call HttpServletRequest.logout(). For other browser applications, you can redirect the browser to
@@ -3815,7 +3962,7 @@ For Java EE servlet containers, you can call HttpServletRequest.logout(). For ot
 </div>
 </div>
 <div class="sect3">
-<h4 id="parameters-forwarding"><a class="anchor" href="#parameters-forwarding"></a>2.1.15. Parameters Forwarding</h4>
+<h4 id="parameters-forwarding"><a class="anchor" href="#parameters-forwarding"></a>2.1.16. Parameters Forwarding</h4>
 <div class="paragraph">
 <p>The Keycloak  initial authorization endpoint request has support for various parameters. Most of the parameters are described in
 <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">OIDC specification</a>. Some parameters are added automatically by the adapter based
@@ -3862,7 +4009,7 @@ For more information see the <code>Identity Brokering</code> section in <a href=
 </div>
 </div>
 <div class="sect3">
-<h4 id="_client_authentication_adapter"><a class="anchor" href="#_client_authentication_adapter"></a>2.1.16. Client Authentication</h4>
+<h4 id="_client_authentication_adapter"><a class="anchor" href="#_client_authentication_adapter"></a>2.1.17. Client Authentication</h4>
 <div class="paragraph">
 <p>When a confidential OIDC client needs to send a backchannel request (for example, to exchange code for the token, or to refresh the token) it needs to authenticate against the Keycloak server. By default, there are three ways to authenticate the client: client ID and client secret, client authentication with signed JWT, or client authentication with signed JWT using client secret.</p>
 </div>
@@ -3966,7 +4113,7 @@ you can point to any file on the file system where the client application is run
 </div>
 </div>
 <div class="sect3">
-<h4 id="_multi_tenancy"><a class="anchor" href="#_multi_tenancy"></a>2.1.17. Multi Tenancy</h4>
+<h4 id="_multi_tenancy"><a class="anchor" href="#_multi_tenancy"></a>2.1.18. Multi Tenancy</h4>
 <div class="paragraph">
 <p>Multi Tenancy, in our context, means that a single target application (WAR) can be secured with multiple Keycloak realms. The realms can be located
 one the same Keycloak instance or on different instances.</p>
@@ -4027,7 +4174,7 @@ and you may also want to select the realm based on something else than context-p
 </div>
 </div>
 <div class="sect3">
-<h4 id="_applicationclustering"><a class="anchor" href="#_applicationclustering"></a>2.1.18. Application Clustering</h4>
+<h4 id="_applicationclustering"><a class="anchor" href="#_applicationclustering"></a>2.1.19. Application Clustering</h4>
 <div class="paragraph">
 <p>This chapter is related to supporting clustered applications deployed to JBoss EAP, WildFly and JBoss AS.</p>
 </div>
@@ -6005,7 +6152,7 @@ Start the server and run the script  from the server&#8217;s bin directory:</p>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Any other server but Wildfly 11</div>
+<div class="title">WildFly 10 and older</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>$ cd $JBOSS_HOME/bin
 $ jboss-cli.sh -c --file=adapter-install-saml.cli</code></pre>
@@ -6096,6 +6243,151 @@ public class CustomerService {
 <p>WildFly has built-in support for single sign-on for web applications deployed to the same WildFly
 instance. This should not be enabled when using Keycloak.</p>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_jboss_adapter_rpm"><a class="anchor" href="#_jboss_adapter_rpm"></a>3.1.3. Installing JBoss EAP Adapter from an RPM</h4>
+<div class="paragraph">
+<p>Install the EAP 7 Adapters from an RPM:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+With Red Hat Enterprise Linux 7, the term channel was replaced with the term repository. In these instructions only the term repository is used.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You must subscribe to the JBoss EAP 7.0 repository before you can install the EAP 7 adapters from an RPM.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Prerequisites</div>
+<ol class="arabic">
+<li>
+<p>Ensure that your Red Hat Enterprise Linux system is registered to your account using Red Hat Subscription Manager. For more information see the <a href="https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html-single/quick_registration_for_rhel/index">Red Hat Subscription Management documentation</a>.</p>
+</li>
+<li>
+<p>If you are already subscribed to another JBoss EAP repository, you must unsubscribe from that repository first.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Using Red Hat Subscription Manager, subscribe to the JBoss EAP 7.0 repository using the following command. Replace &lt;RHEL_VERSION&gt; with either 6 or 7 depending on your Red Hat Enterprise Linux version.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo subscription-manager repos --enable=jb-eap-7-for-rhel-&lt;RHEL_VERSION&gt;-server-rpms</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Install the EAP 7 adapters for SAML using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo yum install eap7-keycloak-saml-adapter-sso7_2</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The default EAP_HOME path for the RPM installation is /opt/rh/eap7/root/usr/share/wildfly.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Run the appropriate module installation script.</p>
+</div>
+<div class="paragraph">
+<p>For the SAML module, enter the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ {EAP_HOME}/bin/jboss-cli.sh -c --file=${EAP_HOME}/bin/adapter-install-saml.cli</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Your installation is complete.</p>
+</div>
+<div class="paragraph">
+<p>Install the EAP 6 Adapters from an RPM:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+With Red Hat Enterprise Linux 7, the term channel was replaced with the term repository. In these instructions only the term repository is used.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You must subscribe to the JBoss EAP 6.0 repository before you can install the EAP 6 adapters from an RPM.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Prerequisites</div>
+<ol class="arabic">
+<li>
+<p>Ensure that your Red Hat Enterprise Linux system is registered to your account using Red Hat Subscription Manager. For more information see the <a href="https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html-single/quick_registration_for_rhel/index">Red Hat Subscription Management documentation</a>.</p>
+</li>
+<li>
+<p>If you are already subscribed to another JBoss EAP repository, you must unsubscribe from that repository first.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Using Red Hat Subscription Manager, subscribe to the JBoss EAP 6.0 repository using the following command. Replace &lt;RHEL_VERSION&gt; with either 6 or 7 depending on your Red Hat Enterprise Linux version.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo subscription-manager repos --enable=jb-eap-6-for-rhel-&lt;RHEL_VERSION&gt;-server-rpms</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Install the EAP 6 adapters for SAML using the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ sudo yum install keycloak-saml-adapter-sso7_2-eap6</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The default EAP_HOME path for the RPM installation is /opt/rh/eap6/root/usr/share/wildfly.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Run the appropriate module installation script.</p>
+</div>
+<div class="paragraph">
+<p>For the SAML module, enter the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ {EAP_HOME}/bin/jboss-cli.sh -c --file=${EAP_HOME}/bin/adapter-install-saml.cli</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Your installation is complete.</p>
 </div>
 <div class="sect4">
 <h5 id="per-war-configuration"><a class="anchor" href="#per-war-configuration"></a>Per WAR Configuration</h5>
@@ -6249,7 +6541,7 @@ The rest of the configuration uses the same XML syntax as <code>keycloak-saml.xm
 </div>
 </div>
 <div class="sect3">
-<h4 id="_saml-tomcat-adapter"><a class="anchor" href="#_saml-tomcat-adapter"></a>3.1.3. Tomcat SAML adapters</h4>
+<h4 id="_saml-tomcat-adapter"><a class="anchor" href="#_saml-tomcat-adapter"></a>3.1.4. Tomcat SAML adapters</h4>
 <div class="paragraph">
 <p>To be able to secure WAR apps deployed on Tomcat 6, 7 and 8 you must install the Keycloak Tomcat 6, 7 or 8 SAML adapter into your Tomcat installation.
 You then have to provide some extra configuration in each WAR you deploy to Tomcat.
@@ -6338,7 +6630,7 @@ Here&#8217;s an example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_jetty_saml_adapter"><a class="anchor" href="#_jetty_saml_adapter"></a>3.1.4. Jetty SAML Adapters</h4>
+<h4 id="_jetty_saml_adapter"><a class="anchor" href="#_jetty_saml_adapter"></a>3.1.5. Jetty SAML Adapters</h4>
 <div class="paragraph">
 <p>To be able to secure WAR apps deployed on Jetty you must install the Keycloak Jetty 9.x or 8.x SAML adapter into your Jetty installation.
 You then have to provide some extra configuration in each WAR you deploy to Jetty.
@@ -6489,7 +6781,7 @@ See <a href="#_saml-jetty9-per-war">Jetty 9 Per War Configuration</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="java-servlet-filter-adapter"><a class="anchor" href="#java-servlet-filter-adapter"></a>3.1.5. Java Servlet Filter Adapter</h4>
+<h4 id="java-servlet-filter-adapter"><a class="anchor" href="#java-servlet-filter-adapter"></a>3.1.6. Java Servlet Filter Adapter</h4>
 <div class="paragraph">
 <p>If you want to use SAML with a Java servlet application that doesn&#8217;t have an adapter for that servlet platform, you can
 opt to use the servlet filter adapter that Keycloak has.
@@ -6582,14 +6874,14 @@ You must have a filter mapping that covers <code>/saml</code>.
 </div>
 </div>
 <div class="sect3">
-<h4 id="registering-with-an-identity-provider"><a class="anchor" href="#registering-with-an-identity-provider"></a>3.1.6. Registering with an Identity Provider</h4>
+<h4 id="registering-with-an-identity-provider"><a class="anchor" href="#registering-with-an-identity-provider"></a>3.1.7. Registering with an Identity Provider</h4>
 <div class="paragraph">
 <p>For each servlet-based adapter, the endpoint you register for the assert consumer service URL and single logout service
 must be the base URL of your servlet application with <code>/saml</code> appended to it, that is, <code>https://example.com/contextPath/saml</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="logout-2"><a class="anchor" href="#logout-2"></a>3.1.7. Logout</h4>
+<h4 id="logout-2"><a class="anchor" href="#logout-2"></a>3.1.8. Logout</h4>
 <div class="paragraph">
 <p>There are multiple ways you can logout from a web application.
 For Java EE servlet containers, you can call <code>HttpServletRequest.logout()</code>. For any other browser application, you can point
@@ -6690,7 +6982,7 @@ and the local SAML session cache is updated accordingly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="obtaining-assertion-attributes"><a class="anchor" href="#obtaining-assertion-attributes"></a>3.1.8. Obtaining Assertion Attributes</h4>
+<h4 id="obtaining-assertion-attributes"><a class="anchor" href="#obtaining-assertion-attributes"></a>3.1.9. Obtaining Assertion Attributes</h4>
 <div class="paragraph">
 <p>After a successful SAML login, your application code may want to obtain attribute values passed with the SAML assertion.
 <code>HttpServletRequest.getUserPrincipal()</code> returns a <code>Principal</code> object that you can typecast into a Keycloak specific class
@@ -6798,7 +7090,7 @@ This object allows you to look at the raw assertion and also has convenience fun
 </div>
 </div>
 <div class="sect3">
-<h4 id="error-handling"><a class="anchor" href="#error-handling"></a>3.1.9. Error Handling</h4>
+<h4 id="error-handling"><a class="anchor" href="#error-handling"></a>3.1.10. Error Handling</h4>
 <div class="paragraph">
 <p>Keycloak has some error handling facilities for servlet based client adapters.
 When an error is encountered in authentication, the client adapter will call <code>HttpServletResponse.sendError()</code>.
@@ -6840,7 +7132,7 @@ If this attribute is not set, then the adapter was not responsible for the error
 </div>
 </div>
 <div class="sect3">
-<h4 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>3.1.10. Troubleshooting</h4>
+<h4 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>3.1.11. Troubleshooting</h4>
 <div class="paragraph">
 <p>The best way to troubleshoot problems is to turn on debugging for SAML in both the client adapter and Keycloak Server. Using your logging framework, set the log level to <code>DEBUG</code> for the <code>org.keycloak.saml</code> package. Turning this on allows you to see the SAML requests and response documents being sent to and from the server.
 ==== Migration from older versions</p>
@@ -7302,7 +7594,7 @@ Configtest is equivalent to the -t argument to apachectl. If the configuration t
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Docker authentication is disabled by default. To enable see <a href="http://www.keycloak.org/docs/3.4/server_installation/#_profiles">Profiles</a>.
+Docker authentication is disabled by default. To enable see <a href="http://www.keycloak.org/docs/3.4/server_installation/#profiles">Profiles</a>.
 </td>
 </tr>
 </table>
@@ -7803,7 +8095,7 @@ This policy is not used by default even for anonymous registration.</p>
 <p>Enable service accounts if you want to use a service account associated with the client by selecting a client to edit in the <strong>Clients</strong> section of the <code>Admin Console</code>.</p>
 </li>
 <li>
-<p>Under <strong>Settings</strong>, change the <strong>Access Type</strong> to <strong>Confidential</strong>, toggle the <strong>Service Accounts Enabled</strong> setting to <strong>On</strong>, and click <code class="btn">Save</code>.</p>
+<p>Under <strong>Settings</strong>, change the <strong>Access Type</strong> to <strong>Confidential</strong>, toggle the <strong>Service Accounts Enabled</strong> setting to <strong>On</strong>, and click <strong>Save</strong>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -8026,7 +8318,7 @@ c:\&gt; kcreg get my_client</pre>
 <div class="sect3">
 <h4 id="_initial_access_and_registration_access_tokens"><a class="anchor" href="#_initial_access_and_registration_access_tokens"></a>6.4.3. Initial Access and Registration Access Tokens</h4>
 <div class="paragraph">
-<p>Developers who do not have an account configured at the Keycloak server they want to use can use the Client Registration CLI. That is possible when the realm administrator issues a developer an Initial Access Token. It is up to the realm administrator to decide how to issue and distribute these tokens. The realm administrator can limit the maximum age of the Initial Access Token and the total number of clients that can be created with it.</p>
+<p>Developers who do not have an account configured at the Keycloak server they want to use can use the Client Registration CLI. This is possible only when the realm administrator issues a developer an Initial Access Token. It is up to the realm administrator to decide how and when to issue and distribute these tokens. The realm administrator can limit the maximum age of the Initial Access Token and the total number of clients that can be created with it.</p>
 </div>
 <div class="paragraph">
 <p>Once a developer has an Initial Access Token, the developer can use it to create new clients without authenticating with <code class="command">kcreg config credentials</code>. The Initial Access Token can be stored in the configuration file or specified as part of the <code class="command">kcreg create</code> command.</p>
@@ -8386,7 +8678,7 @@ to impersonate a user.  Here&#8217;s a short summary of the current capabilities
 </ul>
 </div>
 <div class="paragraph">
-<p>Token exchange in Keycloak is a very loose implementation of the <a href="https://www.ietf.org/id/draft-ietf-oauth-token-exchange-11.txt">OAuth Token Exchange</a> specification at the IETF.
+<p>Token exchange in Keycloak is a very loose implementation of the <a href="https://www.ietf.org/id/draft-ietf-oauth-token-exchange-12.txt">OAuth Token Exchange</a> specification at the IETF.
 We have extended it a little, ignored some of it, and loosely interpreted other parts of the specification.  It is
 a simple grant type invocation on a realm&#8217;s OpenID Connect token endpoint.</p>
 </div>
@@ -8478,7 +8770,7 @@ We currently only support OpenID Connect and OAuth exchanges.  Support for SAML 
 <div class="paragraph">
 <p>A successful response from an exchange invocation will return the HTTP 200 response code with a content type that
 depends on the <code>requested-token-type</code> and <code>requested_issuer</code> the client asks for.  OAuth requested token types will return
-a JSON document as described in the <a href="https://www.ietf.org/id/draft-ietf-oauth-token-exchange-11.txt">OAuth Token Exchange</a> specification.</p>
+a JSON document as described in the <a href="https://www.ietf.org/id/draft-ietf-oauth-token-exchange-12.txt">OAuth Token Exchange</a> specification.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9030,7 +9322,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-30 19:44:45 UTC
+Last updated 2018-02-02 07:23:11 UTC
 </div>
 </div>
 <ul id="globalnav">

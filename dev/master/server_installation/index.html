@@ -674,7 +674,7 @@ span.image img {
 </li>
 <li><a href="#crossdc-mode">3.4. Cross-Datacenter Replication Mode</a>
 <ul class="sectlevel3">
-<li><a href="#prerequisites">3.4.1. Prerequisities</a></li>
+<li><a href="#prerequisites">3.4.1. Prerequisites</a></li>
 <li><a href="#technicaldetails">3.4.2. Technical details</a></li>
 <li><a href="#requestprocessing">3.4.3. Request processing</a></li>
 <li><a href="#modes">3.4.4. Modes</a></li>
@@ -715,7 +715,7 @@ span.image img {
 </li>
 </ul>
 </li>
-<li><a href="#_profiles">5. Profiles</a></li>
+<li><a href="#profiles">5. Profiles</a></li>
 <li><a href="#_database">6. Relational Database Setup</a>
 <ul class="sectlevel2">
 <li><a href="#_rdbms-setup-checklist">6.1. RDBMS Setup Checklist</a></li>
@@ -870,7 +870,7 @@ as well as the directory structure of the distribution.</p>
 <p>At least 1G of diskspace</p>
 </li>
 <li>
-<p>A shared external database like Postgres, MySql, Oracle, etc.  Keycloak requires an external shared
+<p>A shared external database like PostgreSQL, MySQL, Oracle, etc.  Keycloak requires an external shared
 database if you want to run in a cluster.   Please see the <a href="#_database">database configuration</a> section of this guide for more information.</p>
 </li>
 <li>
@@ -909,7 +909,7 @@ system property on startup to <code>file:/dev/urandom</code>.</p>
 to run the Keycloak Server.  To unpack this file just run your operating system&#8217;s <code>unzip</code> or <code>gunzip</code> and <code>tar</code> utilities.</p>
 </div>
 <div class="paragraph">
-<p>The 'keycloak-overlay-3.4.0.CR1.[zip|tar.gz]' file is a Wildfly add-on that allows you to install Keycloak Server on top of an existing
+<p>The 'keycloak-overlay-3.4.0.CR1.[zip|tar.gz]' file is a WildFly add-on that allows you to install Keycloak Server on top of an existing
 WildFly distribution.  We do not support users that want to run their applications and Keycloak on the same server instance.  To install the Keycloak Service Pack, just unzip it in the root directory
 of your WildFly distribution, open the bin directory in a shell and run <code>./jboss-cli.[sh|bat] --file=keycloak-install.cli</code>.</p>
 </div>
@@ -1042,7 +1042,7 @@ is also used to configure non-infrastructure level things that are specific to K
 </td>
 <td class="content">
 Any changes you make to this file while the server is running will not take effect and may even be overwritten
-      by the server.  Instead use the the command line scripting or the web console of WildFly.  See
+      by the server.  Instead use the command line scripting or the web console of WildFly.  See
       the <a href="https://docs.jboss.org/author/display/WFLY10/Documentation"><em>WildFly 10 Documentation</em></a> for more information.
 </td>
 </tr>
@@ -1210,9 +1210,9 @@ You&#8217;ll be configuring things here like network connections, caches, and da
 <pre class="CodeRay highlight"><code data-lang="xml">    <span class="tag">&lt;profiles&gt;</span>
         <span class="tag">&lt;profile</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">auth-server-standalone</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
             ...
-         <span class="tag">&lt;/profile&gt;</span>
-       <span class="tag">&lt;profile</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">auth-server-clustered</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-           ...
+        <span class="tag">&lt;/profile&gt;</span>
+        <span class="tag">&lt;profile</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">auth-server-clustered</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            ...
         <span class="tag">&lt;/profile&gt;</span></code></pre>
 </div>
 </div>
@@ -1502,7 +1502,7 @@ The add-user.sh does not add user to Keycloak server but to the underlying JBoss
 <p><span class="image"><img src="./keycloak-images/cross-dc-architecture.png" alt="cross dc architecture"></span></p>
 </div>
 <div class="sect3">
-<h4 id="prerequisites"><a class="anchor" href="#prerequisites"></a>3.4.1. Prerequisities</h4>
+<h4 id="prerequisites"><a class="anchor" href="#prerequisites"></a>3.4.1. Prerequisites</h4>
 <div class="paragraph">
 <p>As this is an advanced topic, we recommend you first read the following, which provide valuable background knowledge:</p>
 </div>
@@ -1535,7 +1535,7 @@ Keycloak uses JBoss Data Grid (JDG) for the replication of Infinispan data betwe
 </li>
 <li>
 <p>An Infinispan cache is used to cache persistent data from the database and also to save some short-lived and frequently-changing metadata, such as for user sessions.
-Infinispan is usually much faster then a database, however the data saved using Infinispan are not permanent and is not expected to persist across cluster restarts.</p>
+Infinispan is usually much faster than a database, however the data saved using Infinispan are not permanent and is not expected to persist across cluster restarts.</p>
 </li>
 </ul>
 </div>
@@ -1629,7 +1629,7 @@ It means that data need to be visible immediately on both sites and available to
 </div>
 <div class="paragraph">
 <div class="title">Caching and invalidation of persistent data</div>
-<p>Keycloak uses Infinispan to cache persistent data to avoid many unecessary requests to the database.
+<p>Keycloak uses Infinispan to cache persistent data to avoid many unnecessary requests to the database.
 Caching improves performance, however it adds an additional challenge. When some Keycloak server updates any data, all other Keycloak servers in all data centers need to be aware of it, so they invalidate particular data from their caches. Keycloak uses local Infinispan caches called <code>realms</code>, <code>users</code>, and <code>authorization</code> to cache persistent data.</p>
 </div>
 <div class="paragraph">
@@ -1646,7 +1646,7 @@ sessions, which are valid for the length of a user&#8217;s browser session. The 
 <div class="paragraph">
 <div class="title">Brute force protection</div>
 <p>Finally the <code>loginFailures</code> cache is used to track data about failed logins, such as how many times the user <code>john</code>
-entered a bad password. The details are described <a href="http://www.keycloak.org/docs/3.4/server_admin/#password-guess-brute-force-attacks">here</a>. It is up to the admin whether this cache should be replicated across data centers. To have an accurate count of login failures, the replication is needed. On the other hand, not replicating this data can save some performance. So if performance is more important then accurate counts of login failures, the replication can be avoided.</p>
+entered a bad password. The details are described <a href="http://www.keycloak.org/docs/3.4/server_admin/#password-guess-brute-force-attacks">here</a>. It is up to the admin whether this cache should be replicated across data centers. To have an accurate count of login failures, the replication is needed. On the other hand, not replicating this data can save some performance. So if performance is more important than accurate counts of login failures, the replication can be avoided.</p>
 </div>
 <div class="paragraph">
 <p>For more detail about how caches can be configured see <a href="#tuningcache">Tuning the JDG cache configuration</a>.</p>
@@ -2190,7 +2190,7 @@ Event 'CLIENT_CACHE_ENTRY_REMOVED', key '193489e7-e2bc-4069-afe8-f1dfa73084ea', 
 <p>Every data center can have more database nodes if you want to support database failover and better reliability. Refer to the documentation of your database and JDBC driver for the details how to set this up on the database side and how the <code>KeycloakDS</code> datasource on Keycloak side needs to be configured.</p>
 </li>
 <li>
-<p>Every datacenter can have more Infinispan servers running in the cluster. This is useful if you want some failover and better fault tolerance. The HotRod protocol used for communication between Infinispan servers and Keycloak servers has a feature that Infinispan servers will automatically send new topology to the Keycloak servers about the change in the Infinispan cluster, so the remote store on Keycloak side will know to which Infinispan servers it can connect. Read the Infinispan and Wildfly documentation for more details.</p>
+<p>Every datacenter can have more Infinispan servers running in the cluster. This is useful if you want some failover and better fault tolerance. The HotRod protocol used for communication between Infinispan servers and Keycloak servers has a feature that Infinispan servers will automatically send new topology to the Keycloak servers about the change in the Infinispan cluster, so the remote store on Keycloak side will know to which Infinispan servers it can connect. Read the Infinispan and WildFly documentation for more details.</p>
 </li>
 <li>
 <p>It is highly recommended that a master Infinispan server is running in every site before the Keycloak servers in <strong>any</strong> site are started. As in our example, we started both <code>jdg1</code> and <code>jdg2</code> first, before all Keycloak servers. If you still need to run the Keycloak server and the backup site is offline, it is recommended to manually switch the backup site offline on the Infinispan servers on your site, as described in <a href="#onoffline">Bringing sites offline and online</a>. If you do not manually switch the unavailable site offline, the first startup may fail or they may be some exceptions during startup until the backup site is taken offline automatically due the configured count of failed operations.</p>
@@ -2460,7 +2460,7 @@ The count of login failures also will not be accurate with the <code>ASYNC</code
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Regarding the switch to SYNC/ASYNC backup, make sure that you edit the <code>strategy</code> attribute of the the <code>backup</code> element. For example like this:
+Regarding the switch to SYNC/ASYNC backup, make sure that you edit the <code>strategy</code> attribute of the <code>backup</code> element. For example like this:
 </td>
 </tr>
 </table>
@@ -2644,7 +2644,7 @@ coincidence.</p>
 </div>
 <div class="paragraph">
 <p>The type of each property value is interpreted by the provider.  However, there
-is one exception.  Consider the <code>jpa</code> provider for the <code>eventStore</code> API:</p>
+is one exception.  Consider the <code>jpa</code> provider for the <code>eventsStore</code> SPI:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2713,7 +2713,7 @@ connect
 <div class="paragraph">
 <p>You may be thinking to yourself, "I didn&#8217;t enter in any username or password!".  If you run <code>jboss-cli</code> on the same machine
 as your running standalone server or domain controller and your account has appropriate file permissions, you do not have
-to setup or enter in a admin username and password.  See the <a href="https://docs.jboss.org/author/display/WFLY10/Documentation"><em>WildFly 10 Documentation</em></a>
+to setup or enter in an admin username and password.  See the <a href="https://docs.jboss.org/author/display/WFLY10/Documentation"><em>WildFly 10 Documentation</em></a>
 for more details on how to make things more secure if you are uncomfortable with that setup.</p>
 </div>
 </div>
@@ -2723,10 +2723,10 @@ for more details on how to make things more secure if you are uncomfortable with
 <p>If you do happen to be on the same machine as your standalone server and you want to
 issue commands while the server is not active, you can embed the server into CLI and make
 changes in a special mode that disallows incoming requests.  To do this, first
-execute the <code>embed</code> command with the config file you wish to change.</p>
+execute the <code>embed-server</code> command with the config file you wish to change.</p>
 </div>
 <div class="listingblock">
-<div class="title">embed</div>
+<div class="title">embed-server</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>[disconnected /] embed-server --server-config=standalone.xml
 [standalone@embedded /]</code></pre>
@@ -2883,7 +2883,7 @@ you should substitute or the path to the keycloak-server subsystem.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_profiles"><a class="anchor" href="#_profiles"></a>5. Profiles</h2>
+<h2 id="profiles"><a class="anchor" href="#profiles"></a>5. Profiles</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Keycloak has a single profile, community, that enables most features by default, including features that
@@ -4288,12 +4288,12 @@ of the master host.</p>
 it may be useful if load balancer forwards all requests related to particular browser session to the same Keycloak backend node.</p>
 </div>
 <div class="paragraph">
-<p>The reason is, that Keycloak is using infinispan distributed cache under the covers for save data related to current authentication session and user session.
+<p>The reason is, that Keycloak is using Infinispan distributed cache under the covers for save data related to current authentication session and user session.
 The Infinispan distributed caches are configured with one owner by default. That means that particular session is saved just on one cluster node and the other nodes need
 to lookup the session remotely if they want to access it.</p>
 </div>
 <div class="paragraph">
-<p>For example if authentication session with ID <code>123</code> is saved in the infinispan cache on <code>node1</code>, and then <code>node2</code> needs to lookup this session,
+<p>For example if authentication session with ID <code>123</code> is saved in the Infinispan cache on <code>node1</code>, and then <code>node2</code> needs to lookup this session,
 it needs to send the request to <code>node1</code> over the network to return the particular session entity.</p>
 </div>
 <div class="paragraph">
@@ -4315,7 +4315,7 @@ but can be chosen according to some other criterias (client IP address etc). It 
 <li>
 <p>Infinispan distributed cache assigns the primary owner of the session based on the hash of session ID.
 See <a href="http://infinispan.org/docs/8.2.x/user_guide/user_guide.html#distribution_mode">Infinispan documentation</a> for more details around this.
-Let&#8217;s assume that infinispan assigned <code>node2</code> to be the owner of this session.</p>
+Let&#8217;s assume that Infinispan assigned <code>node2</code> to be the owner of this session.</p>
 </li>
 <li>
 <p>Keycloak creates the cookie <code>AUTH_SESSION_ID</code> with the format like <code>&lt;session-id&gt;.&lt;owner-node-id&gt;</code> . In our example case, it will be <code>123.node2</code> .</p>
@@ -4341,7 +4341,7 @@ Infinispan caches and will be attached to the AUTH_SESSION_ID cookie when the no
 start up command with this system property can be seen in <a href="#_example-setup-with-mod-cluster">Mod Cluster Example</a>.</p>
 </div>
 <div class="paragraph">
-<p>Typically, the route name be the same name as your backend host, but it is not necessary. You can use a different route name,
+<p>Typically, the route name should be the same name as your backend host, but it is not necessary. You can use a different route name,
 for example if you want to hide the host name of your Keycloak server inside your private network.</p>
 </div>
 <div class="sect3">
@@ -4382,7 +4382,7 @@ dedicated protocol called MCMP and they notify loadbalancer about various events
 <p>Example setup will consist of the one WildFly 10 load balancer node and two Keycloak nodes.</p>
 </div>
 <div class="paragraph">
-<p>Clustering example require MULTICAST to be enabled on machine&#8217;s loopback network interface. This can be done by running the following commands under root privileges (on linux):</p>
+<p>Clustering example require MULTICAST to be enabled on machine&#8217;s loopback network interface. This can be done by running the following commands under root privileges (on Linux):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5134,7 +5134,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-01-30 19:44:46 UTC
+Last updated 2018-02-02 07:23:12 UTC
 </div>
 </div>
 <ul id="globalnav">
