@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Server Developer Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.3"/><meta name="description" content="This guides consist of information for developers to customize Red Hat Single Sign-On 7.3"/><link rel="next" href="#preface" title="Chapter 1. Preface"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm140539859947872"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Single Sign-On</span> <span class="productnumber">7.3</span></div><div><h1 class="title">Server Developer Guide</h1></div><div><h2 class="subtitle">For Use with Red Hat Single Sign-On 7.3</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm140539851660448">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Server Developer Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.3"/><meta name="description" content="This guides consist of information for developers to customize Red Hat Single Sign-On 7.3"/><link rel="next" href="#preface" title="Chapter 1. Preface"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm140720011926160"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Single Sign-On</span> <span class="productnumber">7.3</span></div><div><h1 class="title">Server Developer Guide</h1></div><div><h2 class="subtitle">For Use with Red Hat Single Sign-On 7.3</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm140720008575776">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				This guides consist of information for developers to customize Red Hat Single Sign-On 7.3
-			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#preface">1. Preface</a></span></li><li><span class="chapter"><a href="#admin_rest_api">2. Admin REST API</a></span><ul><li><span class="section"><a href="#example_using_curl">2.1. Example using CURL</a></span></li></ul></li><li><span class="chapter"><a href="#themes">3. Themes</a></span><ul><li><span class="section"><a href="#theme_types">3.1. Theme Types</a></span></li><li><span class="section"><a href="#configure_theme">3.2. Configure Theme</a></span></li><li><span class="section"><a href="#default_themes">3.3. Default Themes</a></span></li><li><span class="section"><a href="#creating_a_theme">3.4. Creating a Theme</a></span><ul><li><span class="section"><a href="#theme_properties">3.4.1. Theme Properties</a></span></li><li><span class="section"><a href="#stylesheets">3.4.2. Stylesheets</a></span></li><li><span class="section"><a href="#scripts">3.4.3. Scripts</a></span></li><li><span class="section"><a href="#images">3.4.4. Images</a></span></li><li><span class="section"><a href="#messages">3.4.5. Messages</a></span></li><li><span class="section"><a href="#internationalization">3.4.6. Internationalization</a></span></li><li><span class="section"><a href="#html_templates">3.4.7. HTML Templates</a></span></li><li><span class="section"><a href="#emails">3.4.8. Emails</a></span></li></ul></li><li><span class="section"><a href="#deploying_themes">3.5. Deploying Themes</a></span></li></ul></li><li><span class="chapter"><a href="#custom_user_attributes">4. Custom User Attributes</a></span><ul><li><span class="section"><a href="#registration_page">4.1. Registration Page</a></span></li><li><span class="section"><a href="#account_management_console">4.2. Account Management Console</a></span></li></ul></li><li><span class="chapter"><a href="#identity_brokering_apis">5. Identity Brokering APIs</a></span><ul><li><span class="section"><a href="#retrieving_external_idp_tokens">5.1. Retrieving External IDP Tokens</a></span></li><li><span class="section"><a href="#client_initiated_account_linking">5.2. Client Initiated Account Linking</a></span><ul><li><span class="section"><a href="#refreshing_external_tokens">5.2.1. Refreshing External Tokens</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#user-storage-spi">6. User Storage SPI</a></span><ul><li><span class="section"><a href="#provider_interfaces">6.1. Provider Interfaces</a></span></li><li><span class="section"><a href="#provider_capability_interfaces">6.2. Provider Capability Interfaces</a></span></li><li><span class="section"><a href="#model_interfaces">6.3. Model Interfaces</a></span><ul><li><span class="section"><a href="#storage_ids">6.3.1. Storage Ids</a></span></li></ul></li><li><span class="section"><a href="#packaging_and_deployment">6.4. Packaging and Deployment</a></span></li><li><span class="section"><a href="#simple_read_only_lookup_example">6.5. Simple Read-Only, Lookup Example</a></span><ul><li><span class="section"><a href="#provider_class">6.5.1. Provider Class</a></span></li><li><span class="section"><a href="#provider_factory_implementation">6.5.2. Provider Factory Implementation</a></span></li><li><span class="section"><a href="#packaging_and_deployment_2">6.5.3. Packaging and Deployment</a></span></li><li><span class="section"><a href="#enabling_the_provider_in_the_administration_console">6.5.4. Enabling the Provider in the Administration Console</a></span></li></ul></li><li><span class="section"><a href="#configuration_techniques">6.6. Configuration Techniques</a></span><ul><li><span class="section"><a href="#configuration_example">6.6.1. Configuration Example</a></span></li><li><span class="section"><a href="#configuring_the_provider_in_the_administration_console">6.6.2. Configuring the Provider in the Administration Console</a></span></li></ul></li><li><span class="section"><a href="#add_remove_user_and_query_capability_interfaces">6.7. Add/Remove User and Query Capability interfaces</a></span><ul><li><span class="section"><a href="#implementing_userregistrationprovider">6.7.1. Implementing UserRegistrationProvider</a></span></li><li><span class="section"><a href="#implementing_userqueryprovider">6.7.2. Implementing UserQueryProvider</a></span></li></ul></li><li><span class="section"><a href="#augmenting_external_storage">6.8. Augmenting External Storage</a></span><ul><li><span class="section"><a href="#augmentation_example">6.8.1. Augmentation Example</a></span></li></ul></li><li><span class="section"><a href="#import_implementation_strategy">6.9. Import Implementation Strategy</a></span><ul><li><span class="section"><a href="#importeduservalidation_interface">6.9.1. ImportedUserValidation Interface</a></span></li><li><span class="section"><a href="#importsynchronization_interface">6.9.2. ImportSynchronization Interface</a></span></li></ul></li><li><span class="section"><a href="#user_caches">6.10. User Caches</a></span><ul><li><span class="section"><a href="#managing_the_user_cache">6.10.1. Managing the user cache</a></span></li><li><span class="section"><a href="#onusercache_callback_interface">6.10.2. OnUserCache Callback Interface</a></span></li><li><span class="section"><a href="#cache_policies">6.10.3. Cache Policies</a></span></li></ul></li><li><span class="section"><a href="#leveraging_java_ee">6.11. Leveraging Java EE</a></span></li><li><span class="section"><a href="#rest_management_api">6.12. REST Management API</a></span></li><li><span class="section"><a href="#migrating_from_an_earlier_user_federation_spi">6.13. Migrating from an Earlier User Federation SPI</a></span><ul><li><span class="section"><a href="#import_vs_non_import">6.13.1. Import vs. Non-Import</a></span></li><li><span class="section"><a href="#userfederationprovider_vs_userstorageprovider">6.13.2. UserFederationProvider vs. UserStorageProvider</a></span></li><li><span class="section"><a href="#userfederationproviderfactory_vs_userstorageproviderfactory">6.13.3. UserFederationProviderFactory vs. UserStorageProviderFactory</a></span></li><li><span class="section"><a href="#upgrading_to_a_new_model">6.13.4. Upgrading to a New Model</a></span></li></ul></li></ul></li></ul></div><section class="chapter" id="preface"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Preface</h1></div></div></div><p>
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#preface">1. Preface</a></span></li><li><span class="chapter"><a href="#admin_rest_api">2. Admin REST API</a></span><ul><li><span class="section"><a href="#example_using_curl">2.1. Example using CURL</a></span></li></ul></li><li><span class="chapter"><a href="#themes">3. Themes</a></span><ul><li><span class="section"><a href="#theme_types">3.1. Theme Types</a></span></li><li><span class="section"><a href="#configure_theme">3.2. Configure Theme</a></span></li><li><span class="section"><a href="#default_themes">3.3. Default Themes</a></span></li><li><span class="section"><a href="#creating_a_theme">3.4. Creating a Theme</a></span><ul><li><span class="section"><a href="#theme_properties">3.4.1. Theme Properties</a></span></li><li><span class="section"><a href="#stylesheets">3.4.2. Stylesheets</a></span></li><li><span class="section"><a href="#scripts">3.4.3. Scripts</a></span></li><li><span class="section"><a href="#images">3.4.4. Images</a></span></li><li><span class="section"><a href="#messages">3.4.5. Messages</a></span></li><li><span class="section"><a href="#internationalization">3.4.6. Internationalization</a></span></li><li><span class="section"><a href="#html_templates">3.4.7. HTML Templates</a></span></li><li><span class="section"><a href="#emails">3.4.8. Emails</a></span></li></ul></li><li><span class="section"><a href="#deploying_themes">3.5. Deploying Themes</a></span></li><li><span class="section"><a href="#theme_selector">3.6. Theme Selector</a></span></li></ul></li><li><span class="chapter"><a href="#custom_user_attributes">4. Custom User Attributes</a></span><ul><li><span class="section"><a href="#registration_page">4.1. Registration Page</a></span></li><li><span class="section"><a href="#account_management_console">4.2. Account Management Console</a></span></li></ul></li><li><span class="chapter"><a href="#identity_brokering_apis">5. Identity Brokering APIs</a></span><ul><li><span class="section"><a href="#retrieving_external_idp_tokens">5.1. Retrieving External IDP Tokens</a></span></li><li><span class="section"><a href="#client_initiated_account_linking">5.2. Client Initiated Account Linking</a></span><ul><li><span class="section"><a href="#refreshing_external_tokens">5.2.1. Refreshing External Tokens</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#providers">6. Service Provider Interfaces (SPI)</a></span><ul><li><span class="section"><a href="#implementing_a_spi">6.1. Implementing a SPI</a></span><ul><li><span class="section"><a href="#providers_admin_console">6.1.1. Show info from your SPI implementation in admin console</a></span></li></ul></li><li><span class="section"><a href="#registering_provider_implementations">6.2. Registering provider implementations</a></span><ul><li><span class="section"><a href="#using_the_red_hat_single_sign_on_deployer_deployer">6.2.1. Using the Red Hat Single Sign-On deployer Deployer</a></span></li><li><span class="section"><a href="#register_a_provider_using_modules">6.2.2. Register a provider using Modules</a></span></li><li><span class="section"><a href="#disabling_a_provider">6.2.3. Disabling a provider</a></span></li></ul></li><li><span class="section"><a href="#leveraging_java_ee">6.3. Leveraging Java EE</a></span></li><li><span class="section"><a href="#available_spis">6.4. Available SPIs</a></span></li></ul></li><li><span class="chapter"><a href="#user-storage-spi">7. User Storage SPI</a></span><ul><li><span class="section"><a href="#provider_interfaces">7.1. Provider Interfaces</a></span></li><li><span class="section"><a href="#provider_capability_interfaces">7.2. Provider Capability Interfaces</a></span></li><li><span class="section"><a href="#model_interfaces">7.3. Model Interfaces</a></span><ul><li><span class="section"><a href="#storage_ids">7.3.1. Storage Ids</a></span></li></ul></li><li><span class="section"><a href="#packaging_and_deployment">7.4. Packaging and Deployment</a></span></li><li><span class="section"><a href="#simple_read_only_lookup_example">7.5. Simple Read-Only, Lookup Example</a></span><ul><li><span class="section"><a href="#provider_class">7.5.1. Provider Class</a></span></li><li><span class="section"><a href="#provider_factory_implementation">7.5.2. Provider Factory Implementation</a></span></li><li><span class="section"><a href="#packaging_and_deployment_2">7.5.3. Packaging and Deployment</a></span></li><li><span class="section"><a href="#enabling_the_provider_in_the_administration_console">7.5.4. Enabling the Provider in the Administration Console</a></span></li></ul></li><li><span class="section"><a href="#configuration_techniques">7.6. Configuration Techniques</a></span><ul><li><span class="section"><a href="#configuration_example">7.6.1. Configuration Example</a></span></li><li><span class="section"><a href="#configuring_the_provider_in_the_administration_console">7.6.2. Configuring the Provider in the Administration Console</a></span></li></ul></li><li><span class="section"><a href="#add_remove_user_and_query_capability_interfaces">7.7. Add/Remove User and Query Capability interfaces</a></span><ul><li><span class="section"><a href="#implementing_userregistrationprovider">7.7.1. Implementing UserRegistrationProvider</a></span></li><li><span class="section"><a href="#implementing_userqueryprovider">7.7.2. Implementing UserQueryProvider</a></span></li></ul></li><li><span class="section"><a href="#augmenting_external_storage">7.8. Augmenting External Storage</a></span><ul><li><span class="section"><a href="#augmentation_example">7.8.1. Augmentation Example</a></span></li></ul></li><li><span class="section"><a href="#import_implementation_strategy">7.9. Import Implementation Strategy</a></span><ul><li><span class="section"><a href="#importeduservalidation_interface">7.9.1. ImportedUserValidation Interface</a></span></li><li><span class="section"><a href="#importsynchronization_interface">7.9.2. ImportSynchronization Interface</a></span></li></ul></li><li><span class="section"><a href="#user_caches">7.10. User Caches</a></span><ul><li><span class="section"><a href="#managing_the_user_cache">7.10.1. Managing the user cache</a></span></li><li><span class="section"><a href="#onusercache_callback_interface">7.10.2. OnUserCache Callback Interface</a></span></li><li><span class="section"><a href="#cache_policies">7.10.3. Cache Policies</a></span></li></ul></li><li><span class="section"><a href="#leveraging_java_ee_2">7.11. Leveraging Java EE</a></span></li><li><span class="section"><a href="#rest_management_api">7.12. REST Management API</a></span></li><li><span class="section"><a href="#migrating_from_an_earlier_user_federation_spi">7.13. Migrating from an Earlier User Federation SPI</a></span><ul><li><span class="section"><a href="#import_vs_non_import">7.13.1. Import vs. Non-Import</a></span></li><li><span class="section"><a href="#userfederationprovider_vs_userstorageprovider">7.13.2. UserFederationProvider vs. UserStorageProvider</a></span></li><li><span class="section"><a href="#userfederationproviderfactory_vs_userstorageproviderfactory">7.13.3. UserFederationProviderFactory vs. UserStorageProviderFactory</a></span></li><li><span class="section"><a href="#upgrading_to_a_new_model">7.13.4. Upgrading to a New Model</a></span></li></ul></li></ul></li></ul></div><section class="chapter" id="preface"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Preface</h1></div></div></div><p>
 			In some of the example listings, what is meant to be displayed on one line does not fit inside the available page width. These lines have been broken up. A '\' at the end of a line means that a break has been introduced to fit in the page, with the following lines indented. So:
 		</p><pre class="screen">Let's pretend to have an extremely \
 long line that \
@@ -35,7 +35,7 @@ This one is short</pre></section><section class="chapter" id="admin_rest_api"><d
   -H "Authorization: bearer eyJhbGciOiJSUz..." \
   "http://localhost:8080/auth/admin/realms/master"</pre></section></section><section class="chapter" id="themes"><div class="titlepage"><div><div><h1 class="title">Chapter 3. Themes</h1></div></div></div><p>
 			Red Hat Single Sign-On provides theme support for web pages and emails. This allows customizing the look and feel of end-user facing pages so they can be integrated with your applications.
-		</p><div class="figure" id="idm140539853412640"><p class="title"><strong>Figure 3.1. Login page with sunrise example theme</strong></p><div class="figure-contents"><div class="mediaobject"><img src="images/login-sunrise.png" alt="login sunrise"/></div></div></div><section class="section" id="theme_types"><div class="titlepage"><div><div><h2 class="title">3.1. Theme Types</h2></div></div></div><p>
+		</p><div class="figure" id="idm140720008175616"><p class="title"><strong>Figure 3.1. Login page with sunrise example theme</strong></p><div class="figure-contents"><div class="mediaobject"><img src="images/login-sunrise.png" alt="login sunrise"/></div></div></div><section class="section" id="theme_types"><div class="titlepage"><div><div><h2 class="title">3.1. Theme Types</h2></div></div></div><p>
 				A theme can provide one or more types to customize different aspects of Red Hat Single Sign-On. The types available are:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 						Account - Account management
@@ -218,7 +218,7 @@ passwordResetBodyHtml=&lt;a href="{0}"&gt;Reset password&lt;/a&gt;</pre></sectio
 }</pre><p>
 				A single archive can contain multiple themes and each theme can support one or more types.
 			</p><p>
-				The deploy the archive to Red Hat Single Sign-On you can either manually create a module in <code class="literal">modules</code> or use the <code class="literal">jboss-cli</code> command. It’s simplest to use <code class="literal">jboss-cli</code> as it creates the required directories and module descriptor for you.
+				To deploy the archive to Red Hat Single Sign-On you can either manually create a module in <code class="literal">modules</code> or use the <code class="literal">jboss-cli</code> command. It’s simplest to use <code class="literal">jboss-cli</code> as it creates the required directories and module descriptor for you.
 			</p><p>
 				To deploy <code class="literal">mytheme.zip</code> on Linux run:
 			</p><pre class="programlisting language-bash">bin/jboss-cli.sh --command="module add --name=org.example.mytheme --resources=mytheme.zip"</pre><p>
@@ -245,7 +245,15 @@ passwordResetBodyHtml=&lt;a href="{0}"&gt;Reset password&lt;/a&gt;</pre></sectio
 				If the server is running you need to restart the server after changing <code class="literal">standalone.xml</code>, <code class="literal">standalone-ha.xml</code>, or <code class="literal">domain.xml</code>.
 			</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 					If the same theme is deployed to both the <code class="literal">themes</code> directory and as a module the version in the <code class="literal">themes</code> directory is used.
-				</p></div></div></section></section><section class="chapter" id="custom_user_attributes"><div class="titlepage"><div><div><h1 class="title">Chapter 4. Custom User Attributes</h1></div></div></div><p>
+				</p></div></div></section><section class="section" id="theme_selector"><div class="titlepage"><div><div><h2 class="title">3.6. Theme Selector</h2></div></div></div><p>
+				By default the theme configured for the realm is used, with the exception of clients being able to override the login theme. This behavior can be changed through the Theme Selector SPI.
+			</p><p>
+				This could be used to select different themes for desktop and mobile devices by looking at the user agent header, for example.
+			</p><p>
+				To create a custom theme selector you need to implement <code class="literal">ThemeSelectorProviderFactory</code> and <code class="literal">ThemeSelectorProvider</code>.
+			</p><p>
+				Follow the steps in <a class="link" href="#providers" title="Chapter 6. Service Provider Interfaces (SPI)">Service Provider Interfaces</a> for more details on how to create and deploy a custom provider.
+			</p></section></section><section class="chapter" id="custom_user_attributes"><div class="titlepage"><div><div><h1 class="title">Chapter 4. Custom User Attributes</h1></div></div></div><p>
 			You can add custom user attributes to the registration page and account management console with a custom theme. This chapter describes how to add attributes to a custom theme, but you should refer to the <a class="link" href="#themes" title="Chapter 3. Themes">Themes</a> chapter on how to create a custom theme.
 		</p><section class="section" id="registration_page"><div class="titlepage"><div><div><h2 class="title">4.1. Registration Page</h2></div></div></div><p>
 				To be able to enter custom attributes in the registration page copy the template <code class="literal">themes/base/login/register.ftl</code> to the login type of your custom theme. Then open the copy in an editor.
@@ -316,7 +324,7 @@ Authorization: Bearer &lt;KEYCLOAK ACCESS TOKEN&gt;</pre><p>
 						</dd><dt><span class="term">nonce</span></dt><dd>
 							This is a random string that your application must generate
 						</dd><dt><span class="term">hash</span></dt><dd>
-							This is a Base64 URL encoded hash. This hash is generated by Base64 URL encoding a SHA_256 hash of <code class="literal">nonce</code> + <code class="literal">token.getSessionState()</code> + <code class="literal">token.getIssuedFor()</code> + <code class="literal">provider</code> The token variable are obtained from the OIDC access token. Basically you are hashing the random nonce, the user session id, the client id, and the identity provider alias you want to access.
+							This is a Base64 URL encoded hash. This hash is generated by Base64 URL encoding a SHA_256 hash of <code class="literal">nonce</code> + <code class="literal">token.getSessionState()</code> + <code class="literal">token.getIssuedFor()</code> + <code class="literal">provider</code>. The token variable are obtained from the OIDC access token. Basically you are hashing the random nonce, the user session id, the client id, and the identity provider alias you want to access.
 						</dd></dl></div><p>
 				Here’s an example of Java Servlet code that generates the URL to establish the account link.
 			</p><pre class="programlisting language-java">   KeycloakSecurityContext session = (KeycloakSecurityContext) httpServletRequest.getAttribute(KeycloakSecurityContext.class.getName());
@@ -347,7 +355,200 @@ Authorization: Bearer &lt;KEYCLOAK ACCESS TOKEN&gt;</pre><p>
 					While this API guarantees that the application initiated the request, it does not completely prevent CSRF attacks for this operation. The application is still responsible for guarding against CSRF attacks target at itself.
 				</p></div></div><section class="section" id="refreshing_external_tokens"><div class="titlepage"><div><div><h3 class="title">5.2.1. Refreshing External Tokens</h3></div></div></div><p>
 					If you are using the external token generated by logging into the provider (i.e. a Facebook or GitHub token), you can refresh this token by re-initiating the account linking API.
-				</p></section></section></section><section class="chapter" id="user-storage-spi"><div class="titlepage"><div><div><h1 class="title">Chapter 6. User Storage SPI</h1></div></div></div><p>
+				</p></section></section></section><section class="chapter" id="providers"><div class="titlepage"><div><div><h1 class="title">Chapter 6. Service Provider Interfaces (SPI)</h1></div></div></div><p>
+			Red Hat Single Sign-On is designed to cover most use-cases without requiring custom code, but we also want it to be customizable. To achieve this Red Hat Single Sign-On has a number of Service Provider Interfaces (SPI) for which you can implement your own providers.
+		</p><section class="section" id="implementing_a_spi"><div class="titlepage"><div><div><h2 class="title">6.1. Implementing a SPI</h2></div></div></div><p>
+				To implement an SPI you need to implement its ProviderFactory and Provider interfaces. You also need to create a service configuration file.
+			</p><p>
+				For example, to implement the Theme Selector Spi you need to implement ThemeSelectorProviderFactory and ThemeSelectorProvider and also provide the file <code class="literal">META-INF/services/org.keycloak.theme.ThemeSelectorProviderFactory</code>.
+			</p><p>
+				Example ThemeSelectorProviderFactory:
+			</p><pre class="programlisting language-java">package org.acme.provider;
+
+import ...
+
+public class MyThemeSelectorProviderFactory implements ThemeSelectorProviderFactory {
+
+      @Override
+        public ThemeSelectorProvider create(KeycloakSession session) {
+            return new MyThemeSelectorProvider(session);
+        }
+
+        @Override
+        public void init(Config.Scope config) {
+        }
+
+        @Override
+        public void postInit(KeycloakSessionFactory factory) {
+        }
+
+        @Override
+        public void close() {
+        }
+
+        @Override
+        public String getId() {
+            return "myThemeSelector";
+        }
+}</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+					Keycloak creates a single instance of provider factories which makes it possible to store state for multiple requests. Provider instances are created by calling create on the factory for each requests so these should be light-weight object.
+				</p></div></div><p>
+				Example ThemeSelectorProvider:
+			</p><pre class="programlisting language-java">package org.acme.provider;
+
+import ...
+
+public class MyThemeSelectorProvider implements EventListenerProvider {
+
+    public MyThemeSelectorProvider(KeycloakSession session) {
+    }
+
+
+    @Override
+    public String getThemeName(Theme.Type type) {
+        return "my-theme";
+    }
+}</pre><p>
+				Example service configuration file (<code class="literal">META-INF/services/org.keycloak.theme.ThemeSelectorProviderFactory</code>):
+			</p><pre class="screen">org.acme.provider.MyThemeSelectorProviderFactory</pre><p>
+				You can configure your provider through <code class="literal">standalone.xml</code>, <code class="literal">standalone-ha.xml</code>, or <code class="literal">domain.xml</code>. See the <a class="link" href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.3/html-single/server_installation_and_configuration_guide/">Server Installation and Configuration Guide</a> for more details on where the <code class="literal">standalone.xml</code>, <code class="literal">standalone-ha.xml</code>, or <code class="literal">domain.xml</code> file lives.
+			</p><p>
+				For example by adding the following to <code class="literal">standalone.xml</code>:
+			</p><pre class="programlisting language-xml">&lt;spi name="themeSelector"&gt;
+    &lt;provider name="myThemeSelector" enabled="true"&gt;
+        &lt;properties&gt;
+            &lt;property name="theme" value="my-theme"/&gt;
+        &lt;/properties&gt;
+    &lt;/provider&gt;
+&lt;/spi&gt;</pre><p>
+				Then you can retrieve the config in the <code class="literal">ProviderFactory</code> init method:
+			</p><pre class="programlisting language-java">public void init(Config.Scope config) {
+    String themeName = config.get("theme");
+}</pre><p>
+				Your provider can also lookup other providers if needed. For example:
+			</p><pre class="programlisting language-java">public class MyThemeSelectorProvider implements EventListenerProvider {
+
+    private KeycloakSession session;
+
+    public MyThemeSelectorProvider(KeycloakSession session) {
+        this.session = session;
+    }
+
+    @Override
+    public String getThemeName(Theme.Type type) {
+        return session.getContext().getRealm().getLoginTheme();
+    }
+}</pre><section class="section" id="providers_admin_console"><div class="titlepage"><div><div><h3 class="title">6.1.1. Show info from your SPI implementation in admin console</h3></div></div></div><p>
+					Sometimes it is useful to show additional info about your Provider to a Red Hat Single Sign-On administrator. You can show provider build time informations (eg. version of custom provider currently installed), current configuration of the provider (eg. url of remote system your provider talks to) or some operational info (average time of response from remote system your provider talks to). Red Hat Single Sign-On admin console provides Server Info page to show this kind of information.
+				</p><p>
+					To show info from your provider it is enough to implement <code class="literal">org.keycloak.provider.ServerInfoAwareProviderFactory</code> interface in your <code class="literal">ProviderFactory</code>.
+				</p><p>
+					Example implementation for <code class="literal">MyThemeSelectorProviderFactory</code> from previous example:
+				</p><pre class="programlisting language-java">package org.acme.provider;
+
+import ...
+
+public class MyThemeSelectorProvider implements ThemeSelectorProvider, ServerInfoAwareProviderFactory {
+    ...
+
+    @Override
+    public Map&lt;String, String&gt; getOperationalInfo() {
+        Map&lt;String, String&gt; ret = new LinkedHashMap&lt;&gt;();
+        ret.put("theme-name", "my-theme");
+        return ret;
+    }
+}</pre></section></section><section class="section" id="registering_provider_implementations"><div class="titlepage"><div><div><h2 class="title">6.2. Registering provider implementations</h2></div></div></div><p>
+				There are two ways to register provider implementations. In most cases the simplest way is to use the Red Hat Single Sign-On deployer approach as this handles a number of dependencies automatically for you. It also supports hot deployment as well as re-deployment.
+			</p><p>
+				The alternative approach is to deploy as a module.
+			</p><p>
+				If you are creating a custom SPI you will need to deploy it as a module, otherwise we recommend using the Red Hat Single Sign-On deployer approach.
+			</p><section class="section" id="using_the_red_hat_single_sign_on_deployer_deployer"><div class="titlepage"><div><div><h3 class="title">6.2.1. Using the Red Hat Single Sign-On deployer Deployer</h3></div></div></div><p>
+					If you copy your provider jar to the Red Hat Single Sign-On deployer <code class="literal">deploy/</code> directory, your provider will automatically be deployed. Hot deployment works too. Additionally, your provider jar works similarly to other components deployed in a JBoss EAP environment in that they can use facilities like the <code class="literal">jboss-deployment-structure.xml</code> file. This file allows you to set up dependencies on other components and load third-party jars and modules.
+				</p><p>
+					Provider jars can also be contained within other deployable units like EARs and WARs. Deploying with a EAR actually makes it really easy to use third party jars as you can just put these libraries in the EAR’s <code class="literal">lib/</code> directory.
+				</p></section><section class="section" id="register_a_provider_using_modules"><div class="titlepage"><div><div><h3 class="title">6.2.2. Register a provider using Modules</h3></div></div></div><p>
+					To register a provider using Modules first create a module. To do this you can either use the jboss-cli script or manually create a folder inside <code class="literal">KEYCLOAK_HOME/modules</code> and add your jar and a <code class="literal">module.xml</code>. For example to add the event listener sysout example provider using the <code class="literal">jboss-cli</code> script execute:
+				</p><pre class="screen">KEYCLOAK_HOME/bin/jboss-cli.sh --command="module add --name=org.acme.provider --resources=target/provider.jar --dependencies=org.keycloak.keycloak-core,org.keycloak.keycloak-server-spi"</pre><p>
+					Or to manually create it start by creating the folder <code class="literal">KEYCLOAK_HOME/modules/org/acme/provider/main</code>. Then copy <code class="literal">provider.jar</code> to this folder and create <code class="literal">module.xml</code> with the following content:
+				</p><pre class="screen">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;module xmlns="urn:jboss:module:1.3" name="org.acme.provider"&gt;
+    &lt;resources&gt;
+        &lt;resource-root path="provider.jar"/&gt;
+    &lt;/resources&gt;
+    &lt;dependencies&gt;
+        &lt;module name="org.keycloak.keycloak-core"/&gt;
+        &lt;module name="org.keycloak.keycloak-server-spi"/&gt;
+    &lt;/dependencies&gt;
+&lt;/module&gt;</pre><p>
+					Once you’ve created the module you need to register this module with Red Hat Single Sign-On. This is done by editing the keycloak-server subsystem section of <code class="literal">standalone.xml</code>, <code class="literal">standalone-ha.xml</code>, or <code class="literal">domain.xml</code>, and adding it to the providers:
+				</p><pre class="programlisting language-xml">&lt;subsystem xmlns="urn:jboss:domain:keycloak-server:1.1"&gt;
+    &lt;web-context&gt;auth&lt;/web-context&gt;
+    &lt;providers&gt;
+        &lt;provider&gt;module:org.keycloak.examples.event-sysout&lt;/provider&gt;
+    &lt;/providers&gt;
+    ...</pre></section><section class="section" id="disabling_a_provider"><div class="titlepage"><div><div><h3 class="title">6.2.3. Disabling a provider</h3></div></div></div><p>
+					You can disable a provider by setting the enabled attribute for the provider to false in <code class="literal">standalone.xml</code>, <code class="literal">standalone-ha.xml</code>, or <code class="literal">domain.xml</code>. For example to disable the Infinispan user cache provider add:
+				</p><pre class="programlisting language-xml">&lt;spi name="userCache"&gt;
+    &lt;provider name="infinispan" enabled="false"/&gt;
+&lt;/spi&gt;</pre></section></section><section class="section" id="leveraging_java_ee"><div class="titlepage"><div><div><h2 class="title">6.3. Leveraging Java EE</h2></div></div></div><p>
+				The service providers can be packaged within any Java EE component so long as you set up the <code class="literal">META-INF/services</code> file correctly to point to your providers. For example, if your provider needs to use third party libraries, you can package up your provider within an ear and store these third pary libraries in the ear’s <code class="literal">lib/</code> directory. Also note that provider jars can make use of the <code class="literal">jboss-deployment-structure.xml</code> file that EJBs, WARS, and EARs can use in a JBoss EAP environment. See the JBoss EAP documentation for more details on this file. It allows you to pull in external dependencies among other fine grain actions.
+			</p><p>
+				<code class="literal">ProviderFactory</code> implementations are required to be plain java objects. But, we also currently support implementing provider classes as Stateful EJBs. This is how you would do it:
+			</p><pre class="programlisting language-java">@Stateful
+@Local(EjbExampleUserStorageProvider.class)
+public class EjbExampleUserStorageProvider implements UserStorageProvider,
+        UserLookupProvider,
+        UserRegistrationProvider,
+        UserQueryProvider,
+        CredentialInputUpdater,
+        CredentialInputValidator,
+        OnUserCache
+{
+    @PersistenceContext
+    protected EntityManager em;
+
+    protected ComponentModel model;
+    protected KeycloakSession session;
+
+    public void setModel(ComponentModel model) {
+        this.model = model;
+    }
+
+    public void setSession(KeycloakSession session) {
+        this.session = session;
+    }
+
+
+    @Remove
+    @Override
+    public void close() {
+    }
+...
+}</pre><p>
+				You have to define the <code class="literal">@Local</code> annotation and specify your provider class there. If you don’t do this, EJB will not proxy the provider instance correctly and your provider won’t work.
+			</p><p>
+				You must put the <code class="literal">@Remove</code> annotation on the <code class="literal">close()</code> method of your provider. If you don’t, the stateful bean will never be cleaned up and you may eventually see error messages.
+			</p><p>
+				Implementations of <code class="literal">ProviderFactory</code> are required to be plain java objects. Your factory class would perform a JNDI lookup of the Stateful EJB in its create() method.
+			</p><pre class="programlisting language-java">public class EjbExampleUserStorageProviderFactory
+        implements UserStorageProviderFactory&lt;EjbExampleUserStorageProvider&gt; {
+
+    @Override
+    public EjbExampleUserStorageProvider create(KeycloakSession session, ComponentModel model) {
+        try {
+            InitialContext ctx = new InitialContext();
+            EjbExampleUserStorageProvider provider = (EjbExampleUserStorageProvider)ctx.lookup(
+                     "java:global/user-storage-jpa-example/" + EjbExampleUserStorageProvider.class.getSimpleName());
+            provider.setModel(model);
+            provider.setSession(session);
+            return provider;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }</pre></section><section class="section" id="available_spis"><div class="titlepage"><div><div><h2 class="title">6.4. Available SPIs</h2></div></div></div><p>
+				If you want to see list of all available SPIs at runtime, you can check <code class="literal">Server Info</code> page in admin console as described in <a class="link" href="#providers_admin_console" title="6.1.1. Show info from your SPI implementation in admin console">Admin Console</a> section.
+			</p></section></section><section class="chapter" id="user-storage-spi"><div class="titlepage"><div><div><h1 class="title">Chapter 7. User Storage SPI</h1></div></div></div><p>
 			You can use the User Storage SPI to write extensions to Red Hat Single Sign-On to connect to external user databases and credential stores. The built-in LDAP and ActiveDirectory support is an implementation of this SPI in action. Out of the box, Red Hat Single Sign-On uses its local database to create, update, and look up users and validation credentials. Often though, organizations have existing external proprietary user databases that they cannot migrate to Red Hat Single Sign-On’s data model. For those situations, application developers can write implementations of the User Storage SPI to bridge the external user store and the internal user object model that Red Hat Single Sign-On uses to log in users and manage them.
 		</p><p>
 			When the Red Hat Single Sign-On runtime needs to look up a user, such as when a user is logging in, it performs a number of steps to locate the user. It first looks to see if the user is in the user cache; if the user is found it uses that in-memory representation. Then it looks for the user within the Red Hat Single Sign-On local database. If the user is not found, it then loops through User Storage SPI provider implementations to perform the user query until one of them returns the user the runtime is looking for. The provider queries the external user store for the user and maps the external data representation of the user to Red Hat Single Sign-On’s user metamodel.
@@ -355,7 +556,7 @@ Authorization: Bearer &lt;KEYCLOAK ACCESS TOKEN&gt;</pre><p>
 			User Storage SPI provider implementations can also perform complex criteria queries, perform CRUD operations on users, validate and manage credentials, or perform bulk updates of many users at once. It depends on the capabilities of the external store.
 		</p><p>
 			User Storage SPI provider implementations are packaged and deployed similarly to (and often are) Java EE components. They are not enabled by default, but instead must be enabled and configured per realm under the <code class="literal">User Federation</code> tab in the administration console.
-		</p><section class="section" id="provider_interfaces"><div class="titlepage"><div><div><h2 class="title">6.1. Provider Interfaces</h2></div></div></div><p>
+		</p><section class="section" id="provider_interfaces"><div class="titlepage"><div><div><h2 class="title">7.1. Provider Interfaces</h2></div></div></div><p>
 				When building an implementation of the User Storage SPI you have to define a provider class and a provider factory. Provider class instances are created per transaction by provider factories. Provider classes do all the heavy lifting of user lookup and other user operations. They must implement the <code class="literal">org.keycloak.storage.UserStorageProvider</code> interface.
 			</p><pre class="programlisting language-java">package org.keycloak.storage;
 
@@ -440,7 +641,7 @@ public interface UserStorageProviderFactory&lt;T extends UserStorageProvider&gt;
 				The <code class="literal">create()</code> method is responsible for allocating an instance of the provider class. It takes a <code class="literal">org.keycloak.models.KeycloakSession</code> parameter. This object can be used to lookup other information and metadata as well as provide access to various other components within the runtime. The <code class="literal">ComponentModel</code> parameter represents how the provider was enabled and configured within a specific realm. It contains the instance id of the enabled provider as well as any configuration you may have specified for it when you enabled through the admin console.
 			</p><p>
 				The <code class="literal">UserStorageProviderFactory</code> has other capabilities as well which we will go over later in this chapter.
-			</p></section><section class="section" id="provider_capability_interfaces"><div class="titlepage"><div><div><h2 class="title">6.2. Provider Capability Interfaces</h2></div></div></div><p>
+			</p></section><section class="section" id="provider_capability_interfaces"><div class="titlepage"><div><div><h2 class="title">7.2. Provider Capability Interfaces</h2></div></div></div><p>
 				If you have examined the <code class="literal">UserStorageProvider</code> interface closely you might notice that it does not define any methods for locating or managing users. These methods are actually defined in other <span class="emphasis"><em>capability interfaces</em></span> depending on what scope of capabilities your external user store can provide and execute on. For example, some external stores are read-only and can only do simple queries and credential validation. You will only be required to implement the <span class="emphasis"><em>capability interfaces</em></span> for the features you are able to. You can implement these interfaces:
 			</p><div class="informaltable"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th style="text-align: left; vertical-align: top; ">SPI</th><th style="text-align: left; vertical-align: top; ">Description</th></tr></thead><tbody><tr><td style="text-align: left; vertical-align: top; ">
 							<p>
@@ -490,7 +691,7 @@ public interface UserStorageProviderFactory&lt;T extends UserStorageProvider&gt;
 							<p>
 								Implement this interface if your provider supports updating one or more different credential types.
 							</p>
-							</td></tr></tbody></table></div></section><section class="section" id="model_interfaces"><div class="titlepage"><div><div><h2 class="title">6.3. Model Interfaces</h2></div></div></div><p>
+							</td></tr></tbody></table></div></section><section class="section" id="model_interfaces"><div class="titlepage"><div><div><h2 class="title">7.3. Model Interfaces</h2></div></div></div><p>
 				Most of the methods defined in the <span class="emphasis"><em>capability</em></span> <span class="emphasis"><em>interfaces</em></span> either return or are passed in representations of a user. These representations are defined by the <code class="literal">org.keycloak.models.UserModel</code> interface. App developers are required to implement this interface. It provides a mapping between the external user store and the user metamodel that Red Hat Single Sign-On uses.
 			</p><pre class="programlisting language-java">package org.keycloak.models;
 
@@ -513,24 +714,24 @@ public interface UserModel extends RoleMapperModel {
 				<code class="literal">UserModel</code> implementations provide access to read and update metadata about the user including things like username, name, email, role and group mappings, as well as other arbitrary attributes.
 			</p><p>
 				There are other model classes within the <code class="literal">org.keycloak.models</code> package that represent other parts of the Red Hat Single Sign-On metamodel: <code class="literal">RealmModel</code>, <code class="literal">RoleModel</code>, <code class="literal">GroupModel</code>, and <code class="literal">ClientModel</code>.
-			</p><section class="section" id="storage_ids"><div class="titlepage"><div><div><h3 class="title">6.3.1. Storage Ids</h3></div></div></div><p>
+			</p><section class="section" id="storage_ids"><div class="titlepage"><div><div><h3 class="title">7.3.1. Storage Ids</h3></div></div></div><p>
 					One important method of <code class="literal">UserModel</code> is the <code class="literal">getId()</code> method. When implementing <code class="literal">UserModel</code> developers must be aware of the user id format. The format must be:
 				</p><pre class="screen">"f:" + component id + ":" + external id</pre><p>
 					The Red Hat Single Sign-On runtime often has to look up users by their user id. The user id contains enough information so that the runtime does not have to query every single <code class="literal">UserStorageProvider</code> in the system to find the user.
 				</p><p>
 					The component id is the id returned from <code class="literal">ComponentModel.getId()</code>. The <code class="literal">ComponentModel</code> is passed in as a parameter when creating the provider class so you can get it from there. The external id is information your provider class needs to find the user in the external store. This is often a username or a uid. For example, it might look something like this:
 				</p><pre class="screen">f:332a234e31234:wburke</pre><p>
-					When the runtime does a lookup by id, the id is parsed to obtain the component id. The component id is used to locate the <code class="literal">UserStorageProvider</code> that was originally used to load the user. That provider is then passed the id. The provider again parses the id to obtain the external id it will use to locate the user in external user storage.
-				</p></section></section><section class="section" id="packaging_and_deployment"><div class="titlepage"><div><div><h2 class="title">6.4. Packaging and Deployment</h2></div></div></div><p>
+					When the runtime does a lookup by id, the id is parsed to obtain the component id. The component id is used to locate the <code class="literal">UserStorageProvider</code> that was originally used to load the user. That provider is then passed the id. The provider again parses the id to obtain the external id and it will use to locate the user in external user storage.
+				</p></section></section><section class="section" id="packaging_and_deployment"><div class="titlepage"><div><div><h2 class="title">7.4. Packaging and Deployment</h2></div></div></div><p>
 				User Storage providers are packaged in a JAR and deployed or undeployed to the Red Hat Single Sign-On runtime in the same way you would deploy something in the JBoss EAP application server. You can either copy the JAR directly to the <code class="literal">deploy/</code> directory of the server, or use the JBoss CLI to execute the deployment.
 			</p><p>
 				In order for Red Hat Single Sign-On to recognize the provider, you need to add a file to the JAR: <code class="literal">META-INF/services/org.keycloak.storage.UserStorageProviderFactory</code>. This file must contain a line-separated list of fully qualified classnames of the <code class="literal">UserStorageProviderFactory</code> implementations:
 			</p><pre class="screen">org.keycloak.examples.federation.properties.ClasspathPropertiesStorageFactory
 org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p>
 				Red Hat Single Sign-On supports hot deployment of these provider JARs. You’ll also see later in this chapter that you can package it within and as Java EE components.
-			</p></section><section class="section" id="simple_read_only_lookup_example"><div class="titlepage"><div><div><h2 class="title">6.5. Simple Read-Only, Lookup Example</h2></div></div></div><p>
+			</p></section><section class="section" id="simple_read_only_lookup_example"><div class="titlepage"><div><div><h2 class="title">7.5. Simple Read-Only, Lookup Example</h2></div></div></div><p>
 				To illustrate the basics of implementing the User Storage SPI let’s walk through a simple example. In this chapter you’ll see the implementation of a simple <code class="literal">UserStorageProvider</code> that looks up users in a simple property file. The property file contains username and password definitions and is hardcoded to a specific location on the classpath. The provider will be able to look up the user by ID and username and also be able to validate passwords. Users that originate from this provider will be read-only.
-			</p><section class="section" id="provider_class"><div class="titlepage"><div><div><h3 class="title">6.5.1. Provider Class</h3></div></div></div><p>
+			</p><section class="section" id="provider_class"><div class="titlepage"><div><div><h3 class="title">7.5.1. Provider Class</h3></div></div></div><p>
 					The first thing we will walk through is the <code class="literal">UserStorageProvider</code> class.
 				</p><pre class="programlisting language-java">public class PropertyFileUserStorageProvider implements
         UserStorageProvider,
@@ -553,7 +754,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
         this.properties = properties;
     }</pre><p>
 					The constructor for this provider class is going to store the reference to the <code class="literal">KeycloakSession</code>, <code class="literal">ComponentModel</code>, and property file. We’ll use all of these later. Also notice that there is a map of loaded users. Whenever we find a user we will store it in this map so that we avoid re-creating it again within the same transaction. This is a good practice to follow as many providers will need to do this (that is, any provider that integrates with JPA). Remember also that provider class instances are created once per transaction and are closed after the transaction completes.
-				</p><section class="section" id="userlookupprovider_implementation"><div class="titlepage"><div><div><h4 class="title">6.5.1.1. UserLookupProvider Implementation</h4></div></div></div><pre class="programlisting language-java">    @Override
+				</p><section class="section" id="userlookupprovider_implementation"><div class="titlepage"><div><div><h4 class="title">7.5.1.1. UserLookupProvider Implementation</h4></div></div></div><pre class="programlisting language-java">    @Override
     public UserModel getUserByUsername(String username, RealmModel realm) {
         UserModel adapter = loadedUsers.get(username);
         if (adapter == null) {
@@ -595,7 +796,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
 						The <code class="literal">getUserById()</code> method parses the <code class="literal">id</code> parameter using the <code class="literal">org.keycloak.storage.StorageId' helper class. The `StorageId.getExternalId()</code> method is invoked to obtain the username embeded in the <code class="literal">id</code> parameter. The method then delegates to <code class="literal">getUserByUsername()</code>.
 					</p><p>
 						Emails are not stored, so the <code class="literal">getUserByEmail()</code> method returns null.
-					</p></section><section class="section" id="credentialinputvalidator_implementation"><div class="titlepage"><div><div><h4 class="title">6.5.1.2. CredentialInputValidator Implementation</h4></div></div></div><p>
+					</p></section><section class="section" id="credentialinputvalidator_implementation"><div class="titlepage"><div><div><h4 class="title">7.5.1.2. CredentialInputValidator Implementation</h4></div></div></div><p>
 						Next let’s look at the method implementations for <code class="literal">CredentialInputValidator</code>.
 					</p><pre class="programlisting language-java">    @Override
     public boolean isConfiguredFor(RealmModel realm, UserModel user, String credentialType) {
@@ -622,7 +823,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
 						The <code class="literal">supportsCredentialType()</code> method returns whether validation is supported for a specific credential type. We check to see if the credential type is <code class="literal">password</code>.
 					</p><p>
 						The <code class="literal">isValid()</code> method is responsible for validating passwords. The <code class="literal">CredentialInput</code> parameter is really just an abstract interface for all credential types. We make sure that we support the credential type and also that it is an instance of <code class="literal">UserCredentialModel</code>. When a user logs in through the login page, the plain text of the password input is put into an instance of <code class="literal">UserCredentialModel</code>. The <code class="literal">isValid()</code> method checks this value against the plain text password stored in the properties file. A return value of <code class="literal">true</code> means the password is valid.
-					</p></section><section class="section" id="credentialinputupdater_implementation"><div class="titlepage"><div><div><h4 class="title">6.5.1.3. CredentialInputUpdater Implementation</h4></div></div></div><p>
+					</p></section><section class="section" id="credentialinputupdater_implementation"><div class="titlepage"><div><div><h4 class="title">7.5.1.3. CredentialInputUpdater Implementation</h4></div></div></div><p>
 						As noted before, the only reason we implement the <code class="literal">CredentialInputUpdater</code> interface in this example is to forbid modifications of user passwords. The reason we have to do this is because otherwise the runtime would allow the password to be overriden in Red Hat Single Sign-On local storage. We’ll talk more about this later in this chapter.
 					</p><pre class="programlisting language-java">    @Override
     public boolean updateCredential(RealmModel realm, UserModel user, CredentialInput input) {
@@ -641,7 +842,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
         return Collections.EMPTY_SET;
     }</pre><p>
 						The <code class="literal">updateCredential()</code> method just checks to see if the credential type is password. If it is, a <code class="literal">ReadOnlyException</code> is thrown.
-					</p></section></section><section class="section" id="provider_factory_implementation"><div class="titlepage"><div><div><h3 class="title">6.5.2. Provider Factory Implementation</h3></div></div></div><p>
+					</p></section></section><section class="section" id="provider_factory_implementation"><div class="titlepage"><div><div><h3 class="title">7.5.2. Provider Factory Implementation</h3></div></div></div><p>
 					Now that the provider class is complete, we now turn our attention to the provider factory class.
 				</p><pre class="programlisting language-java">public class PropertyFileUserStorageProviderFactory
                  implements UserStorageProviderFactory&lt;PropertyFileUserStorageProvider&gt; {
@@ -657,7 +858,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
 						If you do not specify the template parameter, your provider will not function. The runtime does class introspection to determine the <span class="emphasis"><em>capability interfaces</em></span> that the provider implements.
 					</p></div></div><p>
 					The <code class="literal">getId()</code> method identifies the factory in the runtime and will also be the string shown in the admin console when you want to enable a user storage provider for the realm.
-				</p><section class="section" id="initialization"><div class="titlepage"><div><div><h4 class="title">6.5.2.1. Initialization</h4></div></div></div><pre class="programlisting language-java">    private static final Logger logger = Logger.getLogger(PropertyFileUserStorageProviderFactory.class);
+				</p><section class="section" id="initialization"><div class="titlepage"><div><div><h4 class="title">7.5.2.1. Initialization</h4></div></div></div><pre class="programlisting language-java">    private static final Logger logger = Logger.getLogger(PropertyFileUserStorageProviderFactory.class);
     protected Properties properties = new Properties();
 
     @Override
@@ -699,18 +900,18 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
     InputStream is = getClass().getClassLoader().getResourceAsStream(path);
 
     ...
-}</pre></section><section class="section" id="create_method"><div class="titlepage"><div><div><h4 class="title">6.5.2.2. Create Method</h4></div></div></div><p>
+}</pre></section><section class="section" id="create_method"><div class="titlepage"><div><div><h4 class="title">7.5.2.2. Create Method</h4></div></div></div><p>
 						Our last step in creating the provider factory is the <code class="literal">create()</code> method.
 					</p><pre class="programlisting language-java">    @Override
     public PropertyFileUserStorageProvider create(KeycloakSession session, ComponentModel model) {
         return new PropertyFileUserStorageProvider(session, model, properties);
     }</pre><p>
 						We simply allocate the <code class="literal">PropertyFileUserStorageProvider</code> class. This create method will be called once per transaction.
-					</p></section></section><section class="section" id="packaging_and_deployment_2"><div class="titlepage"><div><div><h3 class="title">6.5.3. Packaging and Deployment</h3></div></div></div><p>
+					</p></section></section><section class="section" id="packaging_and_deployment_2"><div class="titlepage"><div><div><h3 class="title">7.5.3. Packaging and Deployment</h3></div></div></div><p>
 					The class files for our provider implementation should be placed in a jar. You also have to declare the provider factory class within the <code class="literal">META-INF/services/org.keycloak.storage.UserStorageProviderFactory</code> file.
 				</p><pre class="screen">org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p>
 					Once you create the jar you can deploy it using regular JBoss EAP means: copy the jar into the <code class="literal">deploy/</code> directory or using the JBoss CLI.
-				</p></section><section class="section" id="enabling_the_provider_in_the_administration_console"><div class="titlepage"><div><div><h3 class="title">6.5.4. Enabling the Provider in the Administration Console</h3></div></div></div><p>
+				</p></section><section class="section" id="enabling_the_provider_in_the_administration_console"><div class="titlepage"><div><div><h3 class="title">7.5.4. Enabling the Provider in the Administration Console</h3></div></div></div><p>
 					You enable user storage providers per realm within the <code class="literal">User Federation</code> page in the administration console.
 				</p><p>
 					Select the provider we just created from the list: <code class="literal">readonly-property-file</code>. It brings you to the configuration page for our provider. We do not have anything to configure, so click <span class="strong strong"><strong>Save</strong></span>.
@@ -718,7 +919,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
 					When you go back to the main <code class="literal">User Federation</code> page, you now see your provider listed.
 				</p><p>
 					You will now be able to log in with a user declared in the <code class="literal">users.properties</code> file. This user will only be able to view the account page after logging in.
-				</p></section></section><section class="section" id="configuration_techniques"><div class="titlepage"><div><div><h2 class="title">6.6. Configuration Techniques</h2></div></div></div><p>
+				</p></section></section><section class="section" id="configuration_techniques"><div class="titlepage"><div><div><h2 class="title">7.6. Configuration Techniques</h2></div></div></div><p>
 				Our <code class="literal">PropertyFileUserStorageProvider</code> example is bit contrived. It is hardcoded to a property file that is embedded in the jar of the provider. Not very useful at all. We might want to make the location of this file configurable per instance of the provider. In other words, we might want to reuse this provider mulitple times in multiple different realms and point to completely different user property files. We’ll also want to perform this configuration within the administration console UI.
 			</p><p>
 				The <code class="literal">UserStorageProviderFactory</code> has additional methods you can implement that handle provider configuration. You describe the variables you want to configure per provider and the administration console automatically renders a generic input page to gather this configuration. When implemented, callback methods also validate the configuration before it is saved, when a provider is created for the first time, and when it is updated. <code class="literal">UserStorageProviderFactory</code> inherits these methods from the <code class="literal">org.keycloak.component.ComponentFactory</code> interface.
@@ -741,7 +942,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
 
     }</pre><p>
 				The <code class="literal">ComponentFactory.getConfigProperties()</code> method returns a list of <code class="literal">org.keycloak.provider.ProviderConfigProperty</code> instances. These instances declare metadata that is needed to render and store each configuration variable of the provider.
-			</p><section class="section" id="configuration_example"><div class="titlepage"><div><div><h3 class="title">6.6.1. Configuration Example</h3></div></div></div><p>
+			</p><section class="section" id="configuration_example"><div class="titlepage"><div><div><h3 class="title">7.6.1. Configuration Example</h3></div></div></div><p>
 					Let’s expand our <code class="literal">PropertyFileUserStorageProviderFactory</code> example to allow you to point a provider instance to a specific file on disk.
 				</p><div class="formalpara"><p class="title"><strong>PropertyFileUserStorageProviderFactory</strong></p><p>
 						
@@ -798,11 +999,11 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
         return new PropertyFileUserStorageProvider(session, model, props);
     }</pre><p>
 					This logic is, of course, inefficient as every transaction reads the entire user property file from disk, but hopefully this illustrates, in a simple way, how to hook in configuration variables.
-				</p></section><section class="section" id="configuring_the_provider_in_the_administration_console"><div class="titlepage"><div><div><h3 class="title">6.6.2. Configuring the Provider in the Administration Console</h3></div></div></div><p>
+				</p></section><section class="section" id="configuring_the_provider_in_the_administration_console"><div class="titlepage"><div><div><h3 class="title">7.6.2. Configuring the Provider in the Administration Console</h3></div></div></div><p>
 					Now that the configuration is enabled, you can set the <code class="literal">path</code> variable when you configure the provider in the administration console.
-				</p></section></section><section class="section" id="add_remove_user_and_query_capability_interfaces"><div class="titlepage"><div><div><h2 class="title">6.7. Add/Remove User and Query Capability interfaces</h2></div></div></div><p>
+				</p></section></section><section class="section" id="add_remove_user_and_query_capability_interfaces"><div class="titlepage"><div><div><h2 class="title">7.7. Add/Remove User and Query Capability interfaces</h2></div></div></div><p>
 				One thing we have not done with our example is allow it to add and remove users or change passwords. Users defined in our example are also not queryable or viewable in the administration console. To add these enhancements, our example provider must implement the <code class="literal">UserQueryProvider</code> and <code class="literal">UserRegistrationProvider</code> interfaces.
-			</p><section class="section" id="implementing_userregistrationprovider"><div class="titlepage"><div><div><h3 class="title">6.7.1. Implementing UserRegistrationProvider</h3></div></div></div><p>
+			</p><section class="section" id="implementing_userregistrationprovider"><div class="titlepage"><div><div><h3 class="title">7.7.1. Implementing UserRegistrationProvider</h3></div></div></div><p>
 					To implement adding and removing users from this particular store, we first have to be able to save our properties file to disk.
 				</p><div class="formalpara"><p class="title"><strong>PropertyFileUserStorageProvider</strong></p><p>
 						
@@ -897,7 +1098,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
     }</pre>
 					</p></div><p>
 					With these methods implemented, you’ll now be able to change and disable the password for the user in the administration console.
-				</p></section><section class="section" id="implementing_userqueryprovider"><div class="titlepage"><div><div><h3 class="title">6.7.2. Implementing UserQueryProvider</h3></div></div></div><p>
+				</p></section><section class="section" id="implementing_userqueryprovider"><div class="titlepage"><div><div><h3 class="title">7.7.2. Implementing UserQueryProvider</h3></div></div></div><p>
 					Without implementing <code class="literal">UserQueryProvider</code> the administration console would not be able to view and manage users that were loaded by our example provider. Let’s look at implementing this interface.
 				</p><div class="formalpara"><p class="title"><strong>PropertyFileUserStorageProvider</strong></p><p>
 						
@@ -983,7 +1184,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre><p
     }</pre>
 					</p></div><p>
 					We do not store groups or attributes, so the other methods return an empty list.
-				</p></section></section><section class="section" id="augmenting_external_storage"><div class="titlepage"><div><div><h2 class="title">6.8. Augmenting External Storage</h2></div></div></div><p>
+				</p></section></section><section class="section" id="augmenting_external_storage"><div class="titlepage"><div><div><h2 class="title">7.8. Augmenting External Storage</h2></div></div></div><p>
 				The <code class="literal">PropertyProfileUserStorageProvider</code> example is really limited. While we will be able to login with users stored in a property file, we won’t be able to do much else. If users loaded by this provider need special role or group mappings to fully access particular applications there is no way for us to add additional role mappings to these users. You also can’t modify or add additional important attributes like email, first and last name.
 			</p><p>
 				For these types of situations, Red Hat Single Sign-On allows you to augment your external store by storing extra information in Red Hat Single Sign-On’s database. This is called federated user storage and is encapsulated within the <code class="literal">org.keycloak.storage.federated.UserFederatedStorageProvider</code> class.
@@ -1003,7 +1204,7 @@ public interface UserFederatedStorageProvider extends Provider {
 				The <code class="literal">UserFederatedStorageProvider</code> instance is available on the <code class="literal">KeycloakSession.userFederatedStorage()</code> method. It has all different kinds of methods for storing attributes, group and role mappings, different credential types, and required actions. If your external store’s datamodel cannot support the full Red Hat Single Sign-On feature set, then this service can fill in the gaps.
 			</p><p>
 				Red Hat Single Sign-On comes with a helper class <code class="literal">org.keycloak.storage.adapter.AbstractUserAdapterFederatedStorage</code> that will delegate every single <code class="literal">UserModel</code> method except get/set of username to user federated storage. Override the methods you need to override to delegate to your external storage representations. It is strongly suggested you read the javadoc of this class as it has smaller protected methods you may want to override. Specifically surrounding group membership and role mappings.
-			</p><section class="section" id="augmentation_example"><div class="titlepage"><div><div><h3 class="title">6.8.1. Augmentation Example</h3></div></div></div><p>
+			</p><section class="section" id="augmentation_example"><div class="titlepage"><div><div><h3 class="title">7.8.1. Augmentation Example</h3></div></div></div><p>
 					In our <code class="literal">PropertyFileUserStorageProvider</code> example, we just need a simple change to our provider to use the <code class="literal">AbstractUserAdapterFederatedStorage</code>.
 				</p><div class="formalpara"><p class="title"><strong>PropertyFileUserStorageProvider</strong></p><p>
 						
@@ -1026,7 +1227,7 @@ public interface UserFederatedStorageProvider extends Provider {
     }</pre>
 					</p></div><p>
 					We instead define an anonymous class implementation of <code class="literal">AbstractUserAdapterFederatedStorage</code>. The <code class="literal">setUsername()</code> method makes changes to the properties file and saves it.
-				</p></section></section><section class="section" id="import_implementation_strategy"><div class="titlepage"><div><div><h2 class="title">6.9. Import Implementation Strategy</h2></div></div></div><p>
+				</p></section></section><section class="section" id="import_implementation_strategy"><div class="titlepage"><div><div><h2 class="title">7.9. Import Implementation Strategy</h2></div></div></div><p>
 				When implementing a user storage provider, there’s another strategy you can take. Instead of using user federated storage, you can create a user locally in the Red Hat Single Sign-On built-in user database and copy attributes from your external store into this local copy. There are many advantages to this approach.
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 						Red Hat Single Sign-On basically becomes a persistence user cache for your external store. Once the user is imported you’ll no longer hit the external store thus taking load off of it.
@@ -1069,10 +1270,10 @@ public interface UserFederatedStorageProvider extends Provider {
 				</p></div></div><p>
 				Another thing to note is that if a local user is linked, your storage provider will still be delegated to for methods that it implements from the <code class="literal">CredentialInputValidator</code> and <code class="literal">CredentialInputUpdater</code> interfaces. Returning <code class="literal">false</code> from a validation or update will just result in Red Hat Single Sign-On seeing if it can validate or update using local storage.
 			</p><p>
-				Also notice that we are proxying the local user using the <code class="literal">org.keycloak.models.utils.UserModelDelegate' class. This class is an implementation of `UserModel</code>. Every method just delegates to the <code class="literal">UserModel</code> it was instantiated with. We override the <code class="literal">setUsername()</code> method of this delegate class to synchronize automatically with the property file. For your providers, you can use this to <span class="emphasis"><em>intercept</em></span> other methods on the local <code class="literal">UserModel</code> to perform synchronization with your external store. For example, get methods could make sure that the local store is in sync. Set methods keep the external store in sync with the local one. One thing to note is that the <code class="literal">getId()</code> method should always return the id that was auto generated when you created the user locally. You should not return a federated id as shown in the other non-import examples.
+				Also notice that we are proxying the local user using the <code class="literal">org.keycloak.models.utils.UserModelDelegate</code> class. This class is an implementation of <code class="literal">UserModel</code>. Every method just delegates to the <code class="literal">UserModel</code> it was instantiated with. We override the <code class="literal">setUsername()</code> method of this delegate class to synchronize automatically with the property file. For your providers, you can use this to <span class="emphasis"><em>intercept</em></span> other methods on the local <code class="literal">UserModel</code> to perform synchronization with your external store. For example, get methods could make sure that the local store is in sync. Set methods keep the external store in sync with the local one. One thing to note is that the <code class="literal">getId()</code> method should always return the id that was auto generated when you created the user locally. You should not return a federated id as shown in the other non-import examples.
 			</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 					If your provider is implementing the <code class="literal">UserRegistrationProvider</code> interface, your <code class="literal">removeUser()</code> method does not need to remove the user from local storage. The runtime will automatically perform this operation. Also note that <code class="literal">removeUser()</code> will be invoked before it is removed from local storage.
-				</p></div></div><section class="section" id="importeduservalidation_interface"><div class="titlepage"><div><div><h3 class="title">6.9.1. ImportedUserValidation Interface</h3></div></div></div><p>
+				</p></div></div><section class="section" id="importeduservalidation_interface"><div class="titlepage"><div><div><h3 class="title">7.9.1. ImportedUserValidation Interface</h3></div></div></div><p>
 					If you remember earlier in this chapter, we discussed how querying for a user worked. Local storage is queried first, if the user is found there, then the query ends. This is a problem for our above implementation as we want to proxy the local <code class="literal">UserModel</code> so that we can keep usernames in sync. The User Storage SPI has a callback for whenever a linked local user is loaded from the local database.
 				</p><pre class="programlisting language-java">package org.keycloak.storage.user;
 public interface ImportedUserValidation {
@@ -1086,7 +1287,7 @@ public interface ImportedUserValidation {
     UserModel validate(RealmModel realm, UserModel user);
 }</pre><p>
 					Whenever a linked local user is loaded, if the user storage provider class implements this interface, then the <code class="literal">validate()</code> method is called. Here you can proxy the local user passed in as a parameter and return it. That new <code class="literal">UserModel</code> will be used. You can also optionally do a check to see if the user still exists in the external store. If <code class="literal">validate()</code> returns <code class="literal">null</code>, then the local user will be removed from the database.
-				</p></section><section class="section" id="importsynchronization_interface"><div class="titlepage"><div><div><h3 class="title">6.9.2. ImportSynchronization Interface</h3></div></div></div><p>
+				</p></section><section class="section" id="importsynchronization_interface"><div class="titlepage"><div><div><h3 class="title">7.9.2. ImportSynchronization Interface</h3></div></div></div><p>
 					With the import strategy you can see that it is possible for the local user copy to get out of sync with external storage. For example, maybe a user has been removed from the external store. The User Storage SPI has an additional interface you can implement to deal with this, <code class="literal">org.keycloak.storage.user.ImportSynchronization</code>:
 				</p><pre class="programlisting language-java">package org.keycloak.storage.user;
 
@@ -1095,9 +1296,9 @@ public interface ImportSynchronization {
     SynchronizationResult syncSince(Date lastSync, KeycloakSessionFactory sessionFactory, String realmId, UserStorageProviderModel model);
 }</pre><p>
 					This interface is implemented by the provider factory. Once this interface is implemented by the provider factory, the administration console management page for the provider shows additional options. You can manually force a synchronization by clicking a button. This invokes the <code class="literal">ImportSynchronization.sync()</code> method. Also, additional configuration options are displayed that allow you to automatically schedule a synchronization. Automatic synchronizations invoke the <code class="literal">syncSince()</code> method.
-				</p></section></section><section class="section" id="user_caches"><div class="titlepage"><div><div><h2 class="title">6.10. User Caches</h2></div></div></div><p>
+				</p></section></section><section class="section" id="user_caches"><div class="titlepage"><div><div><h2 class="title">7.10. User Caches</h2></div></div></div><p>
 				When a user is loaded by ID, username, or email queries it is cached. When a user is cached, it iterates through the entire <code class="literal">UserModel</code> interface and pulls this information to a local in-memory-only cache. In a cluster, this cache is still local, but it becomes an invalidation cache. When a user is modified, it is evicted. This eviction event is propagated to the entire cluster so that the other nodes' user cache is also invalidated.
-			</p><section class="section" id="managing_the_user_cache"><div class="titlepage"><div><div><h3 class="title">6.10.1. Managing the user cache</h3></div></div></div><p>
+			</p><section class="section" id="managing_the_user_cache"><div class="titlepage"><div><div><h3 class="title">7.10.1. Managing the user cache</h3></div></div></div><p>
 					You can access the user cache by calling <code class="literal">KeycloakSession.userCache()</code>.
 				</p><pre class="programlisting language-java">/**
  * All these methods effect an entire cluster of Keycloak instances.
@@ -1127,7 +1328,7 @@ public interface UserCache extends UserProvider {
     void clear();
 }</pre><p>
 					There are methods for evicting specific users, users contained in a specific realm, or the entire cache.
-				</p></section><section class="section" id="onusercache_callback_interface"><div class="titlepage"><div><div><h3 class="title">6.10.2. OnUserCache Callback Interface</h3></div></div></div><p>
+				</p></section><section class="section" id="onusercache_callback_interface"><div class="titlepage"><div><div><h3 class="title">7.10.2. OnUserCache Callback Interface</h3></div></div></div><p>
 					You might want to cache additional information that is specific to your provider implementation. The User Storage SPI has a callback whenever a user is cached: <code class="literal">org.keycloak.models.cache.OnUserCache</code>.
 				</p><pre class="programlisting language-java">public interface OnUserCache {
     void onCache(RealmModel realm, CachedUserModel user, UserModel delegate);
@@ -1165,9 +1366,9 @@ public interface UserCache extends UserProvider {
     ConcurrentHashMap getCachedWith();
 }</pre><p>
 					This <code class="literal">CachedUserModel</code> interface allows you to evict the user from the cache and get the provider <code class="literal">UserModel</code> instance. The <code class="literal">getCachedWith()</code> method returns a map that allows you to cache additional information pertaining to the user. For example, credentials are not part of the <code class="literal">UserModel</code> interface. If you wanted to cache credentials in memory, you would implement <code class="literal">OnUserCache</code> and cache your user’s credentials using the <code class="literal">getCachedWith()</code> method.
-				</p></section><section class="section" id="cache_policies"><div class="titlepage"><div><div><h3 class="title">6.10.3. Cache Policies</h3></div></div></div><p>
+				</p></section><section class="section" id="cache_policies"><div class="titlepage"><div><div><h3 class="title">7.10.3. Cache Policies</h3></div></div></div><p>
 					On the administration console management page for your user storage provider, you can specify a unique cache policy.
-				</p></section></section><section class="section" id="leveraging_java_ee"><div class="titlepage"><div><div><h2 class="title">6.11. Leveraging Java EE</h2></div></div></div><p>
+				</p></section></section><section class="section" id="leveraging_java_ee_2"><div class="titlepage"><div><div><h2 class="title">7.11. Leveraging Java EE</h2></div></div></div><p>
 				The user storage providers can be packaged within any Java EE component if you set up the <code class="literal">META-INF/services</code> file correctly to point to your providers. For example, if your provider needs to use third-party libraries, you can package up your provider within an EAR and store these third-party libraries in the <code class="literal">lib/</code> directory of the EAR. Also note that provider JARs can make use of the <code class="literal">jboss-deployment-structure.xml</code> file that EJBs, WARS, and EARs can use in a JBoss EAP environment. For more details on this file, see the JBoss EAP documentation. It allows you to pull in external dependencies among other fine-grained actions.
 			</p><p>
 				Implementations of <code class="literal">UserStorageProviderFactory</code> are required to be plain java objects. But we also currently support implementing <code class="literal">UserStorageProvider</code> classes as Stateful EJBs. This is especially useful if you want to use JPA to connect to a relational store. This is how you would do it:
@@ -1230,7 +1431,7 @@ public class EjbExampleUserStorageProvider implements UserStorageProvider,
 				See the JBoss EAP manual for more details on deploying an XA datasource.
 			</p><p>
 				CDI is not supported.
-			</p></section><section class="section" id="rest_management_api"><div class="titlepage"><div><div><h2 class="title">6.12. REST Management API</h2></div></div></div><p>
+			</p></section><section class="section" id="rest_management_api"><div class="titlepage"><div><div><h2 class="title">7.12. REST Management API</h2></div></div></div><p>
 				You can create, remove, and update your user storage provider deployments through the administrator REST API. The User Storage SPI is built on top of a generic component interface so you will be using that generic API to manage your providers.
 			</p><p>
 				The REST Component API lives under your realm admin resource.
@@ -1312,11 +1513,11 @@ realmResource.components().component(component.getId()).update(component);
 
 // Remove a component
 
-realmREsource.components().component(component.getId()).remove();</pre></section><section class="section" id="migrating_from_an_earlier_user_federation_spi"><div class="titlepage"><div><div><h2 class="title">6.13. Migrating from an Earlier User Federation SPI</h2></div></div></div><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+realmREsource.components().component(component.getId()).remove();</pre></section><section class="section" id="migrating_from_an_earlier_user_federation_spi"><div class="titlepage"><div><div><h2 class="title">7.13. Migrating from an Earlier User Federation SPI</h2></div></div></div><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 					This chapter is only applicable if you have implemented a provider using the earlier (and now removed) User Federation SPI.
 				</p></div></div><p>
 				In Keycloak version 2.4.0 and earlier there was a User Federation SPI. Red Hat Single Sign-On version 7.0, although unsupported, also had this earlier SPI available as well. This earlier User Federation SPI has been removed from Keycloak version 2.5.0 and Red Hat Single Sign-On version 7.1. However, if you have written a provider with this earlier SPI, this chapter discusses some strategies you can use to port it.
-			</p><section class="section" id="import_vs_non_import"><div class="titlepage"><div><div><h3 class="title">6.13.1. Import vs. Non-Import</h3></div></div></div><p>
+			</p><section class="section" id="import_vs_non_import"><div class="titlepage"><div><div><h3 class="title">7.13.1. Import vs. Non-Import</h3></div></div></div><p>
 					The earlier User Federation SPI required you to create a local copy of a user in the Red Hat Single Sign-On’s database and import information from your external store to the local copy. However, this is no longer a requirement. You can still port your earlier provider as-is, but you should consider whether a non-import strategy might be a better approach.
 				</p><p>
 					Advantages of the import strategy:
@@ -1330,7 +1531,7 @@ realmREsource.components().component(component.getId()).remove();</pre></section
 							Looking up a user for the first time will require multiple updates to Red Hat Single Sign-On database. This can be a big performance loss under load and put a lot of strain on the Red Hat Single Sign-On database. The user federated storage approach will only store extra data as needed and might never be used depending on the capabilities of your external store.
 						</li><li class="listitem">
 							With the import approach, you have to keep local keycloak storage and external storage in sync. The User Storage SPI has capability interfaces that you can implement to support synchronization, but this can quickly become painful and messy.
-						</li></ul></div></section><section class="section" id="userfederationprovider_vs_userstorageprovider"><div class="titlepage"><div><div><h3 class="title">6.13.2. UserFederationProvider vs. UserStorageProvider</h3></div></div></div><p>
+						</li></ul></div></section><section class="section" id="userfederationprovider_vs_userstorageprovider"><div class="titlepage"><div><div><h3 class="title">7.13.2. UserFederationProvider vs. UserStorageProvider</h3></div></div></div><p>
 					The first thing to notice is that <code class="literal">UserFederationProvider</code> was a complete interface. You implemented every method in this interface. However, <code class="literal">UserStorageProvider</code> has instead broken up this interface into multiple capability interfaces that you implement as needed.
 				</p><p>
 					<code class="literal">UserFederationProvider.getUserByUsername()</code> and <code class="literal">getUserByEmail()</code> have exact equivalents in the new SPI. The difference between the two is how you import. If you are going to continue with an import strategy, you no longer call <code class="literal">KeycloakSession.userStorage().addUser()</code> to create the user locally. Instead you call <code class="literal">KeycloakSession.userLocalStorage().addUser()</code>. The <code class="literal">userStorage()</code> method no longer exists.
@@ -1344,9 +1545,9 @@ realmREsource.components().component(component.getId()).remove();</pre></section
 					The earlier <code class="literal">UserFederationProvider</code> methods centered around credentials are now encapsulated in the <code class="literal">CredentialInputValidator</code> and <code class="literal">CredentialInputUpdater</code> interfaces, which are also optional to implement depending on if you support validating or updating credentials. Credential management used to exist in <code class="literal">UserModel</code> methods. These also have been moved to the <code class="literal">CredentialInputValidator</code> and <code class="literal">CredentialInputUpdater</code> interfaces. One thing to note that if you do not implement the <code class="literal">CredentialInputUpdater</code> interface, then any credentials provided by your provider can be overridden locally in Red Hat Single Sign-On storage. So if you want your credentials to be read-only, implement the <code class="literal">CredentialInputUpdater.updateCredential()</code> method and return a <code class="literal">ReadOnlyException</code>.
 				</p><p>
 					The <code class="literal">UserFederationProvider</code> query methods such as <code class="literal">searchByAttributes()</code> and <code class="literal">getGroupMembers()</code> are now encapsulated in an optional interface <code class="literal">UserQueryProvider</code>. If you do not implement this interface, then users will not be viewable in the admin console. You’ll still be able to login though.
-				</p></section><section class="section" id="userfederationproviderfactory_vs_userstorageproviderfactory"><div class="titlepage"><div><div><h3 class="title">6.13.3. UserFederationProviderFactory vs. UserStorageProviderFactory</h3></div></div></div><p>
+				</p></section><section class="section" id="userfederationproviderfactory_vs_userstorageproviderfactory"><div class="titlepage"><div><div><h3 class="title">7.13.3. UserFederationProviderFactory vs. UserStorageProviderFactory</h3></div></div></div><p>
 					The synchronization methods in the earlier SPI are now encapsulated within an optional <code class="literal">ImportSynchronization</code> interface. If you have implemented synchronization logic, then have your new <code class="literal">UserStorageProviderFactory</code> implement the <code class="literal">ImportSynchronization</code> interface.
-				</p></section><section class="section" id="upgrading_to_a_new_model"><div class="titlepage"><div><div><h3 class="title">6.13.4. Upgrading to a New Model</h3></div></div></div><p>
+				</p></section><section class="section" id="upgrading_to_a_new_model"><div class="titlepage"><div><div><h3 class="title">7.13.4. Upgrading to a New Model</h3></div></div></div><p>
 					The User Storage SPI instances are stored in a different set of relational tables. Red Hat Single Sign-On automatically runs a migration script. If any earlier User Federation providers are deployed for a realm, they are converted to the later storage model as is, including the <code class="literal">id</code> of the data. This migration will only happen if a User Storage provider exists with the same provider ID (i.e., "ldap", "kerberos") as the earlier User Federation provider.
 				</p><p>
 					So, knowing this there are different approaches you can take.
@@ -1356,7 +1557,7 @@ realmREsource.components().component(component.getId()).remove();</pre></section
 							The second option is to write your new provider making sure it has the same provider ID: <code class="literal">UserStorageProviderFactory.getId()</code>. Make sure this provider is in the <code class="literal">deploy/</code> directory of the new Red Hat Single Sign-On installation. Boot the server, and have the built-in migration script convert from the earlier data model to the later data model. In this case all your earlier linked imported users will work and be the same.
 						</li></ol></div><p>
 					If you have decided to get rid of the import strategy and rewrite your User Storage provider, we suggest that you remove the earlier provider before upgrading Red Hat Single Sign-On. This will remove linked local imported copies of any user you imported.
-				</p></section></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm140539851660448"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+				</p></section></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm140720008575776"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 				Copyright <span class="trademark"/>© 2018 Red Hat, Inc.
 			</div><div class="para">
 				Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
