@@ -1740,7 +1740,7 @@ own applications.</p>
 <p>Type the <code>Root URL</code> for your application. For example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/my-resource-server</code></pre>
+<pre class="CodeRay highlight"><code>http://${host}:${port}/my-resource-server</code></pre>
 </div>
 </div>
 </li>
@@ -3345,15 +3345,15 @@ creates a role, <em>uma_protection</em>, for the corresponding client applicatio
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">{
-  &quot;access_token&quot;: ${PAT},
-  &quot;expires_in&quot;: 300,
-  &quot;refresh_expires_in&quot;: 1800,
-  &quot;refresh_token&quot;: ${refresh_token},
-  &quot;token_type&quot;: &quot;bearer&quot;,
-  &quot;id_token&quot;: ${id_token},
-  &quot;not-before-policy&quot;: 0,
-  &quot;session_state&quot;: &quot;ccea4a55-9aec-4024-b11c-44f6f168439e&quot;
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">access_token</span><span class="delimiter">&quot;</span></span>: <span class="error">$</span>{<span class="error">P</span><span class="error">A</span><span class="error">T</span>},
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">expires_in</span><span class="delimiter">&quot;</span></span>: <span class="integer">300</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">refresh_expires_in</span><span class="delimiter">&quot;</span></span>: <span class="integer">1800</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">refresh_token</span><span class="delimiter">&quot;</span></span>: <span class="error">$</span>{<span class="error">r</span><span class="error">e</span><span class="error">f</span><span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">h</span><span class="error">_</span><span class="error">t</span><span class="error">o</span><span class="error">k</span><span class="error">e</span><span class="error">n</span>},
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">token_type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">bearer</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">id_token</span><span class="delimiter">&quot;</span></span>: <span class="error">$</span>{<span class="error">i</span><span class="error">d</span><span class="error">_</span><span class="error">t</span><span class="error">o</span><span class="error">k</span><span class="error">e</span><span class="error">n</span>},
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">not-before-policy</span><span class="delimiter">&quot;</span></span>: <span class="integer">0</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">session_state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ccea4a55-9aec-4024-b11c-44f6f168439e</span><span class="delimiter">&quot;</span></span>
 }</code></pre>
 </div>
 </div>
@@ -3378,7 +3378,7 @@ which requires a <em>client_id</em> and a <em>client_secret</em>. You can choose
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set</code></pre>
+<pre class="CodeRay highlight"><code>http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3417,7 +3417,7 @@ which requires a <em>client_id</em> and a <em>client_secret</em>. You can choose
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/permission</code></pre>
+<pre class="CodeRay highlight"><code>http://${host}:${port}/auth/realms/${realm_name}/authz/protection/permission</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3547,7 +3547,7 @@ With an RPT, client applications can gain access to protected resources at the r
 <div class="listingblock">
 <div class="title">UMA compliant Authorization API Endpoint</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/authz/authorize</code></pre>
+<pre class="CodeRay highlight"><code>http://${host}:${port}/auth/realms/${realm_name}/authz/authorize</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3608,7 +3608,7 @@ With an RPT, client applications can gain access to protected resources at the r
 <div class="listingblock">
 <div class="title">Entitlement API Endpoint</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/authz/entitlement/{client_id}</code></pre>
+<pre class="CodeRay highlight"><code>http://${host}:${port}/auth/realms/${realm_name}/authz/entitlement/{client_id}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3906,7 +3906,7 @@ the access control methods that were used to actually grant and issue these same
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/protocol/openid-connect/token/introspect</code></pre>
+<pre class="CodeRay highlight"><code>http://${host}:${port}/auth/realms/${realm_name}/protocol/openid-connect/token/introspect</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4693,11 +4693,11 @@ authorization.authorize(wwwAuthenticateHeader).then(<span class="keyword">functi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="json"><span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">i</span><span class="error">t</span><span class="error">l</span><span class="error">e</span><span class="error">m</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">(</span><span class="error">'</span><span class="error">m</span><span class="error">y</span><span class="error">-</span><span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span><span class="error">-</span><span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span><span class="error">-</span><span class="error">i</span><span class="error">d</span><span class="error">'</span><span class="error">)</span><span class="error">.</span><span class="error">t</span><span class="error">h</span><span class="error">e</span><span class="error">n</span><span class="error">(</span><span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">(</span><span class="error">r</span><span class="error">p</span><span class="error">t</span><span class="error">)</span> {
-    <span class="error">/</span><span class="error">/</span> <span class="error">o</span><span class="error">n</span><span class="error">G</span><span class="error">r</span><span class="error">a</span><span class="error">n</span><span class="error">t</span> <span class="error">c</span><span class="error">a</span><span class="error">l</span><span class="error">l</span><span class="error">b</span><span class="error">a</span><span class="error">c</span><span class="error">k</span> <span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span>
-    <span class="error">/</span><span class="error">/</span> <span class="error">I</span><span class="error">f</span> <span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">w</span><span class="error">a</span><span class="error">s</span> <span class="error">s</span><span class="error">u</span><span class="error">c</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span><span class="error">f</span><span class="error">u</span><span class="error">l</span> <span class="error">y</span><span class="error">o</span><span class="error">u</span><span class="error">'</span><span class="error">l</span><span class="error">l</span> <span class="error">r</span><span class="error">e</span><span class="error">c</span><span class="error">e</span><span class="error">i</span><span class="error">v</span><span class="error">e</span> <span class="error">a</span><span class="error">n</span> <span class="error">R</span><span class="error">P</span><span class="error">T</span>
-    <span class="error">/</span><span class="error">/</span> <span class="error">w</span><span class="error">i</span><span class="error">t</span><span class="error">h</span> <span class="error">t</span><span class="error">h</span><span class="error">e</span> <span class="error">n</span><span class="error">e</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span><span class="error">a</span><span class="error">r</span><span class="error">y</span> <span class="error">p</span><span class="error">e</span><span class="error">r</span><span class="error">m</span><span class="error">i</span><span class="error">s</span><span class="error">s</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">s</span> <span class="error">t</span><span class="error">o</span> <span class="error">a</span><span class="error">c</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span> <span class="error">t</span><span class="error">h</span><span class="error">e</span> <span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span> <span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span>
-}<span class="error">)</span><span class="error">;</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">authorization.entitlement(<span class="string"><span class="delimiter">'</span><span class="content">my-resource-server-id</span><span class="delimiter">'</span></span>).then(<span class="keyword">function</span> (rpt) {
+    <span class="comment">// onGrant callback function.</span>
+    <span class="comment">// If authorization was successful you'll receive an RPT</span>
+    <span class="comment">// with the necessary permissions to access the resource server</span>
+});</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4769,7 +4769,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-08 14:54:47 UTC
+Last updated 2018-02-08 22:30:40 UTC
 </div>
 </div>
 <ul id="globalnav">

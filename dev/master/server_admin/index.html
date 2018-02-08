@@ -2212,18 +2212,18 @@ to the <code>authenticate(context)</code> <code>action(context)</code> function.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>AuthenticationFlowError = Java.type("org.keycloak.authentication.AuthenticationFlowError");
+<pre class="CodeRay highlight"><code data-lang="javascript">AuthenticationFlowError = Java.type(<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.authentication.AuthenticationFlowError</span><span class="delimiter">&quot;</span></span>);
 
-function authenticate(context) {
+<span class="keyword">function</span> <span class="function">authenticate</span>(context) {
 
-  LOG.info(script.name + " --&gt; trace auth for: " + user.username);
+  LOG.info(script.name + <span class="string"><span class="delimiter">&quot;</span><span class="content"> --&gt; trace auth for: </span><span class="delimiter">&quot;</span></span> + user.username);
 
-  if (   user.username === "tester"
-      &amp;&amp; user.getAttribute("someAttribute")
-      &amp;&amp; user.getAttribute("someAttribute").contains("someValue")) {
+  <span class="keyword">if</span> (   user.username === <span class="string"><span class="delimiter">&quot;</span><span class="content">tester</span><span class="delimiter">&quot;</span></span>
+      &amp;&amp; user.getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">someAttribute</span><span class="delimiter">&quot;</span></span>)
+      &amp;&amp; user.getAttribute(<span class="string"><span class="delimiter">&quot;</span><span class="content">someAttribute</span><span class="delimiter">&quot;</span></span>).contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">someValue</span><span class="delimiter">&quot;</span></span>)) {
 
       context.failure(AuthenticationFlowError.INVALID_USER);
-      return;
+      <span class="keyword">return</span>;
   }
 
   context.success();
@@ -2456,18 +2456,18 @@ passed to the method <code>GSSManager.createContext</code> for example like this
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>// Obtain accessToken in your application.
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// Obtain accessToken in your application.</span>
 KeycloakPrincipal keycloakPrincipal = (KeycloakPrincipal) servletReq.getUserPrincipal();
 AccessToken accessToken = keycloakPrincipal.getKeycloakSecurityContext().getToken();
 
-// Retrieve kerberos credential from accessToken and deserialize it
-String serializedGssCredential = (String) accessToken.getOtherClaims().
+<span class="comment">// Retrieve kerberos credential from accessToken and deserialize it</span>
+<span class="predefined-type">String</span> serializedGssCredential = (<span class="predefined-type">String</span>) accessToken.getOtherClaims().
     get(org.keycloak.common.constants.KerberosConstants.GSS_DELEGATION_CREDENTIAL);
 
 GSSCredential deserializedGssCredential = org.keycloak.common.util.KerberosSerializationUtils.
     deserializeCredential(serializedGssCredential);
 
-// Create GSSContext to call other kerberos-secured services
+<span class="comment">// Create GSSContext to call other kerberos-secured services</span>
 GSSContext context = gssManager.createContext(serviceName, krb5Oid,
     deserializedGssCredential, GSSContext.DEFAULT_LIFETIME);</code></pre>
 </div>
@@ -2689,22 +2689,22 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>&lt;security-realms&gt;
-    &lt;security-realm name="ssl-realm"&gt;
-        &lt;server-identities&gt;
-            &lt;ssl&gt;
-                &lt;keystore path="servercert.jks"
-                          relative-to="jboss.server.config.dir"
-                          keystore-password="servercert password"/&gt;
-            &lt;/ssl&gt;
-        &lt;/server-identities&gt;
-        &lt;authentication&gt;
-            &lt;truststore path="truststore.jks"
-                        relative-to="jboss.server.config.dir"
-                        keystore-password="truststore password"/&gt;
-        &lt;/authentication&gt;
-    &lt;/security-realm&gt;
-&lt;/security-realms&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;security-realms&gt;</span>
+    <span class="tag">&lt;security-realm</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ssl-realm</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;server-identities&gt;</span>
+            <span class="tag">&lt;ssl&gt;</span>
+                <span class="tag">&lt;keystore</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">servercert.jks</span><span class="delimiter">&quot;</span></span>
+                          <span class="attribute-name">relative-to</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">jboss.server.config.dir</span><span class="delimiter">&quot;</span></span>
+                          <span class="attribute-name">keystore-password</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">servercert password</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;/ssl&gt;</span>
+        <span class="tag">&lt;/server-identities&gt;</span>
+        <span class="tag">&lt;authentication&gt;</span>
+            <span class="tag">&lt;truststore</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">truststore.jks</span><span class="delimiter">&quot;</span></span>
+                        <span class="attribute-name">relative-to</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">jboss.server.config.dir</span><span class="delimiter">&quot;</span></span>
+                        <span class="attribute-name">keystore-password</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">truststore password</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/authentication&gt;</span>
+    <span class="tag">&lt;/security-realm&gt;</span>
+<span class="tag">&lt;/security-realms&gt;</span></code></pre>
 </div>
 </div>
 <div class="dlist">
@@ -6193,8 +6193,8 @@ at the application.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">GET /myapplication.com?kc_idp_hint=facebook HTTP/<span class="float">1.1</span>
-Host: localhost:<span class="integer">8080</span></code></pre>
+<pre class="CodeRay highlight"><code>GET /myapplication.com?kc_idp_hint=facebook HTTP/1.1
+Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6205,10 +6205,10 @@ Host: localhost:<span class="integer">8080</span></code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">var keycloak = <span class="keyword">new</span> Keycloak(<span class="string"><span class="delimiter">'</span><span class="content">keycloak.json</span><span class="delimiter">'</span></span>);
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">var</span> keycloak = <span class="keyword">new</span> Keycloak(<span class="string"><span class="delimiter">'</span><span class="content">keycloak.json</span><span class="delimiter">'</span></span>);
 
 keycloak.createLoginUrl({
-        idpHint: <span class="string"><span class="delimiter">'</span><span class="content">facebook</span><span class="delimiter">'</span></span>
+        <span class="key">idpHint</span>: <span class="string"><span class="delimiter">'</span><span class="content">facebook</span><span class="delimiter">'</span></span>
 });</code></pre>
 </div>
 </div>
@@ -6377,8 +6377,8 @@ To retrieve a token for a particular identity provider you need to send a reques
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">GET /auth/realms/{realm}/broker/{provider_alias}/token HTTP/<span class="float">1.1</span>
-Host: localhost:<span class="integer">8080</span>
+<pre class="CodeRay highlight"><code>GET /auth/realms/{realm}/broker/{provider_alias}/token HTTP/1.1
+Host: localhost:8080
 Authorization: Bearer &lt;KEYCLOAK ACCESS TOKEN&gt;</code></pre>
 </div>
 </div>
@@ -10407,7 +10407,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-08 14:54:48 UTC
+Last updated 2018-02-08 22:30:40 UTC
 </div>
 </div>
 <ul id="globalnav">

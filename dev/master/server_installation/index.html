@@ -4845,51 +4845,51 @@ You can also define role constraints for URL patterns within your applications.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>{
-    "target-url": "http://localhost:8082",
-    "send-access-token": true,
-    "bind-address": "localhost",
-    "http-port": "8080",
-    "https-port": "8443",
-    "keystore": "classpath:ssl.jks",
-    "keystore-password": "password",
-    "key-password": "password",
-    "applications": [
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">target-url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8082</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">send-access-token</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">bind-address</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">localhost</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">http-port</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">8080</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">https-port</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">8443</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">keystore</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">classpath:ssl.jks</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">keystore-password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">key-password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">applications</span><span class="delimiter">&quot;</span></span>: [
         {
-            "base-path": "/customer-portal",
-            "error-page": "/error.html",
-            "adapter-config": {
-                "realm": "demo",
-                "resource": "customer-portal",
-                "realm-public-key": "MIGfMA0GCSqGSIb",
-                "auth-server-url": "http://localhost:8081/auth",
-                "ssl-required" : "external",
-                "principal-attribute": "name",
-                "credentials": {
-                    "secret": "password"
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">base-path</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/customer-portal</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">error-page</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/error.html</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">adapter-config</span><span class="delimiter">&quot;</span></span>: {
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">realm</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">demo</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">resource</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">customer-portal</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">realm-public-key</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MIGfMA0GCSqGSIb</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">auth-server-url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8081/auth</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">ssl-required</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">external</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">principal-attribute</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>,
+                <span class="key"><span class="delimiter">&quot;</span><span class="content">credentials</span><span class="delimiter">&quot;</span></span>: {
+                    <span class="key"><span class="delimiter">&quot;</span><span class="content">secret</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>
                 }
             }
             ,
-            "constraints": [
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">constraints</span><span class="delimiter">&quot;</span></span>: [
                 {
-                    "pattern": "/users/*",
-                    "roles-allowed": [
-                        "user"
+                    <span class="key"><span class="delimiter">&quot;</span><span class="content">pattern</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/users/*</span><span class="delimiter">&quot;</span></span>,
+                    <span class="key"><span class="delimiter">&quot;</span><span class="content">roles-allowed</span><span class="delimiter">&quot;</span></span>: [
+                        <span class="string"><span class="delimiter">&quot;</span><span class="content">user</span><span class="delimiter">&quot;</span></span>
                     ]
                 },
                 {
-                    "pattern": "/admins/*",
-                    "roles-allowed": [
-                        "admin"
+                    <span class="key"><span class="delimiter">&quot;</span><span class="content">pattern</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/admins/*</span><span class="delimiter">&quot;</span></span>,
+                    <span class="key"><span class="delimiter">&quot;</span><span class="content">roles-allowed</span><span class="delimiter">&quot;</span></span>: [
+                        <span class="string"><span class="delimiter">&quot;</span><span class="content">admin</span><span class="delimiter">&quot;</span></span>
                     ]
                 },
                 {
-                    "pattern": "/users/permit",
-                    "permit": true
+                    <span class="key"><span class="delimiter">&quot;</span><span class="content">pattern</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/users/permit</span><span class="delimiter">&quot;</span></span>,
+                    <span class="key"><span class="delimiter">&quot;</span><span class="content">permit</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
                 },
                 {
-                    "pattern": "/users/deny",
-                    "deny": true
+                    <span class="key"><span class="delimiter">&quot;</span><span class="content">pattern</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/users/deny</span><span class="delimiter">&quot;</span></span>,
+                    <span class="key"><span class="delimiter">&quot;</span><span class="content">deny</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
                 }
             ]
         }
@@ -5112,9 +5112,9 @@ Corresponds to JWT <code>preferred_username</code></p>
 This token can be used to make bearer token requests.             Header field names can be configured using a map of <code>header-names</code> in configuration file:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>{
-    "header-names" {
-        "keycloak-subject": "MY_SUBJECT"
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span class="string"><span class="delimiter">&quot;</span><span class="content">header-names</span><span class="delimiter">&quot;</span></span> {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">keycloak-subject</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">MY_SUBJECT</span><span class="delimiter">&quot;</span></span>
     }
 }</code></pre>
 </div>
@@ -5134,7 +5134,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-08 14:54:49 UTC
+Last updated 2018-02-08 22:30:41 UTC
 </div>
 </div>
 <ul id="globalnav">

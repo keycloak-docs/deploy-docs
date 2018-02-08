@@ -1397,7 +1397,7 @@ archive that lists the available themes in the archive as well as what types eac
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">{
+<pre class="CodeRay highlight"><code data-lang="json">{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">themes</span><span class="delimiter">&quot;</span></span>: [{
         <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">mytheme</span><span class="delimiter">&quot;</span></span>,
         <span class="key"><span class="delimiter">&quot;</span><span class="content">types</span><span class="delimiter">&quot;</span></span>: [ <span class="string"><span class="delimiter">&quot;</span><span class="content">login</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">email</span><span class="delimiter">&quot;</span></span> ]
@@ -1583,8 +1583,8 @@ To retrieve a token for a particular identity provider you need to send a reques
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">GET /auth/realms/{realm}/broker/{provider_alias}/token HTTP/<span class="float">1.1</span>
-Host: localhost:<span class="integer">8080</span>
+<pre class="CodeRay highlight"><code>GET /auth/realms/{realm}/broker/{provider_alias}/token HTTP/1.1
+Host: localhost:8080
 Authorization: Bearer &lt;KEYCLOAK ACCESS TOKEN&gt;</code></pre>
 </div>
 </div>
@@ -1639,7 +1639,7 @@ back to the auth server.  The auth server establishes the link and redirects bac
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">/{auth-server-root}/auth/realms/{realm}/broker/{provider}/link?client_id={id}&amp;redirect_uri={uri}&amp;nonce={nonce}&amp;hash={hash}</code></pre>
+<pre class="CodeRay highlight"><code>/{auth-server-root}/auth/realms/{realm}/broker/{provider}/link?client_id={id}&amp;redirect_uri={uri}&amp;nonce={nonce}&amp;hash={hash}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1954,16 +1954,16 @@ Then copy <code>provider.jar</code> to this folder and create <code>module.xml</
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;module xmlns="urn:jboss:module:1.3" name="org.acme.provider"&gt;
-    &lt;resources&gt;
-        &lt;resource-root path="provider.jar"/&gt;
-    &lt;/resources&gt;
-    &lt;dependencies&gt;
-        &lt;module name="org.keycloak.keycloak-core"/&gt;
-        &lt;module name="org.keycloak.keycloak-server-spi"/&gt;
-    &lt;/dependencies&gt;
-&lt;/module&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="tag">&lt;module</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:module:1.3</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.acme.provider</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;resources&gt;</span>
+        <span class="tag">&lt;resource-root</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">provider.jar</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/resources&gt;</span>
+    <span class="tag">&lt;dependencies&gt;</span>
+        <span class="tag">&lt;module</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.keycloak-core</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;module</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.keycloak-server-spi</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/dependencies&gt;</span>
+<span class="tag">&lt;/module&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2776,7 +2776,7 @@ For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">org.keycloak.examples.authenticator.SecretQuestionRequiredActionFactory</code></pre>
+<pre class="CodeRay highlight"><code>org.keycloak.examples.authenticator.SecretQuestionRequiredActionFactory</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3070,7 +3070,7 @@ For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">org.keycloak.authentication.forms.RegistrationProfile
+<pre class="CodeRay highlight"><code>org.keycloak.authentication.forms.RegistrationProfile
 org.keycloak.authentication.forms.RegistrationRecaptcha</code></pre>
 </div>
 </div>
@@ -5076,7 +5076,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-08 14:54:49 UTC
+Last updated 2018-02-08 22:30:41 UTC
 </div>
 </div>
 <ul id="globalnav">

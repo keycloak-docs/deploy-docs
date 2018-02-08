@@ -1639,16 +1639,16 @@ can be achieved with the @SecurityDomain annotation:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>import org.jboss.ejb3.annotation.SecurityDomain;
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">org.jboss.ejb3.annotation.SecurityDomain</span>;
 ...
 
-@Stateless
-@SecurityDomain("keycloak")
-public class CustomerService {
+<span class="annotation">@Stateless</span>
+<span class="annotation">@SecurityDomain</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">CustomerService</span> {
 
-    @RolesAllowed("user")
-    public List&lt;String&gt; getCustomers() {
-        return db.getCustomers();
+    <span class="annotation">@RolesAllowed</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">user</span><span class="delimiter">&quot;</span></span>)
+    <span class="directive">public</span> <span class="predefined-type">List</span>&lt;<span class="predefined-type">String</span>&gt; getCustomers() {
+        <span class="keyword">return</span> db.getCustomers();
     }
 }</code></pre>
 </div>
@@ -2830,7 +2830,7 @@ features:install keycloak</code></pre>
 <p>Restart the JBoss EAP 6.4 server with Hawtio:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml">cd $EAP_HOME/bin
+<pre class="CodeRay highlight"><code data-lang="bash">cd $EAP_HOME/bin
 ./standalone.sh -Djboss.socket.binding.port-offset=101</code></pre>
 </div>
 </div>
@@ -3012,35 +3012,35 @@ Here&#8217;s an example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>&lt;web-app xmlns="http://java.sun.com/xml/ns/javaee"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-      version="3.0"&gt;
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;web-app</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://java.sun.com/xml/ns/javaee</span><span class="delimiter">&quot;</span></span>
+      <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
+      <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd</span><span class="delimiter">&quot;</span></span>
+      <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">3.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
 
-	&lt;module-name&gt;customer-portal&lt;/module-name&gt;
+        <span class="tag">&lt;module-name&gt;</span>customer-portal<span class="tag">&lt;/module-name&gt;</span>
 
-    &lt;security-constraint&gt;
-        &lt;web-resource-collection&gt;
-            &lt;web-resource-name&gt;Customers&lt;/web-resource-name&gt;
-            &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-        &lt;/web-resource-collection&gt;
-        &lt;auth-constraint&gt;
-            &lt;role-name&gt;user&lt;/role-name&gt;
-        &lt;/auth-constraint&gt;
-    &lt;/security-constraint&gt;
+    <span class="tag">&lt;security-constraint&gt;</span>
+        <span class="tag">&lt;web-resource-collection&gt;</span>
+            <span class="tag">&lt;web-resource-name&gt;</span>Customers<span class="tag">&lt;/web-resource-name&gt;</span>
+            <span class="tag">&lt;url-pattern&gt;</span>/*<span class="tag">&lt;/url-pattern&gt;</span>
+        <span class="tag">&lt;/web-resource-collection&gt;</span>
+        <span class="tag">&lt;auth-constraint&gt;</span>
+            <span class="tag">&lt;role-name&gt;</span>user<span class="tag">&lt;/role-name&gt;</span>
+        <span class="tag">&lt;/auth-constraint&gt;</span>
+    <span class="tag">&lt;/security-constraint&gt;</span>
 
-    &lt;login-config&gt;
-        &lt;auth-method&gt;BASIC&lt;/auth-method&gt;
-        &lt;realm-name&gt;this is ignored currently&lt;/realm-name&gt;
-    &lt;/login-config&gt;
+    <span class="tag">&lt;login-config&gt;</span>
+        <span class="tag">&lt;auth-method&gt;</span>BASIC<span class="tag">&lt;/auth-method&gt;</span>
+        <span class="tag">&lt;realm-name&gt;</span>this is ignored currently<span class="tag">&lt;/realm-name&gt;</span>
+    <span class="tag">&lt;/login-config&gt;</span>
 
-    &lt;security-role&gt;
-        &lt;role-name&gt;admin&lt;/role-name&gt;
-    &lt;/security-role&gt;
-    &lt;security-role&gt;
-        &lt;role-name&gt;user&lt;/role-name&gt;
-    &lt;/security-role&gt;
-&lt;/web-app&gt;</code></pre>
+    <span class="tag">&lt;security-role&gt;</span>
+        <span class="tag">&lt;role-name&gt;</span>admin<span class="tag">&lt;/role-name&gt;</span>
+    <span class="tag">&lt;/security-role&gt;</span>
+    <span class="tag">&lt;security-role&gt;</span>
+        <span class="tag">&lt;role-name&gt;</span>user<span class="tag">&lt;/role-name&gt;</span>
+    <span class="tag">&lt;/security-role&gt;</span>
+<span class="tag">&lt;/web-app&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -3166,38 +3166,38 @@ Here&#8217;s an example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>&lt;web-app xmlns="http://java.sun.com/xml/ns/javaee"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-      version="3.0"&gt;
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;web-app</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://java.sun.com/xml/ns/javaee</span><span class="delimiter">&quot;</span></span>
+      <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
+      <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd</span><span class="delimiter">&quot;</span></span>
+      <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">3.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
 
-	&lt;module-name&gt;customer-portal&lt;/module-name&gt;
+        <span class="tag">&lt;module-name&gt;</span>customer-portal<span class="tag">&lt;/module-name&gt;</span>
 
-    &lt;security-constraint&gt;
-        &lt;web-resource-collection&gt;
-            &lt;web-resource-name&gt;Customers&lt;/web-resource-name&gt;
-            &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-        &lt;/web-resource-collection&gt;
-        &lt;auth-constraint&gt;
-            &lt;role-name&gt;user&lt;/role-name&gt;
-        &lt;/auth-constraint&gt;
-        &lt;user-data-constraint&gt;
-            &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;
-        &lt;/user-data-constraint&gt;
-    &lt;/security-constraint&gt;
+    <span class="tag">&lt;security-constraint&gt;</span>
+        <span class="tag">&lt;web-resource-collection&gt;</span>
+            <span class="tag">&lt;web-resource-name&gt;</span>Customers<span class="tag">&lt;/web-resource-name&gt;</span>
+            <span class="tag">&lt;url-pattern&gt;</span>/*<span class="tag">&lt;/url-pattern&gt;</span>
+        <span class="tag">&lt;/web-resource-collection&gt;</span>
+        <span class="tag">&lt;auth-constraint&gt;</span>
+            <span class="tag">&lt;role-name&gt;</span>user<span class="tag">&lt;/role-name&gt;</span>
+        <span class="tag">&lt;/auth-constraint&gt;</span>
+        <span class="tag">&lt;user-data-constraint&gt;</span>
+            <span class="tag">&lt;transport-guarantee&gt;</span>CONFIDENTIAL<span class="tag">&lt;/transport-guarantee&gt;</span>
+        <span class="tag">&lt;/user-data-constraint&gt;</span>
+    <span class="tag">&lt;/security-constraint&gt;</span>
 
-    &lt;login-config&gt;
-        &lt;auth-method&gt;BASIC&lt;/auth-method&gt;
-        &lt;realm-name&gt;this is ignored currently&lt;/realm-name&gt;
-    &lt;/login-config&gt;
+    <span class="tag">&lt;login-config&gt;</span>
+        <span class="tag">&lt;auth-method&gt;</span>BASIC<span class="tag">&lt;/auth-method&gt;</span>
+        <span class="tag">&lt;realm-name&gt;</span>this is ignored currently<span class="tag">&lt;/realm-name&gt;</span>
+    <span class="tag">&lt;/login-config&gt;</span>
 
-    &lt;security-role&gt;
-        &lt;role-name&gt;admin&lt;/role-name&gt;
-    &lt;/security-role&gt;
-    &lt;security-role&gt;
-        &lt;role-name&gt;user&lt;/role-name&gt;
-    &lt;/security-role&gt;
-&lt;/web-app&gt;</code></pre>
+    <span class="tag">&lt;security-role&gt;</span>
+        <span class="tag">&lt;role-name&gt;</span>admin<span class="tag">&lt;/role-name&gt;</span>
+    <span class="tag">&lt;/security-role&gt;</span>
+    <span class="tag">&lt;security-role&gt;</span>
+        <span class="tag">&lt;role-name&gt;</span>user<span class="tag">&lt;/role-name&gt;</span>
+    <span class="tag">&lt;/security-role&gt;</span>
+<span class="tag">&lt;/web-app&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -3289,34 +3289,34 @@ While its use is not required, it greatly simplifies your security context confi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>@KeycloakConfiguration
-public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@KeycloakConfiguration</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">SecurityConfig</span> <span class="directive">extends</span> KeycloakWebSecurityConfigurerAdapter
 {
-    /**
+    <span class="comment">/**
      * Registers the KeycloakAuthenticationProvider with the authentication manager.
-     */
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+     */</span>
+    <span class="annotation">@Autowired</span>
+    <span class="directive">public</span> <span class="type">void</span> configureGlobal(AuthenticationManagerBuilder auth) <span class="directive">throws</span> <span class="exception">Exception</span> {
         auth.authenticationProvider(keycloakAuthenticationProvider());
     }
 
-    /**
+    <span class="comment">/**
      * Defines the session authentication strategy.
-     */
-    @Bean
-    @Override
-    protected SessionAuthenticationStrategy sessionAuthenticationStrategy() {
-        return new RegisterSessionAuthenticationStrategy(new SessionRegistryImpl());
+     */</span>
+    <span class="annotation">@Bean</span>
+    <span class="annotation">@Override</span>
+    <span class="directive">protected</span> SessionAuthenticationStrategy sessionAuthenticationStrategy() {
+        <span class="keyword">return</span> <span class="keyword">new</span> RegisterSessionAuthenticationStrategy(<span class="keyword">new</span> SessionRegistryImpl());
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception
+    <span class="annotation">@Override</span>
+    <span class="directive">protected</span> <span class="type">void</span> configure(HttpSecurity http) <span class="directive">throws</span> <span class="exception">Exception</span>
     {
-        super.configure(http);
+        <span class="local-variable">super</span>.configure(http);
         http
                 .authorizeRequests()
-                .antMatchers("/customers*").hasRole("USER")
-                .antMatchers("/admin*").hasRole("ADMIN")
+                .antMatchers(<span class="string"><span class="delimiter">&quot;</span><span class="content">/customers*</span><span class="delimiter">&quot;</span></span>).hasRole(<span class="string"><span class="delimiter">&quot;</span><span class="content">USER</span><span class="delimiter">&quot;</span></span>)
+                .antMatchers(<span class="string"><span class="delimiter">&quot;</span><span class="content">/admin*</span><span class="delimiter">&quot;</span></span>).hasRole(<span class="string"><span class="delimiter">&quot;</span><span class="content">ADMIN</span><span class="delimiter">&quot;</span></span>)
                 .anyRequest().permitAll();
     }
 }</code></pre>
@@ -3352,65 +3352,65 @@ for the Keycloak adapter.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:security="http://www.springframework.org/schema/security"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/security
-       http://www.springframework.org/schema/security/spring-security.xsd"&gt;
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="tag">&lt;beans</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.springframework.org/schema/beans</span><span class="delimiter">&quot;</span></span>
+       <span class="attribute-name">xmlns:context</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.springframework.org/schema/context</span><span class="delimiter">&quot;</span></span>
+       <span class="attribute-name">xmlns:security</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.springframework.org/schema/security</span><span class="delimiter">&quot;</span></span>
+       <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
+       <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span>
+       <span class="content">http://www.springframework.org/schema/beans</span>
+       <span class="content">http://www.springframework.org/schema/beans/spring-beans.xsd</span>
+       <span class="content">http://www.springframework.org/schema/context</span>
+       <span class="content">http://www.springframework.org/schema/context/spring-context.xsd</span>
+       <span class="content">http://www.springframework.org/schema/security</span>
+       <span class="content">http://www.springframework.org/schema/security/spring-security.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
 
-    &lt;context:component-scan base-package="org.keycloak.adapters.springsecurity" /&gt;
+    <span class="tag">&lt;context:component-scan</span> <span class="attribute-name">base-package</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.springsecurity</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
 
-    &lt;security:authentication-manager alias="authenticationManager"&gt;
-        &lt;security:authentication-provider ref="keycloakAuthenticationProvider" /&gt;
-    &lt;/security:authentication-manager&gt;
+    <span class="tag">&lt;security:authentication-manager</span> <span class="attribute-name">alias</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">authenticationManager</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;security:authentication-provider</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakAuthenticationProvider</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/security:authentication-manager&gt;</span>
 
-    &lt;bean id="adapterDeploymentContext" class="org.keycloak.adapters.springsecurity.AdapterDeploymentContextFactoryBean"&gt;
-        &lt;constructor-arg value="/WEB-INF/keycloak.json" /&gt;
-    &lt;/bean&gt;
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">adapterDeploymentContext</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.springsecurity.AdapterDeploymentContextFactoryBean</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;constructor-arg</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/WEB-INF/keycloak.json</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
 
-    &lt;bean id="keycloakAuthenticationEntryPoint" class="org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationEntryPoint" /&gt;
-    &lt;bean id="keycloakAuthenticationProvider" class="org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationProvider" /&gt;
-    &lt;bean id="keycloakPreAuthActionsFilter" class="org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter" /&gt;
-    &lt;bean id="keycloakAuthenticationProcessingFilter" class="org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter"&gt;
-        &lt;constructor-arg name="authenticationManager" ref="authenticationManager" /&gt;
-    &lt;/bean&gt;
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakAuthenticationEntryPoint</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationEntryPoint</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakAuthenticationProvider</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationProvider</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakPreAuthActionsFilter</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.springsecurity.filter.KeycloakPreAuthActionsFilter</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakAuthenticationProcessingFilter</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.springsecurity.filter.KeycloakAuthenticationProcessingFilter</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;constructor-arg</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">authenticationManager</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">authenticationManager</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
 
-    &lt;bean id="keycloakLogoutHandler" class="org.keycloak.adapters.springsecurity.authentication.KeycloakLogoutHandler"&gt;
-        &lt;constructor-arg ref="adapterDeploymentContext" /&gt;
-    &lt;/bean&gt;
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakLogoutHandler</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.springsecurity.authentication.KeycloakLogoutHandler</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;constructor-arg</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">adapterDeploymentContext</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
 
-    &lt;bean id="logoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter"&gt;
-        &lt;constructor-arg name="logoutSuccessUrl" value="/" /&gt;
-        &lt;constructor-arg name="handlers"&gt;
-            &lt;list&gt;
-                &lt;ref bean="keycloakLogoutHandler" /&gt;
-                &lt;bean class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" /&gt;
-            &lt;/list&gt;
-        &lt;/constructor-arg&gt;
-        &lt;property name="logoutRequestMatcher"&gt;
-            &lt;bean class="org.springframework.security.web.util.matcher.AntPathRequestMatcher"&gt;
-                &lt;constructor-arg name="pattern" value="/sso/logout**" /&gt;
-                &lt;constructor-arg name="httpMethod" value="GET" /&gt;
-            &lt;/bean&gt;
-        &lt;/property&gt;
-    &lt;/bean&gt;
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">logoutFilter</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.springframework.security.web.authentication.logout.LogoutFilter</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;constructor-arg</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">logoutSuccessUrl</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;constructor-arg</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">handlers</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;list&gt;</span>
+                <span class="tag">&lt;ref</span> <span class="attribute-name">bean</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakLogoutHandler</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+                <span class="tag">&lt;bean</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;/list&gt;</span>
+        <span class="tag">&lt;/constructor-arg&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">logoutRequestMatcher</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;bean</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.springframework.security.web.util.matcher.AntPathRequestMatcher</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                <span class="tag">&lt;constructor-arg</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">pattern</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/sso/logout**</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+                <span class="tag">&lt;constructor-arg</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">httpMethod</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">GET</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;/bean&gt;</span>
+        <span class="tag">&lt;/property&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
 
-    &lt;security:http auto-config="false" entry-point-ref="keycloakAuthenticationEntryPoint"&gt;
-        &lt;security:custom-filter ref="keycloakPreAuthActionsFilter" before="LOGOUT_FILTER" /&gt;
-        &lt;security:custom-filter ref="keycloakAuthenticationProcessingFilter" before="FORM_LOGIN_FILTER" /&gt;
-        &lt;security:intercept-url pattern="/customers**" access="ROLE_USER" /&gt;
-        &lt;security:intercept-url pattern="/admin**" access="ROLE_ADMIN" /&gt;
-        &lt;security:custom-filter ref="logoutFilter" position="LOGOUT_FILTER" /&gt;
-    &lt;/security:http&gt;
+    <span class="tag">&lt;security:http</span> <span class="attribute-name">auto-config</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">entry-point-ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakAuthenticationEntryPoint</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;security:custom-filter</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakPreAuthActionsFilter</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">before</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">LOGOUT_FILTER</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;security:custom-filter</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakAuthenticationProcessingFilter</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">before</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">FORM_LOGIN_FILTER</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;security:intercept-url</span> <span class="attribute-name">pattern</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/customers**</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">access</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_USER</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;security:intercept-url</span> <span class="attribute-name">pattern</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/admin**</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">access</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ROLE_ADMIN</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;security:custom-filter</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">logoutFilter</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">position</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">LOGOUT_FILTER</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/security:http&gt;</span>
 
-&lt;/beans&gt;</code></pre>
+<span class="tag">&lt;/beans&gt;</span></code></pre>
 </div>
 </div>
 </div>
@@ -3447,20 +3447,20 @@ Note that it must be scoped as a prototype to function correctly.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>@Configuration
-@EnableWebSecurity
-@ComponentScan(basePackageClasses = KeycloakSecurityComponents.class)
-public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Configuration</span>
+<span class="annotation">@EnableWebSecurity</span>
+<span class="annotation">@ComponentScan</span>(basePackageClasses = KeycloakSecurityComponents.class)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">SecurityConfig</span> <span class="directive">extends</span> KeycloakWebSecurityConfigurerAdapter {
 
     ...
 
-    @Autowired
-    public KeycloakClientRequestFactory keycloakClientRequestFactory;
+    <span class="annotation">@Autowired</span>
+    <span class="directive">public</span> KeycloakClientRequestFactory keycloakClientRequestFactory;
 
-    @Bean
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public KeycloakRestTemplate keycloakRestTemplate() {
-        return new KeycloakRestTemplate(keycloakClientRequestFactory);
+    <span class="annotation">@Bean</span>
+    <span class="annotation">@Scope</span>(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    <span class="directive">public</span> KeycloakRestTemplate keycloakRestTemplate() {
+        <span class="keyword">return</span> <span class="keyword">new</span> KeycloakRestTemplate(keycloakClientRequestFactory);
     }
 
     ...
@@ -3472,9 +3472,9 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>&lt;bean id="keycloakRestTemplate" class="org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate" scope="prototype"&gt;
-    &lt;constructor-arg name="factory" ref="keycloakClientRequestFactory" /&gt;
-&lt;/bean&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakRestTemplate</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">scope</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">prototype</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;constructor-arg</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">factory</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakClientRequestFactory</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/bean&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3483,18 +3483,18 @@ For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>@Service
-public class RemoteProductService implements ProductService {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Service</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">RemoteProductService</span> <span class="directive">implements</span> ProductService {
 
-    @Autowired
-    private KeycloakRestTemplate template;
+    <span class="annotation">@Autowired</span>
+    <span class="directive">private</span> KeycloakRestTemplate template;
 
-    private String endpoint;
+    <span class="directive">private</span> <span class="predefined-type">String</span> endpoint;
 
-    @Override
-    public List&lt;String&gt; getProducts() {
-        ResponseEntity&lt;String[]&gt; response = template.getForEntity(endpoint, String[].class);
-        return Arrays.asList(response.getBody());
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="predefined-type">List</span>&lt;<span class="predefined-type">String</span>&gt; getProducts() {
+        ResponseEntity&lt;<span class="predefined-type">String</span><span class="type">[]</span>&gt; response = template.getForEntity(endpoint, <span class="predefined-type">String</span><span class="type">[]</span>.class);
+        <span class="keyword">return</span> <span class="predefined-type">Arrays</span>.asList(response.getBody());
     }
 }</code></pre>
 </div>
@@ -3510,10 +3510,10 @@ public class RemoteProductService implements ProductService {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>&lt;dependency&gt;
-  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;dependency&gt;</span>
+  <span class="tag">&lt;groupId&gt;</span>org.springframework.boot<span class="tag">&lt;/groupId&gt;</span>
+  <span class="tag">&lt;artifactId&gt;</span>spring-boot-starter-security<span class="tag">&lt;/artifactId&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
 <div class="sect5">
@@ -3523,9 +3523,9 @@ public class RemoteProductService implements ProductService {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>@Bean
-public KeycloakConfigResolver KeycloakConfigResolver() {
-    return new KeycloakSpringBootConfigResolver();
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Bean</span>
+<span class="directive">public</span> KeycloakConfigResolver KeycloakConfigResolver() {
+    <span class="keyword">return</span> <span class="keyword">new</span> KeycloakSpringBootConfigResolver();
 }</code></pre>
 </div>
 </div>
@@ -3538,26 +3538,26 @@ Therefore, when running the Keycloak Spring Security adapter in a Spring Boot en
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>@Configuration
-@EnableWebSecurity
-public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Configuration</span>
+<span class="annotation">@EnableWebSecurity</span>
+<span class="directive">public</span> <span class="type">class</span> <span class="class">SecurityConfig</span> <span class="directive">extends</span> KeycloakWebSecurityConfigurerAdapter
 {
     ...
 
-    @Bean
-    public FilterRegistrationBean keycloakAuthenticationProcessingFilterRegistrationBean(
+    <span class="annotation">@Bean</span>
+    <span class="directive">public</span> FilterRegistrationBean keycloakAuthenticationProcessingFilterRegistrationBean(
             KeycloakAuthenticationProcessingFilter filter) {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
+        FilterRegistrationBean registrationBean = <span class="keyword">new</span> FilterRegistrationBean(filter);
+        registrationBean.setEnabled(<span class="predefined-constant">false</span>);
+        <span class="keyword">return</span> registrationBean;
     }
 
-    @Bean
-    public FilterRegistrationBean keycloakPreAuthActionsFilterRegistrationBean(
+    <span class="annotation">@Bean</span>
+    <span class="directive">public</span> FilterRegistrationBean keycloakPreAuthActionsFilterRegistrationBean(
             KeycloakPreAuthActionsFilter filter) {
-        FilterRegistrationBean registrationBean = new FilterRegistrationBean(filter);
-        registrationBean.setEnabled(false);
-        return registrationBean;
+        FilterRegistrationBean registrationBean = <span class="keyword">new</span> FilterRegistrationBean(filter);
+        registrationBean.setEnabled(<span class="predefined-constant">false</span>);
+        <span class="keyword">return</span> registrationBean;
     }
 
     ...
@@ -3787,13 +3787,13 @@ uses the following <code>keycloak.json</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>{
-  "realm": "desktop-app-auth",
-  "auth-server-url": "http://localhost:8081/auth",
-  "ssl-required": "external",
-  "resource": "desktop-app",
-  "public-client": true,
-  "use-resource-role-mappings": true
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">realm</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">desktop-app-auth</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">auth-server-url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8081/auth</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">ssl-required</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">external</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">resource</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">desktop-app</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">public-client</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">use-resource-role-mappings</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
 }</code></pre>
 </div>
 </div>
@@ -3802,21 +3802,21 @@ uses the following <code>keycloak.json</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>// reads the configuration from classpath: META-INF/keycloak.json
-KeycloakInstalled keycloak = new KeycloakInstalled();
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// reads the configuration from classpath: META-INF/keycloak.json</span>
+KeycloakInstalled keycloak = <span class="keyword">new</span> KeycloakInstalled();
 
-// opens desktop browser
+<span class="comment">// opens desktop browser</span>
 keycloak.loginDesktop();
 
 AccessToken token = keycloak.getToken();
-// use token to send backend request
+<span class="comment">// use token to send backend request</span>
 
-// ensure token is valid for at least 30 seconds
-long minValidity = 30L;
-String tokenString = keycloak.getTokenString(minValidity, TimeUnit.SECONDS);
+<span class="comment">// ensure token is valid for at least 30 seconds</span>
+<span class="type">long</span> minValidity = <span class="integer">30L</span>;
+<span class="predefined-type">String</span> tokenString = keycloak.getTokenString(minValidity, <span class="predefined-type">TimeUnit</span>.SECONDS);
 
 
- // when you want to logout the user.
+ <span class="comment">// when you want to logout the user.</span>
 keycloak.logout();</code></pre>
 </div>
 </div>
@@ -3841,51 +3841,51 @@ login / logout requests via the <code>loginResponseWriter</code> and <code>logou
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>import java.util.Locale;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">java.util.Locale</span>;
+<span class="keyword">import</span> <span class="include">java.util.concurrent.Executors</span>;
+<span class="keyword">import</span> <span class="include">java.util.concurrent.TimeUnit</span>;
 
-import org.keycloak.adapters.installed.KeycloakInstalled;
-import org.keycloak.representations.AccessToken;
+<span class="keyword">import</span> <span class="include">org.keycloak.adapters.installed.KeycloakInstalled</span>;
+<span class="keyword">import</span> <span class="include">org.keycloak.representations.AccessToken</span>;
 
-public class DesktopApp {
+<span class="directive">public</span> <span class="type">class</span> <span class="class">DesktopApp</span> {
 
-	public static void main(String[] args) throws Exception {
+        <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) <span class="directive">throws</span> <span class="exception">Exception</span> {
 
-		KeycloakInstalled keycloak = new KeycloakInstalled();
-		keycloak.setLocale(Locale.ENGLISH);
-		keycloak.loginDesktop();
+                KeycloakInstalled keycloak = <span class="keyword">new</span> KeycloakInstalled();
+                keycloak.setLocale(<span class="predefined-type">Locale</span>.ENGLISH);
+                keycloak.loginDesktop();
 
-		AccessToken token = keycloak.getToken();
-		Executors.newSingleThreadExecutor().submit(() -&gt; {
+                AccessToken token = keycloak.getToken();
+                <span class="predefined-type">Executors</span>.newSingleThreadExecutor().submit(() -&gt; {
 
-			System.out.println("Logged in...");
-			System.out.println("Token: " + token.getSubject());
-			System.out.println("Username: " + token.getPreferredUsername());
-			try {
-				System.out.println("AccessToken: " + keycloak.getTokenString());
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
+                        <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Logged in...</span><span class="delimiter">&quot;</span></span>);
+                        <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Token: </span><span class="delimiter">&quot;</span></span> + token.getSubject());
+                        <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Username: </span><span class="delimiter">&quot;</span></span> + token.getPreferredUsername());
+                        <span class="keyword">try</span> {
+                                <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">AccessToken: </span><span class="delimiter">&quot;</span></span> + keycloak.getTokenString());
+                        } <span class="keyword">catch</span> (<span class="exception">Exception</span> ex) {
+                                ex.printStackTrace();
+                        }
 
-			int timeoutSeconds = 20;
-			System.out.printf("Logging out in...%d Seconds%n", timeoutSeconds);
-			try {
-				TimeUnit.SECONDS.sleep(timeoutSeconds);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                        <span class="type">int</span> timeoutSeconds = <span class="integer">20</span>;
+                        <span class="predefined-type">System</span>.out.printf(<span class="string"><span class="delimiter">&quot;</span><span class="content">Logging out in...%d Seconds%n</span><span class="delimiter">&quot;</span></span>, timeoutSeconds);
+                        <span class="keyword">try</span> {
+                                <span class="predefined-type">TimeUnit</span>.SECONDS.sleep(timeoutSeconds);
+                        } <span class="keyword">catch</span> (<span class="exception">Exception</span> e) {
+                                e.printStackTrace();
+                        }
 
-			try {
-				keycloak.logout();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+                        <span class="keyword">try</span> {
+                                keycloak.logout();
+                        } <span class="keyword">catch</span> (<span class="exception">Exception</span> e) {
+                                e.printStackTrace();
+                        }
 
-			System.out.println("Exiting...");
-			System.exit(0);
-		});
-	}
+                        <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Exiting...</span><span class="delimiter">&quot;</span></span>);
+                        <span class="predefined-type">System</span>.exit(<span class="integer">0</span>);
+                });
+        }
 }</code></pre>
 </div>
 </div>
@@ -4021,8 +4021,8 @@ You can generate the secret for a particular client in the Keycloak administrati
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>"credentials": {
-    "secret": "19666a4f-32dd-4049-b082-684c74115f28"
+<pre class="CodeRay highlight"><code data-lang="json"><span class="key"><span class="delimiter">&quot;</span><span class="content">credentials</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">secret</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">19666a4f-32dd-4049-b082-684c74115f28</span><span class="delimiter">&quot;</span></span>
 }</code></pre>
 </div>
 </div>
@@ -4067,14 +4067,14 @@ For more details on how to set up the Keycloak administration console see <a hre
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>"credentials": {
-  "jwt": {
-    "client-keystore-file": "classpath:keystore-client.jks",
-    "client-keystore-type": "JKS",
-    "client-keystore-password": "storepass",
-    "client-key-password": "keypass",
-    "client-key-alias": "clientkey",
-    "token-expiration": 10
+<pre class="CodeRay highlight"><code data-lang="json"><span class="key"><span class="delimiter">&quot;</span><span class="content">credentials</span><span class="delimiter">&quot;</span></span>: {
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">jwt</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">client-keystore-file</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">classpath:keystore-client.jks</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">client-keystore-type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">JKS</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">client-keystore-password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">storepass</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">client-key-password</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">keypass</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">client-key-alias</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">clientkey</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">token-expiration</span><span class="delimiter">&quot;</span></span>: <span class="integer">10</span>
   }
 }</code></pre>
 </div>
@@ -4097,9 +4097,9 @@ you can point to any file on the file system where the client application is run
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>"credentials": {
-  "secret-jwt": {
-    "secret": "19666a4f-32dd-4049-b082-684c74115f28"
+<pre class="CodeRay highlight"><code data-lang="json"><span class="key"><span class="delimiter">&quot;</span><span class="content">credentials</span><span class="delimiter">&quot;</span></span>: {
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">secret-jwt</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">secret</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">19666a4f-32dd-4049-b082-684c74115f28</span><span class="delimiter">&quot;</span></span>
   }
 }</code></pre>
 </div>
@@ -4322,8 +4322,8 @@ This may not work properly for forced shutdown when undeployment listeners are n
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>"register-node-at-startup": true,
-"register-node-period": 600,</code></pre>
+<pre class="CodeRay highlight"><code data-lang="json"><span class="key"><span class="delimiter">&quot;</span><span class="content">register-node-at-startup</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+<span class="key"><span class="delimiter">&quot;</span><span class="content">register-node-period</span><span class="delimiter">&quot;</span></span>: <span class="integer">600</span>,</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4346,7 +4346,7 @@ request. This may have a performance impact as your application will send more r
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>"always-refresh-token": true</code></pre>
+<pre class="CodeRay highlight"><code data-lang="json"><span class="key"><span class="delimiter">&quot;</span><span class="content">always-refresh-token</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -4444,7 +4444,7 @@ redirected back to the application and remain unauthenticated.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>keycloak.init({ onLoad: 'login-required' })</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.init({ <span class="key">onLoad</span>: <span class="string"><span class="delimiter">'</span><span class="content">login-required</span><span class="delimiter">'</span></span> })</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5481,11 +5481,11 @@ is beyond the scope of this document.  Please see the <em>mod_auth_openidc</em> 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml">LoadModule auth_openidc_module modules/mod_auth_openidc.so
+<pre class="CodeRay highlight"><code>LoadModule auth_openidc_module modules/mod_auth_openidc.so
 
 ServerName ${HOSTIP}
 
-<span class="tag">&lt;VirtualHost</span> <span class="error">*</span><span class="attribute-name">:80</span><span class="tag">&gt;</span>
+&lt;VirtualHost *:80&gt;
 
     ServerAdmin webmaster@localhost
     DocumentRoot /var/www/html
@@ -5502,11 +5502,11 @@ ServerName ${HOSTIP}
     # maps the prefered_username claim to the REMOTE_USER environment variable
     OIDCRemoteUserClaim preferred_username
 
-    <span class="tag">&lt;Location</span> <span class="error">/</span><span class="error">$</span><span class="error">{</span><span class="attribute-name">CLIENT_APP_NAME</span><span class="error">}</span><span class="tag">/&gt;</span>
+    &lt;Location /${CLIENT_APP_NAME}/&gt;
         AuthType openid-connect
         Require valid-user
-    <span class="tag">&lt;/Location&gt;</span>
-<span class="tag">&lt;/VirtualHost&gt;</span></code></pre>
+    &lt;/Location&gt;
+&lt;/VirtualHost&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6202,32 +6202,32 @@ you&#8217;ll want to annotate it with the <code>@SecurityDomain</code> annotatio
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml">import org.jboss.ejb3.annotation.SecurityDomain;
-import org.jboss.resteasy.annotations.cache.NoCache;
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">org.jboss.ejb3.annotation.SecurityDomain</span>;
+<span class="keyword">import</span> <span class="include">org.jboss.resteasy.annotations.cache.NoCache</span>;
 
-import javax.annotation.security.RolesAllowed;
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import java.util.ArrayList;
-import java.util.List;
+<span class="keyword">import</span> <span class="include">javax.annotation.security.RolesAllowed</span>;
+<span class="keyword">import</span> <span class="include">javax.ejb.EJB</span>;
+<span class="keyword">import</span> <span class="include">javax.ejb.Stateless</span>;
+<span class="keyword">import</span> <span class="include">javax.ws.rs.GET</span>;
+<span class="keyword">import</span> <span class="include">javax.ws.rs.Path</span>;
+<span class="keyword">import</span> <span class="include">javax.ws.rs.Produces</span>;
+<span class="keyword">import</span> <span class="include">java.util.ArrayList</span>;
+<span class="keyword">import</span> <span class="include">java.util.List</span>;
 
-@Path(&quot;customers&quot;)
-@Stateless
-@SecurityDomain(&quot;keycloak&quot;)
-public class CustomerService {
+<span class="annotation">@Path</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">customers</span><span class="delimiter">&quot;</span></span>)
+<span class="annotation">@Stateless</span>
+<span class="annotation">@SecurityDomain</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span>)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">CustomerService</span> {
 
-    @EJB
+    <span class="annotation">@EJB</span>
     CustomerDB db;
 
-    @GET
-    @Produces(&quot;application/json&quot;)
-    @NoCache
-    @RolesAllowed(&quot;db_user&quot;)
-    public List<span class="tag">&lt;String&gt;</span> getCustomers() {
-        return db.getCustomers();
+    <span class="annotation">@GET</span>
+    <span class="annotation">@Produces</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>)
+    <span class="annotation">@NoCache</span>
+    <span class="annotation">@RolesAllowed</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">db_user</span><span class="delimiter">&quot;</span></span>)
+    <span class="directive">public</span> <span class="predefined-type">List</span>&lt;<span class="predefined-type">String</span>&gt; getCustomers() {
+        <span class="keyword">return</span> db.getCustomers();
     }
 }</code></pre>
 </div>
@@ -7114,17 +7114,17 @@ If this attribute is not set, then the adapter was not responsible for the error
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript"><span class="reserved">public</span> <span class="reserved">class</span> SamlAuthenticationError <span class="reserved">implements</span> AuthenticationError {
-    <span class="reserved">public</span> <span class="reserved">static</span> <span class="reserved">enum</span> Reason {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">SamlAuthenticationError</span> <span class="directive">implements</span> AuthenticationError {
+    <span class="directive">public</span> <span class="directive">static</span> <span class="type">enum</span> Reason {
         EXTRACTION_FAILURE,
         INVALID_SIGNATURE,
         ERROR_STATUS
     }
 
-    <span class="reserved">public</span> Reason getReason() {
+    <span class="directive">public</span> Reason getReason() {
         <span class="keyword">return</span> reason;
     }
-    <span class="reserved">public</span> StatusResponseType getStatus() {
+    <span class="directive">public</span> StatusResponseType getStatus() {
         <span class="keyword">return</span> status;
     }
 }</code></pre>
@@ -8774,11 +8774,11 @@ a JSON document as described in the <a href="https://www.ietf.org/id/draft-ietf-
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-   "access_token" : ".....",
-   "refresh_token" : ".....",
-   "expires_in" : "...."
- }</pre>
+<pre class="CodeRay highlight"><code data-lang="json">{
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">access_token</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">.....</span><span class="delimiter">&quot;</span></span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">refresh_token</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">.....</span><span class="delimiter">&quot;</span></span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">expires_in</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">....</span><span class="delimiter">&quot;</span></span>
+ }</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8793,10 +8793,10 @@ OAuth based exchanges may return a JSON document as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>{
-   "error" : "...."
-   "error_description" : "...."
-}</pre>
+<pre class="CodeRay highlight"><code data-lang="json">{
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">error</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">....</span><span class="delimiter">&quot;</span></span>
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">error_description</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">....</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9322,7 +9322,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-08 14:54:48 UTC
+Last updated 2018-02-08 22:30:40 UTC
 </div>
 </div>
 <ul id="globalnav">

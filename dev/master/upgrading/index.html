@@ -1048,16 +1048,16 @@ database is automatically migrated when you start the new installation for the f
 <p>To enable automatic upgrading of the database schema, set the migrationStrategy property value to "update" for the
 default connectionsJpa provider:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre> &lt;spi name="connectionsJpa"&gt;
-    &lt;provider name="default" enabled="true"&gt;
-        &lt;properties&gt;
+<pre class="CodeRay highlight"><code data-lang="xml"> <span class="tag">&lt;spi</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">connectionsJpa</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;provider</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;properties&gt;</span>
             ...
-            &lt;property name="migrationStrategy" value="update"/&gt;
-        &lt;/properties&gt;
-    &lt;/provider&gt;
-&lt;/spi&gt;</pre>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">migrationStrategy</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">update</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/properties&gt;</span>
+    <span class="tag">&lt;/provider&gt;</span>
+<span class="tag">&lt;/spi&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1079,16 +1079,16 @@ in the new version.</p>
 <p>To enable manual upgrading of the database schema, set the migrationStrategy property value to "manual" for the default
 connectionsJpa provider:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre> &lt;spi name="connectionsJpa"&gt;
-    &lt;provider name="default" enabled="true"&gt;
-        &lt;properties&gt;
+<pre class="CodeRay highlight"><code data-lang="xml"> <span class="tag">&lt;spi</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">connectionsJpa</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;provider</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;properties&gt;</span>
             ...
-            &lt;property name="migrationStrategy" value="manual"/&gt;
-        &lt;/properties&gt;
-    &lt;/provider&gt;
-&lt;/spi&gt;</pre>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">migrationStrategy</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">manual</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/properties&gt;</span>
+    <span class="tag">&lt;/provider&gt;</span>
+<span class="tag">&lt;/spi&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1735,8 +1735,8 @@ However in all cases, you will need to update <code>standalone/configuration/key
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>"userSessionPersister": {
-    "provider": "jpa"
+<pre class="CodeRay highlight"><code data-lang="json"><span class="key"><span class="delimiter">&quot;</span><span class="content">userSessionPersister</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">provider</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">jpa</span><span class="delimiter">&quot;</span></span>
 },</code></pre>
 </div>
 </div>
@@ -2125,7 +2125,7 @@ credentials tab in the administration console.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-08 14:54:49 UTC
+Last updated 2018-02-08 22:30:41 UTC
 </div>
 </div>
 <ul id="globalnav">
