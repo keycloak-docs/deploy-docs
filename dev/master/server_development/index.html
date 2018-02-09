@@ -662,10 +662,11 @@ span.image img {
 </ul>
 </li>
 <li><a href="#deploying-themes">3.5. Deploying Themes</a></li>
-<li><a href="#theme-selector">3.6. Theme Selector</a></li>
+<li><a href="#_theme_selector">3.6. Theme Selector</a></li>
+<li><a href="#_theme_resource">3.7. Theme Resources</a></li>
 </ul>
 </li>
-<li><a href="#custom-user-attributes">4. Custom User Attributes</a>
+<li><a href="#_custom_user_attributes">4. Custom User Attributes</a>
 <ul class="sectlevel2">
 <li><a href="#registration-page">4.1. Registration Page</a></li>
 <li><a href="#account-management-console">4.2. Account Management Console</a></li>
@@ -690,7 +691,7 @@ span.image img {
 </li>
 <li><a href="#registering-provider-implementations">6.2. Registering provider implementations</a>
 <ul class="sectlevel3">
-<li><a href="#using-the-keycloak-deployer-deployer">6.2.1. Using the Keycloak deployer Deployer</a></li>
+<li><a href="#using-the-keycloak-deployer">6.2.1. Using the Keycloak Deployer</a></li>
 <li><a href="#register-a-provider-using-modules">6.2.2. Register a provider using Modules</a></li>
 <li><a href="#disabling-a-provider">6.2.3. Disabling a provider</a></li>
 </ul>
@@ -1409,79 +1410,12 @@ archive that lists the available themes in the archive as well as what types eac
 <p>A single archive can contain multiple themes and each theme can support one or more types.</p>
 </div>
 <div class="paragraph">
-<p>To deploy the archive to Keycloak you can either manually create a module in <code>modules</code> or use the <code>jboss-cli</code> command. It&#8217;s simplest to use
-<code>jboss-cli</code> as it creates the required directories and module descriptor for you.</p>
-</div>
-<div class="paragraph">
-<p>To deploy <code>mytheme.zip</code> on Linux run:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">bin/jboss-cli.sh --command=&quot;module add --name=org.example.mytheme --resources=mytheme.zip&quot;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>On Windows run:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>bin\jboss-cli.bat --command="module add --name=org.example.mytheme --resources=mytheme.zip"</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This command creates <code>modules/org/example/mytheme/main</code> directory with the <code>mytheme.zip</code> archive and <code>module.xml</code>.</p>
-</div>
-<div class="paragraph">
-<p>To manually create the module create the directory <code>modules/org/keycloak/example/mytheme/main</code>, copy <code>mytheme.zip</code> to this directory and create the file
-<code>modules/org/keycloak/example/mytheme/main/module.xml</code> with the contents:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
-<span class="tag">&lt;module</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:module:1.3</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.example.themes</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;resources&gt;</span>
-        <span class="tag">&lt;resource-root</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">mytheme.zip</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/resources&gt;</span>
-<span class="tag">&lt;/module&gt;</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You also need to register the module with Keycloak. This is done by editing <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>.
-For more information on where the <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code> file resides see the <a href="http://www.keycloak.org/docs/3.4/server_installation/">Server Installation and Configuration Guide</a>.</p>
-</div>
-<div class="paragraph">
-<p>Then find the <code>theme</code> tag under <code>keycloak-server</code> subsystem and add the module to <code>theme/modules/module</code>. For example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;theme&gt;</span>
-    ...
-    <span class="tag">&lt;modules&gt;</span>
-        <span class="tag">&lt;module&gt;</span>org.example.mytheme<span class="tag">&lt;/module&gt;</span>
-    <span class="tag">&lt;/modules&gt;</span>
-<span class="tag">&lt;/theme&gt;</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If the server is running you need to restart the server after changing <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>If the same theme is deployed to both the <code>themes</code> directory and as a module the version in the <code>themes</code> directory is used.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>To deploy the archive to Keycloak simply drop it into the <code>standalone/deployments/</code> directory of
+Keycloak and it will be automatically loaded.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="theme-selector"><a class="anchor" href="#theme-selector"></a>3.6. Theme Selector</h3>
+<h3 id="_theme_selector"><a class="anchor" href="#_theme_selector"></a>3.6. Theme Selector</h3>
 <div class="paragraph">
 <p>By default the theme configured for the realm is used, with the exception of clients being able to override the login
 theme. This behavior can be changed through the Theme Selector SPI.</p>
@@ -1498,10 +1432,32 @@ header, for example.</p>
 provider.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_theme_resource"><a class="anchor" href="#_theme_resource"></a>3.7. Theme Resources</h3>
+<div class="paragraph">
+<p>When implementing custom providers in Keycloak there may often be a need to add additional templates and resources.</p>
+</div>
+<div class="paragraph">
+<p>An example use-case would be a <a href="#_auth_spi">custom authenticator</a> that requires additional templates and resources.</p>
+</div>
+<div class="paragraph">
+<p>The easiest way to load additional theme resources is to create a JAR with templates in <code>theme-resources/templates</code>
+and resources in <code>theme-resources/resources</code> and drop it into the <code>standalone/deployments/</code> directory of Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>If you want a more flexible way to load templates and resources that can be achieved through the ThemeResourceSPI.
+By implementing <code>ThemeResourceProviderFactory</code> and <code>ThemeResourceProvider</code> you can decide exactly how to load templates
+and resources.</p>
+</div>
+<div class="paragraph">
+<p>Follow the steps in <a href="#_providers">Service Provider Interfaces</a> for more details on how to create and deploy a custom
+provider.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="custom-user-attributes"><a class="anchor" href="#custom-user-attributes"></a>4. Custom User Attributes</h2>
+<h2 id="_custom_user_attributes"><a class="anchor" href="#_custom_user_attributes"></a>4. Custom User Attributes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can add custom user attributes to the registration page and account management console with a custom theme. This chapter describes how to add attributes
@@ -1924,9 +1880,9 @@ approach as this handles a number of dependencies automatically for you. It also
 <p>If you are creating a custom SPI you will need to deploy it as a module, otherwise we recommend using the Keycloak deployer approach.</p>
 </div>
 <div class="sect3">
-<h4 id="using-the-keycloak-deployer-deployer"><a class="anchor" href="#using-the-keycloak-deployer-deployer"></a>6.2.1. Using the Keycloak deployer Deployer</h4>
+<h4 id="using-the-keycloak-deployer"><a class="anchor" href="#using-the-keycloak-deployer"></a>6.2.1. Using the Keycloak Deployer</h4>
 <div class="paragraph">
-<p>If you copy your provider jar to the Keycloak deployer <code>deploy/</code> directory, your provider will automatically be deployed.
+<p>If you copy your provider jar to the Keycloak <code>standalone/deployments/</code> directory, your provider will automatically be deployed.
 Hot deployment works too.  Additionally, your provider jar works similarly to other components deployed in a WildFly
 environment in that they can use facilities like the <code>jboss-deployment-structure.xml</code> file.  This file allows you to
 set up dependencies on other components and load third-party jars and modules.</p>
@@ -2706,8 +2662,8 @@ getReferenceCategory() is just a category the Authenticator belongs to.</p>
 <h4 id="adding-authenticator-form"><a class="anchor" href="#adding-authenticator-form"></a>8.3.4. Adding Authenticator Form</h4>
 <div class="paragraph">
 <p>Keycloak comes with a Freemarker <a href="#_themes">theme and template engine</a>.
-The createForm() method you called within authenticate() of your Authenticator class, builds an HTML page from a file within your login theme: secret-question.ftl.
-This file should be placed in the login theme with all the other .ftl files you see for login.</p>
+The createForm() method you called within authenticate() of your Authenticator class, builds an HTML page from a file within your login theme: <code>secret-question.ftl</code>.
+This file should be added to the <code>theme-resources/templates</code> in your JAR, see <a href="#_theme_resource">Theme Resource Provider</a> for more details.</p>
 </div>
 <div class="paragraph">
 <p>Let&#8217;s take a bigger look at secret-question.ftl  Here&#8217;s a small code snippet:</p>
@@ -5076,7 +5032,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-08 22:30:41 UTC
+Last updated 2018-02-09 07:31:14 UTC
 </div>
 </div>
 <ul id="globalnav">
