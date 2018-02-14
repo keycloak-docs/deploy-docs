@@ -630,6 +630,40 @@ span.image img {
     box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.5);
 }
 
+.sect1+.sect1 {
+    border-top: none;
+}
+
+.page-links {
+    border-bottom: 1px solid #efefed;
+    border-top: none;
+    background: none;
+    position: relative;
+    left: 0em;
+    width: 100%;
+    top: -5em;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.sect2 .page-links {
+    top: -3.5em;
+}
+
+.page-links .content {
+    background: #f8f8f7;
+    border: 1px solid #e0e0dc;
+    float: right;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 5px;
+}
+
+.page-links a {
+    display: block;
+    padding: 5px;
+}
 </style>
 </head>
 <body class="article toc2 toc-left">
@@ -825,6 +859,12 @@ span.image img {
 <div class="sect1">
 <h2 id="preface"><a class="anchor" href="#preface"></a>1. Preface</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/preface.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/preface.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>In some of the example listings, what is meant to be displayed on one line does not fit inside the available page width. These lines have been broken up. A '\' at the end of a line means that a break has been introduced to fit in the page, with the following lines indented.
 So:</p>
@@ -851,6 +891,12 @@ This one is short</code></pre>
 <div class="sect1">
 <h2 id="admin-rest-api"><a class="anchor" href="#admin-rest-api"></a>2. Admin REST API</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/admin-rest-api.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/admin-rest-api.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak comes with a fully functional Admin REST API with all features provided by the Admin Console.</p>
 </div>
@@ -940,6 +986,12 @@ RealmRepresentation realm = keycloak.realm(<span class="string"><span class="del
 <div class="sect1">
 <h2 id="_themes"><a class="anchor" href="#_themes"></a>3. Themes</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/themes.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/themes.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak provides theme support for web pages and emails. This allows customizing the look and feel of end-user facing pages so they can be
 integrated with your applications.</p>
@@ -1416,6 +1468,12 @@ Keycloak and it will be automatically loaded.</p>
 </div>
 <div class="sect2">
 <h3 id="_theme_selector"><a class="anchor" href="#_theme_selector"></a>3.6. Theme Selector</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/themes-selector.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/themes-selector.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>By default the theme configured for the realm is used, with the exception of clients being able to override the login
 theme. This behavior can be changed through the Theme Selector SPI.</p>
@@ -1434,6 +1492,12 @@ provider.</p>
 </div>
 <div class="sect2">
 <h3 id="_theme_resource"><a class="anchor" href="#_theme_resource"></a>3.7. Theme Resources</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/themes-resources.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/themes-resources.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When implementing custom providers in Keycloak there may often be a need to add additional templates and resources.</p>
 </div>
@@ -1459,6 +1523,12 @@ provider.</p>
 <div class="sect1">
 <h2 id="_custom_user_attributes"><a class="anchor" href="#_custom_user_attributes"></a>4. Custom User Attributes</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/custom-attributes.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/custom-attributes.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can add custom user attributes to the registration page and account management console with a custom theme. This chapter describes how to add attributes
 to a custom theme, but you should refer to the <a href="#_themes">Themes</a> chapter on how to create a custom theme.</p>
@@ -1520,6 +1590,12 @@ account type of your custom theme. Then open the copy in an editor.</p>
 <div class="sect1">
 <h2 id="identity-brokering-apis"><a class="anchor" href="#identity-brokering-apis"></a>5. Identity Brokering APIs</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/identity-brokering.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/identity-brokering.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak can delegate authentication to a parent IDP for login.  A typical example of this is the case
 where you want users to be able to login through a social provider like Facebook or Google.  Keycloak
@@ -1528,6 +1604,12 @@ can use as it pertains to identity brokering.</p>
 </div>
 <div class="sect2">
 <h3 id="retrieving-external-idp-tokens"><a class="anchor" href="#retrieving-external-idp-tokens"></a>5.1. Retrieving External IDP Tokens</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/identity-brokering/tokens.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/identity-brokering/tokens.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak allows you to store tokens and responses from the authentication process with the external IDP.
 For that, you can use the <code>Store Token</code> configuration option on the IDP&#8217;s settings page.</p>
@@ -1557,6 +1639,12 @@ In the broker configuration page you can automatically assign this role to newly
 </div>
 <div class="sect2">
 <h3 id="client-initiated-account-linking"><a class="anchor" href="#client-initiated-account-linking"></a>5.2. Client Initiated Account Linking</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/identity-brokering/account-linking.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/identity-brokering/account-linking.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Some applications want to integrate with social providers like Facebook, but do not want to provide an option to login via
 these social providers.  Keycloak offers a browser-based API that applications can use to link an existing
@@ -1694,6 +1782,12 @@ to the application.  If there is an error condition and the auth server deems it
 <div class="sect1">
 <h2 id="_providers"><a class="anchor" href="#_providers"></a>6. Service Provider Interfaces (SPI)</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/providers.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/providers.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak is designed to cover most use-cases without requiring custom code, but we also want it to be customizable.
 To achieve this Keycloak has a number of Service Provider Interfaces (SPI) for which you can implement your own providers.</p>
@@ -2047,6 +2141,12 @@ perform a JNDI lookup of the Stateful EJB in its create() method.</p>
 <div class="sect1">
 <h2 id="_extensions"><a class="anchor" href="#_extensions"></a>7. Extending the Server</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/extensions.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/extensions.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Keycloak SPI framework offers the possibility to implement or override particular built-in providers. However Keycloak
 also provides capabilities to extend it&#8217;s core functionalities and domain. This includes possibilities to:</p>
@@ -2225,6 +2325,12 @@ Don&#8217;t forget to always backup your database before doing any changes in th
 <div class="sect1">
 <h2 id="_auth_spi"><a class="anchor" href="#_auth_spi"></a>8. Authentication SPI</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/auth-spi.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/auth-spi.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak comes out of the box with a bunch of different authentication mechanisms: kerberos, password, and otp.
 These mechanisms may not meet all of your requirements and you may want to plug in your own custom ones.
@@ -3165,6 +3271,12 @@ See <a href="#_auth_spi_walkthrough">authenticators</a> for more details.</p>
 <div class="sect1">
 <h2 id="_action_token_spi"><a class="anchor" href="#_action_token_spi"></a>9. Action Token SPI</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/action-token-spi.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/action-token-spi.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>An action token is a special instance of Json Web Token (JWT) that permits its bearer to perform some actions, e. g. to
 reset a password or validate e-mail address. They are usually sent to users in form of a link that points to an endpoint
@@ -3348,6 +3460,12 @@ annotations, e.g. <code>com.fasterxml.jackson.annotation.JsonProperty</code> to 
 <div class="sect1">
 <h2 id="_events"><a class="anchor" href="#_events"></a>10. Event Listener SPI</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/events.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/events.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Writing a Event Listener Provider starts by implementing the <code>EventListenerProvider</code> and <code>EventListenerProviderFactory</code> interfaces. Please see the Javadoc
 and examples for complete details on how to do this.</p>
@@ -3360,6 +3478,12 @@ and examples for complete details on how to do this.</p>
 <div class="sect1">
 <h2 id="_user-storage-spi"><a class="anchor" href="#_user-storage-spi"></a>11. User Storage SPI</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can use the User Storage SPI to write extensions to Keycloak to connect to external user databases and credential stores. The built-in LDAP and ActiveDirectory support is an implementation of this SPI in action. Out of the box, Keycloak uses its local database to create, update, and look up users and validation credentials. Often though, organizations have existing external proprietary user databases that they cannot migrate to Keycloak&#8217;s data model. For those situations, application developers can write implementations of the User Storage SPI to bridge the external user store and the internal user object model that Keycloak uses to log in users and manage them.</p>
 </div>
@@ -3374,6 +3498,12 @@ and examples for complete details on how to do this.</p>
 </div>
 <div class="sect2">
 <h3 id="provider-interfaces"><a class="anchor" href="#provider-interfaces"></a>11.1. Provider Interfaces</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/provider-interfaces.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/provider-interfaces.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When building an implementation of the User Storage SPI you have to define a provider class and a provider factory.
 Provider class instances are created per transaction by provider factories.
@@ -3495,6 +3625,12 @@ for it when you enabled through the admin console.</p>
 </div>
 <div class="sect2">
 <h3 id="provider-capability-interfaces"><a class="anchor" href="#provider-capability-interfaces"></a>11.2. Provider Capability Interfaces</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/provider-capability-interfaces.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/provider-capability-interfaces.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If you have examined the <code>UserStorageProvider</code> interface closely you might notice that it does not define any methods for locating or managing users. These methods are actually defined in other <em>capability interfaces</em> depending on what scope of capabilities your external user store can provide and execute on. For example, some external stores are read-only and can only do simple queries and credential validation. You will only be required to implement the <em>capability interfaces</em> for the features you are able to. You can implement these interfaces:</p>
 </div>
@@ -3539,6 +3675,12 @@ for it when you enabled through the admin console.</p>
 </div>
 <div class="sect2">
 <h3 id="model-interfaces"><a class="anchor" href="#model-interfaces"></a>11.3. Model Interfaces</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/model-interfaces.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/model-interfaces.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Most of the methods defined in the <em>capability</em> <em>interfaces</em> either return or are passed in representations of a user. These representations are defined by the <code>org.keycloak.models.UserModel</code> interface. App developers are required to implement this interface. It provides a mapping between the external user store and the user metamodel that Keycloak uses.</p>
 </div>
@@ -3598,6 +3740,12 @@ for it when you enabled through the admin console.</p>
 </div>
 <div class="sect2">
 <h3 id="packaging-and-deployment"><a class="anchor" href="#packaging-and-deployment"></a>11.4. Packaging and Deployment</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/packaging.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/packaging.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>User Storage providers are packaged in a JAR and deployed or undeployed to the Keycloak runtime in the same way you would deploy something in the WildFly application server. You can either copy the JAR directly to the <code>deploy/</code> directory of the server, or use the JBoss CLI to execute the deployment.</p>
 </div>
@@ -3616,6 +3764,12 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre>
 </div>
 <div class="sect2">
 <h3 id="simple-read-only-lookup-example"><a class="anchor" href="#simple-read-only-lookup-example"></a>11.5. Simple Read-Only, Lookup Example</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/simple-example.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/simple-example.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To illustrate the basics of implementing the User Storage SPI let&#8217;s walk through a simple example. In this chapter you&#8217;ll see the implementation of a simple <code>UserStorageProvider</code> that looks up users in a simple property file. The property file contains username and password definitions and is hardcoded to a specific location on the classpath. The provider will be able to look up the user by ID and username and also be able to validate passwords. Users that originate from this provider will be read-only.</p>
 </div>
@@ -3950,6 +4104,12 @@ If you do not specify the template parameter, your provider will not function. T
 </div>
 <div class="sect2">
 <h3 id="configuration-techniques"><a class="anchor" href="#configuration-techniques"></a>11.6. Configuration Techniques</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/configuration.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/configuration.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Our <code>PropertyFileUserStorageProvider</code> example is bit contrived. It is hardcoded to a property file that is embedded in the jar of the provider. Not very useful at all. We might want to make the location of this file configurable per instance of the provider. In other words, we might want to reuse this provider mulitple times in multiple different realms and point to completely different user property files. We&#8217;ll also want to perform this configuration within the administration console UI.</p>
 </div>
@@ -4073,6 +4233,12 @@ If you do not specify the template parameter, your provider will not function. T
 </div>
 <div class="sect2">
 <h3 id="add-remove-user-and-query-capability-interfaces"><a class="anchor" href="#add-remove-user-and-query-capability-interfaces"></a>11.7. Add/Remove User and Query Capability interfaces</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/registration-query.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/registration-query.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>One thing we have not done with our example is allow it to add and remove users or change passwords. Users defined in our example are
 also not queryable or viewable in the administration console. To add these enhancements, our example provider must implement
@@ -4317,6 +4483,12 @@ We only store usernames, so we only search based on usernames. We delegate to <c
 </div>
 <div class="sect2">
 <h3 id="augmenting-external-storage"><a class="anchor" href="#augmenting-external-storage"></a>11.8. Augmenting External Storage</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/augmenting.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/augmenting.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The <code>PropertyProfileUserStorageProvider</code> example is really limited.  While we will be able to login with users stored
 in a property file, we won&#8217;t be able to do much else.  If users loaded by this provider need special role or group
@@ -4392,6 +4564,12 @@ method makes changes to the properties file and saves it.</p>
 </div>
 <div class="sect2">
 <h3 id="import-implementation-strategy"><a class="anchor" href="#import-implementation-strategy"></a>11.9. Import Implementation Strategy</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/import.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/import.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When implementing a user storage provider, there&#8217;s another strategy you can take. Instead of using user federated storage,
 you can create a user locally in the Keycloak built-in user database and copy attributes from your external
@@ -4562,6 +4740,12 @@ an additional interface you can implement to deal with this, <code>org.keycloak.
 </div>
 <div class="sect2">
 <h3 id="user-caches"><a class="anchor" href="#user-caches"></a>11.10. User Caches</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/cache.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/cache.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When a user is loaded by ID, username, or email queries it is cached. When a user is cached, it iterates through
 the entire <code>UserModel</code> interface and pulls this information to a local in-memory-only cache. In a cluster, this cache
@@ -4675,6 +4859,12 @@ The <code>getCachedWith()</code> method returns a map that allows you to cache a
 </div>
 <div class="sect2">
 <h3 id="leveraging-java-ee-2"><a class="anchor" href="#leveraging-java-ee-2"></a>11.11. Leveraging Java EE</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/javaee.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/javaee.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The user storage providers can be packaged within any Java EE component if you set up the <code>META-INF/services</code>
 file correctly to point to your providers. For example, if your provider needs to use third-party libraries, you
@@ -4782,6 +4972,12 @@ When using JPA any additional datasource must be an XA datasource. The Keycloak 
 </div>
 <div class="sect2">
 <h3 id="rest-management-api"><a class="anchor" href="#rest-management-api"></a>11.12. REST Management API</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/rest.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/rest.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can create, remove, and update your user storage provider deployments through the administrator REST API. The User Storage SPI
 is built on top of a generic component interface so you will be using that generic API to manage your providers.</p>
@@ -4888,6 +5084,12 @@ realmREsource.components().component(component.getId()).remove();</code></pre>
 </div>
 <div class="sect2">
 <h3 id="migrating-from-an-earlier-user-federation-spi"><a class="anchor" href="#migrating-from-an-earlier-user-federation-spi"></a>11.13. Migrating from an Earlier User Federation SPI</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/user-storage/migration.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/user-storage/migration.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -5032,7 +5234,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-09 07:31:14 UTC
+Last updated 2018-02-14 09:18:47 UTC
 </div>
 </div>
 <ul id="globalnav">

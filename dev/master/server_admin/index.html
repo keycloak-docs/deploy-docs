@@ -630,6 +630,40 @@ span.image img {
     box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.5);
 }
 
+.sect1+.sect1 {
+    border-top: none;
+}
+
+.page-links {
+    border-bottom: 1px solid #efefed;
+    border-top: none;
+    background: none;
+    position: relative;
+    left: 0em;
+    width: 100%;
+    top: -5em;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.sect2 .page-links {
+    top: -3.5em;
+}
+
+.page-links .content {
+    background: #f8f8f7;
+    border: 1px solid #e0e0dc;
+    float: right;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 5px;
+}
+
+.page-links a {
+    display: block;
+    padding: 5px;
+}
 </style>
 </head>
 <body class="article toc2 toc-left">
@@ -965,6 +999,12 @@ span.image img {
 <div class="sect1">
 <h2 id="overview"><a class="anchor" href="#overview"></a>1. Overview</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak is a single sign on solution for web apps and RESTful web services.  The goal of Keycloak
 is to make security simple so that it is easy for application developers to secure the apps and services they have deployed
@@ -976,6 +1016,12 @@ party identity providers like Facebook and Google+.</p>
 </div>
 <div class="sect2">
 <h3 id="features"><a class="anchor" href="#features"></a>1.1. Features</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/overview/features.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/overview/features.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1044,6 +1090,12 @@ protocol mappers and many more.</p>
 </div>
 <div class="sect2">
 <h3 id="how-does-security-work"><a class="anchor" href="#how-does-security-work"></a>1.2. How Does Security Work?</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/overview/how.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/overview/how.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak is a separate server that you manage on your network.  Applications are configured to point to and
 be secured by this server.  Keycloak uses open protocol standards like <a href="http://openid.net/connect/">OpenID Connect</a>
@@ -1058,6 +1110,12 @@ invocations on REST-based services.</p>
 </div>
 <div class="sect2">
 <h3 id="core-concepts-and-terms"><a class="anchor" href="#core-concepts-and-terms"></a>1.3. Core Concepts and Terms</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/overview/concepts.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/overview/concepts.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are some key concepts and terms you should be aware of before attempting to use Keycloak to secure your web applications
 and REST services.</p>
@@ -1215,6 +1273,12 @@ must be used to filter out bots.  Credential reset flow defines what actions a u
 <div class="sect1">
 <h2 id="server-initialization"><a class="anchor" href="#server-initialization"></a>2. Server Initialization</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/initialization.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/initialization.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>After performing all the installation and configuration tasks defined in the <a href="http://www.keycloak.org/docs/3.4/server_installation/">Server Installation and Configuration Guide</a>,
 you will need to create an initial admin account.
@@ -1277,6 +1341,12 @@ standalone mode, here is how you use the script.</p>
 <div class="sect1">
 <h2 id="admin-console"><a class="anchor" href="#admin-console"></a>3. Admin Console</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/admin-console.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/admin-console.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The bulk of your administrative tasks will be done through the Keycloak Admin Console.
 You can go to the console url directly at <a href="http://localhost:8080/auth/admin/" class="bare">http://localhost:8080/auth/admin/</a></p>
@@ -1301,6 +1371,12 @@ The image above shows the tooltip in action.</p>
 </div>
 <div class="sect2">
 <h3 id="the-master-realm"><a class="anchor" href="#the-master-realm"></a>3.1. The Master Realm</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/realms/master.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/realms/master.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When you boot Keycloak for the first time Keycloak creates a
 pre-defined realm for you. This initial realm is the <em>master</em> realm. It is the
@@ -1328,6 +1404,12 @@ chapter.</p>
 </div>
 <div class="sect2">
 <h3 id="_create-realm"><a class="anchor" href="#_create-realm"></a>3.2. Create a New Realm</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/realms/create.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/realms/create.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Creating a new realm is very simple.
 Mouse over the top left corner drop down menu that is titled with <code>Master</code>.  If you are logged in the master realm
@@ -1355,6 +1437,12 @@ top left corner drop down menu.</p>
 </div>
 <div class="sect2">
 <h3 id="_ssl_modes"><a class="anchor" href="#_ssl_modes"></a>3.3. SSL Mode</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/realms/ssl.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/realms/ssl.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Each realm has an SSL Mode associated with it.  The SSL Mode defines the SSL/HTTPS requirements for interacting with the realm.
 Browsers and applications that interact with the realm must honor the SSL/HTTPS requirements defined by the SSL Mode or they
@@ -1404,6 +1492,12 @@ configuring SSL on your server.</p>
 </div>
 <div class="sect2">
 <h3 id="_clear-cache"><a class="anchor" href="#_clear-cache"></a>3.4. Clearing Server Caches</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/realms/cache.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/realms/cache.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak will cache everything it can in memory within the limits of your JVM and/or the limits you&#8217;ve configured
 it for.  If the Keycloak database is modified by a third party (i.e. a DBA) outside the scope of the server&#8217;s REST APIs or Admin Console
@@ -1421,6 +1515,12 @@ to the <code>Realm Settings</code> left menu item and the <code>Cache</code> tab
 </div>
 <div class="sect2">
 <h3 id="_email"><a class="anchor" href="#_email"></a>3.5. Email Settings</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/realms/email.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/realms/email.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak sends emails to users to verify their email address, when they forget their passwords, or when an admin needs to
 receive notifications about a server event.
@@ -1475,6 +1575,12 @@ You will most likely also need to change the <code>Port</code> (the default port
 </div>
 <div class="sect2">
 <h3 id="_themes"><a class="anchor" href="#_themes"></a>3.6. Themes and Internationalization</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/realms/themes.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/realms/themes.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Themes allow you to change the look and feel of any UI in Keycloak.  Themes are configured per realm.  To change
 a theme go to the <code>Realm Settings</code> left menu item and click on the <code>Themes</code> tab.</p>
@@ -1525,11 +1631,23 @@ how you can offer additional languages.</p>
 <div class="sect1">
 <h2 id="user-management"><a class="anchor" href="#user-management"></a>4. User Management</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This section describes the administration functions for managing users.</p>
 </div>
 <div class="sect2">
 <h3 id="searching-for-users"><a class="anchor" href="#searching-for-users"></a>4.1. Searching For Users</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/viewing.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/viewing.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If you need to manage a specific user, click on <code>Users</code> in the left menu bar.</p>
 </div>
@@ -1560,6 +1678,12 @@ database you need to either:</p>
 </div>
 <div class="sect2">
 <h3 id="_create-new-user"><a class="anchor" href="#_create-new-user"></a>4.2. Creating New Users</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/create-user.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/create-user.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To create a user click on <code>Users</code> in the left menu bar.</p>
 </div>
@@ -1581,6 +1705,12 @@ button.  Click that to start creating your new user.</p>
 </div>
 <div class="sect2">
 <h3 id="user-attributes"><a class="anchor" href="#user-attributes"></a>4.3. User Attributes</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/attributes.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/attributes.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Beyond basic user metadata like name and email, you can store arbitrary user attributes.  Choose a user to manage
 then click on the <code>Attributes</code> tab.</p>
@@ -1596,6 +1726,12 @@ Note that any edits you make on this page will not be stored until you hit the <
 </div>
 <div class="sect2">
 <h3 id="user-credentials"><a class="anchor" href="#user-credentials"></a>4.4. User Credentials</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/credentials.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/credentials.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When viewing a user if you go to the <code>Credentials</code> tab you can manage a user&#8217;s credentials.</p>
 </div>
@@ -1634,6 +1770,12 @@ contains a link that will bring the user to the OTP setup screen.</p>
 </div>
 <div class="sect2">
 <h3 id="required-actions"><a class="anchor" href="#required-actions"></a>4.5. Required Actions</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/required-actions.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/required-actions.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Required Actions are tasks that a user must finish before they are allowed to log in.  A user must provide their credentials before required actions are executed.  Once a required action is completed, the user will not have
 to perform the action again.
@@ -1699,6 +1841,12 @@ creating themes.</p>
 </div>
 <div class="sect2">
 <h3 id="impersonation"><a class="anchor" href="#impersonation"></a>4.6. Impersonation</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/impersonation.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/impersonation.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>It is often useful for an admin to impersonate a user.  For example, a user may be experiencing a bug in one of your applications and
 an admin may want to impersonate the user to see if they can duplicate the problem.  Admins with the appropriate permission
@@ -1735,6 +1883,12 @@ for more details on assigning administration permissions.</p>
 </div>
 <div class="sect2">
 <h3 id="_user-registration"><a class="anchor" href="#_user-registration"></a>4.7. User Registration</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/user-registration.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/user-registration.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can enable Keycloak to allow user self registration.  When enabled, the login page has a registration
 link the user can click on to create their new account.</p>
@@ -1773,6 +1927,12 @@ See the <a href="http://www.keycloak.org/docs/3.4/server_development/">Server De
 </div>
 <div class="sect3">
 <h4 id="_recaptcha"><a class="anchor" href="#_recaptcha"></a>4.7.1. reCAPTCHA Support</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/recaptcha.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/recaptcha.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To safeguard registration against bots, Keycloak has integration with Google reCAPTCHA.
 To enable this you need to first go to <a href="https://developers.google.com/recaptcha/">Google Recaptcha Website</a>
@@ -1820,11 +1980,23 @@ for more information on extending and creating themes.</p>
 <div class="sect1">
 <h2 id="login-page-settings"><a class="anchor" href="#login-page-settings"></a>5. Login Page Settings</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/login-settings.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/login-settings.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are several nice built-in login page features you can enable if you need the functionality.</p>
 </div>
 <div class="sect2">
 <h3 id="forgot-password"><a class="anchor" href="#forgot-password"></a>5.1. Forgot Password</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/login-settings/forgot-password.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/login-settings/forgot-password.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If you enable it, users are able to reset their credentials if they forget their password or lose their OTP generator.
 Go to the <code>Realm Settings</code> left menu item, and click on the <code>Login</code> tab.  Switch on the <code>Forgot Password</code> switch.</p>
@@ -1868,6 +2040,12 @@ going to the <code>Authentication</code> left menu item, clicking on the <code>F
 </div>
 <div class="sect2">
 <h3 id="remember-me"><a class="anchor" href="#remember-me"></a>5.2. Remember Me</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/login-settings/remember-me.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/login-settings/remember-me.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If a logged in user closes their browser, their session is destroyed and they will have to log in again.  You can set things
 up so that if a user checks a <em>remember me</em> checkbox, they will remain logged in even if the browser is closed.  This basically
@@ -1893,6 +2071,12 @@ turns the login cookie from a session-only cookie to a persistence cookie.</p>
 <div class="sect1">
 <h2 id="authentication"><a class="anchor" href="#authentication"></a>6. Authentication</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/authentication.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/authentication.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are a few features you should be aware of when configuring authentication for your realm.  Many organizations
 have strict password and OTP policies that you can enforce via settings in the Admin Console.  You may or may not
@@ -1901,6 +2085,12 @@ Kerberos or disable or enable various built-in credential types.  This chapter c
 </div>
 <div class="sect2">
 <h3 id="_password-policies"><a class="anchor" href="#_password-policies"></a>6.1. Password Policies</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/authentication/password-policies.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/authentication/password-policies.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Each new realm created has no password policies associated with it.  Users can have as short, as long, as complex,
 as insecure a password, as they want.  Simple settings are fine for development or learning Keycloak,
@@ -1998,6 +2188,12 @@ or the <code>blacklistsPath</code> property of the <code>passwordBlacklist</code
 </div>
 <div class="sect2">
 <h3 id="otp-policies"><a class="anchor" href="#otp-policies"></a>6.2. OTP Policies</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/authentication/otp-policies.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/authentication/otp-policies.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak has a number of policies you can set up for your FreeOTP or Google Authenticator One-Time Password
 generator.  Click on the <code>Authentication</code> left menu item and go to the <code>OTP Policy</code> tab.</p>
@@ -2084,6 +2280,12 @@ manually too many times by accident.  This value really should be increased to a
 </div>
 <div class="sect2">
 <h3 id="_authentication-flows"><a class="anchor" href="#_authentication-flows"></a>6.3. Authentication Flows</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/authentication/flows.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/authentication/flows.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>An <em>authentication flow</em> is a container for all authentications, screens, and actions that must happen during login, registration, and other
 Keycloak workflows.
@@ -2233,6 +2435,12 @@ to the <code>authenticate(context)</code> <code>action(context)</code> function.
 </div>
 <div class="sect2">
 <h3 id="_kerberos"><a class="anchor" href="#_kerberos"></a>6.5. Kerberos</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/authentication/kerberos.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/authentication/kerberos.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak supports login with a Kerberos ticket through the SPNEGO protocol.
 SPNEGO (Simple and Protected GSSAPI Negotiation Mechanism) is used to authenticate transparently through the web browser after the user
@@ -2517,6 +2725,12 @@ Credential delegation has some security implications so only use it if you reall
 </div>
 <div class="sect2">
 <h3 id="_x509"><a class="anchor" href="#_x509"></a>6.6. X.509 Client Certificate User Authentication</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/authentication/x509.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/authentication/x509.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak supports login with a X.509 client certificate if the server is configured for mutual SSL authentication.</p>
 </div>
@@ -3048,12 +3262,24 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 <div class="sect1">
 <h2 id="sso-protocols"><a class="anchor" href="#sso-protocols"></a>7. SSO Protocols</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/sso-protocols.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/sso-protocols.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The chapter gives a brief overview of the authentication protocols and how the Keycloak authentication server
 and the applications it secures interact with these protocols.</p>
 </div>
 <div class="sect2">
 <h3 id="_oidc"><a class="anchor" href="#_oidc"></a>7.1. OpenID Connect</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/sso-protocols/oidc.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/sso-protocols/oidc.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p><a href="http://openid.net/connect/">OpenID Connect</a> (OIDC) is an authentication protocol that is an extension of <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a>.
 While OAuth 2.0 is only a framework for building authorization protocols and is mainly incomplete, OIDC is a full-fledged authentication and authorization
@@ -3206,6 +3432,12 @@ Implicit Flow, Direct Grants, or Client Grants.</p>
 </div>
 <div class="sect2">
 <h3 id="_saml"><a class="anchor" href="#_saml"></a>7.2. SAML</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/sso-protocols/saml.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/sso-protocols/saml.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p><a href="http://saml.xml.org/saml-specifications">SAML 2.0</a> is a similar specification to OIDC but a lot older and more mature.  It has its roots in SOAP and the plethora
 of WS-* specifications so it tends to be a bit more verbose than OIDC.  SAML 2.0 is primarily an authentication protocol
@@ -3299,6 +3531,12 @@ This is used most often for REST or SOAP-based clients.</p>
 </div>
 <div class="sect2">
 <h3 id="openid-connect-vs-saml"><a class="anchor" href="#openid-connect-vs-saml"></a>7.3. OpenID Connect vs. SAML</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/sso-protocols/saml-vs-oidc.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/sso-protocols/saml-vs-oidc.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Choosing between OpenID Connect and SAML is not just a matter of using a newer protocol (OIDC) instead of the older more mature protocol (SAML).</p>
 </div>
@@ -3320,6 +3558,12 @@ make implementing security in your web applications easier. For example, check o
 </div>
 <div class="sect2">
 <h3 id="_docker"><a class="anchor" href="#_docker"></a>7.4. Docker Registry v2 Authentication</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/sso-protocols/docker.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/sso-protocols/docker.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -3387,6 +3631,12 @@ This flow assumes that a <code>docker login</code> command has already been perf
 <div class="sect1">
 <h2 id="_clients"><a class="anchor" href="#_clients"></a>8. Managing Clients</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Clients are entities that can request authentication of a user.  Clients come in two forms.
 The first type of client is an application that wants
@@ -3396,6 +3646,12 @@ This section discusses various aspects around configuring clients and various wa
 </div>
 <div class="sect2">
 <h3 id="oidc-clients"><a class="anchor" href="#oidc-clients"></a>8.1. OIDC Clients</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients/client-oidc.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients/client-oidc.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p><a href="#_oidc">OpenID Connect</a> is the preferred protocol to secure applications.  It was designed from the ground up to be web friendly
 and work best with HTML5/JavaScript applications.</p>
@@ -3564,6 +3820,12 @@ Remember that you still have to click the <code>Save</code> button!</p>
 </div>
 <div class="sect3">
 <h4 id="_client-credentials"><a class="anchor" href="#_client-credentials"></a>8.1.1. Confidential Client Credentials</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients/oidc/confidential.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients/oidc/confidential.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If you&#8217;ve set the client&#8217;s <a href="#_access-type">access type</a> to <code>confidential</code> in the client&#8217;s
 <code>Settings</code> tab, a new <code>Credentials</code> tab will show up. As part of dealing with this
@@ -3645,6 +3907,12 @@ section for more details.
 </div>
 <div class="sect2">
 <h3 id="_service_accounts"><a class="anchor" href="#_service_accounts"></a>8.2. Service Accounts</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients/oidc/service-accounts.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients/oidc/service-accounts.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Each OIDC client has a built-in <em>service account</em> which allows it to obtain an access token.
 This is covered in the OAuth 2.0 specifiation under <a href="#_client_credentials_grant">Client Credentials Grant</a>.
@@ -3703,6 +3971,12 @@ Pragma: no-cache
 </div>
 <div class="sect2">
 <h3 id="saml-clients"><a class="anchor" href="#saml-clients"></a>8.3. SAML Clients</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients/client-saml.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients/client-saml.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak supports <a href="#_saml">SAML 2.0</a> for registered applications.
 Both POST and Redirect bindings are supported.
@@ -3880,6 +4154,12 @@ If a login request contains the Assertion Consumer Service URL, that will take p
 </div>
 <div class="sect3">
 <h4 id="idp-initiated-login"><a class="anchor" href="#idp-initiated-login"></a>8.3.1. IDP Initiated Login</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients/saml/idp-initiated-login.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients/saml/idp-initiated-login.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>IDP Initiated Login is a feature that allows you to set up an endpoint on the Keycloak server that will log you into a specific application/client.
 In the <code>Settings</code> tab for your client, you need to specify the <code>IDP Initiated SSO URL Name</code>.
@@ -3935,6 +4215,12 @@ the brokering IDP, and add <code>clients/<em>client-id</em></code> to the endpoi
 </div>
 <div class="sect3">
 <h4 id="saml-entity-descriptors"><a class="anchor" href="#saml-entity-descriptors"></a>8.3.2. SAML Entity Descriptors</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients/saml/entity-descriptors.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients/saml/entity-descriptors.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Instead of manually registering a SAML 2.0 client, you can import it via a standard SAML Entity Descriptor XML file.
 There is an <code>Import</code> option on the Add Client page.</p>
@@ -3954,6 +4240,12 @@ going to this public URL:  <code>root/auth/realms/{realm}/protocol/saml/descript
 </div>
 <div class="sect2">
 <h3 id="client-links"><a class="anchor" href="#client-links"></a>8.4. Client Links</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients/client-link.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients/client-link.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>For scenarios where one wants to link from one client to another, Keycloak provides a special redirect endpoint: <code>/realms/realm_name/clients/{client-id}/redirect</code>.</p>
 </div>
@@ -3978,6 +4270,12 @@ This indirection helps avoid hard-coding client base URLs.</p>
 </div>
 <div class="sect2">
 <h3 id="_protocol-mappers"><a class="anchor" href="#_protocol-mappers"></a>8.5. OIDC Token and SAML Assertion Mappings</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients/protocol-mappers.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients/protocol-mappers.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Applications that receive ID Tokens, Access Tokens, or SAML assertions may need or want different user metadata and roles.
 Keycloak allows you to define what exactly is transferred.
@@ -4045,6 +4343,12 @@ Different config parameters will appear for different mapper types.</p>
 </div>
 <div class="sect2">
 <h3 id="generating-client-adapter-config"><a class="anchor" href="#generating-client-adapter-config"></a>8.6. Generating Client Adapter Config</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients/installation.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients/installation.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Keycloak can pre-generate configuration files that you can use to install a client adapter for in your application&#8217;s
 deployment environment.  A number of adapter types are supported for both OIDC and SAML.  Go to the <code>Installation</code> tab of the
@@ -4060,6 +4364,12 @@ are supported.  The mod-auth-mellon Apache HTTPD adapter for SAML is supported a
 </div>
 <div class="sect2">
 <h3 id="_client_templates"><a class="anchor" href="#_client_templates"></a>8.7. Client Templates</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/clients/client-templates.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/clients/client-templates.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If you have a lot of applications you need to secure and register within your organization it can become quite tedious
 to configure the <a href="#_protocol-mappers">protocol mappers</a>
@@ -4087,6 +4397,12 @@ to turn on or off inheriting from the parent template.</p>
 <div class="sect1">
 <h2 id="roles"><a class="anchor" href="#roles"></a>9. Roles</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/roles.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/roles.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Roles identify a type or category of user.  <code>Admin</code>, <code>user</code>, <code>manager</code>, and <code>employee</code> are all typical roles that may exist
 in an organization.
@@ -4097,6 +4413,12 @@ dedicated namespace where roles can be defined.</p>
 </div>
 <div class="sect2">
 <h3 id="realm-roles"><a class="anchor" href="#realm-roles"></a>9.1. Realm Roles</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/roles/realm-roles.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/roles/realm-roles.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Realm-level roles are a global namespace to define your roles. You can see the list of built-in and created roles by clicking the <code>Roles</code> left menu item.</p>
 </div>
@@ -4122,6 +4444,12 @@ dedicated namespace where roles can be defined.</p>
 </div>
 <div class="sect2">
 <h3 id="client-roles"><a class="anchor" href="#client-roles"></a>9.2. Client Roles</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/roles/client-roles.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/roles/client-roles.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Client roles are basically a namespace dedicated to a client. Each client gets its own namespace. Client roles are managed under the <code>Roles</code> tab under each individual client. You interact with this UI the same way you do for realm-level roles.</p>
 </div>
@@ -4139,6 +4467,12 @@ dedicated namespace where roles can be defined.</p>
 </div>
 <div class="sect2">
 <h3 id="_composite-roles"><a class="anchor" href="#_composite-roles"></a>9.3. Composite Roles</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/roles/composite.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/roles/composite.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Any realm or client level role can be turned into a <em>composite role</em>.
 A <em>composite role</em> is a role that has one or more additional roles associated with it.
@@ -4174,6 +4508,12 @@ When tokens and SAML assertions are created, any composite will also have its as
 </div>
 <div class="sect2">
 <h3 id="user-role-mappings"><a class="anchor" href="#user-role-mappings"></a>9.4. User Role Mappings</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/roles/user-role-mappings.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/roles/user-role-mappings.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>User role mappings can be assigned individually to each user through the <code>Role Mappings</code> tab for that single user.</p>
 </div>
@@ -4195,6 +4535,12 @@ chapter.</p>
 </div>
 <div class="sect3">
 <h4 id="default-roles"><a class="anchor" href="#default-roles"></a>9.4.1. Default Roles</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/roles/user-role-mappings/default-roles.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/roles/user-role-mappings/default-roles.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Default roles allow you to automatically assign user role mappings when any user is newly created or imported through
 <a href="#_identity_broker">Identity Brokering</a>.
@@ -4211,6 +4557,12 @@ To specify default roles go to the <code>Roles</code> left menu item, and click 
 </div>
 <div class="sect2">
 <h3 id="_client_scope"><a class="anchor" href="#_client_scope"></a>9.5. Client Scope</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/roles/client-scope.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/roles/client-scope.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When an OIDC access token or SAML assertion is created, all the user role mappings of the user are, by default, added as claims
 within the token or assertion.  Applications use this information to make access decisions on the resources controlled by that
@@ -4246,6 +4598,12 @@ to define the scope for a whole set of clients.</p>
 <div class="sect1">
 <h2 id="groups"><a class="anchor" href="#groups"></a>10. Groups</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/groups.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/groups.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Groups in Keycloak allow you to manage a common set of attributes and role mappings for a set of users.
 Users can be members of zero or more groups.
@@ -4292,6 +4650,12 @@ select the <code>Membership</code> tab, <em>Jim</em> is now displayed there.</p>
 </div>
 <div class="sect2">
 <h3 id="groups-vs-roles"><a class="anchor" href="#groups-vs-roles"></a>10.1. Groups vs. Roles</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/groups/groups-vs-roles.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/groups/groups-vs-roles.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>In the IT world the concepts of Group and Role are often blurred and interchangeable.
 In Keycloak, Groups are just a collection of users that you can apply roles and attributes to in one place.
@@ -4307,6 +4671,12 @@ Use groups to manage users.  Use composite roles to manage applications and serv
 </div>
 <div class="sect2">
 <h3 id="default-groups"><a class="anchor" href="#default-groups"></a>10.2. Default Groups</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/groups/default-groups.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/groups/default-groups.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Default groups allow you to automatically assign group membership whenever any new user is created or imported through
 <a href="#_identity_broker">Identity Brokering</a>.
@@ -4322,6 +4692,12 @@ To specify default groups go to the <code>Groups</code> left menu item, and clic
 <div class="sect1">
 <h2 id="_admin_permissions"><a class="anchor" href="#_admin_permissions"></a>11. Admin Console Access Control and Permissions</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/admin-console-permissions.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/admin-console-permissions.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Each realm created on the Keycloak has a dedicated Admin Console from which that realm can be managed.
 The <code>master</code> realm is a special realm that allows admins to manage more than one realm on the system.  You can also
@@ -4329,6 +4705,12 @@ define fine-grained access to users in different realms to manage the server.  T
 </div>
 <div class="sect2">
 <h3 id="master-realm-access-control"><a class="anchor" href="#master-realm-access-control"></a>11.1. Master Realm Access Control</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/admin-console-permissions/master-realm.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/admin-console-permissions/master-realm.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The <code>master</code> realm in Keycloak is a special realm and treated differently than other realms.
 Users in the Keycloak <code>master</code> realm can be granted permission to manage zero or more realms that are deployed on the Keycloak server.
@@ -4427,6 +4809,12 @@ Admins with the <code>manage-users</code> role will only be able to assign admin
 </div>
 <div class="sect2">
 <h3 id="_per_realm_admin_permissions"><a class="anchor" href="#_per_realm_admin_permissions"></a>11.2. Dedicated Realm Admin Consoles</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/admin-console-permissions/per-realm.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/admin-console-permissions/per-realm.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Each realm has a dedicated Admin Console that can be accessed by going to the url <code>/auth/admin/{realm-name}/console</code>.
 Users within that realm can be granted realm management permissions by assigning specific user role mappings.</p>
@@ -4481,6 +4869,12 @@ Users within that realm can be granted realm management permissions by assigning
 </div>
 <div class="sect2">
 <h3 id="_fine_grain_permissions"><a class="anchor" href="#_fine_grain_permissions"></a>11.3. Fine Grain Admin Permissions</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/admin-console-permissions/fine-grain.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/admin-console-permissions/fine-grain.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Sometimes roles like <code>manage-realm</code> or <code>manage-users</code> are too coarse grain and you want to create
 restricted admin accounts that have more fine grain permissions.  Keycloak allows you to define
@@ -4939,6 +5333,12 @@ remove members from the group.</p>
 </div>
 <div class="sect2">
 <h3 id="realm_keys"><a class="anchor" href="#realm_keys"></a>11.4. Realm Keys</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/realms/keys.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/realms/keys.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The authentication protocols that are used by Keycloak require cryptographic signatures and sometimes
 encryption.  Keycloak uses asymmetric key pairs, a private and public key, to accomplish this.</p>
@@ -5068,6 +5468,12 @@ Keycloak is able to send them the request about pushed not-before policy.</p>
 <div class="sect1">
 <h2 id="_identity_broker"><a class="anchor" href="#_identity_broker"></a>12. Identity Brokering</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>An Identity Broker is an intermediary service that connects multiple service providers with different identity providers.
 As an intermediary service, the identity broker is responsible for creating
@@ -5120,6 +5526,12 @@ service that you want to integrate with.</p>
 </div>
 <div class="sect2">
 <h3 id="_identity_broker_overview"><a class="anchor" href="#_identity_broker_overview"></a>12.1. Brokering Overview</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When using Keycloak as an identity broker, users are not forced to provide their credentials in order to authenticate in a specific realm.
 Instead, they are presented with a list of identity providers from which they can authenticate.</p>
@@ -5206,6 +5618,12 @@ They only need to know about Keycloak.</p>
 </div>
 <div class="sect2">
 <h3 id="default_identity_provider"><a class="anchor" href="#default_identity_provider"></a>12.2. Default Identity Provider</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/default-provider.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/default-provider.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>It&#8217;s possible to automatically redirect to a identity provider instead of displaying the login form. To enable this go to <code>Authentication</code> select the <code>Browser</code> flow. Then click on config for the <code>Identity Provider Redirector</code> authenticator. Set <code>Default Identity Provider</code> to the alias of the identity provider you want to automatically redirect users to.</p>
 </div>
@@ -5218,6 +5636,12 @@ They only need to know about Keycloak.</p>
 </div>
 <div class="sect2">
 <h3 id="_general-idp-config"><a class="anchor" href="#_general-idp-config"></a>12.3. General Configuration</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/configuration.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/configuration.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The identity broker configuration is all based on identity providers.
 Identity providers are created for each realm and by default they are enabled for every single application.
@@ -5331,6 +5755,12 @@ Regardless the identity provider you are creating, you&#8217;ll see the followin
 </div>
 <div class="sect2">
 <h3 id="social-identity-providers"><a class="anchor" href="#social-identity-providers"></a>12.4. Social Identity Providers</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/social-login.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/social-login.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>For Internet facing applications, it is quite burdensome for users to have to register at your site to obtain access.
 It requires them to remember yet another username and password combination.  Social identity providers allow you to delegate
@@ -5339,6 +5769,12 @@ Keycloak provides built-in support for the most common social networks out there
 </div>
 <div class="sect3">
 <h4 id="google"><a class="anchor" href="#google"></a>12.4.1. Google</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/social/google.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/social/google.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are a number of steps you have to complete to be able to login to Google.  First, go to the <code>Identity Providers</code> left menu item
 and select <code>Google</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
@@ -5465,6 +5901,12 @@ uses the following scopes: <code>openid</code> <code>profile</code> <code>email<
 </div>
 <div class="sect3">
 <h4 id="facebook"><a class="anchor" href="#facebook"></a>12.4.2. Facebook</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/social/facebook.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/social/facebook.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are a number of steps you have to complete to be able to login to Facebook.  First, go to the <code>Identity Providers</code> left menu item
 and select <code>Facebook</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
@@ -5540,6 +5982,12 @@ uses the following scopes: <code>email</code>.</p>
 </div>
 <div class="sect3">
 <h4 id="twitter"><a class="anchor" href="#twitter"></a>12.4.3. Twitter</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/social/twitter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/social/twitter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are a number of steps you have to complete to be able to login to Twitter.  First, go to the <code>Identity Providers</code> left menu item
 and select <code>Twitter</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
@@ -5604,6 +6052,12 @@ You cannot use <code>localhost</code> in the <code>Callback URL</code>.  Instead
 </div>
 <div class="sect3">
 <h4 id="github"><a class="anchor" href="#github"></a>12.4.4. GitHub</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/social/github.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/social/github.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are a number of steps you have to complete to be able to login to GitHub.  First, go to the <code>Identity Providers</code> left menu item
 and select <code>GitHub</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
@@ -5661,6 +6115,12 @@ Go back to Keycloak and specify those items.</p>
 </div>
 <div class="sect3">
 <h4 id="linkedin"><a class="anchor" href="#linkedin"></a>12.4.5. LinkedIn</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/social/linked-in.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/social/linked-in.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are a number of steps you have to complete to be able to login to LinkedIn.  First, go to the <code>Identity Providers</code> left menu item
 and select <code>LinkedIn</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
@@ -5720,6 +6180,12 @@ Go back to Keycloak and specify those items.</p>
 </div>
 <div class="sect3">
 <h4 id="microsoft"><a class="anchor" href="#microsoft"></a>12.4.6. Microsoft</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/social/microsoft.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/social/microsoft.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are a number of steps you have to complete to be able to login to Microsoft.  First, go to the <code>Identity Providers</code> left menu item
 and select <code>Microsoft</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
@@ -5773,6 +6239,12 @@ Go back to Keycloak and specify those items.</p>
 </div>
 <div class="sect3">
 <h4 id="paypal"><a class="anchor" href="#paypal"></a>12.4.7. PayPal</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/social/paypal.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/social/paypal.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are a number of steps you have to complete to be able to login to PayPal.  First, go to the <code>Identity Providers</code> left menu item
 and select <code>PayPal</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
@@ -5836,6 +6308,12 @@ copy this URI to your clipboard.</p>
 </div>
 <div class="sect3">
 <h4 id="stackoverflow"><a class="anchor" href="#stackoverflow"></a>12.4.8. StackOverflow</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/social/stack-overflow.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/social/stack-overflow.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are a number of steps you have to complete to be able to login to StackOverflow.  First, go to the <code>Identity Providers</code> left menu item
 and select <code>StackOverflow</code> from the <code>Add provider</code> drop down list.  This will bring you to the <code>Add identity provider</code> page.</p>
@@ -5880,6 +6358,12 @@ Go back to Keycloak and specify those items.</p>
 </div>
 <div class="sect3">
 <h4 id="openshift"><a class="anchor" href="#openshift"></a>12.4.9. Openshift</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/social/openshift.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/social/openshift.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -5953,6 +6437,12 @@ Go back to Keycloak and specify those items.</p>
 </div>
 <div class="sect2">
 <h3 id="openid-connect-v1-0-identity-providers"><a class="anchor" href="#openid-connect-v1-0-identity-providers"></a>12.5. OpenID Connect v1.0 Identity Providers</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/oidc.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/oidc.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak can broker identity providers based on the OpenID Connect protocol.  These IDPs must support the <a href="#_oidc">Authorization Code Flow</a>
 as defined by the specification in order to authenticate the user and authorize access.</p>
@@ -6066,6 +6556,12 @@ This link is a JSON document describing metadata about the IDP.</p>
 </div>
 <div class="sect2">
 <h3 id="saml-v2-0-identity-providers"><a class="anchor" href="#saml-v2-0-identity-providers"></a>12.6. SAML v2.0 Identity Providers</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/saml.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/saml.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak can broker identity providers based on the SAML v2.0 protocol.</p>
 </div>
@@ -6177,6 +6673,12 @@ Clicking this button will export a SAML SP entity descriptor which you can use t
 </div>
 <div class="sect2">
 <h3 id="_client_suggested_idp"><a class="anchor" href="#_client_suggested_idp"></a>12.7. Client Suggested Identity Provider</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/suggested.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/suggested.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>OIDC applications can bypass the Keycloak login page by specifying a hint on which
 identity provider they want to use.</p>
@@ -6218,6 +6720,12 @@ keycloak.createLoginUrl({
 </div>
 <div class="sect2">
 <h3 id="_mappers"><a class="anchor" href="#_mappers"></a>12.8. Mapping Claims and Assertions</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/mappers.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/mappers.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can import the SAML and OpenID Connect metadata provided by the external IDP you are authenticating with into the environment
 of the realm.  This allows you to extract user profile metadata and other information so that you can make it available to your
@@ -6258,6 +6766,12 @@ This is done in the server&#8217;s app-server configuration file (domain.xml or 
 </div>
 <div class="sect2">
 <h3 id="available-user-session-data"><a class="anchor" href="#available-user-session-data"></a>12.9. Available User Session Data</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/session-data.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/session-data.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>After a user logs in from the external IDP, there&#8217;s some additional user session note data that Keycloak stores that you can access.
 This data can be propagated to the client requesting a login via the token or SAML assertion being passed back to it by using an appropriate client mapper.</p>
@@ -6281,6 +6795,12 @@ For example Keycloak user <code>john</code> can be linked to the Facebook user <
 </div>
 <div class="sect2">
 <h3 id="_identity_broker_first_login"><a class="anchor" href="#_identity_broker_first_login"></a>12.10. First Login Flow</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/first-login-flow.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/first-login-flow.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When a user logs in through identity brokering some aspects of the user are imported and linked within the realm&#8217;s local database.
 When Keycloak successfully authenticates users through an external identity provider
@@ -6366,6 +6886,12 @@ You can also force users to use OTP. Otherwise it&#8217;s optional and used only
 </div>
 <div class="sect2">
 <h3 id="retrieving-external-idp-tokens"><a class="anchor" href="#retrieving-external-idp-tokens"></a>12.11. Retrieving External IDP Tokens</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/identity-broker/tokens.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/identity-broker/tokens.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak allows you to store tokens and responses from the authentication process with the external IDP.
 For that, you can use the <code>Store Token</code> configuration option on the IDP&#8217;s settings page.</p>
@@ -6398,6 +6924,12 @@ In the broker configuration page you can automatically assign this role to newly
 <div class="sect1">
 <h2 id="user-session-management"><a class="anchor" href="#user-session-management"></a>13. User Session Management</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/sessions.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/sessions.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When a user logs into a realm, Keycloak maintains a user session for them and remembers each and every client they
 have visited within the session.  There are a lot of administrative
@@ -6407,6 +6939,12 @@ can revoke tokens and set up all the token and session timeouts there too.</p>
 </div>
 <div class="sect2">
 <h3 id="administering-sessions"><a class="anchor" href="#administering-sessions"></a>13.1. Administering Sessions</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/sessions/administering.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/sessions/administering.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If you go to the <code>Sessions</code> left menu item you can see a top level view of the number of sessions that are currently active in the realm.</p>
 </div>
@@ -6455,6 +6993,12 @@ Clicking on the <code>Show Sessions</code> button there allows you to see which 
 </div>
 <div class="sect2">
 <h3 id="_revocation-policy"><a class="anchor" href="#_revocation-policy"></a>13.2. Revocation Policies</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/sessions/revocation.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/sessions/revocation.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If your system is compromised you will want a way to revoke all sessions and access tokens that have been handed out.
 You can do this by going to the <code>Revocation</code> tab of the <code>Sessions</code> screen.</p>
@@ -6472,6 +7016,12 @@ OIDC client adapter installed.</p>
 </div>
 <div class="sect2">
 <h3 id="_timeouts"><a class="anchor" href="#_timeouts"></a>13.3. Session and Token Timeouts</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/sessions/timeouts.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/sessions/timeouts.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak gives you fine grain control of session, cookie, and token timeouts.  This is all done on the
 <code>Tokens</code> tab in the <code>Realm Settings</code> left menu item.</p>
@@ -6551,6 +7101,12 @@ OIDC client adapter installed.</p>
 </div>
 <div class="sect2">
 <h3 id="_offline-access"><a class="anchor" href="#_offline-access"></a>13.4. Offline Access</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/sessions/offline.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/sessions/offline.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Offline access is a feature described in <a href="http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess">OpenID Connect specification</a> .
 The idea is that during login, your client application will request an Offline token instead of a classic Refresh token.
@@ -6589,6 +7145,12 @@ support offline tokens if you include <code>scope=offline_access</code> in the b
 <div class="sect1">
 <h2 id="_user-storage-federation"><a class="anchor" href="#_user-storage-federation"></a>14. User Storage Federation</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/user-federation.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/user-federation.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Many companies have existing user databases that hold information about users and their passwords or other credentials.
 In may cases, it is just not possible to migrate off of those existing stores to a pure Keycloak deployment.
@@ -6646,6 +7208,12 @@ This can cause security issues and unforeseen problems as the user may be loaded
 </div>
 <div class="sect2">
 <h3 id="_ldap"><a class="anchor" href="#_ldap"></a>14.3. LDAP and Active Directory</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/user-federation/ldap.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/user-federation/ldap.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak comes with a built-in LDAP/AD provider.  It is possible to federate multiple different LDAP servers in the same
 Keycloak realm.  You can map LDAP user attributes into the Keycloak common user model.
@@ -6850,6 +7418,12 @@ Admin console provides tooltips, which should help with configuring the correspo
 </div>
 <div class="sect2">
 <h3 id="_sssd"><a class="anchor" href="#_sssd"></a>14.4. SSSD and FreeIPA Identity Management Integration</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/user-federation/sssd.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/user-federation/sssd.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak also comes with a built-in <a href="https://fedoraproject.org/wiki/Features/SSSD">SSSD</a> (System Security Services Daemon) plugin. SSSD is part of the latest Fedora or Red Hat Enterprise Linux and provides access to multiple identity and authentication providers. It provides benefits such as failover and offline support. To see configuration options and for more information see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system-level_authentication_guide/sssd">the Red Hat Enterprise Linux Identity Management documentation</a>.</p>
 </div>
@@ -7070,6 +7644,12 @@ $ sudo yum install libunix-dbus-java-0.8.0-1.fc24.x86_64.rpm</pre>
 </div>
 <div class="sect2">
 <h3 id="custom-providers"><a class="anchor" href="#custom-providers"></a>14.6. Custom Providers</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/user-federation/custom.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/user-federation/custom.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak does have an SPI for User Storage Federation that you can use to write your own custom providers.
 You can find documentation for this in our <a href="http://www.keycloak.org/docs/3.4/server_development/">Server Developer Guide</a>.</p>
@@ -7080,6 +7660,12 @@ You can find documentation for this in our <a href="http://www.keycloak.org/docs
 <div class="sect1">
 <h2 id="auditing-and-events"><a class="anchor" href="#auditing-and-events"></a>15. Auditing and Events</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/events.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/events.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak provides a rich set of auditing capabilities.  Every single login action can be recorded and stored in
 the database and reviewed in the Admin Console.  All admin actions can also be recorded and reviewed.  There is also a Listener SPI
@@ -7088,6 +7674,12 @@ to send an email if an event occurs.</p>
 </div>
 <div class="sect2">
 <h3 id="login-events"><a class="anchor" href="#login-events"></a>15.1. Login Events</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/events/login.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/events/login.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Login events occur for things like when a user logs in successfully, when somebody enters in a bad password, or when a user account
 is updated.  Every single event that happens to a user can be recorded and viewed.  By default, no events are stored
@@ -7266,6 +7858,12 @@ where the <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>
 </div>
 <div class="sect2">
 <h3 id="admin-events"><a class="anchor" href="#admin-events"></a>15.2. Admin Events</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/events/admin.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/events/admin.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Any action an admin performs within the admin console can be recorded for auditing purposes.
 The Admin Console performs administrative functions by invoking on the Keycloak REST interface.  Keycloak
@@ -7316,6 +7914,12 @@ database.  The <code>Clear admin events</code> button allows you to wipe out the
 <div class="sect1">
 <h2 id="_export_import"><a class="anchor" href="#_export_import"></a>16. Export and Import</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/export-import.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/export-import.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak has the ability to export and import the entire database.
 This can be especially useful if you want to migrate your whole Keycloak database from one environment to another or migrate to a different database (for example from MySQL to Oracle). Export and import is triggered at server boot time  and its parameters are passed in via Java system properties.
@@ -7517,6 +8121,12 @@ Use this feature with caution, especially on a production system.
 <div class="sect1">
 <h2 id="_account-service"><a class="anchor" href="#_account-service"></a>17. User Account Service</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/account.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/account.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak has a built-in User Account Service which every user has access to.  This service allows users to manage their account,
 change their credentials, update their profile, and view their login sessions.  The URL to this service is <code>&lt;server-root&gt;/auth/realms/{realm-name}/account</code>.</p>
@@ -7579,6 +8189,12 @@ See the <a href="http://www.keycloak.org/docs/3.4/server_development/">Server De
 <div class="sect1">
 <h2 id="threat-model-mitigation"><a class="anchor" href="#threat-model-mitigation"></a>18. Threat Model Mitigation</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This chapter discusses possible security vulnerabilities any authentication server could have and how Keycloak
 mitigates those vulnerabilities.
@@ -7588,6 +8204,12 @@ Many of those vulnerabilities are discussed here.</p>
 </div>
 <div class="sect2">
 <h3 id="host"><a class="anchor" href="#host"></a>18.1. Host</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/host.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/host.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak uses the request URL for a number of things. For example, the URL sent in password reset emails.</p>
 </div>
@@ -7634,6 +8256,12 @@ accepted hosts.</p>
 </div>
 <div class="sect2">
 <h3 id="admin-endpoints-and-console"><a class="anchor" href="#admin-endpoints-and-console"></a>18.2. Admin Endpoints and Console</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/admin.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/admin.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Keycloak administrative REST API and the web console are exposed by default on the same port as non-admin
 usage. If you are exposing Keycloak on the Internet, we recommend not also exposing the admin endpoints on the
@@ -7753,6 +8381,12 @@ receives the client IP address and not the proxy IP address
 </div>
 <div class="sect2">
 <h3 id="password-guess-brute-force-attacks"><a class="anchor" href="#password-guess-brute-force-attacks"></a>18.3. Password guess: brute force attacks</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/brute-force.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/brute-force.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>A brute force attack happens when an attacker is trying to guess a user&#8217;s password.
 Keycloak has some limited brute force detection capabilities.
@@ -7796,6 +8430,12 @@ users pick hard to guess passwords.  See the <a href="#_password-policies">Passw
 </div>
 <div class="sect2">
 <h3 id="clickjacking"><a class="anchor" href="#clickjacking"></a>18.4. Clickjacking</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/clickjacking.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/clickjacking.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>With clickjacking, a malicious site loads the target site in a transparent iFrame overlaid on top of a set of dummy
 buttons that are carefully constructed to be placed directly under important buttons on the target site.
@@ -7818,6 +8458,12 @@ click the <code>Security Defenses</code> tab and make sure you are on the <code>
 </div>
 <div class="sect2">
 <h3 id="ssl-https-requirement"><a class="anchor" href="#ssl-https-requirement"></a>18.5. SSL/HTTPS Requirement</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/ssl.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/ssl.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If you do not use SSL/HTTPS for all communication between the Keycloak auth server and the clients it secures, you will be very vulnerable to man in the middle attacks.
 OAuth 2.0/OpenID Connect uses access tokens for security.
@@ -7840,6 +8486,12 @@ Otherwise you are vulnerable to DNS man in the middle attacks.</p>
 </div>
 <div class="sect2">
 <h3 id="csrf-attacks"><a class="anchor" href="#csrf-attacks"></a>18.6. CSRF Attacks</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/csrf.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/csrf.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Cross-site request forgery (CSRF) is a web-based attack whereby HTTP requests are transmitted from a user that the
 web site trusts or has authenticated with(e.g. via HTTP redirects or HTML forms).  Any site that uses cookie based authentication is vulnerable to these types of attacks.
@@ -7863,6 +8515,12 @@ This query or form parameter is checked against the state cookie to verify that 
 </div>
 <div class="sect2">
 <h3 id="_unspecific-redirect-uris"><a class="anchor" href="#_unspecific-redirect-uris"></a>18.7. Unspecific Redirect URIs</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/redirect.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/redirect.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>For the <a href="#_oidc-auth-flows">Authorization Code Flow</a>, if you register redirect URIs that
 are too general, then it would be possible for a rogue client to impersonate a different client that has a broader scope
@@ -7872,6 +8530,12 @@ registered redirect URIs as specific as feasible.</p>
 </div>
 <div class="sect2">
 <h3 id="compromised-access-and-refresh-tokens"><a class="anchor" href="#compromised-access-and-refresh-tokens"></a>18.8. Compromised Access and Refresh Tokens</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/compromised-tokens.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/compromised-tokens.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are a few things you can do to mitigate access tokens and refresh tokens from being stolen. The most important thing is to enforce SSL/HTTPS communication between Keycloak and its clients and applications. It might seem obvious, but since Keycloak does not have SSL enabled by default, an administrator might not realize that it is necessary.</p>
 </div>
@@ -7889,6 +8553,12 @@ More info in the  <a href="#realm_keys">keys chapter</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="compromised-authorization-code"><a class="anchor" href="#compromised-authorization-code"></a>18.9. Compromised Authorization Code</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/compromised-codes.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/compromised-codes.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>For the <a href="#_oidc-auth-flows">OIDC Auth Code Flow</a>, it would be very hard for an attacker to compromise Keycloak authorization codes.
 Keycloak generates a cryptographically strong random value for its authorization codes so it would be very hard to guess an access token.
@@ -7899,6 +8569,12 @@ This value should be really short, as short as a few seconds and just long enoug
 </div>
 <div class="sect2">
 <h3 id="open-redirectors"><a class="anchor" href="#open-redirectors"></a>18.10. Open redirectors</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/open-redirect.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/open-redirect.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>An attacker could use the end-user authorization endpoint and the redirect URI parameter to abuse the authorization server as an open redirector.
 An open redirector is an endpoint using a parameter to automatically redirect a user agent to the location specified by the parameter value without any validation.
@@ -7913,6 +8589,12 @@ It is important that clients and applications register as specific a URI pattern
 </div>
 <div class="sect2">
 <h3 id="password-database-compromised"><a class="anchor" href="#password-database-compromised"></a>18.11. Password database compromised</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/password-db-compromised.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/password-db-compromised.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak does not store passwords in raw text.
 It stores a hash of them using the PBKDF2 algorithm.  It actually uses
@@ -7923,6 +8605,12 @@ It is up to you to decide how serious you want to be to protect your password da
 </div>
 <div class="sect2">
 <h3 id="limiting-scope"><a class="anchor" href="#limiting-scope"></a>18.12. Limiting Scope</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/scope.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/scope.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>By default, each new client application has an unlimited scope.  This means that every access token that is created
 for that client will contain all the permissions the user has.  If the client gets compromised and the access token
@@ -7932,6 +8620,12 @@ that you limit the roles an access token is assigned by using the <a href="#_cli
 </div>
 <div class="sect2">
 <h3 id="sql-injection-attacks"><a class="anchor" href="#sql-injection-attacks"></a>18.13. SQL Injection Attacks</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/sql.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/threat/sql.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>At this point in time, there is no knowledge of any SQL injection vulnerabilities in Keycloak.</p>
 </div>
@@ -7941,6 +8635,12 @@ that you limit the roles an access token is assigned by using the <a href="#_cli
 <div class="sect1">
 <h2 id="the-admin-cli"><a class="anchor" href="#the-admin-cli"></a>19. The Admin CLI</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/admin-cli.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/admin-cli.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>In previous chapters, we described how to use the Keycloak Admin Console to perform administrative tasks. You can also perform those tasks from the command-line interface (CLI) by using the Admin CLI command-line tool.</p>
 </div>
@@ -10407,7 +11107,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-09 07:31:13 UTC
+Last updated 2018-02-14 09:18:43 UTC
 </div>
 </div>
 <ul id="globalnav">

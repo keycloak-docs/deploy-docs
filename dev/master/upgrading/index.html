@@ -630,6 +630,40 @@ span.image img {
     box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.5);
 }
 
+.sect1+.sect1 {
+    border-top: none;
+}
+
+.page-links {
+    border-bottom: 1px solid #efefed;
+    border-top: none;
+    background: none;
+    position: relative;
+    left: 0em;
+    width: 100%;
+    top: -5em;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.sect2 .page-links {
+    top: -3.5em;
+}
+
+.page-links .content {
+    background: #f8f8f7;
+    border: 1px solid #e0e0dc;
+    float: right;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 5px;
+}
+
+.page-links a {
+    display: block;
+    padding: 5px;
+}
 </style>
 </head>
 <body class="article toc2 toc-left">
@@ -821,6 +855,12 @@ span.image img {
 <div class="sect1">
 <h2 id="intro"><a class="anchor" href="#intro"></a>1. Introduction</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/upgrading/topics/keycloak/intro.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20upgrading/topics/keycloak/intro.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This guide describes how to upgrade Keycloak. It is recommended that you start by upgrading the Keycloak
 server first and Keycloak adapters second.</p>
@@ -834,8 +874,20 @@ server first and Keycloak adapters second.</p>
 <div class="sect1">
 <h2 id="_upgrading"><a class="anchor" href="#_upgrading"></a>2. Upgrading Keycloak Server</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/upgrading/topics/keycloak/upgrading.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20upgrading/topics/keycloak/upgrading.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_prep_migration"><a class="anchor" href="#_prep_migration"></a>2.1. Preparing for Upgrading</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/upgrading/topics/prep_migration.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20upgrading/topics/prep_migration.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Before you upgrade, be aware of the order in which you need to perform the upgrade steps. Also note potential issues
 that can occur within the upgrade process. In general, you must upgrade Keycloak server first, and then upgrade
@@ -851,7 +903,7 @@ the adapters.</p>
 </li>
 <li>
 <p>Back up the database. For detailed information on how to back up the database, see the documentation for the relational
-database you’re using.</p>
+database you???re using.</p>
 </li>
 <li>
 <p>Upgrade Keycloak server.</p>
@@ -881,6 +933,12 @@ production, is a best practice.</p>
 </div>
 <div class="sect2">
 <h3 id="_install_new_version"><a class="anchor" href="#_install_new_version"></a>2.2. Upgrading Keycloak server</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/upgrading/topics/install_new_version.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20upgrading/topics/install_new_version.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>It is important that you upgrade Keycloak server before upgrading the adapters.</p>
 </div>
@@ -1038,6 +1096,12 @@ Files in the bin directory should not be overwritten by the files from previous 
 </div>
 <div class="sect2">
 <h3 id="_migrate_db"><a class="anchor" href="#_migrate_db"></a>2.3. Migrating the Database</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/upgrading/topics/migrate_db.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20upgrading/topics/migrate_db.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak can automatically migrate the database schema, or you can choose to do it manually. By default the
 database is automatically migrated when you start the new installation for the first time.</p>
@@ -1102,19 +1166,25 @@ connectionsJpa provider:</p>
 <div class="paragraph">
 <p>When you start the server with this configuration it checks if the database needs to be migrated. The required changes
 are written to an SQL file that you can review and manually run against the database. For further details on how to
-apply this file to the database, see the documentation for the relational database you’re using. After the changes have
+apply this file to the database, see the documentation for the relational database you???re using. After the changes have
 been written to the file, the server exits.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_migrate_themes"><a class="anchor" href="#_migrate_themes"></a>2.4. Migrating Themes</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/upgrading/topics/migrate_themes.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20upgrading/topics/migrate_themes.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If you have created any custom themes they must be migrated to the new server. Any changes to the built-in themes might
 need to be reflected in your custom themes, depending on which aspects you have customized.</p>
 </div>
 <div class="paragraph">
-<p>You must copy your custom themes from the old server “themes” directory to the new server “themes” directory.
+<p>You must copy your custom themes from the old server ???themes??? directory to the new server ???themes??? directory.
 After that you need to review the changes below and consider if the changes need to be applied to your custom theme.</p>
 </div>
 <div class="paragraph">
@@ -1156,8 +1226,8 @@ customized old template, as this will show you what changes you need to make.</p
 <p><span class="image"><img src="./images/theme-migration-meld-info-1.png" alt="theme migration meld info 1"></span></p>
 </div>
 <div class="paragraph">
-<p>From this comparison it is easy to identify that the first change (“Hello world!!”) was a customization, while the
-second change (“if pageRedirectUri”) is a change to the base theme. By copying the second change to your custom template,
+<p>From this comparison it is easy to identify that the first change (???Hello world!!???) was a customization, while the
+second change (???if pageRedirectUri???) is a change to the base theme. By copying the second change to your custom template,
 you have successfully updated your customized template.</p>
 </div>
 <div class="paragraph">
@@ -1227,6 +1297,12 @@ work with later versions of the adapter.</p>
 </div>
 <div class="sect2">
 <h3 id="_compatibility_with_older_adapters"><a class="anchor" href="#_compatibility_with_older_adapters"></a>3.1. Compatibility with older adapters</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/upgrading/topics/upgrade_adapters.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20upgrading/topics/upgrade_adapters.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>As mentioned above, we try to support newer release versions of Keycloak server working with older release versions of the adapters.
 However, in some cases we need to include fixes on the Keycloak server side which may break compatibility with older versions
@@ -1301,6 +1377,12 @@ to preserve compatibility with older client adapters. More details are available
 <div class="sect1">
 <h2 id="migration-changes"><a class="anchor" href="#migration-changes"></a>4. Migration Changes</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/upgrading/topics/keycloak/changes.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20upgrading/topics/keycloak/changes.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="sect2">
 <h3 id="migrating-to-3-4-2"><a class="anchor" href="#migrating-to-3-4-2"></a>4.1. Migrating to 3.4.2</h3>
 <div class="sect3">
@@ -2125,7 +2207,7 @@ credentials tab in the administration console.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-09 07:31:14 UTC
+Last updated 2018-02-14 09:18:52 UTC
 </div>
 </div>
 <ul id="globalnav">

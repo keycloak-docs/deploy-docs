@@ -630,6 +630,40 @@ span.image img {
     box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.5);
 }
 
+.sect1+.sect1 {
+    border-top: none;
+}
+
+.page-links {
+    border-bottom: 1px solid #efefed;
+    border-top: none;
+    background: none;
+    position: relative;
+    left: 0em;
+    width: 100%;
+    top: -5em;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.sect2 .page-links {
+    top: -3.5em;
+}
+
+.page-links .content {
+    background: #f8f8f7;
+    border: 1px solid #e0e0dc;
+    float: right;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 5px;
+}
+
+.page-links a {
+    display: block;
+    padding: 5px;
+}
 </style>
 </head>
 <body class="article toc2 toc-left">
@@ -664,7 +698,7 @@ span.image img {
 <li><a href="#java-adapters">2.1. Java Adapters</a>
 <ul class="sectlevel3">
 <li><a href="#_java_adapter_config">2.1.1. Java Adapter Config</a></li>
-<li><a href="#_jboss_adapter">2.1.2. JBoss EAP/Wildfly Adapter</a></li>
+<li><a href="#jboss-eap-wildfly-adapter">2.1.2. JBoss EAP/Wildfly Adapter</a></li>
 <li><a href="#_jboss_adapter_rpm">2.1.3. Installing JBoss EAP Adapter from an RPM</a></li>
 <li><a href="#_fuse_adapter">2.1.4. JBoss Fuse Adapter</a></li>
 <li><a href="#_spring_boot_adapter">2.1.5. Spring Boot Adapter</a></li>
@@ -717,7 +751,7 @@ span.image img {
 <li><a href="#java-adapters-2">3.1. Java Adapters</a>
 <ul class="sectlevel3">
 <li><a href="#_saml-general-config">3.1.1. General Adapter Config</a></li>
-<li><a href="#_saml_jboss_adapter">3.1.2. JBoss EAP/Wildfly Adapter</a></li>
+<li><a href="#jboss-eap-wildfly-adapter-2">3.1.2. JBoss EAP/Wildfly Adapter</a></li>
 <li><a href="#_jboss_adapter_rpm_saml">3.1.3. Installing JBoss EAP Adapter from an RPM</a></li>
 <li><a href="#_saml-tomcat-adapter">3.1.4. Tomcat SAML adapters</a></li>
 <li><a href="#_jetty_saml_adapter">3.1.5. Jetty SAML Adapters</a></li>
@@ -824,6 +858,12 @@ span.image img {
 <div class="sect1">
 <h2 id="overview"><a class="anchor" href="#overview"></a>1. Overview</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/overview/overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/overview/overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak supports both OpenID Connect (an extension to OAuth 2.0) and SAML 2.0. When securing clients and services the first thing you need to
 decide is which of the two you are going to use. If you want you can also choose to secure some with OpenID Connect and others with SAML.</p>
@@ -834,6 +874,12 @@ adapters for selected platforms, but it is also possible to use generic OpenID C
 </div>
 <div class="sect2">
 <h3 id="what-are-client-adapters"><a class="anchor" href="#what-are-client-adapters"></a>1.1. What are Client Adapters?</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/overview/what-are-client-adapters.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/overview/what-are-client-adapters.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak client adapters are libraries that makes it very easy to secure applications and services with Keycloak. We call them
 adapters rather than libraries as they provide a tight integration to the underlying platform and framework. This makes our adapters easy to use and they
@@ -842,6 +888,12 @@ require less boilerplate code than what is typically required by a library.</p>
 </div>
 <div class="sect2">
 <h3 id="supported-platforms"><a class="anchor" href="#supported-platforms"></a>1.2. Supported Platforms</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/overview/supported-platforms.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/overview/supported-platforms.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="sect3">
 <h4 id="openid-connect"><a class="anchor" href="#openid-connect"></a>1.2.1. OpenID Connect</h4>
 <div class="sect4">
@@ -987,6 +1039,12 @@ require less boilerplate code than what is typically required by a library.</p>
 </div>
 <div class="sect2">
 <h3 id="supported-protocols"><a class="anchor" href="#supported-protocols"></a>1.3. Supported Protocols</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/overview/supported-protocols.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/overview/supported-protocols.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="sect3">
 <h4 id="openid-connect-2"><a class="anchor" href="#openid-connect-2"></a>1.3.1. OpenID Connect</h4>
 <div class="paragraph">
@@ -1060,12 +1118,24 @@ make implementing security in your web applications easier. For example, check o
 <div class="sect1">
 <h2 id="openid-connect-3"><a class="anchor" href="#openid-connect-3"></a>2. OpenID Connect</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/oidc-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/oidc-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This section describes how you can secure applications and services with OpenID Connect using either Keycloak adapters or generic OpenID Connect
 Resource Provider libraries.</p>
 </div>
 <div class="sect2">
 <h3 id="java-adapters"><a class="anchor" href="#java-adapters"></a>2.1. Java Adapters</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/java-adapters.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/java-adapters.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak comes with a range of different adapters for Java application. Selecting the correct adapter depends on the target platform.</p>
 </div>
@@ -1074,6 +1144,12 @@ Resource Provider libraries.</p>
 </div>
 <div class="sect3">
 <h4 id="_java_adapter_config"><a class="anchor" href="#_java_adapter_config"></a>2.1.1. Java Adapter Config</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/java-adapter-config.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/java-adapter-config.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Each Java adapter supported by Keycloak can be configured by a simple JSON file.
 This is what one might look like:</p>
@@ -1368,9 +1444,15 @@ if they only pass in an <code>access_token</code></p>
 </dd>
 </dl>
 </div>
+<div id="_jboss_adapter" class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/jboss-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/jboss-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="_jboss_adapter"><a class="anchor" href="#_jboss_adapter"></a>2.1.2. JBoss EAP/Wildfly Adapter</h4>
+<h4 id="jboss-eap-wildfly-adapter"><a class="anchor" href="#jboss-eap-wildfly-adapter"></a>2.1.2. JBoss EAP/Wildfly Adapter</h4>
 <div class="paragraph">
 <p>To be able to secure WAR apps deployed on JBoss EAP, WildFly or JBoss AS, you must install and configure the
 Keycloak adapter subsystem. You then have two options to secure your WARs.</p>
@@ -1657,6 +1739,12 @@ can be achieved with the @SecurityDomain annotation:</p>
 </div>
 <div class="sect3">
 <h4 id="_jboss_adapter_rpm"><a class="anchor" href="#_jboss_adapter_rpm"></a>2.1.3. Installing JBoss EAP Adapter from an RPM</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/jboss-adapter-rpms.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/jboss-adapter-rpms.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Install the EAP 7 Adapters from an RPM:</p>
 </div>
@@ -1802,6 +1890,12 @@ The default EAP_HOME path for the RPM installation is /opt/rh/eap6/root/usr/shar
 </div>
 <div class="sect3">
 <h4 id="_fuse_adapter"><a class="anchor" href="#_fuse_adapter"></a>2.1.4. JBoss Fuse Adapter</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Currently Keycloak supports securing your web applications running inside <a href="https://developers.redhat.com/products/fuse/overview/">JBoss Fuse</a>.</p>
 </div>
@@ -1862,6 +1956,12 @@ understanding the demo.</p>
 </div>
 <div class="sect4">
 <h5 id="_fuse_install_feature"><a class="anchor" href="#_fuse_install_feature"></a>Installing the Keycloak Feature</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse/install-feature.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse/install-feature.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You must first install the <code>keycloak</code> feature in the JBoss Fuse environment. The keycloak feature includes the Fuse adapter and all third-party dependencies. You can install it either from the Maven repository or from an archive.</p>
 </div>
@@ -1961,6 +2061,12 @@ features:install keycloak</code></pre>
 </div>
 <div class="sect4">
 <h5 id="_fuse_adapter_classic_war"><a class="anchor" href="#_fuse_adapter_classic_war"></a>Securing a Classic WAR Application</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse/classic-war.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse/classic-war.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The needed steps to secure your WAR application are:</p>
 </div>
@@ -2093,6 +2199,12 @@ Then inside one of those folders it searches for a file called <code>&lt;your_we
 </div>
 <div class="sect4">
 <h5 id="_fuse_adapter_servlet_whiteboard"><a class="anchor" href="#_fuse_adapter_servlet_whiteboard"></a>Securing a Servlet Deployed as an OSGI Service</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse/servlet-whiteboard.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse/servlet-whiteboard.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can use this method if you have a servlet class inside your OSGI bundled project that is not deployed as a classic WAR application. Fuse uses Pax Web Whiteboard Extender to deploy such servlets as web applications.</p>
 </div>
@@ -2181,6 +2293,12 @@ org.keycloak.*;version="3.4.0.CR1",
 </div>
 <div class="sect4">
 <h5 id="securing-an-apache-camel-application"><a class="anchor" href="#securing-an-apache-camel-application"></a>Securing an Apache Camel Application</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse/camel.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse/camel.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can secure Apache Camel endpoints implemented with the <a href="http://camel.apache.org/jetty.html">camel-jetty</a> component by adding securityHandler with <code>KeycloakJettyAuthenticator</code> and the proper security constraints injected. You can add the <code>OSGI-INF/blueprint/blueprint.xml</code> file to your Camel application with a similar configuration as below. The roles, security constraint mappings, and Keycloak adapter configuration might differ slightly depending on your environment and needs.</p>
 </div>
@@ -2343,6 +2461,12 @@ org.osgi.service.event,</code></pre>
 </div>
 <div class="sect4">
 <h5 id="_fuse_adapter_cxf_separate"><a class="anchor" href="#_fuse_adapter_cxf_separate"></a>Securing an Apache CXF Endpoint on a Separate Jetty Engine</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse/cxf-separate.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse/cxf-separate.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To run your CXF endpoints secured by Keycloak on separate Jetty engines, complete the following steps:</p>
 </div>
@@ -2460,6 +2584,12 @@ org.keycloak.*;version="3.4.0.CR1"</code></pre>
 </div>
 <div class="sect4">
 <h5 id="_fuse_adapter_cxf_builtin"><a class="anchor" href="#_fuse_adapter_cxf_builtin"></a>Securing an Apache CXF Endpoint on the Default Jetty Engine</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse/cxf-builtin.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse/cxf-builtin.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Some services automatically come with deployed servlets on startup. One such service is the CXF servlet running in the http://localhost:8181/cxf context. Securing such endpoints can be complicated. One approach, which Keycloak is currently using, is ServletReregistrationService, which undeploys a built-in servlet at startup, enabling you to redeploy it on a context secured by Keycloak.</p>
 </div>
@@ -2562,6 +2692,12 @@ org.keycloak.adapters.jetty;version="3.4.0.CR1",
 </div>
 <div class="sect4">
 <h5 id="_fuse_adapter_admin"><a class="anchor" href="#_fuse_adapter_admin"></a>Securing Fuse Administration Services</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse/fuse-admin.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse/fuse-admin.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="sect5">
 <h6 id="using-ssh-authentication-to-fuse-terminal"><a class="anchor" href="#using-ssh-authentication-to-fuse-terminal"></a>Using SSH Authentication to Fuse Terminal</h6>
 <div class="paragraph">
@@ -2684,6 +2820,12 @@ On some later operating systems, you might also need to use the SSH command&#821
 </div>
 <div class="sect4">
 <h5 id="_hawtio"><a class="anchor" href="#_hawtio"></a>Securing the Hawtio Administration Console</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse/hawtio.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse/hawtio.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To secure the Hawtio Administration Console with Keycloak, complete the following steps:</p>
 </div>
@@ -2845,6 +2987,12 @@ features:install keycloak</code></pre>
 </div>
 <div class="sect3">
 <h4 id="_spring_boot_adapter"><a class="anchor" href="#_spring_boot_adapter"></a>2.1.5. Spring Boot Adapter</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/spring-boot-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/spring-boot-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To be able to secure Spring Boot apps you must add the Keycloak Spring Boot adapter JAR to your app.
 You then have to provide some extra configuration via normal Spring Boot configuration (<code>application.properties</code>).  Let&#8217;s go over these steps.</p>
@@ -2957,6 +3105,12 @@ If you plan to deploy your Spring Application as a WAR then you should not use t
 </div>
 <div class="sect3">
 <h4 id="_tomcat_adapter"><a class="anchor" href="#_tomcat_adapter"></a>2.1.6. Tomcat 6, 7 and 8 Adapters</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/tomcat-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/tomcat-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To be able to secure WAR apps deployed on Tomcat 6, 7 and 8 you must install the Keycloak Tomcat 6, 7 or 8 adapter into your Tomcat installation.
 You then have to provide some extra configuration in each WAR you deploy to Tomcat.
@@ -3047,6 +3201,12 @@ Here&#8217;s an example:</p>
 </div>
 <div class="sect3">
 <h4 id="_jetty9_adapter"><a class="anchor" href="#_jetty9_adapter"></a>2.1.7. Jetty 9.x Adapters</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/jetty9-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/jetty9-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak has a separate adapter for Jetty 9.1.x, Jetty 9.2.x and Jetty 9.3.x that you will have to install into your Jetty installation.
 You then have to provide some extra configuration in each WAR you deploy to Jetty.
@@ -3204,6 +3364,12 @@ Here&#8217;s an example:</p>
 </div>
 <div class="sect3">
 <h4 id="_jetty8_adapter"><a class="anchor" href="#_jetty8_adapter"></a>2.1.8. Jetty 8.1.x Adapter</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/jetty8-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/jetty8-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak has a separate adapter for Jetty 8.1.x that you will have to install into your Jetty installation.
 You then have to provide some extra configuration in each WAR you deploy to Jetty.
@@ -3252,6 +3418,12 @@ See <a href="#_jetty9_per_war">Required Per WAR Configuration</a></p>
 </div>
 <div class="sect3">
 <h4 id="_spring_security_adapter"><a class="anchor" href="#_spring_security_adapter"></a>2.1.9. Spring Security Adapter</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/spring-security-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/spring-security-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To secure an application with Spring Security and Keycloak, add this adapter as a dependency to your project.
 You then have to provide some extra beans in your Spring Security configuration file and add the Keycloak security filter to your pipeline.</p>
@@ -3569,6 +3741,12 @@ Therefore, when running the Keycloak Spring Security adapter in a Spring Boot en
 </div>
 <div class="sect3">
 <h4 id="_servlet_filter_adapter"><a class="anchor" href="#_servlet_filter_adapter"></a>2.1.10. Java Servlet Filter Adapter</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/servlet-filter-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/servlet-filter-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If you are deploying your Java Servlet application on a platform where there is no Keycloak adapter you opt to use the servlet filter adapter.
 This adapter works a bit differently than the other adapters. You do not define security constraints in web.xml.
@@ -3654,6 +3832,12 @@ So, the Admin URL in this example should be <code>http[s]://hostname/{context-ro
 </div>
 <div class="sect3">
 <h4 id="_jaas_adapter"><a class="anchor" href="#_jaas_adapter"></a>2.1.11. JAAS plugin</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/jaas.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/jaas.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>It&#8217;s generally not needed to use JAAS for most of the applications, especially if they are HTTP based, and you should most likely choose one of our other adapters.
 However, some applications and systems may still rely on pure legacy JAAS solution.
@@ -3700,6 +3884,12 @@ Default value is <code>org.keycloak.adapters.jaas.RolePrincipal</code>. Note: Th
 </div>
 <div class="sect3">
 <h4 id="_installed_adapter"><a class="anchor" href="#_installed_adapter"></a>2.1.12. CLI / Desktop Applications</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/installed-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/installed-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak supports securing desktop
 (e.g. Swing, JavaFX) or CLI applications via the
@@ -3893,6 +4083,12 @@ login / logout requests via the <code>loginResponseWriter</code> and <code>logou
 </div>
 <div class="sect3">
 <h4 id="security-context"><a class="anchor" href="#security-context"></a>2.1.13. Security Context</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/adapter-context.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/adapter-context.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The <code>KeycloakSecurityContext</code> interface is available if you need to access to the tokens directly. This could be useful if you want to retrieve additional
 details from the token (such as user profile information) or you want to invoke a RESTful service that is protected by Keycloak.</p>
@@ -3918,6 +4114,12 @@ details from the token (such as user profile information) or you want to invoke 
 </div>
 <div class="sect3">
 <h4 id="_adapter_error_handling"><a class="anchor" href="#_adapter_error_handling"></a>2.1.14. Error Handling</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/adapter_error_handling.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/adapter_error_handling.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak has some error handling facilities for servlet based client adapters.
 When an error is encountered in authentication, Keycloak will call <code>HttpServletResponse.sendError()</code>.
@@ -3955,6 +4157,12 @@ Reason reason = error.getReason();
 </div>
 <div class="sect3">
 <h4 id="logout"><a class="anchor" href="#logout"></a>2.1.15. Logout</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/logout.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/logout.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can log out of a web application in multiple ways.
 For Java EE servlet containers, you can call HttpServletRequest.logout(). For other browser applications, you can redirect the browser to
@@ -3963,6 +4171,12 @@ For Java EE servlet containers, you can call HttpServletRequest.logout(). For ot
 </div>
 <div class="sect3">
 <h4 id="parameters-forwarding"><a class="anchor" href="#parameters-forwarding"></a>2.1.16. Parameters Forwarding</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/params_forwarding.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/params_forwarding.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Keycloak  initial authorization endpoint request has support for various parameters. Most of the parameters are described in
 <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">OIDC specification</a>. Some parameters are added automatically by the adapter based
@@ -4010,6 +4224,12 @@ For more information see the <code>Identity Brokering</code> section in <a href=
 </div>
 <div class="sect3">
 <h4 id="_client_authentication_adapter"><a class="anchor" href="#_client_authentication_adapter"></a>2.1.17. Client Authentication</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/client-authentication.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/client-authentication.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When a confidential OIDC client needs to send a backchannel request (for example, to exchange code for the token, or to refresh the token) it needs to authenticate against the Keycloak server. By default, there are three ways to authenticate the client: client ID and client secret, client authentication with signed JWT, or client authentication with signed JWT using client secret.</p>
 </div>
@@ -4114,6 +4334,12 @@ you can point to any file on the file system where the client application is run
 </div>
 <div class="sect3">
 <h4 id="_multi_tenancy"><a class="anchor" href="#_multi_tenancy"></a>2.1.18. Multi Tenancy</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/multi-tenancy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/multi-tenancy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Multi Tenancy, in our context, means that a single target application (WAR) can be secured with multiple Keycloak realms. The realms can be located
 one the same Keycloak instance or on different instances.</p>
@@ -4175,6 +4401,12 @@ and you may also want to select the realm based on something else than context-p
 </div>
 <div class="sect3">
 <h4 id="_applicationclustering"><a class="anchor" href="#_applicationclustering"></a>2.1.19. Application Clustering</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/application-clustering.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/application-clustering.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This chapter is related to supporting clustered applications deployed to JBoss EAP, WildFly and JBoss AS.</p>
 </div>
@@ -4368,6 +4600,12 @@ This may have a significant impact on performance. Only enable this feature if y
 </div>
 <div class="sect2">
 <h3 id="_javascript_adapter"><a class="anchor" href="#_javascript_adapter"></a>2.2. Javascript Adapter</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/javascript-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/javascript-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak comes with a client-side JavaScript library that can be used to secure HTML5/JavaScript applications. The JavaScript adapter has built-in support for Cordova applications.</p>
 </div>
@@ -4930,8 +5168,14 @@ This can be useful if application has detected the session was expired, for exam
 </div>
 <div class="sect2">
 <h3 id="_nodejs_adapter"><a class="anchor" href="#_nodejs_adapter"></a>2.3. Node.js Adapter</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/nodejs-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/nodejs-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
-<p>Keycloak provides a Node.js adapter built on top of <a href="https://github.com/senchalabs/connect">Connect</a> to protect server-side JavaScript apps — the goal was to be flexible enough to integrate with frameworks like <a href="https://expressjs.com/">Express.js</a>.</p>
+<p>Keycloak provides a Node.js adapter built on top of <a href="https://github.com/senchalabs/connect">Connect</a> to protect server-side JavaScript apps ??? the goal was to be flexible enough to integrate with frameworks like <a href="https://expressjs.com/">Express.js</a>.</p>
 </div>
 <div class="paragraph">
 <p>The library can be downloaded directly from <a href="https://www.npmjs.com/package/keycloak-connect"> Keycloak organization</a> and the source is available at
@@ -5156,6 +5400,12 @@ to the <code>middleware()</code> call:</p>
 </div>
 <div class="sect2">
 <h3 id="other-openid-connect-libraries"><a class="anchor" href="#other-openid-connect-libraries"></a>2.4. Other OpenID Connect Libraries</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/oidc-generic.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/oidc-generic.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak can be secured by supplied adapters that are usually easier to use and provide better integration with Keycloak. However, if an adapter is not available for your programming language, framework, or platform you might opt to use a generic OpenID Connect Resource Provider (RP) library instead. This chapter describes details specific to Keycloak and does not contain specific protocol details. For more information see the <a href="http://openid.net/connect/">OpenID Connect specifications</a> and <a href="https://tools.ietf.org/html/rfc6749">OAuth2 specification</a>.</p>
 </div>
@@ -5449,6 +5699,12 @@ With this redirect uri it is also possible for a user to use a different device 
 </div>
 <div class="sect3">
 <h4 id="_mod_auth_openidc"><a class="anchor" href="#_mod_auth_openidc"></a>2.4.5. mod_auth_openidc Apache HTTPD Module</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/mod-auth-openidc.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/mod-auth-openidc.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The <a href="https://github.com/zmartzone/mod_auth_openidc">mod_auth_openidc</a> is an Apache HTTP plugin for OpenID Connect. If your language/environment supports using Apache HTTPD
 as a proxy, then you can use <em>mod_auth_openidc</em> to secure your web application with OpenID Connect.  Configuration of this module
@@ -5520,17 +5776,35 @@ project page.</p>
 <div class="sect1">
 <h2 id="saml-2"><a class="anchor" href="#saml-2"></a>3. SAML</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/saml-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/saml-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This section describes how you can secure applications and services with SAML using either Keycloak client adapters or generic
 SAML provider libraries.</p>
 </div>
 <div class="sect2">
 <h3 id="java-adapters-2"><a class="anchor" href="#java-adapters-2"></a>3.1. Java Adapters</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/java-adapters.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/java-adapters.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak comes with a range of different adapters for Java application. Selecting the correct adapter depends on the target platform.</p>
 </div>
 <div class="sect3">
 <h4 id="_saml-general-config"><a class="anchor" href="#_saml-general-config"></a>3.1.1. General Adapter Config</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Each SAML client adapter supported by Keycloak can be configured by a simple XML text file.
 This is what one might look like:</p>
@@ -5591,6 +5865,12 @@ For example <code>${jboss.server.config.dir}</code>.</p>
 </div>
 <div class="sect4">
 <h5 id="sp-element"><a class="anchor" href="#sp-element"></a>SP Element</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/sp_element.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/sp_element.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Here is the explanation of the SP element attributes:</p>
 </div>
@@ -5662,6 +5942,12 @@ The default value is <em>false</em>.</p>
 </div>
 <div class="sect4">
 <h5 id="_saml-sp-keys"><a class="anchor" href="#_saml-sp-keys"></a>Service Provider Keys and Key Elements</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/sp-keys.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/sp-keys.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If the IdP requires that the client application (or SP) sign all of its requests and/or if the IdP will encrypt assertions, you must define the keys used to do this.
 For client-signed documents you must define both the private and public key or certificate that is used to sign documents.
@@ -5688,6 +5974,12 @@ You must set at least one of these attributes to true.</p>
 </div>
 <div class="sect5">
 <h6 id="_saml-keystore"><a class="anchor" href="#_saml-keystore"></a>KeyStore element</h6>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/sp-keys/keystore_element.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/sp-keys/keystore_element.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Within the <code>Key</code> element you can load your keys and certificates from a Java Keystore.  This is declared within
 a <code>KeyStore</code> element.</p>
@@ -5734,6 +6026,12 @@ In the <code>PrivateKey</code> element you must define this password within a <c
 </div>
 <div class="sect5">
 <h6 id="key-pems"><a class="anchor" href="#key-pems"></a>Key PEMS</h6>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/sp-keys/key_pems.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/sp-keys/key_pems.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Within the <code>Key</code> element you declare your keys and certificates directly using the sub elements
 <code>PrivateKeyPem</code>, <code>PublicKeyPem</code>, and <code>CertificatePem</code>.
@@ -5758,6 +6056,12 @@ You usually use this option if you are generating keys using <code>openssl</code
 </div>
 <div class="sect4">
 <h5 id="sp-principalnamemapping-element"><a class="anchor" href="#sp-principalnamemapping-element"></a>SP PrincipalNameMapping element</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/sp_principalname_mapping_element.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/sp_principalname_mapping_element.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This element is optional.
 When creating a Java Principal object that you obtain from methods such as <code>HttpServletRequest.getUserPrincipal()</code>, you can define what name is returned by the <code>Principal.getName()</code> method.</p>
@@ -5793,6 +6097,12 @@ You&#8217;ll need to specify the name of the SAML assertion attribute to use wit
 </div>
 <div class="sect4">
 <h5 id="roleidentifiers-element"><a class="anchor" href="#roleidentifiers-element"></a>RoleIdentifiers Element</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/roleidentifiers_element.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/roleidentifiers_element.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The <code>RoleIdentifiers</code> element defines what SAML attributes within the assertion received from the user should be used
 as role identifiers within the Java EE Security Context for the user.</p>
@@ -5814,6 +6124,12 @@ You can define one or more <code>Attribute</code> elements to specify which SAML
 </div>
 <div class="sect4">
 <h5 id="idp-element"><a class="anchor" href="#idp-element"></a>IDP Element</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/idp_element.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/idp_element.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Everything in the IDP element describes the settings for the identity provider (authentication server) the SP is communicating with.</p>
 </div>
@@ -5860,6 +6176,12 @@ The default value is <code>http://www.w3.org/2001/10/xml-exc-c14n#</code> and sh
 </div>
 <div class="sect4">
 <h5 id="_sp-idp-singlesignonservice"><a class="anchor" href="#_sp-idp-singlesignonservice"></a>IDP SingleSignOnService sub element</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/idp_singlesignonservice_subelement.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/idp_singlesignonservice_subelement.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The <code>SingleSignOnService</code> sub element defines the login SAML endpoint of the IDP.
 The client adapter will send requests
@@ -5916,6 +6238,12 @@ This property is typically  accompanied by the <code>responseBinding</code> attr
 </div>
 <div class="sect4">
 <h5 id="idp-singlelogoutservice-sub-element"><a class="anchor" href="#idp-singlelogoutservice-sub-element"></a>IDP SingleLogoutService sub element</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/idp_singlelogoutservice_subelement.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/idp_singlelogoutservice_subelement.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The <code>SingleLogoutService</code> sub element defines the logout SAML endpoint of the IDP.   The client adapter will send requests
 to the IDP formatted via the settings within this element when it wants to logout.</p>
@@ -5975,6 +6303,12 @@ The default value is <code>POST</code>, but you can set it to <code>REDIRECT</co
 </div>
 <div class="sect4">
 <h5 id="_sp-idp-keys"><a class="anchor" href="#_sp-idp-keys"></a>IDP Keys sub element</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/idp_keys_subelement.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/idp_keys_subelement.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Keys sub element of IDP is only used to define the certificate or public key to use to verify documents signed by the IDP.
 It is defined in the same way as the <a href="#_saml-sp-keys">SP&#8217;s Keys element</a>.
@@ -6023,6 +6357,12 @@ verification keys.</p>
 </div>
 <div class="sect4">
 <h5 id="_sp-idp-httpclient"><a class="anchor" href="#_sp-idp-httpclient"></a>IDP HttpClient sub element</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/idp_httpclient_subelement.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/idp_httpclient_subelement.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The <code>HttpClient</code> optional sub element defines the properties of HTTP client used
 for automatic obtaining of certificates containing public keys for IDP signature
@@ -6101,10 +6441,16 @@ This is <em>OPTIONAL</em>.</p>
 </dd>
 </dl>
 </div>
+<div id="_saml_jboss_adapter" class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/saml-jboss-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/saml-jboss-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_saml_jboss_adapter"><a class="anchor" href="#_saml_jboss_adapter"></a>3.1.2. JBoss EAP/Wildfly Adapter</h4>
+<h4 id="jboss-eap-wildfly-adapter-2"><a class="anchor" href="#jboss-eap-wildfly-adapter-2"></a>3.1.2. JBoss EAP/Wildfly Adapter</h4>
 <div class="paragraph">
 <p>To be able to secure WAR apps deployed on JBoss EAP or Wildfly, you must install and configure the Keycloak SAML Adapter Subsystem.</p>
 </div>
@@ -6114,6 +6460,12 @@ Both methods are described in this section.</p>
 </div>
 <div class="sect4">
 <h5 id="_saml-jboss-adapter-installation"><a class="anchor" href="#_saml-jboss-adapter-installation"></a>Adapter Installation</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jboss-adapter/jboss_adapter_installation.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jboss-adapter/jboss_adapter_installation.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Each adapter is a separate download on the Keycloak download site.</p>
 </div>
@@ -6247,6 +6599,12 @@ instance. This should not be enabled when using Keycloak.</p>
 </div>
 <div class="sect3">
 <h4 id="_jboss_adapter_rpm_saml"><a class="anchor" href="#_jboss_adapter_rpm_saml"></a>3.1.3. Installing JBoss EAP Adapter from an RPM</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jboss-adapter/jboss-adapter-rpms.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jboss-adapter/jboss-adapter-rpms.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Install the EAP 7 Adapters from an RPM:</p>
 </div>
@@ -6391,6 +6749,12 @@ The default EAP_HOME path for the RPM installation is /opt/rh/eap6/root/usr/shar
 </div>
 <div class="sect4">
 <h5 id="per-war-configuration"><a class="anchor" href="#per-war-configuration"></a>Per WAR Configuration</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jboss-adapter/required_per_war_configuration.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jboss-adapter/required_per_war_configuration.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This section describes how to secure a WAR directly by adding config and editing files within your WAR package.</p>
 </div>
@@ -6457,6 +6821,12 @@ Here&#8217;s an example <em>web.xml</em> file:</p>
 </div>
 <div class="sect4">
 <h5 id="securing-wars-via-keycloak-saml-subsystem"><a class="anchor" href="#securing-wars-via-keycloak-saml-subsystem"></a>Securing WARs via Keycloak SAML Subsystem</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jboss-adapter/securing_wars.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jboss-adapter/securing_wars.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You do not have to crack open a WAR to secure it with Keycloak.
 Alternatively, you can externally secure it via the Keycloak SAML Adapter Subsystem.
@@ -6542,6 +6912,12 @@ The rest of the configuration uses the same XML syntax as <code>keycloak-saml.xm
 </div>
 <div class="sect3">
 <h4 id="_saml-tomcat-adapter"><a class="anchor" href="#_saml-tomcat-adapter"></a>3.1.4. Tomcat SAML adapters</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/tomcat-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/tomcat-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To be able to secure WAR apps deployed on Tomcat 6, 7 and 8 you must install the Keycloak Tomcat 6, 7 or 8 SAML adapter into your Tomcat installation.
 You then have to provide some extra configuration in each WAR you deploy to Tomcat.
@@ -6549,6 +6925,12 @@ Let&#8217;s go over these steps.</p>
 </div>
 <div class="sect4">
 <h5 id="_saml-tomcat-adapter-installation"><a class="anchor" href="#_saml-tomcat-adapter-installation"></a>Adapter Installation</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/tomcat-adapter/tomcat_adapter_installation.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/tomcat-adapter/tomcat_adapter_installation.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Adapters are no longer included with the appliance or war distribution.
 Each adapter is a separate download on the Keycloak download site.
@@ -6572,6 +6954,12 @@ $ unzip keycloak-saml-tomcat8-adapter-dist.zip</code></pre>
 </div>
 <div class="sect4">
 <h5 id="per-war-configuration-2"><a class="anchor" href="#per-war-configuration-2"></a>Per WAR Configuration</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/tomcat-adapter/tomcat_adapter_per_war_config.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/tomcat-adapter/tomcat_adapter_per_war_config.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This section describes how to secure a WAR directly by adding config and editing files within your WAR package.</p>
 </div>
@@ -6631,6 +7019,12 @@ Here&#8217;s an example:</p>
 </div>
 <div class="sect3">
 <h4 id="_jetty_saml_adapter"><a class="anchor" href="#_jetty_saml_adapter"></a>3.1.5. Jetty SAML Adapters</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jetty-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jetty-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To be able to secure WAR apps deployed on Jetty you must install the Keycloak Jetty 9.x or 8.x SAML adapter into your Jetty installation.
 You then have to provide some extra configuration in each WAR you deploy to Jetty.
@@ -6638,6 +7032,12 @@ Let&#8217;s go over these steps.</p>
 </div>
 <div class="sect4">
 <h5 id="_jetty9_saml_adapter_installation"><a class="anchor" href="#_jetty9_saml_adapter_installation"></a>Jetty 9 Adapter Installation</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jetty-adapter/jetty9_installation.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jetty-adapter/jetty9_installation.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak has a separate SAML adapter for Jetty 9.x.
 You then have to provide some extra configuration in each WAR you deploy to Jetty.
@@ -6669,6 +7069,12 @@ $ java -jar $JETTY_HOME/start.jar --add-to-startd=keycloak</code></pre>
 </div>
 <div class="sect4">
 <h5 id="_saml-jetty9-per-war"><a class="anchor" href="#_saml-jetty9-per-war"></a>Jetty 9 Per WAR Configuration</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jetty-adapter/jetty9_per_war_config.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jetty-adapter/jetty9_per_war_config.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This section describes how to secure a WAR directly by adding config and editing files within your WAR package.</p>
 </div>
@@ -6737,6 +7143,12 @@ Here&#8217;s an example:</p>
 </div>
 <div class="sect4">
 <h5 id="jetty-8-adapter-installation"><a class="anchor" href="#jetty-8-adapter-installation"></a>Jetty 8 Adapter Installation</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jetty-adapter/jetty8-installation.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jetty-adapter/jetty8-installation.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak has a separate SAML adapter for Jetty 8.1.x that you will have to install into your Jetty installation.
 You then have to provide some extra configuration in each WAR you deploy to Jetty.
@@ -6774,6 +7186,12 @@ OPTIONS=Server,jsp,jmx,resources,websocket,ext,plus,annotations,keycloak</code><
 </div>
 <div class="sect4">
 <h5 id="jetty-8-per-war-configuration"><a class="anchor" href="#jetty-8-per-war-configuration"></a>Jetty 8 Per WAR Configuration</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jetty-adapter/jetty8-per_war_config.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jetty-adapter/jetty8-per_war_config.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Enabling Keycloak for your WARs is the same as the Jetty 9.x adapter.
 See <a href="#_saml-jetty9-per-war">Jetty 9 Per War Configuration</a></p>
@@ -6782,6 +7200,12 @@ See <a href="#_saml-jetty9-per-war">Jetty 9 Per War Configuration</a></p>
 </div>
 <div class="sect3">
 <h4 id="java-servlet-filter-adapter"><a class="anchor" href="#java-servlet-filter-adapter"></a>3.1.6. Java Servlet Filter Adapter</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/servlet-filter-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/servlet-filter-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If you want to use SAML with a Java servlet application that doesn&#8217;t have an adapter for that servlet platform, you can
 opt to use the servlet filter adapter that Keycloak has.
@@ -6875,6 +7299,12 @@ You must have a filter mapping that covers <code>/saml</code>.
 </div>
 <div class="sect3">
 <h4 id="registering-with-an-identity-provider"><a class="anchor" href="#registering-with-an-identity-provider"></a>3.1.7. Registering with an Identity Provider</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/idp-registration.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/idp-registration.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>For each servlet-based adapter, the endpoint you register for the assert consumer service URL and single logout service
 must be the base URL of your servlet application with <code>/saml</code> appended to it, that is, <code>https://example.com/contextPath/saml</code>.</p>
@@ -6882,6 +7312,12 @@ must be the base URL of your servlet application with <code>/saml</code> appende
 </div>
 <div class="sect3">
 <h4 id="logout-2"><a class="anchor" href="#logout-2"></a>3.1.8. Logout</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/logout.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/logout.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>There are multiple ways you can logout from a web application.
 For Java EE servlet containers, you can call <code>HttpServletRequest.logout()</code>. For any other browser application, you can point
@@ -6983,6 +7419,12 @@ and the local SAML session cache is updated accordingly.</p>
 </div>
 <div class="sect3">
 <h4 id="obtaining-assertion-attributes"><a class="anchor" href="#obtaining-assertion-attributes"></a>3.1.9. Obtaining Assertion Attributes</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/assertion-api.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/assertion-api.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>After a successful SAML login, your application code may want to obtain attribute values passed with the SAML assertion.
 <code>HttpServletRequest.getUserPrincipal()</code> returns a <code>Principal</code> object that you can typecast into a Keycloak specific class
@@ -7091,6 +7533,12 @@ This object allows you to look at the raw assertion and also has convenience fun
 </div>
 <div class="sect3">
 <h4 id="error-handling"><a class="anchor" href="#error-handling"></a>3.1.10. Error Handling</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/error_handling.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/error_handling.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak has some error handling facilities for servlet based client adapters.
 When an error is encountered in authentication, the client adapter will call <code>HttpServletResponse.sendError()</code>.
@@ -7133,9 +7581,21 @@ If this attribute is not set, then the adapter was not responsible for the error
 </div>
 <div class="sect3">
 <h4 id="troubleshooting"><a class="anchor" href="#troubleshooting"></a>3.1.11. Troubleshooting</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/debugging.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/debugging.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The best way to troubleshoot problems is to turn on debugging for SAML in both the client adapter and Keycloak Server. Using your logging framework, set the log level to <code>DEBUG</code> for the <code>org.keycloak.saml</code> package. Turning this on allows you to see the SAML requests and response documents being sent to and from the server.
 ==== Migration from older versions</p>
+</div>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/MigrationFromOlderVersions.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/MigrationFromOlderVersions.adoc" target="_blank">Report an issue</a>
+</div>
 </div>
 <div class="sect4">
 <h5 id="migrating-to-1-9-0"><a class="anchor" href="#migrating-to-1-9-0"></a>Migrating to 1.9.0</h5>
@@ -7152,6 +7612,12 @@ This had to be done because SAML POST binding would eat the request input stream
 </div>
 <div class="sect2">
 <h3 id="_mod_auth_mellon"><a class="anchor" href="#_mod_auth_mellon"></a>3.2. mod_auth_mellon Apache HTTPD Module</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/mod-auth-mellon.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/mod-auth-mellon.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The <a href="https://github.com/UNINETT/mod_auth_mellon">mod_auth_mellon</a> module is an Apache HTTPD plugin for SAML. If your language/environment supports using Apache HTTPD as a proxy, then you can use mod_auth_mellon to secure your web application with SAML. For more details on this module see the <em>mod_auth_mellon</em> GitHub repo.</p>
 </div>
@@ -7587,6 +8053,12 @@ Configtest is equivalent to the -t argument to apachectl. If the configuration t
 <div class="sect1">
 <h2 id="docker-registry-configuration"><a class="anchor" href="#docker-registry-configuration"></a>4. Docker Registry Configuration</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/docker/docker-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/docker/docker-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -7701,7 +8173,7 @@ This installation method is meant to be an easy way to get a docker registry aut
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>[user ~]# docker login localhost:5000 -u $username
+<pre>[user ~]#??docker login localhost:5000 -u $username
 Password: *******
 Login Succeeded</pre>
 </div>
@@ -7712,6 +8184,12 @@ Login Succeeded</pre>
 <div class="sect1">
 <h2 id="_client_registration"><a class="anchor" href="#_client_registration"></a>5. Client Registration</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/client-registration.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/client-registration.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>In order for an application or service to utilize Keycloak it has to register a client in Keycloak.
 An admin can do this through the admin console (or admin REST endpoints), but clients can also register themselves through the Keycloak client
@@ -8018,6 +8496,12 @@ This policy is not used by default even for anonymous registration.</p>
 <div class="sect1">
 <h2 id="_client_registration_cli"><a class="anchor" href="#_client_registration_cli"></a>6. Client Registration CLI</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/client-registration/client-registration-cli.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/client-registration/client-registration-cli.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Client Registration CLI is a command-line interface (CLI) tool for application developers to configure new clients in a self-service manner when integrating with Keycloak. It is specifically designed to interact with Keycloak Client Registration REST endpoints.</p>
 </div>
@@ -8654,6 +9138,12 @@ C:\&gt; kcreg update myclient -f myclient.json</pre>
 <div class="sect1">
 <h2 id="_token-exchange"><a class="anchor" href="#_token-exchange"></a>7. Token Exchange</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/token-exchange/token-exchange.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/token-exchange/token-exchange.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>In Keycloak, token exchange is the process of using a set of credentials or token to obtain an entirely different token.
 A client may want to invoke on a less trusted application so it may want to downgrade the current token it has.
@@ -9322,7 +9812,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-09 07:31:13 UTC
+Last updated 2018-02-14 09:18:38 UTC
 </div>
 </div>
 <ul id="globalnav">

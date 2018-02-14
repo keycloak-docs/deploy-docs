@@ -630,6 +630,40 @@ span.image img {
     box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.5);
 }
 
+.sect1+.sect1 {
+    border-top: none;
+}
+
+.page-links {
+    border-bottom: 1px solid #efefed;
+    border-top: none;
+    background: none;
+    position: relative;
+    left: 0em;
+    width: 100%;
+    top: -5em;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.sect2 .page-links {
+    top: -3.5em;
+}
+
+.page-links .content {
+    background: #f8f8f7;
+    border: 1px solid #e0e0dc;
+    float: right;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 5px;
+}
+
+.page-links a {
+    display: block;
+    padding: 5px;
+}
 </style>
 </head>
 <body class="article toc2 toc-left">
@@ -850,6 +884,12 @@ span.image img {
 <div class="sect1">
 <h2 id="_overview"><a class="anchor" href="#_overview"></a>1. Overview</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/auth-services-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/auth-services-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak supports fine-grained authorization policies and is able to combine different access control
 mechanisms such as:</p>
@@ -943,6 +983,12 @@ using different devices, and with a high demand for information sharing, Keycloa
 </div>
 <div class="sect2">
 <h3 id="_overview_architecture"><a class="anchor" href="#_overview_architecture"></a>1.1. Architecture</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/auth-services-architecture.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/auth-services-architecture.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p><span class="image"><img src="./images/authz-arch-overview.png" alt="Keycloak AuthZ Architecture Overview"></span></p>
 </div>
@@ -1191,6 +1237,12 @@ one or more resources.</p>
 </div>
 <div class="sect2">
 <h3 id="_overview_terminology"><a class="anchor" href="#_overview_terminology"></a>1.2. Terminology</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/auth-services-terminology.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/auth-services-terminology.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Before going further, it is important to understand these terms and concepts introduced by Keycloak Authorization Services.</p>
 </div>
@@ -1325,6 +1377,12 @@ structure represents the resources and/or scopes being requested by a client as 
 <div class="sect1">
 <h2 id="_getting_started_overview"><a class="anchor" href="#_getting_started_overview"></a>2. Getting Started</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/getting-started-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/getting-started-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Before you can use this tutorial, you need to complete the installation of Keycloak and create the initial admin user as shown in the <a href="http://www.keycloak.org/docs/3.4/getting_started/">Getting Started Guide</a> tutorial.
 There is one caveat to this. You have to run a separate WildFly instance on the same machine as Keycloak Server. This separate instance will run your Java Servlet application. Because of this you will have to run the Keycloak under a different port so that there are no port conflicts when running on the same machine. Use the <code>jboss.socket.binding.port-offset</code> system property on the command line. The value of this property is a number that will be added to the base value of every port opened by Keycloak Server.</p>
@@ -1353,6 +1411,12 @@ There is one caveat to this. You have to run a separate WildFly instance on the 
 </div>
 <div class="sect2">
 <h3 id="_getting_started_hello_world_overview"><a class="anchor" href="#_getting_started_hello_world_overview"></a>2.1. Securing a Servlet Application</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/hello-world-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/hello-world-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The purpose of this getting started guide is to get you up and running as quickly as possible so that you can experiment with and test various authorization features provided by Keycloak.
 This quick tour relies heavily on the default database and server configurations and does not cover complex deployment options.
@@ -1380,6 +1444,12 @@ For more information on features or configuration options, see the appropriate s
 </div>
 <div class="sect2">
 <h3 id="_getting_started_hello_world_create_realm"><a class="anchor" href="#_getting_started_hello_world_create_realm"></a>2.2. Creating a Realm and a User</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/hello-world-create-realm.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/hello-world-create-realm.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The first step in this tutorial is to create a realm and a user in that realm. Then, within the realm we will create a single client application, which then becomes a <a href="#_overview_terminology">resource server</a> for which you need to enable authorization services.</p>
 </div>
@@ -1427,6 +1497,12 @@ Click the <strong>User Enabled</strong> switch to <strong>On</strong>, and then 
 </div>
 <div class="sect2">
 <h3 id="_getting_started_hello_world_enabling_authz_services"><a class="anchor" href="#_getting_started_hello_world_enabling_authz_services"></a>2.3. Enabling Authorization Services</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/hello-world-create-resource-server.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/hello-world-create-resource-server.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can enable authorization services in an existing client application configured to use the OpenID Connect Protocol. You can also create a new client.</p>
 </div>
@@ -1471,6 +1547,12 @@ A new <strong>Authorization</strong> tab is displayed for the client.</p>
 </div>
 <div class="sect2">
 <h3 id="_getting_started_hello_world_deploy"><a class="anchor" href="#_getting_started_hello_world_deploy"></a>2.4. Build, Deploy, and Test Your Application</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/hello-world-deploy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/hello-world-deploy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Now that the <strong>app-authz-vanilla</strong> resource server (or client) is properly configured and authorization services are enabled, it can be deployed to the server.</p>
 </div>
@@ -1636,6 +1718,12 @@ That re-enables access to the application as we are negating the result of that 
 </div>
 <div class="sect2">
 <h3 id="_example_overview"><a class="anchor" href="#_example_overview"></a>2.5. Examples</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/example-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/example-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Keycloak Authorization can also help you to quickly get started with the authorization services and understand how to apply the same concepts to your
 own applications.</p>
@@ -1700,6 +1788,12 @@ own applications.</p>
 <div class="sect1">
 <h2 id="_resource_server_overview"><a class="anchor" href="#_resource_server_overview"></a>3. Managing Resource Servers</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/resource-server-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/resource-server-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>According to the OAuth2 specification, a resource server is a server hosting the protected resources and capable of accepting and responding to protected resource requests.</p>
 </div>
@@ -1711,6 +1805,12 @@ own applications.</p>
 </div>
 <div class="sect2">
 <h3 id="_resource_server_create_client"><a class="anchor" href="#_resource_server_create_client"></a>3.1. Creating a Client Application</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/resource-server-create-client.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/resource-server-create-client.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The first step to enable Keycloak Authorization Services is to create the client application that you want to turn into a resource server.</p>
 </div>
@@ -1756,6 +1856,12 @@ own applications.</p>
 </div>
 <div class="sect2">
 <h3 id="_resource_server_enable_authorization"><a class="anchor" href="#_resource_server_enable_authorization"></a>3.2. Enabling Authorization Services</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/resource-server-enable-authorization.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/resource-server-enable-authorization.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To turn your OIDC Client Application into a resource server and enable fine-grained authorization, click the <strong>Authorization Enabled</strong> switch to <strong>ON</strong> and click <strong>Save</strong>.</p>
 </div>
@@ -1866,6 +1972,12 @@ own applications.</p>
 </div>
 <div class="sect2">
 <h3 id="_resource_server_default_config"><a class="anchor" href="#_resource_server_default_config"></a>3.3. Default Configuration</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/resource-server-default-config.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/resource-server-default-config.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When you create a resource server, Keycloak creates a default configuration for your newly created resource server.</p>
 </div>
@@ -1953,6 +2065,12 @@ The default configuration defines a resource that maps to all paths in your appl
 </div>
 <div class="sect2">
 <h3 id="_resource_server_import_config"><a class="anchor" href="#_resource_server_import_config"></a>3.4. Export and Import Authorization Configuration</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/resource-server-import-config.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/resource-server-import-config.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The configuration settings for a resource server (or client) can be exported and downloaded. You can also import an existing configuration file for a resource server. Importing and exporting a configuration file is helpful when you want to create an initial configuration for a resource server or to update an existing configuration. The configuration file contains definitions for:</p>
 </div>
@@ -2021,12 +2139,24 @@ The default configuration defines a resource that maps to all paths in your appl
 <div class="sect1">
 <h2 id="_resource_overview"><a class="anchor" href="#_resource_overview"></a>4. Managing Resources and Scopes</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/resource-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/resource-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Resource management is straightforward and generic. After creating a resource server, you can start creating the resources and scopes that you want to protect.
 Resources and scopes can be managed by navigating to the <strong>Resource</strong> and <strong>Scope</strong> tabs, respectively.</p>
 </div>
 <div class="sect2">
 <h3 id="_resource_view"><a class="anchor" href="#_resource_view"></a>4.1. Viewing Resources</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/resource-view.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/resource-view.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>On the <strong>Resource</strong> page, you see a list of the resources associated with a resource server.</p>
 </div>
@@ -2074,6 +2204,12 @@ Before creating permissions for your resources, be sure you have already defined
 </div>
 <div class="sect2">
 <h3 id="_resource_create"><a class="anchor" href="#_resource_create"></a>4.2. Creating Resources</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/resource-create.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/resource-create.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Creating a resource is straightforward and generic. Your main concern is the granularity of the resources you create. In other words, resources can
 be created to represent a set of one or more resources and the way you define them is crucial to managing permissions.</p>
@@ -2170,6 +2306,12 @@ allow users to control their own resources as well as approve authorization requ
 <div class="sect1">
 <h2 id="_policy_overview"><a class="anchor" href="#_policy_overview"></a>5. Managing Policies</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>As mentioned previously, policies define the conditions that must be satisfied before granting access to an object.</p>
 </div>
@@ -2188,6 +2330,12 @@ allow users to control their own resources as well as approve authorization requ
 </div>
 <div class="sect2">
 <h3 id="_policy_user"><a class="anchor" href="#_policy_user"></a>5.1. User-Based Policy</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-user-policy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-user-policy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can use this type of policy to define conditions for your permissions where a set of one or more users is permitted to access an object.</p>
 </div>
@@ -2233,6 +2381,12 @@ can identify them more easily.</p>
 </div>
 <div class="sect2">
 <h3 id="_policy_rbac"><a class="anchor" href="#_policy_rbac"></a>5.2. Role-Based Policy</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-role-policy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-role-policy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can use this type of policy to define conditions for your permissions where a set of one or more roles is permitted to access an object.</p>
 </div>
@@ -2289,6 +2443,12 @@ can identify them more easily.</p>
 </div>
 <div class="sect3">
 <h4 id="_policy_rbac_required"><a class="anchor" href="#_policy_rbac_required"></a>5.2.2. Defining a Role as Required</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-role-policy-required-role.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-role-policy-required-role.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When creating a role-based policy, you can specify a specific role as <code>Required</code>. When you do that, the policy will grant access
 only if the user requesting access has been granted <strong>all</strong> the <strong>required</strong> roles. Both realm and client roles can be configured as such.</p>
@@ -2308,6 +2468,12 @@ even more fine-grained role-based access control (RBAC) model for your applicati
 </div>
 <div class="sect2">
 <h3 id="_policy_js"><a class="anchor" href="#_policy_js"></a>5.3. JavaScript-Based Policy</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-js-policy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-js-policy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can use this type of policy to define conditions for your permissions using JavaScript. It is one of the rule-based policy types
 supported by Keycloak, and provides flexibility to write any policy based on the <a href="#_policy_evaluation_api">Evaluation API</a>.</p>
@@ -2426,6 +2592,12 @@ When writing your own rules, keep in mind that the <strong>$evaluation</strong> 
 </div>
 <div class="sect2">
 <h3 id="_policy_drools"><a class="anchor" href="#_policy_drools"></a>5.4. Rule-Based Policy</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-drools-policy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-drools-policy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>With this type of policy you can define conditions for your permissions using <a href="http://www.drools.org">Drools</a>, which is a rule evaluation environment. It is one of the <em>Rule-Based</em> policy types
 supported by Keycloak, and provides flexibility to write any policy based on the <a href="#_policy_evaluation_api">Evaluation API</a>.</p>
@@ -2557,6 +2729,12 @@ end</code></pre>
 </div>
 <div class="sect2">
 <h3 id="_policy_time"><a class="anchor" href="#_policy_time"></a>5.5. Time-Based Policy</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-time-policy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-time-policy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can use this type of policy to define time conditions for your permissions.</p>
 </div>
@@ -2641,6 +2819,12 @@ can identify them more easily.</p>
 </div>
 <div class="sect2">
 <h3 id="_policy_aggregated"><a class="anchor" href="#_policy_aggregated"></a>5.6. Aggregated Policy</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-aggregated-policy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-aggregated-policy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>As mentioned previously, Keycloak allows you to build a policy of policies, a concept referred to as policy aggregation. You can use policy aggregation to reuse existing policies to build more complex ones and keep your permissions even more decoupled from the policies that are evaluated during the processing of authorization requests.</p>
 </div>
@@ -2740,6 +2924,12 @@ or create a new one by selecting the type of the policy you want to create.</p>
 </div>
 <div class="sect2">
 <h3 id="_policy_client"><a class="anchor" href="#_policy_client"></a>5.7. Client-Based Policy</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-client-policy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-client-policy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can use this type of policy to define conditions for your permissions where a set of one or more clients is permitted to access an object.</p>
 </div>
@@ -2785,6 +2975,12 @@ can identify them more easily.</p>
 </div>
 <div class="sect2">
 <h3 id="_policy_group"><a class="anchor" href="#_policy_group"></a>5.8. Group-Based Policy</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-group-policy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-group-policy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can use this type of policy to define conditions for your permissions where a set of one or more groups (and their hierarchies) is permitted to access an object.</p>
 </div>
@@ -2838,6 +3034,12 @@ by marking the checkbox <strong>Extend to Children</strong>. If left unmarked, a
 </div>
 <div class="sect3">
 <h4 id="_policy_group_extend_access_children"><a class="anchor" href="#_policy_group_extend_access_children"></a>5.8.2. Extending Access to Child Groups</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-group-policy-extend-children.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-group-policy-extend-children.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>By default, when you add a group to this policy, access restrictions will only apply to members of the selected group.</p>
 </div>
@@ -2856,6 +3058,12 @@ added you can mark a checkbox <strong>Extend to Children</strong> in order to ex
 </div>
 <div class="sect2">
 <h3 id="_policy_logic"><a class="anchor" href="#_policy_logic"></a>5.9. Positive and Negative Logic</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-logic.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-logic.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Policies can be configured with positive or negative logic. Briefly, you can use this option to define whether the policy result should be kept as it is or be negated.</p>
 </div>
@@ -2867,6 +3075,12 @@ is the default behavior, the policy result will be kept as it is.</p>
 </div>
 <div class="sect2">
 <h3 id="_policy_evaluation_api"><a class="anchor" href="#_policy_evaluation_api"></a>5.10. Policy Evaluation API</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-evaluation-api.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-evaluation-api.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When writing rule-based policies using JavaScript or JBoss Drools, Keycloak provides an Evaluation API that provides useful information to help determine whether a permission should be granted.</p>
 </div>
@@ -3028,6 +3242,12 @@ from a policy and use it to build your conditions.</p>
 <div class="sect1">
 <h2 id="_permission_overview"><a class="anchor" href="#_permission_overview"></a>6. Managing Permissions</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/permission-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/permission-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>A permission associates the object being protected and the policies that must be evaluated to decide whether access should be granted.</p>
 </div>
@@ -3057,6 +3277,12 @@ you can start managing permissions. To manage permissions, click the <strong>Per
 </div>
 <div class="sect2">
 <h3 id="_permission_create_resource"><a class="anchor" href="#_permission_create_resource"></a>6.1. Creating Resource-Based Permissions</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/permission-create-resource.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/permission-create-resource.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>A resource-based permission defines a set of one or more resources to protect using a set of one or more authorization policies.</p>
 </div>
@@ -3128,6 +3354,12 @@ or create a new one by selecting the type of the policy you want to create.</p>
 </div>
 <div class="sect3">
 <h4 id="_permission_typed_resource"><a class="anchor" href="#_permission_typed_resource"></a>6.1.2. Typed Resource Permission</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/permission-typed-resource-permission.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/permission-typed-resource-permission.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Resource permissions can also be used to define policies that are to be applied to all resources with a given <a href="#_resource_create_type">type</a>. This form of resource-based permission can be useful when you have resources sharing common access requirements and constraints.</p>
 </div>
@@ -3159,6 +3391,12 @@ you can specify the type that you want to protect as well as the policies that a
 </div>
 <div class="sect2">
 <h3 id="_permission_create_scope"><a class="anchor" href="#_permission_create_scope"></a>6.2. Creating Scope-Based Permissions</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/permission-create-scope.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/permission-create-scope.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>A scope-based permission defines a set of one or more scopes to protect using a set of one or more authorization policies. Unlike resource-based permissions, you can use this permission type to create permissions not only for a resource, but also for the scopes associated with it, providing more granularity when defining the permissions that govern your resources and the actions that can be performed on them.</p>
 </div>
@@ -3217,6 +3455,12 @@ or create a new one by selecting the type of the policy you want to create.</p>
 </div>
 <div class="sect2">
 <h3 id="_permission_decision_strategies"><a class="anchor" href="#_permission_decision_strategies"></a>6.3. Policy Decision Strategies</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/permission-decision-strategy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/permission-decision-strategy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When associating policies with a permission, you can also define a decision strategy to specify how to evaluate the outcome of the associated policies to determine access.</p>
 </div>
@@ -3248,6 +3492,12 @@ or create a new one by selecting the type of the policy you want to create.</p>
 <div class="sect1">
 <h2 id="_policy_evaluation_overview"><a class="anchor" href="#_policy_evaluation_overview"></a>7. Evaluating and Testing Policies</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/policy-evaluation-tool-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/policy-evaluation-tool-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When designing your policies, you can simulate authorization requests to test how your policies are being evaluated.</p>
 </div>
@@ -3287,6 +3537,12 @@ to simulate authorization requests based on all protected resources and scopes, 
 <div class="sect1">
 <h2 id="_service_overview"><a class="anchor" href="#_service_overview"></a>8. Authorization Services</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Keycloak Authorization Services are based on OAuth2&#8217;s User-Managed Access (UMA) Profile.</p>
 </div>
@@ -3296,6 +3552,12 @@ for your applications and services.</p>
 </div>
 <div class="sect2">
 <h3 id="_service_protection_api"><a class="anchor" href="#_service_protection_api"></a>8.1. Protection API</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-protection-api.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-protection-protection-api.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Protection API provides a UMA-compliant set of endpoints providing:</p>
 </div>
@@ -3321,6 +3583,12 @@ In UMA, a PAT is a token with the scope <strong>uma_protection</strong>.</p>
 </div>
 <div class="sect3">
 <h4 id="_service_protection_whatis_obtain_pat"><a class="anchor" href="#_service_protection_whatis_obtain_pat"></a>8.1.1. What is a PAT and How to Obtain It</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-whatis-obtain-pat.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-protection-whatis-obtain-pat.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>A <strong>protection API token</strong> (PAT) is a special OAuth2 access token with a scope defined as  <strong>uma_protection</strong>. When you create a resource server, Keycloak automatically
 creates a role, <em>uma_protection</em>, for the corresponding client application and associates it with the client&#8217;s service account.</p>
@@ -3373,6 +3641,12 @@ which requires a <em>client_id</em> and a <em>client_secret</em>. You can choose
 </div>
 <div class="sect3">
 <h4 id="_service_protection_resources_api"><a class="anchor" href="#_service_protection_resources_api"></a>8.1.2. Managing Resources</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-resources-api-papi.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-protection-resources-api-papi.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Resource servers can manage their resources remotely using a UMA-compliant endpoint.</p>
 </div>
@@ -3412,6 +3686,12 @@ which requires a <em>client_id</em> and a <em>client_secret</em>. You can choose
 </div>
 <div class="sect3">
 <h4 id="_service_protection_permission_api_papi"><a class="anchor" href="#_service_protection_permission_api_papi"></a>8.1.3. Managing Permission Requests</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-permission-api-papi.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-protection-permission-api-papi.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Resource servers using the UMA protocol can use a specific endpoint to manage permission requests. This endpoint provides a UMA-compliant flow for registering permission requests and obtaining a permission ticket.</p>
 </div>
@@ -3482,6 +3762,12 @@ privacy and user controlled access to their resources.</p>
 </div>
 <div class="sect2">
 <h3 id="_service_authorization_api"><a class="anchor" href="#_service_authorization_api"></a>8.2. Authorization API</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-authorization-api.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-authorization-api.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Authorization API provides a UMA-compliant endpoint for obtaining authorization data from the server, where the authorization data represents the result of the evaluation
 of all permissions and authorization policies associated with the resources being requested.</p>
@@ -3492,6 +3778,12 @@ In UMA, an AAT is a token with the scope <strong>uma_authorization</strong>.</p>
 </div>
 <div class="sect3">
 <h4 id="_service_authorization_aat"><a class="anchor" href="#_service_authorization_aat"></a>8.2.1. What is an AAT and How to Obtain It</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-whatis-obtain-aat.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-whatis-obtain-aat.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>An authorization API token (AAT) is a special OAuth2 access token with the scope <strong>uma_authorization</strong>. When you create a user, Keycloak automatically
 assigns the role <em>uma_authorization</em> to the user. The <em>uma_authorization</em> role is a default realm role.</p>
@@ -3539,6 +3831,12 @@ authenticated in Keycloak. By default, the <em>authorization_code</em> grant typ
 </div>
 <div class="sect3">
 <h4 id="_service_authorization_api_aapi"><a class="anchor" href="#_service_authorization_api_aapi"></a>8.2.2. Requesting Authorization Data and Token</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-authorization-api-aapi.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-authorization-api-aapi.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Client applications using the UMA protocol can use a specific endpoint to obtain a special security token called a <a href="#_service_rpt_overview">Requesting Party Token (RPT)</a>.
 This token consists of all the permissions granted to a user as a result of the evaluation of the permissions and authorization policies associated with the resources being requested.
@@ -3587,6 +3885,12 @@ using the AAT as a bearer token.</p>
 </div>
 <div class="sect2">
 <h3 id="_service_entitlement_api"><a class="anchor" href="#_service_entitlement_api"></a>8.3. Entitlement API</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-entitlement-entitlement-api.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-entitlement-entitlement-api.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Entitlement API provides a 1-legged protocol for obtaining authorization data from the server, where the authorization data
 represents the result of the evaluation of all permissions and authorization policies associated with the resources being requested.</p>
@@ -3600,6 +3904,12 @@ OAuth2 access token is able to obtain the necessary authorization data on behalf
 </div>
 <div class="sect3">
 <h4 id="_service_entitlement_api_aapi"><a class="anchor" href="#_service_entitlement_api_aapi"></a>8.3.1. Requesting Entitlements</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-entitlement-entitlement-api-aapi.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-entitlement-entitlement-api-aapi.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Client applications can use a specific endpoint to obtain a special security token called a <a href="#_service_rpt_overview">Requesting Party Token (RPT)</a>.
 This token consists of all the entitlements (or permissions) for a user as a result of the evaluation of the permissions and authorization policies associated with the resources being requested.
@@ -3751,6 +4061,12 @@ associated with the resources being requested.</p>
 </div>
 <div class="sect3">
 <h4 id="_service_entitlement_request_metadata"><a class="anchor" href="#_service_entitlement_request_metadata"></a>8.3.2. Entitlement Request Metadata</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-entitlement-entitlement-request-metadata.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-entitlement-entitlement-request-metadata.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When requesting entitlements client applications are allowed to associate metadata information to the request and define how
 they expect to obtain the permissions.</p>
@@ -3845,6 +4161,12 @@ is capable of sending previously issued RPTs while asking for new permissions (a
 </div>
 <div class="sect2">
 <h3 id="_service_rpt_overview"><a class="anchor" href="#_service_rpt_overview"></a>8.4. Requesting Party Token</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-rpt-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-rpt-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>A requesting party token (RPT) is a <a href="https://tools.ietf.org/html/rfc7519">JSON web token (JWT)</a> digitally signed using <a href="https://www.rfc-editor.org/rfc/rfc7515.txt">JSON web signature (JWS)</a>. The token is built based on the OAuth2 access token previously issued by Keycloak to a specific client acting on behalf of an user
 or on its own behalf.</p>
@@ -3882,6 +4204,12 @@ the access control methods that were used to actually grant and issue these same
 </div>
 <div class="sect3">
 <h4 id="_service_protection_token_introspection"><a class="anchor" href="#_service_protection_token_introspection"></a>8.4.1. Introspecting a Requesting Party Token</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-rpt-token-introspection.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-rpt-token-introspection.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Sometimes you might want to introspect a requesting party token (RPT) to check its validity or obtain the permissions within the token to enforce authorization decisions on the resource server side.</p>
 </div>
@@ -4010,6 +4338,12 @@ you can also use the permissions within the token to enforce authorization decis
 </div>
 <div class="sect2">
 <h3 id="_service_client_api"><a class="anchor" href="#_service_client_api"></a>8.5. Authorization Client Java API</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-client-api.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-client-api.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Depending on your requirements, a resource server should be able to manage resources remotely or even check for permissions programmatically.
 If you are using Java, you can access the Keycloak Authorization Services using the Authorization Client API.</p>
@@ -4198,6 +4532,12 @@ ResourceRepresentation resource = resourceClient.findById(resourceId).getResourc
 <div class="sect1">
 <h2 id="_enforcer_overview"><a class="anchor" href="#_enforcer_overview"></a>9. Policy Enforcers</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/enforcer-overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Policy Enforcement Point (PEP) is a design pattern and as such you can implement it in different ways. Keycloak provides all the necessary means
 to implement PEPs for different platforms, environments, and programming languages. Keycloak Authorization Services presents a RESTful API,
@@ -4208,6 +4548,12 @@ and leverages OAuth2 authorization capabilities for fine-grained authorization u
 </div>
 <div class="sect2">
 <h3 id="_enforcer_filter"><a class="anchor" href="#_enforcer_filter"></a>9.1. Keycloak Adapter Policy Enforcer</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-keycloak-enforcement-filter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/enforcer-keycloak-enforcement-filter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>You can enforce authorization decisions for your applications if you are using Keycloak OIDC adapters.</p>
 </div>
@@ -4437,6 +4783,12 @@ granted in order to gain access to the resource using that method. By default, e
 </div>
 <div class="sect3">
 <h4 id="_enforcer_bearer"><a class="anchor" href="#_enforcer_bearer"></a>9.1.2. Protecting a Stateless Service Using a Bearer Token</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-keycloak-enforcement-bearer.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/enforcer-keycloak-enforcement-bearer.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>If the adapter is configured with the <code>bearer-only</code> configuration option, the policy enforcer decides whether a request
 to access a protected resource is allowed or denied based on the permissions of the bearer token.</p>
@@ -4499,6 +4851,12 @@ WWW-Authenticate: KC_ETT realm=&quot;photoz-restful-api&quot;,as_uri=&quot;http:
 </div>
 <div class="sect3">
 <h4 id="_enforcer_authorization_context"><a class="anchor" href="#_enforcer_authorization_context"></a>9.1.3. Obtaining the Authorization Context</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-authorization-context.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/enforcer-authorization-context.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When policy enforcement is enabled, the permissions obtained from the server are available through <code>org.keycloak.AuthorizationContext</code>.
 This class provides several methods you can use to obtain permissions and ascertain whether a permission was granted for a particular resource or scope.</p>
@@ -4596,6 +4954,12 @@ to build a dynamic menu where items are hidden or shown depending on the permiss
 </div>
 <div class="sect3">
 <h4 id="_enforcer_js_adapter"><a class="anchor" href="#_enforcer_js_adapter"></a>9.1.5. JavaScript Integration</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-js-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/enforcer-js-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Keycloak Server comes with a JavaScript library you can use to interact with a resource server protected by a policy enforcer.
 This library is based on the Keycloak JavaScript adapter, which can be integrated to allow your client to obtain permissions from a Keycloak Server.</p>
@@ -4734,6 +5098,12 @@ authorization.authorize(wwwAuthenticateHeader).then(<span class="keyword">functi
 </div>
 <div class="sect3">
 <h4 id="_enforcer_filter_using_https"><a class="anchor" href="#_enforcer_filter_using_https"></a>9.1.6. Setting Up TLS/HTTPS</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-https.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/enforcer-https.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>When the server is using HTTPS, ensure your adapter is configured as follows:</p>
 </div>
@@ -4769,7 +5139,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-09 07:31:13 UTC
+Last updated 2018-02-14 09:18:31 UTC
 </div>
 </div>
 <ul id="globalnav">

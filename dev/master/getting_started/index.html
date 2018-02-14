@@ -630,6 +630,40 @@ span.image img {
     box-shadow: 3px 3px 15px 0px rgba(0,0,0,0.5);
 }
 
+.sect1+.sect1 {
+    border-top: none;
+}
+
+.page-links {
+    border-bottom: 1px solid #efefed;
+    border-top: none;
+    background: none;
+    position: relative;
+    left: 0em;
+    width: 100%;
+    top: -5em;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.sect2 .page-links {
+    top: -3.5em;
+}
+
+.page-links .content {
+    background: #f8f8f7;
+    border: 1px solid #e0e0dc;
+    float: right;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 5px;
+}
+
+.page-links a {
+    display: block;
+    padding: 5px;
+}
 </style>
 </head>
 <body class="article toc2 toc-left">
@@ -670,6 +704,12 @@ span.image img {
 <div class="sect1">
 <h2 id="overview"><a class="anchor" href="#overview"></a>1. Overview</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/overview.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/overview.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The purpose of this guide is to get you up and running as quickly as possible so that you can
 play with and test-drive various features that Keycloak has. It relies heavily on the default database
@@ -681,12 +721,24 @@ in-depth discussion of any features or configuration options, consult the variou
 <div class="sect1">
 <h2 id="_install-boot"><a class="anchor" href="#_install-boot"></a>2. Installing and Booting</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/first-boot.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/first-boot.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This very short tutorial walks you through booting up the server in standalone mode, setting up the initial admin user,
 and logging into the Keycloak admin console.</p>
 </div>
 <div class="sect2">
 <h3 id="installing-distribution-files"><a class="anchor" href="#installing-distribution-files"></a>2.1. Installing Distribution Files</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/first-boot/distribution-files-community.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/first-boot/distribution-files-community.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The Keycloak Server is contained in one <a href="http://www.keycloak.org/downloads.html">distribution file</a>:</p>
 </div>
@@ -707,6 +759,12 @@ to run the Keycloak server.</p>
 </div>
 <div class="sect2">
 <h3 id="booting-the-server"><a class="anchor" href="#booting-the-server"></a>2.2. Booting the Server</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/first-boot/boot.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/first-boot/boot.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To boot the Keycloak server, go to the <em>bin/</em> directory of the server distribution.</p>
 </div>
@@ -732,6 +790,12 @@ to run the Keycloak server.</p>
 </div>
 <div class="sect2">
 <h3 id="creating-the-admin-account"><a class="anchor" href="#creating-the-admin-account"></a>2.3. Creating the Admin Account</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/first-boot/initial-user.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/first-boot/initial-user.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>After the server boots, open your browser and go to the <a href="http://localhost:8080/auth" class="bare">http://localhost:8080/auth</a> URL. The page should look like this:</p>
 </div>
@@ -761,6 +825,12 @@ You can only create an initial admin user on the Welcome Page if you connect usi
 </div>
 <div class="sect2">
 <h3 id="logging-in-to-the-admin-console"><a class="anchor" href="#logging-in-to-the-admin-console"></a>2.4. Logging in to the Admin Console</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/first-boot/admin-console.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/first-boot/admin-console.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>After you create the initial admin account, you can log in to the Admin Console by completing the following steps:</p>
 </div>
@@ -803,6 +873,12 @@ If you are curious about a certain feature, button, or field within the Admin Co
 <div class="sect1">
 <h2 id="creating-a-realm-and-user"><a class="anchor" href="#creating-a-realm-and-user"></a>3. Creating a Realm and User</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/first-realm.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/first-realm.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>This short tutorial walks you through creating a new realm within the Keycloak Admin Console and adding
 a new user to that realm. With that new user you will log into your new realm and visit the built-in User Account
@@ -810,6 +886,12 @@ service that all users have access to.</p>
 </div>
 <div class="sect2">
 <h3 id="before-you-start"><a class="anchor" href="#before-you-start"></a>3.1. Before You Start</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/first-realm/before.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/first-realm/before.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Before you can participate in this tutorial, you need to complete the installation of Keycloak and create the
 initial admin user as shown in the <a href="#_install-boot">Installing and Booting</a> tutorial.</p>
@@ -817,6 +899,12 @@ initial admin user as shown in the <a href="#_install-boot">Installing and Booti
 </div>
 <div class="sect2">
 <h3 id="_create-realm"><a class="anchor" href="#_create-realm"></a>3.2. Creating a New Realm</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/first-realm/realm.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/first-realm/realm.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To create a new realm, complete the following steps:</p>
 </div>
@@ -857,6 +945,12 @@ type <code>demo</code> for the realm name and click <code>Create</code>.</p>
 </div>
 <div class="sect2">
 <h3 id="_create-new-user"><a class="anchor" href="#_create-new-user"></a>3.3. Creating a New User</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/first-realm/user.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/first-realm/user.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>To create a new user in the <code>demo</code> realm as well as a temporary password for that account, complete the following steps:</p>
 </div>
@@ -910,6 +1004,12 @@ by flipping the <strong>Temporary</strong> switch from <strong>On</strong> to <s
 </div>
 <div class="sect2">
 <h3 id="user-account-service"><a class="anchor" href="#user-account-service"></a>3.4. User Account Service</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/first-realm/account.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/first-realm/account.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -945,6 +1045,12 @@ You can update profile information and change or add additional credentials. For
 <div class="sect1">
 <h2 id="securing-a-jboss-servlet-application"><a class="anchor" href="#securing-a-jboss-servlet-application"></a>4. Securing a JBoss Servlet Application</h2>
 <div class="sectionbody">
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/secure-jboss-app.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/secure-jboss-app.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>In this section you will learn how to secure a Java Servlet application on the WildFly application server.  You will learn how to install the
 Keycloak Client Adapter onto a WildFly application server distribution.  You will create and register a client application in the
@@ -952,6 +1058,12 @@ Keycloak Admin Console.  Finally, you will configure the application to be secur
 </div>
 <div class="sect2">
 <h3 id="before-you-start-2"><a class="anchor" href="#before-you-start-2"></a>4.1. Before You Start</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/secure-jboss-app/before.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/secure-jboss-app/before.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Before you can participate in this tutorial, you need to complete the installation of Keycloak and create the
 initial admin user as shown in the <a href="#_install-boot">Installing and Booting</a> tutorial.  There is one
@@ -982,6 +1094,12 @@ is a number that will be added to the base value of every port opened by the Key
 </div>
 <div class="sect2">
 <h3 id="installing-the-client-adapter"><a class="anchor" href="#installing-the-client-adapter"></a>4.2. Installing the Client Adapter</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/secure-jboss-app/install-client-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/secure-jboss-app/install-client-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Download the WildFly distribution and unzip
 it into a directory on your machine.</p>
@@ -1042,6 +1160,12 @@ server distribution.  Finally, boot the application server.</p>
 </div>
 <div class="sect2">
 <h3 id="downloading-building-and-deploying-application-code"><a class="anchor" href="#downloading-building-and-deploying-application-code"></a>4.3. Downloading, Building, and Deploying Application Code</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/secure-jboss-app/download-quickstarts.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/secure-jboss-app/download-quickstarts.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The project and code for the application you are going to secure is available in <a href="https://github.com/keycloak/keycloak-quickstarts">Keycloak Quickstarts Repository</a>.  You will need the following
 installed on your machine and available in your PATH before you can continue:</p>
@@ -1099,6 +1223,12 @@ sent back by the server.  The next section describes how you can take this deplo
 </div>
 <div class="sect2">
 <h3 id="creating-and-registering-the-client"><a class="anchor" href="#creating-and-registering-the-client"></a>4.4. Creating and Registering the Client</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/secure-jboss-app/create-client.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/secure-jboss-app/create-client.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>The next step you have to do is to define and register the client in the Keycloak Admin Console.</p>
 </div>
@@ -1147,6 +1277,12 @@ a template for the configuration you need by going to the <code>Installation</co
 </div>
 <div class="sect2">
 <h3 id="configuring-the-subsystem"><a class="anchor" href="#configuring-the-subsystem"></a>4.5. Configuring the Subsystem</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/getting_started/topics/secure-jboss-app/subsystem.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20getting_started/topics/secure-jboss-app/subsystem.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
 <div class="paragraph">
 <p>Now that you have copied the XML template from the Installation page, you need to paste this into the <em>standalone.xml</em> file
 that resides in the <em>standalone/configuration</em> directory of the application server instance on which your application is deployed.</p>
@@ -1211,7 +1347,7 @@ that resides in the <em>standalone/configuration</em> directory of the applicati
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-09 07:31:13 UTC
+Last updated 2018-02-14 09:18:36 UTC
 </div>
 </div>
 <ul id="globalnav">
