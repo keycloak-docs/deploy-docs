@@ -678,7 +678,6 @@ span.image img {
 <ul class="sectlevel3">
 <li><a href="#the-authorization-process">1.1.1. The Authorization Process</a></li>
 <li><a href="#authorization-services">1.1.2. Authorization Services</a></li>
-<li><a href="#entitlement-api">1.1.3. Entitlement API</a></li>
 </ul>
 </li>
 <li><a href="#_overview_terminology">1.2. Terminology</a>
@@ -823,42 +822,41 @@ span.image img {
 </li>
 <li><a href="#_service_overview">8. Authorization Services</a>
 <ul class="sectlevel2">
-<li><a href="#_service_protection_api">8.1. Protection API</a>
+<li><a href="#_service_authorization_api">8.1. Discoverying Authorization Services Endpoints and Metadata</a></li>
+<li><a href="#_service_obtaining_permissions">8.2. Obtaining Permissions</a>
 <ul class="sectlevel3">
-<li><a href="#_service_protection_whatis_obtain_pat">8.1.1. What is a PAT and How to Obtain It</a></li>
-<li><a href="#_service_protection_resources_api">8.1.2. Managing Resources</a></li>
-<li><a href="#_service_protection_permission_api_papi">8.1.3. Managing Permission Requests</a></li>
+<li><a href="#_service_authorization_api">8.2.1. Client Authentication Methods</a></li>
 </ul>
 </li>
-<li><a href="#_service_authorization_api">8.2. Authorization API</a>
+<li><a href="#_service_user_managed_access">8.3. User-Managed Access</a>
 <ul class="sectlevel3">
-<li><a href="#_service_authorization_aat">8.2.1. What is an AAT and How to Obtain It</a></li>
-<li><a href="#_service_authorization_api_aapi">8.2.2. Requesting Authorization Data and Token</a></li>
+<li><a href="#_service_uma_authorization_process">8.3.1. Authorization Process</a></li>
+<li><a href="#_service_authorization_aat">8.3.2. Submitting Permission Requests</a></li>
+<li><a href="#_service_authorization_api_aapi">8.3.3. Managing Access to Users Resources</a></li>
 </ul>
 </li>
-<li><a href="#_service_entitlement_api">8.3. Entitlement API</a>
+<li><a href="#_service_protection_api">8.4. Protection API</a>
 <ul class="sectlevel3">
-<li><a href="#_service_entitlement_api_aapi">8.3.1. Requesting Entitlements</a></li>
-<li><a href="#_service_entitlement_request_metadata">8.3.2. Entitlement Request Metadata</a></li>
-<li><a href="#decide-whether-or-not-resource-s-name-should-be-included-the-response">8.3.3. Decide whether or not resource&#8217;s name should be included the response</a></li>
-<li><a href="#limiting-the-number-of-permissions-within-a-rpt">8.3.4. Limiting the number of permissions within a RPT</a></li>
+<li><a href="#_service_protection_whatis_obtain_pat">8.4.1. What is a PAT and How to Obtain It</a></li>
 </ul>
 </li>
-<li><a href="#_service_rpt_overview">8.4. Requesting Party Token</a>
+<li><a href="#_service_protection_resources_api">8.5. Managing Resources</a></li>
+<li><a href="#_service_protection_permission_api_papi">8.6. Managing Permission Requests</a></li>
+<li><a href="#_service_rpt_overview">8.7. Requesting Party Token</a>
 <ul class="sectlevel3">
-<li><a href="#_service_protection_token_introspection">8.4.1. Introspecting a Requesting Party Token</a></li>
-<li><a href="#obtaining-information-about-an-rpt">8.4.2. Obtaining Information about an RPT</a></li>
-<li><a href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt">8.4.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</a></li>
+<li><a href="#_service_protection_token_introspection">8.7.1. Introspecting a Requesting Party Token</a></li>
+<li><a href="#obtaining-information-about-an-rpt">8.7.2. Obtaining Information about an RPT</a></li>
+<li><a href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt">8.7.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</a></li>
 </ul>
 </li>
-<li><a href="#_service_client_api">8.5. Authorization Client Java API</a>
+<li><a href="#_service_client_api">8.8. Authorization Client Java API</a>
 <ul class="sectlevel3">
-<li><a href="#maven-dependency">8.5.1. Maven Dependency</a></li>
-<li><a href="#configuration-11">8.5.2. Configuration</a></li>
-<li><a href="#creating-the-authorization-client">8.5.3. Creating the Authorization Client</a></li>
-<li><a href="#obtaining-user-entitlements">8.5.4. Obtaining User Entitlements</a></li>
-<li><a href="#creating-a-resource-using-the-protection-api">8.5.5. Creating a Resource Using the Protection API</a></li>
-<li><a href="#introspecting-a-rpt">8.5.6. Introspecting a RPT</a></li>
+<li><a href="#maven-dependency">8.8.1. Maven Dependency</a></li>
+<li><a href="#configuration-11">8.8.2. Configuration</a></li>
+<li><a href="#creating-the-authorization-client">8.8.3. Creating the Authorization Client</a></li>
+<li><a href="#obtaining-user-entitlements">8.8.4. Obtaining User Entitlements</a></li>
+<li><a href="#creating-a-resource-using-the-protection-api">8.8.5. Creating a Resource Using the Protection API</a></li>
+<li><a href="#introspecting-an-rpt">8.8.6. Introspecting an RPT</a></li>
 </ul>
 </li>
 </ul>
@@ -1007,8 +1005,8 @@ Part of this is also accomplished remotely through the use of the <a href="#_ser
 <li>
 <p><strong>Policy Decision Point (PDP)</strong></p>
 <div class="paragraph">
-<p>Provides a distributable policy decision point to where authorization requests are sent and policies are evaluated accordingly with the permissions being requested. Part of this is also accomplished remotely through the use of the
-<a href="#_service_entitlement_api">Entitlement</a> APIs.</p>
+<p>Provides a distributable policy decision point to where authorization requests are sent and policies are evaluated accordingly with the permissions being requested.
+For more information, see <a href="#_service_obtaining_permissions">Obtaining Permissions</a>.</p>
 </div>
 </li>
 <li>
@@ -1115,18 +1113,18 @@ what you want to protect (resource or scope) and the policies that must be satis
 <div class="sect3">
 <h4 id="authorization-services"><a class="anchor" href="#authorization-services"></a>1.1.2. Authorization Services</h4>
 <div class="paragraph">
-<p>Authorization services consist of the following RESTFul APIs:</p>
+<p>Authorization services consist of the following RESTFul endpoints:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Protection API</strong></p>
+<p><strong>Token Endpoint</strong></p>
 </li>
 <li>
-<p><strong>Authorization API</strong></p>
+<p><strong>Resource Management Endpoint</strong></p>
 </li>
 <li>
-<p><strong>Entitlement API</strong></p>
+<p><strong>Permission Management Endpoint</strong></p>
 </li>
 </ul>
 </div>
@@ -1134,10 +1132,24 @@ what you want to protect (resource or scope) and the policies that must be satis
 <p>Each of these services provides a specific API covering the different steps involved in the authorization process.</p>
 </div>
 <div class="sect4">
+<h5 id="token-endpoint"><a class="anchor" href="#token-endpoint"></a>Token Endpoint</h5>
+<div class="paragraph">
+<p>OAuth2 clients (such as front end applications) can obtain access tokens from the server using the token endpoint and use
+these same tokens to access resources protected by a resource server (such as back end services). In the same way,
+Keycloak Authorization Services provide extensions to OAuth2 to allow access tokens to be issued based on the processing
+of all policies associated with the resource(s) or scope(s) being requested. This means that resource servers can enforce access
+to their protected resources based on the permissions granted by the server and held by an access token. In Keycloak Authorization Services
+the access token with permissions is called a Requesting Party Token or RPT for short.</p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="#_service_obtaining_permissions">Obtaining Permissions</a>.</p>
+</div>
+</div>
+<div class="sect4">
 <h5 id="protection-api"><a class="anchor" href="#protection-api"></a>Protection API</h5>
 <div class="paragraph">
-<p>The <strong>Protection API</strong> is a <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA-compliant</a> endpoint providing a small set of operations
-for resource servers to help them manage their resources and scopes. Only resource servers are allowed to access this API, which also requires a
+<p>The <strong>Protection API</strong> is a set of <a href="https://docs.kantarainitiative.org/uma/wg/oauth-uma-federated-authz-2.0-09.html">UMA-compliant</a> endpoint-providing operations
+for resource servers to help them manage their resources, scopes, permissions, and policies associated with them. Only resource servers are allowed to access this API, which also requires a
 <strong>uma_protection</strong> scope.</p>
 </div>
 <div class="paragraph">
@@ -1159,10 +1171,7 @@ for resource servers to help them manage their resources and scopes. Only resour
 <p>Find by Id</p>
 </li>
 <li>
-<p>Find All</p>
-</li>
-<li>
-<p>Find with filters (for example, search by name, type, or URI)</p>
+<p>Query</p>
 </li>
 </ul>
 </div>
@@ -1197,41 +1206,6 @@ By default, Remote Resource Management is enabled. You can change that using the
 <div class="paragraph">
 <p>For more information, see <a href="#_service_protection_api">Protection API</a>.</p>
 </div>
-</div>
-<div class="sect4">
-<h5 id="authorization-api"><a class="anchor" href="#authorization-api"></a>Authorization API</h5>
-<div class="paragraph">
-<p>The Authorization API is also a <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA-compliant</a> endpoint providing a single operation that exchanges an Access Token and <a href="#_overview_terminology_permission_ticket">Permission Ticket</a> with a Requesting Party Token (RPT).</p>
-</div>
-<div class="paragraph">
-<p>The RPT contains all permissions granted to a client and can be used to call a resource server to get access to its protected resources.</p>
-</div>
-<div class="paragraph">
-<p>When requesting an RPT you can also provide a previously issued RPT. In this case, the resulting RPT will consist of the union of the permissions from the previous RPT and the new ones
-within a permission ticket.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./images/authz-calls.png" alt="Authorization API Overview"></span></p>
-</div>
-<div class="paragraph">
-<p>For more information, see <a href="#_service_authorization_api">Authorization API</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="entitlement-api"><a class="anchor" href="#entitlement-api"></a>1.1.3. Entitlement API</h4>
-<div class="paragraph">
-<p>The Entitlement API provides a 1-legged protocol to issue RPTs. Unlike the Authorization API, the Entitlement API only expects an access token.</p>
-</div>
-<div class="paragraph">
-<p>From this API you can obtain all the entitlements or permissions for a user (based on the resources managed by a given resource server) or just the entitlements for a set of
-one or more resources.</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="./images/entitlement-calls.png" alt="Entitlement API Overview"></span></p>
-</div>
-<div class="paragraph">
-<p>For more information see <a href="#_service_entitlement_api">Entitlement API</a>.</p>
 </div>
 </div>
 </div>
@@ -1358,8 +1332,8 @@ policy providers, and you can create your own policy types to support your speci
 <div class="sect3">
 <h4 id="_overview_terminology_permission_ticket"><a class="anchor" href="#_overview_terminology_permission_ticket"></a>1.2.7. Permission Ticket</h4>
 <div class="paragraph">
-<p>A permission ticket is a special type of token defined by the <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">OAuth2&#8217;s User-Managed Access (UMA) Profile</a> specification that provides an opaque structure whose form is determined by the authorization server. This
-structure represents the resources and/or scopes being requested by a client as well as the policies that must be applied to a request for authorization data (requesting party token [RPT]).</p>
+<p>A permission ticket is a special type of token defined by the User-Managed Access (UMA) specification that provides an opaque structure whose form is determined by the authorization server. This
+structure represents the resources and/or scopes being requested by a client, the access context, as well as the policies that must be applied to a request for authorization data (requesting party token [RPT]).</p>
 </div>
 <div class="paragraph">
 <p>In UMA, permission tickets are crucial to support person-to-person sharing and also person-to-organization sharing. Using permission tickets for authorization workflows enables a range of scenarios from simple to complex, where resource owners and resource servers have complete control over their resources based on fine-grained policies that govern the access to these resources.</p>
@@ -1368,7 +1342,7 @@ structure represents the resources and/or scopes being requested by a client as 
 <p>In the UMA workflow, permission tickets are issued by the authorization server to a resource server, which returns the permission ticket to the client trying to access a protected resource. Once the client receives the ticket, it can make a request for an RPT (a final token holding authorization data) by sending the ticket back to the authorization server.</p>
 </div>
 <div class="paragraph">
-<p>For more information on permission tickets, see <a href="#_service_authorization_api">Authorization API</a> and the <a href="https://docs.kantarainitiative.org/uma/rec-uma-core.html">UMA</a> specification.</p>
+<p>For more information on permission tickets, see <a href="#_service_user_managed_access">User-Managed Access</a> and the <a href="https://docs.kantarainitiative.org/uma/wg/oauth-uma-grant-2.0-09.html">UMA</a> specification.</p>
 </div>
 </div>
 </div>
@@ -2534,7 +2508,7 @@ obtained from the execution context:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also use Role-Based Access Control (RBAC) in your policies. In the example below, we check if an user is granted with a <code>keycloak_user</code> <strong>realm</strong> role:</p>
+<p>You can also use Role-Based Access Control (RBAC) in your policies. In the example below, we check if a user is granted with a <code>keycloak_user</code> <strong>realm</strong> role:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2547,7 +2521,7 @@ obtained from the execution context:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Or you can check if an user is granted with a <code>my-client-role</code> <strong>client</strong> role, where <code>my-client</code> is the client id of the client application:</p>
+<p>Or you can check if a user is granted with a <code>my-client-role</code> <strong>client</strong> role, where <code>my-client</code> is the client id of the client application:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3512,9 +3486,6 @@ or create a new one by selecting the type of the policy you want to create.</p>
 <div class="paragraph">
 <p>The <strong>Identity Information</strong> filters can be used to specify the user requesting permissions.</p>
 </div>
-<div class="paragraph">
-<p>You can also click <strong>Entitlement</strong> to obtain all permissions for the user you selected.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="providing-contextual-information"><a class="anchor" href="#providing-contextual-information"></a>7.2. Providing Contextual Information</h3>
@@ -3544,14 +3515,590 @@ to simulate authorization requests based on all protected resources and scopes, 
 </div>
 </div>
 <div class="paragraph">
-<p>Keycloak Authorization Services are based on OAuth2&#8217;s User-Managed Access (UMA) Profile.</p>
+<p>Keycloak Authorization Services are built on top of well-known standards such as the OAuth2 and User-Managed Access specifications.</p>
 </div>
 <div class="paragraph">
-<p>This section describes the different RESTful endpoints that you can interact with to enable fine-grained authorization
-for your applications and services.</p>
+<p>OAuth2 clients (such as front end applications) can obtain access tokens from the server using the token endpoint and use
+these same tokens to access resources protected by a resource server (such as back end services). In the same way,
+Keycloak Authorization Services provide extensions to OAuth2 to allow access tokens to be issued based on the processing
+of all policies associated with the resource(s) or scope(s) being requested. This means that resource servers can enforce access
+to their protected resources based on the permissions granted by the server and held by an access token. In Keycloak Authorization Services
+the access token with permissions is called a Requesting Party Token or RPT for short.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the issuance of RPTs, Keycloak Authorization Services also provides a set of RESTful endpoints that allow resources servers to manage their protected
+resources, scopes, permissions and policies, helping developers to extend or integrate these capabilities into their applications in order to support fine-grained authorization.</p>
 </div>
 <div class="sect2">
-<h3 id="_service_protection_api"><a class="anchor" href="#_service_protection_api"></a>8.1. Protection API</h3>
+<h3 id="_service_authorization_api"><a class="anchor" href="#_service_authorization_api"></a>8.1. Discoverying Authorization Services Endpoints and Metadata</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-discovery-document.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-discovery-document.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>Keycloak provides a discovery document from which clients can obtain all necessary information to interact with
+Keycloak Authorization Services, including endpoint locations and capabilities.</p>
+</div>
+<div class="paragraph">
+<p>The discovery document can be obtained from:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X GET \
+  http://${host}:${port}/auth/realms/${realm}/.well-known/uma2-configuration</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where <code>${host}:${port}</code> is the hostname (or IP address) and port where Keycloak is running and <code>${realm}</code> is the name of
+a realm in Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>As a result, you should get a response as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">{
+
+    // some claims are expected here
+
+    // these are the main claims in the discovery document about Authorization Services endpoints location
+    &quot;token_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/protocol/openid-connect/token&quot;,
+    &quot;token_introspection_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/protocol/openid-connect/token/introspect&quot;,
+    &quot;resource_registration_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/authz/protection/resource_set&quot;,
+    &quot;permission_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/authz/protection/permission&quot;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each of these endpoints expose a specific set of capabilities:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>token_endpoint</strong></p>
+<div class="paragraph">
+<p>A OAuth2-compliant Token Endpoint that supports the <code>urn:ietf:params:oauth:grant-type:uma-ticket</code> grant type. Through this
+endpoint clients can send authorization requests and obtain an RPT with all permissions granted by Keycloak.</p>
+</div>
+</li>
+<li>
+<p><strong>token_introspection_endpoint</strong></p>
+<div class="paragraph">
+<p>A OAuth2-compliant Token Introspection Endpoint which clients can use to query the server to determine the active state of an RPT
+and to determine any other information associated with the token, such as the permissions granted by Keycloak.</p>
+</div>
+</li>
+<li>
+<p><strong>resource_registration_endpoint</strong></p>
+<div class="paragraph">
+<p>A UMA-compliant Resource Registration Endpoint which resource servers can use to manage their protected resources and scopes. This endpoint provides
+operations create, read, update and delete resources and scopes in Keycloak.</p>
+</div>
+</li>
+<li>
+<p><strong>resource_registration_endpoint</strong></p>
+<div class="paragraph">
+<p>A UMA-compliant Permission Endpoint which resource servers can use to manage permission tickets. This endpoint provides
+operations create, read, update, and delete permission tickets in Keycloak.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service_obtaining_permissions"><a class="anchor" href="#_service_obtaining_permissions"></a>8.2. Obtaining Permissions</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-obtaining-permission.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-obtaining-permission.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain permissions from Keycloak you send an authorization request to the token endpoint. As a result, Keycloak will
+evaluate all policies associated with the resource(s) and scope(s) being requested and issue an RPT with all permissions
+granted by the server.</p>
+</div>
+<div class="paragraph">
+<p>Clients are allowed to send authorization requests to the token endpoint using the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>grant_type</strong></p>
+<div class="paragraph">
+<p>This parameter is <strong>required</strong>. Must be <code>urn:ietf:params:oauth:grant-type:uma-ticket</code>.</p>
+</div>
+</li>
+<li>
+<p><strong>ticket</strong></p>
+<div class="paragraph">
+<p>This parameter is <strong>optional</strong>. The most recent permission ticket received by the client as part of the UMA authorization process.</p>
+</div>
+</li>
+<li>
+<p><strong>claim_token</strong></p>
+<div class="paragraph">
+<p>This parameter is <strong>optional</strong>. A string representing additional claims that should be considered by the server when evaluating
+permissions for the resource(s) and scope(s) being requested. This parameter allow clients to push claims to Keycloak. For more details about all supported token formats see <code>claim_token_format</code> parameter.</p>
+</div>
+</li>
+<li>
+<p><strong>claim_token_format</strong></p>
+<div class="paragraph">
+<p>This parameter is *optional. A string indicating the format of the token specified in the <code>claim_token</code> parameter. Keycloak supports two token
+formats: <code>urn:ietf:params:oauth:token-type:jwt</code> and <code><a href="http://openid.net/specs/openid-connect-core-1_0.html#IDToken" class="bare">http://openid.net/specs/openid-connect-core-1_0.html#IDToken</a></code>. The <code>urn:ietf:params:oauth:token-type:jwt</code> format
+indicates that the <code>claim_token</code> parameter references an access token. The <code><a href="http://openid.net/specs/openid-connect-core-1_0.html#IDToken" class="bare">http://openid.net/specs/openid-connect-core-1_0.html#IDToken</a></code> indicates that the
+<code>claim_token</code> parameter references an OpenID Connect ID Token.</p>
+</div>
+</li>
+<li>
+<p><strong>rpt</strong></p>
+<div class="paragraph">
+<p>This parameter is *optional. A previously issued RPT which permissions should also be evaluated and added in a new one. This parameter
+allows clients in possession of an RPT to perform incremental authorization where permissions are added on demand.</p>
+</div>
+</li>
+<li>
+<p><strong>permission</strong></p>
+<div class="paragraph">
+<p>This parameter is *optional. A string representing a set of one or more resources and scopes the client is seeking access. This parameter can be defined multiple times
+in order to request permission for multiple resource and scopes. This parameter is an extension to <code>urn:ietf:params:oauth:grant-type:uma-ticket</code> grant type in order to allow clients to send authorization requests without a
+permission ticket. The format of the string must be: <code>RESOURCE_ID#SCOPE_ID</code>. For instance: <code>Resource A#Scope A</code>, <code>Resource A#Scope A, Scope B, Scope C</code>, <code>Resource A</code>, <code>#Scope A</code>.</p>
+</div>
+</li>
+<li>
+<p><strong>audience</strong></p>
+<div class="paragraph">
+<p>This parameter is <strong>optional</strong>. The client identifier of the resource server to which the client is seeking access. This parameter is mandatory
+in case the <code>permission</code> parameter is defined. It serves as a hint to Keycloak to indicate the context in which permissions should be evaluated.</p>
+</div>
+</li>
+<li>
+<p><strong>response_include_resource_name</strong></p>
+<div class="paragraph">
+<p>This parameter is <strong>optional</strong>. A boolean value indicating to the server whether resource names should be included in the RPT&#8217;s permissions. if false, only the resource
+identifier is included.</p>
+</div>
+</li>
+<li>
+<p><strong>response_permissions_limit</strong></p>
+<div class="paragraph">
+<p>This parameter is <strong>optional</strong>. An integer N that defines a limit for the amount of permissions an RPT can have. When used together with
+<code>rpt</code> parameter, only the last N requested permissions will be kept in the RPT.</p>
+</div>
+</li>
+<li>
+<p><strong>submit_request</strong></p>
+<div class="paragraph">
+<p>This parameter is <strong>optional</strong>. A boolean value indicating whether the server should create permission requests to the resources and scopes referenced by a permission ticket.
+This parameter only have effect if used together with the <code>ticket</code> parameter as part of a UMA authorization process.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example of a authorization request when a client is seeking access to two resources protected by a resource server.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
+  -H &quot;Authorization: Bearer ${access_token}&quot; \
+  --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot; \
+  --data &quot;audience=${resource_server_id}&quot; \
+  --data &quot;permission=Resource A#Scope A&quot; \
+  --data &quot;permission=Resource B#Scope B&quot;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example of a authorization request when a client is seeking access to any resource and scope protected by a resource server.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
+  -H &quot;Authorization: Bearer ${access_token}&quot; \
+  --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example of an authorization request when a client is seeking access to a UMA protected resource after receiving a permission ticket from
+the resource server as part of the authorization process:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
+  -H &quot;Authorization: Bearer ${access_token}&quot; \
+  --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot; \
+  --data &quot;ticket=${permission_ticket}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If $Keycloak assessment process results in issuance of permissions, it issues the RPT with which it has associated
+the permissions:</p>
+</div>
+<div class="listingblock">
+<div class="title">Keycloak responds to the client with the RPT</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 200 OK
+Content-Type: application/json
+...
+{
+    &quot;access_token&quot;: &quot;${rpt}&quot;,
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response from the server is just like any other response from the token endpoint when using some other grant type. The RPT can be obtained from
+the <code>access_token</code> response parameter. If the client is not authorized, Keycloak responds with a <code>403</code> HTTP status code:</p>
+</div>
+<div class="listingblock">
+<div class="title">Keycloak denies the authorization request</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 403 Forbidden
+Content-Type: application/json
+...
+{
+    &quot;error&quot;: &quot;access_denied&quot;,
+    &quot;error_description&quot;: &quot;request_denied&quot;
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_service_authorization_api"><a class="anchor" href="#_service_authorization_api"></a>8.2.1. Client Authentication Methods</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-obtaining-permission-authentication.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-obtaining-permission-authentication.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>Clients need to authenticate to the token endpoint in order to obtain an RPT. When using the <code>urn:ietf:params:oauth:grant-type:uma-ticket</code>
+grant type, clients can use any of these authentication methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bearer Token</strong></p>
+<div class="paragraph">
+<p>Clients should send an access token as a Bearer credential in an HTTP Authorization header to the token endpoint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: an authorization request using an access token to authenticate to the token endpoint</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
+  -H &quot;Authorization: Bearer ${access_token}&quot; \
+  --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This method is especially useful when the client is acting on behalf of a user.
+In this case, the bearer token is an access token previously issued by Keycloak to some client acting on behalf
+of a user (or on behalf of itself). Permissions will be evaluated considering the access context represented by the access token.
+For instance, if the access token was issued to Client A acting on behalf of User A, permissions will be granted depending on
+the resources and scopes to which User A has access.</p>
+</div>
+</li>
+<li>
+<p><strong>Client Credentials</strong></p>
+<div class="paragraph">
+<p>Client can use any of the client authentication methods supported by Keycloak. For instance, client_id/client_secret or JWT.</p>
+</div>
+<div class="listingblock">
+<div class="title">Example: an authorization request using an access token to authenticate to the token endpoint</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
+  -H &quot;Authorization: Basic cGhvdGg6L7Jl13RmfWgtkk==pOnNlY3JldA==&quot; \
+  --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot;</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service_user_managed_access"><a class="anchor" href="#_service_user_managed_access"></a>8.3. User-Managed Access</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-obtaining-permission-uma.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-obtaining-permission-uma.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>Keycloak Authorization Services is based on User-Managed Access or UMA for short. UMA is a specification that
+enhances OAuth2 capabilities in the following ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Privacy</strong></p>
+<div class="paragraph">
+<p>Nowadays, user privacy is becoming a huge concern, as more and more data and devices are available and connected to the cloud. With
+UMA and Keycloak, resource servers can enhance their capabilities in order to improve how their resources are protected in respect
+to user privacy where permissions are granted based on policies defined by the user.</p>
+</div>
+</li>
+<li>
+<p><strong>Party-to-Party Authorization</strong></p>
+<div class="paragraph">
+<p>Resource owners (e.g.: regular end-users) can manage access to their resources and authorize other parties (e.g: regular end-users)
+to access these resources. This is different than OAuth2 where consent is given to a client application acting on behalf of a user, with UMA
+resource owners are allowed to consent access to other users, in a completely asynchronous manner.</p>
+</div>
+</li>
+<li>
+<p><strong>Resource Sharing</strong></p>
+<div class="paragraph">
+<p>Resource owners are allowed to manage permissions to their resources and decide who can access a particular resource and how.
+Keycloak can then act as a sharing management service from which resource owners can manage their resources.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Keycloak is a UMA 2.0 compliant authorization server that provides most UMA capabilities.</p>
+</div>
+<div class="paragraph">
+<p>As an example, consider a user Alice (resource owner) using an Internet Banking Service (resource server) to manage his Bank Account (resource). One day, Alice decides
+to open her bank account to Bob (requesting party), a accounting professional. However, Bob should only have access to view (scope) Alice&#8217;s account.</p>
+</div>
+<div class="paragraph">
+<p>As a resource server, the Internet Banking Service must be able to protect Alice&#8217;s Bank Account. For that, it relies on Keycloak
+Resource Registration Endpoint to create a resource in the server representing Alice&#8217;s Bank Account.</p>
+</div>
+<div class="paragraph">
+<p>At this moment, if Bob tries to access Alice&#8217;s Bank Account, access will be denied. The Internet Banking Service defines a few default
+policies for banking accounts. One of them is that only the owner, in this case Alice, is allowed to access her bank account.</p>
+</div>
+<div class="paragraph">
+<p>However, Internet Banking Service in respect to Alice&#8217;s privacy also allows her to change specific policies for he banking account. One of these
+policies that she can change is to define which people are allowed to view her bank account. For that, Internet Banking Service relies on Keycloak
+to provide to Alice a space where she can select individuals and the operations (or data) they are allowed to access. At any time, Alice
+can revoke access or grant additional permissions to Bob.</p>
+</div>
+<div class="sect3">
+<h4 id="_service_uma_authorization_process"><a class="anchor" href="#_service_uma_authorization_process"></a>8.3.1. Authorization Process</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-uma-authz-process.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-uma-authz-process.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>In UMA, the authorization process starts when a client tries to access a UMA protected resource server.</p>
+</div>
+<div class="paragraph">
+<p>A UMA protected resource server expects a bearer token in the request where the token is an RPT. When a client requests
+a resource at the resource server without a permission ticket:</p>
+</div>
+<div class="listingblock">
+<div class="title">Client requests a protected resource without sending an RPT</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X GET \
+  http://${host}:8080/my-resource-server/resource/1bfdfe78-a4e1-4c2d-b142-fc92b75b986f</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The resource server sends a response back to the client with a permission <code>ticket</code> and a <code>as_uri</code> parameter with the location
+of a Keycloak server to where the ticket should be sent in order to obtain an RPT.</p>
+</div>
+<div class="listingblock">
+<div class="title">Resource server responds with a permission ticket</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 401 Unauthorized
+WWW-Authenticate: UMA realm=&quot;${realm}&quot;,
+    as_uri=&quot;https://${host}:${post}/auth/realms/${realm}&quot;,
+    ticket=&quot;016f84e8-f9b9-11e0-bd6f-0021cc6004de&quot;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The permission ticket is a special type of token issued by Keycloak Permission API. They represent the permissions being requested (e.g.: resources and scopes)
+as well any other information associated with the request. Only resource servers are allowed to create those tokens.</p>
+</div>
+<div class="paragraph">
+<p>Now that the client has a permission ticket and also the location of a Keycloak server, the client can use the discovery document
+to obtain the location of the token endpoint and send an authorization request.</p>
+</div>
+<div class="listingblock">
+<div class="title">Client sends an authorization request to the token endpoint to obtain an RPT</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
+  -H &quot;Authorization: Bearer ${access_token}&quot; \
+  --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot; \
+  --data &quot;ticket=${permission_ticket}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If $Keycloak assessment process results in issuance of permissions, it issues the RPT with which it has associated
+the permissions:</p>
+</div>
+<div class="listingblock">
+<div class="title">Keycloak responds to the client with the RPT</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 200 OK
+Content-Type: application/json
+...
+{
+    &quot;access_token&quot;: &quot;${rpt}&quot;,
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The response from the server is just like any other response from the token endpoint when using some other grant type. The RPT can be obtained from
+the <code>access_token</code> response parameter. In case the client is not authorized to have permissions Keycloak responds with a <code>403</code> HTTP status code:</p>
+</div>
+<div class="listingblock">
+<div class="title">Keycloak denies the authorization request</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 403 Forbidden
+Content-Type: application/json
+...
+{
+    &quot;error&quot;: &quot;access_denied&quot;,
+    &quot;error_description&quot;: &quot;request_denied&quot;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_service_authorization_aat"><a class="anchor" href="#_service_authorization_aat"></a>8.3.2. Submitting Permission Requests</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-uma-submiting-permission-requests.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-uma-submiting-permission-requests.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>As part of the authorization process, clients need first to obtain a permission ticket from a UMA protected resource server in order
+to exchange it with an RPT at the Keycloak Token Endpoint.</p>
+</div>
+<div class="paragraph">
+<p>By default, Keycloak responds with a <code>403</code> HTTP status code and a <code>request_denied</code> error in case the client can not be issued with an RPT.</p>
+</div>
+<div class="listingblock">
+<div class="title">Keycloak denies the authorization request</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 403 Forbidden
+Content-Type: application/json
+...
+{
+    &quot;error&quot;: &quot;access_denied&quot;,
+    &quot;error_description&quot;: &quot;request_denied&quot;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Such response implies that Keycloak could not issue an RPT with the permissions represented by a permission ticket.</p>
+</div>
+<div class="paragraph">
+<p>In some situations, client applications may want to start an asynchronous authorization flow and let the owner of the resources
+being requested decide whether or not access should be granted. For that, clients can use the <code>submit_request</code> request parameter along
+with an authorization request to the token endpoint:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
+  -H &quot;Authorization: Bearer ${access_token}&quot; \
+  --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot; \
+  --data &quot;ticket=${permission_ticket} \
+  --data &quot;submit_request=true&quot;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When using the <code>submit_request</code> parameter, Keycloak will persist a permission request for each resource to which access was denied.
+Once created, resource owners can check their account and manage their permissions requests.</p>
+</div>
+<div class="paragraph">
+<p>You can think about this functionality as a <code>Request Access</code> button in your application, where users can ask other users for access to their resources.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_service_authorization_api_aapi"><a class="anchor" href="#_service_authorization_api_aapi"></a>8.3.3. Managing Access to Users Resources</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-uma-account-my-resources.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-uma-account-my-resources.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>Users can manage access to their resources using the Keycloak User Account Service.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./keycloak-images/service/account-my-resource.png" alt="My Resources"></span></p>
+</div>
+<div class="paragraph">
+<p>On the left side menu, the <code>My Resources</code> option leads to a page where users are able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Manage Permission Requests that <strong>Need my approval</strong></p>
+<div class="paragraph">
+<p>This section contains a list of all permission requests awaiting approval. These requests are connected to the parties (users) requesting access to
+a particular resource. Users are allowed to approve or deny these requests.</p>
+</div>
+</li>
+<li>
+<p>Manage <strong>My resources</strong></p>
+<div class="paragraph">
+<p>This section contains a list of all resources owned by the user. Users can click on a resource for more details
+and share the resource with others.</p>
+</div>
+</li>
+<li>
+<p>Managed <strong>Resources shared with me</strong></p>
+<div class="paragraph">
+<p>This section contains a list of all resources shared with the user.</p>
+</div>
+</li>
+<li>
+<p>Manage <strong>Your requests waiting approval</strong></p>
+<div class="paragraph">
+<p>This section contains a list of permission requests sent by the user that are waiting for the approval of another user or
+resource owner.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the user choose to detail own of his resources by clicking on any resource in the "My resources" listing, he is redirect to a
+page as follows:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./keycloak-images/service/account-my-resource-detail.png" alt="Resource Detail"></span></p>
+</div>
+<div class="paragraph">
+<p>From this page the users are able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Manage <strong>People with access to the resource</strong></p>
+<div class="paragraph">
+<p>This section contains a list of people with access to the resource. Users are allowed to revoke access by clicking
+on the <code>Revoke</code> button or by removing a specific <code>Permission</code>.</p>
+</div>
+</li>
+<li>
+<p>Share the resource with others</p>
+<div class="paragraph">
+<p>By typing the username or e-mail of another user, the user is able to share the resource and select the permissions he want to grant access.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service_protection_api"><a class="anchor" href="#_service_protection_api"></a>8.4. Protection API</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-protection-api.adoc" target="_blank">Edit this section</a>
@@ -3564,15 +4111,16 @@ for your applications and services.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Resource Registration</strong></p>
+<p><strong>Resource Management</strong></p>
 <div class="paragraph">
 <p>With this endpoint, resource servers can manage their resources remotely and enable <a href="#_enforcer_overview">policy enforcers</a> to query the server for the resources that need protection.</p>
 </div>
 </li>
 <li>
-<p><strong>Permission Registration</strong></p>
+<p><strong>Permission Management</strong></p>
 <div class="paragraph">
-<p>In the UMA protocol, resource servers access this endpoint, which issues permission tickets.</p>
+<p>In the UMA protocol, resource servers access this endpoint to create permission tickets. Keycloak also provides
+endpoints to manage the state of permissions and query permissions.</p>
 </div>
 </li>
 </ul>
@@ -3582,7 +4130,7 @@ for your applications and services.</p>
 In UMA, a PAT is a token with the scope <strong>uma_protection</strong>.</p>
 </div>
 <div class="sect3">
-<h4 id="_service_protection_whatis_obtain_pat"><a class="anchor" href="#_service_protection_whatis_obtain_pat"></a>8.1.1. What is a PAT and How to Obtain It</h4>
+<h4 id="_service_protection_whatis_obtain_pat"><a class="anchor" href="#_service_protection_whatis_obtain_pat"></a>8.4.1. What is a PAT and How to Obtain It</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-whatis-obtain-pat.adoc" target="_blank">Edit this section</a>
@@ -3639,8 +4187,9 @@ which requires a <em>client_id</em> and a <em>client_secret</em>. You can choose
 </table>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_service_protection_resources_api"><a class="anchor" href="#_service_protection_resources_api"></a>8.1.2. Managing Resources</h4>
+</div>
+<div class="sect2">
+<h3 id="_service_protection_resources_api"><a class="anchor" href="#_service_protection_resources_api"></a>8.5. Managing Resources</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-resources-api-papi.adoc" target="_blank">Edit this section</a>
@@ -3656,7 +4205,7 @@ which requires a <em>client_id</em> and a <em>client_secret</em>. You can choose
 </div>
 </div>
 <div class="paragraph">
-<p>This endpoint provides registration operations outlined as follows (entire path omitted for clarity):</p>
+<p>This endpoint provides operations outlined as follows (entire path omitted for clarity):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3675,17 +4224,14 @@ which requires a <em>client_id</em> and a <em>client_secret</em>. You can choose
 <li>
 <p>List resource set descriptions: GET /resource_set</p>
 </li>
-<li>
-<p>List resource set descriptions using a filter: GET /resource_set?filter=${filter}</p>
-</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For more information about the contract for each of these operations, see <a href="https://docs.kantarainitiative.org/uma/rec-oauth-resource-reg-v1_0_1.html">UMA Resource Set Registration</a>.</p>
+<p>For more information about the contract for each of these operations, see <a href="https://docs.kantarainitiative.org/uma/wg/oauth-uma-federated-authz-2.0-09.html#reg-api">UMA Resource Registration API</a>.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_service_protection_permission_api_papi"><a class="anchor" href="#_service_protection_permission_api_papi"></a>8.1.3. Managing Permission Requests</h4>
+<div class="sect2">
+<h3 id="_service_protection_permission_api_papi"><a class="anchor" href="#_service_protection_permission_api_papi"></a>8.6. Managing Permission Requests</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-permission-api-papi.adoc" target="_blank">Edit this section</a>
@@ -3705,19 +4251,6 @@ which requires a <em>client_id</em> and a <em>client_secret</em>. You can choose
 </div>
 <div class="paragraph">
 <p><code>A correlation handle that is conveyed from an authorization server to a resource server, from a resource server to a client, and ultimately from a client back to an authorization server, to enable the authorization server to assess the correct policies to apply to a request for authorization data.</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<em>Permission ticket support is limited</em>.
-In the full UMA protocol, resource servers can register permission requests in the server to support authorization flows where a resource owner (the user that owns a resource being requested) can approve access to his resources by third parties, among other ways. This represents one of the main features of the UMA specification: resource owners can control their own resources and the policies that govern them. Currently Keycloak UMA implementation support is very limited in this regard. For example, the system does not store permission tickets on the server and we are essentially using UMA to provide API security and base our authorization offerings. In the future, full support of UMA and other use cases is planned.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>In most cases, you won&#8217;t need to deal with this endpoint directly. Keycloak provides a <a href="#_enforcer_overview">policy enforcer</a> that enables UMA for your
@@ -3759,408 +4292,8 @@ permission tickets is an important aspects when using UMA as it allows resource 
 privacy and user controlled access to their resources.</p>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="_service_authorization_api"><a class="anchor" href="#_service_authorization_api"></a>8.2. Authorization API</h3>
-<div class="sidebarblock page-links">
-<div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-authorization-api.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-authorization-api.adoc" target="_blank">Report an issue</a>
-</div>
-</div>
-<div class="paragraph">
-<p>The Authorization API provides a UMA-compliant endpoint for obtaining authorization data from the server, where the authorization data represents the result of the evaluation
-of all permissions and authorization policies associated with the resources being requested.</p>
-</div>
-<div class="paragraph">
-<p>Unlike the Protection API, any client application can access the Authorization API endpoint, which requires a special OAuth2 access token called an authorization API token (AAT).
-In UMA, an AAT is a token with the scope <strong>uma_authorization</strong>.</p>
-</div>
-<div class="sect3">
-<h4 id="_service_authorization_aat"><a class="anchor" href="#_service_authorization_aat"></a>8.2.1. What is an AAT and How to Obtain It</h4>
-<div class="sidebarblock page-links">
-<div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-whatis-obtain-aat.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-whatis-obtain-aat.adoc" target="_blank">Report an issue</a>
-</div>
-</div>
-<div class="paragraph">
-<p>An authorization API token (AAT) is a special OAuth2 access token with the scope <strong>uma_authorization</strong>. When you create a user, Keycloak automatically
-assigns the role <em>uma_authorization</em> to the user. The <em>uma_authorization</em> role is a default realm role.</p>
-</div>
-<div class="paragraph">
-<div class="title">Default Role uma_authorization</div>
-<p><span class="image"><img src="./keycloak-images/service/rs-uma-authorization-role.png" alt="Default Role uma_authorization "></span></p>
-</div>
-<div class="paragraph">
-<p>An AAT enables a client application to query the server for user permissions.</p>
-</div>
-<div class="paragraph">
-<p>Client applications can obtain an AAT from Keycloak like any other OAuth2 access token. Usually, client applications obtain AATs after the user is successfully
-authenticated in Keycloak. By default, the <em>authorization_code</em> grant type is used to authenticate users, and the server will issue an OAuth2 access token to the client application acting on their behalf.</p>
-</div>
-<div class="paragraph">
-<p>The example below uses the Resource Owner Password Credentials Grant Type to request an AAT:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
-    -H &quot;Authorization: Basic aGVsbG8td29ybGQtYXV0aHotc2VydmljZTpwYXNzd29yZA==&quot; \
-    -H &quot;Content-Type: application/x-www-form-urlencoded&quot; \
-    -d 'username=${username}&amp;password=${user_password}&amp;grant_type=password' \
-    &quot;http://localhost:8080/auth/realms/${realm_name}/protocol/openid-connect/token&quot;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>As a result, the server response is:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">access_token</span><span class="delimiter">&quot;</span></span>: <span class="error">$</span>{<span class="error">A</span><span class="error">A</span><span class="error">T</span>},
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">expires_in</span><span class="delimiter">&quot;</span></span>: <span class="integer">300</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">refresh_expires_in</span><span class="delimiter">&quot;</span></span>: <span class="integer">1800</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">refresh_token</span><span class="delimiter">&quot;</span></span>: <span class="error">$</span>{<span class="error">r</span><span class="error">e</span><span class="error">f</span><span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">h</span><span class="error">_</span><span class="error">t</span><span class="error">o</span><span class="error">k</span><span class="error">e</span><span class="error">n</span>},
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">token_type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">bearer</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">id_token</span><span class="delimiter">&quot;</span></span>: <span class="error">$</span>{<span class="error">i</span><span class="error">d</span><span class="error">_</span><span class="error">t</span><span class="error">o</span><span class="error">k</span><span class="error">e</span><span class="error">n</span>},
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">not-before-policy</span><span class="delimiter">&quot;</span></span>: <span class="integer">0</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">session_state</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">3cad2afc-855b-47b7-8e4d-a21c66e312fb</span><span class="delimiter">&quot;</span></span>
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_service_authorization_api_aapi"><a class="anchor" href="#_service_authorization_api_aapi"></a>8.2.2. Requesting Authorization Data and Token</h4>
-<div class="sidebarblock page-links">
-<div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-authorization-api-aapi.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-authorization-api-aapi.adoc" target="_blank">Report an issue</a>
-</div>
-</div>
-<div class="paragraph">
-<p>Client applications using the UMA protocol can use a specific endpoint to obtain a special security token called a <a href="#_service_rpt_overview">Requesting Party Token (RPT)</a>.
-This token consists of all the permissions granted to a user as a result of the evaluation of the permissions and authorization policies associated with the resources being requested.
-With an RPT, client applications can gain access to protected resources at the resource server.</p>
-</div>
-<div class="listingblock">
-<div class="title">UMA compliant Authorization API Endpoint</div>
-<div class="content">
-<pre class="CodeRay highlight"><code>http://${host}:${port}/auth/realms/${realm_name}/authz/authorize</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>When requesting an RPT, you need to provide two things:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>A <a href="#_service_protection_permission_api_papi">permission ticket</a> representing the resources you want to access</p>
-</li>
-<li>
-<p>The <a href="#_service_authorization_aat">Authorization API token (AAT)</a> (as a bearer token) representing a user&#8217;s identity and his consent to access authorization data on his behalf.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The permission ticket is added to an HTTP request as a parameter whether the AAT is included in a <code><code>Authorization</code></code> header in order to authenticate the request
-using the AAT as a bearer token.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST
-    -H &quot;Authorization: Bearer ${AAT}&quot; -d '{
-    &quot;ticket&quot; : ${PERMISSION_TICKET}
-}' &quot;http://localhost:8080/auth/realms/hello-world-authz/authz/authorize&quot;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>As a result, the server response is:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{<span class="key"><span class="delimiter">&quot;</span><span class="content">rpt</span><span class="delimiter">&quot;</span></span>:<span class="string"><span class="delimiter">&quot;</span><span class="content">${RPT}</span><span class="delimiter">&quot;</span></span>}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_service_entitlement_api"><a class="anchor" href="#_service_entitlement_api"></a>8.3. Entitlement API</h3>
-<div class="sidebarblock page-links">
-<div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-entitlement-entitlement-api.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-entitlement-entitlement-api.adoc" target="_blank">Report an issue</a>
-</div>
-</div>
-<div class="paragraph">
-<p>The Entitlement API provides a 1-legged protocol for obtaining authorization data from the server, where the authorization data
-represents the result of the evaluation of all permissions and authorization policies associated with the resources being requested.</p>
-</div>
-<div class="paragraph">
-<p>Unlike the <em>Authorization API</em>, the Entitlement API is not UMA-compliant and does not require permission tickets.</p>
-</div>
-<div class="paragraph">
-<p>The purpose of this API is provide a more lightweight API for obtaining authorization data, where a client in possession of a valid
-OAuth2 access token is able to obtain the necessary authorization data on behalf of its users.</p>
-</div>
-<div class="sect3">
-<h4 id="_service_entitlement_api_aapi"><a class="anchor" href="#_service_entitlement_api_aapi"></a>8.3.1. Requesting Entitlements</h4>
-<div class="sidebarblock page-links">
-<div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-entitlement-entitlement-api-aapi.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-entitlement-entitlement-api-aapi.adoc" target="_blank">Report an issue</a>
-</div>
-</div>
-<div class="paragraph">
-<p>Client applications can use a specific endpoint to obtain a special security token called a <a href="#_service_rpt_overview">Requesting Party Token (RPT)</a>.
-This token consists of all the entitlements (or permissions) for a user as a result of the evaluation of the permissions and authorization policies associated with the resources being requested.
-With an RPT, client applications can gain access to protected resources at the resource server.</p>
-</div>
-<div class="listingblock">
-<div class="title">Entitlement API Endpoint</div>
-<div class="content">
-<pre class="CodeRay highlight"><code>http://${host}:${port}/auth/realms/${realm_name}/authz/entitlement/{client_id}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The <strong>client_id</strong> parameter above must be provided in order to identify the client application acting as a <a href="#_overview_terminology_resource_server">resource server</a>
-in Keycloak. You must provide the client identifier in order to restrict the scope of the evaluation to the resources, scopes and permissions
-managed by a specific resource server.</p>
-</div>
-<div class="paragraph">
-<p>The Entitlement API comes in two flavors:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Using HTTP <strong>GET</strong> in order to obtain all entitlements based on the resources owned by a specific user or/and general resources
-owned and managed by the resource server itself.</p>
-</li>
-<li>
-<p>Using HTTP <strong>POST</strong> in order to obtain entitlements based on a set of one or more resources and scopes sent along with an entitlement request.</p>
-</li>
-</ul>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Using one or another depends on your use case and how much resources you have registered in Keycloak. Although the <strong>GET</strong> variant
-provides an easy way to obtain entitlements from the server, it might not be appropriate in case you have too much resources associated
-with an user. In this case, the <strong>POST</strong> method is recommended.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Regardless of the HTTP method you decide to use, the Entitlement API endpoint expects an access token in the request representing a user&#8217;s identity
-and his consent to access authorization data on his behalf. The access token must be sent as a bearer token using an HTTP <code><code>Authorization</code></code> header.</p>
-</div>
-<div class="paragraph">
-<p>After successfully invoking the Entitlement API endpoint, you will get a <a href="#_service_rpt_overview">RPT</a> with all permissions
-granted by the server.</p>
-</div>
-<div class="sect4">
-<h5 id="obtaining-entitlements"><a class="anchor" href="#obtaining-entitlements"></a>Obtaining Entitlements</h5>
-<div class="paragraph">
-<p>The easiest way to obtain entitlements for a specific user is using an HTTP GET request. For example, using curl:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">curl -X GET \
-    -H &quot;Authorization: Bearer ${access_token}&quot; \
-    &quot;http://${host}:${port}/auth/realms/${realm_name}/authz/entitlement/{client_id}&quot;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>As a result, the server response is:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">rpt</span><span class="delimiter">&quot;</span></span>: <span class="error">$</span>{<span class="error">R</span><span class="error">P</span><span class="error">T</span>}
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Using this method to obtain entitlements, the server responds to the requesting client with <strong>all</strong> entitlements for a user, based on the evaluation of the permissions and
-authorization policies associated with the resources owned by the user or the resource server itself. For instance, suppose you have permissions defined in Keycloak for the following resources:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Main Page</p>
-</li>
-<li>
-<p>Alice Bank Account</p>
-</li>
-<li>
-<p>Bob Bank Account</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Main Page</strong> is a common resource in your application and owned by the resource server itself, it represents a landing or main page in your application. On the
-other hand, <strong>Alice Bank Account</strong> is a resource where user <strong>alice</strong> is the owner. The same goes for <strong>Bob Bank Account</strong> which is owned by a different user, <strong>bob</strong>.</p>
-</div>
-<div class="paragraph">
-<p>When obtaining entitlements for user <strong>alice</strong>, the server is going to evaluate all permissions associated with resources <strong>Main Page</strong> and <strong>Alice Bank Account</strong>. Giving you
-back a RPT (if permissions were actually granted) with a set of permissions representing these resources.</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="obtaining-entitlements-for-a-specific-set-of-resources"><a class="anchor" href="#obtaining-entitlements-for-a-specific-set-of-resources"></a>Obtaining Entitlements for a Specific Set of Resources</h5>
-<div class="paragraph">
-<p>You can also use the entitlements endpoint to obtain a user&#8217;s entitlements for a set of one or more resources. For example, using curl:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer ${access_token}&quot; -d '{
-    &quot;permissions&quot; : [
-        {
-            &quot;resource_set_name&quot; : &quot;Alice Bank Account&quot;
-        }
-    ]
-}' &quot;http://${host}:${port}/auth/realms/${realm_name}/authz/entitlement/{client_id}&quot;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>As a result, the server response is:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">rpt</span><span class="delimiter">&quot;</span></span>: <span class="error">$</span>{<span class="error">R</span><span class="error">P</span><span class="error">T</span>}
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Unlike the GET version, the server responds with an RPT holding the permissions granted during the evaluation of the permissions and authorization policies
-associated with the resources being requested.</p>
-</div>
-<div class="paragraph">
-<p>You can also specify the scopes you want to access. For example, using curl:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST -H &quot;Authorization: Bearer ${access_token}&quot; -d '{
-    &quot;permissions&quot; : [
-        {
-            &quot;resource_set_name&quot; : &quot;Alice Bank Account&quot;,
-            &quot;scopes&quot; : [
-                &quot;withdraw&quot;
-            ]
-        }
-    ]
-}' &quot;http://${host}:${port}/auth/realms/${realm_name}/authz/entitlement/{client_id}&quot;</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_service_entitlement_request_metadata"><a class="anchor" href="#_service_entitlement_request_metadata"></a>8.3.2. Entitlement Request Metadata</h4>
-<div class="sidebarblock page-links">
-<div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-entitlement-entitlement-request-metadata.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-entitlement-entitlement-request-metadata.adoc" target="_blank">Report an issue</a>
-</div>
-</div>
-<div class="paragraph">
-<p>When requesting entitlements client applications are allowed to associate metadata information to the request and define how
-they expect to obtain the permissions.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST -H &quot;Authorization: Bearer ${access_token}&quot; -d '{
-    &quot;metadata&quot; : {
-        &quot;include_resource_name&quot; : false
-    },
-    &quot;permissions&quot; : [
-        ...
-    ]
-}' &quot;http://${host}:${port}/auth/realms/${realm_name}/authz/entitlement/{client_id}&quot;</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The Entitlement API endpoint only allows passing metadata along an entitlement request when using HTTP POST.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sections will explain how and when you can use the different information you can include in an entitlement request as a metadata.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="decide-whether-or-not-resource-s-name-should-be-included-the-response"><a class="anchor" href="#decide-whether-or-not-resource-s-name-should-be-included-the-response"></a>8.3.3. Decide whether or not resource&#8217;s name should be included the response</h4>
-<div class="listingblock">
-<div class="title">include_resource_name</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST -H &quot;Authorization: Bearer ${access_token}&quot; -d '{
-    &quot;metadata&quot; : {
-        &quot;include_resource_name&quot; : false
-    },
-    &quot;permissions&quot; : [
-        ...
-    ]
-}' &quot;http://${host}:${port}/auth/realms/${realm_name}/authz/entitlement/{client_id}&quot;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Clients can use <code><code>include_resource_name</code></code> to decide whether or not resource`s name should be included on each permission granted by the server. This option
-can be used to reduce the size of RPTs and optimize client-server communication.</p>
-</div>
-<div class="paragraph">
-<p>By default, permissions in a RPT contain both the id and name of the resource that was granted by every single permission. This option is specially useful
-when the resource server is capable of map their resources only based on the resource`s id.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="limiting-the-number-of-permissions-within-a-rpt"><a class="anchor" href="#limiting-the-number-of-permissions-within-a-rpt"></a>8.3.4. Limiting the number of permissions within a RPT</h4>
-<div class="listingblock">
-<div class="title">limit</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST -H &quot;Authorization: Bearer ${access_token}&quot; -d '{
-    &quot;metadata&quot; : {
-        &quot;limit&quot; : 10
-    },
-    &quot;permissions&quot; : [
-        ...
-    ]
-}' &quot;http://${host}:${port}/auth/realms/${realm_name}/authz/entitlement/{client_id}&quot;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Clients can use <code><code>limit</code></code> to specify how many permissions they expected within a RPT returned by the server. The limit option works as follows:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If a request is sent <strong>without</strong> a previously issued RPT, only <code><code>limit</code></code> permissions will be returned based on the resources/scopes from the <code><code>permissions</code></code> claim.</p>
-</li>
-<li>
-<p>If a request is sent <strong>with</strong> a previously issued RPT, the permissions associated with the resources/scopes from the <code><code>permissions</code></code> claim take precedence where the permissions
-from the previously issued RPT are only included if <code><code>limit</code></code> is not reached. In case there is enough room for permissions from a previously issued RPT, the server
-will include the first permissions defined there.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This option allows clients to control the size of RPTs and keep only last permissions granted by the server. It usually makes sense only in cases your client
-is capable of sending previously issued RPTs while asking for new permissions (a.k.a.: incremental authorization).</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_service_rpt_overview"><a class="anchor" href="#_service_rpt_overview"></a>8.4. Requesting Party Token</h3>
+<h3 id="_service_rpt_overview"><a class="anchor" href="#_service_rpt_overview"></a>8.7. Requesting Party Token</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-rpt-overview.adoc" target="_blank">Edit this section</a>
@@ -4168,7 +4301,7 @@ is capable of sending previously issued RPTs while asking for new permissions (a
 </div>
 </div>
 <div class="paragraph">
-<p>A requesting party token (RPT) is a <a href="https://tools.ietf.org/html/rfc7519">JSON web token (JWT)</a> digitally signed using <a href="https://www.rfc-editor.org/rfc/rfc7515.txt">JSON web signature (JWS)</a>. The token is built based on the OAuth2 access token previously issued by Keycloak to a specific client acting on behalf of an user
+<p>A requesting party token (RPT) is a <a href="https://tools.ietf.org/html/rfc7519">JSON web token (JWT)</a> digitally signed using <a href="https://www.rfc-editor.org/rfc/rfc7515.txt">JSON web signature (JWS)</a>. The token is built based on the OAuth2 access token previously issued by Keycloak to a specific client acting on behalf of a user
 or on its own behalf.</p>
 </div>
 <div class="paragraph">
@@ -4203,7 +4336,7 @@ or on its own behalf.</p>
 the access control methods that were used to actually grant and issue these same permissions.</p>
 </div>
 <div class="sect3">
-<h4 id="_service_protection_token_introspection"><a class="anchor" href="#_service_protection_token_introspection"></a>8.4.1. Introspecting a Requesting Party Token</h4>
+<h4 id="_service_protection_token_introspection"><a class="anchor" href="#_service_protection_token_introspection"></a>8.7.1. Introspecting a Requesting Party Token</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-rpt-token-introspection.adoc" target="_blank">Edit this section</a>
@@ -4228,7 +4361,7 @@ the access control methods that were used to actually grant and issue these same
 </div>
 </div>
 <div class="sect3">
-<h4 id="obtaining-information-about-an-rpt"><a class="anchor" href="#obtaining-information-about-an-rpt"></a>8.4.2. Obtaining Information about an RPT</h4>
+<h4 id="obtaining-information-about-an-rpt"><a class="anchor" href="#obtaining-information-about-an-rpt"></a>8.7.2. Obtaining Information about an RPT</h4>
 <div class="paragraph">
 <p>The token introspection is essentially a <a href="https://tools.ietf.org/html/rfc7662">OAuth2 token introspection</a>-compliant endpoint from which you can obtain information about an RPT.</p>
 </div>
@@ -4288,8 +4421,8 @@ The request above is using HTTP BASIC and passing the client&#8217;s credentials
 <pre class="CodeRay highlight"><code data-lang="json">{
   <span class="key"><span class="delimiter">&quot;</span><span class="content">permissions</span><span class="delimiter">&quot;</span></span>: [
     {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">resource_set_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">90ccc6fc-b296-4cd1-881e-089e1ee15957</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">resource_set_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello World Resource</span><span class="delimiter">&quot;</span></span>
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">resource_id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">90ccc6fc-b296-4cd1-881e-089e1ee15957</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">resource_name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello World Resource</span><span class="delimiter">&quot;</span></span>
     }
   ],
   <span class="key"><span class="delimiter">&quot;</span><span class="content">exp</span><span class="delimiter">&quot;</span></span>: <span class="integer">1465314139</span>,
@@ -4312,10 +4445,10 @@ The request above is using HTTP BASIC and passing the client&#8217;s credentials
 </div>
 </div>
 <div class="sect3">
-<h4 id="do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"><a class="anchor" href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"></a>8.4.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</h4>
+<h4 id="do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"><a class="anchor" href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"></a>8.7.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</h4>
 <div class="paragraph">
-<p>No. Both <a href="#_service_entitlement_api">Entitlement</a> APIs use the
- <a href="https://tools.ietf.org/html/rfc7519">JSON web token (JWT)</a> specification as the default format for RPTs.</p>
+<p>No. Just like a regular access token issued by a Keycloak server, RPTs also use the
+ <a href="https://tools.ietf.org/html/rfc7519">JSON web token (JWT)</a> specification as the default format.</p>
 </div>
 <div class="paragraph">
 <p>If you want to validate these tokens without a call to the remote introspection endpoint, you can decode the RPT and query for its validity locally. Once you decode the token,
@@ -4337,7 +4470,7 @@ you can also use the permissions within the token to enforce authorization decis
 </div>
 </div>
 <div class="sect2">
-<h3 id="_service_client_api"><a class="anchor" href="#_service_client_api"></a>8.5. Authorization Client Java API</h3>
+<h3 id="_service_client_api"><a class="anchor" href="#_service_client_api"></a>8.8. Authorization Client Java API</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-client-api.adoc" target="_blank">Edit this section</a>
@@ -4349,10 +4482,10 @@ you can also use the permissions within the token to enforce authorization decis
 If you are using Java, you can access the Keycloak Authorization Services using the Authorization Client API.</p>
 </div>
 <div class="paragraph">
-<p>It is targeted for resource servers that want to access the different APIs provided by the server such as the Protection, Authorization and Entitlement APIs.</p>
+<p>It is targeted for resource servers that want to access the different endpoints provided by the server such as the Token Endpoint, Resource, and Permission management endpoints.</p>
 </div>
 <div class="sect3">
-<h4 id="maven-dependency"><a class="anchor" href="#maven-dependency"></a>8.5.1. Maven Dependency</h4>
+<h4 id="maven-dependency"><a class="anchor" href="#maven-dependency"></a>8.8.1. Maven Dependency</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;dependencies&gt;</span>
@@ -4366,7 +4499,7 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 </div>
 </div>
 <div class="sect3">
-<h4 id="configuration-11"><a class="anchor" href="#configuration-11"></a>8.5.2. Configuration</h4>
+<h4 id="configuration-11"><a class="anchor" href="#configuration-11"></a>8.8.2. Configuration</h4>
 <div class="paragraph">
 <p>The client configuration is defined in a <code>keycloak.json</code> file as follows:</p>
 </div>
@@ -4415,7 +4548,7 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-the-authorization-client"><a class="anchor" href="#creating-the-authorization-client"></a>8.5.3. Creating the Authorization Client</h4>
+<h4 id="creating-the-authorization-client"><a class="anchor" href="#creating-the-authorization-client"></a>8.8.3. Creating the Authorization Client</h4>
 <div class="paragraph">
 <p>Considering you have a <code><code>keycloak.json</code></code> file in your classpath, you can create a new <code><code>AuthzClient</code></code> instance as follows:</p>
 </div>
@@ -4427,7 +4560,7 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 </div>
 </div>
 <div class="sect3">
-<h4 id="obtaining-user-entitlements"><a class="anchor" href="#obtaining-user-entitlements"></a>8.5.4. Obtaining User Entitlements</h4>
+<h4 id="obtaining-user-entitlements"><a class="anchor" href="#obtaining-user-entitlements"></a>8.8.4. Obtaining User Entitlements</h4>
 <div class="paragraph">
 <p>Here is an example illustrating how to obtain user entitlements:</p>
 </div>
@@ -4436,15 +4569,15 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 <pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
 AuthzClient authzClient = AuthzClient.create();
 
-<span class="comment">// obtain an Entitlement API Token to get access to the Entitlement API.</span>
-<span class="comment">// this token is an access token issued to a client on behalf of an user</span>
-<span class="comment">// with a uma_authorization scope</span>
-<span class="predefined-type">String</span> eat = getEntitlementAPIToken(authzClient);
+<span class="comment">// create an authorization request</span>
+AuthorizationRequest request = <span class="keyword">new</span> AuthorizationRequest();
 
-<span class="comment">// send the entitlement request to the server to</span>
+<span class="comment">// send the entitlement request to the server in order to</span>
 <span class="comment">// obtain an RPT with all permissions granted to the user</span>
-EntitlementResponse response = authzClient.entitlement(eat).getAll(<span class="string"><span class="delimiter">&quot;</span><span class="content">hello-world-authz-service</span><span class="delimiter">&quot;</span></span>);
-<span class="predefined-type">String</span> rpt = response.getRpt();
+AuthorizationResponse response = authzClient.authorization(<span class="string"><span class="delimiter">&quot;</span><span class="content">alice</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">alice</span><span class="delimiter">&quot;</span></span>).authorize(request);
+<span class="predefined-type">String</span> rpt = response.getToken();
+
+<span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">You got an RPT: </span><span class="delimiter">&quot;</span></span> + rpt);
 
 <span class="comment">// now you can use the RPT to access protected resources on the resource server</span></code></pre>
 </div>
@@ -4457,30 +4590,25 @@ EntitlementResponse response = authzClient.entitlement(eat).getAll(<span class="
 <pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
 AuthzClient authzClient = AuthzClient.create();
 
-<span class="comment">// obtain an Entitlement API Token to get access to the Entitlement API.</span>
-<span class="comment">// this token is an access token issued to a client on behalf of an user</span>
-<span class="comment">// with a uma_authorization scope</span>
-<span class="predefined-type">String</span> eat = getEntitlementAPIToken(authzClient);
+<span class="comment">// create an authorization request</span>
+AuthorizationRequest request = <span class="keyword">new</span> AuthorizationRequest();
 
-<span class="comment">// create an entitlement request</span>
-EntitlementRequest request = <span class="keyword">new</span> EntitlementRequest();
-PermissionRequest permission = <span class="keyword">new</span> PermissionRequest();
+<span class="comment">// add permissions to the request based on the resources and scopes you want to check access</span>
+request.addPermission(<span class="string"><span class="delimiter">&quot;</span><span class="content">Default Resource</span><span class="delimiter">&quot;</span></span>);
 
-permission.setResourceSetName(<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello World Resource</span><span class="delimiter">&quot;</span></span>);
+<span class="comment">// send the entitlement request to the server in order to</span>
+<span class="comment">// obtain an RPT with permissions for a single resource</span>
+AuthorizationResponse response = authzClient.authorization(<span class="string"><span class="delimiter">&quot;</span><span class="content">alice</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">alice</span><span class="delimiter">&quot;</span></span>).authorize(request);
+<span class="predefined-type">String</span> rpt = response.getToken();
 
-request.addPermission(permission);
-
-<span class="comment">// send the entitlement request to the server to obtain an RPT</span>
-<span class="comment">// with all permissions granted to the user</span>
-EntitlementResponse response = authzClient.entitlement(eat).get(<span class="string"><span class="delimiter">&quot;</span><span class="content">hello-world-authz-service</span><span class="delimiter">&quot;</span></span>, request);
-<span class="predefined-type">String</span> rpt = response.getRpt();
+<span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">You got an RPT: </span><span class="delimiter">&quot;</span></span> + rpt);
 
 <span class="comment">// now you can use the RPT to access protected resources on the resource server</span></code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-a-resource-using-the-protection-api"><a class="anchor" href="#creating-a-resource-using-the-protection-api"></a>8.5.5. Creating a Resource Using the Protection API</h4>
+<h4 id="creating-a-resource-using-the-protection-api"><a class="anchor" href="#creating-a-resource-using-the-protection-api"></a>8.8.5. Creating a Resource Using the Protection API</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
@@ -4495,34 +4623,44 @@ newResource.setType(<span class="string"><span class="delimiter">&quot;</span><s
 newResource.addScope(<span class="keyword">new</span> ScopeRepresentation(<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:hello-world-authz:scopes:view</span><span class="delimiter">&quot;</span></span>));
 
 ProtectedResource resourceClient = authzClient.protection().resource();
-<span class="predefined-type">Set</span>&lt;<span class="predefined-type">String</span>&gt; existingResource = resourceClient.findByFilter(<span class="string"><span class="delimiter">&quot;</span><span class="content">name=</span><span class="delimiter">&quot;</span></span> + newResource.getName());
+ResourceRepresentation existingResource = resourceClient.findByName(newResource.getName());
 
-<span class="keyword">if</span> (!existingResource.isEmpty()) {
-    resourceClient.delete(existingResource.iterator().next());
+<span class="keyword">if</span> (existingResource != <span class="predefined-constant">null</span>) {
+    resourceClient.delete(existingResource.getId());
 }
 
 <span class="comment">// create the resource on the server</span>
-RegistrationResponse response = resourceClient.create(newResource);
+ResourceRepresentation response = resourceClient.create(newResource);
 <span class="predefined-type">String</span> resourceId = response.getId();
 
 <span class="comment">// query the resource using its newly generated id</span>
-ResourceRepresentation resource = resourceClient.findById(resourceId).getResourceDescription();</code></pre>
+ResourceRepresentation resource = resourceClient.findById(resourceId);
+
+<span class="predefined-type">System</span>.out.println(resource);</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="introspecting-a-rpt"><a class="anchor" href="#introspecting-a-rpt"></a>8.5.6. Introspecting a RPT</h4>
+<h4 id="introspecting-an-rpt"><a class="anchor" href="#introspecting-an-rpt"></a>8.8.6. Introspecting an RPT</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">    AuthzClient authzClient = AuthzClient.create();
-    <span class="predefined-type">String</span> rpt = getRequestingPartyToken(authzClient);
-    TokenIntrospectionResponse requestingPartyToken = authzClient.protection().introspectRequestingPartyToken(rpt);
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
+AuthzClient authzClient = AuthzClient.create();
 
-    <span class="keyword">if</span> (requestingPartyToken.getActive()) {
-        <span class="keyword">for</span> (<span class="predefined-type">Permission</span> granted : requestingPartyToken.getPermissions()) {
-            <span class="comment">// iterate over the granted permissions</span>
-        }
-    }</code></pre>
+<span class="comment">// send the authorization request to the server in order to</span>
+<span class="comment">// obtain an RPT with all permissions granted to the user</span>
+AuthorizationResponse response = authzClient.authorization(<span class="string"><span class="delimiter">&quot;</span><span class="content">alice</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">alice</span><span class="delimiter">&quot;</span></span>).authorize();
+<span class="predefined-type">String</span> rpt = response.getToken();
+
+<span class="comment">// introspect the token</span>
+TokenIntrospectionResponse requestingPartyToken = authzClient.protection().introspectRequestingPartyToken(rpt);
+
+<span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Token status is: </span><span class="delimiter">&quot;</span></span> + requestingPartyToken.getActive());
+<span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Permissions granted by the server: </span><span class="delimiter">&quot;</span></span>);
+
+<span class="keyword">for</span> (<span class="predefined-type">Permission</span> granted : requestingPartyToken.getPermissions()) {
+    <span class="predefined-type">System</span>.out.println(granted);
+}</code></pre>
 </div>
 </div>
 </div>
@@ -4832,16 +4970,7 @@ in use by the resource server.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 401 Unauthorized
-WWW-Authenticate: UMA realm=&quot;photoz-restful-api&quot;,as_uri=&quot;http://localhost:8080/auth/realms/photoz/authz/authorize&quot;,ticket=&quot;${PERMISSION_TICKET}&quot;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>And another example when the resource server is using the Entitlement protocol:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 401 Unauthorized
-WWW-Authenticate: KC_ETT realm=&quot;photoz-restful-api&quot;,as_uri=&quot;http://localhost:8080/auth/realms/photoz/authz/entitlement&quot;</code></pre>
+WWW-Authenticate: UMA realm=&quot;photoz-restful-api&quot;,as_uri=&quot;https://${host}:${post}/auth/realms/${realm}&quot;,ticket=&quot;${PERMISSION_TICKET}&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4987,17 +5116,10 @@ This library is based on the Keycloak JavaScript adapter, which can be integrate
 <div class="ulist">
 <ul>
 <li>
-<p>Handle responses from a resource server protected by a <a href="#_enforcer_overview">Keycloak Policy Enforcer</a> and obtain a requesting party token (RPT) with the necessary permissions to gain access to the protected resources on the resource server.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>In this case, the library can handle whatever authorization protocol the resource server is using: <a href="#_service_entitlement_api">Entitlements</a>.</p>
-</li>
-</ul>
-</div>
+<p>Obtain permissions from the server using a permission ticket, if you are accessing a UMA protected resource server.</p>
 </li>
 <li>
-<p>Obtain permissions from a Keycloak Server using the <a href="#_service_entitlement_api">Entitlement API</a>.</p>
+<p>Obtain permissions from the server by sending the resources and scopes the application wants to access.</p>
 </li>
 </ul>
 </div>
@@ -5006,27 +5128,40 @@ This library is based on the Keycloak JavaScript adapter, which can be integrate
 permissions your client can use as bearer tokens to access the protected resources on a resource server.</p>
 </div>
 <div class="sect4">
-<h5 id="handling-authorization-responses-from-a-resource-server"><a class="anchor" href="#handling-authorization-responses-from-a-resource-server"></a>Handling Authorization Responses from a Resource Server</h5>
+<h5 id="handling-authorization-responses-from-a-uma-protected-resource-server"><a class="anchor" href="#handling-authorization-responses-from-a-uma-protected-resource-server"></a>Handling Authorization Responses from a UMA-Protected Resource Server</h5>
 <div class="paragraph">
 <p>If a resource server is protected by a policy enforcer, it responds to client requests based on the permissions carried along with a <a href="#_enforcer_bearer">bearer token</a>.
 Typically, when you try to access a resource server with a bearer token that is lacking permissions to access a protected resource, the resource server
 responds with a <strong>401</strong> status code and a <code>WWW-Authenticate</code> header.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 401 Unauthorized
+WWW-Authenticate: UMA realm=&quot;${realm}&quot;,
+    as_uri=&quot;https://${host}:${post}/auth/realms/${realm}&quot;,
+    ticket=&quot;016f84e8-f9b9-11e0-bd6f-0021cc6004de&quot;</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>The value of the <code>WWW-Authenticate</code> header depends on the authorization protocol in use by the resource server. Whatever protocol is in use, you can use a <code>KeycloakAuthorization</code> instance to handle responses as follows:</p>
+<p>See <a href="#_service_uma_authorization_process">UMA Authorization Process</a> for more information.</p>
+</div>
+<div class="paragraph">
+<p>What your client needs to do is extract the permission ticket from the <code><code>WWW-Authenticate</code></code> header returned by the resource server
+and use the library to send an authorization request as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">var</span> wwwAuthenticateHeader = ... <span class="comment">// extract WWW-Authenticate Header from the response in case of a 401 status code</span>
-authorization.authorize(wwwAuthenticateHeader).then(<span class="keyword">function</span> (rpt) {
-    <span class="comment">// onGrant callback function.</span>
-    <span class="comment">// If authorization was successful you'll receive an RPT</span>
-    <span class="comment">// with the necessary permissions to access the resource server</span>
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="comment">// prepare a authorization request with the permission ticket</span>
+<span class="keyword">var</span> authorizationRequest = {};
+authorizationRequest.ticket = ticket;
+
+<span class="comment">// send the authorization request, if successful retry the request</span>
+Identity.authorization.authorize(authorizationRequest).then(<span class="keyword">function</span> (rpt) {
+    <span class="comment">// onGrant</span>
 }, <span class="keyword">function</span> () {
-    <span class="comment">// onDeny callback function.</span>
-    <span class="comment">// Called when the authorization request is denied by the server</span>
+    <span class="comment">// onDeny</span>
 }, <span class="keyword">function</span> () {
-    <span class="comment">// onError callback function. Called when the server responds unexpectedly</span>
+    <span class="comment">// onError</span>
 });</code></pre>
 </div>
 </div>
@@ -5051,17 +5186,33 @@ authorization.authorize(wwwAuthenticateHeader).then(<span class="keyword">functi
 </div>
 </div>
 <div class="sect4">
-<h5 id="obtaining-entitlements-2"><a class="anchor" href="#obtaining-entitlements-2"></a>Obtaining Entitlements</h5>
+<h5 id="obtaining-entitlements"><a class="anchor" href="#obtaining-entitlements"></a>Obtaining Entitlements</h5>
 <div class="paragraph">
-<p>The keycloak-authz.js library provides an <code>entitlement</code> function that you can use to obtain an RPT from the server using the Entitlement API.</p>
+<p>The <code><code>keycloak-authz.js</code></code> library provides an <code>entitlement</code> function that you can use to obtain an RPT from the server by providing
+the resources and scopes your client wants to access.</p>
 </div>
 <div class="listingblock">
+<div class="title">Example about how to obtain an RPT with permissions for all resources and scopes the user can access</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">authorization.entitlement(<span class="string"><span class="delimiter">'</span><span class="content">my-resource-server-id</span><span class="delimiter">'</span></span>).then(<span class="keyword">function</span> (rpt) {
-    <span class="comment">// onGrant callback function.</span>
-    <span class="comment">// If authorization was successful you'll receive an RPT</span>
-    <span class="comment">// with the necessary permissions to access the resource server</span>
-});</code></pre>
+<pre class="CodeRay highlight"><code data-lang="json"><span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">i</span><span class="error">t</span><span class="error">l</span><span class="error">e</span><span class="error">m</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">(</span><span class="error">'</span><span class="error">m</span><span class="error">y</span><span class="error">-</span><span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span><span class="error">-</span><span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span><span class="error">-</span><span class="error">i</span><span class="error">d</span><span class="error">'</span><span class="error">)</span><span class="error">.</span><span class="error">t</span><span class="error">h</span><span class="error">e</span><span class="error">n</span><span class="error">(</span><span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">(</span><span class="error">r</span><span class="error">p</span><span class="error">t</span><span class="error">)</span> {
+    <span class="error">/</span><span class="error">/</span> <span class="error">o</span><span class="error">n</span><span class="error">G</span><span class="error">r</span><span class="error">a</span><span class="error">n</span><span class="error">t</span> <span class="error">c</span><span class="error">a</span><span class="error">l</span><span class="error">l</span><span class="error">b</span><span class="error">a</span><span class="error">c</span><span class="error">k</span> <span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span>
+    <span class="error">/</span><span class="error">/</span> <span class="error">I</span><span class="error">f</span> <span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">w</span><span class="error">a</span><span class="error">s</span> <span class="error">s</span><span class="error">u</span><span class="error">c</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span><span class="error">f</span><span class="error">u</span><span class="error">l</span> <span class="error">y</span><span class="error">o</span><span class="error">u</span><span class="error">'</span><span class="error">l</span><span class="error">l</span> <span class="error">r</span><span class="error">e</span><span class="error">c</span><span class="error">e</span><span class="error">i</span><span class="error">v</span><span class="error">e</span> <span class="error">a</span><span class="error">n</span> <span class="error">R</span><span class="error">P</span><span class="error">T</span>
+    <span class="error">/</span><span class="error">/</span> <span class="error">w</span><span class="error">i</span><span class="error">t</span><span class="error">h</span> <span class="error">t</span><span class="error">h</span><span class="error">e</span> <span class="error">n</span><span class="error">e</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span><span class="error">a</span><span class="error">r</span><span class="error">y</span> <span class="error">p</span><span class="error">e</span><span class="error">r</span><span class="error">m</span><span class="error">i</span><span class="error">s</span><span class="error">s</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">s</span> <span class="error">t</span><span class="error">o</span> <span class="error">a</span><span class="error">c</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span> <span class="error">t</span><span class="error">h</span><span class="error">e</span> <span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span> <span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span>
+}<span class="error">)</span><span class="error">;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Example about how to obtain an RPT with permissions for specific resources and scopes</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json"><span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">i</span><span class="error">t</span><span class="error">l</span><span class="error">e</span><span class="error">m</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">(</span><span class="error">'</span><span class="error">m</span><span class="error">y</span><span class="error">-</span><span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span><span class="error">-</span><span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span><span class="error">'</span>, {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">permissions</span><span class="delimiter">&quot;</span></span>: [
+        {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Some Resource</span><span class="delimiter">&quot;</span></span>
+        }
+    ]
+}<span class="error">)</span><span class="error">.</span><span class="error">t</span><span class="error">h</span><span class="error">e</span><span class="error">n</span><span class="error">(</span><span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">(</span><span class="error">r</span><span class="error">p</span><span class="error">t</span><span class="error">)</span> {
+    <span class="error">/</span><span class="error">/</span> <span class="error">o</span><span class="error">n</span><span class="error">G</span><span class="error">r</span><span class="error">a</span><span class="error">n</span><span class="error">t</span>
+}<span class="error">)</span><span class="error">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5080,6 +5231,66 @@ authorization.authorize(wwwAuthenticateHeader).then(<span class="keyword">functi
 </li>
 <li>
 <p><code>onError</code>: The third argument of the function. Only called if the server responds unexpectedly.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="authorization-request"><a class="anchor" href="#authorization-request"></a>Authorization Request</h5>
+<div class="paragraph">
+<p>Both <code><code>authorize</code></code> and <code><code>entitlement</code></code> functions accept an authorization request object. This object can be set with the following
+properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>permissions</strong></p>
+<div class="paragraph">
+<p>An array of objects representing the resource and scopes. For instance:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">var</span> authorizationRequest = {
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">permissions</span><span class="delimiter">&quot;</span></span>: [
+       {
+           <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Some Resource</span><span class="delimiter">&quot;</span></span>,
+           <span class="key"><span class="delimiter">&quot;</span><span class="content">scopes</span><span class="delimiter">&quot;</span></span> : [<span class="string"><span class="delimiter">&quot;</span><span class="content">view</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">edit</span><span class="delimiter">&quot;</span></span>]
+       }
+   ]
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>metadata</strong></p>
+<div class="paragraph">
+<p>An object where its properties define how the authorization request should be processed by the server.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>response_include_resource_name</strong></p>
+<div class="paragraph">
+<p>A boolean value indicating to the server if resource names should be included in the RPT&#8217;s permissions. If false, only the resource
+identifier is included.</p>
+</div>
+</li>
+<li>
+<p><strong>response_permissions_limit</strong></p>
+<div class="paragraph">
+<p>An integer N that defines a limit for the amount of permissions an RPT can have. When used together with
+<code>rpt</code> parameter, only the last N requested permissions will be kept in the RPT</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>submit_request</strong></p>
+<div class="paragraph">
+<p>A boolean value indicating whether the server should create permission requests to the resources and scopes referenced by a permission ticket.
+This parameter will only take effect when used together with the <code>ticket</code> parameter as part of a UMA authorization process.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -5139,7 +5350,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-28 04:18:57 UTC
+Last updated 2018-02-28 07:54:32 UTC
 </div>
 </div>
 <ul id="globalnav">
