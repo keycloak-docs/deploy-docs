@@ -833,7 +833,7 @@ span.image img {
 <li><a href="#header-names-config">10.3.2. Header Names Config</a></li>
 </ul>
 </li>
-<li><a href="#keycloak-identity-headers">10.4. Keycloak Identity Headers</a></li>
+<li><a href="#_identity_headers">10.4. Keycloak Identity Headers</a></li>
 </ul>
 </li>
 </ul>
@@ -1028,7 +1028,7 @@ recommended for those that want to test drive Keycloak.  We do not support users
 </dd>
 <dt class="hdlist1"><em>themes/</em></dt>
 <dd>
-<p>This directory contains all the html, style sheets, javascript files, and images used to display any UI screen displayed by the server.
+<p>This directory contains all the html, style sheets, JavaScript files, and images used to display any UI screen displayed by the server.
 Here you can modify an existing theme or create your own.  See the <a href="http://www.keycloak.org/docs/3.4/server_development/">Server Developer Guide</a> for more information on this.</p>
 </dd>
 </dl>
@@ -1326,7 +1326,7 @@ You&#8217;ll be configuring things here like network connections, caches, and da
         <span class="tag">&lt;socket-binding-group</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ha-sockets</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">default-interface</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
            ...
         <span class="tag">&lt;/socket-binding-group&gt;</span>
-        <span class="comment">&lt;!-- load-balancer-sockets should be removed in production systems and replaced with a better softare or hardare based one --&gt;</span>
+        <span class="comment">&lt;!-- load-balancer-sockets should be removed in production systems and replaced with a better software or hardware based one --&gt;</span>
         <span class="tag">&lt;socket-binding-group</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">load-balancer-sockets</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">default-interface</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">public</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
            ...
         <span class="tag">&lt;/socket-binding-group&gt;</span>
@@ -1335,7 +1335,7 @@ You&#8217;ll be configuring things here like network connections, caches, and da
 </div>
 <div class="paragraph">
 <p>This config defines the default port mappings for various connectors that are opened with each
-Keycloak server instance.  Any value that contains <code>${&#8230;&#8203;}</code> is a value that can be overriden on the command line
+Keycloak server instance.  Any value that contains <code>${&#8230;&#8203;}</code> is a value that can be overridden on the command line
 with the <code>-D</code> switch, i.e.</p>
 </div>
 <div class="listingblock">
@@ -1352,7 +1352,7 @@ binds a <code>socket-binding-group</code> to the server group.</p>
 <div class="title">server group</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml">    <span class="tag">&lt;server-groups&gt;</span>
-        <span class="comment">&lt;!-- load-balancer-group should be removed in production systems and replaced with a better softare or hardare based one --&gt;</span>
+        <span class="comment">&lt;!-- load-balancer-group should be removed in production systems and replaced with a better software or hardware based one --&gt;</span>
         <span class="tag">&lt;server-group</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">load-balancer-group</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">profile</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">load-balancer</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
             <span class="tag">&lt;jvm</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
                 <span class="tag">&lt;heap</span> <span class="attribute-name">size</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">64m</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">max-size</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">512m</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -1578,7 +1578,7 @@ The add-user.sh does not add user to Keycloak server but to the underlying JBoss
 </div>
 </div>
 <div class="paragraph">
-<p>To try it out, open your browser and go to <a href="http://localhost:8080/auth" class="bare">http://localhost:8080/auth</a></p>
+<p>To try it out, open your browser and go to <a href="http://localhost:8080/auth" class="bare">http://localhost:8080/auth</a>.</p>
 </div>
 </div>
 </div>
@@ -2357,7 +2357,7 @@ These steps usually need to be done for all the Keycloak caches mentioned in <a 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>&lt;take-offline min-wait="60000" after-failures="3" /&gt;</code></pre>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;take-offline</span> <span class="attribute-name">min-wait</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">60000</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">after-failures</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">3</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2534,7 +2534,7 @@ The count of login failures also will not be accurate with the <code>ASYNC</code
 <p>You use active/passive mode as described <a href="#modes">Modes</a>.</p>
 </li>
 <li>
-<p>All your client applications are using the Keycloak <a href="http://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter">Javascript Adapter</a>. The Javascript adapter sends the backchannel requests within the browser and hence they participate on the browser sticky session and will end on same cluster node (hence on same site) as the other browser requests of this user.</p>
+<p>All your client applications are using the Keycloak <a href="http://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter">JavaScript Adapter</a>. The JavaScript adapter sends the backchannel requests within the browser and hence they participate on the browser sticky session and will end on same cluster node (hence on same site) as the other browser requests of this user.</p>
 </li>
 <li>
 <p>Your load balancer is able to serve the requests based on client IP address (location) and the client applications are deployed on both sites.</p>
@@ -3494,7 +3494,7 @@ settings of JDBC driver or database is necessary.</p>
 fields in the <code>CREATE DATABASE</code> command (e.g. by using <code>utf8</code> character set as the default database character set in
 MySQL 5.5. Please note that <code>utf8mb4</code> character set does not work due to different storage requirements to <code>utf8</code>
 character set <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnote_1" title="View footnote.">1</a>]</sup>). Note that in this case, length
-restriction to non-special fields does not apply because columns are created to accomodate given amount of characters,
+restriction to non-special fields does not apply because columns are created to accommodate given amount of characters,
 not bytes. If the database default character set does not allow storing Unicode, only the special fields allow storing
 Unicode values.</p>
 </div>
@@ -3582,7 +3582,7 @@ which allow you to use the <code>jboss-cli.sh</code> command line interface and 
 </div>
 <div class="paragraph">
 <p>In looking at the <code>public</code> interface you see that it has a special string <code>${jboss.bind.address:127.0.0.1}</code>.  This string
-denotes a value <code>127.0.0.1</code> that can be overriden on the command line by setting a Java system property, i.e.:</p>
+denotes a value <code>127.0.0.1</code> that can be overridden on the command line by setting a Java system property, i.e.:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3615,7 +3615,7 @@ There are many more options available when setting up <code>interface</code> def
 </div>
 </div>
 <div class="paragraph">
-<p>The ports opened for each socket have a pre-defined default that can be overriden at the command line or within configuration.
+<p>The ports opened for each socket have a pre-defined default that can be overridden at the command line or within configuration.
 To illustrate this configuration, let&#8217;s pretend you are running in <a href="#_standalone-mode">standalone mode</a> and
 open up the <em>&#8230;&#8203;/standalone/configuration/standalone.xml</em>.  Search for <code>socket-binding-group</code>.</p>
 </div>
@@ -4058,7 +4058,7 @@ certificates must be put in a truststore.  This truststore is managed by the Key
 <td class="content">
 By default, a truststore provider is not configured, and any https connections fall back to standard java truststore configuration as described in
           <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html">Java&#8217;s JSSE Reference Guide</a>.  If there is no trust
-          establised, then these outgoing HTTPS requests will fail.
+          established, then these outgoing HTTPS requests will fail.
 </td>
 </tr>
 </table>
@@ -4264,7 +4264,7 @@ so that the actual client IP address is forwarded to and processed by the Keyclo
 <p>Configure your reverse proxy or loadbalancer to preserve the original 'Host' HTTP header.</p>
 </li>
 <li>
-<p>Configure the authentication server to read the client&#8217;s IP address from <code>X-Forwarded-For header</code>.</p>
+<p>Configure the authentication server to read the client&#8217;s IP address from <code>X-Forwarded-For</code> header.</p>
 </li>
 </ul>
 </div>
@@ -4797,7 +4797,7 @@ It is possible to cluster Keycloak without IP Multicast, but this topic is beyon
 </div>
 </div>
 <div class="paragraph">
-<p>Keycloak cluster nodes are allowed to boot concurrenty.
+<p>Keycloak cluster nodes are allowed to boot concurrently.
 When Keycloak server instance boots up it may do some database migration, importing, or first time initializations.
 A DB lock is used to prevent start actions from conflicting with one another when cluster nodes boot up concurrently.</p>
 </div>
@@ -4932,7 +4932,7 @@ More advanced configuration of these caches can be found in the  <a href="https:
 There is a realm cache that holds information about secured applications, general security data, and configuration options.
 There is also a user cache that contains user metadata.  Both caches default to a maximum of 10000 entries and use a least recently used eviction strategy.
 Each of them is also tied to an object revisions cache that controls eviction in a clustered setup.
-This cache is created implicitely and has twice the configured size.
+This cache is created implicitly and has twice the configured size.
 There are also separate caches for user sessions, offline tokens, and login failures.  These caches are unbounded in size as well.</p>
 </div>
 <div class="paragraph">
@@ -5198,56 +5198,56 @@ You can also define role constraints for URL patterns within your applications.<
 <dl>
 <dt class="hdlist1">target-url</dt>
 <dd>
-<p>The URL this server is proxying <em>REQUIRED.</em>.</p>
+<p>The URL this server is proxying. <em>REQUIRED</em>.</p>
 </dd>
 <dt class="hdlist1">send-access-token</dt>
 <dd>
 <p>Boolean flag.
-If true, this will send the access token via the KEYCLOAK_ACCESS_TOKEN header to the proxied server. <em>OPTIONAL.</em>.
+If true, this will send the access token via the KEYCLOAK_ACCESS_TOKEN header to the proxied server. <em>OPTIONAL</em>.
 Default is false.</p>
 </dd>
 <dt class="hdlist1">bind-address</dt>
 <dd>
-<p>DNS name or IP address to bind the proxy server&#8217;s sockets to. <em>OPTIONAL.</em>.
+<p>DNS name or IP address to bind the proxy server&#8217;s sockets to. <em>OPTIONAL</em>.
 The default value is <em>localhost</em></p>
 </dd>
 <dt class="hdlist1">http-port</dt>
 <dd>
 <p>Port to listen for HTTP requests.
-If you do not specify this value, then the proxy will not listen for regular HTTP requests. <em>OPTIONAL.</em>.</p>
+If you do not specify this value, then the proxy will not listen for regular HTTP requests. <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">https-port</dt>
 <dd>
 <p>Port to listen for HTTPS requests.
-If you do not specify this value, then the proxy will not listen for HTTPS requests. <em>OPTIONAL.</em>.</p>
+If you do not specify this value, then the proxy will not listen for HTTPS requests. <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">keystore</dt>
 <dd>
 <p>Path to a Java keystore file that contains private key and certificate for the server to be able to handle HTTPS requests.
-Can be a file path, or, if you prefix it with <code>classpath:</code>                            it will look for this file in the classpath. <em>OPTIONAL.</em>.
+Can be a file path, or, if you prefix it with <code>classpath:</code>                            it will look for this file in the classpath. <em>OPTIONAL</em>.
 If you have enabled HTTPS, but have not defined a keystore, the proxy will auto-generate a self-signed certificate and use that.</p>
 </dd>
 <dt class="hdlist1">buffer-size</dt>
 <dd>
 <p>HTTP server socket buffer size.
-Usually the default is good enough. <em>OPTIONAL.</em>.</p>
+Usually the default is good enough. <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">buffers-per-region</dt>
 <dd>
 <p>HTTP server socket buffers per region.
-Usually the default is good enough. <em>OPTIONAL.</em>.</p>
+Usually the default is good enough. <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">io-threads</dt>
 <dd>
 <p>Number of threads to handle IO.
 Usually default is good enough.
- <em>OPTIONAL.</em>.
+ <em>OPTIONAL</em>.
 The default is the number of available processors * 2.</p>
 </dd>
 <dt class="hdlist1">worker-threads</dt>
 <dd>
 <p>Number of threads to handle requests.
-Usually the default is good enough. <em>OPTIONAL.</em>.
+Usually the default is good enough. <em>OPTIONAL</em>.
 The default is the number of available processors * 16.</p>
 </dd>
 </dl>
@@ -5264,18 +5264,22 @@ The default is the number of available processors * 16.</p>
 <dt class="hdlist1">base-path</dt>
 <dd>
 <p>The base context root for the application.
-Must start with '/' <em>REQUIRED.</em>.</p>
+Must start with '/'. <em>REQUIRED</em>.</p>
 </dd>
 <dt class="hdlist1">error-page</dt>
 <dd>
-<p>If the proxy has an error, it will display the target application&#8217;s error page relative URL <em>OPTIONAL.</em>.
+<p>If the proxy has an error, it will display the target application&#8217;s error page relative URL. <em>OPTIONAL</em>.
 This is a relative path to the base-path.
 In the example above it would be <code>/customer-portal/error.html</code>.</p>
 </dd>
 <dt class="hdlist1">adapter-config</dt>
 <dd>
-<p><em>REQUIRED.</em>.
+<p><em>REQUIRED</em>.
 Same configuration as any other Keycloak adapter.</p>
+</dd>
+<dt class="hdlist1">proxy-address-forwarding</dt>
+<dd>
+<p>Enable usage of X-Forwarded-For, X-Forwarded-Host, X-Forwarded-Proto when hosted behind another proxy/load-balancer.</p>
 </dd>
 </dl>
 </div>
@@ -5293,7 +5297,7 @@ More specific constraints will take precedence over more general ones.</p>
 <dt class="hdlist1">pattern</dt>
 <dd>
 <p>URL pattern to match relative to the base-path of the application.
-Must start with '/' <em>REQUIRED.</em>
+Must start with '/'. <em>REQUIRED.</em>
 You may only have one wildcard and it must come at the end of the pattern.</p>
 <div class="ulist">
 <ul>
@@ -5308,31 +5312,31 @@ You may only have one wildcard and it must come at the end of the pattern.</p>
 </dd>
 <dt class="hdlist1">roles-allowed</dt>
 <dd>
-<p>Array of strings of roles allowed to access this url pattern. <em>OPTIONAL.</em>.</p>
+<p>Array of strings of roles allowed to access this url pattern. <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">methods</dt>
 <dd>
-<p>Array of strings of HTTP methods that will exclusively match this pattern and HTTP request. <em>OPTIONAL.</em>.</p>
+<p>Array of strings of HTTP methods that will exclusively match this pattern and HTTP request. <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">excluded-methods</dt>
 <dd>
-<p>Array of strings of HTTP methods that will be ignored when match this pattern. <em>OPTIONAL.</em>.</p>
+<p>Array of strings of HTTP methods that will be ignored when match this pattern. <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">deny</dt>
 <dd>
-<p>Deny all access to this URL pattern. <em>OPTIONAL.</em>.</p>
+<p>Deny all access to this URL pattern. <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">permit</dt>
 <dd>
-<p>Permit all access without requiring authentication or a role mapping. <em>OPTIONAL.</em>.</p>
+<p>Permit all access without requiring authentication or a role mapping. <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">permit-and-inject</dt>
 <dd>
-<p>Permit all access, but inject the headers, if user is already authenticated.<em>OPTIONAL.</em>.</p>
+<p>Permit all access, but inject the headers, if user is already authenticated. <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">authenticate</dt>
 <dd>
-<p>Require authentication for this pattern, but no role mapping. <em>OPTIONAL.</em>.</p>
+<p>Require authentication for this pattern, but no role mapping. <em>OPTIONAL</em>.</p>
 </dd>
 </dl>
 </div>
@@ -5340,7 +5344,7 @@ You may only have one wildcard and it must come at the end of the pattern.</p>
 <div class="sect3">
 <h4 id="header-names-config"><a class="anchor" href="#header-names-config"></a>10.3.2. Header Names Config</h4>
 <div class="paragraph">
-<p>Next under the list of applications you can override the defaults for the names of the header fields injected by the proxy (see Keycloak Identity Headers). This mapping is optional.</p>
+<p>Next under the list of applications you can override the defaults for the names of the header fields injected by the proxy (see <a href="#_identity_headers">Keycloak Identity Headers</a>). This mapping is optional.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -5374,7 +5378,7 @@ MYAPP_ACCESS_TOKEN</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="keycloak-identity-headers"><a class="anchor" href="#keycloak-identity-headers"></a>10.4. Keycloak Identity Headers</h3>
+<h3 id="_identity_headers"><a class="anchor" href="#_identity_headers"></a>10.4. Keycloak Identity Headers</h3>
 <div class="paragraph">
 <p>When forwarding requests to the proxied server, Keycloak Proxy will set some additional headers with values from the OIDC identity token it received for authentication.</p>
 </div>
@@ -5388,7 +5392,7 @@ Corresponds to JWT <code>sub</code> and will be the user id Keycloak uses to sto
 <dt class="hdlist1">KEYCLOAK_USERNAME</dt>
 <dd>
 <p>Username.
-Corresponds to JWT <code>preferred_username</code></p>
+Corresponds to JWT <code>preferred_username</code>.</p>
 </dd>
 <dt class="hdlist1">KEYCLOAK_EMAIL</dt>
 <dd>
@@ -5426,7 +5430,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-20 14:26:20 UTC
+Last updated 2018-02-28 04:19:14 UTC
 </div>
 </div>
 <ul id="globalnav">

@@ -3865,7 +3865,7 @@ org.keycloak.examples.federation.properties.FilePropertiesStorageFactory</pre>
 <p>Every get method of <code>AbstractUserAdapter</code> either returns null or empty collections. However, methods that return role and group mappings will return the default roles and groups configured for the realm for every user.  Every set method of <code>AbstractUserAdapter</code> will throw a <code>org.keycloak.storage.ReadOnlyException</code>. So if you attempt to modify the user in the admininstration console, you will get an error.</p>
 </div>
 <div class="paragraph">
-<p>The <code>getUserById()</code> method parses the <code>id</code> parameter using the <code>org.keycloak.storage.StorageId' helper class. The `StorageId.getExternalId()</code> method is invoked to obtain the username embeded in the <code>id</code> parameter. The method then delegates to <code>getUserByUsername()</code>.</p>
+<p>The <code>getUserById()</code> method parses the <code>id</code> parameter using the <code>org.keycloak.storage.StorageId</code> helper class. The <code>StorageId.getExternalId()</code> method is invoked to obtain the username embeded in the <code>id</code> parameter. The method then delegates to <code>getUserByUsername()</code>.</p>
 </div>
 <div class="paragraph">
 <p>Emails are not stored, so the <code>getUserByEmail()</code> method returns null.</p>
@@ -5234,7 +5234,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-20 14:26:17 UTC
+Last updated 2018-02-28 04:19:11 UTC
 </div>
 </div>
 <ul id="globalnav">
