@@ -1907,10 +1907,72 @@ Details about the configuration options inside <code>replicated-cache-configurat
 </div>
 </li>
 <li>
-<p>Copy the server into the second location, which will be referred to later as <code>JDG2_HOME</code>.</p>
+<p>Newer Infinispan releases require authorization before accessing protected caches over network. Keycloak requires updates to
+<code>___script_cache</code> cache containing scripts. If you get errors accessing this cache, you will need to set up authorization in
+<code>clustered.xml</code> configuration as described below:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>In the <code>&lt;management&gt;</code> section, add a security realm:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;management&gt;</span>
+    <span class="tag">&lt;security-realms&gt;</span>
+        ...
+        <span class="tag">&lt;security-realm</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">AllowScriptManager</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;authentication&gt;</span>
+                <span class="tag">&lt;users&gt;</span>
+                    <span class="tag">&lt;user</span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">___script_manager</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                        <span class="tag">&lt;password&gt;</span>not-so-secret-password<span class="tag">&lt;/password&gt;</span>
+                    <span class="tag">&lt;/user&gt;</span>
+                <span class="tag">&lt;/users&gt;</span>
+            <span class="tag">&lt;/authentication&gt;</span>
+        <span class="tag">&lt;/security-realm&gt;</span>
+    <span class="tag">&lt;/security-realms&gt;</span></code></pre>
+</div>
+</div>
 </li>
 <li>
-<p>In the <code>JDG2_HOME/standalone/configuration/clustered.xml</code> exchange <code>site1</code> with <code>site2</code> and viceversa in the configuration of <code>relay</code> in the JGroups subsystem and in configuration of <code>backups</code> in the cache-subsystem. For example:</p>
+<p>In the server core subsystem, add <code>&lt;security&gt;</code> as below:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:infinispan:server:core:8.4</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;cache-container</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clustered</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">default-cache</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">statistics</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;security&gt;</span>
+            <span class="tag">&lt;authorization&gt;</span>
+                <span class="tag">&lt;identity-role-mapper</span><span class="tag">/&gt;</span>
+                <span class="tag">&lt;role</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">___script_manager</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">permissions</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ALL</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;/authorization&gt;</span>
+        <span class="tag">&lt;/security&gt;</span>
+        ...</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the endpoint subsystem, add authentication configuration to Hot Rod connector:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:infinispan:server:endpoint:8.1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;hotrod-connector</span> <span class="attribute-name">cache-container</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clustered</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">hotrod</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        ...
+        <span class="tag">&lt;authentication</span> <span class="attribute-name">security-realm</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">AllowScriptManager</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;sasl</span> <span class="attribute-name">mechanisms</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">DIGEST-MD5</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">qop</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">auth</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">server-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak-jdg-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                <span class="tag">&lt;policy&gt;</span>
+                    <span class="tag">&lt;no-anonymous</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+                <span class="tag">&lt;/policy&gt;</span>
+            <span class="tag">&lt;/sasl&gt;</span>
+        <span class="tag">&lt;/authentication&gt;</span></code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Copy the server to the second location, which will be referred to later as <code>JDG2_HOME</code>.</p>
+</li>
+<li>
+<p>In the <code>JDG2_HOME/standalone/configuration/clustered.xml</code> exchange <code>site1</code> with <code>site2</code> and vice versa, both in the configuration of <code>relay</code> in the JGroups subsystem and in configuration of <code>backups</code> in the cache-subsystem. For example:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2648,11 +2710,42 @@ writing keys [[B0x033E243034396234..[39]]: org.infinispan.util.concurrent.Timeou
 </div>
 </div>
 <div class="paragraph">
-<p>Those exceptions are not necessarily an issue. They may happen anytime when concurrent edit of same entity is triggered on both DCs. This can be the often case in a deployment. Usually the Keycloak server is notified about the failed operation and will retry it, so from the user&#8217;s point of view, there is usually not any issue.</p>
+<p>Those exceptions are not necessarily an issue. They may happen anytime when a concurrent edit of the same entity is triggered on both DCs. This is common in a deployment. Usually the Keycloak server is notified about the failed operation and will retry it, so from the user&#8217;s point of view, there is usually not any issue.</p>
 </div>
 </li>
 <li>
-<p>If you try to authenticate with Keycloak to your application, but it failed with the infinite number
+<p>If there are exceptions during startup of Keycloak server, like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>16:44:18,321 WARN  [org.infinispan.client.hotrod.impl.protocol.Codec21] (ServerService Thread Pool -- 55) ISPN004005: Error received from the server: java.lang.SecurityException: ISPN000287: Unauthorized access: subject 'Subject with principal(s): []' lacks 'READ' permission
+ ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These log entries are the result of Keycloak automatically detecting whether authentication is required on Infinispan and
+mean that authentication is necessary. At this point you will notice that either the server starts successfully and you can safely
+ignore these or that the server fails to start. If the server fails to start, ensure that Infinispan has been configured
+properly for authentication as described in <a href="#jdgsetup">Infinispan server setup</a>. To prevent this log entry from being included, you can force authentication
+by setting <code>remoteStoreSecurityEnabled</code> property to <code>true</code> in <code>spi=connectionsInfinispan/provider=default</code> configuration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:keycloak-server:1.1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    ...
+    <span class="tag">&lt;spi</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">connectionsInfinispan</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        ...
+        <span class="tag">&lt;provider</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;properties&gt;</span>
+                ...
+                <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">remoteStoreSecurityEnabled</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;/properties&gt;</span>
+        <span class="tag">&lt;/provider&gt;</span>
+    <span class="tag">&lt;/spi&gt;</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If you try to authenticate with Keycloak to your application, but authentication fails with an infinite number
 of redirects in your browser and you see the errors like this in the Keycloak server log:</p>
 <div class="listingblock">
 <div class="content">
@@ -5430,7 +5523,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-02-28 07:54:49 UTC
+Last updated 2018-03-09 14:10:09 UTC
 </div>
 </div>
 <ul id="globalnav">
