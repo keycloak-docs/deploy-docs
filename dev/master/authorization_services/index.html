@@ -3072,6 +3072,9 @@ is the default behavior, the policy result will be kept as it is.</p>
 <li>
 <p>Runtime environment and any other attribute associated with the execution context</p>
 </li>
+<li>
+<p>Information about users such as group membership and roles</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -3094,6 +3097,13 @@ is the default behavior, the policy result will be kept as it is.</p>
      * @return the evaluation context
      */</span>
     EvaluationContext getContext();
+
+    <span class="comment">/**
+     * Returns a {@link Realm} that can be used by policies to query information.
+     *
+     * @return a {@link Realm} instance
+     */</span>
+    Realm getRealm();
 
     <span class="comment">/**
      * Grants the requested permission to the caller.
@@ -5350,7 +5360,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-15 12:10:05 UTC
+Last updated 2018-03-19 13:53:05 UTC
 </div>
 </div>
 <ul id="globalnav">
