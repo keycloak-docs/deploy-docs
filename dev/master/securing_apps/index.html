@@ -8564,36 +8564,46 @@ This policy is not used by default even for anonymous registration.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Strengthen the security by configuring the client <code class="filename">Access Type</code> as <code class="filename">Confidential</code> and selecting <strong>Credentials &gt; ClientId and Secret</strong>.</p>
-</li>
-<li>
-<p>Provide a secret when running <code class="command">kcreg config credentials</code> by using the <code class="command">--secret</code> option.</p>
-</li>
-<li>
 <p>Create a new client (for example, <code class="filename">reg-cli</code>) if you want to use a separate client configuration for the Client Registration CLI.</p>
 </li>
 <li>
-<p>Specify which <code class="filename">clientId</code> to use (for example, <code class="command">--client reg-cli</code>) when running <code class="command">kcreg config credentials</code>.</p>
+<p>Toggle the <strong>Standard Flow Enabled</strong> setting it to <strong>Off</strong>.</p>
 </li>
 <li>
-<p>Enable service accounts if you want to use a service account associated with the client by selecting a client to edit in the <strong>Clients</strong> section of the <code>Admin Console</code>.</p>
+<p>Strengthen the security by configuring the client <code class="filename">Access Type</code> as <code class="filename">Confidential</code> and selecting <strong>Credentials &gt; ClientId and Secret</strong>.</p>
 </li>
-<li>
-<p>Under <strong>Settings</strong>, change the <strong>Access Type</strong> to <strong>Confidential</strong>, toggle the <strong>Service Accounts Enabled</strong> setting to <strong>On</strong>, and click <strong>Save</strong>.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+</ol>
+</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>You can configure either <code class="filename">Client Id and Secret</code> or <code class="filename">Signed JWT</code> under the <strong>Credentials</strong> tab .</p>
 </div>
-</td>
-</tr>
-</table>
 </div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enable service accounts if you want to use a service account associated with the client by selecting a client to edit in the <strong>Clients</strong> section of the <code>Admin Console</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Under <strong>Settings</strong>, change the <strong>Access Type</strong> to <strong>Confidential</strong>, toggle the <strong>Service Accounts Enabled</strong> setting to <strong>On</strong>, and click <strong>Save</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Service Account Roles</strong> and select desired roles to configure the access for the service account. For the details on what roles to select, see <a href="#_configuring_a_user_for_client_registration_cli">Configuring a new regular user for use with Client Registration CLI</a>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Toggle the <strong>Direct Access Grants Enabled</strong> setting it to <strong>On</strong> if you want to use a regular user account instead of a service account.</p>
+</li>
+<li>
+<p>If the client is configured as <code class="filename">Confidential</code>, provide the configured secret when running <code class="command">kcreg config credentials</code> by using the <code class="command">--secret</code> option.</p>
+</li>
+<li>
+<p>Specify which <code class="filename">clientId</code> to use (for example, <code class="command">--client reg-cli</code>) when running <code class="command">kcreg config credentials</code>.</p>
 </li>
 <li>
 <p>With the service account enabled, you can omit specifying the user when running <code class="command">kcreg config credentials</code> and only provide the client secret or keystore information.</p>
@@ -9812,7 +9822,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-23 11:29:07 UTC
+Last updated 2018-03-26 08:27:29 UTC
 </div>
 </div>
 <ul id="globalnav">
