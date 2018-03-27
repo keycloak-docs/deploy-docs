@@ -735,9 +735,10 @@ span.image img {
 <li><a href="#_resource_view">4.1. Viewing Resources</a></li>
 <li><a href="#_resource_create">4.2. Creating Resources</a>
 <ul class="sectlevel3">
-<li><a href="#typed-resources">4.2.1. Typed Resources</a></li>
-<li><a href="#resource-owners">4.2.2. Resource Owners</a></li>
-<li><a href="#managing-resources-remotely">4.2.3. Managing Resources Remotely</a></li>
+<li><a href="#resource-attributes">4.2.1. Resource Attributes</a></li>
+<li><a href="#typed-resources">4.2.2. Typed Resources</a></li>
+<li><a href="#resource-owners">4.2.3. Resource Owners</a></li>
+<li><a href="#managing-resources-remotely">4.2.4. Managing Resources Remotely</a></li>
 </ul>
 </li>
 </ul>
@@ -2237,13 +2238,23 @@ is usually the relative path used to serve these resources.</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="typed-resources"><a class="anchor" href="#typed-resources"></a>4.2.1. Typed Resources</h4>
+<h4 id="resource-attributes"><a class="anchor" href="#resource-attributes"></a>4.2.1. Resource Attributes</h4>
+<div class="paragraph">
+<p>Resources may have attributes associated with them. These attributes can be used to provide additional information about
+a resource and to provide additional information to policies when evaluating permissions associated with a resource.</p>
+</div>
+<div class="paragraph">
+<p>Each attribute is a key and value pair where the value can be a set of one or many strings. Multiple values can be defined for an attribute by separating each value with a comma.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="typed-resources"><a class="anchor" href="#typed-resources"></a>4.2.2. Typed Resources</h4>
 <div class="paragraph">
 <p>The type field of a resource can be used to group different resources together, so they can be protected using a common set of permissions.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="resource-owners"><a class="anchor" href="#resource-owners"></a>4.2.2. Resource Owners</h4>
+<h4 id="resource-owners"><a class="anchor" href="#resource-owners"></a>4.2.3. Resource Owners</h4>
 <div class="paragraph">
 <p>Resources also have an owner. By default, resources are owned by the resource server.</p>
 </div>
@@ -2252,7 +2263,7 @@ is usually the relative path used to serve these resources.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="managing-resources-remotely"><a class="anchor" href="#managing-resources-remotely"></a>4.2.3. Managing Resources Remotely</h4>
+<h4 id="managing-resources-remotely"><a class="anchor" href="#managing-resources-remotely"></a>4.2.4. Managing Resources Remotely</h4>
 <div class="paragraph">
 <p>Resource management is also exposed through the <a href="#_service_protection_api">Protection API</a> to allow resource servers to remotely manage their resources.</p>
 </div>
@@ -3059,15 +3070,15 @@ is the default behavior, the policy result will be kept as it is.</p>
 <p>When writing rule-based policies using JavaScript or JBoss Drools, Keycloak provides an Evaluation API that provides useful information to help determine whether a permission should be granted.</p>
 </div>
 <div class="paragraph">
-<p>This API consists of a few interfaces that provides you access to information such as:</p>
+<p>This API consists of a few interfaces that provide you access to information, such as</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The permission being requested</p>
+<p>The permission being evaluated, representing both the resource and scopes being requested.</p>
 </li>
 <li>
-<p>The identity that is requesting the permission, from which you can obtain claims/attributes</p>
+<p>The attributes associated with the resource being requested</p>
 </li>
 <li>
 <p>Runtime environment and any other attribute associated with the execution context</p>
@@ -5360,7 +5371,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-27 07:29:11 UTC
+Last updated 2018-03-27 13:53:28 UTC
 </div>
 </div>
 <ul id="globalnav">
