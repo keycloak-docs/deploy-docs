@@ -4840,7 +4840,7 @@ for all resources associated with the resource server being protected. In this c
 <li>
 <p><strong>paths</strong></p>
 <div class="paragraph">
-<p>Specifies the paths to protect.</p>
+<p>Specifies the paths to protect. This configuration is optional. If not defined, the policy enforcer will discover all paths by fetching the resources you defined to your application in Keycloak, where these resources are defined with a <code>URI</code> representing some path in your application.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4932,6 +4932,15 @@ granted in order to gain access to the resource using that method. By default, e
 </div>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p><strong>lazy-load-paths</strong></p>
+<div class="paragraph">
+<p>Specifies how the adapter should fetch the server for resources associated with paths in your application. If true, the policy
+enforcer is going to fetch resources on-demand accordingly with the path being requested. This configuration is specially useful
+when you don&#8217;t want to fetch all resources from the server during deployment (in case you have provided no <code>paths</code>) or in case
+you have defined only a sub set of <code>paths</code> and want to fetch others on-demand.</p>
 </div>
 </li>
 </ul>
@@ -5371,7 +5380,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-28 13:12:40 UTC
+Last updated 2018-03-29 12:19:16 UTC
 </div>
 </div>
 <ul id="globalnav">
