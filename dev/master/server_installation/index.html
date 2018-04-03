@@ -5232,6 +5232,7 @@ You can also define role constraints for URL patterns within your applications.<
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">target-url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8082</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">target-request-timeout</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">60000</span><span class="delimiter">&quot;</span></span>,
     <span class="key"><span class="delimiter">&quot;</span><span class="content">send-access-token</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
     <span class="key"><span class="delimiter">&quot;</span><span class="content">bind-address</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">localhost</span><span class="delimiter">&quot;</span></span>,
     <span class="key"><span class="delimiter">&quot;</span><span class="content">http-port</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">8080</span><span class="delimiter">&quot;</span></span>,
@@ -5292,6 +5293,11 @@ You can also define role constraints for URL patterns within your applications.<
 <dt class="hdlist1">target-url</dt>
 <dd>
 <p>The URL this server is proxying. <em>REQUIRED</em>.</p>
+</dd>
+<dt class="hdlist1">target-request-timeout</dt>
+<dd>
+<p>The timeout (in ms) for the proxied request. <em>OPTIONAL</em>.
+Default is 30000.</p>
 </dd>
 <dt class="hdlist1">send-access-token</dt>
 <dd>
@@ -5523,7 +5529,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-29 12:19:35 UTC
+Last updated 2018-04-03 07:39:39 UTC
 </div>
 </div>
 <ul id="globalnav">
