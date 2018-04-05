@@ -4825,7 +4825,8 @@ for all resources associated with the resource server being protected. In this c
 <li>
 <p><strong>DISABLED</strong></p>
 <div class="paragraph">
-<p>Completely disables the evaluation of policies and allows access to any resource.</p>
+<p>Completely disables the evaluation of policies and allows access to any resource. When <code>enforcement-mode</code> is <code>DISABLED</code>
+applications are still able to obtain all permissions granted by Keycloak through the <a href="#_enforcer_authorization_context">Authorization Context</a></p>
 </div>
 </li>
 </ul>
@@ -4835,6 +4836,30 @@ for all resources associated with the resource server being protected. In this c
 <p><strong>on-deny-redirect-to</strong></p>
 <div class="paragraph">
 <p>Defines a URL where a client request is redirected when an "access denied" message is obtained from the server. By default, the adapter responds with a 403 HTTP status code.</p>
+</div>
+</li>
+<li>
+<p><strong>path-cache</strong></p>
+<div class="paragraph">
+<p>Defines how the policy enforcer should track associations between paths in your application and resources defined in Keycloak. The cache is needed to avoid
+unnecessary requests to a Keycloak server by caching associations between paths and protected resources.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>lifespan</strong></p>
+<div class="paragraph">
+<p>Defines the time in milliseconds when the entry should be expired. If not provided, default value is <strong>3000</strong>. A value
+less than or equal to 0 can be set to completely disable the cache.</p>
+</div>
+</li>
+<li>
+<p><strong>max-entries</strong></p>
+<div class="paragraph">
+<p>Defines the limit of entries that should be kept in the cache. If not provided, default value is <strong>1000</strong>.</p>
+</div>
+</li>
+</ul>
 </div>
 </li>
 <li>
@@ -5380,7 +5405,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-03 07:39:20 UTC
+Last updated 2018-04-05 12:41:27 UTC
 </div>
 </div>
 <ul id="globalnav">
