@@ -1559,6 +1559,14 @@ The add-user.sh does not add user to Keycloak server but to the underlying JBoss
                  <span class="tag">&lt;/server-identities&gt;</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>You will also need to add the <em>username</em> of the created user in the <em>&#8230;&#8203;/domain/configuration/host-slave.xml</em> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml">     <span class="tag">&lt;remote</span> <span class="attribute-name">security-realm</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ManagementRealm</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">username</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">admin</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span></code></pre>
+</div>
+</div>
 </div>
 <div class="sect4">
 <h5 id="run-the-boot-scripts"><a class="anchor" href="#run-the-boot-scripts"></a>Run the Boot Scripts</h5>
@@ -5529,7 +5537,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 12:41:44 UTC
+Last updated 2018-04-06 05:36:34 UTC
 </div>
 </div>
 <ul id="globalnav">

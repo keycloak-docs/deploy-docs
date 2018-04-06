@@ -8880,7 +8880,7 @@ c:\&gt; kcadm</pre>
 <div class="content">
 <pre class="nowrap">$ kcadm.sh config credentials --server http://localhost:8080/auth --realm demo --user admin --client admin
 $ kcadm.sh create realms -s realm=demorealm -s enabled=true -o
-$ C=$(kcadm.sh create clients -r demorealm -s clientId=my_client -s 'redirectUris=["http://localhost:8980/myapp/*"]' -i)
+$ CID=$(kcadm.sh create clients -r demorealm -s clientId=my_client -s 'redirectUris=["http://localhost:8980/myapp/*"]' -i)
 $ kcadm.sh get clients/$CID/installation/providers/keycloak-oidc-keycloak-json</pre>
 </div>
 </div>
@@ -9531,6 +9531,39 @@ $ kcadm.sh create clear-keys-cache -r demorealm -s realm=demorealm</pre>
 </li>
 </ol>
 </div>
+<h4 id="importing-a-realm-from-exported-json-file" class="discrete">Importing a realm from exported .json file</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use the <code class="command">create</code> command on the <code class="filename">partialImport</code> endpoint.</p>
+</li>
+<li>
+<p>Set <code>ifResourceExists</code> to one of <code>FAIL</code>, <code>SKIP</code>, <code>OVERWRITE</code>.</p>
+</li>
+<li>
+<p>Use <code>-f</code> to submit the exported realm <code>.json</code> file</p>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm.sh create partialImport -r demorealm2 -s ifResourceExists=FAIL -o -f demorealm.json</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If realm does not yet exist, you first have to create it.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm.sh create realms -s realm=demorealm2 -s enabled=true</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 <div class="sect2">
 <h3 id="role-operations"><a class="anchor" href="#role-operations"></a>19.7. Role operations</h3>
@@ -9943,6 +9976,21 @@ $ kcadm.sh create clear-keys-cache -r demorealm -s realm=demorealm</pre>
 <pre class="nowrap">$ kcadm.sh get clients/c7b8547f-e748-4333-95d0-410b76b3f4a3/installation/providers/keycloak-oidc-jboss-subsystem -r demorealm</pre>
 </div>
 </div>
+<h4 id="getting-a-docker-v2-example-configuration-for-a-specific-client" class="discrete">Getting a Docker-v2 example configuration for a specific client</h4>
+<div class="paragraph">
+<p>Use a client&#8217;s ID to construct an endpoint URI that targets a specific client, such as <code class="filename">clients/ID/installation/providers/docker-v2-compose-yaml</code>.</p>
+</div>
+<div class="paragraph">
+<p>Note that response will be in <code>.zip</code> format.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm.sh get http://localhost:8080/auth/admin/realms/demorealm/clients/8f271c35-44e3-446f-8953-b0893810ebe7/installation/providers/docker-v2-compose-yaml -r demorealm &gt; keycloak-docker-compose-yaml.zip</pre>
+</div>
+</div>
 <h4 id="updating-a-client" class="discrete">Updating a client</h4>
 <div class="paragraph">
 <p>Use the <code class="command">update</code> command with the same endpoint URI that you used to get a specific client.</p>
@@ -9985,6 +10033,11 @@ $ kcadm.sh create clear-keys-cache -r demorealm -s realm=demorealm</pre>
 <div class="content">
 <pre class="nowrap">$ kcadm.sh delete clients/c7b8547f-e748-4333-95d0-410b76b3f4a3 -r demorealm</pre>
 </div>
+</div>
+<h4 id="adding-or-removing-roles-for-client-s-service-account" class="discrete">Adding or removing roles for client&#8217;s service account</h4>
+<div class="paragraph">
+<p>Service account for the client is just a special kind of user account with username <code class="filename">service-account-CLIENT_ID</code>.
+You can perform user operations on this account as if it was a regular user.</p>
 </div>
 </div>
 <div class="sect2">
@@ -11251,7 +11304,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 12:41:37 UTC
+Last updated 2018-04-06 05:36:28 UTC
 </div>
 </div>
 <ul id="globalnav">

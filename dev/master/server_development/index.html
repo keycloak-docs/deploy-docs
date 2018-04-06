@@ -1858,7 +1858,7 @@ Provider instances are created by calling create on the factory for each request
 
 <span class="keyword">import</span> ...
 
-<span class="include">public</span> <span class="include">class</span> <span class="include">MyThemeSelectorProvider</span> <span class="include">implements</span> <span class="include">EventListenerProvider</span> {
+<span class="include">public</span> <span class="include">class</span> <span class="include">MyThemeSelectorProvider</span> <span class="include">implements</span> <span class="include">ThemeSelectorProvider</span> {
 
     <span class="include">public</span> <span class="include">MyThemeSelectorProvider</span>(<span class="include">KeycloakSession</span> <span class="include">session</span>) {
     }
@@ -1868,6 +1868,10 @@ Provider instances are created by calling create on the factory for each request
     <span class="include">public</span> <span class="include">String</span> <span class="include">getThemeName</span>(<span class="include">Theme.Type</span> <span class="include">type</span>) {
         <span class="include">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">my-theme</span><span class="delimiter">&quot;</span></span>;
     }
+
+        <span class="annotation">@Override</span>
+        <span class="directive">public</span> <span class="type">void</span> close() {
+        }
 }</code></pre>
 </div>
 </div>
@@ -5234,7 +5238,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 12:41:41 UTC
+Last updated 2018-04-06 05:36:32 UTC
 </div>
 </div>
 <ul id="globalnav">

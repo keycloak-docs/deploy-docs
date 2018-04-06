@@ -706,7 +706,7 @@ span.image img {
 <li><a href="#next-steps">2.4.4. Next Steps</a></li>
 </ul>
 </li>
-<li><a href="#_example_overview">2.5. Examples</a></li>
+<li><a href="#_authorization_quickstarts">2.5. Authorization Quickstarts</a></li>
 </ul>
 </li>
 <li><a href="#_resource_server_overview">3. Managing Resource Servers</a>
@@ -1692,46 +1692,30 @@ That re-enables access to the application as we are negating the result of that 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_example_overview"><a class="anchor" href="#_example_overview"></a>2.5. Examples</h3>
+<h3 id="_authorization_quickstarts"><a class="anchor" href="#_authorization_quickstarts"></a>2.5. Authorization Quickstarts</h3>
 <div class="sidebarblock page-links">
 <div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/example-overview.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/example-overview.adoc" target="_blank">Report an issue</a>
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/authorization-quickstarts.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/authorization-quickstarts.adoc" target="_blank">Report an issue</a>
 </div>
 </div>
 <div class="paragraph">
-<p>The Keycloak Authorization can also help you to quickly get started with the authorization services and understand how to apply the same concepts to your
-own applications.</p>
+<p>In addition to the <strong>app-authz-jee-vanilla</strong> quickstart that was used as a sample application in the previous section, the
+<a href="https://github.com/keycloak/keycloak-quickstarts">Keycloak Quickstarts Repository</a> contains other applications that make use of the authorization services
+described in this documentation.</p>
 </div>
 <div class="paragraph">
-<p>If you are using the Keycloak Demo Distribution and you have it properly extracted in your file system:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>keycloak-demo-4.0.0.Beta1.[zip|tar.gz]</strong></p>
-</li>
-</ul>
+<p>The authorization quickstarts have been designed so that authorization services are displayed in different scenarios and
+using different technologies and integrations. It is not meant as a comprehensive set of all the possible use cases involving
+authorization but they should provide a starting point for users interested in understanding how the authorization services
+can be used in their own applications.</p>
 </div>
 <div class="paragraph">
-<p>you can check out the available examples from the following directory:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">cd ${KEYCLOAK_DEMO_SERVER_DIR}/examples/authz</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Or you can get them from <a href="https://github.com/keycloak/keycloak/tree/4.0.0.Beta1/examples/authz">GitHub</a>.</p>
-</div>
-<div class="paragraph">
-<p>Each example has a <code>README</code> file with instructions about how to build, deploy, and test the example.</p>
-</div>
-<div class="paragraph">
-<p>Here is a brief description of each example:</p>
+<p>Each quickstart has a <code>README</code> file with instructions on how to build, deploy, and test the sample application. The following
+table provides a brief description of the available authorization quickstarts:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. Authorization Examples</caption>
+<caption class="title">Table 1. Authorization Quickstarts</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1744,16 +1728,20 @@ own applications.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak/tree/4.0.0.Beta1/examples/authz/hello-world-authz-service">hello-world-authz-service</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A single-page application that is protected by a policy enforcer that decides whether a user can access that page based on the permissions obtained from a Keycloak Server.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak-quickstarts/tree/latest/app-authz-jee-servlet">app-authz-jee-servlet</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Demonstrates how to enable fine-grained authorization to a Java EE application in order to protect specific resources and build a dynamic menu based on the permissions obtained from a Keycloak Server.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak/tree/4.0.0.Beta1/examples/authz/photoz">photoz</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A simple application based on HTML5+AngularJS+JAX-RS that demonstrates how to enable fine-grained permissions to RESTFul based services and HTML5 clients.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak-quickstarts/tree/latest/app-authz-jee-vanilla">app-authz-jee-vanilla</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Demonstrates how to enable fine-grained authorization to a Java EE application and use the default authorization settings to protect all resources in the application.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak/tree/4.0.0.Beta1/examples/authz/servlet-authz">servlet-authz</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A simple Servlet-based application that demonstrates how to enable fine-grained authorization to a WildFly Servlet Application.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak-quickstarts/tree/latest/app-authz-rest-springboot">app-authz-rest-springboot</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Demonstrates how to protect a SpringBoot REST service using Keycloak Authorization Services.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak-quickstarts/tree/latest/app-authz-springboot">app-authz-springboot</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Demonstrates how to write a SpringBoot Web application where both authentication and authorization aspects are managed by Keycloak.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5405,7 +5393,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 12:41:27 UTC
+Last updated 2018-04-06 05:36:17 UTC
 </div>
 </div>
 <ul id="globalnav">
