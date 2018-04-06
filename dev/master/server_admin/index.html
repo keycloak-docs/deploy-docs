@@ -10834,16 +10834,19 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Use the <code class="command">create</code> command against the <code class="filename">user-federation/instances</code> endpoint.</p>
+<p>Use the <code class="command">create</code> command against the <code class="filename">components</code> endpoint.</p>
 </li>
 <li>
-<p>Specify <code class="command">kerberos</code> as a value of the <code class="command">providerName</code> attribute.</p>
-<div class="paragraph">
+<p>Specify realm id as a value of the <code class="command">parentId</code> attribute.</p>
+</li>
+<li>
+<p>Specify <code class="command">kerberos</code> as the value of the <code class="command">providerId</code> attribute, and <code class="command">org.keycloak.storage.UserStorageProvider</code> as the value of the <code class="command">providerType</code> attribute.</p>
+</li>
+<li>
 <p>For example:</p>
-</div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$ kcadm.sh create user-federation/instances -r demorealm -s providerName=kerberos -s priority=0 -s config.debug=false -s config.allowPasswordAuthentication=true -s 'config.editMode="UNSYNCED"' -s config.updateProfileFirstLogin=true -s config.allowKerberosAuthentication=true -s 'config.kerberosRealm="KEYCLOAK.ORG"' -s 'config.keyTab="http.keytab"' -s 'config.serverPrincipal="HTTP/localhost@KEYCLOAK.ORG"'</pre>
+<pre class="nowrap">$ kcadm.sh create components -r demorealm -s parentId=demorealmId -s id=demokerberos -s name=demokerberos -s providerId=kerberos -s providerType=org.keycloak.storage.UserStorageProvider -s 'config.priority=["0"]' -s 'config.debug=["false"]' -s 'config.allowPasswordAuthentication=["true"]' -s 'config.editMode=["UNSYNCED"]' -s 'config.updateProfileFirstLogin=["true"]' -s 'config.allowKerberosAuthentication=["true"]' -s 'config.kerberosRealm=["KEYCLOAK.ORG"]' -s 'config.keyTab=["http.keytab"]' -s 'config.serverPrincipal=["HTTP/localhost@KEYCLOAK.ORG"]' -s 'config.cachePolicy=["DEFAULT"]'</pre>
 </div>
 </div>
 </li>
@@ -11304,7 +11307,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-06 18:41:49 UTC
+Last updated 2018-04-06 21:48:07 UTC
 </div>
 </div>
 <ul id="globalnav">
