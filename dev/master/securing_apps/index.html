@@ -3706,7 +3706,7 @@ For example:</p>
 <h6 id="avoid-double-filter-bean-registration"><a class="anchor" href="#avoid-double-filter-bean-registration"></a>Avoid double Filter bean registration</h6>
 <div class="paragraph">
 <p>Spring Boot attempts to eagerly register filter beans with the web application context.
-Therefore, when running the Keycloak Spring Security adapter in a Spring Boot environment, it may be necessary to add two <code>FilterRegistrationBean</code>s to your security configuration to prevent the Keycloak filters from being registered twice.</p>
+Therefore, when running the Keycloak Spring Security adapter in a Spring Boot environment, it may be necessary to add <code>FilterRegistrationBean</code>s to your security configuration to prevent the Keycloak filters from being registered twice.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3727,6 +3727,22 @@ Therefore, when running the Keycloak Spring Security adapter in a Spring Boot en
     <span class="annotation">@Bean</span>
     <span class="directive">public</span> FilterRegistrationBean keycloakPreAuthActionsFilterRegistrationBean(
             KeycloakPreAuthActionsFilter filter) {
+        FilterRegistrationBean registrationBean = <span class="keyword">new</span> FilterRegistrationBean(filter);
+        registrationBean.setEnabled(<span class="predefined-constant">false</span>);
+        <span class="keyword">return</span> registrationBean;
+    }
+
+    <span class="annotation">@Bean</span>
+    <span class="directive">public</span> FilterRegistrationBean keycloakAuthenticatedActionsFilterBean(
+            KeycloakAuthenticatedActionsFilter filter) {
+        FilterRegistrationBean registrationBean = <span class="keyword">new</span> FilterRegistrationBean(filter);
+        registrationBean.setEnabled(<span class="predefined-constant">false</span>);
+        <span class="keyword">return</span> registrationBean;
+    }
+
+    <span class="annotation">@Bean</span>
+    <span class="directive">public</span> FilterRegistrationBean keycloakSecurityContextRequestFilterBean(
+        KeycloakSecurityContextRequestFilter filter) {
         FilterRegistrationBean registrationBean = <span class="keyword">new</span> FilterRegistrationBean(filter);
         registrationBean.setEnabled(<span class="predefined-constant">false</span>);
         <span class="keyword">return</span> registrationBean;
@@ -9822,7 +9838,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-06 05:36:23 UTC
+Last updated 2018-04-06 06:10:03 UTC
 </div>
 </div>
 <ul id="globalnav">
