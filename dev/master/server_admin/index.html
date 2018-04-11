@@ -697,23 +697,24 @@ span.image img {
 <ul class="sectlevel2">
 <li><a href="#searching-for-users">4.1. Searching For Users</a></li>
 <li><a href="#_create-new-user">4.2. Creating New Users</a></li>
-<li><a href="#user-attributes">4.3. User Attributes</a></li>
-<li><a href="#user-credentials">4.4. User Credentials</a>
+<li><a href="#_delete-user">4.3. Deleting Users</a></li>
+<li><a href="#user-attributes">4.4. User Attributes</a></li>
+<li><a href="#user-credentials">4.5. User Credentials</a>
 <ul class="sectlevel3">
-<li><a href="#changing-passwords">4.4.1. Changing Passwords</a></li>
-<li><a href="#changing-otps">4.4.2. Changing OTPs</a></li>
+<li><a href="#changing-passwords">4.5.1. Changing Passwords</a></li>
+<li><a href="#changing-otps">4.5.2. Changing OTPs</a></li>
 </ul>
 </li>
-<li><a href="#required-actions">4.5. Required Actions</a>
+<li><a href="#required-actions">4.6. Required Actions</a>
 <ul class="sectlevel3">
-<li><a href="#default-required-actions">4.5.1. Default Required Actions</a></li>
-<li><a href="#terms-and-conditions">4.5.2. Terms and Conditions</a></li>
+<li><a href="#default-required-actions">4.6.1. Default Required Actions</a></li>
+<li><a href="#terms-and-conditions">4.6.2. Terms and Conditions</a></li>
 </ul>
 </li>
-<li><a href="#impersonation">4.6. Impersonation</a></li>
-<li><a href="#_user-registration">4.7. User Registration</a>
+<li><a href="#impersonation">4.7. Impersonation</a></li>
+<li><a href="#_user-registration">4.8. User Registration</a>
 <ul class="sectlevel3">
-<li><a href="#_recaptcha">4.7.1. reCAPTCHA Support</a></li>
+<li><a href="#_recaptcha">4.8.1. reCAPTCHA Support</a></li>
 </ul>
 </li>
 </ul>
@@ -1704,7 +1705,33 @@ button.  Click that to start creating your new user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-attributes"><a class="anchor" href="#user-attributes"></a>4.3. User Attributes</h3>
+<h3 id="_delete-user"><a class="anchor" href="#_delete-user"></a>4.3. Deleting Users</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/delete-user.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/delete-user.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>To delete a user click on <code>Users</code> in the left menu bar.</p>
+</div>
+<div class="paragraph">
+<div class="title">Users</div>
+<p><span class="image"><img src="./keycloak-images/users.png" alt="users"></span></p>
+</div>
+<div class="paragraph">
+<p>This menu option brings you to the user list page. Click <code>View all users</code> or search to find the user you intend to delete.</p>
+</div>
+<div class="paragraph">
+<div class="title">Add User</div>
+<p><span class="image"><img src="./keycloak-images/delete-user.png" alt="delete user"></span></p>
+</div>
+<div class="paragraph">
+<p>In the list of users, click <code>Delete</code> next to the user you want to remove. You will be asked to confirm that you are sure you want to delete this user. Click <code>Delete</code> in the confirmation box to confirm.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-attributes"><a class="anchor" href="#user-attributes"></a>4.4. User Attributes</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/attributes.adoc" target="_blank">Edit this section</a>
@@ -1725,7 +1752,7 @@ Note that any edits you make on this page will not be stored until you hit the <
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-credentials"><a class="anchor" href="#user-credentials"></a>4.4. User Credentials</h3>
+<h3 id="user-credentials"><a class="anchor" href="#user-credentials"></a>4.5. User Credentials</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/credentials.adoc" target="_blank">Edit this section</a>
@@ -1740,7 +1767,7 @@ Note that any edits you make on this page will not be stored until you hit the <
 <p><span class="image"><img src="./keycloak-images/user-credentials.png" alt="user credentials"></span></p>
 </div>
 <div class="sect3">
-<h4 id="changing-passwords"><a class="anchor" href="#changing-passwords"></a>4.4.1. Changing Passwords</h4>
+<h4 id="changing-passwords"><a class="anchor" href="#changing-passwords"></a>4.5.1. Changing Passwords</h4>
 <div class="paragraph">
 <p>To change a user&#8217;s password, type in a new one.  A <code>Reset Password</code> button will show up that you click after you&#8217;ve typed everything in.
 If the <code>Temporary</code> switch is on, this new password can only be used once and the user will be asked to change their password after they have
@@ -1754,7 +1781,7 @@ The sent email contains a link that will bring the user to the update password s
 </div>
 </div>
 <div class="sect3">
-<h4 id="changing-otps"><a class="anchor" href="#changing-otps"></a>4.4.2. Changing OTPs</h4>
+<h4 id="changing-otps"><a class="anchor" href="#changing-otps"></a>4.5.2. Changing OTPs</h4>
 <div class="paragraph">
 <p>You cannot configure One-Time Passwords for a specific user within the Admin Console.  This is the responsibility of the user.
 If the user has lost their OTP generator all you can do is disable OTP for them on the <code>Credentials</code> tab.
@@ -1769,7 +1796,7 @@ contains a link that will bring the user to the OTP setup screen.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="required-actions"><a class="anchor" href="#required-actions"></a>4.5. Required Actions</h3>
+<h3 id="required-actions"><a class="anchor" href="#required-actions"></a>4.6. Required Actions</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/required-actions.adoc" target="_blank">Edit this section</a>
@@ -1814,7 +1841,7 @@ is successfully completed, they will be allowed to log in.</p>
 action name.  Also remember to click the <code>Save</code> button after you&#8217;ve decided what actions to add.</p>
 </div>
 <div class="sect3">
-<h4 id="default-required-actions"><a class="anchor" href="#default-required-actions"></a>4.5.1. Default Required Actions</h4>
+<h4 id="default-required-actions"><a class="anchor" href="#default-required-actions"></a>4.6.1. Default Required Actions</h4>
 <div class="paragraph">
 <p>You can also specify required actions that will be added to an account whenever a new user is created, i.e. through the <code>Add User</code> button the user
 list screen, or via the <a href="#_user-registration">user registration</a> link on the login page.  To specify
@@ -1829,7 +1856,7 @@ the default required actions go to the <code>Authentication</code> left menu ite
 </div>
 </div>
 <div class="sect3">
-<h4 id="terms-and-conditions"><a class="anchor" href="#terms-and-conditions"></a>4.5.2. Terms and Conditions</h4>
+<h4 id="terms-and-conditions"><a class="anchor" href="#terms-and-conditions"></a>4.6.2. Terms and Conditions</h4>
 <div class="paragraph">
 <p>Many organizations have a requirement that when a new user logs in for the first time, they need to agree to the terms and conditions
 of the website.  Keycloak has this functionality implemented as a required action, but it requires some configuration.  For one, you
@@ -1840,7 +1867,7 @@ creating themes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="impersonation"><a class="anchor" href="#impersonation"></a>4.6. Impersonation</h3>
+<h3 id="impersonation"><a class="anchor" href="#impersonation"></a>4.7. Impersonation</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/impersonation.adoc" target="_blank">Edit this section</a>
@@ -1882,7 +1909,7 @@ for more details on assigning administration permissions.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_user-registration"><a class="anchor" href="#_user-registration"></a>4.7. User Registration</h3>
+<h3 id="_user-registration"><a class="anchor" href="#_user-registration"></a>4.8. User Registration</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/user-registration.adoc" target="_blank">Edit this section</a>
@@ -1926,7 +1953,7 @@ and a new password.</p>
 See the <a href="http://www.keycloak.org/docs/4.0/server_development/">Server Developer Guide</a> for more information.</p>
 </div>
 <div class="sect3">
-<h4 id="_recaptcha"><a class="anchor" href="#_recaptcha"></a>4.7.1. reCAPTCHA Support</h4>
+<h4 id="_recaptcha"><a class="anchor" href="#_recaptcha"></a>4.8.1. reCAPTCHA Support</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/recaptcha.adoc" target="_blank">Edit this section</a>
@@ -11307,7 +11334,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-06 21:48:07 UTC
+Last updated 2018-04-11 12:56:19 UTC
 </div>
 </div>
 <ul id="globalnav">
