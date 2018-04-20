@@ -963,7 +963,7 @@ require less boilerplate code than what is typically required by a library.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://pypi.python.org/pypi/oic/">oidc</a> (generic)</p>
+<p><a href="https://pypi.org/project/oic/">oidc</a> (generic)</p>
 </li>
 </ul>
 </div>
@@ -4235,7 +4235,7 @@ the particular parameter will be forwarded to the Keycloak authorization endpoin
 <div class="paragraph">
 <p>Most of the parameters are described in the <a href="http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">OIDC specification</a>.
 The only exception is parameter <code>kc_idp_hint</code>, which is specific to Keycloak and contains the name of the identity provider to automatically use.
-For more information see the <code>Identity Brokering</code> section in <a href="http://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a>.</p>
+For more information see the <code>Identity Brokering</code> section in <a href="https://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4291,7 +4291,7 @@ Then you can choose to either:</p>
 <li>
 <p>Upload the client&#8217;s public key or certificate, either in PEM format, in JWK format, or from the keystore. With this option, the public key is hardcoded and must be changed when the client generates a new key pair.
 You can even generate your own keystore from the Keycloak admininstration console if you don&#8217;t have your own available.
-For more details on how to set up the Keycloak administration console see <a href="http://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a>.</p>
+For more details on how to set up the Keycloak administration console see <a href="https://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a>.</p>
 </li>
 </ul>
 </div>
@@ -4344,7 +4344,7 @@ you can point to any file on the file system where the client application is run
 <div class="sect4">
 <h5 id="add-your-own-client-authentication-method"><a class="anchor" href="#add-your-own-client-authentication-method"></a>Add Your Own Client Authentication Method</h5>
 <div class="paragraph">
-<p>You can add your own client authentication method as well. You will need to implement both client-side and server-side providers. For more details see the <code>Authentication SPI</code> section in <a href="http://www.keycloak.org/docs/4.0/server_development/">Server Developer Guide</a>.</p>
+<p>You can add your own client authentication method as well. You will need to implement both client-side and server-side providers. For more details see the <code>Authentication SPI</code> section in <a href="https://www.keycloak.org/docs/4.0/server_development/">Server Developer Guide</a>.</p>
 </div>
 </div>
 </div>
@@ -5530,7 +5530,7 @@ The token endpoint is also used to obtain new access tokens when they expire.</p
 </div>
 </div>
 <div class="paragraph">
-<p>The certificate endpoint returns the public keys enabled by the realm, encoded as a JSON Web Key (JWK). Depending on the realm settings there can be one or more keys enabled for verifying tokens. For more information see the <a href="http://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> and the <a href="https://tools.ietf.org/html/rfc7517">JSON Web Key specification</a>.</p>
+<p>The certificate endpoint returns the public keys enabled by the realm, encoded as a JSON Web Key (JWK). Depending on the realm settings there can be one or more keys enabled for verifying tokens. For more information see the <a href="https://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> and the <a href="https://tools.ietf.org/html/rfc7517">JSON Web Key specification</a>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -5847,7 +5847,7 @@ This is what one might look like:</p>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;keycloak-saml-adapter</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:keycloak:saml:adapter</span><span class="delimiter">&quot;</span></span>
                        <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
-                       <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:keycloak:saml:adapter http://www.keycloak.org/schema/keycloak_saml_adapter_1_9.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                       <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:keycloak:saml:adapter https://www.keycloak.org/schema/keycloak_saml_adapter_1_9.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;SP</span> <span class="attribute-name">entityID</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8081/sales-post-sig/</span><span class="delimiter">&quot;</span></span>
         <span class="attribute-name">sslPolicy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">EXTERNAL</span><span class="delimiter">&quot;</span></span>
         <span class="attribute-name">nameIDPolicyFormat</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</span><span class="delimiter">&quot;</span></span>
@@ -8100,7 +8100,7 @@ Configtest is equivalent to the -t argument to apachectl. If the configuration t
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Docker authentication is disabled by default. To enable see <a href="http://www.keycloak.org/docs/4.0/server_installation/#profiles">Profiles</a>.
+Docker authentication is disabled by default. To enable see <a href="https://www.keycloak.org/docs/4.0/server_installation/#profiles">Profiles</a>.
 </td>
 </tr>
 </table>
@@ -8264,7 +8264,7 @@ There is an alternative to register new client without any token as well, but th
 <div class="sect3">
 <h4 id="bearer-token"><a class="anchor" href="#bearer-token"></a>5.1.1. Bearer Token</h4>
 <div class="paragraph">
-<p>The bearer token can be issued on behalf of a user or a Service Account. The following permissions are required to invoke the endpoints (see <a href="http://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> for more details):</p>
+<p>The bearer token can be issued on behalf of a user or a Service Account. The following permissions are required to invoke the endpoints (see <a href="https://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> for more details):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -8280,7 +8280,7 @@ There is an alternative to register new client without any token as well, but th
 </ul>
 </div>
 <div class="paragraph">
-<p>If you are using a bearer token to create clients it&#8217;s recommend to use a token from a Service Account with only the <code>create-client</code> role (see <a href="http://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> for more details).</p>
+<p>If you are using a bearer token to create clients it&#8217;s recommend to use a token from a Service Account with only the <code>create-client</code> role (see <a href="https://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> for more details).</p>
 </div>
 </div>
 <div class="sect3">
@@ -8781,7 +8781,7 @@ c:\&gt; kcreg get my_client</pre>
 <p>Regardless of the login method, the account that logs in needs proper permissions to be able to perform client registration operations. Keep in mind that any account in a non-master realm can only have permissions to manage clients within the same realm. If you need to manage different realms, you can either configure multiple users in different realms, or you can create a single user in the <code class="filename">master</code> realm and add roles for managing clients in different realms.</p>
 </div>
 <div class="paragraph">
-<p>You cannot configure users with the Client Registration CLI. Use the Admin Console web interface or the Admin Client CLI to configure users. See <a href="http://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> for more details.</p>
+<p>You cannot configure users with the Client Registration CLI. Use the Admin Console web interface or the Admin Client CLI to configure users. See <a href="https://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> for more details.</p>
 </div>
 <div class="paragraph">
 <p>When <code class="filename">kcreg</code> successfully logs in, it receives authorization tokens and saves them in a private configuration file so the tokens can be used for subsequent invocations. See <a href="#_working_with_alternative_configurations">Working with alternative configurations</a> for more information on configuration files.</p>
@@ -9345,7 +9345,7 @@ for a client initiated link request.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Token exchange setup requires knowledge of fine grain admin permissions (See the <a href="http://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> for more information).  You will need to grant clients
+Token exchange setup requires knowledge of fine grain admin permissions (See the <a href="https://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> for more information).  You will need to grant clients
       permission to exchange.  This is discussed more later in this chapter.
 </td>
 </tr>
@@ -9465,7 +9465,7 @@ these conditions must be met:</p>
 <p>The user must have linked with the external identity provider through the User Account Service</p>
 </li>
 <li>
-<p>The user account was linked through the external identity provider using <a href="http://www.keycloak.org/docs/4.0/server_development/">Client Initiated Account Linking</a> API.</p>
+<p>The user account was linked through the external identity provider using <a href="https://www.keycloak.org/docs/4.0/server_development/">Client Initiated Account Linking</a> API.</p>
 </li>
 </ul>
 </div>
@@ -9573,7 +9573,7 @@ this JSON document:</p>
 </div>
 <div class="paragraph">
 <p>The <code>error</code> claim will be either <code>token_expired</code> or <code>not_linked</code>.  The <code>account-link-url</code> claim is provided
-so that the client can perform <a href="http://www.keycloak.org/docs/4.0/server_development/">Client Initiated Account Linking</a>.  Most (all?)
+so that the client can perform <a href="https://www.keycloak.org/docs/4.0/server_development/">Client Initiated Account Linking</a>.  Most (all?)
 providers are requiring linking through browser OAuth protocol.  With the <code>account-link-url</code> just add a <code>redirect_uri</code>
 query parameter to it and you can forward browsers to perform the link.</p>
 </div>
@@ -9691,7 +9691,7 @@ a problem.</p>
 <h4 id="granting-permission-for-the-exchange-2"><a class="anchor" href="#granting-permission-for-the-exchange-2"></a>7.4.1. Granting Permission for the Exchange</h4>
 <div class="paragraph">
 <p>The user that the subject token represents must have permission to impersonate other users.  See the
-<a href="http://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> on how to enable this permission.  It can be done through a role or through
+<a href="https://www.keycloak.org/docs/4.0/server_admin/">Server Administration Guide</a> on how to enable this permission.  It can be done through a role or through
 fine grain admin permissions.</p>
 </div>
 </div>
@@ -9856,7 +9856,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-20 07:19:46 UTC
+Last updated 2018-04-20 08:26:06 UTC
 </div>
 </div>
 <ul id="globalnav">
