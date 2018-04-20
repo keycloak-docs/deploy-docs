@@ -4909,6 +4909,24 @@ enough when determining if a token is expired or not.</p>
 <dd>
 <p>Flow passed in init.</p>
 </dd>
+<dt class="hdlist1">adapter</dt>
+<dd>
+<p>Allows you to override the way that redirects and other browser-related functions will be handled by the library.
+Available options:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>"default" - the library uses the browser api for redirects (this is the default)</p>
+</li>
+<li>
+<p>"cordova" - the library will try to use the InAppBrowser cordova plugin to load keycloak login/registration pages (this is used automatically when the library is working in a cordova ecosystem)</p>
+</li>
+<li>
+<p>custom - allows you to implement a custom adapter (only for advanced use cases)</p>
+</li>
+</ul>
+</div>
+</dd>
 <dt class="hdlist1">responseType</dt>
 <dd>
 <p>Response type sent to Keycloak with login requests. This is determined based on the flow value used during initialization, but can be overridden by setting this value.</p>
@@ -9838,7 +9856,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-17 11:57:02 UTC
+Last updated 2018-04-20 07:19:46 UTC
 </div>
 </div>
 <ul id="globalnav">
