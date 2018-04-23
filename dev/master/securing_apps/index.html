@@ -5005,7 +5005,10 @@ Available options:</p>
 <p>action - If value is 'register' then user is redirected to registration page, otherwise to login page.</p>
 </li>
 <li>
-<p>locale - Specifies the desired locale for the UI.</p>
+<p>locale - Sets the 'ui_locales' query param in compliance with section 3.1.2.1 of the OIDC 1.0 specification.</p>
+</li>
+<li>
+<p>kcLocale - Specifies the desired Keycloak locale for the UI.  This differs from the locale param in that it tells the Keycloak server to set a cookie and update the user&#8217;s profile to a new preferred locale.</p>
 </li>
 </ul>
 </div>
@@ -9856,7 +9859,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-20 08:26:06 UTC
+Last updated 2018-04-23 15:45:25 UTC
 </div>
 </div>
 <ul id="globalnav">
