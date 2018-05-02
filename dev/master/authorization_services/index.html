@@ -864,16 +864,26 @@ span.image img {
 </li>
 <li><a href="#_enforcer_overview">9. Policy Enforcers</a>
 <ul class="sectlevel2">
-<li><a href="#_enforcer_filter">9.1. Keycloak Adapter Policy Enforcer</a>
+<li><a href="#_enforcer_filter">9.1. Configuration</a></li>
+<li><a href="#_enforcer_claim_information_point">9.2. Claim Information Point</a>
 <ul class="sectlevel3">
-<li><a href="#policy-enforcement-configuration">9.1.1. Policy Enforcement Configuration</a></li>
-<li><a href="#_enforcer_bearer">9.1.2. Protecting a Stateless Service Using a Bearer Token</a></li>
-<li><a href="#_enforcer_authorization_context">9.1.3. Obtaining the Authorization Context</a></li>
-<li><a href="#using-the-authorizationcontext-to-obtain-an-authorization-client-instance">9.1.4. Using the AuthorizationContext to obtain an Authorization Client Instance</a></li>
-<li><a href="#_enforcer_js_adapter">9.1.5. JavaScript Integration</a></li>
-<li><a href="#_enforcer_filter_using_https">9.1.6. Setting Up TLS/HTTPS</a></li>
+<li><a href="#obtaining-information-from-the-http-request">9.2.1. Obtaining information from the HTTP Request</a></li>
+<li><a href="#obtaining-information-from-an-external-http-service">9.2.2. Obtaining information from an External HTTP Service</a></li>
+<li><a href="#static-claims">9.2.3. Static Claims</a></li>
+<li><a href="#claim-information-provider-spi">9.2.4. Claim Information Provider SPI</a></li>
 </ul>
 </li>
+<li><a href="#_enforcer_authorization_context">9.3. Obtaining the Authorization Context</a></li>
+<li><a href="#using-the-authorizationcontext-to-obtain-an-authorization-client-instance">9.4. Using the AuthorizationContext to obtain an Authorization Client Instance</a></li>
+<li><a href="#_enforcer_js_adapter">9.5. JavaScript Integration</a>
+<ul class="sectlevel3">
+<li><a href="#handling-authorization-responses-from-a-uma-protected-resource-server">9.5.1. Handling Authorization Responses from a UMA-Protected Resource Server</a></li>
+<li><a href="#obtaining-entitlements">9.5.2. Obtaining Entitlements</a></li>
+<li><a href="#authorization-request">9.5.3. Authorization Request</a></li>
+<li><a href="#obtaining-the-rpt">9.5.4. Obtaining the RPT</a></li>
+</ul>
+</li>
+<li><a href="#_enforcer_filter_using_https">9.6. Setting Up TLS/HTTPS</a></li>
 </ul>
 </li>
 </ul>
@@ -1742,6 +1752,10 @@ table provides a brief description of the available authorization quickstarts:</
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak-quickstarts/tree/latest/app-authz-springboot">app-authz-springboot</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Demonstrates how to write a SpringBoot Web application where both authentication and authorization aspects are managed by Keycloak.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/keycloak/keycloak-quickstarts/tree/latest/app-authz-uma-photoz">app-authz-uma-photoz</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A simple application based on HTML5+AngularJS+JAX-RS that demonstrates how to enable User-Managed Access to your application and let users to manage permissions for their resources.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4693,29 +4707,38 @@ and leverages OAuth2 authorization capabilities for fine-grained authorization u
 <div class="paragraph">
 <p><span class="image"><img src="./images/pep-pattern-diagram.png" alt="PEP Overview"></span></p>
 </div>
+<div class="paragraph">
+<p>A PEP is responsible for enforcing access decisions from the Keycloak server where these decisions are taken by evaluating the policies
+associated with a protected resource. It acts as a filter or interceptor in your application in order to check whether or not a particular request
+to a protected resource can be fulfilled based on the permissions granted by these decisions.</p>
+</div>
+<div class="paragraph">
+<p>If you are using any of the Keycloak OIDC adapters, you can easily enable the policy enforcer by adding the following property to your <strong>keycloak.json</strong> file:</p>
+</div>
+<div class="listingblock">
+<div class="title">keycloak.json</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+ <span class="key"><span class="delimiter">&quot;</span><span class="content">policy-enforcer</span><span class="delimiter">&quot;</span></span>: {}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you enable the policy enforcer all requests sent your application are intercepted and access to protected resources will be granted
+depending on the permissions granted by Keycloak to the identity making the request.</p>
+</div>
+<div class="paragraph">
+<p>Policy enforcement is strongly linked to your application&#8217;s paths and the <a href="#_resource_overview">resources</a> you created for a resource server using the Keycloak Administration Console. By default,
+when you create a resource server, Keycloak creates a <a href="#_resource_server_default_config">default configuration</a> for your resource server so you can enable policy enforcement quickly.</p>
+</div>
 <div class="sect2">
-<h3 id="_enforcer_filter"><a class="anchor" href="#_enforcer_filter"></a>9.1. Keycloak Adapter Policy Enforcer</h3>
+<h3 id="_enforcer_filter"><a class="anchor" href="#_enforcer_filter"></a>9.1. Configuration</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-keycloak-enforcement-filter.adoc" target="_blank">Edit this section</a>
 <a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/enforcer-keycloak-enforcement-filter.adoc" target="_blank">Report an issue</a>
 </div>
 </div>
-<div class="paragraph">
-<p>You can enforce authorization decisions for your applications if you are using Keycloak OIDC adapters.</p>
-</div>
-<div class="paragraph">
-<p>When you enable policy enforcement for your Keycloak application, the corresponding adapter intercepts all requests to your application and enforces the authorization decisions obtained from the server.</p>
-</div>
-<div class="paragraph">
-<p>Policy enforcement is strongly linked to your application&#8217;s paths and the <a href="#_resource_overview">resources</a> you created for a resource server using the Keycloak Administration Console. By default,
-when you create a resource server, Keycloak creates a <a href="#_resource_server_default_config">default configuration</a> for your resource server so you can enable policy enforcement quickly.</p>
-</div>
-<div class="paragraph">
-<p>The default configuration allows access for all resources in your application provided the authenticated user belongs to the same realm as the resource server being protected.</p>
-</div>
-<div class="sect3">
-<h4 id="policy-enforcement-configuration"><a class="anchor" href="#policy-enforcement-configuration"></a>9.1.1. Policy Enforcement Configuration</h4>
 <div class="paragraph">
 <p>To enable policy enforcement for your application, add the following property to your <strong>keycloak.json</strong> file:</p>
 </div>
@@ -4937,11 +4960,14 @@ granted in order to gain access to the resource using that method. By default, e
 </li>
 <li>
 <p><strong>DISABLED</strong></p>
-<div class="paragraph">
-<p>Disables the evaluation of policies for a path</p>
-</div>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p><strong>claim-information-point</strong></p>
+<div class="paragraph">
+<p>Defines a set of one or more claims that must be resolved and pushed to the Keycloak server in order to make these claims available to policies. See <a href="#_enforcer_claim_information_point">Claim Information Point</a> for more details.</p>
 </div>
 </li>
 </ul>
@@ -4962,67 +4988,210 @@ you have defined only a sub set of <code>paths</code> and want to fetch others o
 </ul>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_enforcer_bearer"><a class="anchor" href="#_enforcer_bearer"></a>9.1.2. Protecting a Stateless Service Using a Bearer Token</h4>
+<div class="sect2">
+<h3 id="_enforcer_claim_information_point"><a class="anchor" href="#_enforcer_claim_information_point"></a>9.2. Claim Information Point</h3>
 <div class="sidebarblock page-links">
 <div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-keycloak-enforcement-bearer.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/enforcer-keycloak-enforcement-bearer.adoc" target="_blank">Report an issue</a>
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-claim-information-point.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/enforcer-claim-information-point.adoc" target="_blank">Report an issue</a>
 </div>
 </div>
 <div class="paragraph">
-<p>If the adapter is configured with the <code>bearer-only</code> configuration option, the policy enforcer decides whether a request
-to access a protected resource is allowed or denied based on the permissions of the bearer token.</p>
+<p>A Claim Information Point (CIP) is responsible for resolving claims and pushing these claims to the Keycloak server
+in order to provide more information about the access context to policies. They can be defined as a configuration option
+to the policy-enforcer in order to resolve claims from different sources, such as:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>HTTP GET example passing an RPT as a bearer token</p>
+<p>HTTP Request (parameters, headers, body, headers, etc)</p>
 </li>
-</ol>
+<li>
+<p>External HTTP Service</p>
+</li>
+<li>
+<p>Static values defined in configuration</p>
+</li>
+<li>
+<p>Any other source by implementing the Claim Information Provider SPI</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When pushing claims to the Keycloak server, policies can base decisions not only on who an user is but also by taking
+context and contents into account, based on who, what, why, when, where, and which for a given transaction. It is all about
+Contextual-based Authorization and how to use runtime information in order to support fine-grained authorization decisions.</p>
+</div>
+<div class="sect3">
+<h4 id="obtaining-information-from-the-http-request"><a class="anchor" href="#obtaining-information-from-the-http-request"></a>9.2.1. Obtaining information from the HTTP Request</h4>
+<div class="paragraph">
+<p>Here are several examples showing how you can extract claims from an HTTP request:</p>
 </div>
 <div class="listingblock">
+<div class="title">keycloak.json</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">GET /my-resource-server/my-protected-resource HTTP/1.1
-Host: host.com
-Authorization: Bearer ${RPT}
-...</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In this example, a <strong>keycloak.json</strong> file in your application is similar to the following:</p>
-</div>
-<div class="listingblock">
-<div class="title">Example of WEB-INF/keycloak.json with the bearer-only configuration option</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json"><span class="error">.</span><span class="error">.</span><span class="error">.</span>
-<span class="key"><span class="delimiter">&quot;</span><span class="content">bearer-only</span><span class="delimiter">&quot;</span></span> : <span class="value">true</span>,
-<span class="error">.</span><span class="error">.</span><span class="error">.</span></code></pre>
-</div>
-</div>
-<div class="sect4">
-<h5 id="authorization-response"><a class="anchor" href="#authorization-response"></a>Authorization Response</h5>
-<div class="paragraph">
-<p>When a client tries to access a resource server with a bearer token that is lacking permissions to access a protected resource, the resource server
-responds with a <strong>401</strong> status code and a <code>WWW-Authenticate</code> header. The value of the <code>WWW-Authenticate</code> header depends on the authorization protocol
-in use by the resource server.</p>
-</div>
-<div class="paragraph">
-<p>Here is an example of a response from a resource server that is using UMA as the authorization protocol:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 401 Unauthorized
-WWW-Authenticate: UMA realm=&quot;photoz-restful-api&quot;,as_uri=&quot;https://${host}:${post}/auth/realms/${realm}&quot;,ticket=&quot;${PERMISSION_TICKET}&quot;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Once  a client receives a response from the server, it examines the status code and <code>WWW-Authenticate</code> header to obtain an RPT from the Keycloak Server.</p>
+<pre class="CodeRay highlight"><code data-lang="json"><span class="key"><span class="delimiter">&quot;</span><span class="content">policy-enforcer</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">paths</span><span class="delimiter">&quot;</span></span>: [
+      {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">path</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/protected/resource</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-information-point</span><span class="delimiter">&quot;</span></span>: {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">claims</span><span class="delimiter">&quot;</span></span>: {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-request-parameter</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.parameter['a']}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-header</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.header['b']}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-cookie</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.cookie['c']}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-remoteAddr</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.remoteAddr}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-method</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.method}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-uri</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.uri}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-relativePath</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.relativePath}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-secure</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.secure}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-json-body-object</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.body['/a/b/c']}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-json-body-array</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.body['/d/1']}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-body</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{request.body}</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-static-value</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">static value</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-multiple-static-value</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">static</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>],
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">param-replace-multiple-placeholder</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Test {keycloak.access_token['/custom_claim/0']} and {request.parameter['a']} </span><span class="delimiter">&quot;</span></span>
+          }
+        }
+      }
+    ]
+  }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_enforcer_authorization_context"><a class="anchor" href="#_enforcer_authorization_context"></a>9.1.3. Obtaining the Authorization Context</h4>
+<h4 id="obtaining-information-from-an-external-http-service"><a class="anchor" href="#obtaining-information-from-an-external-http-service"></a>9.2.2. Obtaining information from an External HTTP Service</h4>
+<div class="paragraph">
+<p>Here are several examples showing how you can extract claims from an external HTTP Service:</p>
+</div>
+<div class="listingblock">
+<div class="title">keycloak.json</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json"><span class="key"><span class="delimiter">&quot;</span><span class="content">policy-enforcer</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">paths</span><span class="delimiter">&quot;</span></span>: [
+      {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">path</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/protected/resource</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-information-point</span><span class="delimiter">&quot;</span></span>: {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">http</span><span class="delimiter">&quot;</span></span>: {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claims</span><span class="delimiter">&quot;</span></span>: {
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-a</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/a</span><span class="delimiter">&quot;</span></span>,
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-d</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/d</span><span class="delimiter">&quot;</span></span>,
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-d0</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/d/0</span><span class="delimiter">&quot;</span></span>,
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-d-all</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">/d/0</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">/d/1</span><span class="delimiter">&quot;</span></span>]
+            },
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://mycompany/claim-provider</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">method</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">POST</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">headers</span><span class="delimiter">&quot;</span></span>: {
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">Content-Type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">application/x-www-form-urlencoded</span><span class="delimiter">&quot;</span></span>,
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">header-b</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">header-b-value1</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">header-b-value2</span><span class="delimiter">&quot;</span></span>],
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">Authorization</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Bearer {keycloak.access_token}</span><span class="delimiter">&quot;</span></span>
+            },
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">parameters</span><span class="delimiter">&quot;</span></span>: {
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">param-a</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">param-a-value1</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">param-a-value2</span><span class="delimiter">&quot;</span></span>],
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">param-subject</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{keycloak.access_token['/sub']}</span><span class="delimiter">&quot;</span></span>,
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">param-user-name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{keycloak.access_token['/preferred_username']}</span><span class="delimiter">&quot;</span></span>,
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">param-other-claims</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">{keycloak.access_token['/custom_claim']}</span><span class="delimiter">&quot;</span></span>
+            }
+          }
+        }
+      }
+    ]
+  }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="static-claims"><a class="anchor" href="#static-claims"></a>9.2.3. Static Claims</h4>
+<div class="listingblock">
+<div class="title">keycloak.json</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json"><span class="key"><span class="delimiter">&quot;</span><span class="content">policy-enforcer</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">paths</span><span class="delimiter">&quot;</span></span>: [
+      {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">path</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">/protected/resource</span><span class="delimiter">&quot;</span></span>,
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-information-point</span><span class="delimiter">&quot;</span></span>: {
+          <span class="key"><span class="delimiter">&quot;</span><span class="content">claims</span><span class="delimiter">&quot;</span></span>: {
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-static-value</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">static value</span><span class="delimiter">&quot;</span></span>,
+            <span class="key"><span class="delimiter">&quot;</span><span class="content">claim-from-multiple-static-value</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">static</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">value</span><span class="delimiter">&quot;</span></span>],
+          }
+        }
+      }
+    ]
+  }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="claim-information-provider-spi"><a class="anchor" href="#claim-information-provider-spi"></a>9.2.4. Claim Information Provider SPI</h4>
+<div class="paragraph">
+<p>The Claim Information Provider SPI can be used by developers to support different claim information points in case none of the
+built-ins providers are enough to address their requirements.</p>
+</div>
+<div class="paragraph">
+<p>For example, to implement a new CIP provider you need to implement <code>org.keycloak.adapters.authorization.ClaimInformationPointProviderFactory</code>
+and <code>ClaimInformationPointProvider</code> and also provide the file <code>META-INF/services/org.keycloak.adapters.authorization.ClaimInformationPointProviderFactory</code>
+in your application`s classpath.</p>
+</div>
+<div class="paragraph">
+<p>Example of <code>org.keycloak.adapters.authorization.ClaimInformationPointProviderFactory</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">MyClaimInformationPointProviderFactory</span> <span class="directive">implements</span> ClaimInformationPointProviderFactory&lt;MyClaimInformationPointProvider&gt; {
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="predefined-type">String</span> getName() {
+        <span class="keyword">return</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">my-claims</span><span class="delimiter">&quot;</span></span>;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> init(PolicyEnforcer policyEnforcer) {
+
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> MyClaimInformationPointProvider create(<span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">Object</span>&gt; config) {
+        <span class="keyword">return</span> <span class="keyword">new</span> MyClaimInformationPointProvider(config);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Every CIP provider must be associated with a name, as defined above in the <code>MyClaimInformationPointProviderFactory.getName</code> method. The name
+will be used to map the configuration from the <code>claim-information-point</code> section in the <code>policy-enforcer</code> configuration to the implementation.</p>
+</div>
+<div class="paragraph">
+<p>When processing requests, the policy enforcer will call the MyClaimInformationPointProviderFactory.create method in order to obtain an
+instance of MyClaimInformationPointProvider. When called, any configuration defined for this particular CIP provider
+(via claim-information-point) is passed as a map.</p>
+</div>
+<div class="paragraph">
+<p>Example of <code>ClaimInformationPointProvider</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">MyClaimInformationPointProvider</span> <span class="directive">implements</span> ClaimInformationPointProvider {
+
+    <span class="directive">private</span> <span class="directive">final</span> <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">Object</span>&gt; config;
+
+    <span class="directive">public</span> ClaimsInformationPointProvider(<span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">Object</span>&gt; config) {
+        <span class="local-variable">this</span>.config = config;
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">List</span>&lt;<span class="predefined-type">String</span>&gt;&gt; resolve(HttpFacade httpFacade) {
+        <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">List</span>&lt;<span class="predefined-type">String</span>&gt;&gt; claims = <span class="keyword">new</span> <span class="predefined-type">HashMap</span>&lt;&gt;();
+
+        <span class="comment">// put whatever claim you want into the map</span>
+
+        <span class="keyword">return</span> claims;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_enforcer_authorization_context"><a class="anchor" href="#_enforcer_authorization_context"></a>9.3. Obtaining the Authorization Context</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-authorization-context.adoc" target="_blank">Edit this section</a>
@@ -5109,8 +5278,8 @@ to build a dynamic menu where items are hidden or shown depending on the permiss
 <p>Security requirements change, but with Keycloak there is no need to change your application code to address the new requirements. Once your application is based on the resource and scope identifier, you need only change the configuration of the permissions or policies associated with a particular resource in the authorization server. In this case, the permissions and policies associated with the <code>Project Resource</code> and/or the scope <code>urn:project.com:project:create</code> would be changed.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="using-the-authorizationcontext-to-obtain-an-authorization-client-instance"><a class="anchor" href="#using-the-authorizationcontext-to-obtain-an-authorization-client-instance"></a>9.1.4. Using the AuthorizationContext to obtain an Authorization Client Instance</h4>
+<div class="sect2">
+<h3 id="using-the-authorizationcontext-to-obtain-an-authorization-client-instance"><a class="anchor" href="#using-the-authorizationcontext-to-obtain-an-authorization-client-instance"></a>9.4. Using the AuthorizationContext to obtain an Authorization Client Instance</h3>
 <div class="paragraph">
 <p>The <code><code>AuthorizationContext</code></code> can also be used to obtain a reference to the <a href="#_service_client_api">Authorization Client API</a> configured to your application:</p>
 </div>
@@ -5124,8 +5293,8 @@ to build a dynamic menu where items are hidden or shown depending on the permiss
 <p>In some cases, resource servers protected by the policy enforcer need to access the APIs provided by the authorization server. With an <code><code>AuthzClient</code></code> instance in hands, resource servers can interact with the server in order to create resources or check for specific permissions programmatically.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_enforcer_js_adapter"><a class="anchor" href="#_enforcer_js_adapter"></a>9.1.5. JavaScript Integration</h4>
+<div class="sect2">
+<h3 id="_enforcer_js_adapter"><a class="anchor" href="#_enforcer_js_adapter"></a>9.5. JavaScript Integration</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-js-adapter.adoc" target="_blank">Edit this section</a>
@@ -5170,8 +5339,8 @@ This library is based on the Keycloak JavaScript adapter, which can be integrate
 <p>In both cases, the library allows you to easily interact with both resource server and Keycloak Authorization Services to obtain tokens with
 permissions your client can use as bearer tokens to access the protected resources on a resource server.</p>
 </div>
-<div class="sect4">
-<h5 id="handling-authorization-responses-from-a-uma-protected-resource-server"><a class="anchor" href="#handling-authorization-responses-from-a-uma-protected-resource-server"></a>Handling Authorization Responses from a UMA-Protected Resource Server</h5>
+<div class="sect3">
+<h4 id="handling-authorization-responses-from-a-uma-protected-resource-server"><a class="anchor" href="#handling-authorization-responses-from-a-uma-protected-resource-server"></a>9.5.1. Handling Authorization Responses from a UMA-Protected Resource Server</h4>
 <div class="paragraph">
 <p>If a resource server is protected by a policy enforcer, it responds to client requests based on the permissions carried along with a <a href="#_enforcer_bearer">bearer token</a>.
 Typically, when you try to access a resource server with a bearer token that is lacking permissions to access a protected resource, the resource server
@@ -5228,8 +5397,8 @@ Identity.authorization.authorize(authorizationRequest).then(<span class="keyword
 <p>Most applications should use the <code>onGrant</code> callback to retry a request after a 401 response. Subsequent requests should include the RPT as a bearer token for retries.</p>
 </div>
 </div>
-<div class="sect4">
-<h5 id="obtaining-entitlements"><a class="anchor" href="#obtaining-entitlements"></a>Obtaining Entitlements</h5>
+<div class="sect3">
+<h4 id="obtaining-entitlements"><a class="anchor" href="#obtaining-entitlements"></a>9.5.2. Obtaining Entitlements</h4>
 <div class="paragraph">
 <p>The <code><code>keycloak-authz.js</code></code> library provides an <code>entitlement</code> function that you can use to obtain an RPT from the server by providing
 the resources and scopes your client wants to access.</p>
@@ -5278,8 +5447,8 @@ the resources and scopes your client wants to access.</p>
 </ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="authorization-request"><a class="anchor" href="#authorization-request"></a>Authorization Request</h5>
+<div class="sect3">
+<h4 id="authorization-request"><a class="anchor" href="#authorization-request"></a>9.5.3. Authorization Request</h4>
 <div class="paragraph">
 <p>Both <code><code>authorize</code></code> and <code><code>entitlement</code></code> functions accept an authorization request object. This object can be set with the following
 properties:</p>
@@ -5338,8 +5507,8 @@ This parameter will only take effect when used together with the <code>ticket</c
 </ul>
 </div>
 </div>
-<div class="sect4">
-<h5 id="obtaining-the-rpt"><a class="anchor" href="#obtaining-the-rpt"></a>Obtaining the RPT</h5>
+<div class="sect3">
+<h4 id="obtaining-the-rpt"><a class="anchor" href="#obtaining-the-rpt"></a>9.5.4. Obtaining the RPT</h4>
 <div class="paragraph">
 <p>If you have already obtained an RPT using any of the authorization functions provided by the library, you can always obtain the RPT as follows from the authorization object (assuming that it has been initialized by one of the techniques shown earlier):</p>
 </div>
@@ -5350,8 +5519,8 @@ This parameter will only take effect when used together with the <code>ticket</c
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_enforcer_filter_using_https"><a class="anchor" href="#_enforcer_filter_using_https"></a>9.1.6. Setting Up TLS/HTTPS</h4>
+<div class="sect2">
+<h3 id="_enforcer_filter_using_https"><a class="anchor" href="#_enforcer_filter_using_https"></a>9.6. Setting Up TLS/HTTPS</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/enforcer-https.adoc" target="_blank">Edit this section</a>
@@ -5390,10 +5559,9 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 </div>
 </div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-30 06:48:01 UTC
+Last updated 2018-05-02 12:32:54 UTC
 </div>
 </div>
 <ul id="globalnav">
