@@ -1461,7 +1461,7 @@ Keycloak adapter subsystem. You then have two options to secure your WARs.</p>
 <p>You can provide an adapter config file in your WAR and change the auth-method to KEYCLOAK within web.xml.</p>
 </div>
 <div class="paragraph">
-<p>Alternatively, you don&#8217;t have to modify your WAR at all and you can secure it via the Keycloak adapter subsystem configuration in <code>standalone.xml</code>.
+<p>Alternatively, you don&#8217;t have to modify your WAR at all and you can secure it via the Keycloak adapter subsystem configuration in the configuration file, such as <code>standalone.xml</code>.
 Both methods are described in this section.</p>
 </div>
 <div class="sect4">
@@ -1531,6 +1531,18 @@ $ unzip keycloak-as7-adapter-dist-4.0.0.Beta3.zip</code></pre>
 </div>
 <div class="paragraph">
 <p>To configure the adapter subsystem if the server is not running execute:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Alternatively, you can specify the <code>server.config</code> property while installing adapters from the command line to install adapters using a different config, for example: <code>-Dserver.config=standalone-ha.xml</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="title">WildFly 11</div>
@@ -9859,7 +9871,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-05-02 12:33:00 UTC
+Last updated 2018-05-03 17:51:37 UTC
 </div>
 </div>
 <ul id="globalnav">
