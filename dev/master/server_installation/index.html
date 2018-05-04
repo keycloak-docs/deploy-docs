@@ -2764,6 +2764,17 @@ of redirects in your browser and you see the errors like this in the Keycloak se
 <p>it probably means that your load balancer needs to be set to support sticky sessions. Make sure that the provided route name used during startup of Keycloak server (Property <code>jboss.node.name</code>) contains the correct name used by the load balancer server to identify the current server.</p>
 </div>
 </li>
+<li>
+<p>If the Infinispan <code>work</code> cache grows indefinitely, you may be experiencing <a href="https://issues.jboss.org/browse/JDG-987">this Infinispan issue</a>,
+which is caused by cache items not being properly expired. In that case, update the cache declaration with an empty <code>&lt;expiration /&gt;</code> tag like this:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml">    <span class="tag">&lt;replicated-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">work</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">configuration</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sessions-cfg</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;expiration</span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/replicated-cache&gt;</span></code></pre>
+</div>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -5537,7 +5548,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-05-03 17:51:49 UTC
+Last updated 2018-05-04 07:18:27 UTC
 </div>
 </div>
 <ul id="globalnav">
