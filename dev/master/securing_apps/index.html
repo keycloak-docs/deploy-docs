@@ -6012,6 +6012,13 @@ but send an HTTP <code>401</code> status code to unauthenticated SOAP or REST cl
 Keycloak auto-detects SOAP or REST clients based on typical headers like <code>X-Requested-With</code>, <code>SOAPAction</code> or <code>Accept</code>.
 The default value is <em>false</em>.</p>
 </dd>
+<dt class="hdlist1">logoutPage</dt>
+<dd>
+<p>This sets the page to display after logout. If the page is a full URL, such as <code><a href="http://web.example.com/logout.html" class="bare">http://web.example.com/logout.html</a></code>,
+the user is redirected after logout to that page using the HTTP <code>302</code> status code. If a link without scheme part is specified,
+such as <code>/logout.jsp</code>, the page is displayed after logout, <em>regardless of whether it lies in a protected area according
+to <code>security-constraint</code> declarations in web.xml</em>, and the page is resolved relative to the deployment context root.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -9897,7 +9904,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-06-05 08:11:11 UTC
+Last updated 2018-06-05 12:52:29 UTC
 </div>
 </div>
 <ul id="globalnav">
