@@ -1403,6 +1403,20 @@ for the particular client in the Keycloak admin console, in client details in th
 described in <a href="#_compatibility_with_older_adapters">Compatibility with older adapters</a>. There is the <code>Exclude Session State From Authentication Response</code> switch,
 which can be turned on to prevent adding the <code>session_state</code> parameter to the Authentication Response.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The parameter <code>session_state</code> was added in 3.4.2, however the switch <code>Exclude Session State From Authentication Response</code> was added
+in 4.0.0.Beta1. If your Keycloak server is on 3.4.2 or 3.4.3 and you have issues with <code>session_state</code> parameter, you will need
+to upgrade the server to 4.0.0.Beta1 or newer.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2207,7 +2221,7 @@ credentials tab in the administration console.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-06-05 12:52:43 UTC
+Last updated 2018-06-06 18:37:57 UTC
 </div>
 </div>
 <ul id="globalnav">
