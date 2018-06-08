@@ -712,7 +712,7 @@ span.image img {
 <li><a href="#security-context">2.1.13. Security Context</a></li>
 <li><a href="#_adapter_error_handling">2.1.14. Error Handling</a></li>
 <li><a href="#logout">2.1.15. Logout</a></li>
-<li><a href="#parameters-forwarding">2.1.16. Parameters Forwarding</a></li>
+<li><a href="#_params_forwarding">2.1.16. Parameters Forwarding</a></li>
 <li><a href="#_client_authentication_adapter">2.1.17. Client Authentication</a></li>
 <li><a href="#_multi_tenancy">2.1.18. Multi Tenancy</a></li>
 <li><a href="#_applicationclustering">2.1.19. Application Clustering</a></li>
@@ -4198,7 +4198,7 @@ For Java EE servlet containers, you can call HttpServletRequest.logout(). For ot
 </div>
 </div>
 <div class="sect3">
-<h4 id="parameters-forwarding"><a class="anchor" href="#parameters-forwarding"></a>2.1.16. Parameters Forwarding</h4>
+<h4 id="_params_forwarding"><a class="anchor" href="#_params_forwarding"></a>2.1.16. Parameters Forwarding</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/params_forwarding.adoc" target="_blank">Edit this section</a>
@@ -4228,7 +4228,9 @@ the particular parameter will be forwarded to the Keycloak authorization endpoin
 <div class="ulist">
 <ul>
 <li>
-<p>scope</p>
+<p>scope - Use a space-delimited list of scopes. A space-delimited list typically references <a href="https://www.keycloak.org/docs/4.0/server_admin/#_client_scopes">Client scopes</a>
+defined on particular client. Note that the scope <code>openid</code> will be always be added to the list of scopes by the adapter. For example, if you
+enter the scope options <code>address phone</code>, then the request to Keycloak will contain the scope parameter <code>scope=openid address phone</code>.</p>
 </li>
 <li>
 <p>prompt - Keycloak supports these settings:</p>
@@ -4246,13 +4248,15 @@ to the user. See more details in the specification.</p>
 </div>
 </li>
 <li>
-<p>max_age</p>
+<p>max_age - Used only if a user is already authenticated. Specifies maximum permitted time for the authentication to persist, measured
+from when the user authenticated. If user is authenticated longer than <code>maxAge</code>, the SSO is ignored and he must re-authenticate.</p>
 </li>
 <li>
-<p>login_hint</p>
+<p>login_hint - Used to pre-fill the username/email field on the login form.</p>
 </li>
 <li>
-<p>kc_idp_hint</p>
+<p>kc_idp_hint - Used to tell Keycloak to skip showing login page and automatically redirect to specified identity provider instead.
+More info in the <a href="https://www.keycloak.org/docs/4.0/server_admin/#_client_suggested_idp">Identity Provider documentation</a>.</p>
 </li>
 </ul>
 </div>
@@ -5038,6 +5042,16 @@ Available options:</p>
 </li>
 <li>
 <p>loginHint - Used to pre-fill the username/email field on the login form.</p>
+</li>
+<li>
+<p>scope - Used to forward the scope parameter to the Keycloak login endpoint. Use a space-delimited list of scopes. Those typically
+reference <a href="https://www.keycloak.org/docs/4.0/server_admin/#_client_scopes">Client scopes</a> defined on particular client. Note that the scope <code>openid</code> will be
+always be added to the list of scopes by the adapter. For example, if you enter the scope options <code>address phone</code>, then the request
+to Keycloak will contain the scope parameter <code>scope=openid address phone</code>.</p>
+</li>
+<li>
+<p>idpHint - Used to tell Keycloak to skip showing the login page and automatically redirect to the specified identity
+provider instead. More info in the <a href="https://www.keycloak.org/docs/4.0/server_admin/#_client_suggested_idp">Identity Provider documentation</a>.</p>
 </li>
 <li>
 <p>action - If value is 'register' then user is redirected to registration page, otherwise to login page.</p>
@@ -8547,7 +8561,7 @@ to set <code>Redirect URI</code> of client pointing to some untrusted host. By d
 </li>
 <li>
 <p>Consent Required Policy - Newly registered clients will have <code>Consent Allowed</code> switch enabled. So after successful authentication, user will always
-see consent screen when he needs to approve personal info and permissions (protocol mappers and roles). It means that client won&#8217;t have access to any personal
+see consent screen when he needs to approve permissions (client scopes). It means that client won&#8217;t have access to any personal
 info or permission of user unless user approves it.</p>
 </li>
 <li>
@@ -8556,8 +8570,8 @@ or updated if it contains some non-whitelisted protocol mapper. Note that this p
 even for authenticated request there are some limitations which protocol mappers can be used.</p>
 </li>
 <li>
-<p>Client Template Policy - Allow to whitelist <code>Client Templates</code>, which can be used with newly registered or updated clients.
-There are no whitelisted templates by default.</p>
+<p>Client Scope Policy - Allow to whitelist <code>Client Scopes</code>, which can be used with newly registered or updated clients.
+There are no whitelisted scopes by default; only the client scopes, which are defined as <code>Realm Default Client Scopes</code> are whitelisted by default.</p>
 </li>
 <li>
 <p>Full Scope Policy - Newly registered clients will have <code>Full Scope Allowed</code> switch disabled. This means they won&#8217;t have any scoped
@@ -9904,7 +9918,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-06-07 19:26:47 UTC
+Last updated 2018-06-08 13:40:16 UTC
 </div>
 </div>
 <ul id="globalnav">
