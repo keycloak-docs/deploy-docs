@@ -700,22 +700,23 @@ span.image img {
 <li><a href="#_java_adapter_config">2.1.1. Java Adapter Config</a></li>
 <li><a href="#jboss-eap-wildfly-adapter">2.1.2. JBoss EAP/WildFly Adapter</a></li>
 <li><a href="#_jboss_adapter_rpm">2.1.3. Installing JBoss EAP Adapter from an RPM</a></li>
-<li><a href="#_fuse_adapter">2.1.4. JBoss Fuse Adapter</a></li>
-<li><a href="#_spring_boot_adapter">2.1.5. Spring Boot Adapter</a></li>
-<li><a href="#_tomcat_adapter">2.1.6. Tomcat 6, 7 and 8 Adapters</a></li>
-<li><a href="#_jetty9_adapter">2.1.7. Jetty 9.x Adapters</a></li>
-<li><a href="#_jetty8_adapter">2.1.8. Jetty 8.1.x Adapter</a></li>
-<li><a href="#_spring_security_adapter">2.1.9. Spring Security Adapter</a></li>
-<li><a href="#_servlet_filter_adapter">2.1.10. Java Servlet Filter Adapter</a></li>
-<li><a href="#_jaas_adapter">2.1.11. JAAS plugin</a></li>
-<li><a href="#_installed_adapter">2.1.12. CLI / Desktop Applications</a></li>
-<li><a href="#security-context">2.1.13. Security Context</a></li>
-<li><a href="#_adapter_error_handling">2.1.14. Error Handling</a></li>
-<li><a href="#logout">2.1.15. Logout</a></li>
-<li><a href="#_params_forwarding">2.1.16. Parameters Forwarding</a></li>
-<li><a href="#_client_authentication_adapter">2.1.17. Client Authentication</a></li>
-<li><a href="#_multi_tenancy">2.1.18. Multi Tenancy</a></li>
-<li><a href="#_applicationclustering">2.1.19. Application Clustering</a></li>
+<li><a href="#_fuse_adapter">2.1.4. JBoss Fuse 6 Adapter</a></li>
+<li><a href="#_fuse7_adapter">2.1.5. JBoss Fuse 7 Adapter</a></li>
+<li><a href="#_spring_boot_adapter">2.1.6. Spring Boot Adapter</a></li>
+<li><a href="#_tomcat_adapter">2.1.7. Tomcat 6, 7 and 8 Adapters</a></li>
+<li><a href="#_jetty9_adapter">2.1.8. Jetty 9.x Adapters</a></li>
+<li><a href="#_jetty8_adapter">2.1.9. Jetty 8.1.x Adapter</a></li>
+<li><a href="#_spring_security_adapter">2.1.10. Spring Security Adapter</a></li>
+<li><a href="#_servlet_filter_adapter">2.1.11. Java Servlet Filter Adapter</a></li>
+<li><a href="#_jaas_adapter">2.1.12. JAAS plugin</a></li>
+<li><a href="#_installed_adapter">2.1.13. CLI / Desktop Applications</a></li>
+<li><a href="#security-context">2.1.14. Security Context</a></li>
+<li><a href="#_adapter_error_handling">2.1.15. Error Handling</a></li>
+<li><a href="#logout">2.1.16. Logout</a></li>
+<li><a href="#_params_forwarding">2.1.17. Parameters Forwarding</a></li>
+<li><a href="#_client_authentication_adapter">2.1.18. Client Authentication</a></li>
+<li><a href="#_multi_tenancy">2.1.19. Multi Tenancy</a></li>
+<li><a href="#_applicationclustering">2.1.20. Application Clustering</a></li>
 </ul>
 </li>
 <li><a href="#_javascript_adapter">2.2. JavaScript Adapter</a>
@@ -1901,7 +1902,7 @@ The default EAP_HOME path for the RPM installation is /opt/rh/eap6/root/usr/shar
 </div>
 </div>
 <div class="sect3">
-<h4 id="_fuse_adapter"><a class="anchor" href="#_fuse_adapter"></a>2.1.4. JBoss Fuse Adapter</h4>
+<h4 id="_fuse_adapter"><a class="anchor" href="#_fuse_adapter"></a>2.1.4. JBoss Fuse 6 Adapter</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse-adapter.adoc" target="_blank">Edit this section</a>
@@ -1909,10 +1910,10 @@ The default EAP_HOME path for the RPM installation is /opt/rh/eap6/root/usr/shar
 </div>
 </div>
 <div class="paragraph">
-<p>Currently Keycloak supports securing your web applications running inside <a href="https://developers.redhat.com/products/fuse/overview/">JBoss Fuse</a>.</p>
+<p>Keycloak supports securing your web applications running inside <a href="https://developers.redhat.com/products/fuse/overview/">JBoss Fuse 6</a>.</p>
 </div>
 <div class="paragraph">
-<p>It leverages <a href="#_jetty9_adapter">Jetty 9 adapter</a> as JBoss Fuse 6.3.0 Rollup 5 is bundled with <a href="http://www.eclipse.org/jetty/">Jetty 9.2 server</a>
+<p>JBoss Fuse 6 leverages <a href="#_jetty9_adapter">Jetty 9 adapter</a> as JBoss Fuse 6.3.0 Rollup 5 is bundled with <a href="http://www.eclipse.org/jetty/">Jetty 9.2 server</a>
 under the covers and Jetty is used for running various kinds of web applications.</p>
 </div>
 <div class="admonitionblock warning">
@@ -1922,7 +1923,7 @@ under the covers and Jetty is used for running various kinds of web applications
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-The only supported version of Fuse is JBoss Fuse 6.3.0 Rollup 5. If you use earlier versions of Fuse, it is possible that some functions will not work correctly. In particular, the <a href="http://hawt.io">Hawtio</a> integration will not work with earlier versions of Fuse.
+The only supported version of Fuse 6 is JBoss Fuse 6.3.0 Rollup 5. If you use earlier versions of Fuse 6, it is possible that some functions will not work correctly. In particular, the <a href="http://hawt.io">Hawtio</a> integration will not work with earlier versions of Fuse 6.
 </td>
 </tr>
 </table>
@@ -1956,14 +1957,13 @@ The only supported version of Fuse is JBoss Fuse 6.3.0 Rollup 5. If you use earl
 </ul>
 </div>
 <div class="sect4">
-<h5 id="securing-your-web-applications-inside-fuse"><a class="anchor" href="#securing-your-web-applications-inside-fuse"></a>Securing Your Web Applications Inside Fuse</h5>
+<h5 id="securing-your-web-applications-inside-fuse-6"><a class="anchor" href="#securing-your-web-applications-inside-fuse-6"></a>Securing Your Web Applications Inside Fuse 6</h5>
 <div class="paragraph">
 <p>You must first install the Keycloak Karaf feature. Next you will need to perform the steps according to the type of application you want to secure.
 All referenced web applications require injecting the Keycloak Jetty authenticator into the underlying Jetty server. The steps to achieve this depend on the application type. The details are described below.</p>
 </div>
 <div class="paragraph">
-<p>The best place to start is look at Fuse demo bundled as part of Keycloak examples in directory <code>fuse</code> . Most of the steps should be understandable from testing and
-understanding the demo.</p>
+<p>The best place to start is look at Fuse demo bundled as part of Keycloak examples in directory <code>fuse</code> . Most of the steps should be understandable from testing and understanding the demo.</p>
 </div>
 </div>
 <div class="sect4">
@@ -2998,7 +2998,881 @@ features:install keycloak</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_spring_boot_adapter"><a class="anchor" href="#_spring_boot_adapter"></a>2.1.5. Spring Boot Adapter</h4>
+<h4 id="_fuse7_adapter"><a class="anchor" href="#_fuse7_adapter"></a>2.1.5. JBoss Fuse 7 Adapter</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse7-adapter.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse7-adapter.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>Keycloak supports securing your web applications running inside <a href="https://developers.redhat.com/products/fuse/overview/">JBoss Fuse 7</a>.</p>
+</div>
+<div class="paragraph">
+<p>JBoss Fuse 7 leverages Undertow adapter which is essentially the same as
+<a href="#_jboss_adapter">EAP 7 / WildFly 10 Adapter</a>
+as JBoss Fuse 7.0.1 is bundled with <a href="http://undertow.io/">Undertow HTTP engine</a> under the covers and Undertow is used for running various kinds of web applications.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The only supported versions of Fuse 7 is JBoss Fuse 7.0.1. If you use earlier versions of Fuse 7, it is possible that some functions will not work correctly. In particular, integration will not work at all for earlier versions of Fuse 7 than 7.0.1.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Security for the following items is supported for Fuse:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Classic WAR applications deployed on Fuse with Pax Web War Extender</p>
+</li>
+<li>
+<p>Servlets deployed on Fuse as OSGI services with Pax Web Whiteboard Extender and additionally servlets registered through
+org.osgi.service.http.HttpService#registerServlet() which is standard OSGi Enterprise HTTP Service</p>
+</li>
+<li>
+<p><a href="http://camel.apache.org/">Apache Camel</a> Undertow endpoints running with the <a href="http://camel.apache.org/undertow.html">Camel Undertow</a> component</p>
+</li>
+<li>
+<p><a href="http://cxf.apache.org/">Apache CXF</a> endpoints running on their own separate Undertow engine</p>
+</li>
+<li>
+<p><a href="http://cxf.apache.org/">Apache CXF</a> endpoints running on the default engine provided by the CXF servlet</p>
+</li>
+<li>
+<p>SSH and JMX admin access</p>
+</li>
+<li>
+<p><a href="http://hawt.io">Hawtio administration console</a></p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="securing-your-web-applications-inside-fuse-7"><a class="anchor" href="#securing-your-web-applications-inside-fuse-7"></a>Securing Your Web Applications Inside Fuse 7</h5>
+<div class="paragraph">
+<p>You must first install the Keycloak Karaf feature. Next you will need to perform the steps according to the type of application you want to secure.
+All referenced web applications require injecting the Keycloak Undertow authentication mechanism into the underlying web server. The steps to achieve this depend on the application type. The details are described below.</p>
+</div>
+<div class="paragraph">
+<p>The best place to start is look at Fuse demo bundled as part of Keycloak examples in directory <code>fuse</code> . Most of the steps should be understandable from testing and understanding the demo.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fuse7_install_feature"><a class="anchor" href="#_fuse7_install_feature"></a>Installing the Keycloak Feature</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse7/install-feature.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse7/install-feature.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>You must first install the <code>keycloak-pax-http-undertow</code> and <code>keycloak-jaas</code> features in the JBoss Fuse environment. The <code>keycloak</code> feature includes the Fuse adapter and all third-party dependencies. The <code>keycloak-jaas</code> contains JAAS module used in realm for SSH and JMX authentication. You can install it either from the Maven repository or from an archive.</p>
+</div>
+<div class="sect5">
+<h6 id="installing-from-the-maven-repository-2"><a class="anchor" href="#installing-from-the-maven-repository-2"></a>Installing from the Maven Repository</h6>
+<div class="paragraph">
+<p>As a prerequisite, you must be online and have access to the Maven repository.</p>
+</div>
+<div class="paragraph">
+<p>For community it&#8217;s sufficient to be online as all the artifacts and 3rd party dependencies should be available in the maven central repository.</p>
+</div>
+<div class="paragraph">
+<p>To install the keycloak feature using the Maven repository, complete the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start JBoss Fuse 7.0.1; then in the Karaf terminal type:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>feature:repo-add mvn:org.keycloak/keycloak-osgi-features/4.0.0.Final/xml/features
+feature:install keycloak-pax-http-undertow keycloak-jaas</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>You might also need to install the Undertow feature:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>feature:install pax-http-undertow</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Ensure that the features were installed:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>feature:list | grep keycloak</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="installing-from-the-zip-bundle-2"><a class="anchor" href="#installing-from-the-zip-bundle-2"></a>Installing from the ZIP bundle</h6>
+<div class="paragraph">
+<p>This is useful if you are offline or do not want to use Maven to obtain the JAR files and other artifacts.</p>
+</div>
+<div class="paragraph">
+<p>To install the Fuse adapter from the ZIP archive, complete the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download the Keycloak Fuse adapter ZIP archive.</p>
+</li>
+<li>
+<p>Unzip it into the root directory of JBoss Fuse. The dependencies are then installed under the <code>system</code> directory. You can overwrite all existing jar files.</p>
+<div class="paragraph">
+<p>Use this for JBoss Fuse 7.0.1:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>cd /path-to-fuse/jboss-fuse-7.0.z
+unzip -q /path-to-adapter-zip/keycloak-fuse-adapter-4.0.0.Final.zip</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Start Fuse and run these commands in the fuse/karaf terminal:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>feature:repo-add mvn:org.keycloak/keycloak-osgi-features/4.0.0.Final/xml/features
+feature:install keycloak-pax-http-undertow keycloak-jaas</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install the corresponding Undertow adapter. Since the artifacts are available directly in the JBoss Fuse <code>system</code> directory, you do not need to use the Maven repository.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fuse7_adapter_classic_war"><a class="anchor" href="#_fuse7_adapter_classic_war"></a>Securing a Classic WAR Application</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse7/classic-war.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse7/classic-war.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>The needed steps to secure your WAR application are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <code>/WEB-INF/web.xml</code> file, declare the necessary:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>security constraints in the &lt;security-constraint&gt; element</p>
+</li>
+<li>
+<p>login configuration in the &lt;login-config&gt; element. Make sure that the <code>&lt;auth-method&gt;</code> is <code>KEYCLOAK</code>.</p>
+</li>
+<li>
+<p>security roles in the &lt;security-role&gt; element</p>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="tag">&lt;web-app</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://java.sun.com/xml/ns/javaee</span><span class="delimiter">&quot;</span></span>
+         <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
+         <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd</span><span class="delimiter">&quot;</span></span>
+         <span class="attribute-name">version</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">3.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;module-name&gt;</span>customer-portal<span class="tag">&lt;/module-name&gt;</span>
+
+    <span class="tag">&lt;welcome-file-list&gt;</span>
+        <span class="tag">&lt;welcome-file&gt;</span>index.html<span class="tag">&lt;/welcome-file&gt;</span>
+    <span class="tag">&lt;/welcome-file-list&gt;</span>
+
+    <span class="tag">&lt;security-constraint&gt;</span>
+        <span class="tag">&lt;web-resource-collection&gt;</span>
+            <span class="tag">&lt;web-resource-name&gt;</span>Customers<span class="tag">&lt;/web-resource-name&gt;</span>
+            <span class="tag">&lt;url-pattern&gt;</span>/customers/*<span class="tag">&lt;/url-pattern&gt;</span>
+        <span class="tag">&lt;/web-resource-collection&gt;</span>
+        <span class="tag">&lt;auth-constraint&gt;</span>
+            <span class="tag">&lt;role-name&gt;</span>user<span class="tag">&lt;/role-name&gt;</span>
+        <span class="tag">&lt;/auth-constraint&gt;</span>
+    <span class="tag">&lt;/security-constraint&gt;</span>
+
+    <span class="tag">&lt;login-config&gt;</span>
+        <span class="tag">&lt;auth-method&gt;</span>KEYCLOAK<span class="tag">&lt;/auth-method&gt;</span>
+        <span class="tag">&lt;realm-name&gt;</span>does-not-matter<span class="tag">&lt;/realm-name&gt;</span>
+    <span class="tag">&lt;/login-config&gt;</span>
+
+    <span class="tag">&lt;security-role&gt;</span>
+        <span class="tag">&lt;role-name&gt;</span>admin<span class="tag">&lt;/role-name&gt;</span>
+    <span class="tag">&lt;/security-role&gt;</span>
+    <span class="tag">&lt;security-role&gt;</span>
+        <span class="tag">&lt;role-name&gt;</span>user<span class="tag">&lt;/role-name&gt;</span>
+    <span class="tag">&lt;/security-role&gt;</span>
+<span class="tag">&lt;/web-app&gt;</span></code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Within the <code>/WEB-INF/</code> directory of your WAR, create a new file, keycloak.json. The format of this configuration file is described in the <a href="#_java_adapter_config">Java Adapters Config</a> section. It is also possible to make this file available externally as described in <a href="#config_external_adapter">Configuring the External Adapter</a>.</p>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">realm</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">demo</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">resource</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">customer-portal</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">auth-server-url</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8080/auth</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">ssl-required</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">external</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">credentials</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">secret</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>
+    }
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Contrary to the Fuse 6 adapter, there are no special OSGi imports needed in MANIFEST.MF.</p>
+</li>
+</ol>
+</div>
+<div class="sect5">
+<h6 id="_fuse7_config_external_adapter"><a class="anchor" href="#_fuse7_config_external_adapter"></a>Configuring the External Adapter</h6>
+<div class="paragraph">
+<p>If you do not want the <code>keycloak.json</code> adapter configuration file to be bundled inside your WAR application, but instead made available externally and loaded based on naming conventions, use this configuration method.</p>
+</div>
+<div class="paragraph">
+<p>To enable the functionality, add this section to your <code>/WEB_INF/web.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;context-param&gt;</span>
+    <span class="tag">&lt;param-name&gt;</span>keycloak.config.resolver<span class="tag">&lt;/param-name&gt;</span>
+    <span class="tag">&lt;param-value&gt;</span>org.keycloak.adapters.osgi.PathBasedKeycloakConfigResolver<span class="tag">&lt;/param-value&gt;</span>
+<span class="tag">&lt;/context-param&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That component uses <code>keycloak.config</code> or <code>karaf.etc</code> java properties to search for a base folder to locate the configuration.
+Then inside one of those folders it searches for a file called <code>&lt;your_web_context&gt;-keycloak.json</code>.</p>
+</div>
+<div class="paragraph">
+<p>So, for example, if your web application has context <code>my-portal</code>, then your adapter configuration is loaded from the  <code>$FUSE_HOME/etc/my-portal-keycloak.json</code> file.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fuse7_adapter_servlet_whiteboard"><a class="anchor" href="#_fuse7_adapter_servlet_whiteboard"></a>Securing a Servlet Deployed as an OSGI Service</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse7/servlet-whiteboard.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse7/servlet-whiteboard.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>You can use this method if you have a servlet class inside your OSGI bundled project that is not deployed as a classic WAR application. Fuse uses Pax Web Whiteboard Extender to deploy such servlets as web applications.</p>
+</div>
+<div class="paragraph">
+<p>To secure your servlet with Keycloak, complete the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Keycloak provides <code>org.keycloak.adapters.osgi.undertow.PaxWebIntegrationService</code>, which allows configuring authentication method and security constraints for your application. You need to declare such services in the <code>OSGI-INF/blueprint/blueprint.xml</code> file inside your application. Note that your servlet needs to depend on it.
+An example configuration:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="tag">&lt;blueprint</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.osgi.org/xmlns/blueprint/v1.0.0</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">servletConstraintMapping</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.PaxWebSecurityConstraintMapping</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">roles</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;list&gt;</span>
+                <span class="tag">&lt;value&gt;</span>user<span class="tag">&lt;/value&gt;</span>
+            <span class="tag">&lt;/list&gt;</span>
+        <span class="tag">&lt;/property&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">authentication</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">url</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/product-portal/*</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
+
+    <span class="comment">&lt;!-- This handles the integration and setting the login-config and security-constraints parameters --&gt;</span>
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakPaxWebIntegration</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.undertow.PaxWebIntegrationService</span><span class="delimiter">&quot;</span></span>
+          <span class="attribute-name">init-method</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">start</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">destroy-method</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stop</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">bundleContext</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blueprintBundleContext</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">constraintMappings</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;list&gt;</span>
+                <span class="tag">&lt;ref</span> <span class="attribute-name">component-id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">servletConstraintMapping</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;/list&gt;</span>
+        <span class="tag">&lt;/property&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
+
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">productServlet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.example.ProductPortalServlet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">depends-on</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakPaxWebIntegration</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+
+    <span class="tag">&lt;service</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">productServlet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">interface</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">javax.servlet.Servlet</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;service-properties&gt;</span>
+            <span class="tag">&lt;entry</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">alias</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/product-portal</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;entry</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">servlet-name</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ProductServlet</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;entry</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak.config.file</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/keycloak.json</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;/service-properties&gt;</span>
+    <span class="tag">&lt;/service&gt;</span>
+<span class="tag">&lt;/blueprint&gt;</span></code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You might need to have the <code>WEB-INF</code> directory inside your project (even if your project is not a web application) and create the <code>/WEB-INF/keycloak.json</code> file as  described in the <a href="#_fuse7_adapter_classic_war">Classic WAR application</a> section.
+Note you don&#8217;t need the <code>web.xml</code> file as the security-constraints are declared in the blueprint configuration file.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Contrary to the Fuse 6 adapter, there are no special OSGi imports needed in MANIFEST.MF.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fuse7_adapter_camel"><a class="anchor" href="#_fuse7_adapter_camel"></a>Securing an Apache Camel Application</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse7/camel.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse7/camel.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>You can secure Apache Camel endpoints implemented with the <a href="http://camel.apache.org/undertow.html">camel-undertow</a> component by injecting the proper security constraints via blueprint and updating the used component to <code>undertow-keycloak</code>. You have to add the <code>OSGI-INF/blueprint/blueprint.xml</code> file to your Camel application with a similar configuration as below. The roles and security constraint mappings, and adapter configuration might differ slightly depending on your environment and needs.</p>
+</div>
+<div class="paragraph">
+<p>Compared to the standard <code>undertow</code> component, <code>undertow-keycloak</code> component adds two new properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>configResolver</code> is a bean that supplies Keycloak configuration file to:</p>
+</li>
+<li>
+<p><code>org.keycloak.adapters.osgi.BundleBasedKeycloakConfigResolver</code>: the Keycloak adapter configuration will be looked up inside the bundle and should be stored in <code>WEB-INF/keycloak.json</code> file.</p>
+</li>
+<li>
+<p><code>org.keycloak.adapters.osgi.PathBasedKeycloakConfigResolver</code>: the Keycloak adapter configuration will be looked up as described in <a href="#_fuse7_config_external_adapter">External adapter configuration</a>.</p>
+</li>
+<li>
+<p><code>allowedRoles</code> is a comma-separated list of roles. User accessing the service has to have at least one role to be permitted the access.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="tag">&lt;blueprint</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.osgi.org/xmlns/blueprint/v1.0.0</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xmlns:camel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://camel.apache.org/schema/blueprint</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span>
+       <span class="content">http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd</span>
+       <span class="content">http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint-2.17.1.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakConfigResolver</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.BundleBasedKeycloakConfigResolver</span><span class="delimiter">&quot;</span></span> <span class="tag">&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">bundleContext</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blueprintBundleContext</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
+
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">helloProcessor</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.example.CamelHelloProcessor</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+
+    <span class="tag">&lt;camelContext</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blueprintContext</span><span class="delimiter">&quot;</span></span>
+                  <span class="attribute-name">trace</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span>
+                  <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://camel.apache.org/schema/blueprint</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+        <span class="tag">&lt;route</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">httpBridge</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;from</span> <span class="attribute-name">uri</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">undertow-keycloak:http://0.0.0.0:8383/admin-camel-endpoint?matchOnUriPrefix=true</span><span class="entity">&amp;amp;</span><span class="content">configResolver=#keycloakConfigResolver</span><span class="entity">&amp;amp;</span><span class="content">allowedRoles=admin</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;process</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">helloProcessor</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;log</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">The message from camel endpoint contains ${body}</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/route&gt;</span>
+
+    <span class="tag">&lt;/camelContext&gt;</span>
+
+<span class="tag">&lt;/blueprint&gt;</span></code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>Import-Package</code> in <code>META-INF/MANIFEST.MF</code> needs to contain these imports:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>javax.servlet;version="[3,4)",
+javax.servlet.http;version="[3,4)",
+javax.net.ssl,
+org.apache.camel.*,
+org.apache.camel;version="[2.13,3)",
+io.undertow.*,
+org.keycloak.*;version="4.0.0.Final",
+org.osgi.service.blueprint,
+org.osgi.service.blueprint.container</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="camel-restdsl-2"><a class="anchor" href="#camel-restdsl-2"></a>Camel RestDSL</h5>
+<div class="paragraph">
+<p>Camel RestDSL is a Camel feature used to define your REST endpoints in a fluent way. But you must still use specific implementation classes and provide instructions on how to integrate with Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>The way to configure the integration mechanism depends on the Camel component for which you configure your RestDSL-defined routes.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to configure integration using the <code>undertow-keycloak</code> component, with references to some of the beans defined in previous Blueprint example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;camelContext</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blueprintContext</span><span class="delimiter">&quot;</span></span>
+              <span class="attribute-name">trace</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span>
+              <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://camel.apache.org/schema/blueprint</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+    <span class="comment">&lt;!--the link with Keycloak security handlers happens by using undertow-keycloak component --&gt;</span>
+    <span class="tag">&lt;restConfiguration</span> <span class="attribute-name">apiComponent</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">undertow-keycloak</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">contextPath</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/restdsl</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">8484</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;endpointProperty</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">configResolver</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">#keycloakConfigResolver</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;endpointProperty</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">allowedRoles</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">admin,superadmin</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/restConfiguration&gt;</span>
+
+    <span class="tag">&lt;rest</span> <span class="attribute-name">path</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/hello</span><span class="delimiter">&quot;</span></span> <span class="tag">&gt;</span>
+        <span class="tag">&lt;description&gt;</span>Hello rest service<span class="tag">&lt;/description&gt;</span>
+        <span class="tag">&lt;get</span> <span class="attribute-name">uri</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/{id}</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">outType</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">java.lang.String</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;description&gt;</span>Just a hello<span class="tag">&lt;/description&gt;</span>
+            <span class="tag">&lt;to</span> <span class="attribute-name">uri</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">direct:justDirect</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;/get&gt;</span>
+
+    <span class="tag">&lt;/rest&gt;</span>
+
+    <span class="tag">&lt;route</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">justDirect</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;from</span> <span class="attribute-name">uri</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">direct:justDirect</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;process</span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">helloProcessor</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;log</span> <span class="attribute-name">message</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">RestDSL correctly invoked ${body}</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;setBody&gt;</span>
+            <span class="tag">&lt;constant&gt;</span>(__This second sentence is returned from a Camel RestDSL endpoint__)<span class="tag">&lt;/constant&gt;</span>
+        <span class="tag">&lt;/setBody&gt;</span>
+    <span class="tag">&lt;/route&gt;</span>
+
+<span class="tag">&lt;/camelContext&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fuse7_adapter_cxf_separate"><a class="anchor" href="#_fuse7_adapter_cxf_separate"></a>Securing an Apache CXF Endpoint on a Separate Undertow Engine</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse7/cxf-separate.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse7/cxf-separate.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>To run your CXF endpoints secured by Keycloak on a separate Undertow engine, complete the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add <code>OSGI-INF/blueprint/blueprint.xml</code> to your application, and in it, add the proper configuration resolver bean similarly to <a href="#_fuse7_adapter_camel">Camel configuration</a>.
+In the <code>httpu:engine-factory</code> declare <code>org.keycloak.adapters.osgi.undertow.CxfKeycloakAuthHandler</code> handler using that camel configuration. The configuration for a CFX JAX-WS application might resemble this one:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="tag">&lt;blueprint</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.osgi.org/xmlns/blueprint/v1.0.0</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xmlns:jaxws</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://cxf.apache.org/blueprint/jaxws</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xmlns:cxf</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://cxf.apache.org/blueprint/core</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xmlns:httpu</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://cxf.apache.org/transports/http-undertow/configuration</span><span class="delimiter">&quot;</span></span><span class="attribute-name">.</span>
+           <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span>
+      <span class="content">http://cxf.apache.org/transports/http-undertow/configuration http://cxf.apache.org/schemas/configuration/http-undertow.xsd</span>
+      <span class="content">http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd</span>
+      <span class="content">http://cxf.apache.org/blueprint/jaxws http://cxf.apache.org/schemas/blueprint/jaxws.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakConfigResolver</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.BundleBasedKeycloakConfigResolver</span><span class="delimiter">&quot;</span></span> <span class="tag">&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">bundleContext</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blueprintBundleContext</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
+
+    <span class="tag">&lt;httpu:engine-factory</span> <span class="attribute-name">bus</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxf</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">kc-cxf-endpoint</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;httpu:engine</span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">8282</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;httpu:handlers&gt;</span>
+                <span class="tag">&lt;bean</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.undertow.CxfKeycloakAuthHandler</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                    <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">configResolver</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloakConfigResolver</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+                <span class="tag">&lt;/bean&gt;</span>
+            <span class="tag">&lt;/httpu:handlers&gt;</span>
+        <span class="tag">&lt;/httpu:engine&gt;</span>
+    <span class="tag">&lt;/httpu:engine-factory&gt;</span>
+
+    <span class="tag">&lt;jaxws:endpoint</span> <span class="attribute-name">implementor</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.example.ws.ProductImpl</span><span class="delimiter">&quot;</span></span>
+                    <span class="attribute-name">address</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8282/ProductServiceCF</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">depends-on</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">kc-cxf-endpoint</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+
+<span class="tag">&lt;/blueprint&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For the CXF JAX-RS application, the only difference might be in the configuration of the endpoint dependent on engine-factory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;jaxrs:server</span> <span class="attribute-name">serviceClass</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.example.rs.CustomerService</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">address</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8282/rest</span><span class="delimiter">&quot;</span></span>
+    <span class="attribute-name">depends-on</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">kc-cxf-endpoint</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;jaxrs:providers&gt;</span>
+        <span class="tag">&lt;bean</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/jaxrs:providers&gt;</span>
+<span class="tag">&lt;/jaxrs:server&gt;</span></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>The <code>Import-Package</code> in <code>META-INF/MANIFEST.MF</code> must contain those imports:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>META-INF.cxf;version="[2.7,3.3)",
+META-INF.cxf.osgi;version="[2.7,3.3)";resolution:=optional,
+org.apache.cxf.bus;version="[2.7,3.3)",
+org.apache.cxf.bus.spring;version="[2.7,3.3)",
+org.apache.cxf.bus.resource;version="[2.7,3.3)",
+org.apache.cxf.transport.http;version="[2.7,3.3)",
+org.apache.cxf.*;version="[2.7,3.3)",
+org.springframework.beans.factory.config,
+org.keycloak.*;version="4.0.0.Final"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fuse7_adapter_cxf_builtin"><a class="anchor" href="#_fuse7_adapter_cxf_builtin"></a>Securing an Apache CXF Endpoint on the Default Jetty Engine</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse7/cxf-builtin.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse7/cxf-builtin.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>Some services automatically come with deployed servlets on startup. One such service is the CXF servlet running in the http://localhost:8181/cxf context. Securing such endpoints can be complicated. One approach, which Keycloak is currently using, is <code>ServletReregistrationService</code> which undeploys a built-in servlet at startup, enabling you to redeploy it on a context secured by Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>The configuration file <code>OSGI-INF/blueprint/blueprint.xml</code> inside your application might resemble the one below. Note that it adds the JAX-RS <code>customerservice</code> endpoint, which is endpoint-specific to your application, but more importantly, secures the entire <code>/cxf</code> context.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="tag">&lt;blueprint</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.osgi.org/xmlns/blueprint/v1.0.0</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xmlns:jaxrs</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://cxf.apache.org/blueprint/jaxrs</span><span class="delimiter">&quot;</span></span>
+           <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span>
+                <span class="content">http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd</span>
+                <span class="content">http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+
+    <span class="comment">&lt;!-- JAXRS Application --&gt;</span>
+
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">customerBean</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.example.rs.CxfCustomerService</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+
+    <span class="tag">&lt;jaxrs:server</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxfJaxrsServer</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">address</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/customerservice</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;jaxrs:providers&gt;</span>
+            <span class="tag">&lt;bean</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;/jaxrs:providers&gt;</span>
+        <span class="tag">&lt;jaxrs:serviceBeans&gt;</span>
+            <span class="tag">&lt;ref</span> <span class="attribute-name">component-id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">customerBean</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;/jaxrs:serviceBeans&gt;</span>
+    <span class="tag">&lt;/jaxrs:server&gt;</span>
+
+
+    <span class="comment">&lt;!-- Securing of whole /cxf context by unregister default cxf servlet from paxweb and re-register with applied security constraints --&gt;</span>
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxfConstraintMapping</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.PaxWebSecurityConstraintMapping</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="comment">&lt;!-- user accessing the servise has to have at least one of the following roles --&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">roles</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;list&gt;</span>
+                <span class="tag">&lt;value&gt;</span>user<span class="tag">&lt;/value&gt;</span>
+            <span class="tag">&lt;/list&gt;</span>
+        <span class="tag">&lt;/property&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">url</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/cxf/*</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">authentication</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
+
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxfKeycloakPaxWebIntegration</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.undertow.PaxWebIntegrationService</span><span class="delimiter">&quot;</span></span>
+          <span class="attribute-name">init-method</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">start</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">destroy-method</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stop</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">bundleContext</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blueprintBundleContext</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">constraintMappings</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;list&gt;</span>
+                <span class="tag">&lt;ref</span> <span class="attribute-name">component-id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxfConstraintMapping</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+            <span class="tag">&lt;/list&gt;</span>
+        <span class="tag">&lt;/property&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
+
+    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">defaultCxfReregistration</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.ServletReregistrationService</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">depends-on</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxfKeycloakPaxWebIntegration</span><span class="delimiter">&quot;</span></span>
+          <span class="attribute-name">init-method</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">start</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">destroy-method</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stop</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">bundleContext</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blueprintBundleContext</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">managedServiceReference</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;reference</span> <span class="attribute-name">interface</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.osgi.service.cm.ManagedService</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">filter</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">(service.pid=org.apache.cxf.osgi)</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">timeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5000</span><span class="delimiter">&quot;</span></span>  <span class="tag">/&gt;</span>
+        <span class="tag">&lt;/property&gt;</span>
+    <span class="tag">&lt;/bean&gt;</span>
+
+<span class="tag">&lt;/blueprint&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As a result, all other CXF services running on the default CXF HTTP destination are also secured. Similarly, when the application is undeployed, the entire <code>/cxf</code> context becomes unsecured as well. For this reason, use your own undertow engine for your applications as described in <a href="#_fuse7_adapter_cxf_separate">Secure CXF Application on separate Undertow Engine</a> since that gives you more control over security for each individual application.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>WEB-INF</code> directory might need to be inside your project (even if your project is not a web application). You might also need to edit the <code>/WEB-INF/keycloak.json</code> file similarly to <a href="#_fuse7_adapter_classic_war">Classic WAR application</a>.
+Note that you do not need the <code>web.xml</code> file as the security constraints are declared in the blueprint configuration file.</p>
+</li>
+<li>
+<p>The <code>Import-Package</code> in <code>META-INF/MANIFEST.MF</code> must contain at least these imports:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>javax.ws.rs;version="[2,3)",
+META-INF.cxf;version="[2.7,3.3)",
+META-INF.cxf.osgi;version="[2.7,3.3)";resolution:=optional,
+org.apache.cxf.transport.http;version="[2.7,3.3)",
+org.apache.cxf.*;version="[2.7,3.3)",
+com.fasterxml.jackson.jaxrs.json;version="${jackson.version}",
+org.keycloak.*;version="${project.version}",</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fuse7_adapter_admin"><a class="anchor" href="#_fuse7_adapter_admin"></a>Securing Fuse Administration Services</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse7/fuse-admin.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse7/fuse-admin.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="sect5">
+<h6 id="using-ssh-authentication-to-fuse-terminal-2"><a class="anchor" href="#using-ssh-authentication-to-fuse-terminal-2"></a>Using SSH Authentication to Fuse Terminal</h6>
+<div class="paragraph">
+<p>Keycloak mainly addresses use cases for authentication of web applications; however, if your other web services and applications are protected
+with Keycloak, protecting non-web administration services such as SSH with Keycloak credentials is a best pracrice. You can do this using the JAAS login module, which allows remote connection to Keycloak and verifies credentials based on
+<a href="#_resource_owner_password_credentials_flow">Resource Owner Password Credentials</a>.</p>
+</div>
+<div class="paragraph">
+<p>To enable SSH authentication, complete the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In  Keycloak create a client (for example, <code>ssh-jmx-admin-client</code>), which will be used for SSH authentication.
+This client needs to have <code>Direct Access Grants Enabled</code> selected to <code>On</code>.</p>
+</li>
+<li>
+<p>In the <code>$FUSE_HOME/etc/org.apache.karaf.shell.cfg</code> file, update or specify this property:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>sshRealm=keycloak</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add the <code>$FUSE_HOME/etc/keycloak-direct-access.json</code> file with content similar to the following (based on your environment and Keycloak client settings):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">realm</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">demo</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">resource</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">ssh-jmx-admin-client</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">ssl-required</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">external</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">auth-server-url</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8080/auth</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">credentials</span><span class="delimiter">&quot;</span></span>: {
+        <span class="key"><span class="delimiter">&quot;</span><span class="content">secret</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This file specifies the client application configuration, which is used by JAAS DirectAccessGrantsLoginModule from the <code>keycloak</code> JAAS realm for SSH authentication.</p>
+</div>
+</li>
+<li>
+<p>Start Fuse and install the <code>keycloak</code> JAAS realm. The easiest way is to install the <code>keycloak-jaas</code> feature, which has the JAAS realm predefined. You can override the feature&#8217;s predefined realm by using your own <code>keycloak</code> JAAS realm with higher ranking. For details see the <a href="https://access.redhat.com/documentation/en-us/red_hat_fuse/7.0/html-single/security_guide/#ESBSecureContainer">JBoss Fuse documentation</a>.</p>
+<div class="paragraph">
+<p>Use these commands in the Fuse terminal:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>features:addurl mvn:org.keycloak/keycloak-osgi-features/4.0.0.Final/xml/features
+features:install keycloak-jaas</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log in using SSH as <code>admin</code> user by typing the following in the terminal:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>ssh -o PubkeyAuthentication=no -p 8101 admin@localhost</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log in with password <code>password</code>.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+On some later operating systems, you might also need to use the SSH command&#8217;s -o option <code>-o HostKeyAlgorithms=+ssh-dss</code> because later SSH clients do not allow use of the <code>ssh-dss</code> algorithm, by default. However, by default, it is currently used in JBoss Fuse 7.0.1.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Note that the user needs to have realm role <code>admin</code> to perform all operations or another role to perform a subset of operations (for example, the <strong>viewer</strong> role that restricts the user to run only read-only Karaf commands). The available roles are configured in <code>$FUSE_HOME/etc/org.apache.karaf.shell.cfg</code> or <code>$FUSE_HOME/etc/system.properties</code>.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="using-jmx-authentication-2"><a class="anchor" href="#using-jmx-authentication-2"></a>Using JMX Authentication</h6>
+<div class="paragraph">
+<p>JMX authentication might be necessary if you want to use jconsole or another external tool to remotely connect to JMX through RMI. Otherwise it might be better to use hawt.io/jolokia, since the jolokia agent is installed in hawt.io by default. For more details see <a href="#_fuse7_hawtio">Hawtio Admin Console</a>.</p>
+</div>
+<div class="paragraph">
+<p>To use JMX authentication, complete the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the <code>$FUSE_HOME/etc/org.apache.karaf.management.cfg</code> file, change the jmxRealm property to:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>jmxRealm=keycloak</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install the <code>keycloak-jaas</code> feature and configure the <code>$FUSE_HOME/etc/keycloak-direct-access.json</code> file as described in the SSH section above.</p>
+</li>
+<li>
+<p>In jconsole you can use a URL such as:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>service:jmx:rmi://localhost:44444/jndi/rmi://localhost:1099/karaf-root</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and credentials: admin/password (based on the user with admin privileges according to your environment).</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_fuse7_hawtio"><a class="anchor" href="#_fuse7_hawtio"></a>Securing the Hawtio Administration Console</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse7/hawtio.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/fuse7/hawtio.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>To secure the Hawtio Administration Console with Keycloak, complete the following steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a client in the Keycloak administration console in your realm. For example, in the Keycloak <code>demo</code> realm, create a client <code>hawtio-client</code>, specify <code>public</code> as the Access Type, and specify a redirect URI pointing to Hawtio: http://localhost:8181/hawtio/*. You must also have a corresponding Web Origin configured (in this case, http://localhost:8181).</p>
+</li>
+<li>
+<p>Create the <code>keycloak-hawtio-client.json</code> file in the <code>$FUSE_HOME/etc</code> directory using content similar to that shown in the example below. Change the <code>realm</code>, <code>resource</code>, and <code>auth-server-url</code> properties according to your Keycloak environment. The <code>resource</code> property must point to the client created in the previous step. This file is used by the client (Hawtio JavaScript application) side.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">realm</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">demo</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">clientId</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">hawtio-client</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">url</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8080/auth</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">ssl-required</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">external</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">public-client</span><span class="delimiter">&quot;</span></span> : <span class="value">true</span>
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create the <code>keycloak-direct-access.json</code> file in the <code>$FUSE_HOME/etc</code> directory using content similar to that shown in the example below. Change the <code>realm</code> and <code>url</code> properties according to your Keycloak environment. This file is used by JavaScript client.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">realm</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">demo</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">resource</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">ssh-jmx-admin-client</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">auth-server-url</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8080/auth</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">ssl-required</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">external</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">credentials</span><span class="delimiter">&quot;</span></span>: {
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">secret</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">password</span><span class="delimiter">&quot;</span></span>
+  }
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create the <code>keycloak-bearer.json</code> file in the <code>$FUSE_HOME/etc</code> dicrectory using content similar to that shown in the example below. Change the <code>realm</code> and <code>auth-server-url</code> properties according to your Keycloak environment. This file is used by the adapters on the server (JAAS Login module) side.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">realm</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">demo</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">resource</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">jaas</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">bearer-only</span><span class="delimiter">&quot;</span></span> : <span class="value">true</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">auth-server-url</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8080/auth</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">ssl-required</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">external</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">use-resource-role-mappings</span><span class="delimiter">&quot;</span></span>: <span class="value">false</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">principal-attribute</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">preferred_username</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Start JBoss Fuse 7.0.1, <a href="#_fuse7_install_feature">install the Keycloak feature</a>. Then type in the Karaf terminal:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>system:property hawtio.keycloakEnabled true
+system:property hawtio.realm keycloak
+system:property hawtio.keycloakClientConfig file://\${karaf.base}/etc/keycloak-hawtio-client.json
+system:property hawtio.rolePrincipalClasses org.keycloak.adapters.jaas.RolePrincipal,org.apache.karaf.jaas.boot.principal.RolePrincipal
+restart io.hawt.hawtio-war</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Go to <a href="http://localhost:8181/hawtio" class="bare">http://localhost:8181/hawtio</a> and log in as a user from your Keycloak realm.</p>
+<div class="paragraph">
+<p>Note that the user needs to have the proper realm role to successfully authenticate to Hawtio. The available roles are configured in the <code>$FUSE_HOME/etc/system.properties</code> file in <code>hawtio.roles</code>.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_spring_boot_adapter"><a class="anchor" href="#_spring_boot_adapter"></a>2.1.6. Spring Boot Adapter</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/spring-boot-adapter.adoc" target="_blank">Edit this section</a>
@@ -3116,7 +3990,7 @@ If you plan to deploy your Spring Application as a WAR then you should not use t
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tomcat_adapter"><a class="anchor" href="#_tomcat_adapter"></a>2.1.6. Tomcat 6, 7 and 8 Adapters</h4>
+<h4 id="_tomcat_adapter"><a class="anchor" href="#_tomcat_adapter"></a>2.1.7. Tomcat 6, 7 and 8 Adapters</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/tomcat-adapter.adoc" target="_blank">Edit this section</a>
@@ -3212,7 +4086,7 @@ Here&#8217;s an example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_jetty9_adapter"><a class="anchor" href="#_jetty9_adapter"></a>2.1.7. Jetty 9.x Adapters</h4>
+<h4 id="_jetty9_adapter"><a class="anchor" href="#_jetty9_adapter"></a>2.1.8. Jetty 9.x Adapters</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/jetty9-adapter.adoc" target="_blank">Edit this section</a>
@@ -3375,7 +4249,7 @@ Here&#8217;s an example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_jetty8_adapter"><a class="anchor" href="#_jetty8_adapter"></a>2.1.8. Jetty 8.1.x Adapter</h4>
+<h4 id="_jetty8_adapter"><a class="anchor" href="#_jetty8_adapter"></a>2.1.9. Jetty 8.1.x Adapter</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/jetty8-adapter.adoc" target="_blank">Edit this section</a>
@@ -3429,7 +4303,7 @@ See <a href="#_jetty9_per_war">Required Per WAR Configuration</a></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_spring_security_adapter"><a class="anchor" href="#_spring_security_adapter"></a>2.1.9. Spring Security Adapter</h4>
+<h4 id="_spring_security_adapter"><a class="anchor" href="#_spring_security_adapter"></a>2.1.10. Spring Security Adapter</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/spring-security-adapter.adoc" target="_blank">Edit this section</a>
@@ -3768,7 +4642,7 @@ Therefore, when running the Keycloak Spring Security adapter in a Spring Boot en
 </div>
 </div>
 <div class="sect3">
-<h4 id="_servlet_filter_adapter"><a class="anchor" href="#_servlet_filter_adapter"></a>2.1.10. Java Servlet Filter Adapter</h4>
+<h4 id="_servlet_filter_adapter"><a class="anchor" href="#_servlet_filter_adapter"></a>2.1.11. Java Servlet Filter Adapter</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/servlet-filter-adapter.adoc" target="_blank">Edit this section</a>
@@ -3859,7 +4733,7 @@ So, the Admin URL in this example should be <code>http[s]://hostname/{context-ro
 </div>
 </div>
 <div class="sect3">
-<h4 id="_jaas_adapter"><a class="anchor" href="#_jaas_adapter"></a>2.1.11. JAAS plugin</h4>
+<h4 id="_jaas_adapter"><a class="anchor" href="#_jaas_adapter"></a>2.1.12. JAAS plugin</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/jaas.adoc" target="_blank">Edit this section</a>
@@ -3911,7 +4785,7 @@ Default value is <code>org.keycloak.adapters.jaas.RolePrincipal</code>. Note: Th
 </div>
 </div>
 <div class="sect3">
-<h4 id="_installed_adapter"><a class="anchor" href="#_installed_adapter"></a>2.1.12. CLI / Desktop Applications</h4>
+<h4 id="_installed_adapter"><a class="anchor" href="#_installed_adapter"></a>2.1.13. CLI / Desktop Applications</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/installed-adapter.adoc" target="_blank">Edit this section</a>
@@ -4110,7 +4984,7 @@ login / logout requests via the <code>loginResponseWriter</code> and <code>logou
 </div>
 </div>
 <div class="sect3">
-<h4 id="security-context"><a class="anchor" href="#security-context"></a>2.1.13. Security Context</h4>
+<h4 id="security-context"><a class="anchor" href="#security-context"></a>2.1.14. Security Context</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/adapter-context.adoc" target="_blank">Edit this section</a>
@@ -4141,7 +5015,7 @@ details from the token (such as user profile information) or you want to invoke 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_adapter_error_handling"><a class="anchor" href="#_adapter_error_handling"></a>2.1.14. Error Handling</h4>
+<h4 id="_adapter_error_handling"><a class="anchor" href="#_adapter_error_handling"></a>2.1.15. Error Handling</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/adapter_error_handling.adoc" target="_blank">Edit this section</a>
@@ -4184,7 +5058,7 @@ Reason reason = error.getReason();
 </div>
 </div>
 <div class="sect3">
-<h4 id="logout"><a class="anchor" href="#logout"></a>2.1.15. Logout</h4>
+<h4 id="logout"><a class="anchor" href="#logout"></a>2.1.16. Logout</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/logout.adoc" target="_blank">Edit this section</a>
@@ -4198,7 +5072,7 @@ For Java EE servlet containers, you can call HttpServletRequest.logout(). For ot
 </div>
 </div>
 <div class="sect3">
-<h4 id="_params_forwarding"><a class="anchor" href="#_params_forwarding"></a>2.1.16. Parameters Forwarding</h4>
+<h4 id="_params_forwarding"><a class="anchor" href="#_params_forwarding"></a>2.1.17. Parameters Forwarding</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/params_forwarding.adoc" target="_blank">Edit this section</a>
@@ -4281,7 +5155,7 @@ the Keycloak login page if you are already authenticated to the application <cod
 </div>
 </div>
 <div class="sect3">
-<h4 id="_client_authentication_adapter"><a class="anchor" href="#_client_authentication_adapter"></a>2.1.17. Client Authentication</h4>
+<h4 id="_client_authentication_adapter"><a class="anchor" href="#_client_authentication_adapter"></a>2.1.18. Client Authentication</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/client-authentication.adoc" target="_blank">Edit this section</a>
@@ -4391,7 +5265,7 @@ you can point to any file on the file system where the client application is run
 </div>
 </div>
 <div class="sect3">
-<h4 id="_multi_tenancy"><a class="anchor" href="#_multi_tenancy"></a>2.1.18. Multi Tenancy</h4>
+<h4 id="_multi_tenancy"><a class="anchor" href="#_multi_tenancy"></a>2.1.19. Multi Tenancy</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/multi-tenancy.adoc" target="_blank">Edit this section</a>
@@ -4458,7 +5332,7 @@ and you may also want to select the realm based on something else than context-p
 </div>
 </div>
 <div class="sect3">
-<h4 id="_applicationclustering"><a class="anchor" href="#_applicationclustering"></a>2.1.19. Application Clustering</h4>
+<h4 id="_applicationclustering"><a class="anchor" href="#_applicationclustering"></a>2.1.20. Application Clustering</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/application-clustering.adoc" target="_blank">Edit this section</a>
@@ -9921,7 +10795,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-06-11 07:21:10 UTC
+Last updated 2018-06-12 07:50:37 UTC
 </div>
 </div>
 <ul id="globalnav">
