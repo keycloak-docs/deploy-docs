@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Authorization Services Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.3"/><meta name="description" content="This guide consists of information for authorization services for Red Hat Single Sign-On Continuous Delivery 1"/><link rel="next" href="#overview" title="Chapter 1. Overview"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm140064050897600"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Single Sign-On Continuous Delivery</span> <span class="productnumber">1</span></div><div><h1 class="title">Authorization Services Guide</h1></div><div><h2 class="subtitle">For Use with Red Hat Single Sign-On Continuous Delivery 1</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm140064040561936">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Authorization Services Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.3"/><meta name="description" content="This guide consists of information for authorization services for Red Hat Single Sign-On Continuous Delivery 1"/><link rel="next" href="#overview" title="Chapter 1. Overview"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm140217883987760"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Single Sign-On Continuous Delivery</span> <span class="productnumber">1</span></div><div><h1 class="title">Authorization Services Guide</h1></div><div><h2 class="subtitle">For Use with Red Hat Single Sign-On Continuous Delivery 1</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services</span></div></div><div><a href="#idm140217882277984">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				This guide consists of information for authorization services for Red Hat Single Sign-On Continuous Delivery 1
-			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#overview">1. Overview</a></span><ul><li><span class="section"><a href="#overview_architecture">1.1. Architecture</a></span><ul><li><span class="section"><a href="#the_authorization_process">1.1.1. The Authorization Process</a></span></li><li><span class="section"><a href="#authorization_services">1.1.2. Authorization Services</a></span></li></ul></li><li><span class="section"><a href="#overview_terminology">1.2. Terminology</a></span><ul><li><span class="section"><a href="#overview_terminology_resource_server">1.2.1. Resource Server</a></span></li><li><span class="section"><a href="#resource">1.2.2. Resource</a></span></li><li><span class="section"><a href="#scope">1.2.3. Scope</a></span></li><li><span class="section"><a href="#permission">1.2.4. Permission</a></span></li><li><span class="section"><a href="#policy">1.2.5. Policy</a></span></li><li><span class="section"><a href="#policy_provider">1.2.6. Policy Provider</a></span></li><li><span class="section"><a href="#overview_terminology_permission_ticket">1.2.7. Permission Ticket</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#getting_started_overview">2. Getting Started</a></span><ul><li><span class="section"><a href="#getting_started_hello_world_overview">2.1. Securing a Servlet Application</a></span></li><li><span class="section"><a href="#getting_started_hello_world_create_realm">2.2. Creating a Realm and a User</a></span></li><li><span class="section"><a href="#getting_started_hello_world_enabling_authz_services">2.3. Enabling Authorization Services</a></span></li><li><span class="section"><a href="#getting_started_hello_world_deploy">2.4. Build, Deploy, and Test Your Application</a></span><ul><li><span class="section"><a href="#obtaining_the_adapter_configuration">2.4.1. Obtaining the Adapter Configuration</a></span></li><li><span class="section"><a href="#building_and_deploying_the_application">2.4.2. Building and Deploying the Application</a></span></li><li><span class="section"><a href="#testing_the_application">2.4.3. Testing the Application</a></span></li><li><span class="section"><a href="#next_steps">2.4.4. Next Steps</a></span></li></ul></li><li><span class="section"><a href="#authorization_quickstarts">2.5. Authorization Quickstarts</a></span></li></ul></li><li><span class="chapter"><a href="#resource_server_overview">3. Managing Resource Servers</a></span><ul><li><span class="section"><a href="#resource_server_create_client">3.1. Creating a Client Application</a></span></li><li><span class="section"><a href="#resource_server_enable_authorization">3.2. Enabling Authorization Services</a></span><ul><li><span class="section"><a href="#resource_server_settings">3.2.1. Resource Server Settings</a></span></li></ul></li><li><span class="section"><a href="#resource_server_default_config">3.3. Default Configuration</a></span><ul><li><span class="section"><a href="#changing_the_default_configuration">3.3.1. Changing the Default Configuration</a></span></li></ul></li><li><span class="section"><a href="#resource_server_import_config">3.4. Export and Import Authorization Configuration</a></span><ul><li><span class="section"><a href="#exporting_a_configuration_file">3.4.1. Exporting a Configuration File</a></span></li><li><span class="section"><a href="#importing_a_configuration_file">3.4.2. Importing a Configuration File</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#resource_overview">4. Managing Resources and Scopes</a></span><ul><li><span class="section"><a href="#resource_view">4.1. Viewing Resources</a></span></li><li><span class="section"><a href="#resource_create">4.2. Creating Resources</a></span><ul><li><span class="section"><a href="#resource_attributes">4.2.1. Resource Attributes</a></span></li><li><span class="section"><a href="#typed_resources">4.2.2. Typed Resources</a></span></li><li><span class="section"><a href="#resource_owners">4.2.3. Resource Owners</a></span></li><li><span class="section"><a href="#managing_resources_remotely">4.2.4. Managing Resources Remotely</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#policy_overview">5. Managing Policies</a></span><ul><li><span class="section"><a href="#policy_user">5.1. User-Based Policy</a></span><ul><li><span class="section"><a href="#configuration">5.1.1. Configuration</a></span></li></ul></li><li><span class="section"><a href="#policy_rbac">5.2. Role-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_2">5.2.1. Configuration</a></span></li><li><span class="section"><a href="#policy_rbac_required">5.2.2. Defining a Role as Required</a></span></li></ul></li><li><span class="section"><a href="#policy_js">5.3. JavaScript-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_3">5.3.1. Configuration</a></span></li><li><span class="section"><a href="#examples">5.3.2. Examples</a></span></li></ul></li><li><span class="section"><a href="#policy_drools">5.4. Rule-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_4">5.4.1. Configuration</a></span></li><li><span class="section"><a href="#examples_2">5.4.2. Examples</a></span></li></ul></li><li><span class="section"><a href="#policy_time">5.5. Time-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_5">5.5.1. Configuration</a></span></li></ul></li><li><span class="section"><a href="#policy_aggregated">5.6. Aggregated Policy</a></span><ul><li><span class="section"><a href="#configuration_6">5.6.1. Configuration</a></span></li><li><span class="section"><a href="#decision_strategy_for_aggregated_policies">5.6.2. Decision Strategy for Aggregated Policies</a></span></li></ul></li><li><span class="section"><a href="#policy_client">5.7. Client-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_7">5.7.1. Configuration</a></span></li></ul></li><li><span class="section"><a href="#policy_group">5.8. Group-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_8">5.8.1. Configuration</a></span></li><li><span class="section"><a href="#policy_group_extend_access_children">5.8.2. Extending Access to Child Groups</a></span></li></ul></li><li><span class="section"><a href="#policy_logic">5.9. Positive and Negative Logic</a></span></li><li><span class="section"><a href="#policy_evaluation_api">5.10. Policy Evaluation API</a></span><ul><li><span class="section"><a href="#the_evaluation_context">5.10.1. The Evaluation Context</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#permission_overview">6. Managing Permissions</a></span><ul><li><span class="section"><a href="#permission_create_resource">6.1. Creating Resource-Based Permissions</a></span><ul><li><span class="section"><a href="#configuration_9">6.1.1. Configuration</a></span></li><li><span class="section"><a href="#permission_typed_resource">6.1.2. Typed Resource Permission</a></span></li></ul></li><li><span class="section"><a href="#permission_create_scope">6.2. Creating Scope-Based Permissions</a></span><ul><li><span class="section"><a href="#configuration_10">6.2.1. Configuration</a></span></li></ul></li><li><span class="section"><a href="#permission_decision_strategies">6.3. Policy Decision Strategies</a></span></li></ul></li><li><span class="chapter"><a href="#policy_evaluation_overview">7. Evaluating and Testing Policies</a></span><ul><li><span class="section"><a href="#providing_identity_information">7.1. Providing Identity Information</a></span></li><li><span class="section"><a href="#providing_contextual_information">7.2. Providing Contextual Information</a></span></li><li><span class="section"><a href="#providing_the_permissions">7.3. Providing the Permissions</a></span></li></ul></li><li><span class="chapter"><a href="#service_overview">8. Authorization Services</a></span><ul><li><span class="section"><a href="#service_authorization_api">8.1. Discovering Authorization Services Endpoints and Metadata</a></span></li><li><span class="section"><a href="#service_obtaining_permissions">8.2. Obtaining Permissions</a></span><ul><li><span class="section"><a href="#authentication_methods">8.2.1. Client Authentication Methods</a></span></li></ul></li><li><span class="section"><a href="#service_user_managed_access">8.3. User-Managed Access</a></span><ul><li><span class="section"><a href="#service_uma_authorization_process">8.3.1. Authorization Process</a></span></li><li><span class="section"><a href="#service_authorization_aat">8.3.2. Submitting Permission Requests</a></span></li><li><span class="section"><a href="#service_authorization_api_aapi">8.3.3. Managing Access to Users Resources</a></span></li></ul></li><li><span class="section"><a href="#service_protection_api">8.4. Protection API</a></span><ul><li><span class="section"><a href="#service_protection_whatis_obtain_pat">8.4.1. What is a PAT and How to Obtain It</a></span></li></ul></li><li><span class="section"><a href="#service_protection_resources_api">8.5. Managing Resources</a></span></li><li><span class="section"><a href="#service_protection_permission_api_papi">8.6. Managing Permission Requests</a></span></li><li><span class="section"><a href="#service_rpt_overview">8.7. Requesting Party Token</a></span><ul><li><span class="section"><a href="#service_protection_token_introspection">8.7.1. Introspecting a Requesting Party Token</a></span></li><li><span class="section"><a href="#obtaining_information_about_an_rpt">8.7.2. Obtaining Information about an RPT</a></span></li><li><span class="section"><a href="#do_i_need_to_invoke_the_server_every_time_i_want_to_introspect_an_rpt">8.7.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</a></span></li></ul></li><li><span class="section"><a href="#service_client_api">8.8. Authorization Client Java API</a></span><ul><li><span class="section"><a href="#maven_dependency">8.8.1. Maven Dependency</a></span></li><li><span class="section"><a href="#configuration_11">8.8.2. Configuration</a></span></li><li><span class="section"><a href="#creating_the_authorization_client">8.8.3. Creating the Authorization Client</a></span></li><li><span class="section"><a href="#obtaining_user_entitlements">8.8.4. Obtaining User Entitlements</a></span></li><li><span class="section"><a href="#creating_a_resource_using_the_protection_api">8.8.5. Creating a Resource Using the Protection API</a></span></li><li><span class="section"><a href="#introspecting_an_rpt">8.8.6. Introspecting an RPT</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#enforcer_overview">9. Policy Enforcers</a></span><ul><li><span class="section"><a href="#enforcer_filter">9.1. Configuration</a></span></li><li><span class="section"><a href="#enforcer_claim_information_point">9.2. Claim Information Point</a></span><ul><li><span class="section"><a href="#obtaining_information_from_the_http_request">9.2.1. Obtaining information from the HTTP Request</a></span></li><li><span class="section"><a href="#obtaining_information_from_an_external_http_service">9.2.2. Obtaining information from an External HTTP Service</a></span></li><li><span class="section"><a href="#static_claims">9.2.3. Static Claims</a></span></li><li><span class="section"><a href="#claim_information_provider_spi">9.2.4. Claim Information Provider SPI</a></span></li></ul></li><li><span class="section"><a href="#enforcer_authorization_context">9.3. Obtaining the Authorization Context</a></span></li><li><span class="section"><a href="#using_the_authorizationcontext_to_obtain_an_authorization_client_instance">9.4. Using the AuthorizationContext to obtain an Authorization Client Instance</a></span></li><li><span class="section"><a href="#enforcer_js_adapter">9.5. JavaScript Integration</a></span><ul><li><span class="section"><a href="#handling_authorization_responses_from_a_uma_protected_resource_server">9.5.1. Handling Authorization Responses from a UMA-Protected Resource Server</a></span></li><li><span class="section"><a href="#obtaining_entitlements">9.5.2. Obtaining Entitlements</a></span></li><li><span class="section"><a href="#authorization_request">9.5.3. Authorization Request</a></span></li><li><span class="section"><a href="#obtaining_the_rpt">9.5.4. Obtaining the RPT</a></span></li></ul></li><li><span class="section"><a href="#enforcer_filter_using_https">9.6. Setting Up TLS/HTTPS</a></span></li></ul></li></ul></div><section class="chapter" id="overview"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Overview</h1></div></div></div><div class="admonition note"><div class="admonition_header">Note</div><div><p>
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#overview">1. Overview</a></span><ul><li><span class="section"><a href="#overview_architecture">1.1. Architecture</a></span><ul><li><span class="section"><a href="#the_authorization_process">1.1.1. The Authorization Process</a></span></li><li><span class="section"><a href="#authorization_services">1.1.2. Authorization Services</a></span></li></ul></li><li><span class="section"><a href="#overview_terminology">1.2. Terminology</a></span><ul><li><span class="section"><a href="#overview_terminology_resource_server">1.2.1. Resource Server</a></span></li><li><span class="section"><a href="#resource">1.2.2. Resource</a></span></li><li><span class="section"><a href="#scope">1.2.3. Scope</a></span></li><li><span class="section"><a href="#permission">1.2.4. Permission</a></span></li><li><span class="section"><a href="#policy">1.2.5. Policy</a></span></li><li><span class="section"><a href="#policy_provider">1.2.6. Policy Provider</a></span></li><li><span class="section"><a href="#overview_terminology_permission_ticket">1.2.7. Permission Ticket</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#getting_started_overview">2. Getting Started</a></span><ul><li><span class="section"><a href="#getting_started_hello_world_overview">2.1. Securing a Servlet Application</a></span></li><li><span class="section"><a href="#getting_started_hello_world_create_realm">2.2. Creating a Realm and a User</a></span></li><li><span class="section"><a href="#getting_started_hello_world_enabling_authz_services">2.3. Enabling Authorization Services</a></span></li><li><span class="section"><a href="#getting_started_hello_world_deploy">2.4. Build, Deploy, and Test Your Application</a></span><ul><li><span class="section"><a href="#obtaining_the_adapter_configuration">2.4.1. Obtaining the Adapter Configuration</a></span></li><li><span class="section"><a href="#building_and_deploying_the_application">2.4.2. Building and Deploying the Application</a></span></li><li><span class="section"><a href="#testing_the_application">2.4.3. Testing the Application</a></span></li><li><span class="section"><a href="#next_steps">2.4.4. Next Steps</a></span></li></ul></li><li><span class="section"><a href="#authorization_quickstarts">2.5. Authorization Quickstarts</a></span></li></ul></li><li><span class="chapter"><a href="#resource_server_overview">3. Managing Resource Servers</a></span><ul><li><span class="section"><a href="#resource_server_create_client">3.1. Creating a Client Application</a></span></li><li><span class="section"><a href="#resource_server_enable_authorization">3.2. Enabling Authorization Services</a></span><ul><li><span class="section"><a href="#resource_server_settings">3.2.1. Resource Server Settings</a></span></li></ul></li><li><span class="section"><a href="#resource_server_default_config">3.3. Default Configuration</a></span><ul><li><span class="section"><a href="#changing_the_default_configuration">3.3.1. Changing the Default Configuration</a></span></li></ul></li><li><span class="section"><a href="#resource_server_import_config">3.4. Export and Import Authorization Configuration</a></span><ul><li><span class="section"><a href="#exporting_a_configuration_file">3.4.1. Exporting a Configuration File</a></span></li><li><span class="section"><a href="#importing_a_configuration_file">3.4.2. Importing a Configuration File</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#resource_overview">4. Managing Resources and Scopes</a></span><ul><li><span class="section"><a href="#resource_view">4.1. Viewing Resources</a></span></li><li><span class="section"><a href="#resource_create">4.2. Creating Resources</a></span><ul><li><span class="section"><a href="#resource_attributes">4.2.1. Resource Attributes</a></span></li><li><span class="section"><a href="#typed_resources">4.2.2. Typed Resources</a></span></li><li><span class="section"><a href="#resource_owners">4.2.3. Resource Owners</a></span></li><li><span class="section"><a href="#managing_resources_remotely">4.2.4. Managing Resources Remotely</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#policy_overview">5. Managing Policies</a></span><ul><li><span class="section"><a href="#policy_user">5.1. User-Based Policy</a></span><ul><li><span class="section"><a href="#configuration">5.1.1. Configuration</a></span></li></ul></li><li><span class="section"><a href="#policy_rbac">5.2. Role-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_2">5.2.1. Configuration</a></span></li><li><span class="section"><a href="#policy_rbac_required">5.2.2. Defining a Role as Required</a></span></li></ul></li><li><span class="section"><a href="#policy_js">5.3. JavaScript-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_3">5.3.1. Configuration</a></span></li><li><span class="section"><a href="#examples">5.3.2. Examples</a></span></li></ul></li><li><span class="section"><a href="#policy_drools">5.4. Rule-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_4">5.4.1. Configuration</a></span></li><li><span class="section"><a href="#examples_2">5.4.2. Examples</a></span></li></ul></li><li><span class="section"><a href="#policy_time">5.5. Time-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_5">5.5.1. Configuration</a></span></li></ul></li><li><span class="section"><a href="#policy_aggregated">5.6. Aggregated Policy</a></span><ul><li><span class="section"><a href="#configuration_6">5.6.1. Configuration</a></span></li><li><span class="section"><a href="#decision_strategy_for_aggregated_policies">5.6.2. Decision Strategy for Aggregated Policies</a></span></li></ul></li><li><span class="section"><a href="#policy_client">5.7. Client-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_7">5.7.1. Configuration</a></span></li></ul></li><li><span class="section"><a href="#policy_group">5.8. Group-Based Policy</a></span><ul><li><span class="section"><a href="#configuration_8">5.8.1. Configuration</a></span></li><li><span class="section"><a href="#policy_group_extend_access_children">5.8.2. Extending Access to Child Groups</a></span></li></ul></li><li><span class="section"><a href="#policy_logic">5.9. Positive and Negative Logic</a></span></li><li><span class="section"><a href="#policy_evaluation_api">5.10. Policy Evaluation API</a></span><ul><li><span class="section"><a href="#the_evaluation_context">5.10.1. The Evaluation Context</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#permission_overview">6. Managing Permissions</a></span><ul><li><span class="section"><a href="#permission_create_resource">6.1. Creating Resource-Based Permissions</a></span><ul><li><span class="section"><a href="#configuration_9">6.1.1. Configuration</a></span></li><li><span class="section"><a href="#permission_typed_resource">6.1.2. Typed Resource Permission</a></span></li></ul></li><li><span class="section"><a href="#permission_create_scope">6.2. Creating Scope-Based Permissions</a></span><ul><li><span class="section"><a href="#configuration_10">6.2.1. Configuration</a></span></li></ul></li><li><span class="section"><a href="#permission_decision_strategies">6.3. Policy Decision Strategies</a></span></li></ul></li><li><span class="chapter"><a href="#policy_evaluation_overview">7. Evaluating and Testing Policies</a></span><ul><li><span class="section"><a href="#providing_identity_information">7.1. Providing Identity Information</a></span></li><li><span class="section"><a href="#providing_contextual_information">7.2. Providing Contextual Information</a></span></li><li><span class="section"><a href="#providing_the_permissions">7.3. Providing the Permissions</a></span></li></ul></li><li><span class="chapter"><a href="#service_overview">8. Authorization Services</a></span><ul><li><span class="section"><a href="#service_authorization_api">8.1. Discovering Authorization Services Endpoints and Metadata</a></span></li><li><span class="section"><a href="#service_obtaining_permissions">8.2. Obtaining Permissions</a></span><ul><li><span class="section"><a href="#authentication_methods">8.2.1. Client Authentication Methods</a></span></li><li><span class="section"><a href="#service_pushing_claims">8.2.2. Pushing Claims</a></span></li></ul></li><li><span class="section"><a href="#service_user_managed_access">8.3. User-Managed Access</a></span><ul><li><span class="section"><a href="#service_uma_authorization_process">8.3.1. Authorization Process</a></span></li><li><span class="section"><a href="#service_authorization_aat">8.3.2. Submitting Permission Requests</a></span></li><li><span class="section"><a href="#service_authorization_my_resources">8.3.3. Managing Access to Users Resources</a></span></li></ul></li><li><span class="section"><a href="#service_protection_api">8.4. Protection API</a></span><ul><li><span class="section"><a href="#service_protection_whatis_obtain_pat">8.4.1. What is a PAT and How to Obtain It</a></span></li><li><span class="section"><a href="#service_protection_resources_api">8.4.2. Managing Resources</a></span></li><li><span class="section"><a href="#service_protection_permission_api_papi">8.4.3. Managing Permission Requests</a></span></li><li><span class="section"><a href="#service_authorization_uma_policy_api">8.4.4. Managing Resource Permissions using the Policy API</a></span></li></ul></li><li><span class="section"><a href="#service_rpt_overview">8.5. Requesting Party Token</a></span><ul><li><span class="section"><a href="#service_protection_token_introspection">8.5.1. Introspecting a Requesting Party Token</a></span></li><li><span class="section"><a href="#obtaining_information_about_an_rpt">8.5.2. Obtaining Information about an RPT</a></span></li><li><span class="section"><a href="#do_i_need_to_invoke_the_server_every_time_i_want_to_introspect_an_rpt">8.5.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</a></span></li></ul></li><li><span class="section"><a href="#service_client_api">8.6. Authorization Client Java API</a></span><ul><li><span class="section"><a href="#maven_dependency">8.6.1. Maven Dependency</a></span></li><li><span class="section"><a href="#configuration_11">8.6.2. Configuration</a></span></li><li><span class="section"><a href="#creating_the_authorization_client">8.6.3. Creating the Authorization Client</a></span></li><li><span class="section"><a href="#obtaining_user_entitlements">8.6.4. Obtaining User Entitlements</a></span></li><li><span class="section"><a href="#creating_a_resource_using_the_protection_api">8.6.5. Creating a Resource Using the Protection API</a></span></li><li><span class="section"><a href="#introspecting_an_rpt">8.6.6. Introspecting an RPT</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#enforcer_overview">9. Policy Enforcers</a></span><ul><li><span class="section"><a href="#enforcer_filter">9.1. Configuration</a></span></li><li><span class="section"><a href="#enforcer_claim_information_point">9.2. Claim Information Point</a></span><ul><li><span class="section"><a href="#obtaining_information_from_the_http_request">9.2.1. Obtaining information from the HTTP Request</a></span></li><li><span class="section"><a href="#obtaining_information_from_an_external_http_service">9.2.2. Obtaining information from an External HTTP Service</a></span></li><li><span class="section"><a href="#static_claims">9.2.3. Static Claims</a></span></li><li><span class="section"><a href="#claim_information_provider_spi">9.2.4. Claim Information Provider SPI</a></span></li></ul></li><li><span class="section"><a href="#enforcer_authorization_context">9.3. Obtaining the Authorization Context</a></span></li><li><span class="section"><a href="#using_the_authorizationcontext_to_obtain_an_authorization_client_instance">9.4. Using the AuthorizationContext to obtain an Authorization Client Instance</a></span></li><li><span class="section"><a href="#enforcer_js_adapter">9.5. JavaScript Integration</a></span><ul><li><span class="section"><a href="#handling_authorization_responses_from_a_uma_protected_resource_server">9.5.1. Handling Authorization Responses from a UMA-Protected Resource Server</a></span></li><li><span class="section"><a href="#obtaining_entitlements">9.5.2. Obtaining Entitlements</a></span></li><li><span class="section"><a href="#authorization_request">9.5.3. Authorization Request</a></span></li><li><span class="section"><a href="#obtaining_the_rpt">9.5.4. Obtaining the RPT</a></span></li></ul></li><li><span class="section"><a href="#enforcer_filter_using_https">9.6. Setting Up TLS/HTTPS</a></span></li></ul></li></ul></div><section class="chapter" id="overview"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Overview</h1></div></div></div><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 				Authorization Services is <span class="strong strong"><strong>Technology Preview</strong></span> and is not fully supported. This feature is disabled by default.
 			</p><p>
 				To enable start the server with <code class="literal">-Dkeycloak.profile=preview</code>. For more details see <a class="link" href="https://access.redhat.com/documentation/en-us/red_hat_single_sign-on_continuous_delivery/1/html-single/server_installation_and_configuration_guide/#profiles">Profiles</a>.
@@ -378,7 +378,7 @@ $evaluation.deny();</pre><p>
 				The authorization quickstarts have been designed so that authorization services are displayed in different scenarios and using different technologies and integrations. It is not meant as a comprehensive set of all the possible use cases involving authorization but they should provide a starting point for users interested in understanding how the authorization services can be used in their own applications.
 			</p><p>
 				Each quickstart has a <code class="literal">README</code> file with instructions on how to build, deploy, and test the sample application. The following table provides a brief description of the available authorization quickstarts:
-			</p><div class="table" id="idm140064044978400"><p class="title"><strong>Table 2.1. Authorization Quickstarts</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th style="text-align: left; vertical-align: top; ">Name</th><th style="text-align: left; vertical-align: top; ">Description</th></tr></thead><tbody><tr><td style="text-align: left; vertical-align: top; ">
+			</p><div class="table" id="idm140217875427104"><p class="title"><strong>Table 2.1. Authorization Quickstarts</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"/><col style="width: 50%; " class="col_2"/></colgroup><thead><tr><th style="text-align: left; vertical-align: top; ">Name</th><th style="text-align: left; vertical-align: top; ">Description</th></tr></thead><tbody><tr><td style="text-align: left; vertical-align: top; ">
 							<p>
 								<a class="link" href="https://github.com/keycloak/keycloak-quickstarts/tree/latest/app-authz-jee-servlet">app-authz-jee-servlet</a>
 							</p>
@@ -723,30 +723,73 @@ $evaluation.grant();</pre><p>
 							<span class="strong strong"><strong>Logic</strong></span>
 						</p><p class="simpara">
 							The <a class="link" href="#policy_logic" title="5.9. Positive and Negative Logic">Logic</a> of this policy to apply after the other conditions have been evaluated.
-						</p></li></ul></div></section><section class="section" id="examples"><div class="titlepage"><div><div><h3 class="title">5.3.2. Examples</h3></div></div></div><p>
-					Here is a simple example of a JavaScript-based policy that uses attribute-based access control (ABAC) to define a condition based on an attribute obtained from the execution context:
-				</p><pre class="programlisting language-javascript">var context = $evaluation.getContext();
+						</p></li></ul></div></section><section class="section" id="examples"><div class="titlepage"><div><div><h3 class="title">5.3.2. Examples</h3></div></div></div><section class="section" id="checking_for_attributes_from_the_evaluation_context"><div class="titlepage"><div><div><h4 class="title">5.3.2.1. Checking for attributes from the evaluation context</h4></div></div></div><p>
+						Here is a simple example of a JavaScript-based policy that uses attribute-based access control (ABAC) to define a condition based on an attribute obtained from the execution context:
+					</p><pre class="programlisting language-javascript">var context = $evaluation.getContext();
 var contextAttributes = context.getAttributes();
 
 if (contextAttributes.containsValue('kc.client.network.ip_address', '127.0.0.1')) {
     $evaluation.grant();
+}</pre></section><section class="section" id="checking_for_attributes_from_the_current_identity"><div class="titlepage"><div><div><h4 class="title">5.3.2.2. Checking for attributes from the current identity</h4></div></div></div><p>
+						Here is a simple example of a JavaScript-based policy that uses attribute-based access control (ABAC) to define a condition based on an attribute obtained associated with the current identity:
+					</p><pre class="programlisting language-javascript">var context = $evaluation.getContext();
+var identity = context.getIdentity();
+var attributes = identity.getAttributes();
+var email = attributes.getValue('email').asString(0);
+
+if (email.endsWith('@keycloak.org')) {
+    $evaluation.grant();
 }</pre><p>
-					You can also use Role-Based Access Control (RBAC) in your policies. In the example below, we check if a user is granted with a <code class="literal">keycloak_user</code> <span class="strong strong"><strong>realm</strong></span> role:
-				</p><pre class="programlisting language-javascript">var context = $evaluation.getContext();
+						Where these attributes are mapped from whatever claim is defined in the token that was used in the authorization request.
+					</p></section><section class="section" id="checking_for_roles_granted_to_the_current_identity"><div class="titlepage"><div><div><h4 class="title">5.3.2.3. Checking for roles granted to the current identity</h4></div></div></div><p>
+						You can also use Role-Based Access Control (RBAC) in your policies. In the example below, we check if a user is granted with a <code class="literal">keycloak_user</code> <span class="strong strong"><strong>realm</strong></span> role:
+					</p><pre class="programlisting language-javascript">var context = $evaluation.getContext();
 var identity = context.getIdentity();
 
 if (identity.hasRealmRole('keycloak_user')) {
     $evaluation.grant();
 }</pre><p>
-					Or you can check if a user is granted with a <code class="literal">my-client-role</code> <span class="strong strong"><strong>client</strong></span> role, where <code class="literal">my-client</code> is the client id of the client application:
-				</p><pre class="programlisting language-javascript">var context = $evaluation.getContext();
+						Or you can check if a user is granted with a <code class="literal">my-client-role</code> <span class="strong strong"><strong>client</strong></span> role, where <code class="literal">my-client</code> is the client id of the client application:
+					</p><pre class="programlisting language-javascript">var context = $evaluation.getContext();
 var identity = context.getIdentity();
 
 if (identity.hasClientRole('my-client', 'my-client-role')) {
     $evaluation.grant();
+}</pre></section><section class="section" id="checking_for_roles_granted_to_an_user"><div class="titlepage"><div><div><h4 class="title">5.3.2.4. Checking for roles granted to an user</h4></div></div></div><p>
+						To check for realm roles granted to an user:
+					</p><pre class="programlisting language-javascript">var realm = $evaluation.getRealm();
+
+if (realm.isUserInRealmRole('marta', 'role-a')) {
+    $evaluation.grant();
 }</pre><p>
-					You can also use a combination of several access control mechanisms. The example below shows how roles(RBAC) and claims/attributes(ABAC) checks can be used within the same policy. In this case we check if user is granted with <code class="literal">admin</code> role or has an e-mail from <code class="literal">keycloak.org</code> domain:
-				</p><pre class="programlisting language-javascript">var context = $evaluation.getContext();
+						Or for client roles granted to an user:
+					</p><pre class="programlisting language-javascript">var realm = $evaluation.getRealm();
+
+if (realm.isUserInClientRole('marta', 'my-client', 'some-client-role')) {
+    $evaluation.grant();
+}</pre></section><section class="section" id="checking_for_roles_granted_to_a_group"><div class="titlepage"><div><div><h4 class="title">5.3.2.5. Checking for roles granted to a group</h4></div></div></div><p>
+						To check for realm roles granted to a group:
+					</p><pre class="programlisting language-javascript">var realm = $evaluation.getRealm();
+
+if (realm.isGroupInRole('/Group A/Group D', 'role-a')) {
+    $evaluation.grant();
+}</pre></section><section class="section" id="pushing_arbitrary_claims_to_the_resource_server"><div class="titlepage"><div><div><h4 class="title">5.3.2.6. Pushing arbitrary claims to the resource server</h4></div></div></div><p>
+						To push arbitrary claims to the resource server in order to provide additional information on how permissions should be enforced:
+					</p><pre class="programlisting language-javascript">var permission = $evaluation.getPermission();
+
+// decide if permission should be granted
+
+if (granted) {
+    permission.addClaim('claim-a', 'claim-a');
+    permission.addClaim('claim-a', 'claim-a1');
+    permission.addClaim('claim-b', 'claim-b');
+}</pre></section><section class="section" id="checking_for_group_membership"><div class="titlepage"><div><div><h4 class="title">5.3.2.7. Checking for group membership</h4></div></div></div><pre class="programlisting language-javascript">var realm = $evaluation.getRealm();
+
+if (realm.isUserInGroup('marta', '/Group A/Group B')) {
+    $evaluation.grant();
+}</pre></section><section class="section" id="mixing_different_access_control_mechanisms"><div class="titlepage"><div><div><h4 class="title">5.3.2.8. Mixing different access control mechanisms</h4></div></div></div><p>
+						You can also use a combination of several access control mechanisms. The example below shows how roles(RBAC) and claims/attributes(ABAC) checks can be used within the same policy. In this case we check if user is granted with <code class="literal">admin</code> role or has an e-mail from <code class="literal">keycloak.org</code> domain:
+					</p><pre class="programlisting language-javascript">var context = $evaluation.getContext();
 var identity = context.getIdentity();
 var attributes = identity.getAttributes();
 var email = attributes.getValue('email').asString(0);
@@ -754,8 +797,8 @@ var email = attributes.getValue('email').asString(0);
 if (identity.hasRealmRole('admin') || email.endsWith('@keycloak.org')) {
     $evaluation.grant();
 }</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
-						When writing your own rules, keep in mind that the <span class="strong strong"><strong>$evaluation</strong></span> object is an object implementing <span class="strong strong"><strong>org.keycloak.authorization.policy.evaluation.Evaluation</strong></span>. For more information about what you can access from this interface, see the <a class="link" href="#policy_evaluation_api" title="5.10. Policy Evaluation API">Evaluation API</a>.
-					</p></div></div></section></section><section class="section" id="policy_drools"><div class="titlepage"><div><div><h2 class="title">5.4. Rule-Based Policy</h2></div></div></div><p>
+							When writing your own rules, keep in mind that the <span class="strong strong"><strong>$evaluation</strong></span> object is an object implementing <span class="strong strong"><strong>org.keycloak.authorization.policy.evaluation.Evaluation</strong></span>. For more information about what you can access from this interface, see the <a class="link" href="#policy_evaluation_api" title="5.10. Policy Evaluation API">Evaluation API</a>.
+						</p></div></div></section></section></section><section class="section" id="policy_drools"><div class="titlepage"><div><div><h2 class="title">5.4. Rule-Based Policy</h2></div></div></div><p>
 				With this type of policy you can define conditions for your permissions using <a class="link" href="http://www.drools.org">Drools</a>, which is a rule evaluation environment. It is one of the <span class="emphasis"><em>Rule-Based</em></span> policy types supported by Red Hat Single Sign-On, and provides flexibility to write any policy based on the <a class="link" href="#policy_evaluation_api" title="5.10. Policy Evaluation API">Evaluation API</a>.
 			</p><p>
 				To create a new Rule-based policy, in the dropdown list in the right upper corner of the policy listing, select <span class="strong strong"><strong>Rule</strong></span>.
@@ -1061,7 +1104,7 @@ end</pre><p>
 					The <code class="literal">Identity</code> is built based on the OAuth2 Access Token that was sent along with the authorization request, and this construct has access to all claims extracted from the original token. For example, if you are using a <span class="emphasis"><em>Protocol Mapper</em></span> to include a custom claim in an OAuth2 Access Token you can also access this claim from a policy and use it to build your conditions.
 				</p><p>
 					The <code class="literal">EvaluationContext</code> also gives you access to attributes related to both the execution and runtime environments. For now, there only a few built-in attributes.
-				</p><div class="table" id="idm140064044254464"><p class="title"><strong>Table 5.1. Execution and Runtime Attributes</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th style="text-align: left; vertical-align: top; ">Name</th><th style="text-align: left; vertical-align: top; ">Description</th><th style="text-align: left; vertical-align: top; ">Type</th></tr></thead><tbody><tr><td style="text-align: left; vertical-align: top; ">
+				</p><div class="table" id="idm140217876163824"><p class="title"><strong>Table 5.1. Execution and Runtime Attributes</strong></p><div class="table-contents"><table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 33%; " class="col_1"/><col style="width: 33%; " class="col_2"/><col style="width: 33%; " class="col_3"/></colgroup><thead><tr><th style="text-align: left; vertical-align: top; ">Name</th><th style="text-align: left; vertical-align: top; ">Description</th><th style="text-align: left; vertical-align: top; ">Type</th></tr></thead><tbody><tr><td style="text-align: left; vertical-align: top; ">
 								<p>
 									kc.time.date_time
 								</p>
@@ -1276,7 +1319,8 @@ end</pre><p>
     "token_endpoint": "http://${host}:${post}/auth/realms/${realm}/protocol/openid-connect/token",
     "token_introspection_endpoint": "http://${host}:${post}/auth/realms/${realm}/protocol/openid-connect/token/introspect",
     "resource_registration_endpoint": "http://${host}:${post}/auth/realms/${realm}/authz/protection/resource_set",
-    "permission_endpoint": "http://${host}:${post}/auth/realms/${realm}/authz/protection/permission"
+    "permission_endpoint": "http://${host}:${post}/auth/realms/${realm}/authz/protection/permission",
+    "policy_endpoint": "http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy"
 }</pre><p>
 				Each of these endpoints expose a specific set of capabilities:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p class="simpara">
@@ -1345,14 +1389,15 @@ end</pre><p>
   http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
   -H "Authorization: Bearer ${access_token}" \
   --data "grant_type=urn:ietf:params:oauth:grant-type:uma-ticket" \
-  --data "audience=${resource_server_id}" \
+  --data "audience={resource_server_client_id}" \
   --data "permission=Resource A#Scope A" \
   --data "permission=Resource B#Scope B"</pre><p>
 				Example of a authorization request when a client is seeking access to any resource and scope protected by a resource server.
 			</p><pre class="programlisting language-bash">curl -X POST \
   http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
   -H "Authorization: Bearer ${access_token}" \
-  --data "grant_type=urn:ietf:params:oauth:grant-type:uma-ticket"</pre><p>
+  --data "grant_type=urn:ietf:params:oauth:grant-type:uma-ticket" \
+  --data "audience={resource_server_client_id}"</pre><p>
 				Example of an authorization request when a client is seeking access to a UMA protected resource after receiving a permission ticket from the resource server as part of the authorization process:
 			</p><pre class="programlisting language-bash">curl -X POST \
   http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
@@ -1403,7 +1448,26 @@ Content-Type: application/json
   http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
   -H "Authorization: Basic cGhvdGg6L7Jl13RmfWgtkk==pOnNlY3JldA==" \
   --data "grant_type=urn:ietf:params:oauth:grant-type:uma-ticket"</pre>
-							</p></div></li></ul></div></section></section><section class="section" id="service_user_managed_access"><div class="titlepage"><div><div><h2 class="title">8.3. User-Managed Access</h2></div></div></div><p>
+							</p></div></li></ul></div></section><section class="section" id="service_pushing_claims"><div class="titlepage"><div><div><h3 class="title">8.2.2. Pushing Claims</h3></div></div></div><p>
+					When obtaining permissions from the server you can push arbitrary claims in order to have these claims available to your policies when evaluating permissions.
+				</p><p>
+					If you are obtaining permissions from the server <span class="strong strong"><strong>without</strong></span> using a permission ticket (UMA flow), you can send an authorization request to the token endpoint as follows:
+				</p><pre class="programlisting language-bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
+  --data "grant_type=urn:ietf:params:oauth:grant-type:uma-ticket" \
+  --data "claim_token=ewogICAib3JnYW5pemF0aW9uIjogWyJhY21lIl0KfQ==" \
+  --data "claim_token_format=urn:ietf:params:oauth:token-type:jwt" \
+  --data "client_id={resource_server_client_id}" \
+  --data "client_secret={resource_server_client_secret}" \
+  --data "audience={resource_server_client_id}"</pre><p>
+					The <code class="literal">claim_token</code> parameter expects a BASE64 encoded JSON with a format similar to the example below:
+				</p><pre class="programlisting language-json">{
+    "organization" : ["acme"]
+}</pre><p>
+					The format expects one or more claims where the value for each claim must be an array of strings.
+				</p><section class="section" id="pushing_claims_using_uma"><div class="titlepage"><div><div><h4 class="title">8.2.2.1. Pushing Claims Using UMA</h4></div></div></div><p>
+						For more details about how to push claims when using UMA and permission tickets, please take a look at <a class="link" href="#service_protection_permission_api_papi" title="8.4.3. Managing Permission Requests">Permission API</a>
+					</p></section></section></section><section class="section" id="service_user_managed_access"><div class="titlepage"><div><div><h2 class="title">8.3. User-Managed Access</h2></div></div></div><p>
 				Red Hat Single Sign-On Authorization Services is based on User-Managed Access or UMA for short. UMA is a specification that enhances OAuth2 capabilities in the following ways:
 			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p class="simpara">
 						<span class="strong strong"><strong>Privacy</strong></span>
@@ -1501,7 +1565,7 @@ Content-Type: application/json
 					When using the <code class="literal">submit_request</code> parameter, Red Hat Single Sign-On will persist a permission request for each resource to which access was denied. Once created, resource owners can check their account and manage their permissions requests.
 				</p><p>
 					You can think about this functionality as a <code class="literal">Request Access</code> button in your application, where users can ask other users for access to their resources.
-				</p></section><section class="section" id="service_authorization_api_aapi"><div class="titlepage"><div><div><h3 class="title">8.3.3. Managing Access to Users Resources</h3></div></div></div><p>
+				</p></section><section class="section" id="service_authorization_my_resources"><div class="titlepage"><div><div><h3 class="title">8.3.3. Managing Access to Users Resources</h3></div></div></div><p>
 					Users can manage access to their resources using the Red Hat Single Sign-On User Account Service.
 				</p><p>
 					<span class="inlinemediaobject"><img src="images/rhsso-images/service/account-my-resource.png" alt="My Resources"/></span>
@@ -1547,6 +1611,10 @@ Content-Type: application/json
 						<span class="strong strong"><strong>Permission Management</strong></span>
 					</p><p class="simpara">
 						In the UMA protocol, resource servers access this endpoint to create permission tickets. Red Hat Single Sign-On also provides endpoints to manage the state of permissions and query permissions.
+					</p></li><li class="listitem"><p class="simpara">
+						<span class="strong strong"><strong>Policy API</strong></span>
+					</p><p class="simpara">
+						Red Hat Single Sign-On leverages the UMA Protection API to allow resource servers to manage permissions for their users. In addition to the Resource and Permission APIs, Red Hat Single Sign-On provides a Policy API from where permissions can be set to resources by resource servers on behalf of their users.
 					</p></li></ul></div><p>
 				An important requirement for this API is that <span class="emphasis"><em>only</em></span> resource servers are allowed to access its endpoints using a special OAuth2 access token called a protection API token (PAT). In UMA, a PAT is a token with the scope <span class="strong strong"><strong>uma_protection</strong></span>.
 			</p><section class="section" id="service_protection_whatis_obtain_pat"><div class="titlepage"><div><div><h3 class="title">8.4.1. What is a PAT and How to Obtain It</h3></div></div></div><p>
@@ -1571,47 +1639,243 @@ Content-Type: application/json
   "session_state": "ccea4a55-9aec-4024-b11c-44f6f168439e"
 }</pre><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 						Red Hat Single Sign-On can authenticate your client application in different ways. For simplicity, the <span class="strong strong"><strong>client_credentials</strong></span> grant type is used here, which requires a <span class="emphasis"><em>client_id</em></span> and a <span class="emphasis"><em>client_secret</em></span>. You can choose to use any supported authentication method.
-					</p></div></div></section></section><section class="section" id="service_protection_resources_api"><div class="titlepage"><div><div><h2 class="title">8.5. Managing Resources</h2></div></div></div><p>
-				Resource servers can manage their resources remotely using a UMA-compliant endpoint.
-			</p><pre class="screen">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set</pre><p>
-				This endpoint provides operations outlined as follows (entire path omitted for clarity):
-			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-						Create resource set description: POST /resource_set
-					</li><li class="listitem">
-						Read resource set description: GET /resource_set/{_id}
-					</li><li class="listitem">
-						Update resource set description: PUT /resource_set/{_id}
-					</li><li class="listitem">
-						Delete resource set description: DELETE /resource_set/{_id}
-					</li><li class="listitem">
-						List resource set descriptions: GET /resource_set
-					</li></ul></div><p>
-				For more information about the contract for each of these operations, see <a class="link" href="https://docs.kantarainitiative.org/uma/wg/oauth-uma-federated-authz-2.0-09.html#reg-api">UMA Resource Registration API</a>.
-			</p></section><section class="section" id="service_protection_permission_api_papi"><div class="titlepage"><div><div><h2 class="title">8.6. Managing Permission Requests</h2></div></div></div><p>
-				Resource servers using the UMA protocol can use a specific endpoint to manage permission requests. This endpoint provides a UMA-compliant flow for registering permission requests and obtaining a permission ticket.
-			</p><pre class="screen">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/permission</pre><p>
-				A <a class="link" href="#overview_terminology_permission_ticket" title="1.2.7. Permission Ticket">permission ticket</a> is a special security token type representing a permission request. Per the UMA specification, a permission ticket is:
-			</p><p>
-				<code class="literal">A correlation handle that is conveyed from an authorization server to a resource server, from a resource server to a client, and ultimately from a client back to an authorization server, to enable the authorization server to assess the correct policies to apply to a request for authorization data.</code>
-			</p><p>
-				In most cases, you won’t need to deal with this endpoint directly. Red Hat Single Sign-On provides a <a class="link" href="#enforcer_overview" title="Chapter 9. Policy Enforcers">policy enforcer</a> that enables UMA for your resource server so it can obtain a permission ticket from the authorization server, return this ticket to client application, and enforce authorization decisions based on a final requesting party token (RPT).
-			</p><p>
-				The process of obtaining permission tickets from Red Hat Single Sign-On is performed by resource servers and not regular client applications, where permission tickets are obtained when a client tries to access a protected resource without the necessary grants to access the resource. The issuance of permission tickets is an important aspects when using UMA as it allows resource servers to:
-			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-						Abstract from clients the data associated with the resources protected by the resource server
-					</li><li class="listitem">
-						Register in the Red Hat Single Sign-On authorization requests which in turn can be used later in workflows to grant access based on the resource’s owner consent
-					</li><li class="listitem">
-						Decouple resource servers from authorization servers and allow them to protect and manage their resources using different authorization servers
-					</li></ul></div><p>
-				Client wise, a permission ticket has also important aspects that its worthy to highlight:
-			</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-						Clients don’t need to know about how authorization data is associated with protected resources. A permission ticket is completely opaque to clients.
-					</li><li class="listitem">
-						Clients can have access to resources on different resource servers and protected by different authorization servers
-					</li></ul></div><p>
-				These are just some of the benefits brought by UMA where other aspects of UMA are strongly based on permission tickets, specially regarding privacy and user controlled access to their resources.
-			</p></section><section class="section" id="service_rpt_overview"><div class="titlepage"><div><div><h2 class="title">8.7. Requesting Party Token</h2></div></div></div><p>
+					</p></div></div></section><section class="section" id="service_protection_resources_api"><div class="titlepage"><div><div><h3 class="title">8.4.2. Managing Resources</h3></div></div></div><p>
+					Resource servers can manage their resources remotely using a UMA-compliant endpoint.
+				</p><pre class="screen">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set</pre><p>
+					This endpoint provides operations outlined as follows (entire path omitted for clarity):
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							Create resource set description: POST /resource_set
+						</li><li class="listitem">
+							Read resource set description: GET /resource_set/{_id}
+						</li><li class="listitem">
+							Update resource set description: PUT /resource_set/{_id}
+						</li><li class="listitem">
+							Delete resource set description: DELETE /resource_set/{_id}
+						</li><li class="listitem">
+							List resource set descriptions: GET /resource_set
+						</li></ul></div><p>
+					For more information about the contract for each of these operations, see <a class="link" href="https://docs.kantarainitiative.org/uma/wg/oauth-uma-federated-authz-2.0-09.html#reg-api">UMA Resource Registration API</a>.
+				</p><section class="section" id="creating_a_resource"><div class="titlepage"><div><div><h4 class="title">8.4.2.1. Creating a Resource</h4></div></div></div><p>
+						To create a resource you must send an HTTP POST request as follows:
+					</p><pre class="programlisting language-bash">curl -v -X POST \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '{
+     "name":"Tweedl Social Service",
+     "type":"http://www.example.com/rsrcs/socialstream/140-compatible",
+     "icon_uri":"http://www.example.com/icons/sharesocial.png",
+     "resource_scopes":[
+         "read-public",
+         "post-updates",
+         "read-private",
+         "http://www.example.com/scopes/all"
+      ]
+  }'</pre><p>
+						By default, the owner of a resource is the resource server. If you want to define a different owner, such as an specific user, you can send a request as follows:
+					</p><pre class="programlisting language-bash">curl -v -X POST \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '{
+     "name":"Alice Resource",
+     "owner": "alice"
+  }'</pre><p>
+						Where the property <code class="literal">owner</code> can be set with the username or the identifier of the user.
+					</p></section><section class="section" id="creating_user_managed_resources"><div class="titlepage"><div><div><h4 class="title">8.4.2.2. Creating User-Managed Resources</h4></div></div></div><p>
+						By default, resources created via Protection API can not be managed by resource owners through the <a class="link" href="#service_authorization_my_resources" title="8.3.3. Managing Access to Users Resources">User Account Service</a>.
+					</p><p>
+						To create resources and allow resource owners to manage these resources, you must set <code class="literal">ownerManagedAccess</code> property as follows:
+					</p><pre class="programlisting language-bash">curl -v -X POST \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '{
+     "name":"Alice Resource",
+     "owner": "alice",
+     "ownerManagedAccess": true
+  }'</pre></section><section class="section" id="updating_resources"><div class="titlepage"><div><div><h4 class="title">8.4.2.3. Updating Resources</h4></div></div></div><p>
+						To update an existing resource, send an HTTP PUT request as follows:
+					</p><pre class="programlisting language-bash">curl -v -X PUT \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set/{resource_id} \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '{
+     "_id": "Alice Resource",
+     "name":"Alice Resource",
+     "resource_scopes": [
+        "read"
+     ]
+  }'</pre></section><section class="section" id="deleting_resources"><div class="titlepage"><div><div><h4 class="title">8.4.2.4. Deleting Resources</h4></div></div></div><p>
+						To delete an existing resource, send an HTTP DELETE request as follows:
+					</p><pre class="programlisting language-bash">curl -v -X DELETE \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set/{resource_id} \
+  -H 'Authorization: Bearer '$pat</pre></section><section class="section" id="querying_resources"><div class="titlepage"><div><div><h4 class="title">8.4.2.5. Querying Resources</h4></div></div></div><p>
+						To query the resources by <code class="literal">id</code>, send an HTTP GET request as follows:
+					</p><pre class="programlisting language-bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set/{resource_id}</pre><p>
+						To query resources given a <code class="literal">name</code>, send an HTTP GET request as follows:
+					</p><pre class="programlisting language-bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set?name=Alice Resource</pre><p>
+						To query resources given an <code class="literal">uri</code>, send an HTTP GET request as follows:
+					</p><pre class="programlisting language-bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set?uri=/api/alice</pre><p>
+						To query resources given an <code class="literal">owner</code>, send an HTTP GET request as follows:
+					</p><pre class="programlisting language-bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set?owner=alice</pre><p>
+						To query resources given an <code class="literal">type</code>, send an HTTP GET request as follows:
+					</p><pre class="programlisting language-bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set?type=albums</pre><p>
+						To query resources given an <code class="literal">scope</code>, send an HTTP GET request as follows:
+					</p><pre class="programlisting language-bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set?scope=read</pre><p>
+						When querying the server for permissions use parameters <code class="literal">first</code> and <code class="literal">max</code> results to limit the result.
+					</p></section></section><section class="section" id="service_protection_permission_api_papi"><div class="titlepage"><div><div><h3 class="title">8.4.3. Managing Permission Requests</h3></div></div></div><p>
+					Resource servers using the UMA protocol can use a specific endpoint to manage permission requests. This endpoint provides a UMA-compliant flow for registering permission requests and obtaining a permission ticket.
+				</p><pre class="screen">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/permission</pre><p>
+					A <a class="link" href="#overview_terminology_permission_ticket" title="1.2.7. Permission Ticket">permission ticket</a> is a special security token type representing a permission request. Per the UMA specification, a permission ticket is:
+				</p><p>
+					<code class="literal">A correlation handle that is conveyed from an authorization server to a resource server, from a resource server to a client, and ultimately from a client back to an authorization server, to enable the authorization server to assess the correct policies to apply to a request for authorization data.</code>
+				</p><p>
+					In most cases, you won’t need to deal with this endpoint directly. Red Hat Single Sign-On provides a <a class="link" href="#enforcer_overview" title="Chapter 9. Policy Enforcers">policy enforcer</a> that enables UMA for your resource server so it can obtain a permission ticket from the authorization server, return this ticket to client application, and enforce authorization decisions based on a final requesting party token (RPT).
+				</p><p>
+					The process of obtaining permission tickets from Red Hat Single Sign-On is performed by resource servers and not regular client applications, where permission tickets are obtained when a client tries to access a protected resource without the necessary grants to access the resource. The issuance of permission tickets is an important aspects when using UMA as it allows resource servers to:
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							Abstract from clients the data associated with the resources protected by the resource server
+						</li><li class="listitem">
+							Register in the Red Hat Single Sign-On authorization requests which in turn can be used later in workflows to grant access based on the resource’s owner consent
+						</li><li class="listitem">
+							Decouple resource servers from authorization servers and allow them to protect and manage their resources using different authorization servers
+						</li></ul></div><p>
+					Client wise, a permission ticket has also important aspects that its worthy to highlight:
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							Clients don’t need to know about how authorization data is associated with protected resources. A permission ticket is completely opaque to clients.
+						</li><li class="listitem">
+							Clients can have access to resources on different resource servers and protected by different authorization servers
+						</li></ul></div><p>
+					These are just some of the benefits brought by UMA where other aspects of UMA are strongly based on permission tickets, specially regarding privacy and user controlled access to their resources.
+				</p><section class="section" id="creating_permission_ticket"><div class="titlepage"><div><div><h4 class="title">8.4.3.1. Creating Permission Ticket</h4></div></div></div><p>
+						To create a permission ticket, send an HTTP POST request as follows:
+					</p><pre class="programlisting language-bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/permission \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    "resource_id": "{resource_id}",
+    "resource_scopes": [
+      "view"
+    ]
+  }
+]'</pre><p>
+						When creating tickets you can also push arbitrary claims and associate these claims with the ticket:
+					</p><pre class="programlisting language-bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/permission \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    "resource_id": "{resource_id}",
+    "resource_scopes": [
+      "view"
+    ],
+    "claims": {
+        "organization": ["acme"]
+    }
+  }
+]'</pre><p>
+						Where these claims will be available to your policies when evaluating permissions for the resource and scope(s) associated with the permission ticket.
+					</p></section></section><section class="section" id="service_authorization_uma_policy_api"><div class="titlepage"><div><div><h3 class="title">8.4.4. Managing Resource Permissions using the Policy API</h3></div></div></div><p>
+					Red Hat Single Sign-On leverages the UMA Protection API to allow resource servers to manage permissions for their users. In addition to the Resource and Permission APIs, Red Hat Single Sign-On provides a Policy API from where permissions can be set to resources by resource servers on behalf of their users.
+				</p><p>
+					The Policy API is available at:
+				</p><pre class="screen">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/uma-policy/{resource_id}</pre><p>
+					This API is protected by a bearer token that must represent a consent granted by the user to the resource server to manage permissions on his behalf. The bearer token can be a regular access token obtained from the token endpoint using:
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							Resource Owner Password Credentials Grant Type
+						</li><li class="listitem">
+							Token Exchange, in order to exchange an access token granted to some client (public client) for a token where audience is the resource server
+						</li></ul></div><section class="section" id="associating_a_permission_with_a_resource"><div class="titlepage"><div><div><h4 class="title">8.4.4.1. Associating a Permission with a Resource</h4></div></div></div><p>
+						To associate a permission with a specific resource you must send a HTTP POST request as follows:
+					</p><pre class="programlisting language-bash">curl -X POST \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{resource_id} \
+  -H 'Authorization: Bearer '$access_token \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"name": "Any people manager",
+	"description": "Allow access to any people manager",
+	"scopes": ["read"],
+	"roles": ["people-manager"]
+}'</pre><p>
+						In the example above we are creating and associating a new permission to a resource represented by <code class="literal">resource_id</code> where any user with a role <code class="literal">people-manager</code> should be granted with the <code class="literal">read</code> scope.
+					</p><p>
+						You can also create policies using other access control mechanisms, such as using groups:
+					</p><pre class="programlisting language-bash">curl -X POST \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{resource_id} \
+  -H 'Authorization: Bearer '$access_token \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"name": "Any people manager",
+	"description": "Allow access to any people manager",
+	"scopes": ["read"],
+	"groups": ["/Managers/People Managers"]
+}'</pre><p>
+						Or a specific client:
+					</p><pre class="programlisting language-bash">curl -X POST \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{resource_id} \
+  -H 'Authorization: Bearer '$access_token \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"name": "Any people manager",
+	"description": "Allow access to any people manager",
+	"scopes": ["read"],
+	"clients": ["my-client"]
+}'</pre><p>
+						Or even using a custom policy using JavaScript:
+					</p><pre class="programlisting language-bash">curl -X POST \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{resource_id} \
+  -H 'Authorization: Bearer '$access_token \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+	"name": "Any people manager",
+	"description": "Allow access to any people manager",
+	"scopes": ["read"],
+	"condition": "if (isPeopleManager()) {$evaluation.grant()}"
+}'</pre><p>
+						It is also possible to set any combination of these access control mechanisms.
+					</p><p>
+						To update an existing permission, send an HTTP PUT request as follows:
+					</p><pre class="programlisting language-bash">curl -X PUT \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{permission_id} \
+  -H 'Authorization: Bearer '$access_token \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "id": "21eb3fed-02d7-4b5a-9102-29f3f09b6de2",
+    "name": "Any people manager",
+    "description": "Allow access to any people manager",
+    "type": "uma",
+    "scopes": [
+        "album:view"
+    ],
+    "logic": "POSITIVE",
+    "decisionStrategy": "UNANIMOUS",
+    "owner": "7e22131a-aa57-4f5f-b1db-6e82babcd322",
+    "roles": [
+        "user"
+    ]
+}'</pre></section><section class="section" id="removing_a_permission"><div class="titlepage"><div><div><h4 class="title">8.4.4.2. Removing a Permission</h4></div></div></div><p>
+						To remove a permission associated with a resource, send an HTTP DELETE request as follows:
+					</p><pre class="programlisting language-bash">curl -X DELETE \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{permission_id} \
+  -H 'Authorization: Bearer '$access_token</pre></section><section class="section" id="querying_permission"><div class="titlepage"><div><div><h4 class="title">8.4.4.3. Querying Permission</h4></div></div></div><p>
+						To query the permissions associated with a resource, send an HTTP GET request as follows:
+					</p><pre class="programlisting language-bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy?resource={resource_id}</pre><p>
+						To query the permissions given its name, send an HTTP GET request as follows:
+					</p><pre class="programlisting language-bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy?name=Any people manager</pre><p>
+						To query the permissions associated with a specific scope, send an HTTP GET request as follows:
+					</p><pre class="programlisting language-bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy?scope=read</pre><p>
+						To query all permissions, send an HTTP GET request as follows:
+					</p><pre class="programlisting language-bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy</pre><p>
+						When querying the server for permissions use parameters <code class="literal">first</code> and <code class="literal">max</code> results to limit the result.
+					</p></section></section></section><section class="section" id="service_rpt_overview"><div class="titlepage"><div><div><h2 class="title">8.5. Requesting Party Token</h2></div></div></div><p>
 				A requesting party token (RPT) is a <a class="link" href="https://tools.ietf.org/html/rfc7519">JSON web token (JWT)</a> digitally signed using <a class="link" href="https://www.rfc-editor.org/rfc/rfc7515.txt">JSON web signature (JWS)</a>. The token is built based on the OAuth2 access token previously issued by Red Hat Single Sign-On to a specific client acting on behalf of a user or on its own behalf.
 			</p><p>
 				When you decode an RPT, you see a payload similar to the following:
@@ -1635,7 +1899,7 @@ Content-Type: application/json
 				From this token you can obtain all permissions granted by the server from the <span class="strong strong"><strong>permissions</strong></span> claim.
 			</p><p>
 				Also note that permissions are directly related with the resources/scopes you are protecting and complete decoupled from the access control methods that were used to actually grant and issue these same permissions.
-			</p><section class="section" id="service_protection_token_introspection"><div class="titlepage"><div><div><h3 class="title">8.7.1. Introspecting a Requesting Party Token</h3></div></div></div><p>
+			</p><section class="section" id="service_protection_token_introspection"><div class="titlepage"><div><div><h3 class="title">8.5.1. Introspecting a Requesting Party Token</h3></div></div></div><p>
 					Sometimes you might want to introspect a requesting party token (RPT) to check its validity or obtain the permissions within the token to enforce authorization decisions on the resource server side.
 				</p><p>
 					There are two main use cases where token introspection can help you:
@@ -1643,7 +1907,7 @@ Content-Type: application/json
 							When client applications need to query the token validity to obtain a new one with the same or additional permissions
 						</li><li class="listitem">
 							When enforcing authorization decisions at the resource server side, especially when none of the built-in <a class="link" href="#enforcer_overview" title="Chapter 9. Policy Enforcers">policy enforcers</a> fits your application
-						</li></ul></div></section><section class="section" id="obtaining_information_about_an_rpt"><div class="titlepage"><div><div><h3 class="title">8.7.2. Obtaining Information about an RPT</h3></div></div></div><p>
+						</li></ul></div></section><section class="section" id="obtaining_information_about_an_rpt"><div class="titlepage"><div><div><h3 class="title">8.5.2. Obtaining Information about an RPT</h3></div></div></div><p>
 					The token introspection is essentially a <a class="link" href="https://tools.ietf.org/html/rfc7662">OAuth2 token introspection</a>-compliant endpoint from which you can obtain information about an RPT.
 				</p><pre class="screen">http://${host}:${port}/auth/realms/${realm_name}/protocol/openid-connect/token/introspect</pre><p>
 					To introspect an RPT using this endpoint, you can send a request to the server as follows:
@@ -1681,7 +1945,7 @@ Content-Type: application/json
 					If the RPT is not active, this response is returned instead:
 				</p><pre class="programlisting language-json">{
   "active": false
-}</pre></section><section class="section" id="do_i_need_to_invoke_the_server_every_time_i_want_to_introspect_an_rpt"><div class="titlepage"><div><div><h3 class="title">8.7.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</h3></div></div></div><p>
+}</pre></section><section class="section" id="do_i_need_to_invoke_the_server_every_time_i_want_to_introspect_an_rpt"><div class="titlepage"><div><div><h3 class="title">8.5.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</h3></div></div></div><p>
 					No. Just like a regular access token issued by a Red Hat Single Sign-On server, RPTs also use the <a class="link" href="https://tools.ietf.org/html/rfc7519">JSON web token (JWT)</a> specification as the default format.
 				</p><p>
 					If you want to validate these tokens without a call to the remote introspection endpoint, you can decode the RPT and query for its validity locally. Once you decode the token, you can also use the permissions within the token to enforce authorization decisions.
@@ -1691,17 +1955,17 @@ Content-Type: application/json
 							Validate the signature of the RPT (based on the realm’s public key)
 						</li><li class="listitem">
 							Query for token validity based on its <span class="emphasis"><em>exp</em></span>, <span class="emphasis"><em>iat</em></span>, and <span class="emphasis"><em>aud</em></span> claims
-						</li></ul></div></section></section><section class="section" id="service_client_api"><div class="titlepage"><div><div><h2 class="title">8.8. Authorization Client Java API</h2></div></div></div><p>
+						</li></ul></div></section></section><section class="section" id="service_client_api"><div class="titlepage"><div><div><h2 class="title">8.6. Authorization Client Java API</h2></div></div></div><p>
 				Depending on your requirements, a resource server should be able to manage resources remotely or even check for permissions programmatically. If you are using Java, you can access the Red Hat Single Sign-On Authorization Services using the Authorization Client API.
 			</p><p>
 				It is targeted for resource servers that want to access the different endpoints provided by the server such as the Token Endpoint, Resource, and Permission management endpoints.
-			</p><section class="section" id="maven_dependency"><div class="titlepage"><div><div><h3 class="title">8.8.1. Maven Dependency</h3></div></div></div><pre class="programlisting language-xml">&lt;dependencies&gt;
+			</p><section class="section" id="maven_dependency"><div class="titlepage"><div><div><h3 class="title">8.6.1. Maven Dependency</h3></div></div></div><pre class="programlisting language-xml">&lt;dependencies&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;org.keycloak&lt;/groupId&gt;
         &lt;artifactId&gt;keycloak-authz-client&lt;/artifactId&gt;
         &lt;version&gt;${KEYCLOAK_VERSION}&lt;/version&gt;
     &lt;/dependency&gt;
-&lt;/dependencies&gt;</pre></section><section class="section" id="configuration_11"><div class="titlepage"><div><div><h3 class="title">8.8.2. Configuration</h3></div></div></div><p>
+&lt;/dependencies&gt;</pre></section><section class="section" id="configuration_11"><div class="titlepage"><div><div><h3 class="title">8.6.2. Configuration</h3></div></div></div><p>
 					The client configuration is defined in a <code class="literal">keycloak.json</code> file as follows:
 				</p><pre class="programlisting language-json">{
   "realm": "hello-world-authz",
@@ -1728,10 +1992,10 @@ Content-Type: application/json
 							Specifies the credentials of the application. This is an object notation where the key is the credential type and the value is the value of the credential type.
 						</p></li></ul></div><p>
 					The configuration file is usually located in your application’s classpath, the default location from where the client is going to try to find a <code class="literal"><code class="literal">keycloak.json</code></code> file.
-				</p></section><section class="section" id="creating_the_authorization_client"><div class="titlepage"><div><div><h3 class="title">8.8.3. Creating the Authorization Client</h3></div></div></div><p>
+				</p></section><section class="section" id="creating_the_authorization_client"><div class="titlepage"><div><div><h3 class="title">8.6.3. Creating the Authorization Client</h3></div></div></div><p>
 					Considering you have a <code class="literal"><code class="literal">keycloak.json</code></code> file in your classpath, you can create a new <code class="literal"><code class="literal">AuthzClient</code></code> instance as follows:
 				</p><pre class="programlisting language-java">    // create a new instance based on the configuration defined in a keycloak.json located in your classpath
-    AuthzClient authzClient = AuthzClient.create();</pre></section><section class="section" id="obtaining_user_entitlements"><div class="titlepage"><div><div><h3 class="title">8.8.4. Obtaining User Entitlements</h3></div></div></div><p>
+    AuthzClient authzClient = AuthzClient.create();</pre></section><section class="section" id="obtaining_user_entitlements"><div class="titlepage"><div><div><h3 class="title">8.6.4. Obtaining User Entitlements</h3></div></div></div><p>
 					Here is an example illustrating how to obtain user entitlements:
 				</p><pre class="programlisting language-java">// create a new instance based on the configuration defined in keycloak-authz.json
 AuthzClient authzClient = AuthzClient.create();
@@ -1764,7 +2028,7 @@ String rpt = response.getToken();
 
 System.out.println("You got an RPT: " + rpt);
 
-// now you can use the RPT to access protected resources on the resource server</pre></section><section class="section" id="creating_a_resource_using_the_protection_api"><div class="titlepage"><div><div><h3 class="title">8.8.5. Creating a Resource Using the Protection API</h3></div></div></div><pre class="programlisting language-java">// create a new instance based on the configuration defined in keycloak-authz.json
+// now you can use the RPT to access protected resources on the resource server</pre></section><section class="section" id="creating_a_resource_using_the_protection_api"><div class="titlepage"><div><div><h3 class="title">8.6.5. Creating a Resource Using the Protection API</h3></div></div></div><pre class="programlisting language-java">// create a new instance based on the configuration defined in keycloak-authz.json
 AuthzClient authzClient = AuthzClient.create();
 
 // create a new resource representation with the information we want
@@ -1789,7 +2053,7 @@ String resourceId = response.getId();
 // query the resource using its newly generated id
 ResourceRepresentation resource = resourceClient.findById(resourceId);
 
-System.out.println(resource);</pre></section><section class="section" id="introspecting_an_rpt"><div class="titlepage"><div><div><h3 class="title">8.8.6. Introspecting an RPT</h3></div></div></div><pre class="programlisting language-java">// create a new instance based on the configuration defined in keycloak-authz.json
+System.out.println(resource);</pre></section><section class="section" id="introspecting_an_rpt"><div class="titlepage"><div><div><h3 class="title">8.6.6. Introspecting an RPT</h3></div></div></div><pre class="programlisting language-java">// create a new instance based on the configuration defined in keycloak-authz.json
 AuthzClient authzClient = AuthzClient.create();
 
 // send the authorization request to the server in order to
@@ -1811,6 +2075,10 @@ for (Permission granted : requestingPartyToken.getPermissions()) {
 			<span class="inlinemediaobject"><img src="images/pep-pattern-diagram.png" alt="PEP Overview"/></span>
 		</p><p>
 			A PEP is responsible for enforcing access decisions from the Red Hat Single Sign-On server where these decisions are taken by evaluating the policies associated with a protected resource. It acts as a filter or interceptor in your application in order to check whether or not a particular request to a protected resource can be fulfilled based on the permissions granted by these decisions.
+		</p><p>
+			Permissions are enforced depending on the protocol you are using. When using UMA, the policy enforcer always expects an RPT as a bearer token in order to decide whether or not a request can be served. That means clients should first obtain an RPT from Red Hat Single Sign-On before sending requests to the resource server.
+		</p><p>
+			However, if you are not using UMA, you can also send regular access tokens to the resource server. In this case, the policy enforcer will try to obtain permissions directly from the server.
 		</p><p>
 			If you are using any of the Red Hat Single Sign-On OIDC adapters, you can easily enable the policy enforcer by adding the following property to your <span class="strong strong"><strong>keycloak.json</strong></span> file:
 		</p><div class="formalpara"><p class="title"><strong>keycloak.json</strong></p><p>
@@ -1877,7 +2145,7 @@ for (Permission granted : requestingPartyToken.getPermissions()) {
 					</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p class="simpara">
 								<span class="strong strong"><strong>user-managed-access</strong></span>
 							</p><p class="simpara">
-								Specifies that the adapter uses the UMA protocol. If specified, the adapter queries the server for permission tickets and return them to clients according to the UMA specification. If not specified, the adapter relies on the requesting party token (RPT) sent to the server to enforce permissions.
+								Specifies that the adapter uses the UMA protocol. If specified, the adapter queries the server for permission tickets and returns them to clients according to the UMA specification. If not specified, the policy enforcer will be able to enforce permissions based on regular access tokens or RPTs. In this case, before denying access to the resource when the token lacks permission, the policy enforcer will try to obtain permissions directly from the server.
 							</p></li><li class="listitem"><p class="simpara">
 								<span class="strong strong"><strong>enforcement-mode</strong></span>
 							</p><p class="simpara">
@@ -2146,7 +2414,7 @@ if (User.hasRole('project-manager')) {
 			</p><p>
 				Security requirements change, but with Red Hat Single Sign-On there is no need to change your application code to address the new requirements. Once your application is based on the resource and scope identifier, you need only change the configuration of the permissions or policies associated with a particular resource in the authorization server. In this case, the permissions and policies associated with the <code class="literal">Project Resource</code> and/or the scope <code class="literal">urn:project.com:project:create</code> would be changed.
 			</p></section><section class="section" id="using_the_authorizationcontext_to_obtain_an_authorization_client_instance"><div class="titlepage"><div><div><h2 class="title">9.4. Using the AuthorizationContext to obtain an Authorization Client Instance</h2></div></div></div><p>
-				The <code class="literal"><code class="literal">AuthorizationContext</code></code> can also be used to obtain a reference to the <a class="link" href="#service_client_api" title="8.8. Authorization Client Java API">Authorization Client API</a> configured to your application:
+				The <code class="literal"><code class="literal">AuthorizationContext</code></code> can also be used to obtain a reference to the <a class="link" href="#service_client_api" title="8.6. Authorization Client Java API">Authorization Client API</a> configured to your application:
 			</p><pre class="programlisting language-java">    ClientAuthorizationContext clientContext = ClientAuthorizationContext.class.cast(authzContext);
     AuthzClient authzClient = clientContext.getClient();</pre><p>
 				In some cases, resource servers protected by the policy enforcer need to access the APIs provided by the authorization server. With an <code class="literal"><code class="literal">AuthzClient</code></code> instance in hands, resource servers can interact with the server in order to create resources or check for specific permissions programmatically.
@@ -2268,7 +2536,7 @@ Identity.authorization.authorize(authorizationRequest).then(function (rpt) {
 				The configuration above enables TLS/HTTPS to the Authorization Client, making possible to access a Red Hat Single Sign-On Server remotely using the HTTPS scheme.
 			</p><div class="admonition note"><div class="admonition_header">Note</div><div><p>
 					It is strongly recommended that you enable TLS/HTTPS when accessing the Red Hat Single Sign-On Server endpoints.
-				</p></div></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm140064040561936"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+				</p></div></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm140217882277984"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 				Copyright <span class="trademark"/>© 2018 Red Hat, Inc.
 			</div><div class="para">
 				Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at

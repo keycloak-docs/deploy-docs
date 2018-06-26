@@ -827,37 +827,39 @@ span.image img {
 <li><a href="#_service_obtaining_permissions">8.2. Obtaining Permissions</a>
 <ul class="sectlevel3">
 <li><a href="#_authentication_methods">8.2.1. Client Authentication Methods</a></li>
+<li><a href="#_service_pushing_claims">8.2.2. Pushing Claims</a></li>
 </ul>
 </li>
 <li><a href="#_service_user_managed_access">8.3. User-Managed Access</a>
 <ul class="sectlevel3">
 <li><a href="#_service_uma_authorization_process">8.3.1. Authorization Process</a></li>
 <li><a href="#_service_authorization_aat">8.3.2. Submitting Permission Requests</a></li>
-<li><a href="#_service_authorization_api_aapi">8.3.3. Managing Access to Users Resources</a></li>
+<li><a href="#_service_authorization_my_resources">8.3.3. Managing Access to Users Resources</a></li>
 </ul>
 </li>
 <li><a href="#_service_protection_api">8.4. Protection API</a>
 <ul class="sectlevel3">
 <li><a href="#_service_protection_whatis_obtain_pat">8.4.1. What is a PAT and How to Obtain It</a></li>
+<li><a href="#_service_protection_resources_api">8.4.2. Managing Resources</a></li>
+<li><a href="#_service_protection_permission_api_papi">8.4.3. Managing Permission Requests</a></li>
+<li><a href="#_service_authorization_uma_policy_api">8.4.4. Managing Resource Permissions using the Policy API</a></li>
 </ul>
 </li>
-<li><a href="#_service_protection_resources_api">8.5. Managing Resources</a></li>
-<li><a href="#_service_protection_permission_api_papi">8.6. Managing Permission Requests</a></li>
-<li><a href="#_service_rpt_overview">8.7. Requesting Party Token</a>
+<li><a href="#_service_rpt_overview">8.5. Requesting Party Token</a>
 <ul class="sectlevel3">
-<li><a href="#_service_protection_token_introspection">8.7.1. Introspecting a Requesting Party Token</a></li>
-<li><a href="#obtaining-information-about-an-rpt">8.7.2. Obtaining Information about an RPT</a></li>
-<li><a href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt">8.7.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</a></li>
+<li><a href="#_service_protection_token_introspection">8.5.1. Introspecting a Requesting Party Token</a></li>
+<li><a href="#obtaining-information-about-an-rpt">8.5.2. Obtaining Information about an RPT</a></li>
+<li><a href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt">8.5.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</a></li>
 </ul>
 </li>
-<li><a href="#_service_client_api">8.8. Authorization Client Java API</a>
+<li><a href="#_service_client_api">8.6. Authorization Client Java API</a>
 <ul class="sectlevel3">
-<li><a href="#maven-dependency">8.8.1. Maven Dependency</a></li>
-<li><a href="#configuration-11">8.8.2. Configuration</a></li>
-<li><a href="#creating-the-authorization-client">8.8.3. Creating the Authorization Client</a></li>
-<li><a href="#obtaining-user-entitlements">8.8.4. Obtaining User Entitlements</a></li>
-<li><a href="#creating-a-resource-using-the-protection-api">8.8.5. Creating a Resource Using the Protection API</a></li>
-<li><a href="#introspecting-an-rpt">8.8.6. Introspecting an RPT</a></li>
+<li><a href="#maven-dependency">8.6.1. Maven Dependency</a></li>
+<li><a href="#configuration-11">8.6.2. Configuration</a></li>
+<li><a href="#creating-the-authorization-client">8.6.3. Creating the Authorization Client</a></li>
+<li><a href="#obtaining-user-entitlements">8.6.4. Obtaining User Entitlements</a></li>
+<li><a href="#creating-a-resource-using-the-protection-api">8.6.5. Creating a Resource Using the Protection API</a></li>
+<li><a href="#introspecting-an-rpt">8.6.6. Introspecting an RPT</a></li>
 </ul>
 </li>
 </ul>
@@ -2506,6 +2508,8 @@ can identify them more easily.</p>
 </div>
 <div class="sect3">
 <h4 id="examples"><a class="anchor" href="#examples"></a>5.3.2. Examples</h4>
+<div class="sect4">
+<h5 id="checking-for-attributes-from-the-evaluation-context"><a class="anchor" href="#checking-for-attributes-from-the-evaluation-context"></a>Checking for attributes from the evaluation context</h5>
 <div class="paragraph">
 <p>Here is a simple example of a JavaScript-based policy that uses attribute-based access control (ABAC) to define a condition based on an attribute
 obtained from the execution context:</p>
@@ -2520,6 +2524,31 @@ obtained from the execution context:</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="checking-for-attributes-from-the-current-identity"><a class="anchor" href="#checking-for-attributes-from-the-current-identity"></a>Checking for attributes from the current identity</h5>
+<div class="paragraph">
+<p>Here is a simple example of a JavaScript-based policy that uses attribute-based access control (ABAC) to define a condition based on an attribute
+obtained associated with the current identity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">var</span> context = <span class="predefined">$evaluation</span>.getContext();
+<span class="keyword">var</span> identity = context.getIdentity();
+<span class="keyword">var</span> attributes = identity.getAttributes();
+<span class="keyword">var</span> email = attributes.getValue(<span class="string"><span class="delimiter">'</span><span class="content">email</span><span class="delimiter">'</span></span>).asString(<span class="integer">0</span>);
+
+<span class="keyword">if</span> (email.endsWith(<span class="string"><span class="delimiter">'</span><span class="content">@keycloak.org</span><span class="delimiter">'</span></span>)) {
+    <span class="predefined">$evaluation</span>.grant();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where these attributes are mapped from whatever claim is defined in the token that was used in the authorization request.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="checking-for-roles-granted-to-the-current-identity"><a class="anchor" href="#checking-for-roles-granted-to-the-current-identity"></a>Checking for roles granted to the current identity</h5>
 <div class="paragraph">
 <p>You can also use Role-Based Access Control (RBAC) in your policies. In the example below, we check if a user is granted with a <code>keycloak_user</code> <strong>realm</strong> role:</p>
 </div>
@@ -2546,6 +2575,83 @@ obtained from the execution context:</p>
 }</code></pre>
 </div>
 </div>
+</div>
+<div class="sect4">
+<h5 id="checking-for-roles-granted-to-an-user"><a class="anchor" href="#checking-for-roles-granted-to-an-user"></a>Checking for roles granted to an user</h5>
+<div class="paragraph">
+<p>To check for realm roles granted to an user:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">var</span> realm = <span class="predefined">$evaluation</span>.getRealm();
+
+<span class="keyword">if</span> (realm.isUserInRealmRole(<span class="string"><span class="delimiter">'</span><span class="content">marta</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">role-a</span><span class="delimiter">'</span></span>)) {
+    <span class="predefined">$evaluation</span>.grant();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or for client roles granted to an user:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">var</span> realm = <span class="predefined">$evaluation</span>.getRealm();
+
+<span class="keyword">if</span> (realm.isUserInClientRole(<span class="string"><span class="delimiter">'</span><span class="content">marta</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">my-client</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">some-client-role</span><span class="delimiter">'</span></span>)) {
+    <span class="predefined">$evaluation</span>.grant();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="checking-for-roles-granted-to-a-group"><a class="anchor" href="#checking-for-roles-granted-to-a-group"></a>Checking for roles granted to a group</h5>
+<div class="paragraph">
+<p>To check for realm roles granted to a group:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">var</span> realm = <span class="predefined">$evaluation</span>.getRealm();
+
+<span class="keyword">if</span> (realm.isGroupInRole(<span class="string"><span class="delimiter">'</span><span class="content">/Group A/Group D</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">role-a</span><span class="delimiter">'</span></span>)) {
+    <span class="predefined">$evaluation</span>.grant();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="pushing-arbitrary-claims-to-the-resource-server"><a class="anchor" href="#pushing-arbitrary-claims-to-the-resource-server"></a>Pushing arbitrary claims to the resource server</h5>
+<div class="paragraph">
+<p>To push arbitrary claims to the resource server in order to provide additional information on how permissions should be
+enforced:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">var</span> permission = <span class="predefined">$evaluation</span>.getPermission();
+
+<span class="comment">// decide if permission should be granted</span>
+
+<span class="keyword">if</span> (granted) {
+    permission.addClaim(<span class="string"><span class="delimiter">'</span><span class="content">claim-a</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">claim-a</span><span class="delimiter">'</span></span>);
+    permission.addClaim(<span class="string"><span class="delimiter">'</span><span class="content">claim-a</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">claim-a1</span><span class="delimiter">'</span></span>);
+    permission.addClaim(<span class="string"><span class="delimiter">'</span><span class="content">claim-b</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">claim-b</span><span class="delimiter">'</span></span>);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="checking-for-group-membership"><a class="anchor" href="#checking-for-group-membership"></a>Checking for group membership</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="keyword">var</span> realm = <span class="predefined">$evaluation</span>.getRealm();
+
+<span class="keyword">if</span> (realm.isUserInGroup(<span class="string"><span class="delimiter">'</span><span class="content">marta</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">/Group A/Group B</span><span class="delimiter">'</span></span>)) {
+    <span class="predefined">$evaluation</span>.grant();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="mixing-different-access-control-mechanisms"><a class="anchor" href="#mixing-different-access-control-mechanisms"></a>Mixing different access control mechanisms</h5>
 <div class="paragraph">
 <p>You can also use a combination of several access control mechanisms. The example below shows how roles(RBAC) and
 claims/attributes(ABAC) checks can be used within the same policy. In this case we check if user is granted with <code>admin</code> role
@@ -2574,6 +2680,7 @@ When writing your own rules, keep in mind that the <strong>$evaluation</strong> 
 </td>
 </tr>
 </table>
+</div>
 </div>
 </div>
 </div>
@@ -3590,7 +3697,8 @@ a realm in Keycloak.</p>
     &quot;token_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/protocol/openid-connect/token&quot;,
     &quot;token_introspection_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/protocol/openid-connect/token/introspect&quot;,
     &quot;resource_registration_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/authz/protection/resource_set&quot;,
-    &quot;permission_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/authz/protection/permission&quot;
+    &quot;permission_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/authz/protection/permission&quot;,
+    &quot;policy_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy&quot;
 }</code></pre>
 </div>
 </div>
@@ -3730,7 +3838,7 @@ This parameter only have effect if used together with the <code>ticket</code> pa
   http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
   -H &quot;Authorization: Bearer ${access_token}&quot; \
   --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot; \
-  --data &quot;audience=${resource_server_id}&quot; \
+  --data &quot;audience={resource_server_client_id}&quot; \
   --data &quot;permission=Resource A#Scope A&quot; \
   --data &quot;permission=Resource B#Scope B&quot;</code></pre>
 </div>
@@ -3743,7 +3851,8 @@ This parameter only have effect if used together with the <code>ticket</code> pa
 <pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
   http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
   -H &quot;Authorization: Bearer ${access_token}&quot; \
-  --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot;</code></pre>
+  --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot; \
+  --data &quot;audience={resource_server_client_id}&quot;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3842,6 +3951,54 @@ the resources and scopes to which User A has access.</p>
 </div>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_service_pushing_claims"><a class="anchor" href="#_service_pushing_claims"></a>8.2.2. Pushing Claims</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-pushing-claims.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-authorization-pushing-claims.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>When obtaining permissions from the server you can push arbitrary claims in order to have these
+claims available to your policies when evaluating permissions.</p>
+</div>
+<div class="paragraph">
+<p>If you are obtaining permissions from the server <strong>without</strong> using a permission ticket (UMA flow), you can send
+an authorization request to the token endpoint as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token \
+  --data &quot;grant_type=urn:ietf:params:oauth:grant-type:uma-ticket&quot; \
+  --data &quot;claim_token=ewogICAib3JnYW5pemF0aW9uIjogWyJhY21lIl0KfQ==&quot; \
+  --data &quot;claim_token_format=urn:ietf:params:oauth:token-type:jwt&quot; \
+  --data &quot;client_id={resource_server_client_id}&quot; \
+  --data &quot;client_secret={resource_server_client_secret}&quot; \
+  --data &quot;audience={resource_server_client_id}&quot;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>claim_token</code> parameter expects a BASE64 encoded JSON with a format similar to the example below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">organization</span><span class="delimiter">&quot;</span></span> : [<span class="string"><span class="delimiter">&quot;</span><span class="content">acme</span><span class="delimiter">&quot;</span></span>]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The format expects one or more claims where the value for each claim must be an array of strings.</p>
+</div>
+<div class="sect4">
+<h5 id="pushing-claims-using-uma"><a class="anchor" href="#pushing-claims-using-uma"></a>Pushing Claims Using UMA</h5>
+<div class="paragraph">
+<p>For more details about how to push claims when using UMA and permission tickets, please take a look at <a href="#_service_protection_permission_api_papi">Permission API</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -4044,7 +4201,7 @@ Once created, resource owners can check their account and manage their permissio
 </div>
 </div>
 <div class="sect3">
-<h4 id="_service_authorization_api_aapi"><a class="anchor" href="#_service_authorization_api_aapi"></a>8.3.3. Managing Access to Users Resources</h4>
+<h4 id="_service_authorization_my_resources"><a class="anchor" href="#_service_authorization_my_resources"></a>8.3.3. Managing Access to Users Resources</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-authorization-uma-account-my-resources.adoc" target="_blank">Edit this section</a>
@@ -4146,6 +4303,14 @@ on the <code>Revoke</code> button or by removing a specific <code>Permission</co
 endpoints to manage the state of permissions and query permissions.</p>
 </div>
 </li>
+<li>
+<p><strong>Policy API</strong></p>
+<div class="paragraph">
+<p>Keycloak leverages the UMA Protection API to allow resource servers to manage permissions for their users. In addition
+to the Resource and Permission APIs, Keycloak provides a Policy API from where permissions can be set to resources by resource
+servers on behalf of their users.</p>
+</div>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -4210,9 +4375,8 @@ which requires a <em>client_id</em> and a <em>client_secret</em>. You can choose
 </table>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_service_protection_resources_api"><a class="anchor" href="#_service_protection_resources_api"></a>8.5. Managing Resources</h3>
+<div class="sect3">
+<h4 id="_service_protection_resources_api"><a class="anchor" href="#_service_protection_resources_api"></a>8.4.2. Managing Resources</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-resources-api-papi.adoc" target="_blank">Edit this section</a>
@@ -4252,9 +4416,163 @@ which requires a <em>client_id</em> and a <em>client_secret</em>. You can choose
 <div class="paragraph">
 <p>For more information about the contract for each of these operations, see <a href="https://docs.kantarainitiative.org/uma/wg/oauth-uma-federated-authz-2.0-09.html#reg-api">UMA Resource Registration API</a>.</p>
 </div>
+<div class="sect4">
+<h5 id="creating-a-resource"><a class="anchor" href="#creating-a-resource"></a>Creating a Resource</h5>
+<div class="paragraph">
+<p>To create a resource you must send an HTTP POST request as follows:</p>
 </div>
-<div class="sect2">
-<h3 id="_service_protection_permission_api_papi"><a class="anchor" href="#_service_protection_permission_api_papi"></a>8.6. Managing Permission Requests</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -v -X POST \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '{
+     &quot;name&quot;:&quot;Tweedl Social Service&quot;,
+     &quot;type&quot;:&quot;http://www.example.com/rsrcs/socialstream/140-compatible&quot;,
+     &quot;icon_uri&quot;:&quot;http://www.example.com/icons/sharesocial.png&quot;,
+     &quot;resource_scopes&quot;:[
+         &quot;read-public&quot;,
+         &quot;post-updates&quot;,
+         &quot;read-private&quot;,
+         &quot;http://www.example.com/scopes/all&quot;
+      ]
+  }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, the owner of a resource is the resource server. If you want to define a different owner, such as an
+specific user, you can send a request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -v -X POST \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '{
+     &quot;name&quot;:&quot;Alice Resource&quot;,
+     &quot;owner&quot;: &quot;alice&quot;
+  }'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where the property <code>owner</code> can be set with the username or the identifier of the user.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="creating-user-managed-resources"><a class="anchor" href="#creating-user-managed-resources"></a>Creating User-Managed Resources</h5>
+<div class="paragraph">
+<p>By default, resources created via Protection API can not be managed by resource owners through the <a href="#_service_authorization_my_resources">User Account Service</a>.</p>
+</div>
+<div class="paragraph">
+<p>To create resources and allow resource owners to manage these resources, you must set <code>ownerManagedAccess</code> property as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -v -X POST \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '{
+     &quot;name&quot;:&quot;Alice Resource&quot;,
+     &quot;owner&quot;: &quot;alice&quot;,
+     &quot;ownerManagedAccess&quot;: true
+  }'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="updating-resources"><a class="anchor" href="#updating-resources"></a>Updating Resources</h5>
+<div class="paragraph">
+<p>To update an existing resource, send an HTTP PUT request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -v -X PUT \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set/{resource_id} \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '{
+     &quot;_id&quot;: &quot;Alice Resource&quot;,
+     &quot;name&quot;:&quot;Alice Resource&quot;,
+     &quot;resource_scopes&quot;: [
+        &quot;read&quot;
+     ]
+  }'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="deleting-resources"><a class="anchor" href="#deleting-resources"></a>Deleting Resources</h5>
+<div class="paragraph">
+<p>To delete an existing resource, send an HTTP DELETE request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -v -X DELETE \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set/{resource_id} \
+  -H 'Authorization: Bearer '$pat</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="querying-resources"><a class="anchor" href="#querying-resources"></a>Querying Resources</h5>
+<div class="paragraph">
+<p>To query the resources by <code>id</code>, send an HTTP GET request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set/{resource_id}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To query resources given a <code>name</code>, send an HTTP GET request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set?name=Alice Resource</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To query resources given an <code>uri</code>, send an HTTP GET request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set?uri=/api/alice</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To query resources given an <code>owner</code>, send an HTTP GET request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set?owner=alice</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To query resources given an <code>type</code>, send an HTTP GET request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set?type=albums</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To query resources given an <code>scope</code>, send an HTTP GET request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm_name}/authz/protection/resource_set?scope=read</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When querying the server for permissions use parameters <code>first</code> and <code>max</code> results to limit the result.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_service_protection_permission_api_papi"><a class="anchor" href="#_service_protection_permission_api_papi"></a>8.4.3. Managing Permission Requests</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-permission-api-papi.adoc" target="_blank">Edit this section</a>
@@ -4314,9 +4632,254 @@ permission tickets is an important aspects when using UMA as it allows resource 
 <p>These are just some of the benefits brought by UMA where other aspects of UMA are strongly based on permission tickets, specially regarding
 privacy and user controlled access to their resources.</p>
 </div>
+<div class="sect4">
+<h5 id="creating-permission-ticket"><a class="anchor" href="#creating-permission-ticket"></a>Creating Permission Ticket</h5>
+<div class="paragraph">
+<p>To create a permission ticket, send an HTTP POST request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/permission \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    &quot;resource_id&quot;: &quot;{resource_id}&quot;,
+    &quot;resource_scopes&quot;: [
+      &quot;view&quot;
+    ]
+  }
+]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When creating tickets you can also push arbitrary claims and associate these claims with the ticket:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://${host}:${port}/auth/realms/${realm_name}/authz/protection/permission \
+  -H 'Authorization: Bearer '$pat \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    &quot;resource_id&quot;: &quot;{resource_id}&quot;,
+    &quot;resource_scopes&quot;: [
+      &quot;view&quot;
+    ],
+    &quot;claims&quot;: {
+        &quot;organization&quot;: [&quot;acme&quot;]
+    }
+  }
+]'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where these claims will be available to your policies when evaluating permissions for the resource and scope(s) associated
+with the permission ticket.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_service_authorization_uma_policy_api"><a class="anchor" href="#_service_authorization_uma_policy_api"></a>8.4.4. Managing Resource Permissions using the Policy API</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-protection-policy-api.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20authorization_services/topics/service-protection-policy-api.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>Keycloak leverages the UMA Protection API to allow resource servers to manage permissions for their users. In addition
+to the Resource and Permission APIs, Keycloak provides a Policy API from where permissions can be set to resources by resource
+servers on behalf of their users.</p>
+</div>
+<div class="paragraph">
+<p>The Policy API is available at:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>http://${host}:${port}/auth/realms/${realm_name}/authz/protection/uma-policy/{resource_id}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This API is protected by a bearer token that must represent a consent granted by the user to the resource server to manage permissions on his behalf. The bearer token can be a regular access token obtained from the
+token endpoint using:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Resource Owner Password Credentials Grant Type</p>
+</li>
+<li>
+<p>Token Exchange, in order to exchange an access token granted to some client (public client) for a token
+where audience is the resource server</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="associating-a-permission-with-a-resource"><a class="anchor" href="#associating-a-permission-with-a-resource"></a>Associating a Permission with a Resource</h5>
+<div class="paragraph">
+<p>To associate a permission with a specific resource you must send a HTTP POST request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{resource_id} \
+  -H 'Authorization: Bearer '$access_token \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        &quot;name&quot;: &quot;Any people manager&quot;,
+        &quot;description&quot;: &quot;Allow access to any people manager&quot;,
+        &quot;scopes&quot;: [&quot;read&quot;],
+        &quot;roles&quot;: [&quot;people-manager&quot;]
+}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the example above we are creating and associating a new permission to a resource represented by <code>resource_id</code> where
+any user with a role <code>people-manager</code> should be granted with the <code>read</code> scope.</p>
+</div>
+<div class="paragraph">
+<p>You can also create policies using other access control mechanisms, such as using groups:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{resource_id} \
+  -H 'Authorization: Bearer '$access_token \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        &quot;name&quot;: &quot;Any people manager&quot;,
+        &quot;description&quot;: &quot;Allow access to any people manager&quot;,
+        &quot;scopes&quot;: [&quot;read&quot;],
+        &quot;groups&quot;: [&quot;/Managers/People Managers&quot;]
+}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or a specific client:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{resource_id} \
+  -H 'Authorization: Bearer '$access_token \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        &quot;name&quot;: &quot;Any people manager&quot;,
+        &quot;description&quot;: &quot;Allow access to any people manager&quot;,
+        &quot;scopes&quot;: [&quot;read&quot;],
+        &quot;clients&quot;: [&quot;my-client&quot;]
+}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or even using a custom policy using JavaScript:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X POST \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{resource_id} \
+  -H 'Authorization: Bearer '$access_token \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -d '{
+        &quot;name&quot;: &quot;Any people manager&quot;,
+        &quot;description&quot;: &quot;Allow access to any people manager&quot;,
+        &quot;scopes&quot;: [&quot;read&quot;],
+        &quot;condition&quot;: &quot;if (isPeopleManager()) {$evaluation.grant()}&quot;
+}'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is also possible to set any combination of these access control mechanisms.</p>
+</div>
+<div class="paragraph">
+<p>To update an existing permission, send an HTTP PUT request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X PUT \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{permission_id} \
+  -H 'Authorization: Bearer '$access_token \
+  -H 'Content-Type: application/json' \
+  -d '{
+    &quot;id&quot;: &quot;21eb3fed-02d7-4b5a-9102-29f3f09b6de2&quot;,
+    &quot;name&quot;: &quot;Any people manager&quot;,
+    &quot;description&quot;: &quot;Allow access to any people manager&quot;,
+    &quot;type&quot;: &quot;uma&quot;,
+    &quot;scopes&quot;: [
+        &quot;album:view&quot;
+    ],
+    &quot;logic&quot;: &quot;POSITIVE&quot;,
+    &quot;decisionStrategy&quot;: &quot;UNANIMOUS&quot;,
+    &quot;owner&quot;: &quot;7e22131a-aa57-4f5f-b1db-6e82babcd322&quot;,
+    &quot;roles&quot;: [
+        &quot;user&quot;
+    ]
+}'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="removing-a-permission"><a class="anchor" href="#removing-a-permission"></a>Removing a Permission</h5>
+<div class="paragraph">
+<p>To remove a permission associated with a resource, send an HTTP DELETE request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl -X DELETE \
+  http://localhost:8180/auth/realms/photoz/authz/protection/uma-policy/{permission_id} \
+  -H 'Authorization: Bearer '$access_token</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="querying-permission"><a class="anchor" href="#querying-permission"></a>Querying Permission</h5>
+<div class="paragraph">
+<p>To query the permissions associated with a resource, send an HTTP GET request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy?resource={resource_id}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To query the permissions given its name, send an HTTP GET request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy?name=Any people manager</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To query the permissions associated with a specific scope, send an HTTP GET request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy?scope=read</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To query all permissions, send an HTTP GET request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When querying the server for permissions use parameters <code>first</code> and <code>max</code> results to limit the result.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_service_rpt_overview"><a class="anchor" href="#_service_rpt_overview"></a>8.7. Requesting Party Token</h3>
+<h3 id="_service_rpt_overview"><a class="anchor" href="#_service_rpt_overview"></a>8.5. Requesting Party Token</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-rpt-overview.adoc" target="_blank">Edit this section</a>
@@ -4359,7 +4922,7 @@ or on its own behalf.</p>
 the access control methods that were used to actually grant and issue these same permissions.</p>
 </div>
 <div class="sect3">
-<h4 id="_service_protection_token_introspection"><a class="anchor" href="#_service_protection_token_introspection"></a>8.7.1. Introspecting a Requesting Party Token</h4>
+<h4 id="_service_protection_token_introspection"><a class="anchor" href="#_service_protection_token_introspection"></a>8.5.1. Introspecting a Requesting Party Token</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-rpt-token-introspection.adoc" target="_blank">Edit this section</a>
@@ -4384,7 +4947,7 @@ the access control methods that were used to actually grant and issue these same
 </div>
 </div>
 <div class="sect3">
-<h4 id="obtaining-information-about-an-rpt"><a class="anchor" href="#obtaining-information-about-an-rpt"></a>8.7.2. Obtaining Information about an RPT</h4>
+<h4 id="obtaining-information-about-an-rpt"><a class="anchor" href="#obtaining-information-about-an-rpt"></a>8.5.2. Obtaining Information about an RPT</h4>
 <div class="paragraph">
 <p>The token introspection is essentially a <a href="https://tools.ietf.org/html/rfc7662">OAuth2 token introspection</a>-compliant endpoint from which you can obtain information about an RPT.</p>
 </div>
@@ -4468,7 +5031,7 @@ The request above is using HTTP BASIC and passing the client&#8217;s credentials
 </div>
 </div>
 <div class="sect3">
-<h4 id="do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"><a class="anchor" href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"></a>8.7.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</h4>
+<h4 id="do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"><a class="anchor" href="#do-i-need-to-invoke-the-server-every-time-i-want-to-introspect-an-rpt"></a>8.5.3. Do I Need to Invoke the Server Every Time I Want to Introspect an RPT?</h4>
 <div class="paragraph">
 <p>No. Just like a regular access token issued by a Keycloak server, RPTs also use the
  <a href="https://tools.ietf.org/html/rfc7519">JSON web token (JWT)</a> specification as the default format.</p>
@@ -4493,7 +5056,7 @@ you can also use the permissions within the token to enforce authorization decis
 </div>
 </div>
 <div class="sect2">
-<h3 id="_service_client_api"><a class="anchor" href="#_service_client_api"></a>8.8. Authorization Client Java API</h3>
+<h3 id="_service_client_api"><a class="anchor" href="#_service_client_api"></a>8.6. Authorization Client Java API</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/authorization_services/topics/service-client-api.adoc" target="_blank">Edit this section</a>
@@ -4508,7 +5071,7 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 <p>It is targeted for resource servers that want to access the different endpoints provided by the server such as the Token Endpoint, Resource, and Permission management endpoints.</p>
 </div>
 <div class="sect3">
-<h4 id="maven-dependency"><a class="anchor" href="#maven-dependency"></a>8.8.1. Maven Dependency</h4>
+<h4 id="maven-dependency"><a class="anchor" href="#maven-dependency"></a>8.6.1. Maven Dependency</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;dependencies&gt;</span>
@@ -4522,7 +5085,7 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 </div>
 </div>
 <div class="sect3">
-<h4 id="configuration-11"><a class="anchor" href="#configuration-11"></a>8.8.2. Configuration</h4>
+<h4 id="configuration-11"><a class="anchor" href="#configuration-11"></a>8.6.2. Configuration</h4>
 <div class="paragraph">
 <p>The client configuration is defined in a <code>keycloak.json</code> file as follows:</p>
 </div>
@@ -4571,7 +5134,7 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-the-authorization-client"><a class="anchor" href="#creating-the-authorization-client"></a>8.8.3. Creating the Authorization Client</h4>
+<h4 id="creating-the-authorization-client"><a class="anchor" href="#creating-the-authorization-client"></a>8.6.3. Creating the Authorization Client</h4>
 <div class="paragraph">
 <p>Considering you have a <code><code>keycloak.json</code></code> file in your classpath, you can create a new <code><code>AuthzClient</code></code> instance as follows:</p>
 </div>
@@ -4583,7 +5146,7 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 </div>
 </div>
 <div class="sect3">
-<h4 id="obtaining-user-entitlements"><a class="anchor" href="#obtaining-user-entitlements"></a>8.8.4. Obtaining User Entitlements</h4>
+<h4 id="obtaining-user-entitlements"><a class="anchor" href="#obtaining-user-entitlements"></a>8.6.4. Obtaining User Entitlements</h4>
 <div class="paragraph">
 <p>Here is an example illustrating how to obtain user entitlements:</p>
 </div>
@@ -4631,7 +5194,7 @@ AuthorizationResponse response = authzClient.authorization(<span class="string">
 </div>
 </div>
 <div class="sect3">
-<h4 id="creating-a-resource-using-the-protection-api"><a class="anchor" href="#creating-a-resource-using-the-protection-api"></a>8.8.5. Creating a Resource Using the Protection API</h4>
+<h4 id="creating-a-resource-using-the-protection-api"><a class="anchor" href="#creating-a-resource-using-the-protection-api"></a>8.6.5. Creating a Resource Using the Protection API</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
@@ -4664,7 +5227,7 @@ ResourceRepresentation resource = resourceClient.findById(resourceId);
 </div>
 </div>
 <div class="sect3">
-<h4 id="introspecting-an-rpt"><a class="anchor" href="#introspecting-an-rpt"></a>8.8.6. Introspecting an RPT</h4>
+<h4 id="introspecting-an-rpt"><a class="anchor" href="#introspecting-an-rpt"></a>8.6.6. Introspecting an RPT</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
@@ -4711,6 +5274,13 @@ and leverages OAuth2 authorization capabilities for fine-grained authorization u
 <p>A PEP is responsible for enforcing access decisions from the Keycloak server where these decisions are taken by evaluating the policies
 associated with a protected resource. It acts as a filter or interceptor in your application in order to check whether or not a particular request
 to a protected resource can be fulfilled based on the permissions granted by these decisions.</p>
+</div>
+<div class="paragraph">
+<p>Permissions are enforced depending on the protocol you are using. When using UMA, the policy enforcer always expects an RPT as a bearer token in order
+to decide whether or not a request can be served. That means clients should first obtain an RPT from Keycloak before sending requests to the resource server.</p>
+</div>
+<div class="paragraph">
+<p>However, if you are not using UMA, you can also send regular access tokens to the resource server. In this case, the policy enforcer will try to obtain permissions directly from the server.</p>
 </div>
 <div class="paragraph">
 <p>If you are using any of the Keycloak OIDC adapters, you can easily enable the policy enforcer by adding the following property to your <strong>keycloak.json</strong> file:</p>
@@ -4811,7 +5381,8 @@ for all resources associated with the resource server being protected. In this c
 <li>
 <p><strong>user-managed-access</strong></p>
 <div class="paragraph">
-<p>Specifies that the adapter uses the UMA protocol. If specified, the adapter queries the server for permission tickets and return them to clients according to the UMA specification. If not specified, the adapter relies on the requesting party token (RPT) sent to the server to enforce permissions.</p>
+<p>Specifies that the adapter uses the UMA protocol. If specified, the adapter queries the server for permission tickets and returns them to clients according to the UMA specification. If not specified, the policy enforcer will be able to enforce permissions based on regular access tokens or RPTs. In this case,
+before denying access to the resource when the token lacks permission, the policy enforcer will try to obtain permissions directly from the server.</p>
 </div>
 </li>
 <li>
@@ -5561,7 +6132,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-06-21 15:02:18 UTC
+Last updated 2018-06-26 11:53:49 UTC
 </div>
 </div>
 <ul id="globalnav">
