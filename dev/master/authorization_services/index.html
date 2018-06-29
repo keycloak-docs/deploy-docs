@@ -3106,8 +3106,8 @@ can identify them more easily.</p>
 <p><strong>Groups Claim</strong></p>
 <div class="paragraph">
 <p>Specifies the name of the claim in the token holding the group names and/or paths. Usually, authorization requests are processed based on an ID Token or Access Token
-previously issued to a client acting on behalf of some user. The token must include a claim from where this policy is going to obtain the groups
-the user is a member.</p>
+previously issued to a client acting on behalf of some user. If defined, the token must include a claim from where this policy is going to obtain the groups
+the user is a member of. If not defined, user&#8217;s groups are obtained from your realm configuration.</p>
 </div>
 </li>
 <li>
@@ -6134,7 +6134,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-06-29 13:53:17 UTC
+Last updated 2018-06-29 14:35:09 UTC
 </div>
 </div>
 <ul id="globalnav">
