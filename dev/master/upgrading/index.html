@@ -1442,7 +1442,7 @@ from the Protocol Mapper details. Those switches were replaced by the Client Sco
 <p>We added support for UMA 2.0. This version of the UMA specification introduced some important changes on how permissions are obtained from the server.</p>
 </div>
 <div class="paragraph">
-<p>Here are the main changes introduced by UMA 2.0 support. See <a href="https://www.keycloak.org/docs/4.1/authorization_services/">Authorization Services Guide</a> for details.</p>
+<p>Here are the main changes introduced by UMA 2.0 support. See <a href="https://www.keycloak.org/docs/4.2/authorization_services/">Authorization Services Guide</a> for details.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -1450,18 +1450,18 @@ from the Protocol Mapper details. Those switches were replaced by the Client Sco
 <dd>
 <p>Prior to UMA 2.0 (UMA 1.0), client applications were using the Authorization API to obtain permissions from the server in the format of a RPT. The new version
 of UMA specification has removed the Authorization API which was also removed from Keycloak. In UMA 2.0, RPTs can now be obtained from the token endpoint by using a specific grant type.
-See <a href="https://www.keycloak.org/docs/4.1/authorization_services/#_service_obtaining_permissions">Authorization Services Guide</a> for details.</p>
+See <a href="https://www.keycloak.org/docs/4.2/authorization_services/#_service_obtaining_permissions">Authorization Services Guide</a> for details.</p>
 </dd>
 <dt class="hdlist1">Entitlement API was removed</dt>
 <dd>
 <p>With the introduction of UMA 2.0, we decided to leverage the token endpoint and UMA grant type to allow obtaining RPTs from Keycloak and
 avoid having different APIs. The functionality provided by the Entitlement API was kept the same and is still possible to obtain permissions for a set
 of one or more resources and scopes or all permissions from the server in case no resource or scope is provided.
-See <a href="https://www.keycloak.org/docs/4.1/authorization_services/#_service_obtaining_permissions">Authorization Services Guide</a> for details.</p>
+See <a href="https://www.keycloak.org/docs/4.2/authorization_services/#_service_obtaining_permissions">Authorization Services Guide</a> for details.</p>
 </dd>
 <dt class="hdlist1">Changes to UMA Discovery Endpoint</dt>
 <dd>
-<p>UMA Discovery document changed, see <a href="https://www.keycloak.org/docs/4.1/authorization_services/#_service_authorization_api">Authorization Services Guide</a> for details.</p>
+<p>UMA Discovery document changed, see <a href="https://www.keycloak.org/docs/4.2/authorization_services/#_service_authorization_api">Authorization Services Guide</a> for details.</p>
 </dd>
 <dt class="hdlist1">Changes to Keycloak Authorization JavaScript Adapter</dt>
 <dd>
@@ -1469,7 +1469,7 @@ See <a href="https://www.keycloak.org/docs/4.1/authorization_services/#_service_
 the same behavior as before. The main change is on how you invoke both <code>authorization</code> and <code>entitlement</code> methods which now
 expect a specific object type representing an authorization request. This new object type provides more flexibility on how
 permissions can be obtained from the server by supporting the different parameters supported by the UMA grant type.
-See <a href="https://www.keycloak.org/docs/4.1/authorization_services/#_enforcer_js_adapter">Authorization Services Guide</a> for details.</p>
+See <a href="https://www.keycloak.org/docs/4.2/authorization_services/#_enforcer_js_adapter">Authorization Services Guide</a> for details.</p>
 <div class="literalblock">
 <div class="content">
 <pre>One of the main changes introduced by this release is that you are no longer required to exchange access tokens with RPTs in
@@ -2039,7 +2039,7 @@ WildFly 8.2.0.Final is no longer supported for the server.</p>
 </div>
 <div class="paragraph">
 <p>You also need to update standalone.xml as the extension module and subsystem definition has changed.
-See <a href="https://www.keycloak.org/docs/4.1/securing_apps/">{adapterguide_name</a> for details.</p>
+See <a href="https://www.keycloak.org/docs/4.2/securing_apps/">{adapterguide_name</a> for details.</p>
 </div>
 </div>
 </div>
@@ -2325,7 +2325,7 @@ credentials tab in the administration console.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-04 08:34:23 UTC
+Last updated 2018-07-05 11:26:58 UTC
 </div>
 </div>
 <ul id="globalnav">
