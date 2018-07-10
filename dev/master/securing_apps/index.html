@@ -762,6 +762,8 @@ span.image img {
 <li><a href="#obtaining-assertion-attributes">3.1.9. Obtaining Assertion Attributes</a></li>
 <li><a href="#error-handling">3.1.10. Error Handling</a></li>
 <li><a href="#troubleshooting">3.1.11. Troubleshooting</a></li>
+<li><a href="#_saml_multi_tenancy">3.1.12. Multi Tenancy</a></li>
+<li><a href="#migration-from-older-versions">3.1.13. Migration from older versions</a></li>
 </ul>
 </li>
 <li><a href="#_mod_auth_mellon">3.2. mod_auth_mellon Apache HTTPD Module</a>
@@ -8269,6 +8271,21 @@ You must have a filter mapping that covers <code>/saml</code>.
 <span class="tag">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>In order to use <a href="#_saml_multi_tenancy">Multi Tenancy</a> the <code>keycloak.config.resolver</code> parameter should be passed as a filter parameter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml">    <span class="tag">&lt;filter&gt;</span>
+        <span class="tag">&lt;filter-name&gt;</span>Keycloak Filter<span class="tag">&lt;/filter-name&gt;</span>
+        <span class="tag">&lt;filter-class&gt;</span>org.keycloak.adapters.saml.servlet.SamlFilter<span class="tag">&lt;/filter-class&gt;</span>
+        <span class="tag">&lt;init-param&gt;</span>
+            <span class="tag">&lt;param-name&gt;</span>keycloak.config.resolver<span class="tag">&lt;/param-name&gt;</span>
+            <span class="tag">&lt;param-value&gt;</span>example.SamlMultiTenantResolver<span class="tag">&lt;/param-value&gt;</span>
+        <span class="tag">&lt;/init-param&gt;</span>
+    <span class="tag">&lt;/filter&gt;</span></code></pre>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="registering-with-an-identity-provider"><a class="anchor" href="#registering-with-an-identity-provider"></a>3.1.7. Registering with an Identity Provider</h4>
@@ -8561,9 +8578,96 @@ If this attribute is not set, then the adapter was not responsible for the error
 </div>
 </div>
 <div class="paragraph">
-<p>The best way to troubleshoot problems is to turn on debugging for SAML in both the client adapter and Keycloak Server. Using your logging framework, set the log level to <code>DEBUG</code> for the <code>org.keycloak.saml</code> package. Turning this on allows you to see the SAML requests and response documents being sent to and from the server.
-==== Migration from older versions</p>
+<p>The best way to troubleshoot problems is to turn on debugging for SAML in both the client adapter and Keycloak Server. Using your logging framework, set the log level to <code>DEBUG</code> for the <code>org.keycloak.saml</code> package. Turning this on allows you to see the SAML requests and response documents being sent to and from the server.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_saml_multi_tenancy"><a class="anchor" href="#_saml_multi_tenancy"></a>3.1.12. Multi Tenancy</h4>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/multi-tenancy.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/multi-tenancy.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>SAML offers the same functionality as OIDC for <a href="#_multi_tenancy">Multi Tenancy</a>, meaning that a single target application (WAR) can be secured with multiple Keycloak realms. The realms can be located on the same Keycloak instance or on different instances.</p>
+</div>
+<div class="paragraph">
+<p>To do this, the application must have multiple <code>keycloak-saml.xml</code> adapter configuration files.</p>
+</div>
+<div class="paragraph">
+<p>While you could have multiple instances of your WAR with different adapter configuration files deployed to different context-paths, this may be inconvenient and you may also want to select the realm based on something other than context-path.</p>
+</div>
+<div class="paragraph">
+<p>Keycloak makes it possible to have a custom config resolver, so you can choose which adapter config is used for each request. In SAML, the configuration is only interesting in the login processing; once the user is logged in, the session is authenticated and it does not matter if the <code>keycloak-saml.xml</code> returned is different. For that reason, returning the same configuration for the same session is the correct way to go.</p>
+</div>
+<div class="paragraph">
+<p>To achieve this, create an implementation of <code>org.keycloak.adapters.saml.SamlConfigResolver</code>. The following example uses the <code>Host</code> header to locate the proper configuration and load it and the associated elements from the applications&#8217;s Java classpath:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">package</span> <span class="namespace">example</span>;
+
+<span class="keyword">import</span> <span class="include">java.io.InputStream</span>;
+<span class="keyword">import</span> <span class="include">org.keycloak.adapters.saml.SamlConfigResolver</span>;
+<span class="keyword">import</span> <span class="include">org.keycloak.adapters.saml.SamlDeployment</span>;
+<span class="keyword">import</span> <span class="include">org.keycloak.adapters.saml.config.parsers.DeploymentBuilder</span>;
+<span class="keyword">import</span> <span class="include">org.keycloak.adapters.saml.config.parsers.ResourceLoader</span>;
+<span class="keyword">import</span> <span class="include">org.keycloak.adapters.spi.HttpFacade</span>;
+<span class="keyword">import</span> <span class="include">org.keycloak.saml.common.exceptions.ParsingException</span>;
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">SamlMultiTenantResolver</span> <span class="directive">implements</span> SamlConfigResolver {
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> SamlDeployment resolve(HttpFacade.Request request) {
+        <span class="predefined-type">String</span> host = request.getHeader(<span class="string"><span class="delimiter">&quot;</span><span class="content">Host</span><span class="delimiter">&quot;</span></span>);
+        <span class="predefined-type">String</span> realm = <span class="predefined-constant">null</span>;
+        <span class="keyword">if</span> (host.contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">tenant1</span><span class="delimiter">&quot;</span></span>)) {
+            realm = <span class="string"><span class="delimiter">&quot;</span><span class="content">tenant1</span><span class="delimiter">&quot;</span></span>;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (host.contains(<span class="string"><span class="delimiter">&quot;</span><span class="content">tenant2</span><span class="delimiter">&quot;</span></span>)) {
+            realm = <span class="string"><span class="delimiter">&quot;</span><span class="content">tenant2</span><span class="delimiter">&quot;</span></span>;
+        } <span class="keyword">else</span> {
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">IllegalStateException</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">Not able to guess the keycloak-saml.xml to load</span><span class="delimiter">&quot;</span></span>);
+        }
+
+        <span class="predefined-type">InputStream</span> is = getClass().getResourceAsStream(<span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span> + realm + <span class="string"><span class="delimiter">&quot;</span><span class="content">-keycloak-saml.xml</span><span class="delimiter">&quot;</span></span>);
+        <span class="keyword">if</span> (is == <span class="predefined-constant">null</span>) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">IllegalStateException</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">Not able to find the file /</span><span class="delimiter">&quot;</span></span> + realm + <span class="string"><span class="delimiter">&quot;</span><span class="content">-keycloak-saml.xml</span><span class="delimiter">&quot;</span></span>);
+        }
+
+        ResourceLoader loader = <span class="keyword">new</span> ResourceLoader() {
+            <span class="annotation">@Override</span>
+            <span class="directive">public</span> <span class="predefined-type">InputStream</span> getResourceAsStream(<span class="predefined-type">String</span> path) {
+                <span class="keyword">return</span> getClass().getResourceAsStream(path);
+            }
+        };
+
+        <span class="keyword">try</span> {
+            <span class="keyword">return</span> <span class="keyword">new</span> DeploymentBuilder().build(is, loader);
+        } <span class="keyword">catch</span> (ParsingException e) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="exception">IllegalStateException</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">Cannot load SAML deployment</span><span class="delimiter">&quot;</span></span>, e);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You must also configure which <code>SamlConfigResolver</code> implementation to use with the <code>keycloak.config.resolver</code> context-param in your <code>web.xml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;web-app&gt;</span>
+    ...
+    <span class="tag">&lt;context-param&gt;</span>
+        <span class="tag">&lt;param-name&gt;</span>keycloak.config.resolver<span class="tag">&lt;/param-name&gt;</span>
+        <span class="tag">&lt;param-value&gt;</span>example.SamlMultiTenantResolver<span class="tag">&lt;/param-value&gt;</span>
+    <span class="tag">&lt;/context-param&gt;</span>
+<span class="tag">&lt;/web-app&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="migration-from-older-versions"><a class="anchor" href="#migration-from-older-versions"></a>3.1.13. Migration from older versions</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/MigrationFromOlderVersions.adoc" target="_blank">Edit this section</a>
@@ -10795,7 +10899,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-05 11:26:44 UTC
+Last updated 2018-07-10 11:22:10 UTC
 </div>
 </div>
 <ul id="globalnav">
