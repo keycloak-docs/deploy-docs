@@ -8843,13 +8843,164 @@ go to the <code>Brute Force Detection</code> sub-tab.</p>
 <p><span class="image"><img src="./keycloak-images/brute-force.png" alt="brute force"></span></p>
 </div>
 <div class="paragraph">
-<p>The way this works is that if there are <code>Max Login Failures</code> during a period of <code>Failure Reset Time</code>,
-the account is temporarily disabled for the <code>Wait Increment</code> multiplied by the number of failures over the max.  After
-<code>Failure Reset Time</code> is reached all failures are wiped clean.  The <code>Max Wait</code> is the maximum amount of time
-an account can be disabled.  Another preventive measure is that if there are subsequent login failures for one
-account that are too quick for a human to initiate the account will be disabled.  This is controlled by the
-<code>Quick Login Check Milli Seconds</code> value.  So, if there are two login failures for the same account within that value,
-the account will be disabled for <code>Minimum Quick Login Wait</code>.</p>
+<p>There are 2 different configurations for brute force detection; permanent lockout and temporary lockout. Permanent lockout will disable a user&#8217;s account after an attack is detected; the account will be disabled until an administrator renables it. Temporary lockout will disable a user&#8217;s account for a time period after an attack is detected; the time period for which the account is disabled increases the longer the attack continues.</p>
+</div>
+<div class="paragraph">
+<p><strong>Common Parameters</strong></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Max Login Failures</dt>
+<dd>
+<p>Maximum number of login failures permitted. Default value is 30.</p>
+</dd>
+<dt class="hdlist1">Quick Login Check Milli Seconds</dt>
+<dd>
+<p>Minimum time required between login attempts. Default is 1000.</p>
+</dd>
+<dt class="hdlist1">Minimum Quick Login Wait</dt>
+<dd>
+<p>Minimum amount of time the user will be temporarily disabled if logins attempts are quicker than <em>Quick Login Check Milli Seconds</em>. Default is 1 minute.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Temporary Lockout Parameters</strong></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Wait Increment</dt>
+<dd>
+<p>Amount of time added to the time a user is temporarily disabled after each time <em>Max Login Failures</em> is reached. Default is 1 minute.</p>
+</dd>
+<dt class="hdlist1">Max Wait</dt>
+<dd>
+<p>The maximum amount of time for which a user will be temporarily disabled. Default is 15 minutes.</p>
+</dd>
+<dt class="hdlist1">Failure Reset Time</dt>
+<dd>
+<p>Time after which the failure count will be reset; timer runs from the last failed login. Default is 12 hours.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Permanent Lockout Algorithm</strong></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On successful login</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Reset <code>count</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>On failed login</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Increment <code>count</code></p>
+</li>
+<li>
+<p>If <code>count</code> greater than <em>Max Login Failures</em></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Permanently disable user</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Else if time between this failure and the last failure is less than <em>Quick Login Check Milli Seconds</em></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Temporarily disable user for <em>Minimum Quick Login Wait</em></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When a user is disabled they can not login until an administrator enables the user; enabling an account resets <code>count</code>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Temporary Lockout Algorithm</strong></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On successful login</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Reset <code>count</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>On failed login</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If time between this failure and the last failure is greater than <em>Failure Reset Time</em></p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Reset <code>count</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Increment <code>count</code></p>
+</li>
+<li>
+<p>Calculate <code>wait</code> using <em>Wait Increment</em> * (<code>count</code> / <em>Max Login Failures</em>). The division is an integer division so will always be rounded down to a whole number</p>
+</li>
+<li>
+<p>If <code>wait</code> equals 0 and time between this failure and the last failure is less than <em>Quick Login Check Milli Seconds</em> then set <code>wait</code> to <em>Minimum Quick Login Wait</em> instead</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Temporarily disable the user for the smaller of <code>wait</code> and <em>Max Wait</em> seconds</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Login failures when a user is temporarily disabled do not increment <code>count</code>.</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>The downside of Keycloak brute force detection is that the server becomes vulnerable to denial of service attacks.
@@ -11610,7 +11761,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-18 08:53:31 UTC
+Last updated 2018-07-20 19:46:47 UTC
 </div>
 </div>
 <ul id="globalnav">

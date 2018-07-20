@@ -3255,12 +3255,12 @@ feature:install keycloak-pax-http-undertow keycloak-jaas</code></pre>
 </ol>
 </div>
 <div class="sect5">
-<h6 id="_fuse7_config_external_adapter"><a class="anchor" href="#_fuse7_config_external_adapter"></a>Configuring the External Adapter</h6>
+<h6 id="_fuse7_config_external_adapter"><a class="anchor" href="#_fuse7_config_external_adapter"></a>Configuration Resolvers</h6>
 <div class="paragraph">
-<p>If you do not want the <code>keycloak.json</code> adapter configuration file to be bundled inside your WAR application, but instead made available externally and loaded based on naming conventions, use this configuration method.</p>
-</div>
-<div class="paragraph">
-<p>To enable the functionality, add this section to your <code>/WEB_INF/web.xml</code> file:</p>
+<p>The <code>keycloak.json</code> adapter configuration file can be stored inside a bundle,
+which is default behaviour, or in a directory on a filesystem. To specify the
+actual source of the configuration file, set the <code>keycloak.config.resolver</code> deployment parameter to the desired configuration resolver class.
+For example, in a classic WAR application, set the <code>keycloak.config.resolver</code> context parameter in <code>web.xml</code> file like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3271,11 +3271,51 @@ feature:install keycloak-pax-http-undertow keycloak-jaas</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>That component uses <code>keycloak.config</code> or <code>karaf.etc</code> java properties to search for a base folder to locate the configuration.
-Then inside one of those folders it searches for a file called <code>&lt;your_web_context&gt;-keycloak.json</code>.</p>
+<p>The following resolvers are available for <code>keycloak.config.resolver</code>:</p>
 </div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">org.keycloak.adapters.osgi.BundleBasedKeycloakConfigResolver</dt>
+<dd>
+<p>This is the default resolver. The configuration file is expected inside
+the OSGi bundle that is being secured. By default, it loads file named <code>WEB-INF/keycloak.json</code> but this file name can be configured via <code>configLocation</code> property.</p>
+</dd>
+<dt class="hdlist1">org.keycloak.adapters.osgi.PathBasedKeycloakConfigResolver</dt>
+<dd>
+<p>This resolver searches for a file called <code>&lt;your_web_context&gt;-keycloak.json</code> inside a folder
+that is specified by <code>keycloak.config</code> system property. If <code>keycloak.config</code> is
+not set, <code>karaf.etc</code> system property is used instead.</p>
 <div class="paragraph">
-<p>So, for example, if your web application has context <code>my-portal</code>, then your adapter configuration is loaded from the  <code>$FUSE_HOME/etc/my-portal-keycloak.json</code> file.</p>
+<p>For example, if your web application is deployed into context <code>my-portal</code>, then
+  your adapter configuration would be loaded either from the
+  <code>${keycloak.config}/my-portal-keycloak.json</code> file, or from <code>${karaf.etc}/my-portal-keycloak.json</code>.</p>
+</div>
+</dd>
+<dt class="hdlist1">org.keycloak.adapters.osgi.HierarchicalPathBasedKeycloakConfigResolver</dt>
+<dd>
+<p>This resolver is similar to <code>PathBasedKeycloakConfigResolver</code> above, where
+for given URI path, configuration locations are checked from most to least specific.</p>
+<div class="paragraph">
+<p>For example, for <code>/my/web-app/context</code> URI, the following configuration locations are searched for existence until the first one exists:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>${karaf.etc}/my-web-app-context-keycloak.json</code></p>
+</li>
+<li>
+<p><code>${karaf.etc}/my-web-app-keycloak.json</code></p>
+</li>
+<li>
+<p><code>${karaf.etc}/my-keycloak.json</code></p>
+</li>
+<li>
+<p><code>${karaf.etc}/keycloak.json</code></p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -3370,13 +3410,8 @@ Note you don&#8217;t need the <code>web.xml</code> file as the security-constrai
 <div class="ulist">
 <ul>
 <li>
-<p><code>configResolver</code> is a bean that supplies Keycloak configuration file to:</p>
-</li>
-<li>
-<p><code>org.keycloak.adapters.osgi.BundleBasedKeycloakConfigResolver</code>: the Keycloak adapter configuration will be looked up inside the bundle and should be stored in <code>WEB-INF/keycloak.json</code> file.</p>
-</li>
-<li>
-<p><code>org.keycloak.adapters.osgi.PathBasedKeycloakConfigResolver</code>: the Keycloak adapter configuration will be looked up as described in <a href="#_fuse7_config_external_adapter">External adapter configuration</a>.</p>
+<p><code>configResolver</code> is a resolver bean that supplies Keycloak adapter
+configuration. Available resolvers are listed in <a href="#_fuse7_config_external_adapter">Configuration Resolvers</a> section.</p>
 </li>
 <li>
 <p><code>allowedRoles</code> is a comma-separated list of roles. User accessing the service has to have at least one role to be permitted the access.</p>
@@ -3566,7 +3601,7 @@ org.keycloak.*;version="4.2.0.Final"</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fuse7_adapter_cxf_builtin"><a class="anchor" href="#_fuse7_adapter_cxf_builtin"></a>Securing an Apache CXF Endpoint on the Default Jetty Engine</h5>
+<h5 id="_fuse7_adapter_cxf_builtin"><a class="anchor" href="#_fuse7_adapter_cxf_builtin"></a>Securing an Apache CXF Endpoint on the Default Undertow Engine</h5>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/fuse7/cxf-builtin.adoc" target="_blank">Edit this section</a>
@@ -3574,10 +3609,10 @@ org.keycloak.*;version="4.2.0.Final"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Some services automatically come with deployed servlets on startup. One such service is the CXF servlet running in the http://localhost:8181/cxf context. Securing such endpoints can be complicated. One approach, which Keycloak is currently using, is <code>ServletReregistrationService</code> which undeploys a built-in servlet at startup, enabling you to redeploy it on a context secured by Keycloak.</p>
+<p>Some services automatically come with deployed servlets on startup. One such service is the CXF servlet running in the http://localhost:8181/cxf context. Fuse&#8217;s Pax Web supports altering existing contexts via configuration admin. This can be used to secure endpoints by Keycloak.</p>
 </div>
 <div class="paragraph">
-<p>The configuration file <code>OSGI-INF/blueprint/blueprint.xml</code> inside your application might resemble the one below. Note that it adds the JAX-RS <code>customerservice</code> endpoint, which is endpoint-specific to your application, but more importantly, secures the entire <code>/cxf</code> context.</p>
+<p>The configuration file <code>OSGI-INF/blueprint/blueprint.xml</code> inside your application might resemble the one below. Note that it adds the JAX-RS <code>customerservice</code> endpoint, which is endpoint-specific to your application.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3590,7 +3625,6 @@ org.keycloak.*;version="4.2.0.Final"</code></pre>
                 <span class="content">http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
 
     <span class="comment">&lt;!-- JAXRS Application --&gt;</span>
-
     <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">customerBean</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.example.rs.CxfCustomerService</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
 
     <span class="tag">&lt;jaxrs:server</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxfJaxrsServer</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">address</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/customerservice</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
@@ -3601,54 +3635,64 @@ org.keycloak.*;version="4.2.0.Final"</code></pre>
             <span class="tag">&lt;ref</span> <span class="attribute-name">component-id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">customerBean</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
         <span class="tag">&lt;/jaxrs:serviceBeans&gt;</span>
     <span class="tag">&lt;/jaxrs:server&gt;</span>
-
-
-    <span class="comment">&lt;!-- Securing of whole /cxf context by unregister default cxf servlet from paxweb and re-register with applied security constraints --&gt;</span>
-    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxfConstraintMapping</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.PaxWebSecurityConstraintMapping</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-        <span class="comment">&lt;!-- user accessing the servise has to have at least one of the following roles --&gt;</span>
-        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">roles</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;list&gt;</span>
-                <span class="tag">&lt;value&gt;</span>user<span class="tag">&lt;/value&gt;</span>
-            <span class="tag">&lt;/list&gt;</span>
-        <span class="tag">&lt;/property&gt;</span>
-        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">url</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/cxf/*</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
-        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">authentication</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-    <span class="tag">&lt;/bean&gt;</span>
-
-    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxfKeycloakPaxWebIntegration</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.undertow.PaxWebIntegrationService</span><span class="delimiter">&quot;</span></span>
-          <span class="attribute-name">init-method</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">start</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">destroy-method</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stop</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">bundleContext</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blueprintBundleContext</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
-        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">constraintMappings</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;list&gt;</span>
-                <span class="tag">&lt;ref</span> <span class="attribute-name">component-id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxfConstraintMapping</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
-            <span class="tag">&lt;/list&gt;</span>
-        <span class="tag">&lt;/property&gt;</span>
-    <span class="tag">&lt;/bean&gt;</span>
-
-    <span class="tag">&lt;bean</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">defaultCxfReregistration</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.adapters.osgi.ServletReregistrationService</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">depends-on</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">cxfKeycloakPaxWebIntegration</span><span class="delimiter">&quot;</span></span>
-          <span class="attribute-name">init-method</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">start</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">destroy-method</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stop</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">bundleContext</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">ref</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blueprintBundleContext</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
-        <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">managedServiceReference</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;reference</span> <span class="attribute-name">interface</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.osgi.service.cm.ManagedService</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">filter</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">(service.pid=org.apache.cxf.osgi)</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">timeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5000</span><span class="delimiter">&quot;</span></span>  <span class="tag">/&gt;</span>
-        <span class="tag">&lt;/property&gt;</span>
-    <span class="tag">&lt;/bean&gt;</span>
-
 <span class="tag">&lt;/blueprint&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>As a result, all other CXF services running on the default CXF HTTP destination are also secured. Similarly, when the application is undeployed, the entire <code>/cxf</code> context becomes unsecured as well. For this reason, use your own undertow engine for your applications as described in <a href="#_fuse7_adapter_cxf_separate">Secure CXF Application on separate Undertow Engine</a> since that gives you more control over security for each individual application.</p>
+<p>Furthermore, you have to create <code>${karaf.etc}/org.ops4j.pax.web.context-<em>anyName</em>.cfg file</code>. It will be treated as factory PID configuration that is tracked by <code>pax-web-runtime</code> bundle. Such configuration may contain the following properties that correspond to some of the properties of standard <code>web.xml</code>:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>The <code>WEB-INF</code> directory might need to be inside your project (even if your project is not a web application). You might also need to edit the <code>/WEB-INF/keycloak.json</code> file similarly to <a href="#_fuse7_adapter_classic_war">Classic WAR application</a>.
-Note that you do not need the <code>web.xml</code> file as the security constraints are declared in the blueprint configuration file.</p>
-</li>
-<li>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>bundle.symbolicName = org.apache.cxf.cxf-rt-transports-http
+context.id = default
+
+context.param.keycloak.config.resolver = org.keycloak.adapters.osgi.HierarchicalPathBasedKeycloakConfigResolver
+
+login.config.authMethod = KEYCLOAK
+
+security.cxf.url = /cxf/customerservice/*
+security.cxf.roles = admin, user</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For full description of available properties in configuration admin file, please refer to Fuse documentation. The properties above have the following meaning:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>bundle.symbolicName</code> and <code>context.id</code></dt>
+<dd>
+<p>Identification of the bundle and its deployment context within <code>org.ops4j.pax.web.service.WebContainer</code>.</p>
+</dd>
+<dt class="hdlist1"><code>context.param.keycloak.config.resolver</code></dt>
+<dd>
+<p>Provides value of <code>keycloak.config.resolver</code> context parameter to the bundle just the same as in <code>web.xml</code> for classic WARs. Available resolvers are described in <a href="#_fuse7_config_external_adapter">Configuration Resolvers</a> section.</p>
+</dd>
+<dt class="hdlist1"><code>login.config.authMethod</code></dt>
+<dd>
+<p>Authentication method. Must be <code>KEYCLOAK</code>.</p>
+</dd>
+<dt class="hdlist1"><code>security.<em>anyName</em>.url</code> and <code>security.<em>anyName</em>.roles</code></dt>
+<dd>
+<p>Values of properties of individual security constraints just as they would be set in <code>security-constraint/web-resource-collection/url-pattern</code> and <code>security-constraint/auth-constraint/role-name</code> in <code>web.xml</code>, respectively. Roles are separated by comma and whitespace around it. The <code><em>anyName</em></code> identifier can be arbitrary but must match for individual properties of the same security constraint.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Some Fuse versions contain a bug that requires roles to be separated by <code>", "</code> (comma and single space). Make sure you use precisely this notation for separating the roles.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
 <p>The <code>Import-Package</code> in <code>META-INF/MANIFEST.MF</code> must contain at least these imports:</p>
-</li>
-</ul>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3657,8 +3701,7 @@ META-INF.cxf;version="[2.7,3.3)",
 META-INF.cxf.osgi;version="[2.7,3.3)";resolution:=optional,
 org.apache.cxf.transport.http;version="[2.7,3.3)",
 org.apache.cxf.*;version="[2.7,3.3)",
-com.fasterxml.jackson.jaxrs.json;version="${jackson.version}",
-org.keycloak.*;version="${project.version}",</code></pre>
+com.fasterxml.jackson.jaxrs.json;version="${jackson.version}"</code></pre>
 </div>
 </div>
 </div>
@@ -10980,7 +11023,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-07-18 08:53:26 UTC
+Last updated 2018-07-20 19:46:42 UTC
 </div>
 </div>
 <ul id="globalnav">
