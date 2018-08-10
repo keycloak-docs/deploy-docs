@@ -2035,7 +2035,7 @@ sure the default configuration doesn&#8217;t conflict with your own settings.</p
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The default configuration defines a resource that maps to all paths in your application. If you are about to write permissions to your own resources, be sure to remove the <strong>Default Resource</strong> or change its <code><code>URI</code></code> field to a more specific path in your application. Otherwise, the policy associated with the default resource (which by default always grants access) will allow Keycloak to grant access to any protected resource.
+The default configuration defines a resource that maps to all paths in your application. If you are about to write permissions to your own resources, be sure to remove the <strong>Default Resource</strong> or change its <code><code>URIS</code></code> fields to a more specific paths in your application. Otherwise, the policy associated with the default resource (which by default always grants access) will allow Keycloak to grant access to any protected resource.
 </td>
 </tr>
 </table>
@@ -2152,7 +2152,7 @@ Resources and scopes can be managed by navigating to the <strong>Resource</stron
 <p>Type</p>
 </li>
 <li>
-<p>URI</p>
+<p>URIS</p>
 </li>
 <li>
 <p>Owner</p>
@@ -2227,10 +2227,10 @@ For example, the default type for the default resource that is automatically cre
 <div id="_resource_create_uri" class="ulist">
 <ul>
 <li>
-<p><strong>URI</strong></p>
+<p><strong>URIS</strong></p>
 <div class="paragraph">
-<p>A URI that provides the location/address for the resource. For HTTP resources, the URI
-is usually the relative path used to serve these resources.</p>
+<p>URIS that provides the locations/addresses for the resource. For HTTP resources, the URIS
+are usually the relative paths used to serve these resources.</p>
 </div>
 </li>
 <li>
@@ -5376,7 +5376,7 @@ when you create a resource server, Keycloak creates a <a href="#_resource_server
 <p><strong>policy-enforcer</strong></p>
 <div class="paragraph">
 <p>Specifies the configuration options that define how policies are actually enforced and optionally the paths you want to protect. If not specified, the policy enforcer queries the server
-for all resources associated with the resource server being protected. In this case, you need to ensure the resources are properly configured with a <a href="#_resource_create_uri">URI</a> property that matches the paths you want to protect.</p>
+for all resources associated with the resource server being protected. In this case, you need to ensure the resources are properly configured with a <a href="#_resource_create_uri">URIS</a> property that matches the paths you want to protect.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -5449,14 +5449,14 @@ less than or equal to 0 can be set to completely disable the cache.</p>
 <li>
 <p><strong>paths</strong></p>
 <div class="paragraph">
-<p>Specifies the paths to protect. This configuration is optional. If not defined, the policy enforcer will discover all paths by fetching the resources you defined to your application in Keycloak, where these resources are defined with a <code>URI</code> representing some path in your application.</p>
+<p>Specifies the paths to protect. This configuration is optional. If not defined, the policy enforcer will discover all paths by fetching the resources you defined to your application in Keycloak, where these resources are defined with <code>URIS</code> representing some paths in your application.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p><strong>name</strong></p>
 <div class="paragraph">
-<p>The name of a resource on the server that is to be associated with a given path. When used in conjunction with a <strong>path</strong>, the policy enforcer ignores the resource&#8217;s <strong>URI</strong> property and uses the path you provided instead.</p>
+<p>The name of a resource on the server that is to be associated with a given path. When used in conjunction with a <strong>path</strong>, the policy enforcer ignores the resource&#8217;s <strong>URIS</strong> property and uses the path you provided instead.</p>
 </div>
 </li>
 <li>
@@ -6134,7 +6134,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-10 06:52:24 UTC
+Last updated 2018-08-10 11:50:19 UTC
 </div>
 </div>
 <ul id="globalnav">
