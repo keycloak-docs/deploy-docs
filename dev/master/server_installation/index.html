@@ -4799,6 +4799,18 @@ See <a href="#_rdbms-setup-checklist">Database chapter</a> for more details.</p>
 <span class="tag">&lt;/servlet-container&gt;</span></code></pre>
 </div>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Use the <code>session-config</code> only with the mod_cluster load balancer. In other cases, configure sticky session over the <code>AUTH_SESSION_ID</code> cookie directly in a load balancer.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Then you can configure <code>proxy-address-forwarding</code> as described in the chapter <a href="#_setting-up-a-load-balancer-or-proxy">Load Balancer</a> .
 Note that mod_cluster uses AJP connector by default, so you need to configure that one.</p>
@@ -4829,6 +4841,18 @@ same physical server etc. So you can run the startup command like this:</p>
 <div class="paragraph">
 <p>Access the server on <code><a href="http://localhost:8080/auth" class="bare">http://localhost:8080/auth</a></code> . Creation of admin user is possible just from local address and without load balancer (proxy) access,
 so you first need to access backend node directly on <code><a href="http://localhost:8180/auth" class="bare">http://localhost:8180/auth</a></code> to create admin user.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+When using mod_cluster you should always access the cluster through the load balancer and not directly through the backend node.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -5548,7 +5572,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-01 20:42:34 UTC
+Last updated 2018-08-10 06:52:41 UTC
 </div>
 </div>
 <ul id="globalnav">
