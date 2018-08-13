@@ -963,7 +963,13 @@ span.image img {
 </li>
 <li><a href="#threat-model-mitigation">18. Threat Model Mitigation</a>
 <ul class="sectlevel2">
-<li><a href="#host">18.1. Host</a></li>
+<li><a href="#host">18.1. Host</a>
+<ul class="sectlevel3">
+<li><a href="#request-provider">18.1.1. Request provider</a></li>
+<li><a href="#fixed-provider">18.1.2. Fixed provider</a></li>
+<li><a href="#custom-provider">18.1.3. Custom provider</a></li>
+</ul>
+</li>
 <li><a href="#admin-endpoints-and-console">18.2. Admin Endpoints and Console</a>
 <ul class="sectlevel3">
 <li><a href="#ip-restriction">18.2.1. IP Restriction</a></li>
@@ -8655,25 +8661,38 @@ Many of those vulnerabilities are discussed here.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Keycloak uses the request URL for a number of things. For example, the URL sent in password reset emails.</p>
+<p>Keycloak uses the public hostname for a number of things. For example, in the token issuer fields and URLs sent in
+password reset emails.</p>
 </div>
 <div class="paragraph">
-<p>By default, the request URL is based on the <code>Host</code> header and there is no check to make sure this URL is the valid and
-correct URL.</p>
+<p>By default, the hostname is based on the request headers and there is no check to make sure this hostname is valid.</p>
 </div>
 <div class="paragraph">
 <p>If you are not using a load balancer or proxy in front of Keycloak that prevents invalid host headers, you must
-explicitly configure what URLs should be accepted.</p>
+explicitly configure what hostnames should be accepted.</p>
 </div>
 <div class="paragraph">
-<p>The following example will only permit requests to <code>localhost.localdomain</code> or <code>localhost</code>:</p>
+<p>The Hostname SPI provides a way to configure the hostname for a request. Out of the box there are two providers. These are
+request and fixed. It is also possible to develop your own provider in the case the built-in providers do not provide
+the functionality needed.</p>
+</div>
+<div class="sect3">
+<h4 id="request-provider"><a class="anchor" href="#request-provider"></a>18.1.1. Request provider</h4>
+<div class="paragraph">
+<p>This is the default hostname provider and uses request headers to determine the hostname. As it uses the headers from
+the request it is important to use this in combination with a proxy or a filter that rejects invalid hostnames.</p>
+</div>
+<div class="paragraph">
+<p>It is beyond the scope of this documentation to provide instructions on how to configure valid hostnames for a proxy. To
+configure it in a filter you need to edit standalone.xml to set permitted aliases for the server. The following example
+will only permit requests to <code>auth.example.com</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">default-host</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ignore</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         ...
-        <span class="tag">&lt;host</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-host</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">alias</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">localhost.localdomain, localhost</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;host</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-host</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">alias</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">auth.example.com</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
             <span class="tag">&lt;location</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">handler</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">welcome-content</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
             <span class="tag">&lt;http-invoker</span> <span class="attribute-name">security-realm</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ApplicationRealm</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
         <span class="tag">&lt;/host&gt;</span>
@@ -8692,9 +8711,64 @@ accepted hosts.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">/subsystem=undertow/server=default-server:write-attribute(name=default-host,value=ignore)
-/subsystem=undertow/server=default-server/host=default-host:write-attribute(name=alias,value=[localhost.localdomain, localhost]
+/subsystem=undertow/server=default-server/host=default-host:write-attribute(name=alias,value=[auth.example.com]
 
 :reload</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="fixed-provider"><a class="anchor" href="#fixed-provider"></a>18.1.2. Fixed provider</h4>
+<div class="paragraph">
+<p>The fixed provider makes it possible to configure a fixed hostname. Unlike the request provider the fixed
+provider allows internal applications to invoke Keycloak on an alternative URL (for example an internal IP
+address). It is also possible to override the hostname for a specific realm through the configuration of the realm in the
+admin console.</p>
+</div>
+<div class="paragraph">
+<p>This is the recommended provider to use in production.</p>
+</div>
+<div class="paragraph">
+<p>To change to the fixed provider and configure the hostname edit standalone.xml. The following example shows the fixed
+provider with the hostname set to auth.example.com:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;spi</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">hostname</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;default-provider&gt;</span>fixed<span class="tag">&lt;/default-provider&gt;</span>
+    <span class="tag">&lt;provider</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">fixed</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;properties&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">hostname</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">auth.example.com</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">httpPort</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">-1</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">httpsPort</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">-1</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/properties&gt;</span>
+    <span class="tag">&lt;/provider&gt;</span>
+<span class="tag">&lt;/spi&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is the equivalent configuration using CLI commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">/subsystem=keycloak-server/spi=hostname:write-attribute(name=default-provider, value=&quot;fixed&quot;)
+/subsystem=keycloak-server/spi=hostname/provider=fixed:write-attribute(name=properties.hostname,value=&quot;auth.example.com&quot;)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default it is assumed that the public URL uses default ports. If you are not using default ports this can be changed
+by setting the <code>httpPort</code> and <code>httpsPort</code> properties for the fixed provider.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="custom-provider"><a class="anchor" href="#custom-provider"></a>18.1.3. Custom provider</h4>
+<div class="paragraph">
+<p>To develop a custom hostname provider you need to implement <code>org.keycloak.urls.HostnameProviderFactory</code> and
+<code>org.keycloak.urls.HostnameProvider</code>.</p>
+</div>
+<div class="paragraph">
+<p>Follow the instructions in the Service Provider Interfaces section in <a href="https://www.keycloak.org/docs/4.3/server_development/">Server Developer Guide</a>
+for more information on how to develop a custom provider.</p>
 </div>
 </div>
 </div>
@@ -11761,7 +11835,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-13 13:31:54 UTC
+Last updated 2018-08-13 17:55:40 UTC
 </div>
 </div>
 <ul id="globalnav">
