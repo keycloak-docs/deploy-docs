@@ -3827,6 +3827,54 @@ identifier is included.</p>
 This parameter only have effect if used together with the <code>ticket</code> parameter as part of a UMA authorization process.</p>
 </div>
 </li>
+<li>
+<p><strong>response_mode</strong></p>
+<div class="paragraph">
+<p>This parameter is <strong>optional</strong>. A string value indicating how the server should respond to authorization requests. This parameter is specially useful when
+you are mainly interested in either the overall decision or the permissions granted by the server, instead of an standard OAuth2 response. Possible values are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>decision</code></p>
+<div class="paragraph">
+<p>Indicates that responses from the server should only represent the overall decision by returning a JSON with the following format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span class="error">'</span><span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">u</span><span class="error">l</span><span class="error">t</span><span class="error">'</span>: <span class="value">true</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the authorization request does not map to any permission, a <code>403</code> HTTP status code is returned instead.</p>
+</div>
+</li>
+<li>
+<p><code>permissions</code></p>
+<div class="paragraph">
+<p>Indicates that responses from the server should contain any permission granted by the server by returning a JSON with the following format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">[
+    {
+        <span class="error">'</span><span class="error">r</span><span class="error">s</span><span class="error">i</span><span class="error">d</span><span class="error">'</span>: <span class="error">'</span><span class="error">M</span><span class="error">y</span> <span class="error">R</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span><span class="error">'</span>
+        <span class="error">'</span><span class="error">s</span><span class="error">c</span><span class="error">o</span><span class="error">p</span><span class="error">e</span><span class="error">s</span><span class="error">'</span>: [<span class="error">'</span><span class="error">v</span><span class="error">i</span><span class="error">e</span><span class="error">w</span><span class="error">'</span>, <span class="error">'</span><span class="error">u</span><span class="error">p</span><span class="error">d</span><span class="error">a</span><span class="error">t</span><span class="error">e</span><span class="error">'</span>]
+    },
+
+    <span class="error">.</span><span class="error">.</span><span class="error">.</span>
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the authorization request does not map to any permission, a <code>403</code> HTTP status code is returned instead.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -6134,7 +6182,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-14 09:44:55 UTC
+Last updated 2018-08-14 10:06:32 UTC
 </div>
 </div>
 <ul id="globalnav">

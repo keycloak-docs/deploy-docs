@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<title>Keycloak 4.2.0.Final</title>
+<title>Keycloak 4.3.0.Final</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -671,6 +671,7 @@ span.image img {
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#keycloak-4-3-0-final">Keycloak 4.3.0.Final</a></li>
 <li><a href="#keycloak-4-2-0-final">Keycloak 4.2.0.Final</a></li>
 <li><a href="#keycloak-4-1-0-final">Keycloak 4.1.0.Final</a></li>
 <li><a href="#keycloak-4-0-0-final">Keycloak 4.0.0.Final</a></li>
@@ -679,6 +680,79 @@ span.image img {
 </div>
 </div>
 <div id="content">
+<div class="sect1">
+<h2 id="keycloak-4-3-0-final"><a class="anchor" href="#keycloak-4-3-0-final"></a>Keycloak 4.3.0.Final</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="hostname-spi"><a class="anchor" href="#hostname-spi"></a>Hostname SPI</h3>
+<div class="paragraph">
+<p>The hostname SPI introduces a more flexible way to configure the hostname for Keycloak. There are two
+built-in providers. The first is request, which uses the request headers to determine the hostname. The second
+is fixed, which allows configuring a fixed hostname. The latter makes sure that only valid hostnames can be
+used and also allows internal applications to invoke Keycloak through an alternative URL.</p>
+</div>
+<div class="paragraph">
+<p>For more details refer to the threat mitigation section in the <a href="https://www.keycloak.org/docs/4.3/server_admin/">Server Administration Guide</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="x509-client-authenticator"><a class="anchor" href="#x509-client-authenticator"></a>X509 Client Authenticator</h3>
+<div class="paragraph">
+<p>The newly added Client Authenticator uses X509 Client Certificates and Mutual TLS to secure a connection from the client. In addition to that
+the Keycloak Server validates Subject DN field of the client&#8217;s certificate.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="performance-improvements-to-authorization-services"><a class="anchor" href="#performance-improvements-to-authorization-services"></a>Performance improvements to Authorization Services</h3>
+<div class="paragraph">
+<p>For this release, we improved policy evaluation performance across the board, increasing reliability and throughput. The main
+changes we did were related with trying to optimize the policy evaluation path by avoiding unnecessary flows and collect decisions
+as soon as they happen. We also introduced a policy decision cache on a per request basis, avoiding redundant decisions from policies
+previously evaluated.</p>
+</div>
+<div class="paragraph">
+<p>We are also working on other layers of cache which should give a much better experience. See <a href="https://issues.jboss.org/browse/KEYCLOAK-7952">KEYCLOAK-7952</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="choosing-the-response-mode-when-obtaining-permissions-from-the-server"><a class="anchor" href="#choosing-the-response-mode-when-obtaining-permissions-from-the-server"></a>Choosing the response mode when obtaining permissions from the server</h3>
+<div class="paragraph">
+<p>In previous versions, permissions were always returned from the server using standard OAuth2 response, containing the access and refresh tokens. In this release,
+clients can use a <code>response_mode</code> parameter to specify how the server should respond to an authorization request. This parameter accepts two values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>decision</code></p>
+<div class="paragraph">
+<p>Indicating that responses should only contain a flag indicating whether or not permissions were granted by the server. Otherwise a <code>403</code> HTTP status code is returned.</p>
+</div>
+</li>
+<li>
+<p><code>permissions</code></p>
+<div class="paragraph">
+<p>Indicating that a response should contain every single permission granted by the server using a JSON format.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nodejs-policy-enforcer"><a class="anchor" href="#nodejs-policy-enforcer"></a>NodeJS Policy Enforcer</h3>
+<div class="paragraph">
+<p>The <a href="https://github.com/keycloak/keycloak-nodejs-connect">keycloak-nodejs-connect</a>, an adapter for NodeJS, now supports constructs to protect
+resources based on decisions taken from the server. The new construct allows users to protect their resources using fine-grained permissions as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="js">app.get(<span class="string"><span class="delimiter">'</span><span class="content">/protected/resource</span><span class="delimiter">'</span></span>, keycloak.enforcer(<span class="string"><span class="delimiter">'</span><span class="content">resource:view</span><span class="delimiter">'</span></span>), <span class="keyword">function</span> (req, res) {
+  res.json({<span class="key">message</span>: <span class="string"><span class="delimiter">'</span><span class="content">access granted</span><span class="delimiter">'</span></span>});
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="keycloak-4-2-0-final"><a class="anchor" href="#keycloak-4-2-0-final"></a>Keycloak 4.2.0.Final</h2>
 <div class="sectionbody">
@@ -1131,7 +1205,7 @@ Thanks to <a href="https://github.com/looorent">loorent</a> for the contribution
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-14 09:44:12 UTC
+Last updated 2018-08-14 10:05:48 UTC
 </div>
 </div>
 <ul id="globalnav">
