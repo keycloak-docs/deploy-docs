@@ -3943,7 +3943,7 @@ It defaults to client ID and secret.  The secret is automatically generated for 
 button allows you to recreate this secret if you want or need to.</p>
 </div>
 <div class="paragraph">
-<p>Alternatively, you can opt to use a signed Json Web Token (JWT) instead of a secret.</p>
+<p>Alternatively, you can opt to use a signed Json Web Token (JWT) or x509 certificate validation (also called Mutual TLS) instead of a secret.</p>
 </div>
 <div class="paragraph">
 <div class="title">Signed JWT</div>
@@ -4004,6 +4004,35 @@ section for more details.
 </div>
 <div class="paragraph">
 <p>This client secret will be used to sign the JWT by the client.</p>
+</div>
+<div class="paragraph">
+<div class="title">X509 Certificate</div>
+<p>By enabling this option Keycloak will validate if the client uses proper X509 certificate during the TLS Handshake.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This option requires mutual TLS in Keycloak, see <a href="#_enable-mtls-wildfly">Enable mutual SSL in WildFly</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<div class="title">Import Certificate</div>
+<p><span class="image"><img src="./keycloak-images/x509-client-auth.png" alt="x509 client auth"></span></p>
+</div>
+<div class="paragraph">
+<p>The validator checks also the certificate&#8217;s Subject DN field with configured regexp validation expression. For some
+use cases, it is sufficient to accept all certificates. In that case, you can use <code>(.*?)(?:$)</code> expression.</p>
+</div>
+<div class="paragraph">
+<p>There are two ways for Keycloak to obtain the Client ID from the request. The first option is the <code>client_id</code>
+parameter in the query (described in Section 2.2 of the <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0 Specification</a>).
+The second option is to supply <code>client_id</code> as a query parameter.</p>
 </div>
 </div>
 </div>
@@ -6481,6 +6510,10 @@ Go back to Keycloak and specify those items.</p>
 This field allows you to manually specify the scopes that users must authorize when authenticating with this provider.
 For a complete list of scopes, please take a look at <a href="https://developers.google.com/oauthplayground/" class="bare">https://developers.google.com/oauthplayground/</a> . By default, Keycloak
 uses the following scopes: <code>openid</code> <code>profile</code> <code>email</code>.</p>
+</div>
+<div class="paragraph">
+<p>If your organization uses the G Suite and you want to restrict access to only members of your organization,
+you must enter the domain that is used for the G Suite into the <code>Hosted Domain</code> field to enable it.</p>
 </div>
 </div>
 <div class="sect3">
@@ -11835,7 +11868,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-14 08:55:09 UTC
+Last updated 2018-08-14 09:13:44 UTC
 </div>
 </div>
 <ul id="globalnav">
