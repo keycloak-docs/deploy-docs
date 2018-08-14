@@ -751,6 +751,24 @@ resources based on decisions taken from the server. The new construct allows use
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="support-hosted-domain-for-google-logins"><a class="anchor" href="#support-hosted-domain-for-google-logins"></a>Support hosted domain for Google logins</h3>
+<div class="paragraph">
+<p>Login with Google now supports the <code>hd</code> parameter to restrict Google logins to a specific hosted domain at Google. When
+this is specified in the identity provider any login from a different domain is rejected.</p>
+</div>
+<div class="paragraph">
+<p>Thanks to <a href="https://github.com/brushmate">brushmate</a> for the contribution.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="escape-unsafe-tags-in-html-output"><a class="anchor" href="#escape-unsafe-tags-in-html-output"></a>Escape unsafe tags in HTML output</h3>
+<div class="paragraph">
+<p>Most HTML output is already escaped for HTML tags, but there are some places where HTML tags are permitted.
+These are only where admin access is needed to update the value. Even though it would require admin access to update such
+fields we have added an extra layer of defence and are now escaping unsafe elements like <code>&lt;script&gt;</code>.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1205,7 +1223,7 @@ Thanks to <a href="https://github.com/looorent">loorent</a> for the contribution
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-14 10:05:48 UTC
+Last updated 2018-08-14 11:56:30 UTC
 </div>
 </div>
 <ul id="globalnav">
