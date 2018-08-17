@@ -8869,8 +8869,9 @@ provider with the hostname set to auth.example.com:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>By default it is assumed that the public URL uses default ports. If you are not using default ports this can be changed
-by setting the <code>httpPort</code> and <code>httpsPort</code> properties for the fixed provider.</p>
+<p>By default the <code>httpPort</code> and <code>httpsPort</code> are received from the request. As long as any proxies are configured correctly
+it should not be necessary to change this. It is possible to configure fixed ports if necessary by setting the <code>httpPort</code> and
+<code>httpsPort</code> properties on the fixed provider.</p>
 </div>
 </div>
 <div class="sect3">
@@ -11948,7 +11949,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-15 08:17:40 UTC
+Last updated 2018-08-17 12:48:08 UTC
 </div>
 </div>
 <ul id="globalnav">
