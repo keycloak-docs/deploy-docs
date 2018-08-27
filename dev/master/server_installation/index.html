@@ -811,10 +811,10 @@ span.image img {
 <li><a href="#troubleshooting-2">8.9. Troubleshooting</a></li>
 </ul>
 </li>
-<li><a href="#server-cache-configuration">9. Server Cache Configuration</a>
+<li><a href="#cache-configuration">9. Server Cache Configuration</a>
 <ul class="sectlevel2">
-<li><a href="#eviction-and-expiration">9.1. Eviction and Expiration</a></li>
-<li><a href="#replication-and-failover">9.2. Replication and Failover</a></li>
+<li><a href="#_eviction">9.1. Eviction and Expiration</a></li>
+<li><a href="#_replication">9.2. Replication and Failover</a></li>
 <li><a href="#disabling-caching">9.3. Disabling Caching</a></li>
 <li><a href="#clearing-caches-at-runtime">9.4. Clearing Caches at Runtime</a></li>
 </ul>
@@ -879,7 +879,7 @@ for WildFly and its sub projects. Here is the link to the documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.jboss.org/author/display/WFLY10/Documentation"><em>WildFly 10 Documentation</em></a></p>
+<p><a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a></p>
 </li>
 </ul>
 </div>
@@ -1059,7 +1059,7 @@ your server configurations?  Your choice of operating mode effects how you confi
 <td class="content">
 The Keycloak is built on top of the WildFly Application Server.  This guide will only
      go over the basics for deployment within a specific mode.  If you want specific information on this, a better place
-     to go would be the <a href="https://docs.jboss.org/author/display/WFLY10/Documentation"><em>WildFly 10 Documentation</em></a>.
+     to go would be the <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a>.
 </td>
 </tr>
 </table>
@@ -1125,7 +1125,7 @@ is also used to configure non-infrastructure level things that are specific to K
 <td class="content">
 Any changes you make to this file while the server is running will not take effect and may even be overwritten
       by the server.  Instead use the command line scripting or the web console of WildFly.  See
-      the <a href="https://docs.jboss.org/author/display/WFLY10/Documentation"><em>WildFly 10 Documentation</em></a> for more information.
+      the <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a> for more information.
 </td>
 </tr>
 </table>
@@ -1169,7 +1169,7 @@ deploy some type of load balancer in front of the cluster.  The <a href="#_clust
 <td class="content">
 Any changes you make to this file while the server is running will not take effect and may even be overwritten
       by the server.  Instead use the command line scripting or the web console of WildFly.  See
-      the <a href="https://docs.jboss.org/author/display/WFLY10/Documentation"><em>WildFly 10 Documentation</em></a> for more information.
+      the <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a> for more information.
 </td>
 </tr>
 </table>
@@ -1227,7 +1227,7 @@ This capability is built into the WildFly Application Server which Keycloak deri
 </td>
 <td class="content">
 The guide will go over the very basics of domain mode.  Detailed steps on how to set up domain mode in a cluster should be obtained from the
-       <a href="https://docs.jboss.org/author/display/WFLY10/Documentation"><em>WildFly 10 Documentation</em></a>.
+       <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a>.
 </td>
 </tr>
 </table>
@@ -1289,7 +1289,7 @@ where the domain profile and server group for the Keycloak server are defined.</
 <td class="content">
 Any changes you make to this file while the domain controller is running will not take effect and may even be overwritten
       by the server.  Instead use the command line scripting or the web console of WildFly.  See
-      the <a href="https://docs.jboss.org/author/display/WFLY10/Documentation"><em>WildFly 10 Documentation</em></a> for more information.
+      the <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a> for more information.
 </td>
 </tr>
 </table>
@@ -1621,8 +1621,9 @@ The add-user.sh does not add user to Keycloak server but to the underlying JBoss
 When setting up for Cross-Datacenter Replication, you will use more independent Keycloak clusters, so you must understand how a cluster works and the basic concepts and requirements such as load balancing, shared databases, and multicasting.</p>
 </li>
 <li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.1/html/administration_and_configuration_guide/set_up_cross_datacenter_replication">JBoss Data Grid Cross-Datacenter Replication</a>
-Keycloak uses JBoss Data Grid (JDG) for the replication of Infinispan data between the data centers. We use the <code>Remote Client-Server Mode</code> described in the JDG documentation in  <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.1/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#configure_cross_datacenter_replication_remote_client_server_mode">Configure Cross-Datacenter Replication</a>.</p>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication">JBoss Data Grid Cross-Datacenter Replication</a>
+Keycloak uses JBoss Data Grid (JDG) for the replication of Infinispan data between the data centers. We use the <code>Remote Client-Server Mode</code>
+described in the JDG documentation in  <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#configure_cross_datacenter_replication_remote_client_server_mode">Configure Cross-Datacenter Replication</a>.</p>
 </li>
 </ul>
 </div>
@@ -1789,7 +1790,8 @@ entered a bad password. The details are described <a href="https://www.keycloak.
 <p><code>Site2</code> consists of Infinispan server, <code>jdg2</code>, and 2 Keycloak servers, <code>node21</code> and <code>node22</code> .</p>
 </li>
 <li>
-<p>Infinispan servers <code>jdg1</code> and <code>jdg2</code> are connected to each other through the RELAY2 protocol and <code>backup</code> based Infinispan caches in a similar way as described in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.1/html-single/administration_and_configuration_guide/#configure_cross_datacenter_replication_remote_client_server_mode">JDG documentation</a>.</p>
+<p>Infinispan servers <code>jdg1</code> and <code>jdg2</code> are connected to each other through the RELAY2 protocol and <code>backup</code> based Infinispan
+caches in a similar way as described in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#configure_cross_datacenter_replication_remote_client_server_mode">JDG documentation</a>.</p>
 </li>
 <li>
 <p>Keycloak servers <code>node11</code> and <code>node12</code> form a cluster with each other, but they do not communicate directly with any server in <code>site2</code>.
@@ -1881,7 +1883,6 @@ Details of this more-detailed setup are out-of-scope of the Keycloak documentati
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;cache-container</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clustered</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">default-cache</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">statistics</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         ...
         <span class="tag">&lt;replicated-cache-configuration</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sessions-cfg</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">start</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">EAGER</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">batching</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;transaction</span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">NON_DURABLE_XA</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">locking</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">PESSIMISTIC</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
             <span class="tag">&lt;locking</span> <span class="attribute-name">acquire-timeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">0</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
             <span class="tag">&lt;backups&gt;</span>
                 <span class="tag">&lt;backup</span> <span class="attribute-name">site</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">site2</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">failure-policy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">FAIL</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">strategy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
@@ -1913,11 +1914,40 @@ Details about the configuration options inside <code>replicated-cache-configurat
 </tr>
 </table>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Unlike in previous version, the Infinispan server <code>replicated-cache-configuration</code> needs to be configured without <code>transaction</code>
+element. See <a href="#troubleshooting">Troubleshooting</a> for more details.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p>Newer Infinispan releases require authorization before accessing protected caches over network. Keycloak requires updates to
+<p>Some Infinispan server releases require authorization before accessing protected caches over network.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You should not see any issue if you use recommended Infinispan 8.2.8 server and this step can (and should) be ignored.
+Issues related to authorization may exist just for some other versions of Infinispan server.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Keycloak requires updates to
 <code>___script_cache</code> cache containing scripts. If you get errors accessing this cache, you will need to set up authorization in
 <code>clustered.xml</code> configuration as described below:</p>
+</div>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -2109,7 +2139,7 @@ In production, you can have more Infinispan servers in every data center. You ju
 <p>Add this <code>module</code> attribute under <code>cache-container</code> element of name <code>keycloak</code> :</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"> <span class="tag">&lt;cache-container</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">jndi-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">infinispan/Keycloak</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">module</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.keycloak-model-infinispan</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="xml"> <span class="tag">&lt;cache-container</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">module</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.keycloak-model-infinispan</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span></code></pre>
 </div>
 </div>
 </li>
@@ -2117,7 +2147,7 @@ In production, you can have more Infinispan servers in every data center. You ju
 <p>Add the <code>remote-store</code> under <code>work</code> cache:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;replicated-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">work</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;replicated-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">work</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;remote-store</span> <span class="attribute-name">cache</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">work</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">remote-servers</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">remote-cache</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">passivation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">fetch-state</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">purge</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">preload</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">shared</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">rawValues</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>true<span class="tag">&lt;/property&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">marshaller</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory<span class="tag">&lt;/property&gt;</span>
@@ -2130,7 +2160,7 @@ In production, you can have more Infinispan servers in every data center. You ju
 <p>Add the <code>remote-store</code> like this under <code>sessions</code> cache:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;remote-store</span> <span class="attribute-name">cache</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">remote-servers</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">remote-cache</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">passivation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">fetch-state</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">purge</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">preload</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">shared</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">rawValues</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>true<span class="tag">&lt;/property&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">marshaller</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory<span class="tag">&lt;/property&gt;</span>
@@ -2143,36 +2173,36 @@ In production, you can have more Infinispan servers in every data center. You ju
 <p>Do the same for <code>offlineSessions</code>, <code>clientSessions</code>, <code>offlineClientSessions</code>, <code>loginFailures</code>, and <code>actionTokens</code> caches (the only difference from <code>sessions</code> cache is that <code>cache</code> property value are different):</p>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">offlineSessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">offlineSessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;remote-store</span> <span class="attribute-name">cache</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">offlineSessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">remote-servers</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">remote-cache</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">passivation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">fetch-state</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">purge</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">preload</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">shared</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">rawValues</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>true<span class="tag">&lt;/property&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">marshaller</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory<span class="tag">&lt;/property&gt;</span>
     <span class="tag">&lt;/remote-store&gt;</span>
 <span class="tag">&lt;/distributed-cache&gt;</span>
 
-<span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clientSessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clientSessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;remote-store</span> <span class="attribute-name">cache</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">clientSessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">remote-servers</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">remote-cache</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">passivation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">fetch-state</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">purge</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">preload</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">shared</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">rawValues</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>true<span class="tag">&lt;/property&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">marshaller</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory<span class="tag">&lt;/property&gt;</span>
     <span class="tag">&lt;/remote-store&gt;</span>
 <span class="tag">&lt;/distributed-cache&gt;</span>
 
-<span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">offlineClientSessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">offlineClientSessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;remote-store</span> <span class="attribute-name">cache</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">offlineClientSessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">remote-servers</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">remote-cache</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">passivation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">fetch-state</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">purge</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">preload</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">shared</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">rawValues</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>true<span class="tag">&lt;/property&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">marshaller</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory<span class="tag">&lt;/property&gt;</span>
     <span class="tag">&lt;/remote-store&gt;</span>
 <span class="tag">&lt;/distributed-cache&gt;</span>
 
-<span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">loginFailures</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">loginFailures</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;remote-store</span> <span class="attribute-name">cache</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">loginFailures</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">remote-servers</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">remote-cache</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">passivation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">fetch-state</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">purge</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">preload</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">shared</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">rawValues</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>true<span class="tag">&lt;/property&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">marshaller</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory<span class="tag">&lt;/property&gt;</span>
     <span class="tag">&lt;/remote-store&gt;</span>
 <span class="tag">&lt;/distributed-cache&gt;</span>
 
-<span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">actionTokens</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;eviction</span> <span class="attribute-name">max-entries</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">-1</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">strategy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">NONE</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">actionTokens</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;object-memory</span> <span class="attribute-name">size</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">-1</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
     <span class="tag">&lt;expiration</span> <span class="attribute-name">max-idle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">-1</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">interval</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">300000</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
     <span class="tag">&lt;remote-store</span> <span class="attribute-name">cache</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">actionTokens</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">remote-servers</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">remote-cache</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">passivation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">fetch-state</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">purge</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">preload</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">shared</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">rawValues</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>true<span class="tag">&lt;/property&gt;</span>
@@ -2408,7 +2438,7 @@ Event 'CLIENT_CACHE_ENTRY_REMOVED', key '193489e7-e2bc-4069-afe8-f1dfa73084ea', 
 <div class="paragraph">
 <p><strong>Manually by admin</strong> - Admin can use the <code>jconsole</code> or other tool and run some JMX operations to manually take the particular site offline.
 This is useful especially if the outage is planned. With <code>jconsole</code> or CLI, you can connect to the <code>jdg1</code> server and take the <code>site2</code> offline.
-More details about this are available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.1/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#taking_a_site_offline">JDG documentation</a>.</p>
+More details about this are available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#taking_a_site_offline">JDG documentation</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -2481,7 +2511,7 @@ Again, you may need to check all the caches and bring them online.</p>
 </div>
 <div class="paragraph">
 <p>The state transfer can be also done on the Infinispan server side through JMX. The operation name is <code>pushState</code>. There are few other operations to monitor status, cancel push state, and so on.
-More info about state transfer is available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.1/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#state_transfer_between_sites">Infinispan docs</a>.</p>
+More info about state transfer is available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#state_transfer_between_sites">Infinispan docs</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2775,6 +2805,21 @@ which is caused by cache items not being properly expired. In that case, update 
 </div>
 </div>
 </li>
+<li>
+<p>If you see Warnings in the Infinispan server log like:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>18:06:19,687 WARN  [org.infinispan.server.hotrod.Decoder2x] (HotRod-ServerWorker-7-12) ISPN006011: Operation 'PUT_IF_ABSENT' forced to
+  return previous value should be used on transactional caches, otherwise data inconsistency issues could arise under failure situations
+18:06:19,700 WARN  [org.infinispan.server.hotrod.Decoder2x] (HotRod-ServerWorker-7-10) ISPN006010: Conditional operation 'REPLACE_IF_UNMODIFIED' should
+  be used with transactional caches, otherwise data inconsistency issues could arise under failure situations</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>you can just ignore them. To avoid the warning, the caches on Infinispan server side could be changed to transactional caches, but this is not recommended as it can cause some
+other issues caused by the bug <a href="https://issues.jboss.org/browse/ISPN-9323" class="bare">https://issues.jboss.org/browse/ISPN-9323</a>. So for now, the warnings just need to be ignored.</p>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -2943,7 +2988,7 @@ connect
 <div class="paragraph">
 <p>You may be thinking to yourself, "I didn&#8217;t enter in any username or password!".  If you run <code>jboss-cli</code> on the same machine
 as your running standalone server or domain controller and your account has appropriate file permissions, you do not have
-to setup or enter in an admin username and password.  See the <a href="https://docs.jboss.org/author/display/WFLY10/Documentation"><em>WildFly 10 Documentation</em></a>
+to setup or enter in an admin username and password.  See the <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a>
 for more details on how to make things more secure if you are uncomfortable with that setup.</p>
 </div>
 </div>
@@ -3235,8 +3280,8 @@ of Hibernate, but we will discuss how that is done if you run into that rare cir
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Datasource configuration is covered much more thoroughly in <a href="https://docs.jboss.org/author/display/WFLY10/DataSource+configuration">the datasource configuration chapter</a>
-       in the <em>WildFly 10 Documentation</em>.
+Datasource configuration is covered much more thoroughly in <a href="http://docs.wildfly.org/13/Admin_Guide.html#DataSource">the datasource configuration chapter</a>
+       in the <em>WildFly 13 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3328,7 +3373,7 @@ Datasource configuration is covered much more thoroughly in <a href="https://doc
 <div class="listingblock">
 <div class="title">JDBC Drivers</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml">  <span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:datasources:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml">  <span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:datasources:5.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
      <span class="tag">&lt;datasources&gt;</span>
        ...
        <span class="tag">&lt;drivers&gt;</span>
@@ -3346,7 +3391,7 @@ Datasource configuration is covered much more thoroughly in <a href="https://doc
 <div class="listingblock">
 <div class="title">Declare Your JDBC Drivers</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml">  <span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:datasources:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml">  <span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:datasources:5.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
      <span class="tag">&lt;datasources&gt;</span>
        ...
        <span class="tag">&lt;drivers&gt;</span>
@@ -3379,7 +3424,7 @@ that sets up the connection to your new database:</p>
 <div class="listingblock">
 <div class="title">Declare Your JDBC Drivers</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml">  <span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:datasources:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml">  <span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:datasources:5.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
      <span class="tag">&lt;datasources&gt;</span>
        ...
        <span class="tag">&lt;datasource</span> <span class="attribute-name">jndi-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">java:jboss/datasources/KeycloakDS</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">pool-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">KeycloakDS</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">use-java-context</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
@@ -3423,7 +3468,7 @@ scope of this guide.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For more information about datasource features, see <a href="https://docs.jboss.org/author/display/WFLY10/DataSource+configuration">the datasource configuration chapter</a> in the <em>WildFly 10 Documentation</em>.
+For more information about datasource features, see <a href="http://docs.wildfly.org/13/Admin_Guide.html#DataSource">the datasource configuration chapter</a> in the <em>WildFly 13 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3515,7 +3560,7 @@ Statistics are always reported to server log at specified interval (in seconds) 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-These configuration switches and more are described in the <a href="https://docs.jboss.org/author/display/WFLY10/JPA+Reference+Guide#JPAReferenceGuide-Hibernateproperties"><em>JBoss EAP Development Guide</em></a>.
+These configuration switches and more are described in the <a href="http://docs.wildfly.org/13/Developer_Guide.html#hibernate-properties"><em>WildFly 13 Development Guide</em></a>.
 </td>
 </tr>
 </table>
@@ -3712,7 +3757,7 @@ you boot up.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are many more options available when setting up <code>interface</code> definitions. For more information, see <a href="https://docs.jboss.org/author/display/WFLY10/Interfaces+and+ports">the network interface</a> in the <em>WildFly 10 Documentation</em>.
+There are many more options available when setting up <code>interface</code> definitions. For more information, see <a href="http://docs.wildfly.org/13/Admin_Guide.html#Interfaces_and_ports">the network interface</a> in the <em>WildFly 13 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3799,7 +3844,7 @@ to the <code>server-group</code> definitions you can see what <code>socket-bindi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are many more options available when setting up <code>socket-binding-group</code> definitions.  For more information, see <a href="https://docs.jboss.org/author/display/WFLY10/Interfaces+and+ports">the socket binding group</a> in the <em>WildFly 10 Documentation</em>.
+There are many more options available when setting up <code>socket-binding-group</code> definitions.  For more information, see <a href="http://docs.wildfly.org/13/Admin_Guide.html#Interfaces_and_ports">the socket binding group</a> in the <em>WildFly 13 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3981,11 +4026,11 @@ the keystore and enable HTTPS.  (See <a href="#_operating-mode">operating mode</
 </div>
 </div>
 <div class="paragraph">
-<p>Find the element <code>server name="default-server"</code> (it&#8217;s a child element of <code>subsystem xmlns="urn:jboss:domain:undertow:4.0"</code>) and add:</p>
+<p>Find the element <code>server name="default-server"</code> (it&#8217;s a child element of <code>subsystem xmlns="urn:jboss:domain:undertow:6.0"</code>) and add:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:6.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
    <span class="tag">&lt;buffer-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
    <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;https-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">https</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">security-realm</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">UndertowRealm</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4281,7 +4326,7 @@ to be aware of when booting up a host in the cluster.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide.  For more information, see <a href="https://docs.jboss.org/author/display/WFLY10/JGroups+Subsystem">JGroups</a> chapter of the <em>WildFly 10 Documentation</em>.
+It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide.  For more information, see <a href="http://docs.wildfly.org/13/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> chapter of the <em>WildFly 13 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -4392,12 +4437,12 @@ any black or white listing of IP addresses.</p>
 If your proxy is forwarding requests via the HTTP protocol, then you need to configure Keycloak to pull the client&#8217;s
 IP address from the <code>X-Forwarded-For</code> header rather than from the network packet.
 To do this, open up the profile configuration file (<em>standalone.xml</em>, <em>standalone-ha.xml</em>, or <em>domain.xml</em> depending on your
-<a href="#_operating-mode">operating mode</a>) and look for the <code>urn:jboss:domain:undertow:4.0</code> XML block.</p>
+<a href="#_operating-mode">operating mode</a>) and look for the <code>urn:jboss:domain:undertow:6.0</code> XML block.</p>
 </div>
 <div class="listingblock">
 <div class="title"><code>X-Forwarded-For</code> HTTP Config</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:6.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
    <span class="tag">&lt;buffer-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
    <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;ajp-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4420,7 +4465,7 @@ pull this information from the AJP packets.</p>
 <div class="listingblock">
 <div class="title"><code>X-Forwarded-For</code> AJP Config</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:6.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
      <span class="tag">&lt;buffer-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
      <span class="tag">&lt;server</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-server</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
          <span class="tag">&lt;ajp-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ajp</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4448,7 +4493,7 @@ pull this information from the AJP packets.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:6.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     ...
     <span class="tag">&lt;http-listener</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http</span><span class="delimiter">&quot;</span></span>
         <span class="attribute-name">proxy-address-forwarding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">redirect-socket</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">proxy-https</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
@@ -4532,7 +4577,7 @@ file and go to the undertow configuration in the <code>load-balancer</code> prof
 <div class="listingblock">
 <div class="title">domain.xml reverse-proxy config</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:6.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
   ...
   <span class="tag">&lt;handlers&gt;</span>
       <span class="tag">&lt;reverse-proxy</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">lb-handler</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
@@ -4609,7 +4654,7 @@ of the master host.</p>
 <div class="sect3">
 <h4 id="configuring-other-load-balancers"><a class="anchor" href="#configuring-other-load-balancers"></a>8.3.5. Configuring Other Load Balancers</h4>
 <div class="paragraph">
-<p>See <a href="https://docs.jboss.org/author/display/WFLY10/High+Availability+Guide">the load balancing</a> section in the <em>WildFly 10 Documentation</em> for information how to use other software-based load balancers.</p>
+<p>See <a href="http://docs.wildfly.org/13/High_Availability_Guide.html">the load balancing</a> section in the <em>WildFly 13 Documentation</em> for information how to use other software-based load balancers.</p>
 </div>
 </div>
 </div>
@@ -4717,7 +4762,7 @@ configuration on the load balancer side. Instead it requires support on the back
 dedicated protocol called MCMP and they notify loadbalancer about various events (eg. node joined or left cluster, new application was deployed etc).</p>
 </div>
 <div class="paragraph">
-<p>Example setup will consist of the one WildFly 10 load balancer node and two Keycloak nodes.</p>
+<p>Example setup will consist of the one WildFly 13 load balancer node and two Keycloak nodes.</p>
 </div>
 <div class="paragraph">
 <p>Clustering example require MULTICAST to be enabled on machine&#8217;s loopback network interface. This can be done by running the following commands under root privileges (on Linux):</p>
@@ -4731,14 +4776,14 @@ ifconfig lo multicast</code></pre>
 <div class="sect4">
 <h5 id="load-balancer-configuration"><a class="anchor" href="#load-balancer-configuration"></a>Load Balancer Configuration</h5>
 <div class="paragraph">
-<p>Unzip the WildFly 10 server somewhere. Assumption is location <code>EAP_LB</code></p>
+<p>Unzip the WildFly 13 server somewhere. Assumption is location <code>EAP_LB</code></p>
 </div>
 <div class="paragraph">
 <p>Edit <code>EAP_LB/standalone/configuration/standalone.xml</code> file. In the undertow subsystem add the mod_cluster configuration under filters like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:6.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
  ...
  <span class="tag">&lt;filters&gt;</span>
   ...
@@ -4903,7 +4948,7 @@ You have to edit your the <em>standalone-ha.xml</em> or <em>domain.xml</em> sect
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide. For more information, see <a href="https://docs.jboss.org/author/display/WFLY10/JGroups+Subsystem">JGroups</a> in the <em>WildFly 10 Documentation</em>.
+It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide. For more information, see <a href="http://docs.wildfly.org/13/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> in the <em>WildFly 13 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -4993,9 +5038,10 @@ $ bin/domain.sh --host-config=host-slave.xml</code></pre>
 <a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_installation/topics/clustering/troubleshooting.adoc" target="_blank">Report an issue</a>
 </div>
 </div>
-<div class="paragraph">
-<p>Note that when you run cluster, you should see message similar to this in the log of both cluster nodes:</p>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Note that when you run a cluster, you should see message similar to this in the log of both cluster nodes:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>INFO  [org.infinispan.remoting.transport.jgroups.JGroupsTransport] (Incoming-10,shared=udp)
@@ -5012,13 +5058,20 @@ If for some reason you still need to have firewall enabled on cluster nodes, you
 Default values are UDP port 55200 and multicast port 45688 with multicast address 230.0.0.4.
 Note that you may need more ports opened if you want to enable additional features like diagnostics for your JGroups stack.
 Keycloak delegates most of the clustering work to Infinispan/JGroups.
-For more information, see <a href="https://docs.jboss.org/author/display/WFLY10/JGroups+Subsystem">JGroups</a> in the <em>WildFly 10 Documentation</em>.</p>
+For more information, see <a href="http://docs.wildfly.org/13/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> in the <em>WildFly 13 Documentation</em>.</p>
+</div>
+</li>
+<li>
+<p>If you are interested in failover support (high availability), evictions, expiration and cache tuning, see
+<a href="#cache-configuration">Server Cache Configuration</a>.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="server-cache-configuration"><a class="anchor" href="#server-cache-configuration"></a>9. Server Cache Configuration</h2>
+<h2 id="cache-configuration"><a class="anchor" href="#cache-configuration"></a>9. Server Cache Configuration</h2>
 <div class="sectionbody">
 <div class="sidebarblock page-links">
 <div class="content">
@@ -5050,13 +5103,13 @@ but is possibly replicated across the cluster.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-More advanced configuration of these caches can be found in the  <a href="https://docs.jboss.org/author/display/WFLY10/Infinispan+Subsystem">Infinispan</a> section of the <em>WildFly 10 Documentation</em>.
+More advanced configuration of these caches can be found in the  <a href="http://docs.wildfly.org/13/High_Availability_Guide.html#Infinispan_Subsystem">Infinispan</a> section of the <em>WildFly 13 Documentation</em>.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="eviction-and-expiration"><a class="anchor" href="#eviction-and-expiration"></a>9.1. Eviction and Expiration</h3>
+<h3 id="_eviction"><a class="anchor" href="#_eviction"></a>9.1. Eviction and Expiration</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_installation/topics/cache/eviction.adoc" target="_blank">Edit this section</a>
@@ -5068,69 +5121,73 @@ More advanced configuration of these caches can be found in the  <a href="https:
 There is a realm cache that holds information about secured applications, general security data, and configuration options.
 There is also a user cache that contains user metadata.  Both caches default to a maximum of 10000 entries and use a least recently used eviction strategy.
 Each of them is also tied to an object revisions cache that controls eviction in a clustered setup.
-This cache is created implicitly and has twice the configured size.
-There are also separate caches for user sessions, offline tokens, and login failures.  These caches are unbounded in size as well.</p>
+This cache is created implicitly and has twice the configured size. The same applies for the <code>authorization</code> cache, which holds
+the authorization data. The <code>keys</code> cache holds data about external keys and does not need to have dedicated revisions cache. Rather
+it has <code>expiration</code> explicitly declared on it, so the keys are periodically expired and forced to be periodically downloaded from external clients or
+identity providers.</p>
 </div>
 <div class="paragraph">
 <p>The eviction policy and max entries for these caches can be configured in the <em>standalone.xml</em>, <em>standalone-ha.xml</em>, or
-<em>domain.xml</em> depending on your <a href="#_operating-mode">operating mode</a>.</p>
+<em>domain.xml</em> depending on your <a href="#_operating-mode">operating mode</a>. In the configuration file, there is the part with infinispan
+subsystem, which looks similar to this:</p>
 </div>
 <div class="listingblock">
-<div class="title">non-clustered</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:infinispan:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;cache-container</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">jndi-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">infinispan/Keycloak</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:infinispan:6.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;cache-container</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">realms</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;eviction</span> <span class="attribute-name">max-entries</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">10000</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">strategy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">LRU</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;object-memory</span> <span class="attribute-name">size</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">10000</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
         <span class="tag">&lt;/local-cache&gt;</span>
         <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">users</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;eviction</span> <span class="attribute-name">max-entries</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">10000</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">strategy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">LRU</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;object-memory</span> <span class="attribute-name">size</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">10000</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
         <span class="tag">&lt;/local-cache&gt;</span>
-        <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sessions</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">offlineSessions</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">loginFailures</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">work</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">authorization</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-           <span class="tag">&lt;eviction</span> <span class="attribute-name">strategy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">LRU</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">max-entries</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">100</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;/local-cache&gt;</span>
+        ...
         <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keys</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;eviction</span> <span class="attribute-name">strategy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">LRU</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">max-entries</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1000</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;object-memory</span> <span class="attribute-name">size</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1000</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
             <span class="tag">&lt;expiration</span> <span class="attribute-name">max-idle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">3600000</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
         <span class="tag">&lt;/local-cache&gt;</span>
-    <span class="tag">&lt;/cache-container&gt;</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">clustered</div>
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:infinispan:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;cache-container</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">jndi-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">infinispan/Keycloak</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-        <span class="tag">&lt;transport</span> <span class="attribute-name">lock-timeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">60000</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">realms</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;eviction</span> <span class="attribute-name">max-entries</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">10000</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">strategy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">LRU</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;/local-cache&gt;</span>
-        <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">users</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;eviction</span> <span class="attribute-name">max-entries</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">10000</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">strategy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">LRU</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;/local-cache&gt;</span>
-        <span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">offlineSessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">loginFailures</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">authorization</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;replicated-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">work</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;local-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keys</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-            <span class="tag">&lt;eviction</span> <span class="attribute-name">max-entries</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">1000</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">strategy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">LRU</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-            <span class="tag">&lt;expiration</span> <span class="attribute-name">max-idle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">3600000</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-        <span class="tag">&lt;/local-cache&gt;</span>
+        ...
     <span class="tag">&lt;/cache-container&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>To limit or expand the number of allowed entries simply add or edit the <code>eviction</code> element or the <code>expiration</code> element of particular cache
+<p>To limit or expand the number of allowed entries simply add or edit the <code>object</code> element or the <code>expiration</code> element of particular cache
 configuration.</p>
+</div>
+<div class="paragraph">
+<p>In addition, there are also separate caches <code>sessions</code>, <code>clientSessions</code>, <code>offlineSessions</code>, <code>offlineClientSessions</code>,
+<code>loginFailures</code> and <code>actionTokens</code>. These caches are distributed in cluster environment and they are unbounded in size by default.
+If they are bounded, it would then be possible that some sessions will be lost. Expired sessions are cleared internally
+by Keycloak itself to avoid growing the size of these caches
+without limit. If you see memory issues due to a large number of sessions, you can try to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Increase the size of cluster (more nodes in cluster means that sessions are spread more equally among nodes)</p>
+</li>
+<li>
+<p>Increase the memory for Keycloak server process</p>
+</li>
+<li>
+<p>Decrease the number of owners to ensure that caches are saved in one single place. See <a href="#_replication">Replication and Failover</a> for more details</p>
+</li>
+<li>
+<p>Disable l1-lifespan for distributed caches. See Infinispan documentation for more details</p>
+</li>
+<li>
+<p>Decrease session timeouts, which could be done individually for each realm in Keycloak admin console. But this could affect
+usability for end users. See <a href="https://www.keycloak.org/docs/4.3/server_admin/#_timeouts">Timeouts</a> for more details.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There is an additional replicated cache, <code>work</code>, which is mostly used to send messages among cluster nodes; it is also unbounded
+by default. However, this cache should not cause any memory issues as entries in this cache are very short-lived.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="replication-and-failover"><a class="anchor" href="#replication-and-failover"></a>9.2. Replication and Failover</h3>
+<h3 id="_replication"><a class="anchor" href="#_replication"></a>9.2. Replication and Failover</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_installation/topics/cache/replication.adoc" target="_blank">Edit this section</a>
@@ -5138,7 +5195,8 @@ configuration.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>sessions</code>, <code>authenticationSessions</code>, <code>offlineSessions</code> and <code>loginFailures</code> caches are the only caches that may perform replication.  Entries are
+<p>There are caches like <code>sessions</code>, <code>authenticationSessions</code>, <code>offlineSessions</code>, <code>loginFailures</code> and a few others (See <a href="#_eviction">Eviction and Expiration</a> for more details),
+which are configured as distributed caches when using a clustered setup. Entries are
 not replicated to every single node, but instead one or more nodes is chosen as an owner of that data.  If a node is not the owner of a specific cache entry it queries
 the cluster to obtain it.  What this means for failover is that if all the nodes that own a piece of data go down, that data
 is lost forever.  By default, Keycloak only specifies one owner for data.  So if that one node goes down
@@ -5150,9 +5208,9 @@ that data is lost.  This usually means that users will be logged out and will ha
 <div class="listingblock">
 <div class="title">owners</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:infinispan:4.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-   <span class="tag">&lt;cache-container</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">jndi-name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">infinispan/Keycloak</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-       <span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">mode</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">SYNC</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:infinispan:6.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+   <span class="tag">&lt;cache-container</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+       <span class="tag">&lt;distributed-cache</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sessions</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">owners</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
 ...</code></pre>
 </div>
 </div>
@@ -5168,6 +5226,20 @@ that data is lost.  This usually means that users will be logged out and will ha
 <td class="content">
 The number of owners recommended is really dependent on your deployment.  If you do not care if users are logged
       out when a node goes down, then one owner is good enough and you will avoid replication.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+It is generally wise to configure your environment to use loadbalancer with sticky sessions. It is beneficial for performance
+     as Keycloak server, where the particular request is served, will be usually the owner of the data from the distributed cache
+     and will therefore be able to look up the data locally. See <a href="#sticky-sessions">Sticky sessions</a> for more details.
 </td>
 </tr>
 </table>
@@ -5572,7 +5644,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-17 12:48:15 UTC
+Last updated 2018-08-27 10:56:07 UTC
 </div>
 </div>
 <ul id="globalnav">
