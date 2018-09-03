@@ -1480,13 +1480,15 @@ Both methods are described in this section.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-WildFly should be running when you install the adapter. If you have either one running, you must stop it before installing and then restart it after installation is complete.
+We only test and maintain adapter with the most recent version of WildFly available upon the release. Once new version of
+WildFly is released, the current adapters become deprecated and support for them will be removed after next WildFly release.
+The other alternative is to switch your applications from WildFly to the JBoss EAP, as the JBoss EAP adapter is supported for much longer period.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Install on WildFly 9, 10 or 11:</p>
+<p>Install on WildFly 9 or newer:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1549,7 +1551,7 @@ Alternatively, you can specify the <code>server.config</code> property while ins
 </table>
 </div>
 <div class="listingblock">
-<div class="title">WildFly 11</div>
+<div class="title">WildFly 11 or newer</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-elytron-install-offline.cli</code></pre>
 </div>
@@ -1567,7 +1569,8 @@ Alternatively, you can specify the <code>server.config</code> property while ins
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The offline script is not available for JBoss EAP 6.4
+It is possible to use the legacy non-Elytron adapter on WildFly 11 or newer as well, meaning you can use <code>adapter-install-offline.cli</code>
+even on those versions. However, we recommend to use the newer Elytron adapter.
 </td>
 </tr>
 </table>
@@ -1576,7 +1579,7 @@ The offline script is not available for JBoss EAP 6.4
 <p>Alternatively, if the server is running execute:</p>
 </div>
 <div class="listingblock">
-<div class="title">WildFly 11</div>
+<div class="title">WildFly 11 or newer</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-elytron-install.cli</code></pre>
 </div>
@@ -5160,6 +5163,10 @@ enter the scope options <code>address phone</code>, then the request to Keycloak
 <p><code>login</code> - SSO will be ignored and the Keycloak login page will be always shown, even if the user is already authenticated</p>
 </li>
 <li>
+<p><code>consent</code> - Applicable only for the clients with <code>Consent Required</code>. If it is used, the Consent page will always be displayed,
+even if the user previously granted consent to this client.</p>
+</li>
+<li>
 <p><code>none</code> - The login page will never be shown; instead the user will be redirected to the application, with an error if the user
 is not yet authenticated. This setting allows you to create a filter/interceptor on the application side and show a custom error page
 to the user. See more details in the specification.</p>
@@ -6035,7 +6042,9 @@ Available options:</p>
 <p>redirectUri - Specifies the uri to redirect to after login.</p>
 </li>
 <li>
-<p>prompt - By default the login screen is displayed if the user is not logged-in to Keycloak. To only authenticate to the application if the user is already logged-in and not display the login page if the user is not logged-in, set this option to <code>none</code>. To always require re-authentication and ignore SSO, set this option to <code>login</code> .</p>
+<p>prompt - This parameter allows to slightly customize the login flow on the Keycloak server side.
+For example enforce displaying the login screen in case of value <code>login</code>. See <a href="#_params_forwarding">Parameters Forwarding Section</a>
+for the details and all the possible values of the <code>prompt</code> parameter.</p>
 </li>
 <li>
 <p>maxAge - Used just if user is already authenticated. Specifies maximum time since the authentication of user happened. If user is already authenticated for longer time than <code>maxAge</code>, the SSO is ignored and he will need to re-authenticate again.</p>
@@ -7568,8 +7577,22 @@ Both methods are described in this section.</p>
 <div class="paragraph">
 <p>Each adapter is a separate download on the Keycloak download site.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We only test and maintain adapter with the most recent version of WildFly available upon the release. Once new version of
+WildFly is released, the current adapters become deprecated and support for them will be removed after next WildFly release.
+The other alternative is to switch your applications from WildFly to the JBoss EAP, as the JBoss EAP adapter is supported for much longer period.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
-<p>Install on WildFly 9 or 10, 11 or JBoss EAP 7:</p>
+<p>Install on WildFly 9 or newer or on JBoss EAP 7:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -7597,7 +7620,7 @@ $ unzip keycloak-saml-eap6-adapter-dist.zip</code></pre>
 Start the server and run the script  from the server&#8217;s bin directory:</p>
 </div>
 <div class="listingblock">
-<div class="title">WildFly 11</div>
+<div class="title">WildFly 11 or newer</div>
 <div class="content">
 <pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-elytron-install-saml.cli</code></pre>
 </div>
@@ -7608,6 +7631,19 @@ Start the server and run the script  from the server&#8217;s bin directory:</p>
 <pre class="CodeRay highlight"><code>$ cd $JBOSS_HOME/bin
 $ jboss-cli.sh -c --file=adapter-install-saml.cli</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is possible to use the legacy non-Elytron adapter on WildFly 11 or newer as well, meaning you can use <code>adapter-install-saml.cli</code>
+even on those versions. However, we recommend to use the newer Elytron adapter.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The script will add the extension, subsystem, and optional security-domain as described below.</p>
@@ -11023,7 +11059,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-28 12:34:01 UTC
+Last updated 2018-09-03 09:05:46 UTC
 </div>
 </div>
 <ul id="globalnav">
