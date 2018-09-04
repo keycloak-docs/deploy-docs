@@ -730,7 +730,7 @@ span.image img {
 </li>
 <li><a href="#_nodejs_adapter">2.3. Node.js Adapter</a>
 <ul class="sectlevel3">
-<li><a href="#installation">2.3.1. Installation</a></li>
+<li><a href="#installation-2">2.3.1. Installation</a></li>
 <li><a href="#usage-2">2.3.2. Usage</a></li>
 <li><a href="#installing-middleware">2.3.3. Installing Middleware</a></li>
 <li><a href="#protecting-resources">2.3.4. Protecting Resources</a></li>
@@ -4780,6 +4780,122 @@ So, the Admin URL in this example should be <code>http[s]://hostname/{context-ro
 <span class="tag">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
+<div class="sect4">
+<h5 id="using-on-osgi"><a class="anchor" href="#using-on-osgi"></a>Using on OSGi</h5>
+<div class="paragraph">
+<p>The servlet filter adapter is packaged as an OSGi bundle, and thus is usable in a generic OSGi environment (R6 and above) with HTTP Service and HTTP Whiteboard.</p>
+</div>
+<div class="sect5">
+<h6 id="installation"><a class="anchor" href="#installation"></a>Installation</h6>
+<div class="paragraph">
+<p>The adapter and its dependencies are distributed as Maven artifacts, so you&#8217;ll need either working Internet connection to access Maven Central, or have the artifacts cached in your local Maven repo.</p>
+</div>
+<div class="paragraph">
+<p>If you are using Apache Karaf, you can simply install a feature from the Keycloak feature repo:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>karaf@root()&gt; feature:repo-add mvn:org.keycloak/keycloak-osgi-features/4.3.0.Final/xml/features
+karaf@root()&gt; feature:install keycloak-servlet-filter-adapter</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For other OSGi runtimes, please refer to the runtime documentation on how to install the adapter bundle and its dependencies.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If your OSGi platform is Apache Karaf with Pax Web, you should consider using <a href="#_fuse_adapter">JBoss Fuse 6</a> or <a href="#_fuse7_adapter">JBoss Fuse 7</a> adapters instead.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect5">
+<h6 id="configuration"><a class="anchor" href="#configuration"></a>Configuration</h6>
+<div class="paragraph">
+<p>First, the adapter needs to be registered as a servlet filter with the OSGi HTTP Service. The most common ways to do this are programmatic (e.g. via bundle activator) and declarative (using OSGi annotations).
+We recommend using the latter since it simplifies the process of dynamically registering and un-registering the filter:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">package</span> <span class="namespace">mypackage</span>;
+
+<span class="keyword">import</span> <span class="include">javax.servlet.Filter</span>;
+<span class="keyword">import</span> <span class="include">org.keycloak.adapters.servlet.KeycloakOIDCFilter</span>;
+<span class="keyword">import</span> <span class="include">org.osgi.service.component.annotations.Component</span>;
+<span class="keyword">import</span> <span class="include">org.osgi.service.http.whiteboard.HttpWhiteboardConstants</span>;
+
+<span class="annotation">@Component</span>(
+    immediate = <span class="predefined-constant">true</span>,
+    service = <span class="predefined-type">Filter</span>.class,
+    property = {
+        KeycloakOIDCFilter.CONFIG_FILE_PARAM + <span class="string"><span class="delimiter">&quot;</span><span class="content">=</span><span class="delimiter">&quot;</span></span> + <span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak.json</span><span class="delimiter">&quot;</span></span>,
+        HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN + <span class="string"><span class="delimiter">&quot;</span><span class="content">=</span><span class="delimiter">&quot;</span></span> +<span class="string"><span class="delimiter">&quot;</span><span class="content">/*</span><span class="delimiter">&quot;</span></span>,
+        HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_SELECT + <span class="string"><span class="delimiter">&quot;</span><span class="content">=</span><span class="delimiter">&quot;</span></span> + <span class="string"><span class="delimiter">&quot;</span><span class="content">(osgi.http.whiteboard.context.name=mycontext)</span><span class="delimiter">&quot;</span></span>
+    }
+)
+<span class="directive">public</span> <span class="type">class</span> <span class="class">KeycloakFilter</span> <span class="directive">extends</span> KeycloakOIDCFilter {
+  <span class="comment">//</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above snippet uses OSGi declarative service specification to expose the filter as an OSGI service under <code>javax.servlet.Filter</code> class.
+Once the class is published in the OSGi service registry, it is going to be picked up by OSGi HTTP Service implementation and used for filtering requests for the specified servlet context. This will trigger Keycloak adapter for every request that matches servlet context path + filter path.</p>
+</div>
+<div class="paragraph">
+<p>Since the component is put under the control of OSGi Configuration Admin Service, it&#8217;s properties can be configured dynamically.
+To do that, either create a <code>mypackage.KeycloakFilter.cfg</code> file under the standard config location for your OSGi runtime:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>keycloak.config.file = /path/to/keycloak.json
+osgi.http.whiteboard.filter.pattern = /secure/*</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or use interactive console, if your runtime allows for that:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>karaf@root()&gt; config:edit mypackage.KeycloakFilter
+karaf@root()&gt; config:property-set keycloak.config.file '${karaf.etc}/keycloak.json'
+karaf@root()&gt; config:update</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you need more control, like e.g. providing custom <code>KeycloakConfigResolver</code> to implement <a href="#_multi_tenancy">multi tenancy</a>, you can register the filter programmatically:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">Activator</span> <span class="directive">implements</span> BundleActivator {
+
+  <span class="directive">private</span> ServiceRegistration registration;
+
+  <span class="directive">public</span> <span class="type">void</span> start(BundleContext context) <span class="directive">throws</span> <span class="exception">Exception</span> {
+    <span class="predefined-type">Hashtable</span> props = <span class="keyword">new</span> <span class="predefined-type">Hashtable</span>();
+    props.put(HttpWhiteboardConstants.HTTP_WHITEBOARD_FILTER_PATTERN, <span class="string"><span class="delimiter">&quot;</span><span class="content">/secure/*</span><span class="delimiter">&quot;</span></span>);
+    props.put(KeycloakOIDCFilter.CONFIG_RESOLVER_PARAM, <span class="keyword">new</span> MyConfigResolver());
+
+    <span class="local-variable">this</span>.registration = context.registerService(<span class="predefined-type">Filter</span>.class.getName(), <span class="keyword">new</span> KeycloakOIDCFilter(), props);
+  }
+
+  <span class="directive">public</span> <span class="type">void</span> stop(BundleContext context) <span class="directive">throws</span> <span class="exception">Exception</span> {
+    <span class="local-variable">this</span>.registration.unregister();
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Please refer to <a href="http://felix.apache.org/documentation/subprojects/apache-felix-http-service.html#using-the-osgi-http-whiteboard">Apache Felix HTTP Service</a> for more info on programmatic registration.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_jaas_adapter"><a class="anchor" href="#_jaas_adapter"></a>2.1.12. JAAS plugin</h4>
@@ -6289,7 +6405,7 @@ This can be useful if application has detected the session was expired, for exam
 <p>Once the client is created click the <code>Installation</code> tab, select <code>Keycloak OIDC JSON</code> for <code>Format Option</code>, and then click <code>Download</code>. The downloaded <code>keycloak.json</code> file should be at the root folder of your project.</p>
 </div>
 <div class="sect3">
-<h4 id="installation"><a class="anchor" href="#installation"></a>2.3.1. Installation</h4>
+<h4 id="installation-2"><a class="anchor" href="#installation-2"></a>2.3.1. Installation</h4>
 <div class="paragraph">
 <p>Assuming you&#8217;ve already installed <a href="https://nodejs.org">Node.js</a>, create a folder for your application:</p>
 </div>
@@ -11059,7 +11175,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-03 09:05:46 UTC
+Last updated 2018-09-04 13:52:22 UTC
 </div>
 </div>
 <ul id="globalnav">
