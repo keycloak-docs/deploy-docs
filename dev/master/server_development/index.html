@@ -698,6 +698,7 @@ span.image img {
 <li><a href="#deploying-themes">3.5. Deploying Themes</a></li>
 <li><a href="#_theme_selector">3.6. Theme Selector</a></li>
 <li><a href="#_theme_resource">3.7. Theme Resources</a></li>
+<li><a href="#_locale_selector">3.8. Locale Selector</a></li>
 </ul>
 </li>
 <li><a href="#_custom_user_attributes">4. Custom User Attributes</a>
@@ -1358,6 +1359,9 @@ password=Passord</code></pre>
 usernameOrEmail=....</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>See <a href="#_locale_selector">Locale Selector</a> on details on how the current locale is selected.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="html-templates"><a class="anchor" href="#html-templates"></a>3.4.7. HTML Templates</h4>
@@ -1516,6 +1520,52 @@ and resources.</p>
 <div class="paragraph">
 <p>Follow the steps in <a href="#_providers">Service Provider Interfaces</a> for more details on how to create and deploy a custom
 provider.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_locale_selector"><a class="anchor" href="#_locale_selector"></a>3.8. Locale Selector</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_development/topics/locale-selector.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_development/topics/locale-selector.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, the locale is selected using the <code>DefaultLocaleSelectorProvider</code> which implements the <code>LocaleSelectorProvider</code> interface. English is the default language when internationalization is disabled. With internationalization enabled, the locale is resolved in the following priority:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>kc_locale</code> query parameter</p>
+</li>
+<li>
+<p><code>KEYCLOAK_LOCALE</code> cookie value</p>
+</li>
+<li>
+<p>User&#8217;s preferred locale if a user instance is available</p>
+</li>
+<li>
+<p><code>ui_locales</code> query parameter</p>
+</li>
+<li>
+<p><code>Accept-Language</code> request header</p>
+</li>
+<li>
+<p>Realm&#8217;s default language</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This behaviour can be changed through the <code>LocaleSelectorSPI</code> by implementing the <code>LocaleSelectorProvider</code> and <code>LocaleSelectorProviderFactory</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>LocaleSelectorProvider</code> interface has a single method, <code>resolveLocale</code>, which must return a locale given a <code>RealmModel</code> and a nullable <code>UserModel</code>. The actual request is available from the <code>KeycloakSession#getContext</code> method.</p>
+</div>
+<div class="paragraph">
+<p>Custom implementations can extend the <code>DefaultLocaleSelectorProvider</code> in order to reuse parts of the default behaviour. For example to ignore the <code>Accept-Language</code> request header, a custom implementation could extend the default provider, override it&#8217;s <code>getAcceptLanguageHeaderLocale</code>, and return a null value. As a result the locale selection will fall back on the realms&#8217;s default language.</p>
+</div>
+<div class="paragraph">
+<p>Follow the steps in <a href="#_providers">Service Provider Interfaces</a> for more details on how to create and deploy a custom provider.</p>
 </div>
 </div>
 </div>
@@ -5293,7 +5343,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-06 18:09:13 UTC
+Last updated 2018-09-11 18:38:04 UTC
 </div>
 </div>
 <ul id="globalnav">
