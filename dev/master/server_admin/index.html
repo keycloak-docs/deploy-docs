@@ -1118,7 +1118,7 @@ protocol mappers and many more.</p>
 </div>
 <div class="paragraph">
 <p>Keycloak is a separate server that you manage on your network.  Applications are configured to point to and
-be secured by this server.  Keycloak uses open protocol standards like <a href="http://openid.net/connect/">OpenID Connect</a>
+be secured by this server.  Keycloak uses open protocol standards like <a href="https://openid.net/connect/">OpenID Connect</a>
 or <a href="http://saml.xml.org/saml-specifications">SAML 2.0</a> to secure
 your applications.  Browser applications redirect a user&#8217;s browser from the application to the Keycloak authentication
 server where they enter their credentials.  This is important because users are completely isolated from applications and
@@ -3410,7 +3410,7 @@ and the applications it secures interact with these protocols.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="http://openid.net/connect/">OpenID Connect</a> (OIDC) is an authentication protocol that is an extension of <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a>.
+<p><a href="https://openid.net/connect/">OpenID Connect</a> (OIDC) is an authentication protocol that is an extension of <a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0</a>.
 While OAuth 2.0 is only a framework for building authorization protocols and is mainly incomplete, OIDC is a full-fledged authentication and authorization
 protocol.  OIDC also makes heavy use of the <a href="https://jwt.io">Json Web Token</a> (JWT) set of standards.  These standards define an
 identity token JSON format and ways to digitally sign and encrypt that data in a compact and web-friendly way.</p>
@@ -3679,7 +3679,7 @@ This is used most often for REST or SOAP-based clients.</p>
 <p>Beyond verbosity of exchanged data, if you compare the specifications you&#8217;ll find that OIDC was designed to work with the web while SAML was retrofitted to work on top of the web.  For example, OIDC is also more suited for HTML5/JavaScript applications because it is
 easier to implement on the client side than SAML. As tokens are in the JSON format,
 they are easier to consume by JavaScript. You will also find several nice features that
-make implementing security in your web applications easier. For example, check out the <a href="http://openid.net/specs/openid-connect-session-1_0.html#ChangeNotification">iframe trick</a> that the specification uses to easily determine if a user is still logged in or not.</p>
+make implementing security in your web applications easier. For example, check out the <a href="https://openid.net/specs/openid-connect-session-1_0.html#ChangeNotification">iframe trick</a> that the specification uses to easily determine if a user is still logged in or not.</p>
 </div>
 <div class="paragraph">
 <p>SAML has its uses though. As you see the OIDC specifications evolve you see they implement more and more features that SAML has had for years. What we often see is that people pick SAML over OIDC because of the perception that it is more mature and also because they already have existing applications that are secured with it.</p>
@@ -4629,11 +4629,11 @@ list in the SAML assertion.</p>
 </div>
 <div class="paragraph">
 <p>The client scope, <code>offline_access</code>, is useful when client wants to obtain offline tokens. Learn about offline tokens in the
-<a href="#_offline-access">Offline Access section</a> or in the <a href="http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess">OpenID Connect specification</a>,
+<a href="#_offline-access">Offline Access section</a> or in the <a href="https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess">OpenID Connect specification</a>,
 where scope parameter is defined with the value <code>offline_access</code>.</p>
 </div>
 <div class="paragraph">
-<p>The client scopes <code>profile</code>, <code>email</code>, <code>address</code> and <code>phone</code> are also defined in the <a href="http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OpenID Connect specification</a>.
+<p>The client scopes <code>profile</code>, <code>email</code>, <code>address</code> and <code>phone</code> are also defined in the <a href="https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">OpenID Connect specification</a>.
 These client scopes do not have any role scope mappings defined, but they have some protocol mappers defined, and these mappers correspond
 to the claims defined in the OpenID Connect specification.</p>
 </div>
@@ -7669,7 +7669,7 @@ OIDC client adapter installed.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Offline access is a feature described in <a href="http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess">OpenID Connect specification</a> .
+<p>Offline access is a feature described in <a href="https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess">OpenID Connect specification</a> .
 The idea is that during login, your client application will request an Offline token instead of a classic Refresh token.
 The application can save this offline token in a database or on disk and can use it later even if user is logged out.
 This is useful if your application needs to do some "offline" actions on behalf of user even when the user is not online.
@@ -11949,7 +11949,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-11 18:37:59 UTC
+Last updated 2018-09-12 12:08:46 UTC
 </div>
 </div>
 <ul id="globalnav">

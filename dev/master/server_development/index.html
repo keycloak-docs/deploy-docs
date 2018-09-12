@@ -3253,7 +3253,7 @@ For more details about this flow see the <code>Identity Brokering</code> chapter
 <div class="sect2">
 <h3 id="_client_authentication"><a class="anchor" href="#_client_authentication"></a>8.8. Authentication of clients</h3>
 <div class="paragraph">
-<p>Keycloak actually supports pluggable authentication for <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> client applications.
+<p>Keycloak actually supports pluggable authentication for <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a> client applications.
 Authentication of client (application) is used under the hood by the Keycloak adapter during sending any backchannel requests
 to the Keycloak server (like the request for exchange code to access token after successful authentication or request to refresh token).
 But the client authentication can be also used directly by you during <code>Direct Access grants</code> (represented by OAuth2 <code>Resource Owner Password Credentials Flow</code>)
@@ -3271,7 +3271,7 @@ or during <code>Service account</code> authentication (represented by OAuth2 <co
 <dl>
 <dt class="hdlist1">Traditional authentication with client_id and client_secret</dt>
 <dd>
-<p>This is default mechanism mentioned in the <a href="http://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a>                                or <a href="https://tools.ietf.org/html/rfc6749">OAuth2</a> specification and Keycloak supports it since it&#8217;s early days.
+<p>This is default mechanism mentioned in the <a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect</a>                                or <a href="https://tools.ietf.org/html/rfc6749">OAuth2</a> specification and Keycloak supports it since it&#8217;s early days.
 The public client needs to include <code>client_id</code> parameter with it&#8217;s ID in the POST request (so it&#8217;s defacto not authenticated) and the confidential client needs to include <code>Authorization: Basic</code> header with the clientId and clientSecret used as username and password.</p>
 </dd>
 <dt class="hdlist1">Authentication with signed JWT</dt>
@@ -5343,7 +5343,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-11 18:38:04 UTC
+Last updated 2018-09-12 12:08:50 UTC
 </div>
 </div>
 <ul id="globalnav">
