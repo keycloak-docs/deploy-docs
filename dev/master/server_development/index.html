@@ -2311,6 +2311,18 @@ own JPA entities to the Keycloak JPA <code>EntityManager</code> .</p>
 <p>To add your own JPA entities, you need to implement <code>JpaEntityProviderFactory</code> and <code>JpaEntityProvider</code>. The <code>JpaEntityProvider</code>
 allows you to return a list of your custom JPA entities and provide the location and id of the Liquibase changelog. An example implementation can look like this:</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is an unsupported API, which means you can use it but there is no guarantee that it will not be removed or changed without warning.
+</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ExampleJpaEntityProvider</span> <span class="directive">implements</span> JpaEntityProvider {
@@ -5343,7 +5355,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-12 16:52:09 UTC
+Last updated 2018-09-19 15:24:02 UTC
 </div>
 </div>
 <ul id="globalnav">

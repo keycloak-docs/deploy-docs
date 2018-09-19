@@ -5572,6 +5572,18 @@ The default value for <code>token-store</code> is <code>session</code>, which st
 application itself as the adapter will delete the KEYCLOAK_ADAPTER_STATE cookie. However, back-channel logout initialized from a different application isn&#8217;t
 propagated by Keycloak to applications using cookie store. Hence it&#8217;s recommended to use a short value for the access token timeout (for example 1 minute).</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Some load balancers do not allow any configuration of the sticky session cookie name or contents, such as Amazon ALB. For these, it is recommended to set the <code>shouldAttachRoute</code> option to <code>false</code>.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect4">
 <h5 id="relative-uri-optimization"><a class="anchor" href="#relative-uri-optimization"></a>Relative URI optimization</h5>
@@ -11175,7 +11187,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-12 16:51:59 UTC
+Last updated 2018-09-19 15:23:44 UTC
 </div>
 </div>
 <ul id="globalnav">
