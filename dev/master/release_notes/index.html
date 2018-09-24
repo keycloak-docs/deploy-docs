@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<title>Keycloak 4.4.0.Final</title>
+<title>Keycloak 4.5.0.Final</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -671,6 +671,7 @@ span.image img {
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#keycloak-4-5-0-final">Keycloak 4.5.0.Final</a></li>
 <li><a href="#keycloak-4-4-0-final">Keycloak 4.4.0.Final</a></li>
 <li><a href="#keycloak-4-3-0-final">Keycloak 4.3.0.Final</a></li>
 <li><a href="#keycloak-4-2-0-final">Keycloak 4.2.0.Final</a></li>
@@ -680,6 +681,41 @@ span.image img {
 </div>
 </div>
 <div id="content">
+<div class="sect1">
+<h2 id="keycloak-4-5-0-final"><a class="anchor" href="#keycloak-4-5-0-final"></a>Keycloak 4.5.0.Final</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="signature-spi"><a class="anchor" href="#signature-spi"></a>Signature SPI</h3>
+<div class="paragraph">
+<p>The Signature SPI makes it possible to plug-in additional signature algorithms. This enables additional signatures and also enables changing how signatures are generated. For example, using this allows using an HSM device to sign tokens.</p>
+</div>
+<div class="paragraph">
+<p>Thanks to <a href="https://github.com/tnorimat">tnorimat</a> for contributing a signficant part of this work.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="new-signature-algorithms"><a class="anchor" href="#new-signature-algorithms"></a>New Signature Algorithms</h3>
+<div class="paragraph">
+<p>Alongside the Signature SPI there is now also support for additional signature algorithms.</p>
+</div>
+<div class="paragraph">
+<p>Keycloak now has support for RS256, RS384, RS512, ES256, ES384, ES512, HS256, HS384 and HS512.</p>
+</div>
+<div class="paragraph">
+<p>Elliptic Curve Digital Signature Algorithm (ES256/384/512) are very interesting as they provide similar
+security properties as RSA signatures, but use significantly less CPU.</p>
+</div>
+<div class="paragraph">
+<p>HMAC (HS256/384/512) are also very useful when you do not want your application to verify the signature itself.
+Since these are symmetric signatures only Keycloak is able to verify the signature, which requires the
+application to use the token introspection endpoint to verify tokens.</p>
+</div>
+<div class="paragraph">
+<p>Thanks to <a href="https://github.com/tnorimat">tnorimat</a> for contributing a signficant part of this work.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="keycloak-4-4-0-final"><a class="anchor" href="#keycloak-4-4-0-final"></a>Keycloak 4.4.0.Final</h2>
 <div class="sectionbody">
@@ -1057,7 +1093,7 @@ Thanks to <a href="https://github.com/looorent">loorent</a> for the contribution
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-19 15:21:34 UTC
+Last updated 2018-09-24 19:53:31 UTC
 </div>
 </div>
 <ul id="globalnav">

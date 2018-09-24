@@ -794,7 +794,8 @@ $ tar -xvzf keycloak-4.5.0.Final.tar.gz</code></pre>
 <div class="listingblock">
 <div class="title">Linux/Unix</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ .../bin/standalone.sh</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ cd bin
+$ ./standalone.sh</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -970,7 +971,7 @@ This password is temporary and the user will be required to change it after the 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>After you create the new user, log out of the management console by opening the user drop-down menu and selecting <strong>Sign Off</strong>.</p>
+<p>After you create the new user, log out of the management console by opening the user drop-down menu and selecting <strong>Sign Out</strong>.</p>
 </li>
 <li>
 <p>Go to <a href="http://localhost:8080/auth/realms/demo/account" class="bare">http://localhost:8080/auth/realms/demo/account</a> and log in to the User Account Service of your <code>demo</code> realm with the user you just created.</p>
@@ -1023,7 +1024,7 @@ This password is temporary and the user will be required to change it after the 
 <p>Before you can secure a Java servlet application, you must complete the installation of Keycloak and create the initial admin user as shown in  <a href="#_install-boot">Installing and Booting</a>.</p>
 </div>
 <div class="paragraph">
-<p>There is one caveat: you must run a separate WildFly instance on the same machine as the Keycloak server to run your Java servlet application. Run the Keycloak using a different port than the WildFly, to avoid port conflicts.</p>
+<p>There is one caveat: Even though WildFly is bundled with keycloak, you cannot use this as an application container.  Instead, you must run a separate WildFly instance on the same machine as the Keycloak server to run your Java servlet application. Run the Keycloak using a different port than the WildFly, to avoid port conflicts.</p>
 </div>
 <div class="paragraph">
 <p>To adjust the port used, change the value of the <code>jboss.socket.binding.port-offset</code> system property when starting the server from the command line. The value of this property is a number that will be added to the base value of every port opened by the Keycloak server.</p>
@@ -1034,7 +1035,8 @@ This password is temporary and the user will be required to change it after the 
 <div class="listingblock">
 <div class="title">Linux/Unix</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ .../bin/standalone.sh -Djboss.socket.binding.port-offset=100</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ cd bin
+$ ./standalone.sh -Djboss.socket.binding.port-offset=100</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -1102,7 +1104,7 @@ $ ./jboss-cli.sh --file=adapter-elytron-install-offline.cli</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This script will make the necessary edits to the <code>&#8230;&#8203;/standalone/configuration/standalone.xml</code> file of your app server distribution.
+This script will make the necessary edits to the <code>&#8230;&#8203;/standalone/configuration/standalone.xml</code> file of your app server distribution and may take some time to complete.
 </td>
 </tr>
 </table>
@@ -1113,7 +1115,8 @@ This script will make the necessary edits to the <code>&#8230;&#8203;/standalone
 <div class="listingblock">
 <div class="title">Linux/Unix</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ .../bin/standalone.sh</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">$ cd bin
+$ ./standalone.sh</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -1312,7 +1315,7 @@ If you click <strong>Login</strong>, the browser will pop up a BASIC auth login 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-19 15:23:41 UTC
+Last updated 2018-09-24 20:02:29 UTC
 </div>
 </div>
 <ul id="globalnav">

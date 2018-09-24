@@ -1905,7 +1905,7 @@ can impersonate a user.  There are two locations an admin can initiate impersona
 <p><span class="image"><img src="./keycloak-images/user-search.png" alt="user search"></span></p>
 </div>
 <div class="paragraph">
-<p>You can see here that the admin has searched for <code>jim</code>.  Next to Jim&#8217;s account you can see an impersonate button.  Click that
+<p>You can see here that the admin has searched for <code>john</code>.  Next to John&#8217;s account you can see an impersonate button.  Click that
 to impersonate the user.</p>
 </div>
 <div class="paragraph">
@@ -1943,7 +1943,7 @@ link the user can click on to create their new account.</p>
 </div>
 <div class="paragraph">
 <p>When user self registration is enabled it is possible to use the registration form to detect valid usernames and emails.
-To prevent this enable <a href="#_recaptcha">reCAPTCHA Support</a>.</p>
+It is also possible to enable <a href="#_recaptcha">reCAPTCHA Support</a>.</p>
 </div>
 <div class="paragraph">
 <p>Enabling registration is pretty simple.  Go to the
@@ -2260,7 +2260,7 @@ generated from information configured on the <code>OTP Policy</code> tab.</p>
 <div class="paragraph">
 <p>There are two different algorithms to choose from for your OTP generators.  Time Based (TOTP) and Counter Based (HOTP).
 For TOTP, your token generator will hash the current time and a shared secret.  The server validates the OTP by comparing
-the all hashes within a certain window of time to the submitted value.  So, TOTPs are valid only for a short window of time (usually 30 seconds).
+all the hashes within a certain window of time to the submitted value.  So, TOTPs are valid only for a short window of time (usually 30 seconds).
 For HOTP a shared counter is used instead of the current time.  The server increments the counter with each successful OTP login.  So, valid OTPs only
 change after a successful login.</p>
 </div>
@@ -3952,7 +3952,7 @@ Remember that you still have to click the <code>Save</code> button!</p>
 <p><strong>OAuth 2.0 Mutual TLS Client Certificate Bound Access Token</strong></p>
 </div>
 <div class="paragraph">
-<p>Mutual TLS binds an access token and a refresh token with a client certificate exchanged during TLS handshake. This prevents an attacker who finds a way to steal these tokens from exercising the tokens. The type of token is called a holder-of-key token. Unlike bearer tokens, the recipient of a holder-of-key token can verify whether the sender of the token is legitimate.</p>
+<p>Mutual TLS binds an access token and a refresh token with a client certificate exchanged during TLS handshake. This prevents an attacker who finds a way to steal these tokens from exercising the tokens. This type of token is called a holder-of-key token. Unlike bearer tokens, the recipient of a holder-of-key token can verify whether the sender of the token is legitimate.</p>
 </div>
 <div class="paragraph">
 <p>If the following conditions are satisfied on a token request, Keycloak will bind an access token and a refresh token with a client certificate and issue them as holder-of-key tokens. If all conditions are not met, Keycloak rejects the token request.</p>
@@ -4692,7 +4692,7 @@ linking between client scope and client.</p>
 <dd>
 <p>This is applicable for both OpenID Connect and SAML clients. Default client scopes are always applied when issuing OpenID Connect tokens
 or SAML assertions for this client. The client will inherit Protocol mappers and Role Scope Mappings defined on the client
-scope. For the OpenID Connect Protocol, the Mappers and Role Scope Mappings are always applied, regardless of value of used for the scope
+scope. For the OpenID Connect Protocol, the Mappers and Role Scope Mappings are always applied, regardless of the value used for the scope
 parameter in the OpenID Connect authorization request.</p>
 </dd>
 <dt class="hdlist1">Optional Client Scopes</dt>
@@ -11993,7 +11993,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-19 15:23:55 UTC
+Last updated 2018-09-24 20:02:49 UTC
 </div>
 </div>
 <ul id="globalnav">
