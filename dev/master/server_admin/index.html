@@ -1008,7 +1008,7 @@ span.image img {
 <li><a href="#role-operations">19.7. Role operations</a></li>
 <li><a href="#client-operations">19.8. Client operations</a></li>
 <li><a href="#user-operations">19.9. User operations</a></li>
-<li><a href="#group-operations">19.10. Group operations</a></li>
+<li><a href="#_group_operations">19.10. Group operations</a></li>
 <li><a href="#identity-provider-operations">19.11. Identity provider operations</a></li>
 <li><a href="#storage-provider-operations">19.12. Storage provider operations</a></li>
 <li><a href="#adding-mappers">19.13. Adding mappers</a></li>
@@ -10776,6 +10776,36 @@ $ kcadm.sh create clear-keys-cache -r demorealm -s realm=demorealm</pre>
 <pre class="nowrap">$ kcadm.sh remove-roles -r demorealm --rname testrole --cclientid realm-management --rolename create-client --rolename view-users</pre>
 </div>
 </div>
+<h4 id="adding-client-roles-to-a-group" class="discrete">Adding client roles to a group</h4>
+<div class="paragraph">
+<p>Use a dedicated <code class="command">add-roles</code> command that can be used for adding realm roles and client roles.</p>
+</div>
+<div class="paragraph">
+<p>The following example adds the roles defined on the client <code class="command">realm-management</code> - <code>create-client</code> role and the <code class="command">view-users</code> role to the <code class="command">Group</code> group (via the <code class="command">--gname</code> option). The group can alternatively be specified by ID (via the <code class="command">--gid</code> option).</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#_group_operations">Group operations</a> for more operations that can be performed to groups.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm.sh add-roles -r demorealm --gname Group --cclientid realm-management --rolename create-client --rolename view-users</pre>
+</div>
+</div>
+<h4 id="removing-client-roles-from-a-group" class="discrete">Removing client roles from a group</h4>
+<div class="paragraph">
+<p>Use a dedicated <code class="command">remove-roles</code> command to remove client roles from a group.</p>
+</div>
+<div class="paragraph">
+<p>Use the following example to remove two roles defined on the client <code class="command">realm management</code> - <code>create-client</code> role and the <code class="command">view-users</code> role from the <code class="command">Group</code> group.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="#_group_operations">Group operations</a> for more operations that can be performed to groups.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm.sh remove-roles -r demorealm --gname Group --cclientid realm-management --rolename create-client --rolename view-users</pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="client-operations"><a class="anchor" href="#client-operations"></a>19.8. Client operations</h3>
@@ -11267,7 +11297,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="group-operations"><a class="anchor" href="#group-operations"></a>19.10. Group operations</h3>
+<h3 id="_group_operations"><a class="anchor" href="#_group_operations"></a>19.10. Group operations</h3>
 <h4 id="creating-a-group" class="discrete">Creating a group</h4>
 <div class="paragraph">
 <p>Use the <code class="command">create</code> command on the <code class="filename">groups</code> endpoint to create a new group.</p>
@@ -12200,7 +12230,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-25 06:11:25 UTC
+Last updated 2018-09-25 12:08:54 UTC
 </div>
 </div>
 <ul id="globalnav">
