@@ -714,6 +714,26 @@ application to use the token introspection endpoint to verify tokens.</p>
 <p>Thanks to <a href="https://github.com/tnorimat">tnorimat</a> for contributing a signficant part of this work.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="better-audience-support-for-openid-connect-clients"><a class="anchor" href="#better-audience-support-for-openid-connect-clients"></a>Better Audience Support for OpenID Connect clients</h3>
+<div class="paragraph">
+<p>It is now possible to specify the audiences in the tokens issued for OpenID Connect clients. There is also support for verification
+of audience on the adapter side.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-improvements"><a class="anchor" href="#minor-improvements"></a>Minor improvements</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Added LocaleSelector SPI, which allows to change the way how the locale will be resolved for a particular request. Thanks to <a href="https://github.com/knutz3n">knutz3n</a></p>
+</li>
+<li>
+<p>Added an authenticator to automatically link Identity Provider identity to an existing account after first Idp authentication. Thanks to <a href="https://github.com/slominskir">slominskir</a></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -735,7 +755,7 @@ with the Node.js adapter.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="minor-improvements"><a class="anchor" href="#minor-improvements"></a>Minor improvements</h3>
+<h3 id="minor-improvements-2"><a class="anchor" href="#minor-improvements-2"></a>Minor improvements</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1093,7 +1113,7 @@ Thanks to <a href="https://github.com/looorent">loorent</a> for the contribution
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-24 19:53:31 UTC
+Last updated 2018-09-25 06:10:25 UTC
 </div>
 </div>
 <ul id="globalnav">

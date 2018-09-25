@@ -1174,6 +1174,7 @@ This is what one might look like:</p>
   <span class="key"><span class="delimiter">&quot;</span><span class="content">bearer-only</span><span class="delimiter">&quot;</span></span> : <span class="value">false</span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">enable-basic-auth</span><span class="delimiter">&quot;</span></span> : <span class="value">false</span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">expose-token</span><span class="delimiter">&quot;</span></span> : <span class="value">true</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">verify-token-audience</span><span class="delimiter">&quot;</span></span> : <span class="value">true</span>,
    <span class="key"><span class="delimiter">&quot;</span><span class="content">credentials</span><span class="delimiter">&quot;</span></span> : {
       <span class="key"><span class="delimiter">&quot;</span><span class="content">secret</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">234234-234234-234234</span><span class="delimiter">&quot;</span></span>
    },
@@ -1445,6 +1446,13 @@ if they only pass in an <code>access_token</code></p>
 <dd>
 <p>If needed, specify the Redirect URI rewrite rule. This is an object notation where the key is the regular expression to which the Redirect URI is to be matched and the value is the replacement String.
 <code>$</code> character can be used for backreferences in the replacement String.</p>
+</dd>
+<dt class="hdlist1">verify-token-audience</dt>
+<dd>
+<p>If set to <code>true</code>, then during authentication with the bearer token, the adapter will verify whether the token contains this
+client name (resource) as an audience. The option is especially useful for services, which primarily serve requests authenticated
+by the bearer token. This is set to <code>false</code> by default, however for improved security, it is recommended to enable this.
+See <a href="https://www.keycloak.org/docs/4.5/server_admin/#_audience">Audience Support</a> for more details about audience support.</p>
 </dd>
 </dl>
 </div>
@@ -4945,6 +4953,11 @@ This is <em>REQUIRED.</em></p>
 <dd>
 <p>Configure alternative class for Role principals attached to JAAS Subject.
 Default value is <code>org.keycloak.adapters.jaas.RolePrincipal</code>. Note: The class is required to have a constructor with a single <code>String</code> argument.</p>
+</dd>
+<dt class="hdlist1"><code>scope</code></dt>
+<dd>
+<p>This option is only applicable to the <code>DirectAccessGrantsLoginModule</code>. The specified value will be used as the OAuth2 <code>scope</code>
+parameter in the Resource Owner Password Credentials Grant request.</p>
 </dd>
 </dl>
 </div>
@@ -10543,7 +10556,7 @@ to impersonate a user.  Here&#8217;s a short summary of the current capabilities
 </ul>
 </div>
 <div class="paragraph">
-<p>Token exchange in Keycloak is a very loose implementation of the <a href="https://www.ietf.org/id/draft-ietf-oauth-token-exchange-14.txt">OAuth Token Exchange</a> specification at the IETF.
+<p>Token exchange in Keycloak is a very loose implementation of the <a href="https://www.ietf.org/id/draft-ietf-oauth-token-exchange-15.txt">OAuth Token Exchange</a> specification at the IETF.
 We have extended it a little, ignored some of it, and loosely interpreted other parts of the specification.  It is
 a simple grant type invocation on a realm&#8217;s OpenID Connect token endpoint.</p>
 </div>
@@ -10635,7 +10648,7 @@ We currently only support OpenID Connect and OAuth exchanges.  Support for SAML 
 <div class="paragraph">
 <p>A successful response from an exchange invocation will return the HTTP 200 response code with a content type that
 depends on the <code>requested-token-type</code> and <code>requested_issuer</code> the client asks for.  OAuth requested token types will return
-a JSON document as described in the <a href="https://www.ietf.org/id/draft-ietf-oauth-token-exchange-14.txt">OAuth Token Exchange</a> specification.</p>
+a JSON document as described in the <a href="https://www.ietf.org/id/draft-ietf-oauth-token-exchange-15.txt">OAuth Token Exchange</a> specification.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -11187,7 +11200,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-24 20:02:37 UTC
+Last updated 2018-09-25 06:11:20 UTC
 </div>
 </div>
 <ul id="globalnav">
