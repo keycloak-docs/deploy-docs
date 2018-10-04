@@ -4381,6 +4381,45 @@ javascript adapter.</p>
 </ul>
 </div>
 </div>
+<div class="sect4">
+<h5 id="_audience_resolve"><a class="anchor" href="#_audience_resolve"></a>Automatically add audience</h5>
+<div class="paragraph">
+<p>There is another way that the audience can be added to the token. In the default client scope <em>roles</em>, there is an <em>Audience Resolve</em>
+protocol mapper defined. This protocol mapper will check all the clients for which current token has at least one client role
+available. Then the client ID of each of those clients will be added as an audience automatically. This is especially useful if
+your service (usually bearer-only) clients rely on client roles. In the example in previous section, if all of those are true:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>good-service</code> client has any client role defined on itself</p>
+</li>
+<li>
+<p>Target user has this client role assigned</p>
+</li>
+<li>
+<p>Client <code>my-app</code> has the role scope mappings for this role</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>then the <code>good-service</code> will be automatically added as an audience. In this case, you do not need to set up the audience client
+scope as described in the previous section.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are unsure what the correct audience and roles in the token will be, it is always a good idea to
+<a href="#_client_scopes_evaluate">Evaluate Client Scopes</a> in the admin console and do some testing around it.
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -4815,7 +4854,8 @@ with this client scope.</p>
 list in the SAML assertion.</p>
 </li>
 <li>
-<p>For the OpenID Connect protocol, there are client scopes <code>profile</code>, <code>email</code>, <code>address</code>, <code>phone</code> and <code>offline_access</code> .</p>
+<p>For the OpenID Connect protocol, there are client scopes <code>profile</code>, <code>email</code>, <code>address</code>, <code>phone</code>, <code>offline_access</code>, <code>roles</code> and
+<code>web-origins</code>.</p>
 </li>
 </ul>
 </div>
@@ -4845,6 +4885,15 @@ the user has a defined phone number.</p>
 <div class="paragraph">
 <p>Builtin client scopes contain exactly the protocol mappers as defined per the specification,
 however you are free to edit client scopes and create/update/remove any protocol mappers (or role scope mappings).</p>
+</div>
+<div class="paragraph">
+<p>The client scope <code>roles</code> is not defined in the OpenID Connect specification and it is also not added automatically to the <code>scope</code>
+claim in the access token. This client scope has some mappers, which are used to add roles of the user to the access token and
+possibly add some audiences for the clients with at least one client role as described in the <a href="#_audience_resolve">Audience section</a>.</p>
+</div>
+<div class="paragraph">
+<p>The client scope <code>web-origins</code> is also not defined in the OpenID Connect specification and not added to the <code>scope</code> claim. This is used
+to add allowed web origins to the access token <code>allowed-origins</code> claim.</p>
 </div>
 </div>
 <div class="sect3">
@@ -12230,7 +12279,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-04 08:55:36 UTC
+Last updated 2018-10-04 10:03:33 UTC
 </div>
 </div>
 <ul id="globalnav">
