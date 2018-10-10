@@ -6001,7 +6001,7 @@ We recommend that you use universal links, combined with a fallback site with a 
 <div class="sect3">
 <h4 id="earlier-browsers"><a class="anchor" href="#earlier-browsers"></a>2.2.4. Earlier Browsers</h4>
 <div class="paragraph">
-<p>The JavaScript adapter depends on Base64 (window.btoa and window.atob) and HTML5 History API.
+<p>The JavaScript adapter depends on Base64 (window.btoa and window.atob), HTML5 History API and optionally the Promise API.
 If you need to support browsers that do not have these available (for example, IE9) you need to add polyfillers.</p>
 </div>
 <div class="paragraph">
@@ -6010,20 +6010,13 @@ If you need to support browsers that do not have these available (for example, I
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/davidchambers/Base64.js" class="bare">https://github.com/davidchambers/Base64.js</a></p>
+<p>Base64 - <a href="https://github.com/davidchambers/Base64.js" class="bare">https://github.com/davidchambers/Base64.js</a></p>
 </li>
 <li>
-<p><a href="https://github.com/devote/HTML5-History-API" class="bare">https://github.com/devote/HTML5-History-API</a></p>
+<p>HTML5 History - <a href="https://github.com/devote/HTML5-History-API" class="bare">https://github.com/devote/HTML5-History-API</a></p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>If available, the JavaScript adapter will use native Promise instances as return values from functions documented as returning promises.  To retain backwards compatibility, the <code>success()</code> and <code>error()</code> functions from previous versions of the adapter are retained.  These remain available whether or not native Promises are provided by the browser.  Promise API polyfills are available for browsers without support:</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><a href="https://github.com/stefanpenner/es6-promise" class="bare">https://github.com/stefanpenner/es6-promise</a></p>
+<p>Promise - <a href="https://github.com/stefanpenner/es6-promise" class="bare">https://github.com/stefanpenner/es6-promise</a></p>
 </li>
 </ul>
 </div>
@@ -6163,6 +6156,9 @@ Available options:</p>
 </li>
 <li>
 <p>flow - Set the OpenID Connect flow. Valid values are standard, implicit or hybrid.</p>
+</li>
+<li>
+<p>promiseType - If set to <code>native</code> all methods returning a promise will return a native JavaScript promise. If not set will return Keycloak specific promise objects.</p>
 </li>
 </ul>
 </div>
@@ -11201,7 +11197,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-08 19:57:31 UTC
+Last updated 2018-10-10 19:01:36 UTC
 </div>
 </div>
 <ul id="globalnav">
