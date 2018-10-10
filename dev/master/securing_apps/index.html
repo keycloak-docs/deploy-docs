@@ -6492,6 +6492,14 @@ object, rather than the <code>keycloak.json</code> file:</p>
     let keycloak = <span class="keyword">new</span> Keycloak({ <span class="key">store</span>: memoryStore }, kcConfig);</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Applications can also redirect users to their preferred identity provider by using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">    let keycloak = <span class="keyword">new</span> Keycloak({ <span class="key">store</span>: memoryStore, <span class="key">idpHint</span>: myIdP }, kcConfig);</code></pre>
+</div>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Configuring a web session store</dt>
@@ -11197,7 +11205,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-10 19:01:36 UTC
+Last updated 2018-10-10 19:27:41 UTC
 </div>
 </div>
 <ul id="globalnav">
