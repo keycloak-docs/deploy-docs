@@ -9160,9 +9160,8 @@ it should not be necessary to change this. It is possible to configure fixed por
 </div>
 <div class="paragraph">
 <p>In most cases the scheme should be set correctly. This may not be true if the reverse proxy is unable to set the <code>X-Forwarded-For</code> header
-correctly, or if there is an internal application using non-https to invoke Keycloak. The latter is not recommended
-and you should strive to use <code>https</code> always. In this case you can set a fixed scheme as well by setting the <code>scheme</code>
-property to <code>https</code>.</p>
+correctly, or if there is an internal application using non-https to invoke Keycloak. In such cases it is possible
+to set the <code>alwaysHttps</code> to <code>true</code>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -12286,7 +12285,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-10 19:27:45 UTC
+Last updated 2018-10-15 12:01:02 UTC
 </div>
 </div>
 <ul id="globalnav">
