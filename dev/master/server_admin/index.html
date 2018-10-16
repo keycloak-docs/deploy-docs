@@ -3312,7 +3312,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 <p>In this example configuration, the client certificate will be looked up from the HTTP header, <code>SSL_CLIENT_CERT</code>, and the other certificates from its chain will be looked up from HTTP headers like <code>CERT_CHAIN_0</code> , <code>CERT_CHAIN_1</code>, &#8230;&#8203;, <code>CERT_CHAIN_9</code> . The attribute <code>certificateChainLength</code> is the maximum length of the chain, so the last one tried attribute would be <code>CERT_CHAIN_9</code> .</p>
 </div>
 <div class="paragraph">
-<p>Consult the HAProxy documentation for the details of how the HTTP Headers for the client certificate and client certificate chain can be configured and their proper names.</p>
+<p>Consult the <a href="http://www.haproxy.org/#docs">HAProxy documentation</a> for the details of how the HTTP Headers for the client certificate and client certificate chain can be configured and their proper names.</p>
 </div>
 </div>
 <div class="sect4">
@@ -3335,7 +3335,73 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 </div>
 </div>
 <div class="paragraph">
-<p>The configuration is same as for the <code>haproxy</code> provider. Consult the Apache documentation for the details of how the HTTP Headers for the client certificate and client certificate chain can be configured and their proper names.</p>
+<p>The configuration is same as for the <code>haproxy</code> provider. Consult the Apache documentation on <a href="https://httpd.apache.org/docs/current/mod/mod_ssl.html">mod_ssl</a> and <a href="https://httpd.apache.org/docs/current/mod/mod_headers.html">mod_headers</a> for the details of how the HTTP Headers for the client certificate and client certificate chain can be configured and their proper names.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="nginx-certificate-lookup-provider"><a class="anchor" href="#nginx-certificate-lookup-provider"></a>Nginx certificate lookup provider</h5>
+<div class="paragraph">
+<p>You can use this provider when your Keycloak server is behind an Nginx reverse proxy. Configure the server like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;spi</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">x509cert-lookup</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;default-provider&gt;</span>nginx<span class="tag">&lt;/default-provider&gt;</span>
+    <span class="tag">&lt;provider</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">nginx</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enabled</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;properties&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sslClientCert</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ssl-client-cert</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">sslCertChainPrefix</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">USELESS</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">certificateChainLength</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/properties&gt;</span>
+    <span class="tag">&lt;/provider&gt;</span>
+<span class="tag">&lt;/spi&gt;</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+NGINX <a href="http://nginx.org/en/docs/http/ngx_http_ssl_module.html#variables">SSL/TLS module</a> does not expose the client certificate chain, so Keycloak NGINX certificate lookup provider is rebuilding it using the <a href="https://www.keycloak.org/docs/4.6/server_installation/#_truststore">Keycloak truststore</a>. Please populate Keycloak truststore using keytool CLI with all root and intermediate CA&#8217;s needed for rebuilding client certificate chain.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Consult the NGINX documentation for the details of how the HTTP Headers for the client certificate can be configured.
+Example of NGINX configuration file :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="txt"> ...
+ server {
+    ...
+    ssl_client_certificate                  trusted-ca-list-for-client-auth.pem;
+    ssl_verify_client                       optional_no_ca;
+    ssl_verify_depth                        2;
+    ...
+    location / {
+      ...
+      proxy_set_header ssl-client-cert        $ssl_client_escaped_cert;
+      ...
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+all certificates in trusted-ca-list-for-client-auth.pem must be added to <a href="https://www.keycloak.org/docs/4.6/server_installation/#_truststore">Keycloak truststore</a>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect4">
@@ -3347,6 +3413,34 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 </div>
 <div class="sect3">
 <h4 id="troubleshooting-2"><a class="anchor" href="#troubleshooting-2"></a>6.6.6. Troubleshooting</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Dumping HTTP headers</dt>
+<dd>
+<p>If you want to view what the reverse proxy is sending to Keycloak, simply activate <a href="https://mirocupak.com/logging-requests-with-undertow/">RequestDumpingHandler</a> and consult <code>server.log</code> file.</p>
+</dd>
+<dt class="hdlist1">Enable TRACE logging under the logging subsystem</dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml">...
+    <span class="tag">&lt;profile&gt;</span>
+        <span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:logging:3.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+...
+            <span class="tag">&lt;logger</span> <span class="attribute-name">category</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.authentication.authenticators.x509</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                <span class="tag">&lt;level</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TRACE</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;/logger&gt;</span>
+            <span class="tag">&lt;logger</span> <span class="attribute-name">category</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.keycloak.services.x509</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                <span class="tag">&lt;level</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TRACE</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;/logger&gt;</span></code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>WARNING: Don't use RequestDumpingHandler or TRACE logging in production.</pre>
+</div>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Direct Grant authentication with X.509</dt>
@@ -12302,7 +12396,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-15 18:57:17 UTC
+Last updated 2018-10-16 05:53:50 UTC
 </div>
 </div>
 <ul id="globalnav">
