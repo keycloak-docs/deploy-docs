@@ -802,7 +802,6 @@ span.image img {
 <li><a href="#sticky-sessions">8.4. Sticky sessions</a>
 <ul class="sectlevel3">
 <li><a href="#disable-adding-the-route">8.4.1. Disable adding the route</a></li>
-<li><a href="#_example-setup-with-mod-cluster">8.4.2. Example cluster setup with mod_cluster</a></li>
 </ul>
 </li>
 <li><a href="#multicast-network-setup">8.5. Multicast Network Setup</a></li>
@@ -1814,7 +1813,7 @@ They communicate with the Infinispan server <code>jdg1</code> using the HotRod p
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Download Infinispan 9.2.4 server and unzip to a directory you choose. This location will be referred in later steps as <code>JDG1_HOME</code> .</p>
+<p>Download Infinispan 9.3.1 server and unzip to a directory you choose. This location will be referred in later steps as <code>JDG1_HOME</code> .</p>
 </li>
 <li>
 <p>Change those things in the <code>JDG1_HOME/standalone/configuration/clustered.xml</code> in the configuration of JGroups subsystem:</p>
@@ -1938,7 +1937,7 @@ element. See <a href="#troubleshooting">Troubleshooting</a> for more details.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You should not see any issue if you use recommended Infinispan 9.2.4 server and this step can (and should) be ignored.
+You should not see any issue if you use recommended Infinispan 9.3.1 server and this step can (and should) be ignored.
 Issues related to authorization may exist just for some other versions of Infinispan server.
 </td>
 </tr>
@@ -2819,6 +2818,30 @@ which is caused by cache items not being properly expired. In that case, update 
 <div class="paragraph">
 <p>you can just ignore them. To avoid the warning, the caches on Infinispan server side could be changed to transactional caches, but this is not recommended as it can cause some
 other issues caused by the bug <a href="https://issues.jboss.org/browse/ISPN-9323" class="bare">https://issues.jboss.org/browse/ISPN-9323</a>. So for now, the warnings just need to be ignored.</p>
+</div>
+</li>
+<li>
+<p>If you see errors in the Infinispan server log like:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>12:08:32,921 ERROR [org.infinispan.server.hotrod.CacheDecodeContext] (HotRod-ServerWorker-7-11) ISPN005003: Exception reported: org.infinispan.server.hotrod.InvalidMagicIdException: Error reading magic byte or message id: 7
+	at org.infinispan.server.hotrod.HotRodDecoder.readHeader(HotRodDecoder.java:184)
+	at org.infinispan.server.hotrod.HotRodDecoder.decodeHeader(HotRodDecoder.java:133)
+	at org.infinispan.server.hotrod.HotRodDecoder.decode(HotRodDecoder.java:92)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:411)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:248)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and you see some similar errors in the Keycloak log, it can indicate that there are incompatible versions of the HotRod protocol being used.
+This is likely happen when you try to use Keycloak with the JDG 7.2 server or an old version of the Infinispan server. It
+will help if you add the <code>protocolVersion</code> property as an additional property to the <code>remote-store</code> element in the Keycloak
+configuration file. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">protocolVersion</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>2.6<span class="tag">&lt;/property&gt;</span></code></pre>
+</div>
 </div>
 </li>
 </ul>
@@ -4721,12 +4744,18 @@ over the <code>AUTH_SESSION_ID</code> cookie. How exactly do this is dependent o
 <div class="paragraph">
 <p>It is recommended on the Keycloak side to use the system property <code>jboss.node.name</code> during startup, with the value corresponding
 to the name of your route. For example, <code>-Djboss.node.name=node1</code> will use <code>node1</code> to identify the route. This route will be used by
-Infinispan caches and will be attached to the AUTH_SESSION_ID cookie when the node is the owner of the particular key. An example of the
-start up command with this system property can be seen in <a href="#_example-setup-with-mod-cluster">Mod Cluster Example</a>.</p>
+Infinispan caches and will be attached to the AUTH_SESSION_ID cookie when the node is the owner of the particular key. Here is
+an example of the start up command using this system property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>cd $RHSSO_NODE1
+./standalone.sh -c standalone-ha.xml -Djboss.socket.binding.port-offset=100 -Djboss.node.name=node1</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Typically, the route name should be the same name as your backend host, but it is not necessary. You can use a different route name,
-for example if you want to hide the host name of your Keycloak server inside your private network.</p>
+<p>Typically in production environment the route name should use the same name as your backend host, but it is not required. You can
+use a different route name. For example, if you want to hide the host name of your Keycloak server inside your private network.</p>
 </div>
 <div class="sect3">
 <h4 id="disable-adding-the-route"><a class="anchor" href="#disable-adding-the-route"></a>8.4.1. Disable adding the route</h4>
@@ -4752,153 +4781,6 @@ into your <code>RHSSO_HOME/standalone/configuration/standalone-ha.xml</code> fil
     <span class="tag">&lt;/spi&gt;</span>
 
 <span class="tag">&lt;/subsystem&gt;</span></code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_example-setup-with-mod-cluster"><a class="anchor" href="#_example-setup-with-mod-cluster"></a>8.4.2. Example cluster setup with mod_cluster</h4>
-<div class="paragraph">
-<p>In the example, we will use <a href="http://mod-cluster.jboss.org/">Mod Cluster</a> as load balancer. One of the key features of mod cluster is, that there is not much
-configuration on the load balancer side. Instead it requires support on the backend node side. Backend nodes communicate with the load balancer through the
-dedicated protocol called MCMP and they notify loadbalancer about various events (eg. node joined or left cluster, new application was deployed etc).</p>
-</div>
-<div class="paragraph">
-<p>Example setup will consist of the one WildFly 13 load balancer node and two Keycloak nodes.</p>
-</div>
-<div class="paragraph">
-<p>Clustering example require MULTICAST to be enabled on machine&#8217;s loopback network interface. This can be done by running the following commands under root privileges (on Linux):</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>route add -net 224.0.0.0 netmask 240.0.0.0 dev lo
-ifconfig lo multicast</code></pre>
-</div>
-</div>
-<div class="sect4">
-<h5 id="load-balancer-configuration"><a class="anchor" href="#load-balancer-configuration"></a>Load Balancer Configuration</h5>
-<div class="paragraph">
-<p>Unzip the WildFly 13 server somewhere. Assumption is location <code>EAP_LB</code></p>
-</div>
-<div class="paragraph">
-<p>Edit <code>EAP_LB/standalone/configuration/standalone.xml</code> file. In the undertow subsystem add the mod_cluster configuration under filters like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;subsystem</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:jboss:domain:undertow:6.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
- ...
- <span class="tag">&lt;filters&gt;</span>
-  ...
-  <span class="tag">&lt;mod-cluster</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">modcluster</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">advertise-socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">modcluster</span><span class="delimiter">&quot;</span></span>
-      <span class="attribute-name">advertise-frequency</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${modcluster.advertise-frequency:2000}</span><span class="delimiter">&quot;</span></span>
-      <span class="attribute-name">management-socket-binding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">enable-http2</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
- <span class="tag">&lt;/filters&gt;</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>and <code>filter-ref</code> under <code>default-host</code> like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;host</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default-host</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">alias</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">localhost</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    ...
-    <span class="tag">&lt;filter-ref</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">modcluster</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
-<span class="tag">&lt;/host&gt;</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Then under <code>socket-binding-group</code> add this group:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;socket-binding</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">modcluster</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">port</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">0</span><span class="delimiter">&quot;</span></span>
-    <span class="attribute-name">multicast-address</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${jboss.modcluster.multicast.address:224.0.1.105}</span><span class="delimiter">&quot;</span></span>
-    <span class="attribute-name">multicast-port</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">23364</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Save the file and run the server:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>cd $WILDFLY_LB/bin
-./standalone.sh</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="backend-node-configuration"><a class="anchor" href="#backend-node-configuration"></a>Backend node configuration</h5>
-<div class="paragraph">
-<p>Unzip the Keycloak server distribution to some location. Assuming location is <code>RHSSO_NODE1</code> .</p>
-</div>
-<div class="paragraph">
-<p>Edit <code>RHSSO_NODE1/standalone/configuration/standalone-ha.xml</code> and configure datasource against the shared database.
-See <a href="#_rdbms-setup-checklist">Database chapter</a> for more details.</p>
-</div>
-<div class="paragraph">
-<p>In the undertow subsystem, add the <code>session-config</code> under the <code>servlet-container</code> element:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;servlet-container</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">default</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;session-cookie</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">AUTH_SESSION_ID</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">http-only</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span>
-    ...
-<span class="tag">&lt;/servlet-container&gt;</span></code></pre>
-</div>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Use the <code>session-config</code> only with the mod_cluster load balancer. In other cases, configure sticky session over the <code>AUTH_SESSION_ID</code> cookie directly in a load balancer.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Then you can configure <code>proxy-address-forwarding</code> as described in the chapter <a href="#_setting-up-a-load-balancer-or-proxy">Load Balancer</a> .
-Note that mod_cluster uses AJP connector by default, so you need to configure that one.</p>
-</div>
-<div class="paragraph">
-<p>That&#8217;s all as mod_cluster is already configured.</p>
-</div>
-<div class="paragraph">
-<p>The node name of the Keycloak can be detected automatically based on the hostname of current server. However for more fine grained control,
-it is recommended to use system property <code>jboss.node.name</code> to specify the node name directly. It is especially useful in case that you test with 2 backend nodes on
-same physical server etc. So you can run the startup command like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>cd $RHSSO_NODE1
-./standalone.sh -c standalone-ha.xml -Djboss.socket.binding.port-offset=100 -Djboss.node.name=node1</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Configure the second backend server in same way and run with different port offset and node name.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>cd $RHSSO_NODE2
-./standalone.sh -c standalone-ha.xml -Djboss.socket.binding.port-offset=200 -Djboss.node.name=node2</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Access the server on <code><a href="http://localhost:8080/auth" class="bare">http://localhost:8080/auth</a></code> . Creation of admin user is possible just from local address and without load balancer (proxy) access,
-so you first need to access backend node directly on <code><a href="http://localhost:8180/auth" class="bare">http://localhost:8180/auth</a></code> to create admin user.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-When using mod_cluster you should always access the cluster through the load balancer and not directly through the backend node.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -5645,7 +5527,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-16 18:43:06 UTC
+Last updated 2018-10-17 18:13:32 UTC
 </div>
 </div>
 <ul id="globalnav">
