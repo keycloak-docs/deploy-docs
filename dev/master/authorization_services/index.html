@@ -5597,10 +5597,23 @@ granted in order to gain access to the resource using that method. By default, e
 <li>
 <p><strong>lazy-load-paths</strong></p>
 <div class="paragraph">
-<p>Specifies how the adapter should fetch the server for resources associated with paths in your application. If true, the policy
+<p>Specifies how the adapter should fetch the server for resources associated with paths in your application. If <strong>true</strong>, the policy
 enforcer is going to fetch resources on-demand accordingly with the path being requested. This configuration is specially useful
 when you don&#8217;t want to fetch all resources from the server during deployment (in case you have provided no <code>paths</code>) or in case
 you have defined only a sub set of <code>paths</code> and want to fetch others on-demand.</p>
+</div>
+</li>
+<li>
+<p><strong>http-method-as-scope</strong></p>
+<div class="paragraph">
+<p>Specifies how scopes should be mapped to HTTP methods. If set to <strong>true</strong>, the policy enforcer will use the HTTP method from the current request to
+check whether or not access should be granted. When enabled, make sure your resources in Keycloak are associated with scopes representing each HTTP method you are protecting.</p>
+</div>
+</li>
+<li>
+<p><strong>claim-information-point</strong></p>
+<div class="paragraph">
+<p>Defines a set of one or more <strong>global</strong> claims that must be resolved and pushed to the Keycloak server in order to make these claims available to policies. See <a href="#_enforcer_claim_information_point">Claim Information Point</a> for more details.</p>
 </div>
 </li>
 </ul>
@@ -6182,7 +6195,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-18 13:42:36 UTC
+Last updated 2018-10-23 11:50:29 UTC
 </div>
 </div>
 <ul id="globalnav">
