@@ -805,7 +805,11 @@ span.image img {
 </ul>
 </li>
 <li><a href="#client-links">8.3. Client Links</a></li>
-<li><a href="#_protocol-mappers">8.4. OIDC Token and SAML Assertion Mappings</a></li>
+<li><a href="#_protocol-mappers">8.4. OIDC Token and SAML Assertion Mappings</a>
+<ul class="sectlevel3">
+<li><a href="#priority-order">8.4.1. Priority order</a></li>
+</ul>
+</li>
 <li><a href="#_client_installation">8.5. Generating Client Adapter Config</a></li>
 <li><a href="#_client_scopes">8.6. Client Scopes</a>
 <ul class="sectlevel3">
@@ -4870,6 +4874,22 @@ next to one of the mappers in the list to get to the config screen.</p>
 <div class="paragraph">
 <p>Pick a <code>Mapper Type</code> from the list box.  If you hover over the tooltip, you&#8217;ll see a description of what that mapper type does.
 Different config parameters will appear for different mapper types.</p>
+</div>
+<div class="sect3">
+<h4 id="priority-order"><a class="anchor" href="#priority-order"></a>8.4.1. Priority order</h4>
+<div class="paragraph">
+<p>Mapper implementations have <em>priority order</em>. This priority order is not the configuration property of the mapper; rather, it is
+the property of the concrete implementation of the mapper.</p>
+</div>
+<div class="paragraph">
+<p>Mappers are sorted in the admin console by the order in the list of mappers and the changes in the token or assertion will be
+applied using that order with the lowest being applied first. This means that implementations which are dependent on other
+implementations are processed in the needed order.</p>
+</div>
+<div class="paragraph">
+<p>For example, when we first want to compute the roles which will be included with a token, we first resolve audiences based on
+those roles. Then, we process a JavaScript script that uses the roles and audiences already available in the token.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -12396,7 +12416,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-23 11:50:41 UTC
+Last updated 2018-10-26 15:58:51 UTC
 </div>
 </div>
 <ul id="globalnav">
