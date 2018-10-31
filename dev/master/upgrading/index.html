@@ -1422,7 +1422,7 @@ migration is finished.</p>
 <h5 id="protocol-mapper-spi-addition"><a class="anchor" href="#protocol-mapper-spi-addition"></a>Protocol mapper SPI addition</h5>
 <div class="paragraph">
 <p>Related to this, there is a small addition in the (unsupported) Protocol Mappers SPI. You can be affected only if you
-implemented a custom ProtocolMapper. There is a new <code>getPriority()`</code> method on the ProtocolMapper interface. The method has the
+implemented a custom ProtocolMapper. There is a new <code>getPriority()</code> method on the ProtocolMapper interface. The method has the
 default implementation set to return 0. If your protocol mapper implementation relies on the roles in the access token <code>realmAccess</code>
 or <code>resourceAccess</code> properties, you may need to increase the priority of your mapper.</p>
 </div>
@@ -1431,7 +1431,8 @@ or <code>resourceAccess</code> properties, you may need to increase the priority
 <h5 id="audience-resolving"><a class="anchor" href="#audience-resolving"></a>Audience resolving</h5>
 <div class="paragraph">
 <p>Audiences of all the clients, for which authenticated user has at least one client role in the token, are automatically added
-to the <code>aud</code> claim in the access token now.</p>
+to the <code>aud</code> claim in the access token now. On the other hand, an access token may not automatically contain the audience of the
+frontend client, for which it was issued. Read the <a href="https://www.keycloak.org/docs/4.6/server_admin/#_audience">Server Administration Guide</a> for more details.</p>
 </div>
 </div>
 </div>
@@ -2494,7 +2495,7 @@ credentials tab in the administration console.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-26 15:59:03 UTC
+Last updated 2018-10-31 10:12:34 UTC
 </div>
 </div>
 <ul id="globalnav">

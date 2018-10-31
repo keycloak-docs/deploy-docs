@@ -4408,46 +4408,67 @@ in the adapter configuration. See <a href="https://www.keycloak.org/docs/4.6/sec
 </li>
 <li>
 <p>Ensure that when an access token is issued by Keycloak, it contains all requested audiences and does not contain any
-audiences that are not needed. This is described below in more details.</p>
+audiences that are not needed. The audience can be either automatically added due the client roles as described
+in the <a href="#_audience_resolve">next section</a> or it can be hardcoded as described <a href="#_audience_hardcoded">below</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_audience_resolve"><a class="anchor" href="#_audience_resolve"></a>Automatically add audience</h5>
+<div class="paragraph">
+<p>In the default client scope <em>roles</em>, there is an <em>Audience Resolve</em>
+protocol mapper defined. This protocol mapper will check all the clients for which current token has at least one client role
+available. Then the client ID of each of those clients will be added as an audience automatically. This is especially useful if
+your service (usually bearer-only) clients rely on client roles.</p>
+</div>
+<div class="paragraph">
+<p>As an example, let us assume that you have a bearer-only client <code>good-service</code> and the confidential client <code>my-app</code>, which you want
+to authenticate and then use the access token issued for the <code>my-app</code> to invoke the <code>good-service</code> REST service. If the following
+are true:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>good-service</code> client has any client roles defined on itself</p>
+</li>
+<li>
+<p>Target user has at least one of those client roles assigned</p>
+</li>
+<li>
+<p>Client <code>my-app</code> has the role scope mappings for the assigned role</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>As an example, let us assume that you have a bearer-only client <code>good-service</code>. Set up Keycloak for audience support like this:</p>
+<p>then the <code>good-service</code> will be automatically added as an audience to the access token issued for the <code>my-app</code>.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Log in to the admin console. Go to the <em>Client Scopes</em> tab on the left and click <em>Create</em>.</p>
-</li>
-<li>
-<p>Choose the <em>Audience template</em>.</p>
-</li>
-<li>
-<p>Select <code>good-service</code> as the requested audience</p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you want to ensure that audience is not added automatically, do not configure role scope mappings directly
+on the <code>my-app</code> client, but instead create a dedicated client scope, for example called <code>good-service</code>, which will contain the role scope mappings
+for the client roles of the <code>good-service</code> client. Assuming that this client scope will be added as an optional client scope to
+the <code>my-app</code> client, the client roles and audience will be added to the token just if explicitly requested by the <code>scope=good-service</code> parameter.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_audience_hardcoded"><a class="anchor" href="#_audience_hardcoded"></a>Hardcoded audience</h5>
+<div class="paragraph">
+<p>For the case when your service relies on realm roles or does not rely on the roles in the token at all, it can be useful to use hardcoded
+audience. This is a protocol mapper, which will add client ID of the specified service client as an audience to the token.
+You can even use any custom value, for example some URL, if you want different audience than client ID.</p>
 </div>
 <div class="paragraph">
-<div class="title">Creating Audience Client Scope</div>
-<p><span class="image"><img src="./keycloak-images/audience_client-scope-creating.png" alt="audience client scope creating"></span></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>When the client scope is created, you should confirm that it contains:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>An audience protocol mapper, which is used for adding the <code>good-service</code> as an audience to the access token. See the figure below.</p>
-</li>
-<li>
-<p>Role scope mappings for all the client roles of <code>good-service</code> client.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<p>You can add protocol mapper directly to the frontend client, however than the audience will be always added. If you want more fine-grain
+control, you can create protocol mapper on the dedicated client scope, which will be called for example <code>good-service</code>.</p>
 </div>
 <div class="paragraph">
 <div class="title">Audience Protocol Mapper</div>
@@ -4479,32 +4500,6 @@ javascript adapter.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect4">
-<h5 id="_audience_resolve"><a class="anchor" href="#_audience_resolve"></a>Automatically add audience</h5>
-<div class="paragraph">
-<p>There is another way that the audience can be added to the token. In the default client scope <em>roles</em>, there is an <em>Audience Resolve</em>
-protocol mapper defined. This protocol mapper will check all the clients for which current token has at least one client role
-available. Then the client ID of each of those clients will be added as an audience automatically. This is especially useful if
-your service (usually bearer-only) clients rely on client roles. In the example in previous section, if all of those are true:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The <code>good-service</code> client has any client role defined on itself</p>
-</li>
-<li>
-<p>Target user has this client role assigned</p>
-</li>
-<li>
-<p>Client <code>my-app</code> has the role scope mappings for this role</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>then the <code>good-service</code> will be automatically added as an audience. In this case, you do not need to set up the audience client
-scope as described in the previous section.</p>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -4514,6 +4509,21 @@ scope as described in the previous section.</p>
 <td class="content">
 If you are unsure what the correct audience and roles in the token will be, it is always a good idea to
 <a href="#_client_scopes_evaluate">Evaluate Client Scopes</a> in the admin console and do some testing around it.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Both the <em>Audience</em> and <em>Audience Resolve</em> protocol mappers add the audiences just to the access token by default. The ID Token
+typically contains only single audience, which is the client ID of the client for which the token was issued. This is a requirement
+of the OpenID Connect specification. On the other hand, the access token does not necessarily have the client ID of the client,
+which was the token issued for, unless any of the audience mappers added it.
 </td>
 </tr>
 </table>
@@ -12416,7 +12426,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-10-26 15:58:51 UTC
+Last updated 2018-10-31 10:12:24 UTC
 </div>
 </div>
 <ul id="globalnav">
