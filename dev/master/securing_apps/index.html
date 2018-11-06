@@ -5266,10 +5266,14 @@ Reason reason = error.getReason();
 <a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/logout.adoc" target="_blank">Report an issue</a>
 </div>
 </div>
-<div class="paragraph">
+<div id="_java_adapter_logout" class="paragraph">
 <p>You can log out of a web application in multiple ways.
 For Java EE servlet containers, you can call HttpServletRequest.logout(). For other browser applications, you can redirect the browser to
 <code>http://auth-server/auth/realms/{realm-name}/protocol/openid-connect/logout?redirect_uri=encodedRedirectUri</code>, which logs you out if you have an SSO session with your browser.</p>
+</div>
+<div class="paragraph">
+<p>If you want to avoid logging out of an external identity provider as part of the logout process, you can supply the parameter <code>initiating_idp</code>, with the value being
+the identity (alias) of the identity provider in question. This is useful when the logout endpoint is invoked as part of single logout initiated by the external identity provider.</p>
 </div>
 </div>
 <div class="sect3">
@@ -11575,7 +11579,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-11-01 16:05:24 UTC
+Last updated 2018-11-06 12:41:51 UTC
 </div>
 </div>
 <ul id="globalnav">
