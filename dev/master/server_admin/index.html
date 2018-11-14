@@ -8448,7 +8448,7 @@ Admin console provides tooltips, which should help with configuring the correspo
 <p>Keycloak also comes with a built-in <a href="https://fedoraproject.org/wiki/Features/SSSD">SSSD</a> (System Security Services Daemon) plugin. SSSD is part of the latest Fedora or Red Hat Enterprise Linux and provides access to multiple identity and authentication providers. It provides benefits such as failover and offline support. To see configuration options and for more information see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system-level_authentication_guide/sssd">the Red Hat Enterprise Linux Identity Management documentation</a>.</p>
 </div>
 <div class="paragraph">
-<p>SSSD also integrates with the FreeIPA identity management (IdM) server, providing authentication and access control. For Keycloak, we benefit from this integration authenticating against <a href="http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html">PAM</a> services and retrieving user data from SSSD. For more information about using Red Hat Identity Management in Linux environments, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/index">the Red Hat Enterprise Linux Identity Management documentation</a>.</p>
+<p>SSSD also integrates with the FreeIPA identity management (IdM) server, providing authentication and access control. For Keycloak, we benefit from this integration authenticating against PAM services and retrieving user data from SSSD. For more information about using Red Hat Identity Management in Linux environments, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/linux_domain_identity_authentication_and_policy_guide/index">the Red Hat Enterprise Linux Identity Management documentation</a>.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./keycloak-images/keycloak-sssd-freeipa-integration-overview.png" alt="keycloak sssd freeipa integration overview"></span></p>
@@ -8529,7 +8529,7 @@ Groups and roles are automatically registered, but not synchronized, so any chan
 <div class="sect3">
 <h4 id="sssd-and-d-bus"><a class="anchor" href="#sssd-and-d-bus"></a>14.4.2. SSSD and D-Bus</h4>
 <div class="paragraph">
-<p>As mentioned previously, the federation provider obtains the data from SSSD using D-BUS and authentication occurs using <a href="http://tldp.org/HOWTO/User-Authentication-HOWTO/x115.html">PAM</a>.</p>
+<p>As mentioned previously, the federation provider obtains the data from SSSD using D-BUS and authentication occurs using PAM.</p>
 </div>
 <div class="paragraph">
 <p>First, you have to install the sssd-dbus RPM, which allows information from SSSD to be transmitted over the system bus.</p>
@@ -12457,7 +12457,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-11-06 12:41:56 UTC
+Last updated 2018-11-14 19:12:33 UTC
 </div>
 </div>
 <ul id="globalnav">

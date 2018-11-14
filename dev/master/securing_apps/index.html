@@ -769,6 +769,14 @@ span.image img {
 <li><a href="#_mod_auth_openidc">2.4.27. mod_auth_openidc Apache HTTPD Module</a></li>
 </ul>
 </li>
+<li><a href="#other-openid-connect-libraries">2.5. Other OpenID Connect Libraries</a>
+<ul class="sectlevel3">
+<li><a href="#endpoints-2">2.5.1. Endpoints</a></li>
+<li><a href="#validating-access-tokens">2.5.2. Validating Access Tokens</a></li>
+<li><a href="#flows">2.5.3. Flows</a></li>
+<li><a href="#redirect-uris">2.5.4. Redirect URIs</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#saml-2">3. SAML</a>
@@ -817,7 +825,7 @@ span.image img {
 <li><a href="#keycloak-adapter-configuration">5.3. Keycloak Adapter Configuration</a></li>
 <li><a href="#openid-connect-dynamic-client-registration">5.4. OpenID Connect Dynamic Client Registration</a></li>
 <li><a href="#saml-entity-descriptors">5.5. SAML Entity Descriptors</a></li>
-<li><a href="#example-using-curl">5.6. Example using CURL</a></li>
+<li><a href="#example-using-curl-2">5.6. Example using CURL</a></li>
 <li><a href="#example-using-java-client-registration-api">5.7. Example using Java Client Registration API</a></li>
 <li><a href="#client-registration-policies">5.8. Client Registration Policies</a></li>
 </ul>
@@ -6727,7 +6735,7 @@ to the <code>middleware()</code> call:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You can also build via docker container: <code>make docker-build</code>. A Docker image is available at <a href="https://hub.docker.com/r/jboss/keycloak-gatekeeper">https://hub.docker.com/r/jboss/keycloak-gatekeeper</a>.
+You can also build via docker container: <code>make docker-build</code>. A Docker image is available at <a href="https://hub.docker.com/r/keycloak/keycloak-gatekeeper/">https://hub.docker.com/r/keycloak/keycloak-gatekeeper/</a>.
 </td>
 </tr>
 </table>
@@ -6852,7 +6860,7 @@ You can also build via docker container: <code>make docker-build</code>. A Docke
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">bin/{generic_adapter_name} \
+<pre class="CodeRay highlight"><code data-lang="bash">bin/keycloak-gatekeeper \
     --discovery-url=https://keycloak.example.com/auth/realms/&lt;REALM_NAME&gt; \
     --client-id=&lt;CLIENT_ID&gt; \
     --client-secret=&lt;SECRET&gt; \
@@ -6909,7 +6917,7 @@ You can also build via docker container: <code>make docker-build</code>. A Docke
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="yaml">- <span class="string"><span class="content">name: {generic_adapter_name}</span></span>
+<pre class="CodeRay highlight"><code data-lang="yaml">- <span class="string"><span class="content">name: keycloak-gatekeeper</span></span>
   <span class="key">image</span>: <span class="string"><span class="content">quay.io/gambol99/keycloak-generic-adapter:latest</span></span>
   <span class="key">args</span>:
   - <span class="string"><span class="content">--enable-forwarding=true</span></span>
@@ -6944,7 +6952,7 @@ You can also build via docker container: <code>make docker-build</code>. A Docke
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ca.key -out ca.pem
-$ bin/{generic_adapter_name} \
+$ bin/keycloak-gatekeeper \
   --enable-forwarding \
   --forwarding-username=USERNAME \
   --forwarding-password=PASSWORD \
@@ -7212,7 +7220,7 @@ X-Auth-Name: Beloved User</code></pre>
 <div class="sect3">
 <h4 id="logout-endpoint"><a class="anchor" href="#logout-endpoint"></a>2.4.21. Logout endpoint</h4>
 <div class="paragraph">
-<p>A <strong>/oauth/logout?redirect=url</strong> is provided as a helper to log users out. In addition to dropping any session cookies, we also attempt to revoke access via revocation url (config <strong>revocation-url</strong> or <strong>--revocation-url</strong>) with the provider. For Keycloak, the url for this would be <a href="https://keycloak.example.com/auth/realms/REALM_NAME/protocol/openid-connect/logout" class="bare">https://keycloak.example.com/auth/realms/REALM_NAME/protocol/openid-connect/logout</a>, for Google <a href="https://accounts.google.com/o/oauth2/revoke" class="bare">https://accounts.google.com/o/oauth2/revoke</a>. If the url is not specified we will attempt to grab the url from the OpenID discovery response.</p>
+<p>A <strong>/oauth/logout?redirect=url</strong> is provided as a helper to log users out. In addition to dropping any session cookies, we also attempt to revoke access via revocation url (config <strong>revocation-url</strong> or <strong>--revocation-url</strong>) with the provider. For Keycloak, the url for this would be <a href="https://keycloak.example.com/auth/realms/REALM_NAME/protocol/openid-connect/logout" class="bare">https://keycloak.example.com/auth/realms/REALM_NAME/protocol/openid-connect/logout</a>. If the url is not specified we will attempt to grab the url from the OpenID discovery response.</p>
 </div>
 </div>
 <div class="sect3">
@@ -7389,6 +7397,306 @@ ServerName ${HOSTIP}
 <div class="paragraph">
 <p>Further information on how to configure mod_auth_openidc can be found on the <a href="https://github.com/zmartzone/mod_auth_openidc">mod_auth_openidc</a>
 project page.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-openid-connect-libraries"><a class="anchor" href="#other-openid-connect-libraries"></a>2.5. Other OpenID Connect Libraries</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/oidc-generic.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/oidc-generic.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>Keycloak can be secured by supplied adapters that are usually easier to use and provide better integration with Keycloak. However, if an adapter is not available for your programming language, framework, or platform you might opt to use a generic OpenID Connect Resource Provider (RP) library instead. This chapter describes details specific to Keycloak and does not contain specific protocol details. For more information see the <a href="https://openid.net/connect/">OpenID Connect specifications</a> and <a href="https://tools.ietf.org/html/rfc6749">OAuth2 specification</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="endpoints-2"><a class="anchor" href="#endpoints-2"></a>2.5.1. Endpoints</h4>
+<div class="paragraph">
+<p>The most important endpoint to understand is the <code>well-known</code> configuration endpoint. It lists endpoints and other configuration options relevant to the OpenID Connect implementation in Keycloak. The endpoint is:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>/realms/{realm-name}/.well-known/openid-configuration</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain the full URL, add the base URL for Keycloak and replace <code>{realm-name}</code> with the name of your realm. For example:</p>
+</div>
+<div class="paragraph">
+<p>http://localhost:8080/auth/realms/master/.well-known/openid-configuration</p>
+</div>
+<div class="paragraph">
+<p>Some RP libraries retrieve all required endpoints from this endpoint, but for others you might need to list the endpoints individually.</p>
+</div>
+<div class="sect4">
+<h5 id="authorization-endpoint"><a class="anchor" href="#authorization-endpoint"></a>Authorization Endpoint</h5>
+<div class="literalblock">
+<div class="content">
+<pre>/realms/{realm-name}/protocol/openid-connect/auth</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The authorization endpoint performs authentication of the end-user. This is done by redirecting the user agent to this endpoint.</p>
+</div>
+<div class="paragraph">
+<p>For more details see the <a href="https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint">Authorization Endpoint</a> section in the OpenID Connect specification.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="token-endpoint"><a class="anchor" href="#token-endpoint"></a>Token Endpoint</h5>
+<div class="literalblock">
+<div class="content">
+<pre>/realms/{realm-name}/protocol/openid-connect/token</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The token endpoint is used to obtain tokens. Tokens can either be obtained by exchanging an authorization code or by supplying credentials directly depending on what flow is used.
+The token endpoint is also used to obtain new access tokens when they expire.</p>
+</div>
+<div class="paragraph">
+<p>For more details see the <a href="https://openid.net/specs/openid-connect-core-1_0.html#TokenEndpoint">Token Endpoint</a> section in the OpenID Connect specification.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="userinfo-endpoint"><a class="anchor" href="#userinfo-endpoint"></a>Userinfo Endpoint</h5>
+<div class="literalblock">
+<div class="content">
+<pre>/realms/{realm-name}/protocol/openid-connect/userinfo</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The userinfo endpoint returns standard claims about the authenticated user, and is protected by a bearer token.</p>
+</div>
+<div class="paragraph">
+<p>For more details see the <a href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfo">Userinfo Endpoint</a> section in the OpenID Connect specification.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="logout-endpoint-2"><a class="anchor" href="#logout-endpoint-2"></a>Logout Endpoint</h5>
+<div class="literalblock">
+<div class="content">
+<pre>/realms/{realm-name}/protocol/openid-connect/logout</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The logout endpoint logs out the authenticated user.</p>
+</div>
+<div class="paragraph">
+<p>The user agent can be redirected to the endpoint, in which case the active user session is logged out. Afterward the user agent is redirected back to the application.</p>
+</div>
+<div class="paragraph">
+<p>The endpoint can also be invoked directly by the application. To invoke this endpoint directly the refresh token needs to be included as well as the credentials required to authenticate the client.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_certificate_endpoint"><a class="anchor" href="#_certificate_endpoint"></a>Certificate Endpoint</h5>
+<div class="literalblock">
+<div class="content">
+<pre>/realms/{realm-name}/protocol/openid-connect/certs</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The certificate endpoint returns the public keys enabled by the realm, encoded as a JSON Web Key (JWK). Depending on the realm settings there can be one or more keys enabled for verifying tokens. For more information see the <a href="https://www.keycloak.org/docs/4.6/server_admin/">Server Administration Guide</a> and the <a href="https://tools.ietf.org/html/rfc7517">JSON Web Key specification</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_token_introspection_endpoint"><a class="anchor" href="#_token_introspection_endpoint"></a>Introspection Endpoint</h5>
+<div class="literalblock">
+<div class="content">
+<pre>/realms/{realm-name}/protocol/openid-connect/token/introspect</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The introspection endpoint is used to retrieve the active state of a token. In other words, you can use it to validate an access or refresh token.
+It can only be invoked by confidential clients.</p>
+</div>
+<div class="paragraph">
+<p>For more details on how to invoke on this endpoint, see <a href="https://tools.ietf.org/html/rfc7662">OAuth 2.0 Token Introspection specification</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="dynamic-client-registration-endpoint"><a class="anchor" href="#dynamic-client-registration-endpoint"></a>Dynamic Client Registration Endpoint</h5>
+<div class="literalblock">
+<div class="content">
+<pre>/realms/{realm-name}/clients-registrations/openid-connect</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The dynamic client registration endpoint is used to dynamically register clients.</p>
+</div>
+<div class="paragraph">
+<p>For more details see the <a href="#_client_registration">Client Registration chapter</a> and the
+<a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Dynamic Client Registration specification</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="validating-access-tokens"><a class="anchor" href="#validating-access-tokens"></a>2.5.2. Validating Access Tokens</h4>
+<div class="paragraph">
+<p>If you need to manually validate access tokens issued by Keycloak you can invoke the <a href="#_token_introspection_endpoint">Introspection Endpoint</a>.
+The downside to this approach is that you have to make a network invocation to the Keycloak server.  This can be slow and possibily overload the
+server if you have too many validation requests going on at the same time.  Keycloak issued access tokens are <a href="https://tools.ietf.org/html/rfc7519">JSON Web Tokens (JWT)</a> digitally signed and encoded using <a href="https://www.rfc-editor.org/rfc/rfc7515.txt">JSON Web Signature (JWS)</a>.
+Because they are encoded in this way, this allows you to locally validate access tokens using the public key of the issuing realm.  You can either hard code the
+realm&#8217;s public key in your validation code, or lookup and cache the public key using the <a href="#_certificate_endpoint">certificate endpoint</a> with the Key ID (KID) embedded within the
+JWS.  Depending what language you code in, there are a multitude of third party libraries out there that can help you with JWS validation.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="flows"><a class="anchor" href="#flows"></a>2.5.3. Flows</h4>
+<div class="sect4">
+<h5 id="authorization-code"><a class="anchor" href="#authorization-code"></a>Authorization Code</h5>
+<div class="paragraph">
+<p>The Authorization Code flow redirects the user agent to Keycloak. Once the user has successfully authenticated with Keycloak an
+Authorization Code is created and the user agent is redirected back to the application. The application then uses the authorization code along with its
+credentials to obtain an Access Token, Refresh Token and ID Token from Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>The flow is targeted towards web applications, but is also recommended for native applications, including mobile applications, where it is possible to embed
+a user agent.</p>
+</div>
+<div class="paragraph">
+<p>For more details refer to the <a href="https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth">Authorization Code Flow</a> in the OpenID Connect specification.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="implicit"><a class="anchor" href="#implicit"></a>Implicit</h5>
+<div class="paragraph">
+<p>The Implicit flow redirects works similarly to the Authorization Code flow, but instead of returning an Authorization Code the Access Token and ID Token is
+returned. This reduces the need for the extra invocation to exchange the Authorization Code for an Access Token. However, it does not include a Refresh
+Token. This results in the need to either permit Access Tokens with a long expiration, which is problematic as it&#8217;s very hard to invalidate these. Or
+requires a new redirect to obtain new Access Token once the initial Access Token has expired. The Implicit flow is useful if the application only wants to
+authenticate the user and deals with logout itself.</p>
+</div>
+<div class="paragraph">
+<p>There&#8217;s also a Hybrid flow where both the Access Token and an Authorization Code is returned.</p>
+</div>
+<div class="paragraph">
+<p>One thing to note is that both the Implicit flow and Hybrid flow has potential security risks as the Access Token may be leaked through web server logs and
+browser history. This is somewhat mitigated by using short expiration for Access Tokens.</p>
+</div>
+<div class="paragraph">
+<p>For more details refer to the <a href="https://openid.net/specs/openid-connect-core-1_0.html#ImplicitFlowAuth">Implicit Flow</a> in the OpenID Connect specification.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_resource_owner_password_credentials_flow"><a class="anchor" href="#_resource_owner_password_credentials_flow"></a>Resource Owner Password Credentials</h5>
+<div class="paragraph">
+<p>Resource Owner Password Credentials, referred to as Direct Grant in Keycloak, allows exchanging user credentials for tokens. It&#8217;s not recommended
+to use this flow unless you absolutely need to. Examples where this could be useful are legacy applications and command-line interfaces.</p>
+</div>
+<div class="paragraph">
+<p>There are a number of limitations of using this flow, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>User credentials are exposed to the application</p>
+</li>
+<li>
+<p>Applications need login pages</p>
+</li>
+<li>
+<p>Application needs to be aware of the authentication scheme</p>
+</li>
+<li>
+<p>Changes to authentication flow requires changes to application</p>
+</li>
+<li>
+<p>No support for identity brokering or social login</p>
+</li>
+<li>
+<p>Flows are not supported (user self-registration, required actions, etc.)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For a client to be permitted to use the Resource Owner Password Credentials grant the client has to have the <code>Direct Access Grants Enabled</code> option enabled.</p>
+</div>
+<div class="paragraph">
+<p>This flow is not included in OpenID Connect, but is a part of the OAuth 2.0 specification.</p>
+</div>
+<div class="paragraph">
+<p>For more details refer to the <a href="https://tools.ietf.org/html/rfc6749#section-4.3">Resource Owner Password Credentials Grant</a> chapter in the OAuth 2.0 specification.</p>
+</div>
+<div class="sect5">
+<h6 id="example-using-curl"><a class="anchor" href="#example-using-curl"></a>Example using CURL</h6>
+<div class="paragraph">
+<p>The following example shows how to obtain an access token for a user in the realm <code>master</code> with username <code>user</code> and password <code>password</code>. The example is using
+the confidential client <code>myclient</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">curl \
+  -d &quot;client_id=myclient&quot; \
+  -d &quot;client_secret=40cc097b-2a57-4c17-b36a-8fdf3fc2d578&quot; \
+  -d &quot;username=user&quot; \
+  -d &quot;password=password&quot; \
+  -d &quot;grant_type=password&quot; \
+  &quot;http://localhost:8080/auth/realms/master/protocol/openid-connect/token&quot;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="client-credentials"><a class="anchor" href="#client-credentials"></a>Client Credentials</h5>
+<div class="paragraph">
+<p>Client Credentials is used when clients (applications and services) wants to obtain access on behalf of themselves rather than on behalf of a user. This can
+for example be useful for background services that applies changes to the system in general rather than for a specific user.</p>
+</div>
+<div class="paragraph">
+<p>Keycloak provides support for clients to authenticate either with a secret or with public/private keys.</p>
+</div>
+<div class="paragraph">
+<p>This flow is not included in OpenID Connect, but is a part of the OAuth 2.0 specification.</p>
+</div>
+<div class="paragraph">
+<p>For more details refer to the <a href="https://tools.ietf.org/html/rfc6749#section-4.4">Client Credentials Grant</a> chapter in the OAuth 2.0 specification.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redirect-uris"><a class="anchor" href="#redirect-uris"></a>2.5.4. Redirect URIs</h4>
+<div class="paragraph">
+<p>When using the redirect based flows it&#8217;s important to use valid redirect uris for your clients. The redirect uris should be as specific as possible. This
+especially applies to client-side (public clients) applications. Failing to do so could result in:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open redirects - this can allow attackers to create spoof links that looks like they are coming from your domain</p>
+</li>
+<li>
+<p>Unauthorized entry - when users are already authenticated with Keycloak an attacker can use a public client where redirect uris have not be configured correctly to gain access by redirecting the user without the users knowledge</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In production for web applications always use <code>https</code> for all redirect URIs. Do not allow redirects to http.</p>
+</div>
+<div class="paragraph">
+<p>There&#8217;s also a few special redirect URIs:</p>
+</div>
+<div id="_installed_applications_url" class="dlist">
+<dl>
+<dt class="hdlist1"><code>http://localhost</code></dt>
+<dd>
+<p>This redirect URI is useful for native applications and allows the native application to create a web server on a random port that can be used to obtain the
+authorization code. This redirect uri allows any port.</p>
+</dd>
+</dl>
+</div>
+<div id="_installed_applications_urn" class="dlist">
+<dl>
+<dt class="hdlist1"><code>urn:ietf:wg:oauth:2.0:oob</code></dt>
+<dd>
+<p>If its not possible to start a web server in the client (or a browser is not available) it is possible to use the special <code>urn:ietf:wg:oauth:2.0:oob</code> redirect uri.
+When this redirect uri is used Keycloak displays a page with the code in the title and in a box on the page.
+The application can either detect that the browser title has changed, or the user can copy/paste the code manually to the application.
+With this redirect uri it is also possible for a user to use a different device to obtain a code to paste back to the application.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -10127,7 +10435,7 @@ When creating a client a Keycloak Client Representation is returned with details
 </div>
 </div>
 <div class="sect2">
-<h3 id="example-using-curl"><a class="anchor" href="#example-using-curl"></a>5.6. Example using CURL</h3>
+<h3 id="example-using-curl-2"><a class="anchor" href="#example-using-curl-2"></a>5.6. Example using CURL</h3>
 <div class="paragraph">
 <p>The following example creates a client with the clientId <code>myclient</code> using CURL. You need to replace <code>eyJhbGciOiJSUz&#8230;&#8203;</code> with a proper initial access token or
 bearer token.</p>
@@ -10935,7 +11243,7 @@ to impersonate a user.  Here&#8217;s a short summary of the current capabilities
 </ul>
 </div>
 <div class="paragraph">
-<p>Token exchange in Keycloak is a very loose implementation of the <a href="https://www.ietf.org/id/draft-ietf-oauth-token-exchange-15.txt">OAuth Token Exchange</a> specification at the IETF.
+<p>Token exchange in Keycloak is a very loose implementation of the <a href="https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16">OAuth Token Exchange</a> specification at the IETF.
 We have extended it a little, ignored some of it, and loosely interpreted other parts of the specification.  It is
 a simple grant type invocation on a realm&#8217;s OpenID Connect token endpoint.</p>
 </div>
@@ -11027,7 +11335,7 @@ We currently only support OpenID Connect and OAuth exchanges.  Support for SAML 
 <div class="paragraph">
 <p>A successful response from an exchange invocation will return the HTTP 200 response code with a content type that
 depends on the <code>requested-token-type</code> and <code>requested_issuer</code> the client asks for.  OAuth requested token types will return
-a JSON document as described in the <a href="https://www.ietf.org/id/draft-ietf-oauth-token-exchange-15.txt">OAuth Token Exchange</a> specification.</p>
+a JSON document as described in the <a href="https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-16">OAuth Token Exchange</a> specification.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -11579,7 +11887,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-11-06 12:41:51 UTC
+Last updated 2018-11-14 19:12:28 UTC
 </div>
 </div>
 <ul id="globalnav">
