@@ -5276,8 +5276,14 @@ Reason reason = error.getReason();
 </div>
 <div id="_java_adapter_logout" class="paragraph">
 <p>You can log out of a web application in multiple ways.
-For Java EE servlet containers, you can call HttpServletRequest.logout(). For other browser applications, you can redirect the browser to
+For Java EE servlet containers, you can call <code>HttpServletRequest.logout()</code>. For other browser applications, you can redirect the browser to
 <code>http://auth-server/auth/realms/{realm-name}/protocol/openid-connect/logout?redirect_uri=encodedRedirectUri</code>, which logs you out if you have an SSO session with your browser.</p>
+</div>
+<div class="paragraph">
+<p>When using the <code>HttpServletRequest.logout()</code> option the adapter executes a back-channel POST call against the Keycloak server passing the refresh token.
+If the method is executed from an unprotected page (a page that does not check for a valid token) the refresh token can be unavailable and, in that case,
+the adapter skips the call. For this reason, using a protected page to execute <code>HttpServletRequest.logout()</code> is recommended so that current tokens are always
+taken into account and an interaction with the Keycloak server is performed if needed.</p>
 </div>
 <div class="paragraph">
 <p>If you want to avoid logging out of an external identity provider as part of the logout process, you can supply the parameter <code>initiating_idp</code>, with the value being
@@ -11887,7 +11893,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-11-15 05:13:13 UTC
+Last updated 2018-11-15 16:31:53 UTC
 </div>
 </div>
 <ul id="globalnav">
