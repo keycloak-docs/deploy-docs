@@ -4460,6 +4460,21 @@ the <code>my-app</code> client, the client roles and audience will be added to t
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The frontend client itself is not automatically added to the access token audience. This allows for easy differentiation between
+the access token and the ID token, because the access token will not contain the client for which the token was issued as an audience. So in
+he example above, the <code>my-app</code> won&#8217;t be added as an audience. If you need the client itself as an audience, see the
+<a href="#_audience_hardcoded">hardcoded audience</a> option. However, using the same client as both frontend and REST service is not recommended.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect4">
 <h5 id="_audience_hardcoded"><a class="anchor" href="#_audience_hardcoded"></a>Hardcoded audience</h5>
@@ -12487,7 +12502,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-11-15 16:31:58 UTC
+Last updated 2018-11-16 12:56:25 UTC
 </div>
 </div>
 <ul id="globalnav">
