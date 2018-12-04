@@ -1433,6 +1433,12 @@ Default is <em>session</em>, which means that adapter stores account info in HTT
 Alternative <em>cookie</em> means storage of info in cookie.
 See <a href="#_applicationclustering">Application Clustering</a> for details</p>
 </dd>
+<dt class="hdlist1">token-cookie-path</dt>
+<dd>
+<p>When using a cookie store, this option sets the path of the cookie used to store account info. If it&#8217;s a relative path,
+then it is assumed that the application is running in a context root, and is interpreted relative to that context root.
+If it&#8217;s an absolute path, then the absolute path is used to set the cookie path. Defaults to use paths relative to the context root.</p>
+</dd>
 <dt class="hdlist1">principal-attribute</dt>
 <dd>
 <p>OpenID Connect ID Token attribute to populate the UserPrincipal name with.
@@ -11893,7 +11899,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-04 17:33:48 UTC
+Last updated 2018-12-04 17:49:57 UTC
 </div>
 </div>
 <ul id="globalnav">
