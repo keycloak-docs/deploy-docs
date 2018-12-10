@@ -3196,48 +3196,102 @@ you should substitute or the path to the keycloak-server subsystem.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Keycloak has a single profile, community, that enables most features by default, including features that
-are considered less mature. It is however possible to disable individual features.</p>
+<p>There are features in Keycloak that are not enabled by default, these include features that are not fully
+supported. In addition there are some features that are enabled by default, but that can be disabled.</p>
 </div>
 <div class="paragraph">
 <p>The features that can be enabled and disabled are:</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Name</th>
 <th class="tableblock halign-left valign-top">Description</th>
 <th class="tableblock halign-left valign-top">Enabled by default</th>
+<th class="tableblock halign-left valign-top">Support level</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">authorization</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Authorization Services</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">account2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">New Account Management Console</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Experimental</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">account_api</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Account Management REST API</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preview</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">admin_fine_grained_authz</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fine-Grained Admin Permissions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preview</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">authz_drools_policy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Drools Policy for Authorization Services</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preview</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">docker</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Docker Registry protocol</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Supported</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">impersonation</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Ability for admins to impersonate users</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Supported</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openshift_integration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extension to enable securing OpenShift</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preview</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">script</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Write custom authenticators using JavaScript</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preview</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">token_exchange</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Token Exchange Service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preview</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>To enable all preview features start the server with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>bin/standalone.sh|bat -Dkeycloak.profile=preview</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can set this permanently by creating the file <code>standalone/configuration/profile.properties</code>
+(or <code>domain/servers/server-one/configuration/profile.properties</code> for <code>server-one</code> in domain mode). Add the following to
+the file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>profile=preview</code></pre>
+</div>
+</div>
 <div class="paragraph">
 <p>To enable a specific feature start the server with:</p>
 </div>
@@ -3248,6 +3302,14 @@ are considered less mature. It is however possible to disable individual feature
 </div>
 <div class="paragraph">
 <p>For example to enable Docker use <code>-Dkeycloak.profile.feature.docker=enabled</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can set this permanently in the <code>profile.properties</code> file by adding:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>feature.docker=enabled</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>To disable a specific feature start the server with:</p>
@@ -5519,7 +5581,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-05 09:18:10 UTC
+Last updated 2018-12-10 14:00:09 UTC
 </div>
 </div>
 <ul id="globalnav">
