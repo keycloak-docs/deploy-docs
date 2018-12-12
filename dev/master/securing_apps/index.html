@@ -5970,7 +5970,7 @@ But, the token is still sent in the URL, and the security vulnerability mentione
 <div class="sect3">
 <h4 id="hybrid-apps-with-cordova"><a class="anchor" href="#hybrid-apps-with-cordova"></a>2.2.3. Hybrid Apps with Cordova</h4>
 <div class="paragraph">
-<p>Keycloak support hybird mobile apps developed with <a href="https://cordova.apache.org/">Apache Cordova</a>. The Javascript adapter has two modes for this: <code>cordova</code> and <code>cordova-native</code>:</p>
+<p>Keycloak support hybrid mobile apps developed with <a href="https://cordova.apache.org/">Apache Cordova</a>. The Javascript adapter has two modes for this: <code>cordova</code> and <code>cordova-native</code>:</p>
 </div>
 <div class="paragraph">
 <p>The default is cordova, which the adapter will automatically select if no adapter type has been configured and window.cordova is present.
@@ -7038,6 +7038,9 @@ if r.config.EnableAuthorizationHeader {
         cx.Request().Header.Set(&quot;Authorization&quot;, fmt.Sprintf(&quot;Bearer %s&quot;, id.token.Encode()))
 }</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>To control the <code>Authorization</code> header use the <code>enable-authorization-header</code> yaml configuration or the <code>--enable-authorization-header</code> command line option. By default this option is set to <code>true</code>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -11899,7 +11902,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-11 14:40:09 UTC
+Last updated 2018-12-12 12:12:53 UTC
 </div>
 </div>
 <ul id="globalnav">
