@@ -5687,6 +5687,25 @@ Users within that realm can be granted realm management permissions by assigning
 <a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/admin-console-permissions/fine-grain.adoc" target="_blank">Report an issue</a>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Fine Grain Admin Permissions is <strong>Technology Preview</strong> and is not fully supported. This feature is disabled by default.</p>
+</div>
+<div class="paragraph">
+<p>To enable start the server with <code>-Dkeycloak.profile=preview</code>
+or <code>-Dkeycloak.profile.feature.admin_fine_grained_authz=enabled</code>
+. For more details see <a href="https://www.keycloak.org/docs/4.8/server_installation/#profiles">Profiles</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Sometimes roles like <code>manage-realm</code> or <code>manage-users</code> are too coarse grain and you want to create
 restricted admin accounts that have more fine grain permissions.  Keycloak allows you to define
@@ -12513,7 +12532,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-12 14:08:39 UTC
+Last updated 2018-12-13 07:47:05 UTC
 </div>
 </div>
 <ul id="globalnav">
