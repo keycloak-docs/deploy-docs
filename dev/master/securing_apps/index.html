@@ -10166,9 +10166,9 @@ Docker authentication is disabled by default. To enable see <a href="https://www
 <div class="content">
 <pre>auth:
   token:
-    realm: http://localhost:8080/auth/auth/realms/master/protocol/docker-v2/auth
+    realm: http://localhost:8080/auth/realms/master/protocol/docker-v2/auth
     service: docker-test
-    issuer: http://localhost:8080/auth/auth/realms/master</pre>
+    issuer: http://localhost:8080/auth/realms/master</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -10194,9 +10194,9 @@ Don&#8217;t forget to configure the <code>rootcertbundle</code> field with the l
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>REGISTRY_AUTH_TOKEN_REALM: http://localhost:8080/auth/auth/realms/master/protocol/docker-v2/auth
+<pre>REGISTRY_AUTH_TOKEN_REALM: http://localhost:8080/auth/realms/master/protocol/docker-v2/auth
 REGISTRY_AUTH_TOKEN_SERVICE: docker-test
-REGISTRY_AUTH_TOKEN_ISSUER: http://localhost:8080/auth/auth/realms/master</pre>
+REGISTRY_AUTH_TOKEN_ISSUER: http://localhost:8080/auth/realms/master</pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -10277,7 +10277,7 @@ registration service.</p>
 </div>
 <div class="paragraph">
 <p>The Client Registration Service provides built-in support for Keycloak Client Representations, OpenID Connect Client Meta Data and SAML Entity Descriptors.
-The Client Registration Service endpoint is <code>/realms/&lt;realm&gt;/clients-registrations/&lt;provider&gt;</code>.</p>
+The Client Registration Service endpoint is <code>/auth/realms/&lt;realm&gt;/clients-registrations/&lt;provider&gt;</code>.</p>
 </div>
 <div class="paragraph">
 <p>The built-in supported <code>providers</code> are:</p>
@@ -10381,28 +10381,28 @@ It uses Keycloak Client Representation format which provides support for configu
 console, including for example configuring protocol mappers.</p>
 </div>
 <div class="paragraph">
-<p>To create a client create a Client Representation (JSON) then perform an HTTP POST request to <code>/realms/&lt;realm&gt;/clients-registrations/default</code>.</p>
+<p>To create a client create a Client Representation (JSON) then perform an HTTP POST request to <code>/auth/realms/&lt;realm&gt;/clients-registrations/default</code>.</p>
 </div>
 <div class="paragraph">
 <p>It will return a Client Representation that also includes the registration access token.
 You should save the registration access token somewhere if you want to retrieve the config, update or delete the client later.</p>
 </div>
 <div class="paragraph">
-<p>To retrieve the Client Representation perform an HTTP GET request to <code>/realms/&lt;realm&gt;/clients-registrations/default/&lt;client id&gt;</code>.</p>
+<p>To retrieve the Client Representation perform an HTTP GET request to <code>/auth/realms/&lt;realm&gt;/clients-registrations/default/&lt;client id&gt;</code>.</p>
 </div>
 <div class="paragraph">
 <p>It will also return a new registration access token.</p>
 </div>
 <div class="paragraph">
 <p>To update the Client Representation perform an HTTP PUT request with the updated Client Representation to:
-<code>/realms/&lt;realm&gt;/clients-registrations/default/&lt;client id&gt;</code>.</p>
+<code>/auth/realms/&lt;realm&gt;/clients-registrations/default/&lt;client id&gt;</code>.</p>
 </div>
 <div class="paragraph">
 <p>It will also return a new registration access token.</p>
 </div>
 <div class="paragraph">
 <p>To delete the Client Representation perform an HTTP DELETE request to:
-<code>/realms/&lt;realm&gt;/clients-registrations/default/&lt;client id&gt;</code></p>
+<code>/auth/realms/&lt;realm&gt;/clients-registrations/default/&lt;client id&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -10418,7 +10418,7 @@ To do this include the following header in the request:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To retrieve the Adapter Configuration then perform an HTTP GET request to <code>/realms/&lt;realm&gt;/clients-registrations/install/&lt;client id&gt;</code>.</p>
+<p>To retrieve the Adapter Configuration then perform an HTTP GET request to <code>/auth/realms/&lt;realm&gt;/clients-registrations/install/&lt;client id&gt;</code>.</p>
 </div>
 <div class="paragraph">
 <p>No authentication is required for public clients.
@@ -10431,10 +10431,10 @@ This means that for the JavaScript adapter you can load the client configuration
 <p>Keycloak implements <a href="https://openid.net/specs/openid-connect-registration-1_0.html">OpenID Connect Dynamic Client Registration</a>, which extends <a href="https://tools.ietf.org/html/rfc7591">OAuth 2.0 Dynamic Client Registration Protocol</a> and <a href="https://tools.ietf.org/html/rfc7592">OAuth 2.0 Dynamic Client Registration Management Protocol</a>.</p>
 </div>
 <div class="paragraph">
-<p>The endpoint to use these specifications to register clients in Keycloak is <code>/realms/&lt;realm&gt;/clients-registrations/openid-connect[/&lt;client id&gt;]</code>.</p>
+<p>The endpoint to use these specifications to register clients in Keycloak is <code>/auth/realms/&lt;realm&gt;/clients-registrations/openid-connect[/&lt;client id&gt;]</code>.</p>
 </div>
 <div class="paragraph">
-<p>This endpoints can also be found in the OpenID Connect Discovery endpoint for the realm, <code>/realms/&lt;realm&gt;/.well-known/openid-configuration</code>.</p>
+<p>This endpoints can also be found in the OpenID Connect Discovery endpoint for the realm, <code>/auth/realms/&lt;realm&gt;/.well-known/openid-configuration</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -10446,7 +10446,7 @@ For those operations the Keycloak representation endpoints should be used.
 When creating a client a Keycloak Client Representation is returned with details about the created client, including a registration access token.</p>
 </div>
 <div class="paragraph">
-<p>To create a client perform an HTTP POST request with the SAML Entity Descriptor to <code>/realms/&lt;realm&gt;/clients-registrations/saml2-entity-descriptor</code>.</p>
+<p>To create a client perform an HTTP POST request with the SAML Entity Descriptor to <code>/auth/realms/&lt;realm&gt;/clients-registrations/saml2-entity-descriptor</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -11283,7 +11283,7 @@ a simple grant type invocation on a realm&#8217;s OpenID Connect token endpoint.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>/realms/{realm}/protocol/openid-connect/token</pre>
+<pre>/auth/realms/{realm}/protocol/openid-connect/token</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11921,7 +11921,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-13 07:47:01 UTC
+Last updated 2018-12-13 15:04:07 UTC
 </div>
 </div>
 <ul id="globalnav">
