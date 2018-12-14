@@ -1598,13 +1598,13 @@ Alternatively, you can specify the <code>server.config</code> property while ins
 <div class="listingblock">
 <div class="title">WildFly 11 or newer</div>
 <div class="content">
-<pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-elytron-install-offline.cli</code></pre>
+<pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=bin/adapter-elytron-install-offline.cli</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">WildFly 10 or older</div>
 <div class="content">
-<pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-install-offline.cli</code></pre>
+<pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=bin/adapter-install-offline.cli</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1626,13 +1626,13 @@ even on those versions. However, we recommend to use the newer Elytron adapter.
 <div class="listingblock">
 <div class="title">WildFly 11 or newer</div>
 <div class="content">
-<pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-elytron-install.cli</code></pre>
+<pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh -c --file=bin/adapter-elytron-install.cli</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">WildFly 10 or older</div>
 <div class="content">
-<pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-install.cli</code></pre>
+<pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh -c --file=bin/adapter-install.cli</code></pre>
 </div>
 </div>
 </div>
@@ -8465,14 +8465,15 @@ Start the server and run the script  from the server&#8217;s bin directory:</p>
 <div class="listingblock">
 <div class="title">WildFly 11 or newer</div>
 <div class="content">
-<pre class="CodeRay highlight"><code>$ ./bin/jboss-cli.sh --file=adapter-elytron-install-saml.cli</code></pre>
+<pre class="CodeRay highlight"><code>$ cd $JBOSS_HOME
+$ ./bin/jboss-cli.sh -c --file=bin/adapter-elytron-install-saml.cli</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">WildFly 10 and older</div>
 <div class="content">
-<pre class="CodeRay highlight"><code>$ cd $JBOSS_HOME/bin
-$ jboss-cli.sh -c --file=adapter-install-saml.cli</code></pre>
+<pre class="CodeRay highlight"><code>$ cd $JBOSS_HOME
+$ /bin/boss-cli.sh -c --file=bin/adapter-install-saml.cli</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -11921,7 +11922,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-14 10:19:32 UTC
+Last updated 2018-12-14 12:27:21 UTC
 </div>
 </div>
 <ul id="globalnav">
