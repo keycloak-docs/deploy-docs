@@ -4683,10 +4683,13 @@ For example:</p>
 </div>
 </div>
 <div class="sect5">
-<h6 id="avoid-double-filter-bean-registration"><a class="anchor" href="#avoid-double-filter-bean-registration"></a>Avoid double Filter bean registration</h6>
+<h6 id="avoid-double-bean-registration"><a class="anchor" href="#avoid-double-bean-registration"></a>Avoid double bean registration</h6>
 <div class="paragraph">
 <p>Spring Boot attempts to eagerly register filter beans with the web application context.
 Therefore, when running the Keycloak Spring Security adapter in a Spring Boot environment, it may be necessary to add <code>FilterRegistrationBean</code>s to your security configuration to prevent the Keycloak filters from being registered twice.</p>
+</div>
+<div class="paragraph">
+<p>Spring Boot 2.1 also disables <code>spring.main.allow-bean-definition-overriding</code> by default. This can mean that an <code>BeanDefinitionOverrideException</code> will be encountered if a <code>Configuration</code> class extending <code>KeycloakWebSecurityConfigurerAdapter</code> registers a bean that is already detected by a <code>@ComponentScan</code>. This can be avoided by overriding the registration to use the Boot-specific <code>@ConditionalOnMissingBean</code> annotation, as with <code>HttpSessionManager</code> below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4728,6 +4731,12 @@ Therefore, when running the Keycloak Spring Security adapter in a Spring Boot en
         <span class="keyword">return</span> registrationBean;
     }
 
+    <span class="annotation">@Bean</span>
+    <span class="annotation">@Override</span>
+    <span class="annotation">@ConditionalOnMissingBean</span>(HttpSessionManager.class)
+    <span class="directive">protected</span> HttpSessionManager httpSessionManager() {
+        <span class="keyword">return</span> <span class="keyword">new</span> HttpSessionManager();
+    }
     ...
 }</code></pre>
 </div>
@@ -11930,7 +11939,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-14 16:03:12 UTC
+Last updated 2018-12-14 16:36:54 UTC
 </div>
 </div>
 <ul id="globalnav">
