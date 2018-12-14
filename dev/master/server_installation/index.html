@@ -4086,11 +4086,28 @@ You can download the cert from CA (ie.: root.crt) and import as follows:</p>
 <h5 id="configure-keycloak-to-use-the-keystore"><a class="anchor" href="#configure-keycloak-to-use-the-keystore"></a>Configure Keycloak to Use the Keystore</h5>
 <div class="paragraph">
 <p>Now that you have a Java keystore with the appropriate certificates, you need to configure your Keycloak installation to use it.
-First step is to move the keystore file to the <em>configuration/</em> directory of your deployment and to edit the <em>standalone.xml</em>, <em>standalone-ha.xml</em> or <em>domain.xml</em> file to use
-the keystore and enable HTTPS.  (See <a href="#_operating-mode">operating mode</a>).</p>
+First, you must edit the <em>standalone.xml</em>, <em>standalone-ha.xml</em>, or <em>host.xml</em> file to use the keystore and enable HTTPS. You may then either move the keystore file to the <em>configuration/</em> directory of your deployment or the file in a location you choose and provide an absolute path to it. If you are using absolute paths, remove the optional <code>relative-to</code> parameter from your configuration (See <a href="#_operating-mode">operating mode</a>).</p>
 </div>
 <div class="paragraph">
-<p>In the standalone or domain configuration file, search for the <code>security-realms</code> element and add:</p>
+<p>Add the new <code>security-realm</code> element using the CLI:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>$ /core-service=management/security-realm=UndertowRealm:add()
+
+$ /core-service=management/security-realm=UndertowRealm/server-identity=ssl:add(keystore-path=keycloak.jks, keystore-relative-to=jboss.server.config.dir, keystore-password=secret)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If using domain mode, the commands should be executed in every host using the <code>/host=&lt;host_name&gt;/</code> prefix (in order to create the <code>security-realm</code> in all of them), like this, which you would repeat for each host:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>$ /host=&lt;host_name&gt;/core-service=management/security-realm=UndertowRealm/server-identity=ssl:add(keystore-path=keycloak.jks, keystore-relative-to=jboss.server.config.dir, keystore-password=secret)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the standalone or host configuration file, the <code>security-realms</code> element should look like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4104,7 +4121,18 @@ the keystore and enable HTTPS.  (See <a href="#_operating-mode">operating mode</
 </div>
 </div>
 <div class="paragraph">
-<p>Find the element <code>server name="default-server"</code> (it&#8217;s a child element of <code>subsystem xmlns="urn:jboss:domain:undertow:6.0"</code>) and add:</p>
+<p>Next, in the standalone or each domain configuration file, search for any instances of <code>security-realm</code>. Modify the <code>https-listener</code> to use the created realm:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>$ /subsystem=undertow/server=default-server/https-listener=https:write-attribute(name=security-realm, value=UndertowRealm)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If using domain mode, prefix the command with the profile that is being used with: <code>/profile=&lt;profile_name&gt;/</code>.</p>
+</div>
+<div class="paragraph">
+<p>The resulting element, <code>server name="default-server"</code>, which is a child element of <code>subsystem xmlns="urn:jboss:domain:undertow:6.0"</code>, should contain the following stanza:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5581,7 +5609,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-14 13:11:21 UTC
+Last updated 2018-12-14 13:33:49 UTC
 </div>
 </div>
 <ul id="globalnav">
