@@ -743,30 +743,31 @@ span.image img {
 <li><a href="#building">2.4.1. Building</a></li>
 <li><a href="#configuration-options">2.4.2. Configuration options</a></li>
 <li><a href="#example-usage-and-configuration">2.4.3. Example usage and configuration</a></li>
-<li><a href="#http-routing">2.4.4. HTTP routing</a></li>
-<li><a href="#session-only-cookies">2.4.5. Session-only cookies</a></li>
-<li><a href="#forward-signing-proxy">2.4.6. Forward-signing proxy</a></li>
-<li><a href="#forwarding-signed-https-connections">2.4.7. Forwarding signed HTTPS connections</a></li>
-<li><a href="#https-redirect">2.4.8. HTTPS redirect</a></li>
-<li><a href="#let-s-encrypt-configuration">2.4.9. Let&#8217;s Encrypt configuration</a></li>
-<li><a href="#access-token-encryption">2.4.10. Access token encryption</a></li>
-<li><a href="#upstream-headers">2.4.11. Upstream headers</a></li>
-<li><a href="#custom-claim-headers">2.4.12. Custom claim headers</a></li>
-<li><a href="#encryption-key">2.4.13. Encryption key</a></li>
-<li><a href="#claim-matching">2.4.14. Claim matching</a></li>
-<li><a href="#group-claims">2.4.15. Group claims</a></li>
-<li><a href="#custom-pages">2.4.16. Custom pages</a></li>
-<li><a href="#white-listed-url-s">2.4.17. White-listed URL&#8217;s</a></li>
-<li><a href="#mutual-tls">2.4.18. Mutual TLS</a></li>
-<li><a href="#certificate-rotation">2.4.19. Certificate rotation</a></li>
-<li><a href="#refresh-tokens">2.4.20. Refresh tokens</a></li>
-<li><a href="#logout-endpoint">2.4.21. Logout endpoint</a></li>
-<li><a href="#cross-origin-resource-sharing-cors">2.4.22. Cross-origin resource sharing (CORS)</a></li>
-<li><a href="#upstream-url">2.4.23. Upstream URL</a></li>
-<li><a href="#endpoints">2.4.24. Endpoints</a></li>
-<li><a href="#metrics">2.4.25. Metrics</a></li>
-<li><a href="#limitations">2.4.26. Limitations</a></li>
-<li><a href="#known-issues">2.4.27. Known Issues</a></li>
+<li><a href="#openid-provider-communication">2.4.4. OpenID Provider Communication</a></li>
+<li><a href="#http-routing">2.4.5. HTTP routing</a></li>
+<li><a href="#session-only-cookies">2.4.6. Session-only cookies</a></li>
+<li><a href="#forward-signing-proxy">2.4.7. Forward-signing proxy</a></li>
+<li><a href="#forwarding-signed-https-connections">2.4.8. Forwarding signed HTTPS connections</a></li>
+<li><a href="#https-redirect">2.4.9. HTTPS redirect</a></li>
+<li><a href="#let-s-encrypt-configuration">2.4.10. Let&#8217;s Encrypt configuration</a></li>
+<li><a href="#access-token-encryption">2.4.11. Access token encryption</a></li>
+<li><a href="#upstream-headers">2.4.12. Upstream headers</a></li>
+<li><a href="#custom-claim-headers">2.4.13. Custom claim headers</a></li>
+<li><a href="#encryption-key">2.4.14. Encryption key</a></li>
+<li><a href="#claim-matching">2.4.15. Claim matching</a></li>
+<li><a href="#group-claims">2.4.16. Group claims</a></li>
+<li><a href="#custom-pages">2.4.17. Custom pages</a></li>
+<li><a href="#white-listed-url-s">2.4.18. White-listed URL&#8217;s</a></li>
+<li><a href="#mutual-tls">2.4.19. Mutual TLS</a></li>
+<li><a href="#certificate-rotation">2.4.20. Certificate rotation</a></li>
+<li><a href="#refresh-tokens">2.4.21. Refresh tokens</a></li>
+<li><a href="#logout-endpoint">2.4.22. Logout endpoint</a></li>
+<li><a href="#cross-origin-resource-sharing-cors">2.4.23. Cross-origin resource sharing (CORS)</a></li>
+<li><a href="#upstream-url">2.4.24. Upstream URL</a></li>
+<li><a href="#endpoints">2.4.25. Endpoints</a></li>
+<li><a href="#metrics">2.4.26. Metrics</a></li>
+<li><a href="#limitations">2.4.27. Limitations</a></li>
+<li><a href="#known-issues">2.4.28. Known Issues</a></li>
 </ul>
 </li>
 <li><a href="#other-openid-connect-libraries">2.5. Other OpenID Connect Libraries</a>
@@ -6903,7 +6904,18 @@ You can also build via docker container: <code>make docker-build</code>. A Docke
 </div>
 </div>
 <div class="sect3">
-<h4 id="http-routing"><a class="anchor" href="#http-routing"></a>2.4.4. HTTP routing</h4>
+<h4 id="openid-provider-communication"><a class="anchor" href="#openid-provider-communication"></a>2.4.4. OpenID Provider Communication</h4>
+<div class="paragraph">
+<p>By default the communication with the OpenID provider is direct. If you wish, you can specify a forwarding proxy server in your configuration file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="yaml"><span class="key">openid-provider-proxy</span>: <span class="string"><span class="content">http://proxy.example.com:8080</span></span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="http-routing"><a class="anchor" href="#http-routing"></a>2.4.5. HTTP routing</h4>
 <div class="paragraph">
 <p>By default all requests will be proxyed on to the upstream, if you wish to ensure all requests are authentication you can use this:</p>
 </div>
@@ -6917,13 +6929,13 @@ You can also build via docker container: <code>make docker-build</code>. A Docke
 </div>
 </div>
 <div class="sect3">
-<h4 id="session-only-cookies"><a class="anchor" href="#session-only-cookies"></a>2.4.5. Session-only cookies</h4>
+<h4 id="session-only-cookies"><a class="anchor" href="#session-only-cookies"></a>2.4.6. Session-only cookies</h4>
 <div class="paragraph">
 <p>By default the access and refresh cookies are session-only and disposed of on browser close; you can disable this feature using the <code>--enable-session-cookies</code> option.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="forward-signing-proxy"><a class="anchor" href="#forward-signing-proxy"></a>2.4.6. Forward-signing proxy</h4>
+<h4 id="forward-signing-proxy"><a class="anchor" href="#forward-signing-proxy"></a>2.4.7. Forward-signing proxy</h4>
 <div class="paragraph">
 <p>Forward-signing provides a mechanism for authentication and authorization between services using tokens issued from the IdP. When operating in this mode the proxy will automatically acquire an access token (handling the refreshing or logins on your behalf) and tag outbound requests with a Authorization header. You can control which domains are tagged with the --forwarding-domains option. Note, this option use a <strong>contains</strong> comparison on domains. So, if you wanted to match all domains under *.svc.cluster.local you can use: --forwarding-domain=svc.cluster.local.</p>
 </div>
@@ -6966,7 +6978,7 @@ You can also build via docker container: <code>make docker-build</code>. A Docke
 </div>
 </div>
 <div class="sect3">
-<h4 id="forwarding-signed-https-connections"><a class="anchor" href="#forwarding-signed-https-connections"></a>2.4.7. Forwarding signed HTTPS connections</h4>
+<h4 id="forwarding-signed-https-connections"><a class="anchor" href="#forwarding-signed-https-connections"></a>2.4.8. Forwarding signed HTTPS connections</h4>
 <div class="paragraph">
 <p>Handling HTTPS requires a man-in-the-middle sort of TLS connection. By default, if no <code>--tls-ca-certificate</code> and <code>--tls-ca-key</code> are provided the proxy will use the default certificate. If you wish to verify the trust, you&#8217;ll need to generate a CA, for example.</p>
 </div>
@@ -6986,7 +6998,7 @@ $ bin/keycloak-gatekeeper \
 </div>
 </div>
 <div class="sect3">
-<h4 id="https-redirect"><a class="anchor" href="#https-redirect"></a>2.4.8. HTTPS redirect</h4>
+<h4 id="https-redirect"><a class="anchor" href="#https-redirect"></a>2.4.9. HTTPS redirect</h4>
 <div class="paragraph">
 <p>The proxy supports an HTTP listener, so the only real requirement here is to perform an HTTP &#8594; HTTPS redirect. You can enable the option like this:</p>
 </div>
@@ -6999,7 +7011,7 @@ $ bin/keycloak-gatekeeper \
 </div>
 </div>
 <div class="sect3">
-<h4 id="let-s-encrypt-configuration"><a class="anchor" href="#let-s-encrypt-configuration"></a>2.4.9. Let&#8217;s Encrypt configuration</h4>
+<h4 id="let-s-encrypt-configuration"><a class="anchor" href="#let-s-encrypt-configuration"></a>2.4.10. Let&#8217;s Encrypt configuration</h4>
 <div class="paragraph">
 <p>Here is an example of the required configuration for Let&#8217;s Encrypt support:</p>
 </div>
@@ -7020,13 +7032,13 @@ $ bin/keycloak-gatekeeper \
 </div>
 </div>
 <div class="sect3">
-<h4 id="access-token-encryption"><a class="anchor" href="#access-token-encryption"></a>2.4.10. Access token encryption</h4>
+<h4 id="access-token-encryption"><a class="anchor" href="#access-token-encryption"></a>2.4.11. Access token encryption</h4>
 <div class="paragraph">
 <p>By default, the session token is placed into a cookie in plaintext. If you prefer to encrypt the session cookie, use the <code>--enable-encrypted-token</code> and <code>--encryption-key</code> options. Note that the access token forwarded in the X-Auth-Token header to upstream is unaffected.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="upstream-headers"><a class="anchor" href="#upstream-headers"></a>2.4.11. Upstream headers</h4>
+<h4 id="upstream-headers"><a class="anchor" href="#upstream-headers"></a>2.4.12. Upstream headers</h4>
 <div class="paragraph">
 <p>On protected resources, the upstream endpoint will receive a number of headers added by the proxy, along with custom claims, like this:</p>
 </div>
@@ -7053,7 +7065,7 @@ if r.config.EnableAuthorizationHeader {
 </div>
 </div>
 <div class="sect3">
-<h4 id="custom-claim-headers"><a class="anchor" href="#custom-claim-headers"></a>2.4.12. Custom claim headers</h4>
+<h4 id="custom-claim-headers"><a class="anchor" href="#custom-claim-headers"></a>2.4.13. Custom claim headers</h4>
 <div class="paragraph">
 <p>You can inject additional claims from the access token into the authorization headers with the <code>--add-claims</code> option. For example, a token from a Keycloak provider might include the following claims:</p>
 </div>
@@ -7090,13 +7102,13 @@ X-Auth-Name: Beloved User</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="encryption-key"><a class="anchor" href="#encryption-key"></a>2.4.13. Encryption key</h4>
+<h4 id="encryption-key"><a class="anchor" href="#encryption-key"></a>2.4.14. Encryption key</h4>
 <div class="paragraph">
 <p>In order to remain stateless and not have to rely on a central cache to persist the refresh_tokens, the refresh token is encrypted and added as a cookie using <strong>crypto/aes</strong>. The key must be the same if you are running behind a load balancer. The key length should be either 16 or 32 bytes, depending or whether you want AES-128 or AES-256.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="claim-matching"><a class="anchor" href="#claim-matching"></a>2.4.14. Claim matching</h4>
+<h4 id="claim-matching"><a class="anchor" href="#claim-matching"></a>2.4.15. Claim matching</h4>
 <div class="paragraph">
 <p>The proxy supports adding a variable list of claim matches against the presented tokens for additional access control. You can match the 'iss' or 'aud' to the token or custom attributes; each of the matches are regex&#8217;s. For example, <code>--match-claims 'aud=sso.*'</code> or <code>--claim iss=https://.*'</code> or via the configuration file, like this:</p>
 </div>
@@ -7148,7 +7160,7 @@ X-Auth-Name: Beloved User</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="group-claims"><a class="anchor" href="#group-claims"></a>2.4.15. Group claims</h4>
+<h4 id="group-claims"><a class="anchor" href="#group-claims"></a>2.4.16. Group claims</h4>
 <div class="paragraph">
 <p>You can match on the group claims within a token via the <code>groups</code> parameter available within the resource. While roles are implicitly required, such as <code>roles=admin,user</code> where the user MUST have roles 'admin' AND 'user', groups are applied with an OR operation, so <code>groups=users,testers</code> requires that the user MUST be within either 'users' OR 'testers'. The claim name is hard-coded to <code>groups</code>, so a JWT token would look like this:</p>
 </div>
@@ -7171,7 +7183,7 @@ X-Auth-Name: Beloved User</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="custom-pages"><a class="anchor" href="#custom-pages"></a>2.4.16. Custom pages</h4>
+<h4 id="custom-pages"><a class="anchor" href="#custom-pages"></a>2.4.17. Custom pages</h4>
 <div class="paragraph">
 <p>By default, Keycloak Gatekeeper will immediately redirect you for authentication and hand back a 403 for access denied. Most users will probably want to present the user with a more friendly sign-in and access denied page. You can pass the command line options (or via config file) paths to the files with <code>--signin-page=PATH</code>. The sign-in page will have a 'redirect' variable passed into the scope and holding the oauth redirection url. If you wish to pass additional variables into the templates, such as title, sitename and so on, you can use the -<code>-tags key=pair</code> option, like this: <code>--tags title="This is my site"</code> and the variable would be accessible from <code>{{ .title }}</code>.</p>
 </div>
@@ -7186,7 +7198,7 @@ X-Auth-Name: Beloved User</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="white-listed-url-s"><a class="anchor" href="#white-listed-url-s"></a>2.4.17. White-listed URL&#8217;s</h4>
+<h4 id="white-listed-url-s"><a class="anchor" href="#white-listed-url-s"></a>2.4.18. White-listed URL&#8217;s</h4>
 <div class="paragraph">
 <p>Depending on how the application URL&#8217;s are laid out, you might want protect the root / url but have exceptions on a list of paths, for example <code>/health</code>. While this is best solved by adjusting the paths, you can add exceptions to the protected resources, like this:</p>
 </div>
@@ -7215,19 +7227,19 @@ X-Auth-Name: Beloved User</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="mutual-tls"><a class="anchor" href="#mutual-tls"></a>2.4.18. Mutual TLS</h4>
+<h4 id="mutual-tls"><a class="anchor" href="#mutual-tls"></a>2.4.19. Mutual TLS</h4>
 <div class="paragraph">
 <p>The proxy support enforcing mutual TLS for the clients by adding the <code>--tls-ca-certificate</code> command line option or configuration file option. All clients connecting must present a certificate which was signed by the CA being used.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="certificate-rotation"><a class="anchor" href="#certificate-rotation"></a>2.4.19. Certificate rotation</h4>
+<h4 id="certificate-rotation"><a class="anchor" href="#certificate-rotation"></a>2.4.20. Certificate rotation</h4>
 <div class="paragraph">
 <p>The proxy will automatically rotate the server certificates if the files change on disk. Note, no down time will occur as the change is made inline. Clients who connected prior to the certificate rotation will be unaffected and will continue as normal with all new connections presented with the new certificate.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="refresh-tokens"><a class="anchor" href="#refresh-tokens"></a>2.4.20. Refresh tokens</h4>
+<h4 id="refresh-tokens"><a class="anchor" href="#refresh-tokens"></a>2.4.21. Refresh tokens</h4>
 <div class="paragraph">
 <p>If a request for an access token contains a refresh token and  <code>--enable-refresh-tokens</code> is set to <code>true</code>, the proxy will automatically refresh the access token for you. The tokens themselves are kept either as an encrypted <strong>(--encryption-key=KEY)</strong> cookie <strong>(cookie name: kc-state).</strong> or a store <strong>(still requires encryption key)</strong>.</p>
 </div>
@@ -7242,13 +7254,13 @@ X-Auth-Name: Beloved User</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="logout-endpoint"><a class="anchor" href="#logout-endpoint"></a>2.4.21. Logout endpoint</h4>
+<h4 id="logout-endpoint"><a class="anchor" href="#logout-endpoint"></a>2.4.22. Logout endpoint</h4>
 <div class="paragraph">
 <p>A <strong>/oauth/logout?redirect=url</strong> is provided as a helper to log users out. In addition to dropping any session cookies, we also attempt to revoke access via revocation url (config <strong>revocation-url</strong> or <strong>--revocation-url</strong>) with the provider. For Keycloak, the url for this would be <a href="https://keycloak.example.com/auth/realms/REALM_NAME/protocol/openid-connect/logout" class="bare">https://keycloak.example.com/auth/realms/REALM_NAME/protocol/openid-connect/logout</a>. If the url is not specified we will attempt to grab the url from the OpenID discovery response.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="cross-origin-resource-sharing-cors"><a class="anchor" href="#cross-origin-resource-sharing-cors"></a>2.4.22. Cross-origin resource sharing (CORS)</h4>
+<h4 id="cross-origin-resource-sharing-cors"><a class="anchor" href="#cross-origin-resource-sharing-cors"></a>2.4.23. Cross-origin resource sharing (CORS)</h4>
 <div class="paragraph">
 <p>You can add a CORS header via the <code>--cors-[method]</code> with these configuration options.</p>
 </div>
@@ -7299,13 +7311,13 @@ X-Auth-Name: Beloved User</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="upstream-url"><a class="anchor" href="#upstream-url"></a>2.4.23. Upstream URL</h4>
+<h4 id="upstream-url"><a class="anchor" href="#upstream-url"></a>2.4.24. Upstream URL</h4>
 <div class="paragraph">
 <p>You can control the upstream endpoint via the <code>--upstream-url</code> option. Both HTTP and HTTPS are supported with TLS verification and keep-alive support configured via the <code>--skip-upstream-tls-verify</code> / <code>--upstream-keepalives</code> option. Note, the proxy can also upstream via a UNIX socket, <code>--upstream-url unix://path/to/the/file.sock</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="endpoints"><a class="anchor" href="#endpoints"></a>2.4.24. Endpoints</h4>
+<h4 id="endpoints"><a class="anchor" href="#endpoints"></a>2.4.25. Endpoints</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -7336,13 +7348,13 @@ X-Auth-Name: Beloved User</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="metrics"><a class="anchor" href="#metrics"></a>2.4.25. Metrics</h4>
+<h4 id="metrics"><a class="anchor" href="#metrics"></a>2.4.26. Metrics</h4>
 <div class="paragraph">
 <p>Assuming <code>--enable-metrics</code> has been set, a Prometheus endpoint can be found on <strong>/oauth/metrics</strong>; at present the only metric being exposed is a counter per HTTP code.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="limitations"><a class="anchor" href="#limitations"></a>2.4.26. Limitations</h4>
+<h4 id="limitations"><a class="anchor" href="#limitations"></a>2.4.27. Limitations</h4>
 <div class="paragraph">
 <p>Keep in mind <a href="http://browsercookielimits.squawky.net/">browser cookie limits</a> if you use access or refresh tokens in the browser cookie. Keycloak-generic-adapter divides the cookie automatically if your cookie is longer than 4093 bytes. Real size of the cookie depends on the content of the issued access token. Also, encryption might add additional bytes to the cookie size. If you have large cookies (&gt;200 KB), you might reach browser cookie limits.</p>
 </div>
@@ -7351,7 +7363,7 @@ X-Auth-Name: Beloved User</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="known-issues"><a class="anchor" href="#known-issues"></a>2.4.27. Known Issues</h4>
+<h4 id="known-issues"><a class="anchor" href="#known-issues"></a>2.4.28. Known Issues</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -11939,7 +11951,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-12-18 12:25:29 UTC
+Last updated 2018-12-18 12:32:50 UTC
 </div>
 </div>
 <ul id="globalnav">
