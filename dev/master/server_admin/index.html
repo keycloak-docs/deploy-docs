@@ -937,6 +937,7 @@ span.image img {
 <li><a href="#connect-to-ldap-over-ssl">14.3.4. Connect to LDAP over SSL</a></li>
 <li><a href="#sync-of-ldap-users-to-keycloak">14.3.5. Sync of LDAP users to Keycloak</a></li>
 <li><a href="#_ldap_mappers">14.3.6. LDAP Mappers</a></li>
+<li><a href="#_ldap_password_hashing">14.3.7. Password Hashing</a></li>
 </ul>
 </li>
 <li><a href="#_sssd">14.4. SSSD and FreeIPA Identity Management Integration</a>
@@ -8484,6 +8485,18 @@ You are free to extend these and provide additional attribute mappings.
 Admin console provides tooltips, which should help with configuring the corresponding mappers.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_ldap_password_hashing"><a class="anchor" href="#_ldap_password_hashing"></a>14.3.7. Password Hashing</h4>
+<div class="paragraph">
+<p>When the password of user is updated from Keycloak and sent to LDAP, it is always sent in plain-text. This is different from
+updating the password to built-in Keycloak database, when the hashing and salting is applied to the password before it is sent to DB.
+In the case of LDAP, the Keycloak relies on the LDAP server to provide hashing and salting of passwords.</p>
+</div>
+<div class="paragraph">
+<p>Most of LDAP servers (Microsoft Active Directory, RHDS, FreeIPA) provide this by default. Some others (OpenLDAP, ApacheDS) may store the passwords
+in plain-text by default and you may need to explicitly enable password hashing for them. See the documentation of your LDAP server more details.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_sssd"><a class="anchor" href="#_sssd"></a>14.4. SSSD and FreeIPA Identity Management Integration</h3>
@@ -12506,7 +12519,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-01-21 12:47:26 UTC
+Last updated 2019-01-22 12:54:25 UTC
 </div>
 </div>
 <ul id="globalnav">
