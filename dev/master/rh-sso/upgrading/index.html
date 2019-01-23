@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Upgrading Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.3"/><meta name="description" content="This book is a guide to upgrading your application from a previous version of Red Hat Single Sign-On 7.3."/><link rel="next" href="#intro" title="Chapter 1. Introduction"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm140343217722336"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Single Sign-On</span> <span class="productnumber">7.3</span></div><div><h1 class="title">Upgrading Guide</h1></div><div><h2 class="subtitle">For Use with Red Hat Single Sign-On 7.3</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services </span></div></div><div><a href="#idm140343212167808">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>Upgrading Guide</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.3"/><meta name="description" content="This book is a guide to upgrading your application from a previous version of Red Hat Single Sign-On 7.3."/><link rel="next" href="#intro" title="Chapter 1. Introduction"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm140266389701360"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Single Sign-On</span> <span class="productnumber">7.3</span></div><div><h1 class="title">Upgrading Guide</h1></div><div><h2 class="subtitle">For Use with Red Hat Single Sign-On 7.3</h2></div><div><div xml:lang="en-US" class="authorgroup"><span class="orgname">Red Hat Customer Content Services </span></div></div><div><a href="#idm140266382500416">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
 				This book is a guide to upgrading your application from a previous version of Red Hat Single Sign-On 7.3.
 			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="chapter"><a href="#intro">1. Introduction</a></span><ul><li><span class="section"><a href="#about_upgrades">1.1. About Upgrades</a></span><ul><li><span class="section"><a href="#major_upgrades">1.1.1. Major Upgrades</a></span></li><li><span class="section"><a href="#minor_updates">1.1.2. Minor Updates</a></span></li><li><span class="section"><a href="#micro_updates">1.1.3. Micro Updates</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#changes">2. Changes</a></span><ul><li><span class="section"><a href="#rh_sso_7_3">2.1. RH-SSO 7.3</a></span><ul><li><span class="section"><a href="#changes_to_authorization_services">2.1.1. Changes to Authorization Services</a></span></li><li><span class="section"><a href="#client_templates_changed_to_client_scopes">2.1.2. Client Templates changed to Client Scopes</a></span></li><li><span class="section"><a href="#new_default_client_scopes">2.1.3. New default client scopes</a></span></li><li><span class="section"><a href="#upgrade_to_eap_7_2">2.1.4. Upgrade to EAP 7.2</a></span></li><li><span class="section"><a href="#hostname_configuration">2.1.5. Hostname configuration</a></span></li><li><span class="section"><a href="#javascipt_adapter_promise">2.1.6. JavaScipt Adapter Promise</a></span></li><li><span class="section"><a href="#microsoft_identity_provider_updated_to_use_the_microsoft_graph_api">2.1.7. Microsoft Identity Provider updated to use the Microsoft Graph API</a></span></li><li><span class="section"><a href="#google_identity_provider_updated_to_use_google_sign_in_authentication_system">2.1.8. Google Identity Provider updated to use Google Sign-in authentication system</a></span></li><li><span class="section"><a href="#linkedin_social_broker_updated_to_version_2_of_linkedin_apis">2.1.9. LinkedIn Social Broker Updated to Version 2 of LinkedIn APIs</a></span></li></ul></li><li><span class="section"><a href="#rh_sso_7_2">2.2. RH-SSO 7.2</a></span><ul><li><span class="section"><a href="#new_password_hashing_algorithms">2.2.1. New Password Hashing algorithms</a></span></li><li><span class="section"><a href="#id_token_requires_scope_openid">2.2.2. ID Token requires scope=openid</a></span></li><li><span class="section"><a href="#microsoft_sql_server_requires_extra_dependency">2.2.3. Microsoft SQL Server requires extra dependency</a></span></li><li><span class="section"><a href="#added_session_state_parameter_to_openid_connect_authentication_response">2.2.4. Added session_state parameter to OpenID Connect Authentication Response</a></span></li><li><span class="section"><a href="#microsoft_identity_provider_updated_to_use_the_microsoft_graph_api_2">2.2.5. Microsoft Identity Provider updated to use the Microsoft Graph API</a></span></li><li><span class="section"><a href="#google_identity_provider_updated_to_use_google_sign_in_authentication_system_2">2.2.6. Google Identity Provider updated to use Google Sign-in authentication system</a></span></li><li><span class="section"><a href="#linkedin_social_broker_updated_to_version_2_of_linkedin_apis_2">2.2.7. LinkedIn Social Broker Updated to Version 2 of LinkedIn APIs</a></span></li></ul></li><li><span class="section"><a href="#rh_sso_7_1">2.3. RH-SSO 7.1</a></span><ul><li><span class="section"><a href="#realm_keys">2.3.1. Realm Keys</a></span></li><li><span class="section"><a href="#client_redirect_uri_matching">2.3.2. Client Redirect URI Matching</a></span></li><li><span class="section"><a href="#automatically_redirect_to_identity_provider">2.3.3. Automatically Redirect to Identity Provider</a></span></li><li><span class="section"><a href="#admin_rest_api">2.3.4. Admin REST API</a></span></li><li><span class="section"><a href="#server_configuration">2.3.5. Server Configuration</a></span></li><li><span class="section"><a href="#key_encryption_algorithm_in_saml_assertions">2.3.6. Key Encryption Algorithm in SAML Assertions</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#upgrading">3. Upgrading Red Hat Single Sign-On Server</a></span><ul><li><span class="section"><a href="#upgrading_minor">3.1. Minor Upgrades</a></span><ul><li><span class="section"><a href="#prep_migration">3.1.1. Preparing for Upgrading</a></span></li><li><span class="section"><a href="#install_new_version">3.1.2. Upgrading Red Hat Single Sign-On server</a></span></li><li><span class="section"><a href="#migrate_db">3.1.3. Migrating the Database</a></span></li><li><span class="section"><a href="#migrate_themes">3.1.4. Migrating Themes</a></span></li></ul></li><li><span class="section"><a href="#upgrading_micro">3.2. Micro Upgrades</a></span><ul><li><span class="section"><a href="#zip-patching">3.2.1. Patching a ZIP/Installer Installation</a></span></li><li><span class="section"><a href="#rpm-patching">3.2.2. Patching an RPM Installation</a></span></li><li><span class="section"><a href="#patching_local_maven">3.2.3. Patching a local Maven installation</a></span></li></ul></li></ul></li><li><span class="chapter"><a href="#upgrading_red_hat_single_sign_on_adapters">4. Upgrading Red Hat Single Sign-On Adapters</a></span><ul><li><span class="section"><a href="#compatibility_with_older_adapters">4.1. Compatibility with older adapters</a></span></li><li><span class="section"><a href="#upgrade_eap_adapter">4.2. Upgrading the EAP Adapter</a></span></li><li><span class="section"><a href="#upgrade_js_adapter">4.3. Upgrading the JavaScript Adapter</a></span></li><li><span class="section"><a href="#upgrade_nodejs_adapter">4.4. Upgrading the Node.js Adapter</a></span></li></ul></li></ul></div><section class="chapter" id="intro"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Introduction</h1></div></div></div><p>
 			Red Hat Single Sign-On (RH-SSO) 7.3 is based on the Keycloak project and provides security for your web applications by providing Web single sign-on capabilities based on popular standards such as SAML 2.0, OpenID Connect, and OAuth 2.0. The Red Hat Single Sign-On Server can act as a SAML or OpenID Connect-based identity provider, mediating with your enterprise user directory or third-party SSO provider for identity information and your applications using standards-based tokens.
@@ -63,9 +63,9 @@ access tokens as a bearer token and permissions will still be enforced.</pre></d
 							</dd><dt><span class="term">Configuration changes</span></dt><dd>
 								There are few configuration changes in the <code class="literal">standalone(-ha).xml</code> and <code class="literal">domain.xml</code> files. You should follow the <a class="xref" href="#install_new_version" title="3.1.2. Upgrading Red Hat Single Sign-On server">Section 3.1.2, “Upgrading Red Hat Single Sign-On server”</a> section to handle the migration of configuration files automatically.
 							</dd><dt><span class="term">Cross-Datacenter Replication changes</span></dt><dd><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-										You will need to upgrade JDG server to version 7.2.3. The older version may still work, but it is not guaranteed as we don’t test it anymore. ifeval::[true==true]
+										You will need to upgrade JDG server to version 7.2.3. The older version may still work, but it is not guaranteed as we don’t test it anymore.
 									</li><li class="listitem">
-										There is a need to add <code class="literal">protocolVersion</code> property with the value <code class="literal">2.6</code> to the configuration of the <code class="literal">remote-store</code> element in the Red Hat Single Sign-On configuration. This is required as there is a need to downgrade the version of HotRod protocol to be compatible with the version used by JDG 7.2.3. endif::[]
+										There is a need to add <code class="literal">protocolVersion</code> property with the value <code class="literal">2.6</code> to the configuration of the <code class="literal">remote-store</code> element in the Red Hat Single Sign-On configuration. This is required as there is a need to downgrade the version of HotRod protocol to be compatible with the version used by JDG 7.2.3.
 									</li></ul></div></dd></dl></div></section><section class="section" id="hostname_configuration"><div class="titlepage"><div><div><h3 class="title">2.1.5. Hostname configuration</h3></div></div></div><p>
 					In previous versions it was recommended to use a filter to specify permitted hostnames. It is now possible to set a fixed hostname which makes it easier to make sure the valid hostname is used and also allows internal applications to invoke Red Hat Single Sign-On through an alternative URL, for example an internal IP address. It is recommended that you switch to this approach in production.
 				</p></section><section class="section" id="javascipt_adapter_promise"><div class="titlepage"><div><div><h3 class="title">2.1.6. JavaScipt Adapter Promise</h3></div></div></div><p>
@@ -73,11 +73,11 @@ access tokens as a bearer token and permissions will still be enforced.</pre></d
 				</p><p>
 					In the past if native promise was available a wrapper was returned that provided both the legacy Keycloak promise and the native promise. This was causing issues as the error handler was not always set prior to the native error event, which resulted in <code class="literal">Uncaught (in promise)</code> error.
 				</p></section><section class="section" id="microsoft_identity_provider_updated_to_use_the_microsoft_graph_api"><div class="titlepage"><div><div><h3 class="title">2.1.7. Microsoft Identity Provider updated to use the Microsoft Graph API</h3></div></div></div><p>
-					The Microsoft Identity Provider implementation in Red Hat Single Sign-On up to version 4.5.0 relies on the Live SDK endpoints for authorization and obtaining the user profile. From November 2018 onwards, Microsoft is removing support for the Live SDK API in favor of the new Microsoft Graph API. The Red Hat Single Sign-On identity provider has been updated to use the new endpoints so if this integration is in use make sure you upgrade to Red Hat Single Sign-On version 4.6.0 or later.
+					The Microsoft Identity Provider implementation in Red Hat Single Sign-On used to rely on the Live SDK endpoints for authorization and obtaining the user profile. From November 2018 onwards, Microsoft is removing support for the Live SDK API in favor of the new Microsoft Graph API. The Red Hat Single Sign-On identity provider has been updated to use the new endpoints so if this integration is in use make sure you upgrade to the latest Red Hat Single Sign-On version.
 				</p><p>
 					Legacy client applications registered under "Live SDK applications" won’t work with the Microsoft Graph endpoints due to changes in the id format of the applications. If you run into an error saying that the application identifier was not found in the directory, you will have to register the client application again in the <a class="link" href="https://account.live.com/developers/applications/create">Microsoft Application Registration</a> portal to obtain a new application id.
 				</p></section><section class="section" id="google_identity_provider_updated_to_use_google_sign_in_authentication_system"><div class="titlepage"><div><div><h3 class="title">2.1.8. Google Identity Provider updated to use Google Sign-in authentication system</h3></div></div></div><p>
-					The Google Identity Provider implementation in Red Hat Single Sign-On up to version 7.2.5 relies on the Google+ API endpoints endpoints for authorization and obtaining the user profile. From March 2019 onwards, Google is removing support for the Google+ API in favor of the new Google Sign-in authentication system. The Red Hat Single Sign-On identity provider has been updated to use the new endpoints so if this integration is in use make sure you upgrade to Red Hat Single Sign-On version 7.2.6 or later.
+					The Google Identity Provider implementation in Red Hat Single Sign-On used to rely on the Google+ API endpoints endpoints for authorization and obtaining the user profile. From March 2019 onwards, Google is removing support for the Google+ API in favor of the new Google Sign-in authentication system. The Red Hat Single Sign-On identity provider has been updated to use the new endpoints so if this integration is in use make sure you upgrade to the latest Red Hat Single Sign-On version.
 				</p><p>
 					If you run into an error saying that the application identifier was not found in the directory, you will have to register the client application again in the <a class="link" href="https://console.developers.google.com/apis/credentials">Google API Console</a> portal to obtain a new application id and secret.
 				</p><p>
@@ -305,7 +305,111 @@ subscription-manager repos --enable=rh-sso-7.2-for-rhel-7-server-rpms</pre><div 
 							If you have customized messages you might need to change the key or value or to add additional messages.
 						</li></ul></div><p>
 					Each step is described in more detail below the list of changes.
-				</p><section class="section" id="theme_changes_rh_sso_7_2"><div class="titlepage"><div><div><h4 class="title">3.1.4.1. Theme changes RH-SSO 7.2</h4></div></div></div><p>
+				</p><section class="section" id="theme_changes_rh_sso_7_3"><div class="titlepage"><div><div><h4 class="title">3.1.4.1. Theme changes RH-SSO 7.3</h4></div></div></div><p>
+						<span class="strong strong"><strong>Templates</strong></span>
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								Account: account.ftl
+							</li><li class="listitem">
+								Account: applications.ftl
+							</li><li class="listitem">
+								Account: resource-detail.ftl (new)
+							</li><li class="listitem">
+								Account: resources.ftl (new)
+							</li><li class="listitem">
+								Account: template.ftl
+							</li><li class="listitem">
+								Account: totp.ftl
+							</li><li class="listitem">
+								Email-html: email-test.ftl
+							</li><li class="listitem">
+								Email-html: email-verification-with-code.ftl (new)
+							</li><li class="listitem">
+								Email-html: email-verification.ftl
+							</li><li class="listitem">
+								Email-html: event-login_error.ftl
+							</li><li class="listitem">
+								Email-html: event-removed_totp.ftl
+							</li><li class="listitem">
+								Email-html: event-update_password.ftl
+							</li><li class="listitem">
+								Email-html: event-update_totp.ftl
+							</li><li class="listitem">
+								Email-html: executeActions.ftl
+							</li><li class="listitem">
+								Email-html: identity-provider-link.ftl
+							</li><li class="listitem">
+								Email-html: password-reset.ftl
+							</li><li class="listitem">
+								Email-text: email-verification-with-code.ftl (new)
+							</li><li class="listitem">
+								Email-text: email-verification.ftl
+							</li><li class="listitem">
+								Email-text: executeActions.ftl
+							</li><li class="listitem">
+								Email-text: identity-provider-link.ftl
+							</li><li class="listitem">
+								Email-text: password-reset.ftl
+							</li><li class="listitem">
+								Login: cli_splash.ftl (new)
+							</li><li class="listitem">
+								Login: code.ftl
+							</li><li class="listitem">
+								Login: error.ftl
+							</li><li class="listitem">
+								Login: info.ftl
+							</li><li class="listitem">
+								Login: login-config-totp-text.ftl (new)
+							</li><li class="listitem">
+								Login: login-config-totp.ftl
+							</li><li class="listitem">
+								Login: login-idp-link-confirm.ftl
+							</li><li class="listitem">
+								Login: login-idp-link-email.ftl
+							</li><li class="listitem">
+								Login: login-oauth-grant.ftl
+							</li><li class="listitem">
+								Login: login-page-expired.ftl
+							</li><li class="listitem">
+								Login: login-reset-password.ftl
+							</li><li class="listitem">
+								Login: login-totp.ftl
+							</li><li class="listitem">
+								Login: login-update-password.ftl
+							</li><li class="listitem">
+								Login: login-update-profile.ftl
+							</li><li class="listitem">
+								Login: login-verify-email-code-text.ftl (new)
+							</li><li class="listitem">
+								Login: login-verify-email.ftl
+							</li><li class="listitem">
+								Login: login-x509-info.ftl
+							</li><li class="listitem">
+								Login: login.ftl
+							</li><li class="listitem">
+								Login: register.ftl
+							</li><li class="listitem">
+								Login: template.ftl
+							</li><li class="listitem">
+								Login: terms.ftl
+							</li><li class="listitem">
+								Welcome: index.ftl (new)
+							</li></ul></div><p>
+						<span class="strong strong"><strong>Messages</strong></span>
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								Account: messages_en.properties
+							</li><li class="listitem">
+								Admin: admin-messages_en.properties
+							</li><li class="listitem">
+								Email: messages_en.properties
+							</li><li class="listitem">
+								Login: messages_en.properties
+							</li></ul></div><p>
+						<span class="strong strong"><strong>Styles</strong></span>
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+								Login: login-rhsso.css (new)
+							</li><li class="listitem">
+								Welcome: welcome-rhsso.css
+							</li></ul></div></section><section class="section" id="theme_changes_rh_sso_7_2"><div class="titlepage"><div><div><h4 class="title">3.1.4.2. Theme changes RH-SSO 7.2</h4></div></div></div><p>
 						<span class="strong strong"><strong>Templates</strong></span>
 					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 								Account: account.ftl
@@ -393,7 +497,7 @@ subscription-manager repos --enable=rh-sso-7.2-for-rhel-7-server-rpms</pre><div 
 								Account: account.css
 							</li><li class="listitem">
 								Login: login.css
-							</li></ul></div></section><section class="section" id="theme_changes_rh_sso_7_1"><div class="titlepage"><div><div><h4 class="title">3.1.4.2. Theme changes RH-SSO 7.1</h4></div></div></div><p>
+							</li></ul></div></section><section class="section" id="theme_changes_rh_sso_7_1"><div class="titlepage"><div><div><h4 class="title">3.1.4.3. Theme changes RH-SSO 7.1</h4></div></div></div><p>
 						<span class="strong strong"><strong>Templates</strong></span>
 					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
 								Account: account.ftl
@@ -429,7 +533,7 @@ subscription-manager repos --enable=rh-sso-7.2-for-rhel-7-server-rpms</pre><div 
 								Account: account.css
 							</li><li class="listitem">
 								Login: login.css
-							</li></ul></div></section><section class="section" id="migrating_templates"><div class="titlepage"><div><div><h4 class="title">3.1.4.3. Migrating Templates</h4></div></div></div><p>
+							</li></ul></div></section><section class="section" id="migrating_templates"><div class="titlepage"><div><div><h4 class="title">3.1.4.4. Migrating Templates</h4></div></div></div><p>
 						If you have customized any of the templates you need to carefully review the changes that have been made to the templates to decide if you need to apply these changes to your customized templates. Most likely you will need to apply the same changes to your customized templates. If you have not customized any of the listed templates you can skip this section.
 					</p><p>
 						A best practice is to use a diff tool to compare the templates to see what changes you might need to make to your customized template. If you have only made minor changes it is simpler to compare the updated template to your customized template. However, if you have made many changes it might be easier to compare the new template to your customized old template, as this will show you what changes you need to make.
@@ -445,7 +549,7 @@ subscription-manager repos --enable=rh-sso-7.2-for-rhel-7-server-rpms</pre><div 
 							<span class="inlinemediaobject"><img src="images/theme-migration-meld-info-2.png" alt="theme migration meld info 2"/></span>
 						</p></div><p>
 						From this comparison it is easy to identify what has been changed in the base template. You will then manually have to make the same changes to your modified template. Since this approach is not as simple as the first approach, only use this approach if the first one is not feasible.
-					</p></section><section class="section" id="migrating_messages"><div class="titlepage"><div><div><h4 class="title">3.1.4.4. Migrating Messages</h4></div></div></div><p>
+					</p></section><section class="section" id="migrating_messages"><div class="titlepage"><div><div><h4 class="title">3.1.4.5. Migrating Messages</h4></div></div></div><p>
 						If you have added support for another language, you need to apply all the changes listed above. If you have not added support for another language, you might not need to change anything; you only have to make changes if you have changed an affected message in your theme.
 					</p><p>
 						For added values, review the value of the message in the base theme to determine if you need to customize that message.
@@ -453,7 +557,7 @@ subscription-manager repos --enable=rh-sso-7.2-for-rhel-7-server-rpms</pre><div 
 						For renamed keys, rename the key in your custom theme.
 					</p><p>
 						For changed values, check the value in the base theme to determine if you need to make changes to your custom theme.
-					</p></section><section class="section" id="migrating_styles"><div class="titlepage"><div><div><h4 class="title">3.1.4.5. Migrating Styles</h4></div></div></div><p>
+					</p></section><section class="section" id="migrating_styles"><div class="titlepage"><div><div><h4 class="title">3.1.4.6. Migrating Styles</h4></div></div></div><p>
 						If you are inheriting styles from the keycloak or rh-sso themes you might need to update your custom styles to reflect changes made to the styles from the built-in themes.
 					</p><p>
 						A best practice is to use a diff tool to compare the changes to stylesheets between the old server installation and the new server installation.
@@ -634,7 +738,7 @@ RHSSO_HOME_NEW/themes/keycloak/login/resources/css/login.css</pre><p>
 						Unzip the updated file into its place
 					</li><li class="listitem">
 						Change the dependency for keycloak-connect in the package.json of your application
-					</li></ol></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm140343212167808"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+					</li></ol></div></section></section><div><div xml:lang="en-US" class="legalnotice" id="idm140266382500416"><h1 class="legalnotice">Legal Notice</h1><div class="para">
 				Copyright <span class="trademark"/>© 2018 Red Hat, Inc.
 			</div><div class="para">
 				Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
