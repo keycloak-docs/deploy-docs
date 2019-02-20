@@ -2095,7 +2095,7 @@ The default configuration defines a resource that maps to all paths in your appl
 <div class="sect3">
 <h4 id="importing-a-configuration-file"><a class="anchor" href="#importing-a-configuration-file"></a>3.4.2. Importing a Configuration File</h4>
 <div class="paragraph">
-<p>To export a configuration file, complete the following steps:</p>
+<p>To import a configuration file, complete the following steps:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3797,7 +3797,7 @@ permissions for the resource(s) and scope(s) being requested. This parameter all
 <li>
 <p><strong>claim_token_format</strong></p>
 <div class="paragraph">
-<p>This parameter is *optional. A string indicating the format of the token specified in the <code>claim_token</code> parameter. Keycloak supports two token
+<p>This parameter is <strong>optional</strong>. A string indicating the format of the token specified in the <code>claim_token</code> parameter. Keycloak supports two token
 formats: <code>urn:ietf:params:oauth:token-type:jwt</code> and <code><a href="https://openid.net/specs/openid-connect-core-1_0.html#IDToken" class="bare">https://openid.net/specs/openid-connect-core-1_0.html#IDToken</a></code>. The <code>urn:ietf:params:oauth:token-type:jwt</code> format
 indicates that the <code>claim_token</code> parameter references an access token. The <code><a href="https://openid.net/specs/openid-connect-core-1_0.html#IDToken" class="bare">https://openid.net/specs/openid-connect-core-1_0.html#IDToken</a></code> indicates that the
 <code>claim_token</code> parameter references an OpenID Connect ID Token.</p>
@@ -3806,14 +3806,14 @@ indicates that the <code>claim_token</code> parameter references an access token
 <li>
 <p><strong>rpt</strong></p>
 <div class="paragraph">
-<p>This parameter is *optional. A previously issued RPT which permissions should also be evaluated and added in a new one. This parameter
+<p>This parameter is <strong>optional</strong>. A previously issued RPT which permissions should also be evaluated and added in a new one. This parameter
 allows clients in possession of an RPT to perform incremental authorization where permissions are added on demand.</p>
 </div>
 </li>
 <li>
 <p><strong>permission</strong></p>
 <div class="paragraph">
-<p>This parameter is *optional. A string representing a set of one or more resources and scopes the client is seeking access. This parameter can be defined multiple times
+<p>This parameter is <strong>optional</strong>. A string representing a set of one or more resources and scopes the client is seeking access. This parameter can be defined multiple times
 in order to request permission for multiple resource and scopes. This parameter is an extension to <code>urn:ietf:params:oauth:grant-type:uma-ticket</code> grant type in order to allow clients to send authorization requests without a
 permission ticket. The format of the string must be: <code>RESOURCE_ID#SCOPE_ID</code>. For instance: <code>Resource A#Scope A</code>, <code>Resource A#Scope A, Scope B, Scope C</code>, <code>Resource A</code>, <code>#Scope A</code>.</p>
 </div>
@@ -4148,7 +4148,7 @@ a resource at the resource server without a permission ticket:</p>
 <div class="title">Client requests a protected resource without sending an RPT</div>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">curl -X GET \
-  http://${host}:8080/my-resource-server/resource/1bfdfe78-a4e1-4c2d-b142-fc92b75b986f</code></pre>
+  http://${host}:${port}/my-resource-server/resource/1bfdfe78-a4e1-4c2d-b142-fc92b75b986f</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4160,7 +4160,7 @@ of a Keycloak server to where the ticket should be sent in order to obtain an RP
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 401 Unauthorized
 WWW-Authenticate: UMA realm=&quot;${realm}&quot;,
-    as_uri=&quot;https://${host}:${post}/auth/realms/${realm}&quot;,
+    as_uri=&quot;https://${host}:${port}/auth/realms/${realm}&quot;,
     ticket=&quot;016f84e8-f9b9-11e0-bd6f-0021cc6004de&quot;</code></pre>
 </div>
 </div>
@@ -6214,7 +6214,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-01-23 12:32:15 UTC
+Last updated 2019-02-20 10:52:36 UTC
 </div>
 </div>
 <ul id="globalnav">

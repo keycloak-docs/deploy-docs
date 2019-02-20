@@ -1620,9 +1620,9 @@ The add-user.sh does not add user to Keycloak server but to the underlying JBoss
 When setting up for Cross-Datacenter Replication, you will use more independent Keycloak clusters, so you must understand how a cluster works and the basic concepts and requirements such as load balancing, shared databases, and multicasting.</p>
 </li>
 <li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication">JBoss Data Grid Cross-Datacenter Replication</a>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication">JBoss Data Grid Cross-Datacenter Replication</a>
 Keycloak uses JBoss Data Grid (JDG) for the replication of Infinispan data between the data centers. We use the <code>Remote Client-Server Mode</code>
-described in the JDG documentation in  <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#configure_cross_datacenter_replication_remote_client_server_mode">Configure Cross-Datacenter Replication</a>.</p>
+described in the JDG documentation in  <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#configure_cross_datacenter_replication_remote_client_server_mode">Configure Cross-Datacenter Replication</a>.</p>
 </li>
 </ul>
 </div>
@@ -1790,7 +1790,7 @@ entered a bad password. The details are described <a href="https://www.keycloak.
 </li>
 <li>
 <p>Infinispan servers <code>jdg1</code> and <code>jdg2</code> are connected to each other through the RELAY2 protocol and <code>backup</code> based Infinispan
-caches in a similar way as described in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#configure_cross_datacenter_replication_remote_client_server_mode">JDG documentation</a>.</p>
+caches in a similar way as described in the <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#configure_cross_datacenter_replication_remote_client_server_mode">JDG documentation</a>.</p>
 </li>
 <li>
 <p>Keycloak servers <code>node11</code> and <code>node12</code> form a cluster with each other, but they do not communicate directly with any server in <code>site2</code>.
@@ -2437,7 +2437,7 @@ Event 'CLIENT_CACHE_ENTRY_REMOVED', key '193489e7-e2bc-4069-afe8-f1dfa73084ea', 
 <div class="paragraph">
 <p><strong>Manually by admin</strong> - Admin can use the <code>jconsole</code> or other tool and run some JMX operations to manually take the particular site offline.
 This is useful especially if the outage is planned. With <code>jconsole</code> or CLI, you can connect to the <code>jdg1</code> server and take the <code>site2</code> offline.
-More details about this are available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#taking_a_site_offline">JDG documentation</a>.</p>
+More details about this are available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#taking_a_site_offline">JDG documentation</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -2510,7 +2510,7 @@ Again, you may need to check all the caches and bring them online.</p>
 </div>
 <div class="paragraph">
 <p>The state transfer can be also done on the Infinispan server side through JMX. The operation name is <code>pushState</code>. There are few other operations to monitor status, cancel push state, and so on.
-More info about state transfer is available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#state_transfer_between_sites">Infinispan docs</a>.</p>
+More info about state transfer is available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#state_transfer_between_sites">Infinispan docs</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -5609,7 +5609,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-01-23 12:32:36 UTC
+Last updated 2019-02-20 10:52:55 UTC
 </div>
 </div>
 <ul id="globalnav">
