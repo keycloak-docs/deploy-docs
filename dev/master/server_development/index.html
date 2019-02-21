@@ -720,7 +720,7 @@ span.image img {
 </li>
 <li><a href="#_providers">6. Service Provider Interfaces (SPI)</a>
 <ul class="sectlevel2">
-<li><a href="#implementing-a-spi">6.1. Implementing a SPI</a>
+<li><a href="#implementing-an-spi">6.1. Implementing an SPI</a>
 <ul class="sectlevel3">
 <li><a href="#_providers_admin_console">6.1.1. Show info from your SPI implementation in admin console</a></li>
 </ul>
@@ -904,14 +904,14 @@ This one is short</code></pre>
 </div>
 <div class="paragraph">
 <p>To invoke the API you need to obtain an access token with the appropriate permissions. The required permissions are described in
-<a href="https://www.keycloak.org/docs/4.8/server_admin/">Server Administration Guide</a>.</p>
+<a href="https://www.keycloak.org/docs/5.0/server_admin/">Server Administration Guide</a>.</p>
 </div>
 <div class="paragraph">
 <p>A token can be obtained by enabling authenticating to your application with Keycloak; see the
-<a href="https://www.keycloak.org/docs/4.8/securing_apps/">Securing Applications and Services Guide</a>. You can also use direct access grant to obtain an access token.</p>
+<a href="https://www.keycloak.org/docs/5.0/securing_apps/">Securing Applications and Services Guide</a>. You can also use direct access grant to obtain an access token.</p>
 </div>
 <div class="paragraph">
-<p>For complete documentation see <a href="https://www.keycloak.org/docs/4.8/api_documentation/">API Documentation</a>.</p>
+<p>For complete documentation see <a href="https://www.keycloak.org/docs/5.0/api_documentation/">API Documentation</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="example-using-curl"><a class="anchor" href="#example-using-curl"></a>2.1. Example using CURL</h3>
@@ -980,7 +980,7 @@ RealmRepresentation realm = keycloak.realm(<span class="string"><span class="del
 </div>
 </div>
 <div class="paragraph">
-<p>Complete Javadoc for the admin client is available at <a href="https://www.keycloak.org/docs/4.8/api_documentation/">API Documentation</a>.</p>
+<p>Complete Javadoc for the admin client is available at <a href="https://www.keycloak.org/docs/5.0/api_documentation/">API Documentation</a>.</p>
 </div>
 </div>
 </div>
@@ -1050,7 +1050,7 @@ refresh the page.
 </div>
 <div class="paragraph">
 <p>To change the welcome theme you need to edit <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>.
-For more information on where the <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code> file resides see the <a href="https://www.keycloak.org/docs/4.8/server_installation/">Server Installation and Configuration Guide</a>.</p>
+For more information on where these files reside see the <a href="https://www.keycloak.org/docs/5.0/server_installation/">Server Installation and Configuration Guide</a>.</p>
 </div>
 <div class="paragraph">
 <p>Add <code>welcomeTheme</code> to the theme element, for example:</p>
@@ -1072,7 +1072,7 @@ For more information on where the <code>standalone.xml</code>, <code>standalone-
 <h3 id="default-themes"><a class="anchor" href="#default-themes"></a>3.3. Default Themes</h3>
 <div class="paragraph">
 <p>Keycloak comes bundled with default themes in the server&#8217;s root <code>themes</code> directory. To simplify upgrading you should not edit the bundled themes
-directly. Instead create your own theme that extends one of the bundle themes.</p>
+directly. Instead create your own theme that extends one of the bundled themes.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1189,7 +1189,7 @@ file in the corresponding type of the keycloak theme (<code>themes/keycloak/&lt;
 <div class="sect3">
 <h4 id="stylesheets"><a class="anchor" href="#stylesheets"></a>3.4.2. Stylesheets</h4>
 <div class="paragraph">
-<p>A theme can have one or more stylesheets, to add a stylesheet create a file in the <code>&lt;THEME TYPE&gt;/resources/css</code> directory of your theme. Then add it to the <code>styles</code>
+<p>A theme can have one or more stylesheets. To add a stylesheet create a file in the <code>&lt;THEME TYPE&gt;/resources/css</code> directory of your theme. Then add it to the <code>styles</code>
 property in <code>theme.properties</code>.</p>
 </div>
 <div class="paragraph">
@@ -1288,7 +1288,7 @@ directly in HTML templates.</p>
 <div class="sect3">
 <h4 id="messages"><a class="anchor" href="#messages"></a>3.4.5. Messages</h4>
 <div class="paragraph">
-<p>Text in the templates are loaded from message bundles. A theme that extends another theme will inherit all messages from the parents message bundle and you can
+<p>Text in the templates is loaded from message bundles. A theme that extends another theme will inherit all messages from the parent&#8217;s message bundle and you can
 override individual messages by adding <code>&lt;THEME TYPE&gt;/messages/messages_en.properties</code> to your theme.</p>
 </div>
 <div class="paragraph">
@@ -1308,7 +1308,7 @@ of the realm.</p>
 <div class="sect3">
 <h4 id="internationalization"><a class="anchor" href="#internationalization"></a>3.4.6. Internationalization</h4>
 <div class="paragraph">
-<p>Keycloak supports internationalization. To enable internationalization for a realm see <a href="https://www.keycloak.org/docs/4.8/server_admin/">Server Administration Guide</a>. This
+<p>Keycloak supports internationalization. To enable internationalization for a realm see <a href="https://www.keycloak.org/docs/5.0/server_admin/">Server Administration Guide</a>. This
 section describes how you can add your own language.</p>
 </div>
 <div class="paragraph">
@@ -1393,7 +1393,7 @@ After the first line (&lt;#import &#8230;&#8203;&gt;) add <code>&lt;h1&gt;HELLO 
 <div class="sect3">
 <h4 id="emails"><a class="anchor" href="#emails"></a>3.4.8. Emails</h4>
 <div class="paragraph">
-<p>To edit the subject and contents for emails, for example password recovery email, add a message bundle to the <code>email</code> type of your theme. There&#8217;s three messages for each email. One for the subject, one for the plain text body and one for the html body.</p>
+<p>To edit the subject and contents for emails, for example password recovery email, add a message bundle to the <code>email</code> type of your theme. There are three messages for each email. One for the subject, one for the plain text body and one for the html body.</p>
 </div>
 <div class="paragraph">
 <p>To see all emails available take a look at <code>themes/base/email/messages/messages_en.properties</code>.</p>
@@ -1414,7 +1414,7 @@ passwordResetBodyHtml=&lt;a href="{0}"&gt;Reset password&lt;/a&gt;</code></pre>
 <div class="sect2">
 <h3 id="deploying-themes"><a class="anchor" href="#deploying-themes"></a>3.5. Deploying Themes</h3>
 <div class="paragraph">
-<p>Themes can be deployed to Keycloak by copying the theme directory to <code>themes</code> or it can be deployed as an archive. During development copying the
+<p>Themes can be deployed to Keycloak by copying the theme directory to <code>themes</code> or it can be deployed as an archive. During development you can copy the
 theme to the <code>themes</code> directory, but in production you may want to consider using an <code>archive</code>. An <code>archive</code> makes it simpler to have a versioned copy of
 the theme, especially when you have multiple instances of Keycloak for example with clustering.</p>
 </div>
@@ -1705,13 +1705,13 @@ In the broker configuration page you can automatically assign this role to newly
 <div class="paragraph">
 <p>Some applications want to integrate with social providers like Facebook, but do not want to provide an option to login via
 these social providers.  Keycloak offers a browser-based API that applications can use to link an existing
-user account to a specific external IDP.  This is called client initiated account linking.</p>
+user account to a specific external IDP.  This is called client-initiated account linking. Account linking can only be initiated by OIDC applications.</p>
 </div>
 <div class="paragraph">
-<p>The way it works is that the application forward&#8217;s the user&#8217;s browser to a URL on the Keycloak server requesting
+<p>The way it works is that the application forwards the user&#8217;s browser to a URL on the Keycloak server requesting
 that it wants to link the user&#8217;s account to a specific external provider (i.e. Facebook).  The server
 initiates a login with the external provider.  The browser logs in at the external provider and is redirected
-back to the auth server.  The auth server establishes the link and redirects back to the application with a confirmation.</p>
+back to the server.  The server establishes the link and redirects back to the application with a confirmation.</p>
 </div>
 <div class="paragraph">
 <p>There are some preconditions that must be met by the client application before it can initiate this protocol:</p>
@@ -1722,7 +1722,7 @@ back to the auth server.  The auth server establishes the link and redirects bac
 <p>The desired identity provider must be configured and enabled for the user&#8217;s realm in the admin console.</p>
 </li>
 <li>
-<p>The application must already be logged in as an existing user via the OIDC protocol</p>
+<p>The user account must already be logged in as an existing user via the OIDC protocol</p>
 </li>
 <li>
 <p>The user must have an <code>account.manage-account</code> or <code>account.manage-account-links</code> role mapping.</p>
@@ -1850,12 +1850,12 @@ to the application.  If there is an error condition and the auth server deems it
 To achieve this Keycloak has a number of Service Provider Interfaces (SPI) for which you can implement your own providers.</p>
 </div>
 <div class="sect2">
-<h3 id="implementing-a-spi"><a class="anchor" href="#implementing-a-spi"></a>6.1. Implementing a SPI</h3>
+<h3 id="implementing-an-spi"><a class="anchor" href="#implementing-an-spi"></a>6.1. Implementing an SPI</h3>
 <div class="paragraph">
 <p>To implement an SPI you need to implement its ProviderFactory and Provider interfaces. You also need to create a service configuration file.</p>
 </div>
 <div class="paragraph">
-<p>For example, to implement the Theme Selector Spi you need to implement ThemeSelectorProviderFactory and ThemeSelectorProvider and also provide the file
+<p>For example, to implement the Theme Selector SPI you need to implement ThemeSelectorProviderFactory and ThemeSelectorProvider and also provide the file
 <code>META-INF/services/org.keycloak.theme.ThemeSelectorProviderFactory</code>.</p>
 </div>
 <div class="paragraph">
@@ -1901,7 +1901,7 @@ To achieve this Keycloak has a number of Service Provider Interfaces (SPI) for w
 </td>
 <td class="content">
 Keycloak creates a single instance of provider factories which makes it possible to store state for multiple requests.
-Provider instances are created by calling create on the factory for each requests so these should be light-weight object.
+Provider instances are created by calling create on the factory for each request so these should be light-weight object.
 </td>
 </tr>
 </table>
@@ -1942,8 +1942,8 @@ Provider instances are created by calling create on the factory for each request
 </div>
 <div class="paragraph">
 <p>You can configure your provider through <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>.
-See the <a href="https://www.keycloak.org/docs/4.8/server_installation/">Server Installation and Configuration Guide</a> for more details on
-where the <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code> file lives.</p>
+See the <a href="https://www.keycloak.org/docs/5.0/server_installation/">Server Installation and Configuration Guide</a> for more details on
+where to find these files.</p>
 </div>
 <div class="paragraph">
 <p>For example by adding the following to <code>standalone.xml</code>:</p>
@@ -1992,7 +1992,7 @@ where the <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>
 <div class="sect3">
 <h4 id="_providers_admin_console"><a class="anchor" href="#_providers_admin_console"></a>6.1.1. Show info from your SPI implementation in admin console</h4>
 <div class="paragraph">
-<p>Sometimes it is useful to show additional info about your Provider to a Keycloak administrator. You can show provider build time informations (eg. version of
+<p>Sometimes it is useful to show additional info about your Provider to a Keycloak administrator. You can show provider build time information (eg. version of
 custom provider currently installed), current configuration of the provider (eg. url of remote system your provider talks to) or some operational info
 (average time of response from remote system your provider talks to). Keycloak admin console provides Server Info page to show this kind of information.</p>
 </div>
@@ -3266,7 +3266,7 @@ In other words, add your custom authenticator after the "Send Reset Email" authe
 <div class="paragraph">
 <p>First Broker Login flow is used during first login with some identity provider.
 Term <code>First Login</code> means that there is not yet existing Keycloak account linked with the particular authenticated identity provider account.
-For more details about this flow see the <code>Identity Brokering</code> chapter in <a href="https://www.keycloak.org/docs/4.8/server_admin/">Server Administration Guide</a> .</p>
+For more details about this flow see the <code>Identity Brokering</code> chapter in <a href="https://www.keycloak.org/docs/5.0/server_admin/">Server Administration Guide</a> .</p>
 </div>
 </div>
 <div class="sect2">
@@ -3279,7 +3279,7 @@ But the client authentication can be also used directly by you during <code>Dire
 or during <code>Service account</code> authentication (represented by OAuth2 <code>Client Credentials Flow</code>).</p>
 </div>
 <div class="paragraph">
-<p>For more details about Keycloak adapter and OAuth2 flows see <a href="https://www.keycloak.org/docs/4.8/securing_apps/">Securing Applications and Services Guide</a>.</p>
+<p>For more details about Keycloak adapter and OAuth2 flows see <a href="https://www.keycloak.org/docs/5.0/securing_apps/">Securing Applications and Services Guide</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="default-implementations"><a class="anchor" href="#default-implementations"></a>8.8.1. Default implementations</h4>
@@ -3613,7 +3613,7 @@ and examples for complete details on how to do this.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can use the User Storage SPI to write extensions to Keycloak to connect to external user databases and credential stores. The built-in LDAP and ActiveDirectory support is an implementation of this SPI in action. Out of the box, Keycloak uses its local database to create, update, and look up users and validation credentials. Often though, organizations have existing external proprietary user databases that they cannot migrate to Keycloak&#8217;s data model. For those situations, application developers can write implementations of the User Storage SPI to bridge the external user store and the internal user object model that Keycloak uses to log in users and manage them.</p>
+<p>You can use the User Storage SPI to write extensions to Keycloak to connect to external user databases and credential stores. The built-in LDAP and ActiveDirectory support is an implementation of this SPI in action. Out of the box, Keycloak uses its local database to create, update, and look up users and validate credentials. Often though, organizations have existing external proprietary user databases that they cannot migrate to Keycloak&#8217;s data model. For those situations, application developers can write implementations of the User Storage SPI to bridge the external user store and the internal user object model that Keycloak uses to log in users and manage them.</p>
 </div>
 <div class="paragraph">
 <p>When the Keycloak runtime needs to look up a user, such as when a user is logging in, it performs a number of steps to locate the user. It first looks to see if the user is in the user cache; if the user is found it uses that in-memory representation. Then it looks for the user within the Keycloak local database. If the user is not found, it then loops through User Storage SPI provider implementations to perform the user query until one of them returns the user the runtime is looking for. The provider queries the external user store for the user and maps the external data representation of the user to Keycloak&#8217;s user metamodel.</p>
@@ -3700,7 +3700,7 @@ Provider classes do all the heavy lifting of user lookup and other user operatio
 <span class="directive">public</span> <span class="type">interface</span> <span class="class">UserStorageProviderFactory</span>&lt;T <span class="directive">extends</span> UserStorageProvider&gt; <span class="directive">extends</span> ComponentFactory&lt;T, UserStorageProvider&gt; {
 
     <span class="comment">/**
-     * This is the name of the provider and will be showed in the admin console as an option.
+     * This is the name of the provider and will be shown in the admin console as an option.
      *
      * @return
      */</span>
@@ -3738,11 +3738,11 @@ factory class should look like this:</p>
 </div>
 <div class="paragraph">
 <p>The <code>getId()</code> method returns the name of the User Storage provider.  This id will be displayed in the admin console&#8217;s
-<code>UserFederation</code> page when you want to enable the provider for a specific realm.</p>
+User Federation page when you want to enable the provider for a specific realm.</p>
 </div>
 <div class="paragraph">
 <p>The <code>create()</code> method is responsible for allocating an instance of the provider class.  It takes a <code>org.keycloak.models.KeycloakSession</code>
-parameter.  This object can be used to lookup other information and metadata as well as provide access to various other
+parameter.  This object can be used to look up other information and metadata as well as provide access to various other
 components within the runtime.  The <code>ComponentModel</code> parameter represents how the provider was enabled and configured within
 a specific realm.  It contains the instance id of the enabled provider as well as any configuration you may have specified
 for it when you enabled through the admin console.</p>
@@ -4140,7 +4140,7 @@ If you do not specify the template parameter, your provider will not function. T
 <p>In our <code>init()</code> method implementation, we find the property file containing our user declarations from the classpath. We then load the <code>properties</code> field with the username and password combinations stored there.</p>
 </div>
 <div class="paragraph">
-<p>The <code>Config.Scope</code> parameter is factory configuration that can be set up within <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>. For more information on where the <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code> file resides see the <a href="https://www.keycloak.org/docs/4.8/server_installation/">Server Installation and Configuration Guide</a>.</p>
+<p>The <code>Config.Scope</code> parameter is factory configuration that can be set up within <code>standalone.xml</code>, <code>standalone-ha.xml</code>, or <code>domain.xml</code>. For more information on where these files reside see the <a href="https://www.keycloak.org/docs/5.0/server_installation/">Server Installation and Configuration Guide</a>.</p>
 </div>
 <div class="paragraph">
 <p>For example, by adding the following to <code>standalone.xml</code>:</p>
@@ -4239,7 +4239,7 @@ If you do not specify the template parameter, your provider will not function. T
 </div>
 </div>
 <div class="paragraph">
-<p>Our <code>PropertyFileUserStorageProvider</code> example is bit contrived. It is hardcoded to a property file that is embedded in the jar of the provider. Not very useful at all. We might want to make the location of this file configurable per instance of the provider. In other words, we might want to reuse this provider mulitple times in multiple different realms and point to completely different user property files. We&#8217;ll also want to perform this configuration within the administration console UI.</p>
+<p>Our <code>PropertyFileUserStorageProvider</code> example is bit contrived. It is hardcoded to a property file that is embedded in the jar of the provider, which is not terribly useful. We might want to make the location of this file configurable per instance of the provider. In other words, we might want to reuse this provider mulitple times in multiple different realms and point to completely different user property files. We&#8217;ll also want to perform this configuration within the administration console UI.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UserStorageProviderFactory</code> has additional methods you can implement that handle provider configuration. You describe the variables you want to configure per provider and the administration console automatically renders a generic input page to gather this configuration. When implemented, callback methods also validate the configuration before it is saved, when a provider is created for the first time, and when it is updated. <code>UserStorageProviderFactory</code> inherits these methods from the <code>org.keycloak.component.ComponentFactory</code> interface.</p>
@@ -4427,7 +4427,7 @@ we can&#8217;t have null values for a property in the property value. We also ha
 methods to reflect this.</p>
 </div>
 <div class="paragraph">
-<p><code>addUser()</code> will be called if the provider implements the <code>UserRegistrationProvider</code> interface. If your provider has
+<p>The <code>addUser()</code> method will be called if the provider implements the <code>UserRegistrationProvider</code> interface. If your provider has
 a configuration switch to turn of adding a user, returning <code>null</code> from this method will skip the provider and call
 the next one.</p>
 </div>
@@ -4465,7 +4465,7 @@ the next one.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>We can now also implement disabling a password too.</p>
+<p>We can now also implement disabling a password.</p>
 </div>
 <div class="listingblock">
 <div class="title">PropertyFileUserStorageProvider</div>
@@ -4618,7 +4618,7 @@ We only store usernames, so we only search based on usernames. We delegate to <c
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>PropertyProfileUserStorageProvider</code> example is really limited.  While we will be able to login with users stored
+<p>The <code>PropertyFileUserStorageProvider</code> example is really limited.  While we will be able to login with users stored
 in a property file, we won&#8217;t be able to do much else.  If users loaded by this provider need special role or group
 mappings to fully access particular applications there is no way for us to add additional role mappings to these users.
 You also can&#8217;t modify or add additional important attributes like email, first and last name.</p>
@@ -4727,7 +4727,7 @@ be a big performance loss under load and put a lot of strain on the Keycloak dat
 storage approach will only store extra data as needed and may never be used depending on the capabilities of your external store.</p>
 </li>
 <li>
-<p>With the import approach, you have to keep local keycloak storage and external storage in sync. The User Storage SPI
+<p>With the import approach, you have to keep local Keycloak storage and external storage in sync. The User Storage SPI
 has capability interfaces that you can implement to support synchronization, but this can quickly become painful and messy.</p>
 </li>
 </ul>
@@ -4767,7 +4767,7 @@ begin first by modifying the <code>createAdapter()</code> method.</p>
 <div class="paragraph">
 <p>In this method we call the <code>KeycloakSession.userLocalStorage()</code> method to obtain a reference to local Keycloak
 user storage. We see if the user is stored locally, if not, we add it locally. Do not set the <code>id</code> of the local user.
-Let Keycloak set auto generate the <code>id</code>.  Also note that we call
+Let Keycloak automatically generate the <code>id</code>.  Also note that we call
 <code>UserModel.setFederationLink()</code> and pass in the ID of the <code>ComponentModel</code> of our provider. This sets a link between
 the provider and the imported user.</p>
 </div>
@@ -4875,9 +4875,9 @@ an additional interface you can implement to deal with this, <code>org.keycloak.
 </div>
 </div>
 <div class="paragraph">
-<p>When a user is loaded by ID, username, or email queries it is cached. When a user is cached, it iterates through
+<p>When a user object is loaded by ID, username, or email queries it is cached. When a user object is bing cached, it iterates through
 the entire <code>UserModel</code> interface and pulls this information to a local in-memory-only cache. In a cluster, this cache
-is still local, but it becomes an invalidation cache. When a user is modified, it is evicted. This eviction event
+is still local, but it becomes an invalidation cache. When a user object is modified, it is evicted. This eviction event
 is propagated to the entire cluster so that the other nodes' user cache is also invalidated.</p>
 </div>
 <div class="sect3">
@@ -5002,7 +5002,7 @@ can use in a WildFly environment. For more details on this file, see the WildFly
 allows you to pull in external dependencies among other fine-grained actions.</p>
 </div>
 <div class="paragraph">
-<p>Implementations of <code>UserStorageProviderFactory</code> are required to be plain java objects. But we also currently support
+<p>Provider implementations are required to be plain java objects. But we also currently support
 implementing <code>UserStorageProvider</code> classes as Stateful EJBs. This is especially useful if you want to use JPA
 to connect to a relational store. This is how you would do it:</p>
 </div>
@@ -5050,7 +5050,7 @@ not proxy the user correctly and your provider won&#8217;t work.</p>
 will never be cleaned up and you might eventually see error messages.</p>
 </div>
 <div class="paragraph">
-<p>Implementations of <code>UserStorageProviderFactory</code> are required to be plain java objects. Your factory class would
+<p>Implementations of <code>UserStorageProvider</code> are required to be plain Java objects. Your factory class would
 perform a JNDI lookup of the Stateful EJB in its create() method.</p>
 </div>
 <div class="listingblock">
@@ -5086,13 +5086,10 @@ file as well as any JPA <code>@Entity</code> classes.</p>
 <td class="content">
 When using JPA any additional datasource must be an XA datasource. The Keycloak datasource
          is not an XA datasource. If you interact with two or more non-XA datasources in the same transaction, the server returns
-         an error message. Only one non-XA resource is permitted in a single transaction.
+         an error message. Only one non-XA resource is permitted in a single transaction. See the WildFly manual for more details on deploying an XA datasource.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>See the WildFly manual for more details on deploying an XA datasource.</p>
 </div>
 <div class="paragraph">
 <p>CDI is not supported.</p>
@@ -5232,7 +5229,7 @@ This chapter is only applicable if you have implemented a provider using the ear
 </table>
 </div>
 <div class="paragraph">
-<p>In Keycloak version 2.4.0 and earlier there was a User Federation SPI. Red Hat Single Sign-On version 7.0, although unsupported, also had
+<p>In Keycloak version 2.4.0 and earlier there was a User Federation SPI. Red Hat Single Sign-On version 7.0, although unsupported, had
 this earlier SPI available as well. This earlier User Federation SPI has been removed from Keycloak version 2.5.0 and Red Hat Single Sign-On version 7.1.
 However, if you have written a provider with this earlier SPI, this chapter discusses some strategies you can use to port it.</p>
 </div>
@@ -5270,7 +5267,7 @@ be a big performance loss under load and put a lot of strain on the Keycloak dat
 storage approach will only store extra data as needed and might never be used depending on the capabilities of your external store.</p>
 </li>
 <li>
-<p>With the import approach, you have to keep local keycloak storage and external storage in sync. The User Storage SPI
+<p>With the import approach, you have to keep local Keycloak storage and external storage in sync. The User Storage SPI
 has capability interfaces that you can implement to support synchronization, but this can quickly become painful and messy.</p>
 </li>
 </ul>
@@ -5293,7 +5290,7 @@ In the later SPI, this method is only called when the local user is loaded from 
 then the <code>ImportedUserValidation.validate()</code> method is not called at all.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UserFederationProvider.isValid()</code> method no longer exists in the later model.</p>
+<p>The <code>UserFederationProvider.isValid()</code> method no longer exists in the later SPI.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UserFederationProvider</code> methods <code>synchronizeRegistrations()</code>, <code>registerUser()</code>, and <code>removeUser()</code> have been
@@ -5340,8 +5337,8 @@ with the same provider ID (i.e., "ldap", "kerberos") as the earlier User Federat
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>You can remove the earlier provider in your earlier Keycloak deployment. This will remove all local linked copies
-of imported users.  Then, when you upgrade Keycloak, just deploy and configure your new provider for your realm.</p>
+<p>You can remove the earlier provider in your earlier Keycloak deployment. This will remove the local linked copies
+of all users you imported.  Then, when you upgrade Keycloak, just deploy and configure your new provider for your realm.</p>
 </li>
 <li>
 <p>The second option is to write your new provider making sure it has the same provider ID: <code>UserStorageProviderFactory.getId()</code>.
@@ -5362,7 +5359,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-02-20 11:07:13 UTC
+Last updated 2019-02-21 09:36:51 UTC
 </div>
 </div>
 <ul id="globalnav">
