@@ -878,7 +878,7 @@ for WildFly and its sub projects. Here is the link to the documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a></p>
+<p><a href="http://docs.wildfly.org/15/Admin_Guide.html"><em>WildFly 15 Documentation</em></a></p>
 </li>
 </ul>
 </div>
@@ -1058,7 +1058,7 @@ your server configurations?  Your choice of operating mode effects how you confi
 <td class="content">
 The Keycloak is built on top of the WildFly Application Server.  This guide will only
      go over the basics for deployment within a specific mode.  If you want specific information on this, a better place
-     to go would be the <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a>.
+     to go would be the <a href="http://docs.wildfly.org/15/Admin_Guide.html"><em>WildFly 15 Documentation</em></a>.
 </td>
 </tr>
 </table>
@@ -1124,7 +1124,7 @@ is also used to configure non-infrastructure level things that are specific to K
 <td class="content">
 Any changes you make to this file while the server is running will not take effect and may even be overwritten
       by the server.  Instead use the command line scripting or the web console of WildFly.  See
-      the <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a> for more information.
+      the <a href="http://docs.wildfly.org/15/Admin_Guide.html"><em>WildFly 15 Documentation</em></a> for more information.
 </td>
 </tr>
 </table>
@@ -1168,7 +1168,7 @@ deploy some type of load balancer in front of the cluster.  The <a href="#_clust
 <td class="content">
 Any changes you make to this file while the server is running will not take effect and may even be overwritten
       by the server.  Instead use the command line scripting or the web console of WildFly.  See
-      the <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a> for more information.
+      the <a href="http://docs.wildfly.org/15/Admin_Guide.html"><em>WildFly 15 Documentation</em></a> for more information.
 </td>
 </tr>
 </table>
@@ -1226,7 +1226,7 @@ This capability is built into the WildFly Application Server which Keycloak deri
 </td>
 <td class="content">
 The guide will go over the very basics of domain mode.  Detailed steps on how to set up domain mode in a cluster should be obtained from the
-       <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a>.
+       <a href="http://docs.wildfly.org/15/Admin_Guide.html"><em>WildFly 15 Documentation</em></a>.
 </td>
 </tr>
 </table>
@@ -1288,7 +1288,7 @@ where the domain profile and server group for the Keycloak server are defined.</
 <td class="content">
 Any changes you make to this file while the domain controller is running will not take effect and may even be overwritten
       by the server.  Instead use the command line scripting or the web console of WildFly.  See
-      the <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a> for more information.
+      the <a href="http://docs.wildfly.org/15/Admin_Guide.html"><em>WildFly 15 Documentation</em></a> for more information.
 </td>
 </tr>
 </table>
@@ -1620,9 +1620,8 @@ The add-user.sh does not add user to Keycloak server but to the underlying JBoss
 When setting up for Cross-Datacenter Replication, you will use more independent Keycloak clusters, so you must understand how a cluster works and the basic concepts and requirements such as load balancing, shared databases, and multicasting.</p>
 </li>
 <li>
-<p><a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication">JBoss Data Grid Cross-Datacenter Replication</a>
-Keycloak uses JBoss Data Grid (JDG) for the replication of Infinispan data between the data centers. We use the <code>Remote Client-Server Mode</code>
-described in the JDG documentation in  <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#configure_cross_datacenter_replication_remote_client_server_mode">Configure Cross-Datacenter Replication</a>.</p>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.3/html/red_hat_data_grid_user_guide/x_site_replication">JBoss Data Grid Cross-Datacenter Replication</a>
+Keycloak uses JBoss Data Grid (JDG) for the replication of Infinispan data between the data centers.</p>
 </li>
 </ul>
 </div>
@@ -1790,7 +1789,7 @@ entered a bad password. The details are described <a href="https://www.keycloak.
 </li>
 <li>
 <p>Infinispan servers <code>jdg1</code> and <code>jdg2</code> are connected to each other through the RELAY2 protocol and <code>backup</code> based Infinispan
-caches in a similar way as described in the <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#configure_cross_datacenter_replication_remote_client_server_mode">JDG documentation</a>.</p>
+caches in a similar way as described in the <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.3/html/red_hat_data_grid_user_guide/x_site_replication">JDG documentation</a>.</p>
 </li>
 <li>
 <p>Keycloak servers <code>node11</code> and <code>node12</code> form a cluster with each other, but they do not communicate directly with any server in <code>site2</code>.
@@ -1812,7 +1811,7 @@ They communicate with the Infinispan server <code>jdg1</code> using the HotRod p
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Download Infinispan 9.3.1 server and unzip to a directory you choose. This location will be referred in later steps as <code>JDG1_HOME</code> .</p>
+<p>Download Infinispan 9.4.3 server and unzip to a directory you choose. This location will be referred in later steps as <code>JDG1_HOME</code> .</p>
 </li>
 <li>
 <p>Change those things in the <code>JDG1_HOME/standalone/configuration/clustered.xml</code> in the configuration of JGroups subsystem:</p>
@@ -1936,7 +1935,7 @@ element. See <a href="#troubleshooting">Troubleshooting</a> for more details.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You should not see any issue if you use recommended Infinispan 9.3.1 server and this step can (and should) be ignored.
+You should not see any issue if you use recommended Infinispan 9.4.3 server and this step can (and should) be ignored.
 Issues related to authorization may exist just for some other versions of Infinispan server.
 </td>
 </tr>
@@ -2437,7 +2436,7 @@ Event 'CLIENT_CACHE_ENTRY_REMOVED', key '193489e7-e2bc-4069-afe8-f1dfa73084ea', 
 <div class="paragraph">
 <p><strong>Manually by admin</strong> - Admin can use the <code>jconsole</code> or other tool and run some JMX operations to manually take the particular site offline.
 This is useful especially if the outage is planned. With <code>jconsole</code> or CLI, you can connect to the <code>jdg1</code> server and take the <code>site2</code> offline.
-More details about this are available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#taking_a_site_offline">JDG documentation</a>.</p>
+More details about this are available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.3/html/red_hat_data_grid_user_guide/x_site_replication#taking_a_site_offline">JDG documentation</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -2510,7 +2509,7 @@ Again, you may need to check all the caches and bring them online.</p>
 </div>
 <div class="paragraph">
 <p>The state transfer can be also done on the Infinispan server side through JMX. The operation name is <code>pushState</code>. There are few other operations to monitor status, cancel push state, and so on.
-More info about state transfer is available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.2/html/administration_and_configuration_guide/set_up_cross_datacenter_replication#state_transfer_between_sites">Infinispan docs</a>.</p>
+More info about state transfer is available in the <a href="https://access.redhat.com/documentation/en-us/red_hat_data_grid/7.3/html/red_hat_data_grid_user_guide/x_site_replication#state_transfer_between_sites">Infinispan docs</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3011,7 +3010,7 @@ connect
 <div class="paragraph">
 <p>You may be thinking to yourself, "I didn&#8217;t enter in any username or password!".  If you run <code>jboss-cli</code> on the same machine
 as your running standalone server or domain controller and your account has appropriate file permissions, you do not have
-to setup or enter in an admin username and password.  See the <a href="http://docs.wildfly.org/13/Admin_Guide.html"><em>WildFly 13 Documentation</em></a>
+to setup or enter in an admin username and password.  See the <a href="http://docs.wildfly.org/15/Admin_Guide.html"><em>WildFly 15 Documentation</em></a>
 for more details on how to make things more secure if you are uncomfortable with that setup.</p>
 </div>
 </div>
@@ -3365,8 +3364,8 @@ of Hibernate, but we will discuss how that is done if you run into that rare cir
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Datasource configuration is covered much more thoroughly in <a href="http://docs.wildfly.org/13/Admin_Guide.html#DataSource">the datasource configuration chapter</a>
-       in the <em>WildFly 13 Documentation</em>.
+Datasource configuration is covered much more thoroughly in <a href="http://docs.wildfly.org/15/Admin_Guide.html#DataSource">the datasource configuration chapter</a>
+       in the <em>WildFly 15 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3553,7 +3552,7 @@ scope of this guide.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For more information about datasource features, see <a href="http://docs.wildfly.org/13/Admin_Guide.html#DataSource">the datasource configuration chapter</a> in the <em>WildFly 13 Documentation</em>.
+For more information about datasource features, see <a href="http://docs.wildfly.org/15/Admin_Guide.html#DataSource">the datasource configuration chapter</a> in the <em>WildFly 15 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3645,7 +3644,7 @@ Statistics are always reported to server log at specified interval (in seconds) 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-These configuration switches and more are described in the <a href="http://docs.wildfly.org/13/Developer_Guide.html#hibernate-properties"><em>WildFly 13 Development Guide</em></a>.
+These configuration switches and more are described in the <a href="http://docs.wildfly.org/15/Developer_Guide.html#hibernate-properties"><em>WildFly 15 Development Guide</em></a>.
 </td>
 </tr>
 </table>
@@ -3835,7 +3834,7 @@ you boot up.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are many more options available when setting up <code>interface</code> definitions. For more information, see <a href="http://docs.wildfly.org/13/Admin_Guide.html#Interfaces_and_ports">the network interface</a> in the <em>WildFly 13 Documentation</em>.
+There are many more options available when setting up <code>interface</code> definitions. For more information, see <a href="http://docs.wildfly.org/15/Admin_Guide.html#Interfaces_and_ports">the network interface</a> in the <em>WildFly 15 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -3922,7 +3921,7 @@ to the <code>server-group</code> definitions you can see what <code>socket-bindi
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-There are many more options available when setting up <code>socket-binding-group</code> definitions.  For more information, see <a href="http://docs.wildfly.org/13/Admin_Guide.html#Interfaces_and_ports">the socket binding group</a> in the <em>WildFly 13 Documentation</em>.
+There are many more options available when setting up <code>socket-binding-group</code> definitions.  For more information, see <a href="http://docs.wildfly.org/15/Admin_Guide.html#Interfaces_and_ports">the socket binding group</a> in the <em>WildFly 15 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -4432,7 +4431,7 @@ to be aware of when booting up a host in the cluster.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide.  For more information, see <a href="http://docs.wildfly.org/13/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> chapter of the <em>WildFly 13 Documentation</em>.
+It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide.  For more information, see <a href="http://docs.wildfly.org/15/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> chapter of the <em>WildFly 15 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -4760,7 +4759,7 @@ of the master host.</p>
 <div class="sect3">
 <h4 id="configuring-other-load-balancers"><a class="anchor" href="#configuring-other-load-balancers"></a>8.3.5. Configuring Other Load Balancers</h4>
 <div class="paragraph">
-<p>See <a href="http://docs.wildfly.org/13/High_Availability_Guide.html">the load balancing</a> section in the <em>WildFly 13 Documentation</em> for information how to use other software-based load balancers.</p>
+<p>See <a href="http://docs.wildfly.org/15/High_Availability_Guide.html">the load balancing</a> section in the <em>WildFly 15 Documentation</em> for information how to use other software-based load balancers.</p>
 </div>
 </div>
 </div>
@@ -4913,7 +4912,7 @@ You have to edit your the <em>standalone-ha.xml</em> or <em>domain.xml</em> sect
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide. For more information, see <a href="http://docs.wildfly.org/13/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> in the <em>WildFly 13 Documentation</em>.
+It is possible to cluster Keycloak without IP Multicast, but this topic is beyond the scope of this guide. For more information, see <a href="http://docs.wildfly.org/15/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> in the <em>WildFly 15 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -5023,7 +5022,7 @@ If for some reason you still need to have firewall enabled on cluster nodes, you
 Default values are UDP port 55200 and multicast port 45688 with multicast address 230.0.0.4.
 Note that you may need more ports opened if you want to enable additional features like diagnostics for your JGroups stack.
 Keycloak delegates most of the clustering work to Infinispan/JGroups.
-For more information, see <a href="http://docs.wildfly.org/13/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> in the <em>WildFly 13 Documentation</em>.</p>
+For more information, see <a href="http://docs.wildfly.org/15/High_Availability_Guide.html#JGroups_Subsystem">JGroups</a> in the <em>WildFly 15 Documentation</em>.</p>
 </div>
 </li>
 <li>
@@ -5068,7 +5067,7 @@ but is possibly replicated across the cluster.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-More advanced configuration of these caches can be found in the  <a href="http://docs.wildfly.org/13/High_Availability_Guide.html#Infinispan_Subsystem">Infinispan</a> section of the <em>WildFly 13 Documentation</em>.
+More advanced configuration of these caches can be found in the  <a href="http://docs.wildfly.org/15/High_Availability_Guide.html#Infinispan_Subsystem">Infinispan</a> section of the <em>WildFly 15 Documentation</em>.
 </td>
 </tr>
 </table>
@@ -5609,7 +5608,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-02-21 09:36:55 UTC
+Last updated 2019-02-27 10:13:31 UTC
 </div>
 </div>
 <ul id="globalnav">
