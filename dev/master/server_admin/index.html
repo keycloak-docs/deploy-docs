@@ -808,6 +808,7 @@ span.image img {
 <li><a href="#_protocol-mappers">8.4. OIDC Token and SAML Assertion Mappings</a>
 <ul class="sectlevel3">
 <li><a href="#priority-order">8.4.1. Priority order</a></li>
+<li><a href="#_protocol-mappers_oidc-user-session-note-mappers">8.4.2. OIDC User Session Note Mappers</a></li>
 </ul>
 </li>
 <li><a href="#_client_installation">8.5. Generating Client Adapter Config</a></li>
@@ -4927,6 +4928,41 @@ implementations are processed in the needed order.</p>
 <div class="paragraph">
 <p>For example, when we first want to compute the roles which will be included with a token, we first resolve audiences based on
 those roles. Then, we process a JavaScript script that uses the roles and audiences already available in the token.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_protocol-mappers_oidc-user-session-note-mappers"><a class="anchor" href="#_protocol-mappers_oidc-user-session-note-mappers"></a>8.4.2. OIDC User Session Note Mappers</h4>
+<div class="paragraph">
+<p>User session details are via mappers and depend on various criteria. User session details are automatically included when you use or enable a feature on a client. You can also click the <code>Add builtin</code> button to include session details.</p>
+</div>
+<div class="paragraph">
+<p>Impersonated user sessions provide the following details:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>IMPERSONATOR_ID</code>: The ID of an impersonating user</p>
+</li>
+<li>
+<p><code>IMPERSONATOR_USERNAME</code>: The username of an impersonating user</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Service account sessions provide the following details:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>clientId</code>: The client ID of the service account</p>
+</li>
+<li>
+<p><code>clientAddress</code>: The remote host IP of the service account authenticated device</p>
+</li>
+<li>
+<p><code>clientHost</code>: The remote host name of the service account authenticated device</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -12516,7 +12552,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-03-06 14:55:01 UTC
+Last updated 2019-03-08 08:15:41 UTC
 </div>
 </div>
 <ul id="globalnav">
