@@ -1382,7 +1382,7 @@ The default value is <code>false</code>.</p>
 </dd>
 <dt class="hdlist1">truststore</dt>
 <dd>
-<p>The value is the file path to a keystore file.
+<p>The value is the file path to a truststore file.
 If you prefix the path with <code>classpath:</code>, then the truststore will be obtained from the deployment&#8217;s classpath instead.
 Used for outgoing HTTPS communications to the Keycloak server.
 Client making HTTPS requests need a way to verify the host of the server they are talking to.
@@ -1393,7 +1393,7 @@ This is <em>REQUIRED</em> unless <code>ssl-required</code> is <code>none</code> 
 </dd>
 <dt class="hdlist1">truststore-password</dt>
 <dd>
-<p>Password for the truststore keystore.
+<p>Password for the truststore.
 This is <em>REQUIRED</em> if <code>truststore</code> is set and the truststore requires a password.</p>
 </dd>
 <dt class="hdlist1">client-keystore</dt>
@@ -6003,7 +6003,7 @@ After the user has authenticated, the browser redirects back into the app using 
 From there, the Keycloak adapter can finish the login by reading the code or token from the URL.</p>
 </div>
 <div class="paragraph">
-<p>You can activate the native mode by passing the adater type <code>cordova-native</code> to the <code>init</code> method:</p>
+<p>You can activate the native mode by passing the adapter type <code>cordova-native</code> to the <code>init</code> method:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -8407,7 +8407,7 @@ The default value is <code>false</code>.</p>
 </dd>
 <dt class="hdlist1">truststore</dt>
 <dd>
-<p>The value is the file path to a keystore file.
+<p>The value is the file path to a truststore file.
 If you prefix the path with <code>classpath:</code>, then the truststore will be obtained from the deployment&#8217;s classpath instead.
 Used for outgoing HTTPS communications to the Keycloak server.
 Client making HTTPS requests need a way to verify the host of the server they are talking to.
@@ -8418,7 +8418,7 @@ This is <em>REQUIRED</em> unless <code>disableTrustManager</code> is <code>true<
 </dd>
 <dt class="hdlist1">truststorePassword</dt>
 <dd>
-<p>Password for the truststore keystore.
+<p>Password for the truststore.
 This is <em>REQUIRED</em> if <code>truststore</code> is set and the truststore requires a password.</p>
 </dd>
 <dt class="hdlist1">clientKeystore</dt>
@@ -10491,7 +10491,7 @@ This means that for the JavaScript adapter you can load the client configuration
 <p>The endpoint to use these specifications to register clients in Keycloak is <code>/auth/realms/&lt;realm&gt;/clients-registrations/openid-connect[/&lt;client id&gt;]</code>.</p>
 </div>
 <div class="paragraph">
-<p>This endpoints can also be found in the OpenID Connect Discovery endpoint for the realm, <code>/auth/realms/&lt;realm&gt;/.well-known/openid-configuration</code>.</p>
+<p>This endpoint can also be found in the OpenID Connect Discovery endpoint for the realm, <code>/auth/realms/&lt;realm&gt;/.well-known/openid-configuration</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -11499,7 +11499,7 @@ You&#8217;ll need to define a <code>token-exchange</code> fine grain permission 
 <p><span class="image"><img src="./keycloak-images/exchange-target-client-permission-unset.png" alt="exchange target client permission unset"></span></p>
 </div>
 <div class="paragraph">
-<p>Toggle the <code>Permissions Enabled</code> switch to true.</p>
+<p>Toggle the <code>Permissions Enabled</code> switch to ON.</p>
 </div>
 <div class="paragraph">
 <div class="title">Target Client Permission</div>
@@ -11978,7 +11978,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-03-08 08:15:36 UTC
+Last updated 2019-03-12 07:28:48 UTC
 </div>
 </div>
 <ul id="globalnav">
