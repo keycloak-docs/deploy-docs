@@ -2242,17 +2242,17 @@ the possibility to trigger functionality on the Keycloak server, which is not av
 <div class="paragraph">
 <p>which allows you to return an object, which acts as a <a href="https://github.com/jax-rs">JAX-RS Resource</a>. For more details, see the Javadoc and our examples.
 There is a very simple example in the example distribution in <code>providers/rest</code> and there is a more advanced example in <code>providers/domain-extension</code>,
-which shows how to add an authenticated REST endpoint and other functionalities like <a href="extensions.html#_extensions_spi">Adding your own SPI</a>
-or <a href="extensions.html#_extensions_jpa">Extending datamodel with your own JPA entities</a>.</p>
+which shows how to add an authenticated REST endpoint and other functionalities like <a href="#_extensions_spi">Adding your own SPI</a>
+or <a href="#_extensions_jpa">Extending datamodel with your own JPA entities</a>.</p>
 </div>
 <div class="paragraph">
-<p>For details on how to package and deploy a custom provider, refer to the <a href="providers.html#_providers">Service Provider Interfaces</a> chapter.</p>
+<p>For details on how to package and deploy a custom provider, refer to the <a href="#_providers">Service Provider Interfaces</a> chapter.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_extensions_spi"><a class="anchor" href="#_extensions_spi"></a>7.2. Add your own custom SPI</h3>
 <div class="paragraph">
-<p>This is useful especially with the <a href="extensions.html#_extensions_rest">Custom REST endpoints</a>. To add your own kind of SPI, you need to
+<p>This is useful especially with the <a href="#_extensions_rest">Custom REST endpoints</a>. To add your own kind of SPI, you need to
 implement the interface <code>org.keycloak.provider.Spi</code> and define the ID of your SPI and the <code>ProviderFactory</code> and <code>Provider</code> classes. That looks like this:</p>
 </div>
 <div class="listingblock">
@@ -2301,7 +2301,7 @@ The <code>ExampleService</code> will usually contain the business methods you ne
 is always scoped per application, however <code>ExampleService</code> is scoped per-request (or more accurately per <code>KeycloakSession</code> lifecycle).</p>
 </div>
 <div class="paragraph">
-<p>Finally you need to implement your providers in the same manner as described in the <a href="providers.html#_providers">Service Provider Interfaces</a> chapter.</p>
+<p>Finally you need to implement your providers in the same manner as described in the <a href="#_providers">Service Provider Interfaces</a> chapter.</p>
 </div>
 <div class="paragraph">
 <p>For more details, take a look at the example distribution at <code>providers/domain-extension</code>, which shows an Example SPI similar to the one above.</p>
@@ -3599,7 +3599,7 @@ field in the action token.</p>
 and examples for complete details on how to do this.</p>
 </div>
 <div class="paragraph">
-<p>For details on how to package and deploy a custom provider refer to the <a href="providers.html#providers">Service Provider Interfaces</a> chapter.</p>
+<p>For details on how to package and deploy a custom provider refer to the <a href="#_providers">Service Provider Interfaces</a> chapter.</p>
 </div>
 </div>
 </div>
@@ -5359,7 +5359,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-03-18 21:41:45 UTC
+Last updated 2019-03-18 22:04:41 UTC
 </div>
 </div>
 <ul id="globalnav">
