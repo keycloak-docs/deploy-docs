@@ -7804,7 +7804,7 @@ This is what one might look like:</p>
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;keycloak-saml-adapter</span> <span class="attribute-name">xmlns</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:keycloak:saml:adapter</span><span class="delimiter">&quot;</span></span>
                        <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span>
-                       <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:keycloak:saml:adapter https://www.keycloak.org/schema/keycloak_saml_adapter_1_9.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+                       <span class="attribute-name">xsi:schemaLocation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:keycloak:saml:adapter https://www.keycloak.org/schema/keycloak_saml_adapter_1_10.xsd</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
     <span class="tag">&lt;SP</span> <span class="attribute-name">entityID</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://localhost:8081/sales-post-sig/</span><span class="delimiter">&quot;</span></span>
         <span class="attribute-name">sslPolicy</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">EXTERNAL</span><span class="delimiter">&quot;</span></span>
         <span class="attribute-name">nameIDPolicyFormat</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</span><span class="delimiter">&quot;</span></span>
@@ -8168,6 +8168,10 @@ and defaults to <code>RSA_SHA256</code>.</p>
 <dd>
 <p>This is the signature canonicalization method that the IDP expects signed documents to use.  This setting is  <em>OPTIONAL</em>.
 The default value is <code>http://www.w3.org/2001/10/xml-exc-c14n#</code> and should be good for most IDPs.</p>
+</dd>
+<dt class="hdlist1">metadataUrl</dt>
+<dd>
+<p>The URL used to retrieve the IDP metadata, currently this is only used to pick up signing and encryption keys periodically which allow cycling of these keys on the IDP without manual changes on the SP side.</p>
 </dd>
 </dl>
 </div>
@@ -11978,7 +11982,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-03-21 07:22:13 UTC
+Last updated 2019-03-27 07:06:33 UTC
 </div>
 </div>
 <ul id="globalnav">
