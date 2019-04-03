@@ -3755,6 +3755,12 @@ the Keycloak server or application when exchanging documents.  Basically HTTP re
 that contains an HTML form with embedded JavaScript.  When the page is loaded, the JavaScript automatically invokes the form.
 You really don&#8217;t need to know about this stuff, but it is a pretty clever trick.</p>
 </div>
+<div class="paragraph">
+<p><em>POST</em> binding is usually recommended because of security and size restrictions. When using <em>REDIRECT</em> the SAML response
+is part of the URL (it is a query parameter as it was explained before), so it can be captured in logs and it is considered
+less secure. Regarding size, if the assertion contains a lot or large attributes sending the document inside the HTTP payload
+is always better than in the more limited URL.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="ecp"><a class="anchor" href="#ecp"></a>ECP</h5>
@@ -4757,6 +4763,25 @@ If a login request contains the Assertion Consumer Service URL, that will take p
 In the <code>Settings</code> tab for your client, you need to specify the <code>IDP Initiated SSO URL Name</code>.
 This is a simple string with no whitespace in it.
 After this you can reference your client at the following URL: <code>root/auth/realms/{realm}/protocol/saml/clients/{url-name}</code></p>
+</div>
+<div class="paragraph">
+<p>The IDP initiated login implementation prefers <em>POST</em> over <em>REDIRECT</em> binding (check <a href="#saml-bindings">saml bindings</a> for more information).
+Therefore the final binding and SP URL are selected in the following way:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the specific <code>Assertion Consumer Service POST Binding URL</code> is defined (inside <code>Fine Grain SAML Endpoint Configuration</code> section
+of the client settings) <em>POST</em> binding is used through that URL.</p>
+</li>
+<li>
+<p>If the general <code>Master SAML Processing URL</code> is specified then <em>POST</em> binding is used again throught this general URL.</p>
+</li>
+<li>
+<p>As the last resort, if the <code>Assertion Consumer Service Redirect Binding URL</code> is configured (inside
+<code>Fine Grain SAML Endpoint Configuration</code>) <em>REDIRECT</em> binding is used with this URL.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>If your client requires a special relay state, you can also configure this on the <code>Settings</code> tab in the <code>IDP Initiated SSO Relay State</code> field.
@@ -12555,7 +12580,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-03 06:57:07 UTC
+Last updated 2019-04-03 07:05:39 UTC
 </div>
 </div>
 <ul id="globalnav">
