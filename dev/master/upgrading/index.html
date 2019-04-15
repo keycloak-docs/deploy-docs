@@ -712,6 +712,7 @@ span.image img {
 <li><a href="#migrating-to-6-0-0">4.1. Migrating to 6.0.0</a>
 <ul class="sectlevel3">
 <li><a href="#upgrade-to-wildfly-16">4.1.1. Upgrade to Wildfly 16</a></li>
+<li><a href="#new-optional-client-scope">4.1.2. New optional client scope</a></li>
 </ul>
 </li>
 <li><a href="#migrating-to-5-0-0">4.2. Migrating to 5.0.0</a>
@@ -1455,6 +1456,14 @@ not guaranteed as we don&#8217;t test it anymore.</p>
 </div>
 </dd>
 </dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="new-optional-client-scope"><a class="anchor" href="#new-optional-client-scope"></a>4.1.2. New optional client scope</h4>
+<div class="paragraph">
+<p>We have added a new <code>microprofile-jwt</code> optional client scope to handle the claims defined in the <a href="https://wiki.eclipse.org/MicroProfile/JWT_Auth">MicroProfile/JWT Auth Specification</a>.
+This new client scope defines protocol mappers to set the username of the authenticated user to the <code>upn</code> claim and to
+set the realm roles to the <code>groups</code> claim.</p>
 </div>
 </div>
 </div>
@@ -2622,7 +2631,7 @@ credentials tab in the administration console.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-03 07:05:49 UTC
+Last updated 2019-04-15 12:02:25 UTC
 </div>
 </div>
 <ul id="globalnav">

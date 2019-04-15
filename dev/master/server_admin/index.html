@@ -5071,8 +5071,8 @@ with this client scope.</p>
 list in the SAML assertion.</p>
 </li>
 <li>
-<p>For the OpenID Connect protocol, there are client scopes <code>profile</code>, <code>email</code>, <code>address</code>, <code>phone</code>, <code>offline_access</code>, <code>roles</code> and
-<code>web-origins</code>.</p>
+<p>For the OpenID Connect protocol, there are client scopes <code>profile</code>, <code>email</code>, <code>address</code>, <code>phone</code>, <code>offline_access</code>, <code>roles</code>,
+<code>web-origins</code> and <code>microprofile-jwt</code>.</p>
 </li>
 </ul>
 </div>
@@ -5111,6 +5111,11 @@ possibly add some audiences for the clients with at least one client role as des
 <div class="paragraph">
 <p>The client scope <code>web-origins</code> is also not defined in the OpenID Connect specification and not added to the <code>scope</code> claim. This is used
 to add allowed web origins to the access token <code>allowed-origins</code> claim.</p>
+</div>
+<div class="paragraph">
+<p>The client scope <code>microprofile-jwt</code> was created to handle the claims defined in the <a href="https://wiki.eclipse.org/MicroProfile/JWT_Auth">MicroProfile/JWT Auth Specification</a>.
+This client scope defines a user property mapper for the <code>upn</code> claim and also a realm role mapper for the <code>groups</code> claim. These mappers
+can be changed as needed so that different properties can be used to create the MicroProfile/JWT specific claims.</p>
 </div>
 </div>
 <div class="sect3">
@@ -12580,7 +12585,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-03 07:05:39 UTC
+Last updated 2019-04-15 12:02:14 UTC
 </div>
 </div>
 <ul id="globalnav">
