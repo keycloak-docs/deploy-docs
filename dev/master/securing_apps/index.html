@@ -706,18 +706,17 @@ span.image img {
 <li><a href="#_spring_boot_adapter">2.1.6. Spring Boot Adapter</a></li>
 <li><a href="#_tomcat_adapter">2.1.7. Tomcat 6, 7 and 8 Adapters</a></li>
 <li><a href="#_jetty9_adapter">2.1.8. Jetty 9.x Adapters</a></li>
-<li><a href="#_jetty8_adapter">2.1.9. Jetty 8.1.x Adapter</a></li>
-<li><a href="#_spring_security_adapter">2.1.10. Spring Security Adapter</a></li>
-<li><a href="#_servlet_filter_adapter">2.1.11. Java Servlet Filter Adapter</a></li>
-<li><a href="#_jaas_adapter">2.1.12. JAAS plugin</a></li>
-<li><a href="#_installed_adapter">2.1.13. CLI / Desktop Applications</a></li>
-<li><a href="#security-context">2.1.14. Security Context</a></li>
-<li><a href="#_adapter_error_handling">2.1.15. Error Handling</a></li>
-<li><a href="#logout">2.1.16. Logout</a></li>
-<li><a href="#_params_forwarding">2.1.17. Parameters Forwarding</a></li>
-<li><a href="#_client_authentication_adapter">2.1.18. Client Authentication</a></li>
-<li><a href="#_multi_tenancy">2.1.19. Multi Tenancy</a></li>
-<li><a href="#_applicationclustering">2.1.20. Application Clustering</a></li>
+<li><a href="#_spring_security_adapter">2.1.9. Spring Security Adapter</a></li>
+<li><a href="#_servlet_filter_adapter">2.1.10. Java Servlet Filter Adapter</a></li>
+<li><a href="#_jaas_adapter">2.1.11. JAAS plugin</a></li>
+<li><a href="#_installed_adapter">2.1.12. CLI / Desktop Applications</a></li>
+<li><a href="#security-context">2.1.13. Security Context</a></li>
+<li><a href="#_adapter_error_handling">2.1.14. Error Handling</a></li>
+<li><a href="#logout">2.1.15. Logout</a></li>
+<li><a href="#_params_forwarding">2.1.16. Parameters Forwarding</a></li>
+<li><a href="#_client_authentication_adapter">2.1.17. Client Authentication</a></li>
+<li><a href="#_multi_tenancy">2.1.18. Multi Tenancy</a></li>
+<li><a href="#_applicationclustering">2.1.19. Application Clustering</a></li>
 </ul>
 </li>
 <li><a href="#_javascript_adapter">2.2. JavaScript Adapter</a>
@@ -950,7 +949,7 @@ require less boilerplate code than what is typically required by a library.</p>
 <p><a href="#_tomcat_adapter">Tomcat</a></p>
 </li>
 <li>
-<p><a href="#_jetty8_adapter">Jetty 8</a></p>
+<p><a href="#_jetty9_adapter">Jetty 9</a></p>
 </li>
 <li>
 <p><a href="#_servlet_filter_adapter">Servlet Filter</a></p>
@@ -2059,18 +2058,6 @@ features:install keycloak</code></pre>
 <pre class="CodeRay highlight"><code>features:install keycloak-jetty9-adapter</code></pre>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you are using JBoss Fuse 6.2 or later, use <code>keycloak-jetty8-adapter</code>. However, upgrading to JBoss Fuse 6.3.0 Rollup 5 is recommended.
-</td>
-</tr>
-</table>
-</div>
 </li>
 <li>
 <p>Ensure that the features were installed:</p>
@@ -2452,9 +2439,9 @@ org.keycloak.*;version="6.0.0",
 javax.servlet.http;version="[3,4)",
 org.apache.camel.*,
 org.apache.camel;version="[2.13,3)",
-org.eclipse.jetty.security;version="[8,10)",
-org.eclipse.jetty.server.nio;version="[8,10)",
-org.eclipse.jetty.util.security;version="[8,10)",
+org.eclipse.jetty.security;version="[9,10)",
+org.eclipse.jetty.server.nio;version="[9,10)",
+org.eclipse.jetty.util.security;version="[9,10)",
 org.keycloak.*;version="6.0.0",
 org.osgi.service.blueprint,
 org.osgi.service.blueprint.container,
@@ -2641,8 +2628,8 @@ org.apache.cxf.bus.resource;version="[2.7,3.2)",
 org.apache.cxf.transport.http;version="[2.7,3.2)",
 org.apache.cxf.*;version="[2.7,3.2)",
 org.springframework.beans.factory.config,
-org.eclipse.jetty.security;version="[8,10)",
-org.eclipse.jetty.util.security;version="[8,10)",
+org.eclipse.jetty.security;version="[9,10)",
+org.eclipse.jetty.util.security;version="[9,10)",
 org.keycloak.*;version="6.0.0"</code></pre>
 </div>
 </div>
@@ -2747,8 +2734,8 @@ META-INF.cxf.osgi;version="[2.7,3.2)";resolution:=optional,
 org.apache.cxf.transport.http;version="[2.7,3.2)",
 org.apache.cxf.*;version="[2.7,3.2)",
 com.fasterxml.jackson.jaxrs.json;version="[2.5,3)",
-org.eclipse.jetty.security;version="[8,10)",
-org.eclipse.jetty.util.security;version="[8,10)",
+org.eclipse.jetty.security;version="[9,10)",
+org.eclipse.jetty.util.security;version="[9,10)",
 org.keycloak.*;version="6.0.0",
 org.keycloak.adapters.jetty;version="6.0.0",
 *;resolution:=optional</code></pre>
@@ -3063,8 +3050,8 @@ features:install keycloak</code></pre>
 </div>
 <div class="paragraph">
 <p>JBoss Fuse 7 leverages Undertow adapter which is essentially the same as
-<a href="#_jboss_adapter">EAP 7 / WildFly 10 Adapter</a>
-as JBoss Fuse 7.0.1 is bundled with <a href="http://undertow.io/">Undertow HTTP engine</a> under the covers and Undertow is used for running various kinds of web applications.</p>
+<a href="#_jboss_adapter">EAP 7 / WildFly Adapter</a>
+as JBoss Fuse 7.2.0 is bundled with <a href="http://undertow.io/">Undertow HTTP engine</a> under the covers and Undertow is used for running various kinds of web applications.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -3142,7 +3129,7 @@ All referenced web applications require injecting the Keycloak Undertow authenti
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Start JBoss Fuse 7.0.1; then in the Karaf terminal type:</p>
+<p>Start JBoss Fuse 7.2.0; then in the Karaf terminal type:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>feature:repo-add mvn:org.keycloak/keycloak-osgi-features/6.0.0/xml/features
@@ -3185,11 +3172,11 @@ feature:install keycloak-pax-http-undertow keycloak-jaas</code></pre>
 <li>
 <p>Unzip it into the root directory of JBoss Fuse. The dependencies are then installed under the <code>system</code> directory. You can overwrite all existing jar files.</p>
 <div class="paragraph">
-<p>Use this for JBoss Fuse 7.0.1:</p>
+<p>Use this for JBoss Fuse 7.2.0:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>cd /path-to-fuse/jboss-fuse-7.0.z
+<pre class="CodeRay highlight"><code>cd /path-to-fuse/fuse-karaf-7.z
 unzip -q /path-to-adapter-zip/keycloak-fuse-adapter-6.0.0.zip</code></pre>
 </div>
 </div>
@@ -3807,7 +3794,7 @@ This client needs to have <code>Direct Access Grants Enabled</code> selected to 
 </div>
 </li>
 <li>
-<p>Start Fuse and install the <code>keycloak</code> JAAS realm. The easiest way is to install the <code>keycloak-jaas</code> feature, which has the JAAS realm predefined. You can override the feature&#8217;s predefined realm by using your own <code>keycloak</code> JAAS realm with higher ranking. For details see the <a href="https://access.redhat.com/documentation/en-us/red_hat_fuse/7.0/html-single/security_guide/#ESBSecureContainer">JBoss Fuse documentation</a>.</p>
+<p>Start Fuse and install the <code>keycloak</code> JAAS realm. The easiest way is to install the <code>keycloak-jaas</code> feature, which has the JAAS realm predefined. You can override the feature&#8217;s predefined realm by using your own <code>keycloak</code> JAAS realm with higher ranking. For details see the <a href="https://access.redhat.com/documentation/en-us/red_hat_fuse/7.2/html-single/apache_karaf_security_guide/index#ESBSecureContainer">JBoss Fuse documentation</a>.</p>
 <div class="paragraph">
 <p>Use these commands in the Fuse terminal:</p>
 </div>
@@ -3838,7 +3825,7 @@ features:install keycloak-jaas</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-On some later operating systems, you might also need to use the SSH command&#8217;s -o option <code>-o HostKeyAlgorithms=+ssh-dss</code> because later SSH clients do not allow use of the <code>ssh-dss</code> algorithm, by default. However, by default, it is currently used in JBoss Fuse 7.0.1.
+On some later operating systems, you might also need to use the SSH command&#8217;s -o option <code>-o HostKeyAlgorithms=+ssh-dss</code> because later SSH clients do not allow use of the <code>ssh-dss</code> algorithm, by default. However, by default, it is currently used in JBoss Fuse 7.2.0.
 </td>
 </tr>
 </table>
@@ -3946,7 +3933,7 @@ On some later operating systems, you might also need to use the SSH command&#821
 </div>
 </li>
 <li>
-<p>Start JBoss Fuse 7.0.1, <a href="#_fuse7_install_feature">install the Keycloak feature</a>. Then type in the Karaf terminal:</p>
+<p>Start JBoss Fuse 7.2.0, <a href="#_fuse7_install_feature">install the Keycloak feature</a>. Then type in the Karaf terminal:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>system:property -p hawtio.keycloakEnabled true
@@ -4190,7 +4177,7 @@ Here&#8217;s an example:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Keycloak has a separate adapter for Jetty 9.1.x, Jetty 9.2.x and Jetty 9.3.x that you will have to install into your Jetty installation.
+<p>Keycloak has a separate adapter for Jetty 9.2.x, Jetty 9.3.x and Jetty 9.4.x that you will have to install into your Jetty installation.
 You then have to provide some extra configuration in each WAR you deploy to Jetty.
 Let&#8217;s go over these steps.</p>
 </div>
@@ -4256,7 +4243,7 @@ This is a Jetty specific config file and you must define a Keycloak specific aut
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-The Jetty 9.1.x adapter will not be able to find the <code>keycloak.json</code> file.
+The Jetty 9.x adapter will not be able to find the <code>keycloak.json</code> file.
 You will have to define all adapter settings within the <code>jetty-web.xml</code> file as described below.
 </td>
 </tr>
@@ -4345,61 +4332,7 @@ Here&#8217;s an example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_jetty8_adapter"><a class="anchor" href="#_jetty8_adapter"></a>2.1.9. Jetty 8.1.x Adapter</h4>
-<div class="sidebarblock page-links">
-<div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/jetty8-adapter.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/oidc/java/jetty8-adapter.adoc" target="_blank">Report an issue</a>
-</div>
-</div>
-<div class="paragraph">
-<p>Keycloak has a separate adapter for Jetty 8.1.x that you will have to install into your Jetty installation.
-You then have to provide some extra configuration in each WAR you deploy to Jetty.
-Let&#8217;s go over these steps.</p>
-</div>
-<div class="sect4">
-<h5 id="_jetty8_adapter_installation"><a class="anchor" href="#_jetty8_adapter_installation"></a>Adapter Installation</h5>
-<div class="paragraph">
-<p>Adapters are no longer included with the appliance or war distribution. Each adapter is a separate download on the Keycloak download site.
-They are also available as a maven artifact.</p>
-</div>
-<div class="paragraph">
-<p>You must unzip the Jetty 8.1.x  distro into Jetty 8.1.x&#8217;s root directory.
-Including adapter&#8217;s jars within your WEB-INF/lib directory will not work!</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>$ cd $JETTY_HOME
-$ unzip keycloak-jetty81-adapter-dist.zip</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Next, you will have to enable the keycloak option.
-Edit start.ini and add keycloak to the options</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>#===========================================================
-# Start classpath OPTIONS.
-# These control what classes are on the classpath
-# for a full listing do
-#   java -jar start.jar --list-options
-#-----------------------------------------------------------
-OPTIONS=Server,jsp,jmx,resources,websocket,ext,plus,annotations,keycloak</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="required-per-war-configuration-3"><a class="anchor" href="#required-per-war-configuration-3"></a>Required Per WAR Configuration</h5>
-<div class="paragraph">
-<p>Enabling Keycloak for your WARs is the same as the Jetty 9.x adapter.
-Our 8.1.x adapter supports both keycloak.json and the jboss-web.xml advanced configuration.
-See <a href="#_jetty9_per_war">Required Per WAR Configuration</a></p>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_spring_security_adapter"><a class="anchor" href="#_spring_security_adapter"></a>2.1.10. Spring Security Adapter</h4>
+<h4 id="_spring_security_adapter"><a class="anchor" href="#_spring_security_adapter"></a>2.1.9. Spring Security Adapter</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/spring-security-adapter.adoc" target="_blank">Edit this section</a>
@@ -4747,7 +4680,7 @@ Therefore, when running the Keycloak Spring Security adapter in a Spring Boot en
 </div>
 </div>
 <div class="sect3">
-<h4 id="_servlet_filter_adapter"><a class="anchor" href="#_servlet_filter_adapter"></a>2.1.11. Java Servlet Filter Adapter</h4>
+<h4 id="_servlet_filter_adapter"><a class="anchor" href="#_servlet_filter_adapter"></a>2.1.10. Java Servlet Filter Adapter</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/servlet-filter-adapter.adoc" target="_blank">Edit this section</a>
@@ -4954,7 +4887,7 @@ karaf@root()&gt; config:update</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_jaas_adapter"><a class="anchor" href="#_jaas_adapter"></a>2.1.12. JAAS plugin</h4>
+<h4 id="_jaas_adapter"><a class="anchor" href="#_jaas_adapter"></a>2.1.11. JAAS plugin</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/jaas.adoc" target="_blank">Edit this section</a>
@@ -5011,7 +4944,7 @@ parameter in the Resource Owner Password Credentials Grant request.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_installed_adapter"><a class="anchor" href="#_installed_adapter"></a>2.1.13. CLI / Desktop Applications</h4>
+<h4 id="_installed_adapter"><a class="anchor" href="#_installed_adapter"></a>2.1.12. CLI / Desktop Applications</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/installed-adapter.adoc" target="_blank">Edit this section</a>
@@ -5210,7 +5143,7 @@ login / logout requests via the <code>loginResponseWriter</code> and <code>logou
 </div>
 </div>
 <div class="sect3">
-<h4 id="security-context"><a class="anchor" href="#security-context"></a>2.1.14. Security Context</h4>
+<h4 id="security-context"><a class="anchor" href="#security-context"></a>2.1.13. Security Context</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/adapter-context.adoc" target="_blank">Edit this section</a>
@@ -5241,7 +5174,7 @@ details from the token (such as user profile information) or you want to invoke 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_adapter_error_handling"><a class="anchor" href="#_adapter_error_handling"></a>2.1.15. Error Handling</h4>
+<h4 id="_adapter_error_handling"><a class="anchor" href="#_adapter_error_handling"></a>2.1.14. Error Handling</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/adapter_error_handling.adoc" target="_blank">Edit this section</a>
@@ -5284,7 +5217,7 @@ Reason reason = error.getReason();
 </div>
 </div>
 <div class="sect3">
-<h4 id="logout"><a class="anchor" href="#logout"></a>2.1.16. Logout</h4>
+<h4 id="logout"><a class="anchor" href="#logout"></a>2.1.15. Logout</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/logout.adoc" target="_blank">Edit this section</a>
@@ -5308,7 +5241,7 @@ the identity (alias) of the identity provider in question. This is useful when t
 </div>
 </div>
 <div class="sect3">
-<h4 id="_params_forwarding"><a class="anchor" href="#_params_forwarding"></a>2.1.17. Parameters Forwarding</h4>
+<h4 id="_params_forwarding"><a class="anchor" href="#_params_forwarding"></a>2.1.16. Parameters Forwarding</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/params_forwarding.adoc" target="_blank">Edit this section</a>
@@ -5395,7 +5328,7 @@ the Keycloak login page if you are already authenticated to the application <cod
 </div>
 </div>
 <div class="sect3">
-<h4 id="_client_authentication_adapter"><a class="anchor" href="#_client_authentication_adapter"></a>2.1.18. Client Authentication</h4>
+<h4 id="_client_authentication_adapter"><a class="anchor" href="#_client_authentication_adapter"></a>2.1.17. Client Authentication</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/client-authentication.adoc" target="_blank">Edit this section</a>
@@ -5505,7 +5438,7 @@ you can point to any file on the file system where the client application is run
 </div>
 </div>
 <div class="sect3">
-<h4 id="_multi_tenancy"><a class="anchor" href="#_multi_tenancy"></a>2.1.19. Multi Tenancy</h4>
+<h4 id="_multi_tenancy"><a class="anchor" href="#_multi_tenancy"></a>2.1.18. Multi Tenancy</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/multi-tenancy.adoc" target="_blank">Edit this section</a>
@@ -5572,7 +5505,7 @@ and you may also want to select the realm based on something else than context-p
 </div>
 </div>
 <div class="sect3">
-<h4 id="_applicationclustering"><a class="anchor" href="#_applicationclustering"></a>2.1.20. Application Clustering</h4>
+<h4 id="_applicationclustering"><a class="anchor" href="#_applicationclustering"></a>2.1.19. Application Clustering</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/application-clustering.adoc" target="_blank">Edit this section</a>
@@ -9056,7 +8989,7 @@ Here&#8217;s an example:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To be able to secure WAR apps deployed on Jetty you must install the Keycloak Jetty 9.x or 8.x SAML adapter into your Jetty installation.
+<p>To be able to secure WAR apps deployed on Jetty you must install the Keycloak Jetty 9.x SAML adapter into your Jetty installation.
 You then have to provide some extra configuration in each WAR you deploy to Jetty.
 Let&#8217;s go over these steps.</p>
 </div>
@@ -9169,62 +9102,6 @@ Here&#8217;s an example:</p>
     <span class="tag">&lt;/security-role&gt;</span>
 <span class="tag">&lt;/web-app&gt;</span></code></pre>
 </div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="jetty-8-adapter-installation"><a class="anchor" href="#jetty-8-adapter-installation"></a>Jetty 8 Adapter Installation</h5>
-<div class="sidebarblock page-links">
-<div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jetty-adapter/jetty8-installation.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jetty-adapter/jetty8-installation.adoc" target="_blank">Report an issue</a>
-</div>
-</div>
-<div class="paragraph">
-<p>Keycloak has a separate SAML adapter for Jetty 8.1.x that you will have to install into your Jetty installation.
-You then have to provide some extra configuration in each WAR you deploy to Jetty.
-Let&#8217;s go over these steps.</p>
-</div>
-<div class="paragraph">
-<p>Adapters are no longer included with the appliance or war distribution. Each adapter is a separate download on the Keycloak download site.
-They are also available as a maven artifact.</p>
-</div>
-<div class="paragraph">
-<p>You must unzip the Jetty 8.1.x  distro into Jetty 8.1.x&#8217;s root directory.
-Including adapter&#8217;s jars within your WEB-INF/lib directory will not work!</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>$ cd $JETTY_HOME
-$ unzip keycloak-saml-jetty81-adapter-dist.zip</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Next, you will have to enable the keycloak option.
-Edit start.ini and add keycloak to the options</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>#===========================================================
-# Start classpath OPTIONS.
-# These control what classes are on the classpath
-# for a full listing do
-#   java -jar start.jar --list-options
-#-----------------------------------------------------------
-OPTIONS=Server,jsp,jmx,resources,websocket,ext,plus,annotations,keycloak</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="jetty-8-per-war-configuration"><a class="anchor" href="#jetty-8-per-war-configuration"></a>Jetty 8 Per WAR Configuration</h5>
-<div class="sidebarblock page-links">
-<div class="content">
-<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/jetty-adapter/jetty8-per_war_config.adoc" target="_blank">Edit this section</a>
-<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/jetty-adapter/jetty8-per_war_config.adoc" target="_blank">Report an issue</a>
-</div>
-</div>
-<div class="paragraph">
-<p>Enabling Keycloak for your WARs is the same as the Jetty 9.x adapter.
-See <a href="#_saml-jetty9-per-war">Jetty 9 Per War Configuration</a></p>
 </div>
 </div>
 </div>
@@ -11982,7 +11859,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-15 12:02:09 UTC
+Last updated 2019-04-17 06:40:17 UTC
 </div>
 </div>
 <ul id="globalnav">
