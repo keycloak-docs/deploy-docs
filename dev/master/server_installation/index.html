@@ -4533,7 +4533,7 @@ so that the actual client IP address is forwarded to and processed by the Keyclo
 <div class="paragraph">
 <p>Configuring your proxy to generate the <code>X-Forwarded-For</code> and <code>X-Forwarded-Proto</code> HTTP headers and preserving the
  original <code>Host</code> HTTP header is beyond the scope of this guide.  Take extra precautions to ensure that the
-<code>X-Forwared-For</code> header is set by your proxy.  If your proxy isn&#8217;t configured correctly, then <em>rogue</em> clients can set this header themselves and trick Keycloak
+<code>X-Forwarded-For</code> header is set by your proxy.  If your proxy isn&#8217;t configured correctly, then <em>rogue</em> clients can set this header themselves and trick Keycloak
 into thinking the client is connecting from a different IP address than it actually is.  This becomes really important if you are doing
 any black or white listing of IP addresses.</p>
 </div>
@@ -4697,7 +4697,7 @@ file and go to the undertow configuration in the <code>load-balancer</code> prof
 </div>
 <div class="paragraph">
 <p>The <code>output-socket-binding</code> is a logical name pointing to a <code>socket-binding</code> configured later in the <em>domain.xml</em> file.
-the <code>instance-id</code> attribute must also be unique to the new host as this value is used by a cookie to enable sticky
+The <code>instance-id</code> attribute must also be unique to the new host as this value is used by a cookie to enable sticky
 sessions when load balancing.</p>
 </div>
 <div class="paragraph">
@@ -5608,7 +5608,7 @@ This token can be used to make bearer token requests.             Header field n
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-18 11:09:28 UTC
+Last updated 2019-04-18 11:26:11 UTC
 </div>
 </div>
 <ul id="globalnav">
