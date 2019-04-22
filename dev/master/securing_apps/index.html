@@ -733,8 +733,9 @@ span.image img {
 <li><a href="#installation-2">2.3.1. Installation</a></li>
 <li><a href="#usage-2">2.3.2. Usage</a></li>
 <li><a href="#installing-middleware">2.3.3. Installing Middleware</a></li>
-<li><a href="#protecting-resources">2.3.4. Protecting Resources</a></li>
-<li><a href="#additional-urls">2.3.5. Additional URLs</a></li>
+<li><a href="#checking-authentication">2.3.4. Checking Authentication</a></li>
+<li><a href="#protecting-resources">2.3.5. Protecting Resources</a></li>
+<li><a href="#additional-urls">2.3.6. Additional URLs</a></li>
 </ul>
 </li>
 <li><a href="#_keycloak_generic_adapter">2.4. Keycloak Gatekeeper</a>
@@ -6537,7 +6538,19 @@ session store that <code>express-session</code> is using.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="protecting-resources"><a class="anchor" href="#protecting-resources"></a>2.3.4. Protecting Resources</h4>
+<h4 id="checking-authentication"><a class="anchor" href="#checking-authentication"></a>2.3.4. Checking Authentication</h4>
+<div class="paragraph">
+<p>To check that a user is authenticated before accessing a resource,
+simply use <code>keycloak.checkSso()</code>. It will only authenticate if the user is already logged-in, if the user is not logged-in the browser will be redirected back to the originally-requested URL and remain unauthenticated:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">    app.get( <span class="string"><span class="delimiter">'</span><span class="content">/check-sso</span><span class="delimiter">'</span></span>, keycloak.checkSso(), checkSsoHandler );</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="protecting-resources"><a class="anchor" href="#protecting-resources"></a>2.3.5. Protecting Resources</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Simple authentication</dt>
@@ -6601,7 +6614,7 @@ for each section:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="additional-urls"><a class="anchor" href="#additional-urls"></a>2.3.5. Additional URLs</h4>
+<h4 id="additional-urls"><a class="anchor" href="#additional-urls"></a>2.3.6. Additional URLs</h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Explicit user-triggered logout</dt>
@@ -11859,7 +11872,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-18 14:54:56 UTC
+Last updated 2019-04-22 16:27:03 UTC
 </div>
 </div>
 <ul id="globalnav">
