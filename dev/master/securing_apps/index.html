@@ -907,7 +907,7 @@ decide is which of the two you are going to use. If you want you can also choose
 </div>
 <div class="paragraph">
 <p>To secure clients and services you are also going to need an adapter or library for the protocol you&#8217;ve selected. Keycloak comes with its own
-adapters for selected platforms, but it is also possible to use generic OpenID Connect Resource Provider and SAML Service Provider libraries.</p>
+adapters for selected platforms, but it is also possible to use generic OpenID Connect Relying Party and SAML Service Provider libraries.</p>
 </div>
 <div class="sect2">
 <h3 id="what-are-client-adapters"><a class="anchor" href="#what-are-client-adapters"></a>1.1. What are Client Adapters?</h3>
@@ -1163,7 +1163,7 @@ make implementing security in your web applications easier. For example, check o
 </div>
 <div class="paragraph">
 <p>This section describes how you can secure applications and services with OpenID Connect using either Keycloak adapters or generic OpenID Connect
-Resource Provider libraries.</p>
+Relying Party libraries.</p>
 </div>
 <div class="sect2">
 <h3 id="java-adapters"><a class="anchor" href="#java-adapters"></a>2.1. Java Adapters</h3>
@@ -5915,23 +5915,33 @@ But, the token is still sent in the URL, and the security vulnerability mentione
 <div class="sect3">
 <h4 id="hybrid-apps-with-cordova"><a class="anchor" href="#hybrid-apps-with-cordova"></a>2.2.3. Hybrid Apps with Cordova</h4>
 <div class="paragraph">
-<p>Keycloak support hybrid mobile apps developed with <a href="https://cordova.apache.org/">Apache Cordova</a>. The Javascript adapter has two modes for this: <code>cordova</code> and <code>cordova-native</code>:</p>
+<p>Keycloak support hybrid mobile apps developed with <a href="https://cordova.apache.org/">Apache Cordova</a>. The JavaScript adapter has two modes for this: <code>cordova</code> and <code>cordova-native</code>:</p>
 </div>
 <div class="paragraph">
 <p>The default is cordova, which the adapter will automatically select if no adapter type has been configured and window.cordova is present.
 When logging in, it will open an <a href="https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-inappbrowser/">InApp Browser</a> that lets the user interact with Keycloak and afterwards returns to the app by redirecting to <code><a href="http://localhost" class="bare">http://localhost</a></code>. Because of this, you must whitelist this URL as a valid redirect-uri in the client configuration section of the Administration Console.</p>
 </div>
 <div class="paragraph">
-<p>While this mode is easy to setup, it also has some disadvantages:
-* The InApp-Browser is a browser embedded in the app and is not the phone&#8217;s default browser. Therefore it will have different settings and stored credentials will not be available.
-* The InApp-Browser might also be slower, especially when rendering more complex themes.
-* There are security concerns to consider, before using this mode, such as that it is possible for the app to gain access to the credentials of the user, as it has full control of the browser rendering the login page, so do not allow its use in apps you do not trust.</p>
+<p>While this mode is easy to setup, it also has some disadvantages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The InApp-Browser is a browser embedded in the app and is not the phone&#8217;s default browser. Therefore it will have different settings and stored credentials will not be available.</p>
+</li>
+<li>
+<p>The InApp-Browser might also be slower, especially when rendering more complex themes.</p>
+</li>
+<li>
+<p>There are security concerns to consider, before using this mode, such as that it is possible for the app to gain access to the credentials of the user, as it has full control of the browser rendering the login page, so do not allow its use in apps you do not trust.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Use this example app to help you get started: <a href="https://github.com/keycloak/keycloak/tree/master/examples/cordova" class="bare">https://github.com/keycloak/keycloak/tree/master/examples/cordova</a></p>
 </div>
 <div class="paragraph">
-<p>The alternative mode <code>cordova-nativei</code> takes a different approach.
+<p>The alternative mode <code>cordova-native</code> takes a different approach.
 It opens the login page using the system&#8217;s browser.
 After the user has authenticated, the browser redirects back into the app using a special URL.
 From there, the Keycloak adapter can finish the login by reading the code or token from the URL.</p>
@@ -5958,7 +5968,7 @@ From there, the Keycloak adapter can finish the login by reading the code or tok
 </ul>
 </div>
 <div class="paragraph">
-<p>The technical details for linking to an app differ on each plattform and special setup is needed.
+<p>The technical details for linking to an app differ on each platform and special setup is needed.
 Please refer to the Android and iOS sections of the <a href="https://github.com/e-imaxina/cordova-plugin-deeplinks/blob/master/README.md">deeplinks plugin documentation</a> for further instructions.</p>
 </div>
 <div class="paragraph">
@@ -5982,7 +5992,7 @@ We recommend that you use universal links, combined with a fallback site with a 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>&lt;preference name="AndroidLaunchMode" value="singleTask" /&gt;</pre>
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;preference</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">AndroidLaunchMode</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">singleTask</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6143,7 +6153,7 @@ Available options:</p>
 <p>checkLoginIframeInterval - Set the interval to check login state (default is 5 seconds).</p>
 </li>
 <li>
-<p>responseMode - Set the OpenID Connect response mode send to Keycloak server at login request. Valid values are query or fragment . Default value is fragment, which means that after successful authentication will Keycloak redirect to javascript application with OpenID Connect parameters added in URL fragment. This is generally safer and recommended over query.</p>
+<p>responseMode - Set the OpenID Connect response mode send to Keycloak server at login request. Valid values are query or fragment. Default value is fragment, which means that after successful authentication will Keycloak redirect to JavaScript application with OpenID Connect parameters added in URL fragment. This is generally safer and recommended over query.</p>
 </li>
 <li>
 <p>flow - Set the OpenID Connect flow. Valid values are standard, implicit or hybrid.</p>
@@ -6195,7 +6205,7 @@ provider instead. More info in the <a href="https://www.keycloak.org/docs/7.0/se
 <p>action - If value is 'register' then user is redirected to registration page, otherwise to login page.</p>
 </li>
 <li>
-<p>locale - Sets the 'ui_locales' query param in compliance with section 3.1.2.1 of the OIDC 1.0 specification.</p>
+<p>locale - Sets the 'ui_locales' query param in compliance with <a href="https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest">section 3.1.2.1 of the OIDC 1.0 specification</a>.</p>
 </li>
 <li>
 <p>kcLocale - Specifies the desired Keycloak locale for the UI.  This differs from the locale param in that it tells the Keycloak server to set a cookie and update the user&#8217;s profile to a new preferred locale.</p>
@@ -7417,7 +7427,7 @@ project page.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Keycloak can be secured by supplied adapters that are usually easier to use and provide better integration with Keycloak. However, if an adapter is not available for your programming language, framework, or platform you might opt to use a generic OpenID Connect Resource Provider (RP) library instead. This chapter describes details specific to Keycloak and does not contain specific protocol details. For more information see the <a href="https://openid.net/connect/">OpenID Connect specifications</a> and <a href="https://tools.ietf.org/html/rfc6749">OAuth2 specification</a>.</p>
+<p>Keycloak can be secured by supplied adapters that are usually easier to use and provide better integration with Keycloak. However, if an adapter is not available for your programming language, framework, or platform you might opt to use a generic OpenID Connect Relying Party (RP) library instead. This chapter describes details specific to Keycloak and does not contain specific protocol details. For more information see the <a href="https://openid.net/connect/">OpenID Connect specifications</a> and <a href="https://tools.ietf.org/html/rfc6749">OAuth2 specification</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="endpoints-2"><a class="anchor" href="#endpoints-2"></a>2.5.1. Endpoints</h4>
@@ -10602,18 +10612,21 @@ This policy is not used by default even for anonymous registration.</p>
 </li>
 <li>
 <p>Strengthen the security by configuring the client <code class="filename">Access Type</code> as <code class="filename">Confidential</code> and selecting <strong>Credentials &gt; ClientId and Secret</strong>.</p>
-</li>
-</ol>
-</div>
-<div class="exampleblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>You can configure either <code class="filename">Client Id and Secret</code> or <code class="filename">Signed JWT</code> under the <strong>Credentials</strong> tab .</p>
 </div>
+</td>
+</tr>
+</table>
 </div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Enable service accounts if you want to use a service account associated with the client by selecting a client to edit in the <strong>Clients</strong> section of the <code>Admin Console</code>.</p>
 <div class="olist loweralpha">
@@ -11166,7 +11179,7 @@ C:\&gt; kcreg update myclient -f myclient.json</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>Q: When logging in, I get an error: *Parameter client_assertion_type is missing [invalid_client].</p>
+<p>Q: When logging in, I get an error: <strong>Parameter client_assertion_type is missing [invalid_client]</strong>.</p>
 <div class="paragraph">
 <p>A: This error means your client is configured with <code class="filename">Signed JWT</code> token credentials, which means you have to use the <code class="command">--keystore</code> parameter when logging in.</p>
 </div>
@@ -11872,7 +11885,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-22 19:49:59 UTC
+Last updated 2019-05-03 10:52:11 UTC
 </div>
 </div>
 <ul id="globalnav">

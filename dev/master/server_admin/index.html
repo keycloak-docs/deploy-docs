@@ -1115,7 +1115,7 @@ protocol mappers and many more.</p>
 <p>Client adapters for JavaScript applications, WildFly, JBoss EAP, Fuse, Tomcat, Jetty, Spring, etc.</p>
 </li>
 <li>
-<p>Supports any platform/language that has an OpenID Connect Resource Provider library or SAML 2.0 Service Provider library.</p>
+<p>Supports any platform/language that has an OpenID Connect Relying Party library or SAML 2.0 Service Provider library.</p>
 </li>
 </ul>
 </div>
@@ -4009,7 +4009,7 @@ If this is turned on, this application cannot participate in browser logins.</p>
 <div class="paragraph">
 <p>This is a required field.  Enter in a URL pattern and click the + sign to add.  Click the - sign next to URLs you want to remove.
 Remember that you still have to click the <code>Save</code> button!
-Wildcards (\*) are only allowed at the end of a URI, i.e. http://host.com/*</p>
+Wildcards (*) are only allowed at the end of a URI, i.e. http://host.com/*</p>
 </div>
 <div class="paragraph">
 <p>You should take extra precautions when registering valid redirect URI patterns. If you make
@@ -4035,10 +4035,10 @@ for more information.</p>
 <p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Implicit Flow</a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Direct Grants Enabled</strong></p>
+<p><strong>Direct Access Grants Enabled</strong></p>
 </div>
 <div class="paragraph">
-<p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Direct Grants</a>.</p>
+<p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Direct Access Grants</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Admin URL</strong></p>
@@ -4073,7 +4073,7 @@ Remember that you still have to click the <code>Save</code> button!</p>
 <div class="sect3">
 <h4 id="advanced-settings"><a class="anchor" href="#advanced-settings"></a>8.1.1. Advanced Settings</h4>
 <div id="_mtls-client-certificate-bound-tokens" class="paragraph">
-<p><strong>OAuth 2.0 Mutual TLS Client Certificate Bound Access Token</strong></p>
+<p><strong>OAuth 2.0 Mutual TLS Certificate Bound Access Tokens Enabled</strong></p>
 </div>
 <div class="paragraph">
 <p>Mutual TLS binds an access token and a refresh token with a client certificate exchanged during TLS handshake. This prevents an attacker who finds a way to steal these tokens from exercising the tokens. This type of token is called a holder-of-key token. Unlike bearer tokens, the recipient of a holder-of-key token can verify whether the sender of the token is legitimate.</p>
@@ -4182,8 +4182,8 @@ select the file, and click the <code>Import</code> button.</p>
 </div>
 <div class="paragraph">
 <p>Finally note that you don&#8217;t even need to import certificate if you choose to <code>Use JWKS URL</code> . In that case, you can provide the URL where
-client publishes it&#8217;s public key in <a href="https://self-issued.info/docs/draft-ietf-jose-json-web-key.html">JWK</a> format. This is flexible because when
-client changes it&#8217;s keys, Keycloak will automatically download them without need to re-import anything on Keycloak side.</p>
+client publishes its public key in <a href="https://self-issued.info/docs/draft-ietf-jose-json-web-key.html">JWK</a> format. This is flexible because when
+client changes its keys, Keycloak will automatically download them without need to re-import anything on Keycloak side.</p>
 </div>
 <div class="paragraph">
 <p>If you use client secured by Keycloak adapter, you can configure the JWKS URL like <a href="https://myhost.com/myapp/k_jwks" class="bare">https://myhost.com/myapp/k_jwks</a> assuming that <a href="https://myhost.com/myapp" class="bare">https://myhost.com/myapp</a> is the
@@ -4227,7 +4227,7 @@ This option requires mutual TLS in Keycloak, see <a href="#_enable-mtls-wildfly"
 </table>
 </div>
 <div class="paragraph">
-<div class="title">Import Certificate</div>
+<div class="title">X509 Certificate</div>
 <p><span class="image"><img src="./keycloak-images/x509-client-auth.png" alt="x509 client auth"></span></p>
 </div>
 <div class="paragraph">
@@ -4719,7 +4719,7 @@ Properties used for each of the respective formats are defined below.</p>
 <dd>
 <p>This is an optional field.  Enter in a URL pattern and click the + sign to add.  Click the - sign next to URLs you want to remove.
 Remember that you still have to click the <code>Save</code> button!
-Wildcards (\*) are only allowed at the end of of a URI, i.e. http://host.com/*.  This field is used when the exact SAML
+Wildcards (*) are only allowed at the end of a URI, i.e. http://host.com/*.  This field is used when the exact SAML
 endpoints are not registered and Keycloak is pulling the Assertion Consumer URL from the request.</p>
 </dd>
 <dt class="hdlist1">Base URL</dt>
@@ -4730,7 +4730,7 @@ endpoints are not registered and Keycloak is pulling the Assertion Consumer URL 
 <dd>
 <p>This URL will be used for all SAML requests and the response will be directed to the SP.
 It will be used as the Assertion Consumer Service URL and the Single Logout Service URL.
-If a login request contains the Assertion Consumer Service URL, that will take precedence, but this URL must be valided by a registered Valid Redirect URI pattern</p>
+If a login request contains the Assertion Consumer Service URL, that will take precedence, but this URL must be validated by a registered Valid Redirect URI pattern</p>
 </dd>
 <dt class="hdlist1">Assertion Consumer Service POST Binding URL</dt>
 <dd>
@@ -12581,7 +12581,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-04-22 19:50:08 UTC
+Last updated 2019-05-03 10:52:17 UTC
 </div>
 </div>
 <ul id="globalnav">
