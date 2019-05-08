@@ -6606,6 +6606,97 @@ simply use a no-argument version of <code>keycloak.protect()</code>:</p>
 </div>
 <div class="dlist">
 <dl>
+<dt class="hdlist1">Resource-Based Authorization</dt>
+<dd>
+<p>Resource-Based Authorization allows you to protect resources, and their specific methods/actions,<strong>*</strong>* based on a set of policies defined in Keycloak, thus externalizing authorization from your application. This is achieved by exposing a <code>keycloak.enforcer</code> method which you can use to protect resources.*</p>
+</dd>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">    app.get(<span class="string"><span class="delimiter">'</span><span class="content">/apis/me</span><span class="delimiter">'</span></span>, keycloak.enforcer(<span class="string"><span class="delimiter">'</span><span class="content">user:profile</span><span class="delimiter">'</span></span>), userProfileHandler);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>keycloak-enforcer</code> method operates in two modes, depending on the value of the <code>response_mode</code> configuration option.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">    app.get(<span class="string"><span class="delimiter">'</span><span class="content">/apis/me</span><span class="delimiter">'</span></span>, keycloak.enforcer(<span class="string"><span class="delimiter">'</span><span class="content">user:profile</span><span class="delimiter">'</span></span>, {<span class="key">response_mode</span>: <span class="string"><span class="delimiter">'</span><span class="content">token</span><span class="delimiter">'</span></span>}), userProfileHandler);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If <code>response_mode</code> is set to <code>token</code>, permissions are obtained from the server on behalf of the subject represented by the bearer token that was sent to your application. In this case, a new access token is issued by Keycloak with the permissions granted by the server. If the server did not respond with a token with the expected permissions, the request is denied. When using this mode, you should be able to obtain the token from the request as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">    app.get(<span class="string"><span class="delimiter">'</span><span class="content">/apis/me</span><span class="delimiter">'</span></span>, keycloak.enforcer(<span class="string"><span class="delimiter">'</span><span class="content">user:profile</span><span class="delimiter">'</span></span>, {<span class="key">response_mode</span>: <span class="string"><span class="delimiter">'</span><span class="content">token</span><span class="delimiter">'</span></span>}), <span class="keyword">function</span> (req, res) {
+        <span class="keyword">var</span> token = <span class="keyword">var</span> token = req.kauth.grant.access_token.content;
+        <span class="keyword">var</span> permissions = token.authorization ? token.authorization.permissions : <span class="predefined-constant">undefined</span>;
+
+        <span class="comment">// show user profile</span>
+    });</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Prefer this mode when your application is using sessions and you want to cache previous decisions from the server, as well automatically handle refresh tokens. This mode is especially useful for applications acting as a client and resource server.</p>
+</div>
+<div class="paragraph">
+<p>If <code>response_mode</code> is set to <code>permissions</code> (default mode), the server only returns the list of granted permissions, without issuing a new access token. In addition to not issuing a new token, this method exposes the permissions granted by the server through the <code>request</code> as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">    app.get(<span class="string"><span class="delimiter">'</span><span class="content">/apis/me</span><span class="delimiter">'</span></span>, keycloak.enforcer(<span class="string"><span class="delimiter">'</span><span class="content">user:profile</span><span class="delimiter">'</span></span>, {<span class="key">response_mode</span>: <span class="string"><span class="delimiter">'</span><span class="content">token</span><span class="delimiter">'</span></span>}), <span class="keyword">function</span> (req, res) {
+        <span class="keyword">var</span> permissions = req.permissions;
+
+        <span class="comment">// show user profile</span>
+    });</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Regardless of the <code>response_mode</code> in use, the <code>keycloak.enforcer</code> method will first try to check the permissions within the bearer token that was sent to your application. If the bearer token already carries the expected permissions, there is no need
+to interact with the server to obtain a decision. This is specially useful when your clients are capable of obtaining access tokens from the server with the expected permissions before accessing a protected resource, so they can use some capabilities provided by Keycloak Authorization Services such as incremental authorization and avoid additional requests to the server when <code>keycloak.enforcer</code> is enforcing access to the resource.</p>
+</div>
+<div class="paragraph">
+<p>By default, the policy enforcer will use the <code>client_id</code> defined to the application (for instance, via <code>keycloak.json</code>) to
+ reference a client in Keycloak that supports Keycloak Authorization Services. In this case, the client can not be public given
+ that it is actually a resource server.</p>
+</div>
+<div class="paragraph">
+<p>If your application is acting as both a public client(frontend) and resource server(backend), you can use the following configuration to reference a different
+client in Keycloak with the policies that you want to enforce:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">      keycloak.enforcer(<span class="string"><span class="delimiter">'</span><span class="content">user:profile</span><span class="delimiter">'</span></span>, {<span class="key">resource_server_id</span>: <span class="string"><span class="delimiter">'</span><span class="content">my-apiserver</span><span class="delimiter">'</span></span>})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is recommended to use distinct clients in Keycloak to represent your frontend and backend.</p>
+</div>
+<div class="paragraph">
+<p>If the application you are protecting is enabled with Keycloak authorization services and you have defined client credentials
+ in <code>keycloak.json</code>, you can push additional claims to the server and make them available to your policies in order to make decisions.
+For that, you can define a <code>claims</code> configuration option which expects a <code>function</code> that returns a JSON with the claims you want to push:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">      app.get(<span class="string"><span class="delimiter">'</span><span class="content">/protected/resource</span><span class="delimiter">'</span></span>, keycloak.enforcer([<span class="string"><span class="delimiter">'</span><span class="content">resource:view</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">resource:write</span><span class="delimiter">'</span></span>], {
+          <span class="function">claims</span>: <span class="keyword">function</span>(request) {
+            <span class="keyword">return</span> {
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">http.uri</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">/protected/resource</span><span class="delimiter">&quot;</span></span>],
+              <span class="key"><span class="delimiter">&quot;</span><span class="content">user.agent</span><span class="delimiter">&quot;</span></span>: <span class="comment">// get user agent  from request</span>
+            }
+          }
+        }), <span class="keyword">function</span> (req, res) {
+          <span class="comment">// access granted</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more details about how to configure Keycloak to protected your application resources, please take a look at the <a href="https://www.keycloak.org/docs/7.0/authorization_services/">Authorization Services Guide</a>.</p>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1">Advanced authorization</dt>
 <dd>
 <p>To secure resources based on parts of the URL itself, assuming a role exists
@@ -11885,7 +11976,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-05-08 13:42:57 UTC
+Last updated 2019-05-08 18:54:34 UTC
 </div>
 </div>
 <ul id="globalnav">
