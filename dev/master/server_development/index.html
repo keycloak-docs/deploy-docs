@@ -4428,7 +4428,7 @@ methods to reflect this.</p>
 </div>
 <div class="paragraph">
 <p>The <code>addUser()</code> method will be called if the provider implements the <code>UserRegistrationProvider</code> interface. If your provider has
-a configuration switch to turn of adding a user, returning <code>null</code> from this method will skip the provider and call
+a configuration switch to turn off adding a user, returning <code>null</code> from this method will skip the provider and call
 the next one.</p>
 </div>
 <div class="listingblock">
@@ -4532,7 +4532,7 @@ by our example provider. Let&#8217;s look at implementing this interface.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>getUser()</code> method iterates over the key set of the property file, delegating to <code>getUserByUsername()</code> to load a user.
+<p>The <code>getUsers()</code> method iterates over the key set of the property file, delegating to <code>getUserByUsername()</code> to load a user.
 Notice that we are indexing this call based on the <code>firstResult</code> and <code>maxResults</code> parameter. If your external store does not support pagination, you will have to do similar logic.</p>
 </div>
 <div class="listingblock">
@@ -4560,7 +4560,7 @@ Notice that we are indexing this call based on the <code>firstResult</code> and 
 </div>
 </div>
 <div class="paragraph">
-<p>The first declaration of <code>searchForUser()</code> takes a string parameter. This is supposed to be a string that you use to
+<p>The first declaration of <code>searchForUser()</code> takes a <code>String</code> parameter. This is supposed to be a string that you use to
 search username and email attributes to find the user. This string can be a substring, which is why we use the <code>String.contains()</code>
 method when doing our search.</p>
 </div>
@@ -5359,7 +5359,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-05-08 07:04:57 UTC
+Last updated 2019-05-08 13:43:08 UTC
 </div>
 </div>
 <ul id="globalnav">
