@@ -771,12 +771,13 @@ span.image img {
 <li><a href="#known-issues">2.4.29. Known Issues</a></li>
 </ul>
 </li>
-<li><a href="#other-openid-connect-libraries">2.5. Other OpenID Connect Libraries</a>
+<li><a href="#_mod_auth_openidc">2.5. mod_auth_openidc Apache HTTPD Module</a></li>
+<li><a href="#other-openid-connect-libraries">2.6. Other OpenID Connect Libraries</a>
 <ul class="sectlevel3">
-<li><a href="#endpoints-2">2.5.1. Endpoints</a></li>
-<li><a href="#validating-access-tokens">2.5.2. Validating Access Tokens</a></li>
-<li><a href="#flows">2.5.3. Flows</a></li>
-<li><a href="#redirect-uris">2.5.4. Redirect URIs</a></li>
+<li><a href="#endpoints-2">2.6.1. Endpoints</a></li>
+<li><a href="#validating-access-tokens">2.6.2. Validating Access Tokens</a></li>
+<li><a href="#flows">2.6.3. Flows</a></li>
+<li><a href="#redirect-uris">2.6.4. Redirect URIs</a></li>
 </ul>
 </li>
 </ul>
@@ -7429,14 +7430,13 @@ X-Auth-Name: Beloved User</code></pre>
 </div>
 <div class="sect3">
 <h4 id="known-issues"><a class="anchor" href="#known-issues"></a>2.4.29. Known Issues</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>There is a known issue with the Keycloak server 4.7.0.Final in which Gatekeeper is unable to find the <em>client_id</em> in the <em>aud</em> claim. This is due to the fact the <em>client_id</em> is not in the audience anymore. The workaround is to add the "Audience" protocol mapper to the client with the audience pointed to the <em>client_id</em>. For more information, see <a href="https://issues.jboss.org/browse/KEYCLOAK-8954">KEYCLOAK-8954</a>.
-==== mod_auth_openidc Apache HTTPD Module</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>There is a known issue with the Keycloak server 4.7.0.Final in which Gatekeeper is unable to find the <em>client_id</em> in the <em>aud</em> claim. This is due to the fact the <em>client_id</em> is not in the audience anymore. The workaround is to add the "Audience" protocol mapper to the client with the audience pointed to the <em>client_id</em>. For more information, see <a href="https://issues.jboss.org/browse/KEYCLOAK-8954">KEYCLOAK-8954</a>.</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mod_auth_openidc"><a class="anchor" href="#_mod_auth_openidc"></a>2.5. mod_auth_openidc Apache HTTPD Module</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/mod-auth-openidc.adoc" target="_blank">Edit this section</a>
@@ -7508,9 +7508,8 @@ ServerName ${HOSTIP}
 project page.</p>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="other-openid-connect-libraries"><a class="anchor" href="#other-openid-connect-libraries"></a>2.5. Other OpenID Connect Libraries</h3>
+<h3 id="other-openid-connect-libraries"><a class="anchor" href="#other-openid-connect-libraries"></a>2.6. Other OpenID Connect Libraries</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/oidc-generic.adoc" target="_blank">Edit this section</a>
@@ -7521,7 +7520,7 @@ project page.</p>
 <p>Keycloak can be secured by supplied adapters that are usually easier to use and provide better integration with Keycloak. However, if an adapter is not available for your programming language, framework, or platform you might opt to use a generic OpenID Connect Relying Party (RP) library instead. This chapter describes details specific to Keycloak and does not contain specific protocol details. For more information see the <a href="https://openid.net/connect/">OpenID Connect specifications</a> and <a href="https://tools.ietf.org/html/rfc6749">OAuth2 specification</a>.</p>
 </div>
 <div class="sect3">
-<h4 id="endpoints-2"><a class="anchor" href="#endpoints-2"></a>2.5.1. Endpoints</h4>
+<h4 id="endpoints-2"><a class="anchor" href="#endpoints-2"></a>2.6.1. Endpoints</h4>
 <div class="paragraph">
 <p>The most important endpoint to understand is the <code>well-known</code> configuration endpoint. It lists endpoints and other configuration options relevant to the OpenID Connect implementation in Keycloak. The endpoint is:</p>
 </div>
@@ -7642,7 +7641,7 @@ It can only be invoked by confidential clients.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="validating-access-tokens"><a class="anchor" href="#validating-access-tokens"></a>2.5.2. Validating Access Tokens</h4>
+<h4 id="validating-access-tokens"><a class="anchor" href="#validating-access-tokens"></a>2.6.2. Validating Access Tokens</h4>
 <div class="paragraph">
 <p>If you need to manually validate access tokens issued by Keycloak you can invoke the <a href="#_token_introspection_endpoint">Introspection Endpoint</a>.
 The downside to this approach is that you have to make a network invocation to the Keycloak server.  This can be slow and possibily overload the
@@ -7653,7 +7652,7 @@ JWS.  Depending what language you code in, there are a multitude of third party 
 </div>
 </div>
 <div class="sect3">
-<h4 id="flows"><a class="anchor" href="#flows"></a>2.5.3. Flows</h4>
+<h4 id="flows"><a class="anchor" href="#flows"></a>2.6.3. Flows</h4>
 <div class="sect4">
 <h5 id="authorization-code"><a class="anchor" href="#authorization-code"></a>Authorization Code</h5>
 <div class="paragraph">
@@ -7766,7 +7765,7 @@ for example be useful for background services that applies changes to the system
 </div>
 </div>
 <div class="sect3">
-<h4 id="redirect-uris"><a class="anchor" href="#redirect-uris"></a>2.5.4. Redirect URIs</h4>
+<h4 id="redirect-uris"><a class="anchor" href="#redirect-uris"></a>2.6.4. Redirect URIs</h4>
 <div class="paragraph">
 <p>When using the redirect based flows it&#8217;s important to use valid redirect uris for your clients. The redirect uris should be as specific as possible. This
 especially applies to client-side (public clients) applications. Failing to do so could result in:</p>
@@ -11976,7 +11975,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-05-13 07:59:23 UTC
+Last updated 2019-05-13 22:24:32 UTC
 </div>
 </div>
 <ul id="globalnav">
