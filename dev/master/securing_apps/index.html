@@ -6106,6 +6106,18 @@ Available options:</p>
 <dd>
 <p>Response type sent to Keycloak with login requests. This is determined based on the flow value used during initialization, but can be overridden by setting this value.</p>
 </dd>
+<dt class="hdlist1">pkceMethod</dt>
+<dd>
+<p>The method for Proof Key Code Exchange (<a href="https://tools.ietf.org/html/rfc7636">PKCE</a>) to use. Configuring this value enables the PKCE mechanism.
+Available options:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>"S256" - The SHA256 based PKCE method</p>
+</li>
+</ul>
+</div>
+</dd>
 </dl>
 </div>
 </div>
@@ -11962,7 +11974,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-05-29 07:23:47 UTC
+Last updated 2019-05-29 13:41:31 UTC
 </div>
 </div>
 <ul id="globalnav">
