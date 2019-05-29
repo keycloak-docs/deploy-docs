@@ -7551,6 +7551,17 @@ You must define the OpenID Connect configuration options as well.  They basicall
  more details.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepts prompt=none forward from client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies whether the IDP accepts forwarded authentication requests that contain the prompt=none query parameter or not. When a realm receives an auth request with <code>prompt=none</code> it checks
+ if the user is currently authenticated and normally returns a <code>login_required</code> error if the user is not logged in. However, when a default IDP can be determined
+ for the auth request (either via <code>kc_idp_hint</code> query param or by setting up a default IDP for the realm) we should be able to forward the auth request with
+ <code>prompt=none</code> to the default IDP so that it checks if the user is currently authenticated there. Because not all IDPs support requests with <code>prompt=none</code> this switch
+ is used to indicate if the default IDP supports the param before redirecting the auth request.
+</p><p class="tableblock"> It is important to note that if the user is not authenticated in the IDP, the client will still get a <code>login_required</code> error. Even if the user is currently authenticated in the IDP,
+ the client might still get an <code>interaction_required</code> error if authentication or consent pages requiring user interaction would be otherwise displayed. This includes required actions
+ (e.g. change password), consent screens and any screens set to be displayed by the <code>first broker login</code> flow or <code>post broker login</code> flow.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Validate Signatures</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Another optional switch. This is to specify if Keycloak will verify the signatures on the external ID Token signed by this identity provider. If this is on,
 the Keycloak will need to know the public key of the external OIDC identity provider. See below for how to set it up.
@@ -12581,7 +12592,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-05-28 12:31:13 UTC
+Last updated 2019-05-29 07:23:52 UTC
 </div>
 </div>
 <ul id="globalnav">
