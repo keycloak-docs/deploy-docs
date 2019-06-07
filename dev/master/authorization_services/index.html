@@ -3791,7 +3791,7 @@ granted by the server.</p>
 <p><strong>claim_token</strong></p>
 <div class="paragraph">
 <p>This parameter is <strong>optional</strong>. A string representing additional claims that should be considered by the server when evaluating
-permissions for the resource(s) and scope(s) being requested. This parameter allow clients to push claims to Keycloak. For more details about all supported token formats see <code>claim_token_format</code> parameter.</p>
+permissions for the resource(s) and scope(s) being requested. This parameter allows clients to push claims to Keycloak. For more details about all supported token formats see <code>claim_token_format</code> parameter.</p>
 </div>
 </li>
 <li>
@@ -3828,7 +3828,7 @@ in case the <code>permission</code> parameter is defined. It serves as a hint to
 <li>
 <p><strong>response_include_resource_name</strong></p>
 <div class="paragraph">
-<p>This parameter is <strong>optional</strong>. A boolean value indicating to the server whether resource names should be included in the RPT&#8217;s permissions. if false, only the resource
+<p>This parameter is <strong>optional</strong>. A boolean value indicating to the server whether resource names should be included in the RPT&#8217;s permissions. If false, only the resource
 identifier is included.</p>
 </div>
 </li>
@@ -3850,7 +3850,7 @@ This parameter only have effect if used together with the <code>ticket</code> pa
 <p><strong>response_mode</strong></p>
 <div class="paragraph">
 <p>This parameter is <strong>optional</strong>. A string value indicating how the server should respond to authorization requests. This parameter is specially useful when
-you are mainly interested in either the overall decision or the permissions granted by the server, instead of an standard OAuth2 response. Possible values are:</p>
+you are mainly interested in either the overall decision or the permissions granted by the server, instead of a standard OAuth2 response. Possible values are:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3936,7 +3936,7 @@ the resource server as part of the authorization process:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>If $Keycloak assessment process results in issuance of permissions, it issues the RPT with which it has associated
+<p>If Keycloak assessment process results in issuance of permissions, it issues the RPT with which it has associated
 the permissions:</p>
 </div>
 <div class="listingblock">
@@ -4183,7 +4183,7 @@ to obtain the location of the token endpoint and send an authorization request.<
 </div>
 </div>
 <div class="paragraph">
-<p>If $Keycloak assessment process results in issuance of permissions, it issues the RPT with which it has associated
+<p>If Keycloak assessment process results in issuance of permissions, it issues the RPT with which it has associated
 the permissions:</p>
 </div>
 <div class="listingblock">
@@ -6149,25 +6149,25 @@ the resources and scopes your client wants to access.</p>
 <div class="listingblock">
 <div class="title">Example about how to obtain an RPT with permissions for all resources and scopes the user can access</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="json"><span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">i</span><span class="error">t</span><span class="error">l</span><span class="error">e</span><span class="error">m</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">(</span><span class="error">'</span><span class="error">m</span><span class="error">y</span><span class="error">-</span><span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span><span class="error">-</span><span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span><span class="error">-</span><span class="error">i</span><span class="error">d</span><span class="error">'</span><span class="error">)</span><span class="error">.</span><span class="error">t</span><span class="error">h</span><span class="error">e</span><span class="error">n</span><span class="error">(</span><span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">(</span><span class="error">r</span><span class="error">p</span><span class="error">t</span><span class="error">)</span> {
-    <span class="error">/</span><span class="error">/</span> <span class="error">o</span><span class="error">n</span><span class="error">G</span><span class="error">r</span><span class="error">a</span><span class="error">n</span><span class="error">t</span> <span class="error">c</span><span class="error">a</span><span class="error">l</span><span class="error">l</span><span class="error">b</span><span class="error">a</span><span class="error">c</span><span class="error">k</span> <span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span>
-    <span class="error">/</span><span class="error">/</span> <span class="error">I</span><span class="error">f</span> <span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">w</span><span class="error">a</span><span class="error">s</span> <span class="error">s</span><span class="error">u</span><span class="error">c</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span><span class="error">f</span><span class="error">u</span><span class="error">l</span> <span class="error">y</span><span class="error">o</span><span class="error">u</span><span class="error">'</span><span class="error">l</span><span class="error">l</span> <span class="error">r</span><span class="error">e</span><span class="error">c</span><span class="error">e</span><span class="error">i</span><span class="error">v</span><span class="error">e</span> <span class="error">a</span><span class="error">n</span> <span class="error">R</span><span class="error">P</span><span class="error">T</span>
-    <span class="error">/</span><span class="error">/</span> <span class="error">w</span><span class="error">i</span><span class="error">t</span><span class="error">h</span> <span class="error">t</span><span class="error">h</span><span class="error">e</span> <span class="error">n</span><span class="error">e</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span><span class="error">a</span><span class="error">r</span><span class="error">y</span> <span class="error">p</span><span class="error">e</span><span class="error">r</span><span class="error">m</span><span class="error">i</span><span class="error">s</span><span class="error">s</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">s</span> <span class="error">t</span><span class="error">o</span> <span class="error">a</span><span class="error">c</span><span class="error">c</span><span class="error">e</span><span class="error">s</span><span class="error">s</span> <span class="error">t</span><span class="error">h</span><span class="error">e</span> <span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span> <span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span>
-}<span class="error">)</span><span class="error">;</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">authorization.entitlement(<span class="string"><span class="delimiter">'</span><span class="content">my-resource-server-id</span><span class="delimiter">'</span></span>).then(<span class="keyword">function</span> (rpt) {
+    <span class="comment">// onGrant callback function.</span>
+    <span class="comment">// If authorization was successful you'll receive an RPT</span>
+    <span class="comment">// with the necessary permissions to access the resource server</span>
+});</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Example about how to obtain an RPT with permissions for specific resources and scopes</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="json"><span class="error">a</span><span class="error">u</span><span class="error">t</span><span class="error">h</span><span class="error">o</span><span class="error">r</span><span class="error">i</span><span class="error">z</span><span class="error">a</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span><span class="error">.</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">i</span><span class="error">t</span><span class="error">l</span><span class="error">e</span><span class="error">m</span><span class="error">e</span><span class="error">n</span><span class="error">t</span><span class="error">(</span><span class="error">'</span><span class="error">m</span><span class="error">y</span><span class="error">-</span><span class="error">r</span><span class="error">e</span><span class="error">s</span><span class="error">o</span><span class="error">u</span><span class="error">r</span><span class="error">c</span><span class="error">e</span><span class="error">-</span><span class="error">s</span><span class="error">e</span><span class="error">r</span><span class="error">v</span><span class="error">e</span><span class="error">r</span><span class="error">'</span>, {
+<pre class="CodeRay highlight"><code data-lang="javascript">authorization.entitlement(<span class="string"><span class="delimiter">'</span><span class="content">my-resource-server</span><span class="delimiter">'</span></span>, {
     <span class="key"><span class="delimiter">&quot;</span><span class="content">permissions</span><span class="delimiter">&quot;</span></span>: [
         {
             <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">Some Resource</span><span class="delimiter">&quot;</span></span>
         }
     ]
-}<span class="error">)</span><span class="error">.</span><span class="error">t</span><span class="error">h</span><span class="error">e</span><span class="error">n</span><span class="error">(</span><span class="error">f</span><span class="error">u</span><span class="error">n</span><span class="error">c</span><span class="error">t</span><span class="error">i</span><span class="error">o</span><span class="error">n</span> <span class="error">(</span><span class="error">r</span><span class="error">p</span><span class="error">t</span><span class="error">)</span> {
-    <span class="error">/</span><span class="error">/</span> <span class="error">o</span><span class="error">n</span><span class="error">G</span><span class="error">r</span><span class="error">a</span><span class="error">n</span><span class="error">t</span>
-}<span class="error">)</span><span class="error">;</span></code></pre>
+}).then(<span class="keyword">function</span> (rpt) {
+    <span class="comment">// onGrant</span>
+});</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6304,7 +6304,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-06-05 12:02:58 UTC
+Last updated 2019-06-07 10:25:56 UTC
 </div>
 </div>
 <ul id="globalnav">

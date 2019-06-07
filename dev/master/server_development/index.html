@@ -2008,7 +2008,7 @@ custom provider currently installed), current configuration of the provider (eg.
 
 <span class="keyword">import</span> ...
 
-<span class="include">public</span> <span class="include">class</span> <span class="include">MyThemeSelectorProvider</span> <span class="include">implements</span> <span class="include">ThemeSelectorProvider</span>, <span class="include">ServerInfoAwareProviderFactory</span> {
+<span class="include">public</span> <span class="include">class</span> <span class="include">MyThemeSelectorProviderFactory</span> <span class="include">implements</span> <span class="include">ThemeSelectorProviderFactory</span>, <span class="include">ServerInfoAwareProviderFactory</span> {
     ...
 
     <span class="annotation">@Override</span>
@@ -3875,7 +3875,7 @@ for it when you enabled through the admin console.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>User Storage providers are packaged in a JAR and deployed or undeployed to the Keycloak runtime in the same way you would deploy something in the WildFly application server. You can either copy the JAR directly to the <code>deploy/</code> directory of the server, or use the JBoss CLI to execute the deployment.</p>
+<p>User Storage providers are packaged in a JAR and deployed or undeployed to the Keycloak runtime in the same way you would deploy something in the WildFly application server. You can either copy the JAR directly to the <code>standalone/deployments/</code> directory of the server, or use the JBoss CLI to execute the deployment.</p>
 </div>
 <div class="paragraph">
 <p>In order for Keycloak to recognize the provider, you need to add a file to the JAR: <code>META-INF/services/org.keycloak.storage.UserStorageProviderFactory</code>. This file must contain a line-separated list of fully qualified classnames of the <code>UserStorageProviderFactory</code> implementations:</p>
@@ -4199,7 +4199,7 @@ If you do not specify the template parameter, your provider will not function. T
 </div>
 </div>
 <div class="paragraph">
-<p>Once you create the jar you can deploy it using regular WildFly means: copy the jar into the <code>deploy/</code> directory or using the JBoss CLI.</p>
+<p>Once you create the jar you can deploy it using regular WildFly means: copy the jar into the <code>standalone/deployments/</code> directory or using the JBoss CLI.</p>
 </div>
 </div>
 <div class="sect3">
@@ -5342,7 +5342,7 @@ of all users you imported.  Then, when you upgrade Keycloak, just deploy and con
 </li>
 <li>
 <p>The second option is to write your new provider making sure it has the same provider ID: <code>UserStorageProviderFactory.getId()</code>.
-Make sure this provider is in the <code>deploy/</code> directory of the new Keycloak installation.  Boot the server, and have
+Make sure this provider is in the <code>standalone/deployments/</code> directory of the new Keycloak installation.  Boot the server, and have
 the built-in migration script convert from the earlier data model to the later data model. In this case all your earlier linked imported
 users will work and be the same.</p>
 </li>
@@ -5359,7 +5359,7 @@ before upgrading Keycloak. This will remove linked local imported copies of any 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-06-05 12:03:17 UTC
+Last updated 2019-06-07 10:26:16 UTC
 </div>
 </div>
 <ul id="globalnav">
