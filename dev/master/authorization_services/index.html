@@ -5311,7 +5311,7 @@ If you are using Java, you can access the Keycloak Authorization Services using 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak.json</span>
 AuthzClient authzClient = AuthzClient.create();
 
 <span class="comment">// create an authorization request</span>
@@ -5332,7 +5332,7 @@ AuthorizationResponse response = authzClient.authorization(<span class="string">
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak.json</span>
 AuthzClient authzClient = AuthzClient.create();
 
 <span class="comment">// create an authorization request</span>
@@ -5356,7 +5356,7 @@ AuthorizationResponse response = authzClient.authorization(<span class="string">
 <h4 id="creating-a-resource-using-the-protection-api"><a class="anchor" href="#creating-a-resource-using-the-protection-api"></a>8.6.5. Creating a Resource Using the Protection API</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak.json</span>
 AuthzClient authzClient = AuthzClient.create();
 
 <span class="comment">// create a new resource representation with the information we want</span>
@@ -5389,7 +5389,7 @@ ResourceRepresentation resource = resourceClient.findById(resourceId);
 <h4 id="introspecting-an-rpt"><a class="anchor" href="#introspecting-an-rpt"></a>8.6.6. Introspecting an RPT</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak-authz.json</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// create a new instance based on the configuration defined in keycloak.json</span>
 AuthzClient authzClient = AuthzClient.create();
 
 <span class="comment">// send the authorization request to the server in order to</span>
@@ -6304,7 +6304,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-06-07 11:01:37 UTC
+Last updated 2019-06-24 18:47:30 UTC
 </div>
 </div>
 <ul id="globalnav">
