@@ -3170,7 +3170,7 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 <p>Using the drop down, select the copied flow, and click on "Add execution"</p>
 </li>
 <li>
-<p>Select "X509/Validate User Form" using the drop down and click on "Save"</p>
+<p>Select "X509/Validate Username Form" using the drop down and click on "Save"</p>
 </li>
 </ul>
 </div>
@@ -3206,6 +3206,13 @@ Please notice that if we disable <code>Login with email</code> at realm settings
 <dt class="hdlist1"><code>User Identity Source</code></dt>
 <dd>
 <p>Defines how to extract the user identity from a client certificate.</p>
+</dd>
+<dt class="hdlist1"><code>Canonical DN representation enabled</code> (optional)</dt>
+<dd>
+<p>Defines whether to use the canonical format to determine a distinguished name.
+The format is described in detail in the official <a href="https://docs.oracle.com/javase/8/docs/api/javax/security/auth/x500/X500Principal.html#getName-java.lang.String-">Java API documentation</a> .
+This option only affects the two User Identity Sources <em>Match SubjectDN using regular expression</em> and <em>Match IssuerDN using regular expression</em>.
+If you setup a new keycloak instance it is recommended to enable this option. Leave this option disabled to remain beckward compatible with existing Keycloak instances.</p>
 </dd>
 <dt class="hdlist1"><code>A regular expression</code> (optional)</dt>
 <dd>
@@ -12604,7 +12611,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-06-27 05:26:19 UTC
+Last updated 2019-06-27 06:47:11 UTC
 </div>
 </div>
 <ul id="globalnav">
