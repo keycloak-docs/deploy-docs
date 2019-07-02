@@ -1940,6 +1940,12 @@ table provides a brief description of the available authorization quickstarts:</
 </div>
 </li>
 <li>
+<p><strong>Decision Strategy</strong></p>
+<div class="paragraph">
+<p>This configurations changes how the policy evaluation engine decides whether or not a resource or scope should be granted based on the outcome from all evaluated permissions. <code>Affirmative</code> means that at least one permission must evaluate to a positive decision in order grant access to a resource and its scopes. <code>Unanimous</code> means that all permissions must evaluate to a positive decision in order for the final decision to be also positive. As an example, if two permissions for a same resource or scope are in conflict (one of them is granting access and the other is denying access), the permission to the resource or scope will be granted if the choosen strategy is <code>Affirmative</code>. Otherwise, a single deny from any permission will also deny access to the resource or scope.</p>
+</div>
+</li>
+<li>
 <p><strong>Remote Resource Management</strong></p>
 <div class="paragraph">
 <p>Specifies whether resources can be managed remotely by the resource server. If false, resources can be managed only from the administration console.</p>
@@ -6304,7 +6310,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-01 06:16:46 UTC
+Last updated 2019-07-02 14:11:28 UTC
 </div>
 </div>
 <ul id="globalnav">
