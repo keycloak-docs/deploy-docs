@@ -5040,6 +5040,20 @@ id_token) which can then be used to call backend services.</p>
 <p>The application needs to be configured as a <code>public</code> OpenID Connect client with
 <code>Standard Flow Enabled</code> and http://localhost:* as an allowed <code>Valid Redirect URI</code>.</p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>KeycloakInstalled</code> adapter supports the <code>PKCE</code> [RFC 7636] mechanism to provide additional protection during
+code to token exchanges in the <code>OIDC</code> protocol. PKCE can be enabled with the <code>"enable-pkce": true</code> setting
+in the adapter configuration. Enabling PKCE is highly recommended, to avoid code injection and code replay attacks.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect4">
 <h5 id="usage"><a class="anchor" href="#usage"></a>Usage</h5>
@@ -5061,7 +5075,8 @@ uses the following <code>keycloak.json</code>:</p>
   <span class="key"><span class="delimiter">&quot;</span><span class="content">ssl-required</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">external</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">resource</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">desktop-app</span><span class="delimiter">&quot;</span></span>,
   <span class="key"><span class="delimiter">&quot;</span><span class="content">public-client</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">use-resource-role-mappings</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">use-resource-role-mappings</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">enable-pkce</span><span class="delimiter">&quot;</span></span>: <span class="value">true</span>
 }</code></pre>
 </div>
 </div>
@@ -12026,7 +12041,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-02 14:11:35 UTC
+Last updated 2019-07-03 06:51:20 UTC
 </div>
 </div>
 <ul id="globalnav">
