@@ -4131,6 +4131,34 @@ Remember that you still have to click the <code>Save</code> button!</p>
 None of the keycloak client adapters currently support holder-of-key token verification.
 Instead, keycloak adapters currently treat access and refresh tokens as bearer tokens.</p>
 </div>
+<div id="_proof-key-for-code-exchange" class="paragraph">
+<p><strong>Proof Key for Code Exchange (PKCE)</strong></p>
+</div>
+<div class="paragraph">
+<p>When an attacker steals an authorization code that was issued to a legitimate client, PKCE prevents the attacker from receiving the tokens that apply to that code.</p>
+</div>
+<div class="paragraph">
+<p>The administrator can select the following three options:</p>
+</div>
+<div class="paragraph">
+<p><strong>Proof Key for Code Exchange Code Challenge Method</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(blank) : Keycloak does not apply PKCE unless the client sends PKCE&#8217;s parameters appropriately to keycloak&#8217;s authorization endpoint. It is the default setting.</p>
+</li>
+<li>
+<p>S256 : Keycloak applies to the client PKCE whose code challenge method is S256.</p>
+</li>
+<li>
+<p>plain : Keycloak applies to the client PKCE whose code challenge method is plain.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Please see <a href="https://tools.ietf.org/html/rfc7636">RFC 7636 Proof Key for Code Exchange by OAuth Public Clients</a> for more details.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_client-credentials"><a class="anchor" href="#_client-credentials"></a>8.1.2. Confidential Client Credentials</h4>
@@ -9968,6 +9996,9 @@ An authorization code can only be used once to obtain an access token.
 In the admin console you can specify how long an authorization code is valid for on the <a href="#_timeouts">timeouts page</a>.
 This value should be really short, as short as a few seconds and just long enough for the client to make the request to obtain a token from the code.</p>
 </div>
+<div class="paragraph">
+<p>You can also mitigate against leaked autorization codes by applying PKCE to clients. See <a href="#_proof-key-for-code-exchange">Proof Key for Code Exchange (PKCE)</a> to learn how.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="open-redirectors"><a class="anchor" href="#open-redirectors"></a>18.10. Open redirectors</h3>
@@ -12611,7 +12642,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-11 13:53:27 UTC
+Last updated 2019-07-12 06:34:01 UTC
 </div>
 </div>
 <ul id="globalnav">
