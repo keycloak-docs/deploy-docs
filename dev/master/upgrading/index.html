@@ -730,7 +730,7 @@ span.image img {
 <li><a href="#migrating-to-4-6-0">4.4. Migrating to 4.6.0</a>
 <ul class="sectlevel3">
 <li><a href="#new-default-client-scopes">4.4.1. New default client scopes</a></li>
-<li><a href="#javascipt-adapter-promise">4.4.2. JavaScipt Adapter Promise</a></li>
+<li><a href="#javascript-adapter-promise">4.4.2. JavaScript Adapter Promise</a></li>
 <li><a href="#microsoft-identity-provider-updated-to-use-the-microsoft-graph-api">4.4.3. Microsoft Identity Provider updated to use the Microsoft Graph API</a></li>
 <li><a href="#upgrade-to-wildfly-14">4.4.4. Upgrade to Wildfly 14</a></li>
 </ul>
@@ -1593,7 +1593,7 @@ frontend client, for which it was issued. Read the <a href="https://www.keycloak
 </div>
 </div>
 <div class="sect3">
-<h4 id="javascipt-adapter-promise"><a class="anchor" href="#javascipt-adapter-promise"></a>4.4.2. JavaScipt Adapter Promise</h4>
+<h4 id="javascript-adapter-promise"><a class="anchor" href="#javascript-adapter-promise"></a>4.4.2. JavaScript Adapter Promise</h4>
 <div class="paragraph">
 <p>To use native JavaScript promise with the JavaScript adapter it is now required to set <code>promiseType</code> to <code>native</code> in the
 init options.</p>
@@ -1870,7 +1870,7 @@ to use the more secure hashing algorithm.</p>
 <p>OpenID Connect specification requires that parameter <code>scope</code> with value <code>openid</code> is used in initial authorization request. So in Keycloak
 2.1.0 we changed our adapters to use <code>scope=openid</code> in the redirect URI to Keycloak. Now we changed the server part too and ID token
 will be sent to the application just if <code>scope=openid</code> is really used. If it&#8217;s not used, then ID token will be skipped and just Access token and Refresh token will be sent to the application.
-This also allows that you can ommit the generation of ID Token on purpose - for example for space or performance purposes.</p>
+This also allows that you can omit the generation of ID Token on purpose - for example for space or performance purposes.</p>
 </div>
 <div class="paragraph">
 <p>Direct grants (OAuth2 Resource Owner Password Credentials Grant) and Service accounts login (OAuth2 Client credentials grant) also don&#8217;t use ID Token by default now.
@@ -2044,7 +2044,7 @@ your choice that disables variable expansion or remove it completely if such fun
 <div class="sect3">
 <h4 id="authenticate-by-default-removed-from-identity-providers"><a class="anchor" href="#authenticate-by-default-removed-from-identity-providers"></a>4.14.3. Authenticate by default removed from Identity Providers</h4>
 <div class="paragraph">
-<p>Identity providers no longer has an option to set it as a default authenticaton provider. Instead go to Authentication, select the <code>Browser</code> flow and configure the <code>Identity Provider Redirector</code>. It has an option to set the default identity provider.</p>
+<p>Identity providers no longer has an option to set it as a default authentication provider. Instead go to Authentication, select the <code>Browser</code> flow and configure the <code>Identity Provider Redirector</code>. It has an option to set the default identity provider.</p>
 </div>
 </div>
 </div>
@@ -2365,7 +2365,7 @@ WildFly 8.2.0.Final is no longer supported for the server.</p>
 </div>
 <div class="paragraph">
 <p>You also need to update standalone.xml as the extension module and subsystem definition has changed.
-See <a href="https://www.keycloak.org/docs/7.0/securing_apps/">{adapterguide_name</a> for details.</p>
+See <a href="https://www.keycloak.org/docs/7.0/securing_apps/">Securing Applications and Services Guide</a> for details.</p>
 </div>
 </div>
 </div>
@@ -2429,7 +2429,7 @@ The old endpoints (<code>/realms/{realm-name}/protocols/openid-connect/login</co
 <div class="sect3">
 <h4 id="theme-changes"><a class="anchor" href="#theme-changes"></a>4.26.4. Theme changes</h4>
 <div class="paragraph">
-<p>The layout of themes have changed.
+<p>The layout of themes has changed.
 The directory hierarchy used to be <code>type/name</code> this is now changed to <code>name/type</code>.
 For example a login theme named <code>sunrise</code> used to be deployed to <code>standalone/configuration/themes/login/sunrise</code>, which is now moved to <code>standalone/configuration/themes/sunrise/login</code>.
 This change was done to make it easier to have groups of the different types for the same theme into one folder.</p>
@@ -2478,7 +2478,7 @@ Facebook admin console).</p>
 is getting bloated.</p>
 </li>
 <li>
-<p>org.keycloak.adapters.tomcat7.KeycloakAuthenticatorValve
+<p><code>org.keycloak.adapters.tomcat7.KeycloakAuthenticatorValve</code>
 +<code>org.keycloak.adapters.tomcat.KeycloakAuthenticatorValve</code></p>
 </li>
 <li>
@@ -2549,7 +2549,7 @@ Users&#8594;Federation.  Add Provider will show you an "ldap" option.</p>
 more flexible.</p>
 </li>
 <li>
-<p>ssl-not-required
+<p><code>ssl-not-required</code>
 +<code>ssl-required</code>
 +<code>all</code>
 +<code>external</code>
@@ -2640,7 +2640,7 @@ hard coded to use the "secret" credential type.</p>
 </li>
 <li>
 <p>Because of the "secret" credential change to Application and OAuth Client, you&#8217;ll have to update
-your keycloak.json configuration files and regenarate a secret within the Application or OAuth Client
+your keycloak.json configuration files and regenerate a secret within the Application or OAuth Client
 credentials tab in the administration console.</p>
 </li>
 </ul>
@@ -2651,7 +2651,7 @@ credentials tab in the administration console.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-12 12:59:51 UTC
+Last updated 2019-07-15 16:20:08 UTC
 </div>
 </div>
 <ul id="globalnav">
