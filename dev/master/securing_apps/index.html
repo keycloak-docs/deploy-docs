@@ -8265,6 +8265,35 @@ The default value is <code>http://www.w3.org/2001/10/xml-exc-c14n#</code> and sh
 </div>
 </div>
 <div class="sect4">
+<h5 id="_sp-idp-allowedclockskew"><a class="anchor" href="#_sp-idp-allowedclockskew"></a>IDP AllowedClockSkew sub element</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/idp_allowedclockskew_subelement.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/idp_allowedclockskew_subelement.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>AllowedClockSkew</code> optional sub element defines the allowed clock skew between IDP and SP.
+The default value is 0.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="tag">&lt;AllowedClockSkew</span> <span class="attribute-name">unit</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">MILLISECONDS</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>3500<span class="tag">&lt;/AllowedClockSkew&gt;</span></code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">unit</dt>
+<dd>
+<p>It is possible to define the time unit attached to the value for this element.
+Allowed values are MICROSECONDS, MILLISECONDS, MINUTES, NANOSECONDS and SECONDS.
+This is <em>OPTIONAL</em>.
+The default value is <code>SECONDS</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect4">
 <h5 id="_sp-idp-singlesignonservice"><a class="anchor" href="#_sp-idp-singlesignonservice"></a>IDP SingleSignOnService sub element</h5>
 <div class="sidebarblock page-links">
 <div class="content">
@@ -12041,7 +12070,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-15 16:19:52 UTC
+Last updated 2019-07-19 07:53:19 UTC
 </div>
 </div>
 <ul id="globalnav">
