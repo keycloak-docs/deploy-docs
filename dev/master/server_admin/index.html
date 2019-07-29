@@ -4688,8 +4688,9 @@ If you&#8217;ve ever done a social login to Google, you&#8217;ll often see a sim
 </dd>
 <dt class="hdlist1">Include AuthnStatement</dt>
 <dd>
-<p>SAML login responses may specify the authentication method used (password, etc.) as well as a timestamp of the login.
-Setting this to on will include that statement in the response document.</p>
+<p>SAML login responses may specify the authentication method used (password, etc.) as well as timestamps of the login and the session expiration.
+This is enabled by default, which means that <code>AuthStatement</code> element will be included in login responses. Note that setting this to off
+would prevent the client from determining the maximum session length which could result into never expiring client session.</p>
 </dd>
 <dt class="hdlist1">Sign Documents</dt>
 <dd>
@@ -12664,7 +12665,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-07-19 17:06:25 UTC
+Last updated 2019-07-29 06:17:06 UTC
 </div>
 </div>
 <ul id="globalnav">
