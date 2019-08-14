@@ -1774,24 +1774,7 @@ It provides an example XML file you can cut and paste.</p>
 <div class="sect4">
 <h5 id="security-domain"><a class="anchor" href="#security-domain"></a>Security Domain</h5>
 <div class="paragraph">
-<p>To propagate the security context to the EJB tier you need to configure it to use the "keycloak" security domain. This
-can be achieved with the @SecurityDomain annotation:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">org.jboss.ejb3.annotation.SecurityDomain</span>;
-...
-
-<span class="annotation">@Stateless</span>
-<span class="annotation">@SecurityDomain</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span>)
-<span class="directive">public</span> <span class="type">class</span> <span class="class">CustomerService</span> {
-
-    <span class="annotation">@RolesAllowed</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">user</span><span class="delimiter">&quot;</span></span>)
-    <span class="directive">public</span> <span class="predefined-type">List</span>&lt;<span class="predefined-type">String</span>&gt; getCustomers() {
-        <span class="keyword">return</span> db.getCustomers();
-    }
-}</code></pre>
-</div>
+<p>The security context is propagated to the EJB tier automatically.</p>
 </div>
 </div>
 </div>
@@ -8696,44 +8679,7 @@ Otherwise this configuration is optional.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For example, if you have a JAX-RS service that is an EJB within your WEB-INF/classes directory,
-you&#8217;ll want to annotate it with the <code>@SecurityDomain</code> annotation as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">import</span> <span class="include">org.jboss.ejb3.annotation.SecurityDomain</span>;
-<span class="keyword">import</span> <span class="include">org.jboss.resteasy.annotations.cache.NoCache</span>;
-
-<span class="keyword">import</span> <span class="include">javax.annotation.security.RolesAllowed</span>;
-<span class="keyword">import</span> <span class="include">javax.ejb.EJB</span>;
-<span class="keyword">import</span> <span class="include">javax.ejb.Stateless</span>;
-<span class="keyword">import</span> <span class="include">javax.ws.rs.GET</span>;
-<span class="keyword">import</span> <span class="include">javax.ws.rs.Path</span>;
-<span class="keyword">import</span> <span class="include">javax.ws.rs.Produces</span>;
-<span class="keyword">import</span> <span class="include">java.util.ArrayList</span>;
-<span class="keyword">import</span> <span class="include">java.util.List</span>;
-
-<span class="annotation">@Path</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">customers</span><span class="delimiter">&quot;</span></span>)
-<span class="annotation">@Stateless</span>
-<span class="annotation">@SecurityDomain</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak</span><span class="delimiter">&quot;</span></span>)
-<span class="directive">public</span> <span class="type">class</span> <span class="class">CustomerService</span> {
-
-    <span class="annotation">@EJB</span>
-    CustomerDB db;
-
-    <span class="annotation">@GET</span>
-    <span class="annotation">@Produces</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">application/json</span><span class="delimiter">&quot;</span></span>)
-    <span class="annotation">@NoCache</span>
-    <span class="annotation">@RolesAllowed</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">db_user</span><span class="delimiter">&quot;</span></span>)
-    <span class="directive">public</span> <span class="predefined-type">List</span>&lt;<span class="predefined-type">String</span>&gt; getCustomers() {
-        <span class="keyword">return</span> db.getCustomers();
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>We hope to improve our integration in the future so that you don&#8217;t have to specify the
-<code>@SecurityDomain</code> annotation when you want to propagate a keycloak security context to the EJB tier.</p>
+<p>The security context is propagated to the EJB tier automatically.</p>
 </div>
 </div>
 <div class="sect4">
@@ -12070,7 +12016,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-08-01 09:18:47 UTC
+Last updated 2019-08-14 09:40:12 UTC
 </div>
 </div>
 <ul id="globalnav">
