@@ -4186,6 +4186,72 @@ Instead, keycloak adapters currently treat access and refresh tokens as bearer t
 <div class="paragraph">
 <p>Please see <a href="https://tools.ietf.org/html/rfc7636">RFC 7636 Proof Key for Code Exchange by OAuth Public Clients</a> for more details.</p>
 </div>
+<div id="_jwe-id-token-encryption" class="paragraph">
+<p><strong>Signed and Encrypted ID Token Support</strong></p>
+</div>
+<div class="paragraph">
+<p>Keycloak can encrypt ID token according to <a href="https://tools.ietf.org/html/rfc7516">Json Web Encryption (JWE)</a> specification. The administrator can determine whether encrypting ID token or not per client. This feature is disabled as default.</p>
+</div>
+<div class="paragraph">
+<p>The key for encrypting ID token is called Content Encryption Key (CEK). Keycloak and a client need to negotiate which CEK is used and how to deliver it. The way to do so is called Key Management Mode.</p>
+</div>
+<div class="paragraph">
+<p>JWE specification determines 5 types of Key Management Mode. Keycloak supports Key Encryption among them.</p>
+</div>
+<div class="paragraph">
+<p>In Key Encryption, the client generates a key pair of asymmetric cryptography. The public key is used to encrypt CEK. Keycloak generates CEK per ID token, encrypts the ID token by this generated CEK and encrypts this CEK by this client&#8217;s public key. The client decrypts this encrypted CEK by their private key, and decrypt the ID token by decrypted CEK. Therefore, any party other than the client is not able to decrypt ID token.</p>
+</div>
+<div class="paragraph">
+<p>The client needs to pass their public key for encrypting CEK onto Keycloak. Keycloak supports downloading public keys from the URL the client provides. The client needs to provide their public keys according to <a href="https://tools.ietf.org/html/rfc7517">Json Web Keys (JWK)</a> specification. The way to do so is defined in <code>Signed JWT</code> of <a href="#_client-credentials">Confidential Client Credentials</a>. The detailed procedure is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>open the client&#8217;s <code>Credentials</code> tab</p>
+</li>
+<li>
+<p>select <code>Signed Jwt</code> from <code>Client Authenticator</code> pulldown menu</p>
+</li>
+<li>
+<p>set ON to <code>JWKS URL</code> switch</p>
+</li>
+<li>
+<p>input the client&#8217;s public key providing URL on <code>JWKS URL</code> textbox</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Key Encryption&#8217;s algorithms are defined in <a href="https://tools.ietf.org/html/rfc7518#section-4.1">Json Web Algorithm (JWA)</a> specification. Keycloak supports RSAES-PKCS1-v1_5(RSA1_5) and RSAES OAEP using default parameters (RSA-OAEP). The detailed procedure to select this algorithm is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>open the client&#8217;s <code>Settings</code> tab</p>
+</li>
+<li>
+<p>open <code>Advanced Settings</code></p>
+</li>
+<li>
+<p>select <code>RSA1_5</code> or <code>RSA-OAEP</code> from <code>ID Token Encryption Key Management Algorithm</code> pulldown menu</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>ID token encryption algorithms by CEK are also defined in <a href="https://tools.ietf.org/html/rfc7518#section-5.1">JWA</a> specification. Keycloak supports AES_128_CBC_HMAC_SHA_256 authenticated encryption (A128CBC-HS256) and AES GCM using 128-bit key (A128GCM). The detailed procedure to select this algorithm is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>open the client&#8217;s <code>Settings</code> tab</p>
+</li>
+<li>
+<p>open <code>Advanced Settings</code></p>
+</li>
+<li>
+<p>select <code>A128CBC-HS256</code> or <code>A128GCM</code> from <code>ID Token Encryption Content Encryption Algorithm</code> pulldown menu</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_client-credentials"><a class="anchor" href="#_client-credentials"></a>8.1.2. Confidential Client Credentials</h4>
@@ -12677,7 +12743,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-08-14 09:40:17 UTC
+Last updated 2019-08-15 13:59:31 UTC
 </div>
 </div>
 <ul id="globalnav">
