@@ -2975,13 +2975,13 @@ future versions and provide some more flexible mappings from Kerberos principals
 <p>Match IssuerDN using regular expression</p>
 </li>
 <li>
-<p>X500 Issuer&#8217;s e-mail attribute</p>
-</li>
-<li>
-<p>X500 Issuer&#8217;s Common Name attribute</p>
-</li>
-<li>
 <p>Certificate Serial Number</p>
+</li>
+<li>
+<p>Certificate Serial Number and IssuerDN</p>
+</li>
+<li>
+<p>SHA-256 Certificate thumbprint</p>
 </li>
 <li>
 <p>Full certificate in PEM format</p>
@@ -3019,6 +3019,30 @@ future versions and provide some more flexible mappings from Kerberos principals
 </td>
 <td class="content">
 Please notice that if we disable <code>Login with email</code> at realm settings, the same rules will be applied to certificate authentication. In other words, users won&#8217;t be able to log in using e-mail attribute.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Usage of <code>Certificate Serial Number and IssuerDN</code> as an identity source requires two custom attributes - one for serial number and the other for IssuerDN.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>SHA-256 Certificate thumbprint</code> is lowercase hexadecimal representation of SHA-256 certificate thumbprint.
 </td>
 </tr>
 </table>
@@ -3241,6 +3265,10 @@ The format is described in detail in the official <a href="https://docs.oracle.c
 This option only affects the two User Identity Sources <em>Match SubjectDN using regular expression</em> and <em>Match IssuerDN using regular expression</em>.
 If you setup a new keycloak instance it is recommended to enable this option. Leave this option disabled to remain beckward compatible with existing Keycloak instances.</p>
 </dd>
+<dt class="hdlist1"><code>Enable Serial Number hexadecimal representation</code> (optional)</dt>
+<dd>
+<p>An option to use hexadecimal representation of the Serial Number. See <a href="https://tools.ietf.org/html/rfc5280#section-4.1.2.2">RFC5280, Section-4.1.2.2</a>. Serial Number with sign bit set to 1 should be left padded with 00 octet. E.g. Serial number with decimal value <em>161</em>, or <em>a1</em> in hexadecimal representation according to RFC5280 must be encoded as <em>00a1</em>. More details can be found: <a href="https://tools.ietf.org/html/rfc5280#appendix-B">RFC5280, appendix-B</a>.</p>
+</dd>
 <dt class="hdlist1"><code>A regular expression</code> (optional)</dt>
 <dd>
 <p>Defines a regular expression to use as a filter to extract the certificate identity. The regular expression must contain a single group.</p>
@@ -3251,7 +3279,7 @@ If you setup a new keycloak instance it is recommended to enable this option. Le
 </dd>
 <dt class="hdlist1"><code>A name of user attribute</code> (optional)</dt>
 <dd>
-<p>A custom attribute which value will be matched against the certificate identity.</p>
+<p>A custom attribute which value will be matched against the certificate identity. Multiple custom attributes are relevant when attribute mapping is related to multiple values, e.g. 'Certificate Serial Number and IssuerDN'.</p>
 </dd>
 <dt class="hdlist1"><code>CRL Checking Enabled</code> (optional)</dt>
 <dd>
@@ -6015,7 +6043,7 @@ If you turn the <code>Permissions Enabled</code> switch to off, it will delete a
 <p><span class="image"><img src="./keycloak-images/fine-grain-client-permissions-tab-on.png" alt="fine grain client permissions tab on"></span></p>
 </div>
 <div class="paragraph">
-<p>When you witch <code>Permissions Enabled</code> to on, it initializes various permission objects behind the scenes
+<p>When you switch <code>Permissions Enabled</code> to on, it initializes various permission objects behind the scenes
 using <a href="https://www.keycloak.org/docs/8.0/authorization_services/">Authorization Services</a>.  For this example, we&#8217;re
 interested in the <code>manage</code> permission for the client.  Clicking on that will redirect you
 to the permission that handles the <code>manage</code> permission for the client.  All authorization
@@ -12743,7 +12771,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-08-15 13:59:31 UTC
+Last updated 2019-08-16 14:34:45 UTC
 </div>
 </div>
 <ul id="globalnav">
