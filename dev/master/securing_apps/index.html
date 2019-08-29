@@ -5810,6 +5810,38 @@ or display the login page if not. <code>check-sso</code> will only authenticate 
 redirected back to the application and remain unauthenticated.</p>
 </div>
 <div class="paragraph">
+<p>You can configure a <em>silent</em> <code>check-sso</code> option.
+With this feature enabled, your browser won&#8217;t do a full redirect to the Keycloak server and back to your application, but this action will be performed in a hidden iframe, so your application resources only need to be loaded and parsed once by the browser when the app is initialized and not again after the redirect back from Keycloak to your app.
+This is particular useful in case of SPAs (Single Page Applications).</p>
+</div>
+<div class="paragraph">
+<p>To enable the <em>silent</em> <code>check-sso</code>, you have to provide a <code>silentCheckSsoRedirectUri</code> attribute in the init method.
+This URI needs to be a valid endpoint in the application (and of course it must be configured as a valid redirect for the client in the Keycloak Administration Console):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.init({ <span class="key">onLoad</span>: <span class="string"><span class="delimiter">'</span><span class="content">check-sso</span><span class="delimiter">'</span></span>, <span class="key">silentCheckSsoRedirectUri</span>: window.location.origin + <span class="string"><span class="delimiter">'</span><span class="content">/silent-check-sso.html</span><span class="delimiter">'</span></span>})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The page at the silent check-sso redirect uri is loaded in the iframe after successfully checking your authentication state and retrieving the tokens from the Keycloak server.
+It has no other task than sending the received tokens to the main application and should only look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="html"><span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+  <span class="tag">&lt;script&gt;</span>
+<span class="inline">    parent.postMessage(location.href, location.origin)</span>
+  <span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Please keep in mind that this page at the specified location must be provided by the application itself and is <em>not</em> part of the JavaScript adapter!</p>
+</div>
+<div class="paragraph">
 <p>To enable <code>login-required</code> set <code>onLoad</code> to <code>login-required</code> and pass to the init method:</p>
 </div>
 <div class="listingblock">
@@ -6159,6 +6191,9 @@ Available options:</p>
 <ul>
 <li>
 <p>onLoad - Specifies an action to do on load. Supported values are 'login-required' or 'check-sso'.</p>
+</li>
+<li>
+<p>silentCheckSsoRedirectUri - Set the redirect uri for silent authentication check if onLoad is set to 'check-sso'.</p>
 </li>
 <li>
 <p>token - Set an initial value for the token.</p>
@@ -12016,7 +12051,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-08-29 14:38:04 UTC
+Last updated 2019-08-29 14:53:36 UTC
 </div>
 </div>
 <ul id="globalnav">
