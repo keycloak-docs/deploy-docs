@@ -7931,6 +7931,9 @@ This is what one might look like:</p>
         <span class="tag">&lt;RoleIdentifiers&gt;</span>
             <span class="tag">&lt;Attribute</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Role</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
         <span class="tag">&lt;/RoleIdentifiers&gt;</span>
+        <span class="tag">&lt;RoleMappingsProvider</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">properties-based-role-mapper</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;Property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">properties.resource.location</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/WEB-INF/role-mappings.properties</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/RoleMappingsProvider&gt;</span>
         <span class="tag">&lt;IDP</span> <span class="attribute-name">entityID</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">idp</span><span class="delimiter">&quot;</span></span>
              <span class="attribute-name">signaturesRequired</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
         <span class="tag">&lt;SingleSignOnService</span> <span class="attribute-name">requestBinding</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">POST</span><span class="delimiter">&quot;</span></span>
@@ -8224,6 +8227,119 @@ as role identifiers within the Java EE Security Context for the user.</p>
 <p>By default <code>Role</code> attribute values are converted to Java EE roles.
 Some IdPs send roles using a <code>member</code> or <code>memberOf</code> attribute assertion.
 You can define one or more <code>Attribute</code> elements to specify which SAML attributes must be converted into roles.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="rolemappingsprovider-element"><a class="anchor" href="#rolemappingsprovider-element"></a>RoleMappingsProvider Element</h5>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/saml/java/general-config/sp_role_mappings_provider_element.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.jboss.org/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20securing_apps/topics/saml/java/general-config/sp_role_mappings_provider_element.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>RoleMappingsProvider</code> is an optional element that allows for the specification of the id and configuration of the
+<code>org.keycloak.adapters.saml.RoleMappingsProvider</code> SPI implementation that is to be used by the SAML adapter.</p>
+</div>
+<div class="paragraph">
+<p>When Keycloak is used as the IDP, it is possible to use the built in role mappers to map any roles before adding them to the
+SAML assertion. However, the SAML adapters can be used to send SAML requests to third party IDPs and in this case it might be
+necessary to map the roles extracted from the assertion into a different set of roles as required by the SP. The
+<code>RoleMappingsProvider</code> SPI allows for the configuration of pluggable role mappers that can be used to perform the necessary
+mappings.</p>
+</div>
+<div class="paragraph">
+<p>The configuration of the provider looks as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml">...
+<span class="tag">&lt;RoleIdentifiers&gt;</span>
+    ...
+<span class="tag">&lt;/RoleIdentifiers&gt;</span>
+<span class="tag">&lt;RoleMappingsProvider</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">properties-based-role-mapper</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;Property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">properties.resource.location</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/WEB-INF/role-mappings.properties</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/RoleMappingsProvider&gt;</span>
+<span class="tag">&lt;IDP&gt;</span>
+    ...
+<span class="tag">&lt;/IDP&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>id</code> attribute identifies which of the installed providers is to be used. The <code>Property</code> sub-element can be used multiple times
+to specify configuration properties for the provider.</p>
+</div>
+<div class="sect5">
+<h6 id="properties-based-role-mappings-provider"><a class="anchor" href="#properties-based-role-mappings-provider"></a>Properties Based Role Mappings Provider</h6>
+<div class="paragraph">
+<p>Keycloak includes a <code>RoleMappingsProvider</code> implementation that performs the role mappings using a <code>properties</code> file. This
+provider is identified by the id <code>properties-based-role-mapper</code> and is implemented by the <code>org.keycloak.adapters.saml.PropertiesBasedRoleMapper</code>
+class.</p>
+</div>
+<div class="paragraph">
+<p>This provider relies on two configuration properties that can be used to specify the location of the <code>properties</code> file
+that will be used. First, it checks if the <code>properties.file.location</code> property has been specified, using the configured
+value to locate the <code>properties</code> file in the filesystem. If the configured file is not located, the provider throws a
+<code>RuntimeException</code>. The following snippet shows an example of provider using the <code>properties.file.configuration</code>
+option to load the <code>roles.properties</code> file from the <code>/opt/mappers/</code> directory in the filesystem:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml">    <span class="tag">&lt;RoleMappingsProvider</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">properties-based-role-mapper</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;Property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">properties.file.location</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/opt/mappers/roles.properties</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/RoleMappingsProvider&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>properties.file.location</code> configuration has not been set, the provider checks the <code>properties.resource.location</code>
+property, using the configured value to load the <code>properties</code> file from the <code>WAR</code> resource. If this configuration property is
+also not present, the provider attempts to load the file from <code>/WEB-INF/role-mappings.properties</code> by default. Failure to load the file
+from the resource will result in the provider throwing a <code>RuntimeException</code>. The following snippet shows an example of provider
+using the <code>properties.resource.location</code> to load the <code>roles.properties</code> file from the application&#8217;s <code>/WEB-INF/conf/</code> directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml">    <span class="tag">&lt;RoleMappingsProvider</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">properties-based-role-mapper</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;Property</span> <span class="attribute-name">name</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">properties.resource.location</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/WEB-INF/conf/roles.properties</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/RoleMappingsProvider&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>properties</code> file can contain both roles and principals as keys, and a list of zero or more roles separated by comma
+as values. When invoked, the implementation iterates through the set of roles that were extracted from the assertion and checks,
+for each role, if a mapping exists. If the role maps to an empty role, it is discarded. If it maps to a set of one ore more
+different roles, then these roles are set in the result set. If no mapping is found for the role then it is included as is
+in the result set.</p>
+</div>
+<div class="paragraph">
+<p>Once the roles have been processed, the implementation checks if the principal extracted from the assertion contains an entry
+<code>properties</code> file. If a mapping for the principal exists, any roles listed as value are added to the result set. This
+allows the assignment of extra roles to a principal.</p>
+</div>
+<div class="paragraph">
+<p>As an example, let&#8217;s assume the provider has been configured with the following properties file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>roleA=roleX,roleY
+roleB=
+
+kc_user=roleZ</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the principal <code>kc_user</code> is extracted from the assertion with roles <code>roleA</code>, <code>roleB</code> and <code>roleC</code>, the final set of roles
+assigned to the principal will be <code>roleC</code>, <code>roleX</code>, <code>roleY</code> and <code>roleZ</code> because <code>roleA</code> is being mapped into both <code>roleX</code>
+and <code>roleY</code>, <code>roleB</code> was mapped into an empty role - thus being discarded, <code>roleC</code> is used as is and finally an additional role
+was added to the <code>kc_user</code> principal (<code>roleZ</code>).</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="adding-your-own-role-mappings-provider"><a class="anchor" href="#adding-your-own-role-mappings-provider"></a>Adding Your Own Role Mappings Provider</h6>
+<div class="paragraph">
+<p>To add a custom role mappings provider one simply needs to implement the <code>org.keycloak.adapters.saml.RoleMappingsProvider</code> SPI.
+For more details see the <code>SAML Role Mappings SPI</code> section in <a href="https://www.keycloak.org/docs/8.0/server_development/">Server Developer Guide</a>.</p>
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -12051,7 +12167,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-11 06:05:03 UTC
+Last updated 2019-09-11 12:54:42 UTC
 </div>
 </div>
 <ul id="globalnav">
