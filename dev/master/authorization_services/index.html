@@ -1656,7 +1656,7 @@ installed on your machine and available in your PATH before you can continue:</p
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ cd redhat-sso-quickstarts/app-authz-jee-vanilla
+<pre class="CodeRay highlight"><code>$ cd keycloak-quickstarts/app-authz-jee-vanilla
 $ mvn clean package wildfly:deploy</code></pre>
 </div>
 </div>
@@ -3745,11 +3745,11 @@ a realm in Keycloak.</p>
     // some claims are expected here
 
     // these are the main claims in the discovery document about Authorization Services endpoints location
-    &quot;token_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/protocol/openid-connect/token&quot;,
-    &quot;token_introspection_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/protocol/openid-connect/token/introspect&quot;,
-    &quot;resource_registration_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/authz/protection/resource_set&quot;,
-    &quot;permission_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/authz/protection/permission&quot;,
-    &quot;policy_endpoint&quot;: &quot;http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy&quot;
+    &quot;token_endpoint&quot;: &quot;http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token&quot;,
+    &quot;token_introspection_endpoint&quot;: &quot;http://${host}:${port}/auth/realms/${realm}/protocol/openid-connect/token/introspect&quot;,
+    &quot;resource_registration_endpoint&quot;: &quot;http://${host}:${port}/auth/realms/${realm}/authz/protection/resource_set&quot;,
+    &quot;permission_endpoint&quot;: &quot;http://${host}:${port}/auth/realms/${realm}/authz/protection/permission&quot;,
+    &quot;policy_endpoint&quot;: &quot;http://${host}:${port}/auth/realms/${realm}/authz/protection/uma-policy&quot;
 }</code></pre>
 </div>
 </div>
@@ -5036,7 +5036,7 @@ any user with a role <code>people-manager</code> should be granted with the <cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy?resource={resource_id}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm}/authz/protection/uma-policy?resource={resource_id}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5044,7 +5044,7 @@ any user with a role <code>people-manager</code> should be granted with the <cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy?name=Any people manager</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm}/authz/protection/uma-policy?name=Any people manager</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5052,7 +5052,7 @@ any user with a role <code>people-manager</code> should be granted with the <cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy?scope=read</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm}/authz/protection/uma-policy?scope=read</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5060,7 +5060,7 @@ any user with a role <code>people-manager</code> should be granted with the <cod
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${post}/auth/realms/${realm}/authz/protection/uma-policy</code></pre>
+<pre class="CodeRay highlight"><code data-lang="bash">http://${host}:${port}/auth/realms/${realm}/authz/protection/uma-policy</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6125,7 +6125,7 @@ responds with a <strong>401</strong> status code and a <code>WWW-Authenticate</c
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="bash">HTTP/1.1 401 Unauthorized
 WWW-Authenticate: UMA realm=&quot;${realm}&quot;,
-    as_uri=&quot;https://${host}:${post}/auth/realms/${realm}&quot;,
+    as_uri=&quot;https://${host}:${port}/auth/realms/${realm}&quot;,
     ticket=&quot;016f84e8-f9b9-11e0-bd6f-0021cc6004de&quot;</code></pre>
 </div>
 </div>
@@ -6336,7 +6336,7 @@ It is strongly recommended that you enable TLS/HTTPS when accessing the Keycloak
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-30 14:20:40 UTC
+Last updated 2019-10-30 14:53:10 UTC
 </div>
 </div>
 <ul id="globalnav">

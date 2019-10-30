@@ -3307,7 +3307,7 @@ Usage of <code>Full certificate in PEM format</code> as an identity source is li
 <p>Defines whether to use the canonical format to determine a distinguished name.
 The format is described in detail in the official <a href="https://docs.oracle.com/javase/8/docs/api/javax/security/auth/x500/X500Principal.html#getName-java.lang.String-">Java API documentation</a> .
 This option only affects the two User Identity Sources <em>Match SubjectDN using regular expression</em> and <em>Match IssuerDN using regular expression</em>.
-If you setup a new keycloak instance it is recommended to enable this option. Leave this option disabled to remain beckward compatible with existing Keycloak instances.</p>
+If you setup a new Keycloak instance it is recommended to enable this option. Leave this option disabled to remain beckward compatible with existing Keycloak instances.</p>
 </dd>
 <dt class="hdlist1"><code>Enable Serial Number hexadecimal representation</code> (optional)</dt>
 <dd>
@@ -4178,12 +4178,12 @@ talk OIDC with the auth server.  These are all relative URLs and the root of the
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/token</dt>
+<dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/auth</dt>
 <dd>
 <p>This is the URL endpoint for obtaining a temporary code in the Authorization Code Flow or for obtaining tokens via the
 Implicit Flow, Direct Grants, or Client Grants.</p>
 </dd>
-<dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/auth</dt>
+<dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/token</dt>
 <dd>
 <p>This is the URL endpoint for the Authorization Code Flow to turn a temporary code into a token.</p>
 </dd>
@@ -4522,6 +4522,24 @@ If this is turned on, this application cannot participate in browser logins.</p>
 </dl>
 </div>
 <div class="paragraph">
+<p><strong>Standard Flow Enabled</strong></p>
+</div>
+<div class="paragraph">
+<p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Authorization Code Flow</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Implicit Flow Enabled</strong></p>
+</div>
+<div class="paragraph">
+<p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Implicit Flow</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Direct Access Grants Enabled</strong></p>
+</div>
+<div class="paragraph">
+<p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Direct Access Grants</a>.</p>
+</div>
+<div class="paragraph">
 <p><strong>Root URL</strong></p>
 </div>
 <div class="paragraph">
@@ -4545,24 +4563,6 @@ for more information.</p>
 </div>
 <div class="paragraph">
 <p>If Keycloak needs to link to the client, this URL is used.</p>
-</div>
-<div class="paragraph">
-<p><strong>Standard Flow Enabled</strong></p>
-</div>
-<div class="paragraph">
-<p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Authorization Code Flow</a>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Implicit Flow Enabled</strong></p>
-</div>
-<div class="paragraph">
-<p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Implicit Flow</a>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Direct Access Grants Enabled</strong></p>
-</div>
-<div class="paragraph">
-<p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Direct Access Grants</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Admin URL</strong></p>
@@ -4643,10 +4643,18 @@ Remember that you still have to click the <code>Save</code> button!</p>
 <div class="paragraph">
 <p>Please see <a href="https://tools.ietf.org/html/draft-ietf-oauth-mtls-08#section-3">Mutual TLS Client Certificate Bound Access Tokens</a> in the OAuth 2.0 Mutual TLS Client Authentication and Certificate Bound Access Tokens for more details.</p>
 </div>
-<div class="paragraph">
-<p>WARNING:
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
 None of the keycloak client adapters currently support holder-of-key token verification.
-Instead, keycloak adapters currently treat access and refresh tokens as bearer tokens.</p>
+Instead, keycloak adapters currently treat access and refresh tokens as bearer tokens.
+</td>
+</tr>
+</table>
 </div>
 <div id="_proof-key-for-code-exchange" class="paragraph">
 <p><strong>Proof Key for Code Exchange (PKCE)</strong></p>
@@ -4663,7 +4671,7 @@ Instead, keycloak adapters currently treat access and refresh tokens as bearer t
 <div class="ulist">
 <ul>
 <li>
-<p>(blank) : Keycloak does not apply PKCE unless the client sends PKCE&#8217;s parameters appropriately to keycloak&#8217;s authorization endpoint. It is the default setting.</p>
+<p>(blank) : Keycloak does not apply PKCE unless the client sends PKCE&#8217;s parameters appropriately to Keycloak&#8217;s authorization endpoint. It is the default setting.</p>
 </li>
 <li>
 <p>S256 : Keycloak applies to the client PKCE whose code challenge method is S256.</p>
@@ -6876,10 +6884,10 @@ will show the currently active keys for the realm. Keycloak currently only suppo
 is only one active keypair. In the future as more signature algorithms are added there will be more active keypairs.</p>
 </div>
 <div class="paragraph">
-<p>To view all available keys select <code>All</code>. This will show all active, passive and disabled keys. A keypair can have the
-status <code>Active</code>, but still not be selected as the currently active keypair for the realm. The selected active pair which
-is used for signatures is selected based on the first key provider sorted by priority that is able to provide an
- active keypair.</p>
+<p>To view passive or disabled keys select <code>Passive</code> or <code>Disabled</code>.
+A keypair can have the status <code>Active</code>, but still not be selected as the currently active keypair for the realm.
+The selected active pair which is used for signatures is selected based on the first key provider sorted by priority
+that is able to provide an active keypair.</p>
 </div>
 <div class="sect3">
 <h4 id="rotating-keys"><a class="anchor" href="#rotating-keys"></a>Rotating keys</h4>
@@ -6950,7 +6958,7 @@ from the dropdown. You can change the priority to make sure the new keypair beco
 <div class="sect3">
 <h4 id="making-keys-passive"><a class="anchor" href="#making-keys-passive"></a>Making keys passive</h4>
 <div class="paragraph">
-<p>Locate the keypair in <code>Active</code> or <code>All</code> then click on the provider in the <code>Provider</code> column. This will take you to the
+<p>Locate the keypair in <code>Active</code> then click on the provider in the <code>Provider</code> column. This will take you to the
 configuration screen for the key provider for the keys. Click on <code>Active</code> to turn it <code>OFF</code>, then click on <code>Save</code>. The
 keys will no longer be active and can only be used for verifying signatures.</p>
 </div>
@@ -6958,7 +6966,7 @@ keys will no longer be active and can only be used for verifying signatures.</p>
 <div class="sect3">
 <h4 id="disabling-keys"><a class="anchor" href="#disabling-keys"></a>Disabling keys</h4>
 <div class="paragraph">
-<p>Locate the keypair in <code>Active</code> or <code>All</code> then click on the provider in the <code>Provider</code> column. This will take you to the
+<p>Locate the keypair in <code>Active</code> then click on the provider in the <code>Provider</code> column. This will take you to the
 configuration screen for the key provider for the keys. Click on <code>Enabled</code> to turn it <code>OFF</code>, then click on <code>Save</code>. The
 keys will no longer be enabled.</p>
 </div>
@@ -6971,7 +6979,7 @@ keys will no longer be enabled.</p>
 <div class="paragraph">
 <p>Keycloak has the signing keys stored just locally and they are never shared with the client applications, users or other
 entities. However if you think that your realm signing key was compromised, you should first generate new keypair as described above and
-then immediatelly remove the compromised keypair.</p>
+then immediately remove the compromised keypair.</p>
 </div>
 <div class="paragraph">
 <p>Then to ensure that client applications won&#8217;t accept the tokens signed by the compromised key, you should update and push not-before policy for
@@ -9856,8 +9864,7 @@ If you have bigger amount of users in your database (500 or more), it&#8217;s hi
 </div>
 </div>
 <div class="paragraph">
-<p>And similarly for import just use <code>-Dkeycloak.migration.action=import</code> instead of <code>export</code> .
-To export into single JSON file you can use:</p>
+<p>To export into single JSON file you can use:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9866,7 +9873,8 @@ To export into single JSON file you can use:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Here&#8217;s an example of importing:</p>
+<p>And similarly for import just use <code>-Dkeycloak.migration.action=import</code> instead of <code>export</code> .
+Here&#8217;s an example of importing:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9953,14 +9961,34 @@ Examples:</p>
 <p>Import of most resources can be performed from the admin console as well as export of most resources.
 Export of users is not supported.</p>
 </div>
-<div class="paragraph">
-<p>Note: Attributes containing secrets or private information will be masked in export file. Export files obtained via Admin Console
-are thus not appropriate for backups or data transfer between servers. Only boot-time exports are appropriate for that.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Attributes containing secrets or private information will be masked in export file. Export files obtained via Admin Console
+are thus not appropriate for backups or data transfer between servers. Only boot-time exports are appropriate for that.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The files created during a "startup" export can also be used to import from the admin UI.
-This way, you can export from one realm and import to another realm. Or, you can export from one server and import to another.
-Note: The admin console export/import allows just one realm per file.</p>
+This way, you can export from one realm and import to another realm. Or, you can export from one server and import to another.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The admin console export/import allows just one realm per file.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -11959,7 +11987,7 @@ $ kcadm.sh create clear-keys-cache -r demorealm -s realm=demorealm</pre>
 <p>Use a dedicated <code class="command">remove-roles</code> command to remove client roles from a composite role.</p>
 </div>
 <div class="paragraph">
-<p>Use the following example to remove two roles defined on the client <code class="command">realm management</code> - <code>create-client</code> role and the <code class="command">view-users</code> role from the <code class="command">testrole</code> composite role.</p>
+<p>Use the following example to remove two roles defined on the client <code class="command">realm-management</code> - <code>create-client</code> role and the <code class="command">view-users</code> role from the <code class="command">testrole</code> composite role.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -12306,16 +12334,12 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 <div class="paragraph">
 <p>For example:</p>
 </div>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
-<pre>$ kcadm.sh get-roles -r demorealm --uusername testuser</pre>
+<pre class="nowrap">$ kcadm.sh get-roles -r demorealm --uusername testuser</pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Use the additional <code class="command">--effective</code> option to list <strong>effective</strong> realm roles.</p>
 <div class="paragraph">
@@ -13420,7 +13444,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-30 14:20:53 UTC
+Last updated 2019-10-30 14:53:35 UTC
 </div>
 </div>
 <ul id="globalnav">
