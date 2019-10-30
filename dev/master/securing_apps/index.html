@@ -510,6 +510,33 @@ table.CodeRay td.code>pre{padding:0}
 .CodeRay .head .head{color:#f4f}
 </style>
 <style>
+#tocbot a.toc-link.node-name--H1{ font-style: italic }
+@media screen{
+#tocbot > ul.toc-list{ margin-bottom: 0.5em; margin-left: 0.125em }
+#tocbot ul.sectlevel0, #tocbot a.toc-link.node-name--H1 + ul{
+  padding-left: 0 }
+#tocbot a.toc-link{ height:100% }
+.is-collapsible{ max-height:3000px; overflow:hidden; }
+.is-collapsed{ max-height:0 }
+.is-active-link{ font-weight:700 }
+}
+@media print{
+#tocbot a.toc-link.node-name--H4{ display:none }
+}
+
+/* Fix scroll to anchor hides title */
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+    display: block;
+    content: " ";
+    height: 70px;
+    margin-top: -70px;
+}
+
+h1 {
+    border-bottom: none !important
+}
+
+
 /* Global Navbar */
 
 ul#globalnav {
@@ -590,9 +617,7 @@ body.toc2 {
     }
 }
 
-</style>
 
-<style>
 /* General Changes */
 
 h1, h2, h3, #toctitle, .sidebarblock>.content>.title, h4, h5, h6 {
@@ -665,6 +690,7 @@ span.image img {
     padding: 5px;
 }
 </style>
+
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
@@ -12182,7 +12208,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-25 08:59:53 UTC
+Last updated 2019-10-30 14:20:47 UTC
 </div>
 </div>
 <ul id="globalnav">
@@ -12195,5 +12221,43 @@ Last updated 2019-10-25 08:59:53 UTC
     <li><a href="../upgrading/index.html">Upgrading</a></li>
     <li><a href="../release_notes/index.html">Release Notes</a></li>
 </ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
+
+<script>
+    var oldtoc = document.getElementById('toctitle').nextElementSibling;
+    var newtoc = document.createElement('div');
+    newtoc.setAttribute('id', 'tocbot');
+    newtoc.setAttribute('class', 'js-toc');
+    oldtoc.parentNode.replaceChild(newtoc, oldtoc);
+    tocbot.init({ contentSelector: '#content',
+        headingSelector: 'h2, h3, h4',
+        smoothScroll: false
+    });
+    var handleTocOnResize = function() {
+        var width = window.innerWidth
+                    || document.documentElement.clientWidth
+                    || document.body.clientWidth;
+        if (width < 768) {
+            tocbot.refresh({
+                contentSelector: '#content',
+                headingSelector: 'h2, h3, h4',
+                collapseDepth: 6,
+                activeLinkClass: 'ignoreactive',
+                throttleTimeout: 1000,
+                smoothScroll: false
+            });
+        }
+        else {
+            tocbot.refresh({
+                contentSelector: '#content',
+                headingSelector: 'h2, h3, h4',
+                smoothScroll: false
+            });
+        }
+    };
+    window.addEventListener('resize', handleTocOnResize);
+    handleTocOnResize();
+</script>
 </body>
 </html>
