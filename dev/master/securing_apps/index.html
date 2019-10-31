@@ -5894,9 +5894,9 @@ It has no other task than sending the received tokens to the main application an
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="html"><span class="tag">&lt;html&gt;</span>
 <span class="tag">&lt;body&gt;</span>
-  <span class="tag">&lt;script&gt;</span>
-<span class="inline">    parent.postMessage(location.href, location.origin)</span>
-  <span class="tag">&lt;/script&gt;</span>
+    <span class="tag">&lt;script&gt;</span>
+<span class="inline">        parent.postMessage(location.href, location.origin)</span>
+    <span class="tag">&lt;/script&gt;</span>
 <span class="tag">&lt;/body&gt;</span>
 <span class="tag">&lt;/html&gt;</span></code></pre>
 </div>
@@ -6480,11 +6480,12 @@ provider instead. More info in the <a href="https://www.keycloak.org/docs/8.0/se
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.loadUserProfile().then(<span class="keyword">function</span>(profile) {
-    alert(JSON.stringify(profile, <span class="predefined-constant">null</span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">  </span><span class="delimiter">&quot;</span></span>));
-}).<span class="keyword">catch</span>(<span class="keyword">function</span>() {
-    alert(<span class="string"><span class="delimiter">'</span><span class="content">Failed to load user profile</span><span class="delimiter">'</span></span>);
-});</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.loadUserProfile()
+    .then(<span class="keyword">function</span>(profile) {
+        alert(JSON.stringify(profile, <span class="predefined-constant">null</span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">  </span><span class="delimiter">&quot;</span></span>))
+    }).<span class="keyword">catch</span>(<span class="keyword">function</span>() {
+        alert(<span class="string"><span class="delimiter">'</span><span class="content">Failed to load user profile</span><span class="delimiter">'</span></span>);
+    });</code></pre>
 </div>
 </div>
 </div>
@@ -6508,15 +6509,16 @@ If the session status iframe is enabled, the session status is also checked.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.updateToken(<span class="integer">5</span>).then(<span class="keyword">function</span>(refreshed) {
-    <span class="keyword">if</span> (refreshed) {
-        alert(<span class="string"><span class="delimiter">'</span><span class="content">Token was successfully refreshed</span><span class="delimiter">'</span></span>);
-    } <span class="keyword">else</span> {
-        alert(<span class="string"><span class="delimiter">'</span><span class="content">Token is still valid</span><span class="delimiter">'</span></span>);
-    }
-}).<span class="keyword">catch</span>(<span class="keyword">function</span>() {
-    alert(<span class="string"><span class="delimiter">'</span><span class="content">Failed to refresh the token, or the session has expired</span><span class="delimiter">'</span></span>);
-});</code></pre>
+<pre class="CodeRay highlight"><code data-lang="javascript">keycloak.updateToken(<span class="integer">5</span>)
+    .then(<span class="keyword">function</span>(refreshed) {
+        <span class="keyword">if</span> (refreshed) {
+            alert(<span class="string"><span class="delimiter">'</span><span class="content">Token was successfully refreshed</span><span class="delimiter">'</span></span>);
+        } <span class="keyword">else</span> {
+            alert(<span class="string"><span class="delimiter">'</span><span class="content">Token is still valid</span><span class="delimiter">'</span></span>);
+        }
+    }).<span class="keyword">catch</span>(<span class="keyword">function</span>() {
+        alert(<span class="string"><span class="delimiter">'</span><span class="content">Failed to refresh the token, or the session has expired</span><span class="delimiter">'</span></span>);
+    });</code></pre>
 </div>
 </div>
 </div>
@@ -9399,6 +9401,9 @@ Here&#8217;s an example:</p>
     <span class="tag">&lt;/security-role&gt;</span>
 <span class="tag">&lt;/web-app&gt;</span></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>If the <code>keycloak-saml.xml</code> does not explicitly set <code>assertionConsumerServiceUrl</code>, the SAML adapter will implicitly listen for SAML assertions at the location <code>/my-context-path/saml</code>. This has to match <code>Master SAML Processing URL</code> in the IDP realm/client settings, e.g. <code>http://sp.domain.com/my-context-path/saml</code>. If not, Tomcat will probably redirect infinitely to the IDP login service, as it does not receive the SAML assertion after the user logged in.</p>
 </div>
 </div>
 </div>
@@ -12284,7 +12289,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-31 10:12:31 UTC
+Last updated 2019-10-31 11:53:29 UTC
 </div>
 </div>
 <ul id="globalnav">

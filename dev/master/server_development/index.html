@@ -2694,9 +2694,9 @@ In our case we are storing this information, hashed, within a UserCredentialValu
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">    <span class="annotation">@Override</span>
+<pre class="CodeRay highlight"><code data-lang="java">  <span class="annotation">@Override</span>
     <span class="directive">public</span> <span class="type">boolean</span> configuredFor(KeycloakSession session, RealmModel realm, UserModel user) {
-        <span class="keyword">return</span> session.users().configuredForCredentialType(<span class="string"><span class="delimiter">&quot;</span><span class="content">secret_question</span><span class="delimiter">&quot;</span></span>, realm, user);
+        <span class="keyword">return</span> session.userCredentialManager().isConfiguredFor(realm, user, <span class="string"><span class="delimiter">&quot;</span><span class="content">SECRET_QUESTION</span><span class="delimiter">&quot;</span></span>);
     }</code></pre>
 </div>
 </div>
@@ -2732,8 +2732,17 @@ Its sole purpose is to render the page or to continue the flow.</p>
            context.success();
            <span class="keyword">return</span>;
         }
-        Response challenge = loginForm(context).createForm(<span class="string"><span class="delimiter">&quot;</span><span class="content">secret_question.ftl</span><span class="delimiter">&quot;</span></span>);
+        Response challenge = context.form().createForm(<span class="string"><span class="delimiter">&quot;</span><span class="content">secret-question.ftl</span><span class="delimiter">&quot;</span></span>);
         context.challenge(challenge);
+    }
+
+    <span class="directive">protected</span> <span class="type">boolean</span> hasCookie(AuthenticationFlowContext context) {
+        Cookie cookie = context.getHttpRequest().getHttpHeaders().getCookies().get(<span class="string"><span class="delimiter">&quot;</span><span class="content">SECRET_QUESTION_ANSWERED</span><span class="delimiter">&quot;</span></span>);
+        <span class="type">boolean</span> result = cookie != <span class="predefined-constant">null</span>;
+        <span class="keyword">if</span> (result) {
+            <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Bypassing secret question because cookie is set</span><span class="delimiter">&quot;</span></span>);
+        }
+        <span class="keyword">return</span> result;
     }</code></pre>
 </div>
 </div>
@@ -2773,6 +2782,15 @@ The flow will end up invoking the action() method of our Authenticator implement
         }
         setCookie(context);
         context.success();
+    }
+
+    <span class="directive">protected</span> <span class="type">boolean</span> validateAnswer(AuthenticationFlowContext context) {
+        MultivaluedMap&lt;<span class="predefined-type">String</span>, <span class="predefined-type">String</span>&gt; formData = context.getHttpRequest().getDecodedFormParameters();
+        <span class="predefined-type">String</span> secret = formData.getFirst(<span class="string"><span class="delimiter">&quot;</span><span class="content">secret_answer</span><span class="delimiter">&quot;</span></span>);
+        UserCredentialModel input = <span class="keyword">new</span> UserCredentialModel();
+        input.setType(<span class="string"><span class="delimiter">&quot;</span><span class="content">SECRET_QUESTION</span><span class="delimiter">&quot;</span></span>);
+        input.setValue(secret);
+        <span class="keyword">return</span> context.getSession().userCredentialManager().isValid(context.getRealm(), context.getUser(), input);
     }</code></pre>
 </div>
 </div>
@@ -2931,7 +2949,8 @@ This file should be added to the <code>theme-resources/templates</code> in your 
                 &lt;div <span class="type">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${properties.kcInputWrapperClass!}</span><span class="delimiter">&quot;</span></span>&gt;
                     &lt;<span class="class">input</span> id=<span class="string"><span class="delimiter">&quot;</span><span class="content">totp</span><span class="delimiter">&quot;</span></span> name=<span class="string"><span class="delimiter">&quot;</span><span class="content">secret_answer</span><span class="delimiter">&quot;</span></span> type=<span class="string"><span class="delimiter">&quot;</span><span class="content">text</span><span class="delimiter">&quot;</span></span> <span class="type">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">${properties.kcInputClass!}</span><span class="delimiter">&quot;</span></span> /&gt;
                 &lt;/<span class="class">div</span>&gt;
-            &lt;/div&gt;</code></pre>
+            &lt;/div&gt;
+        &lt;/form&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5557,7 +5576,7 @@ plain byte and character arrays and buffers is preferrable.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-31 10:12:41 UTC
+Last updated 2019-10-31 11:53:40 UTC
 </div>
 </div>
 <ul id="globalnav">
