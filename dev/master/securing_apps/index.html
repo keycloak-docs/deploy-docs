@@ -1443,7 +1443,8 @@ This is <em>REQUIRED</em> if <code>client-keystore</code> is set.</p>
 </dd>
 <dt class="hdlist1">always-refresh-token</dt>
 <dd>
-<p>If <em>true</em>, the adapter will refresh token in every request.</p>
+<p>If <em>true</em>, the adapter will refresh token in every request.
+Warning - when enabled this will result in a request to Keycloak for every request to your application.</p>
 </dd>
 <dt class="hdlist1">register-node-at-startup</dt>
 <dd>
@@ -12289,7 +12290,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-31 14:21:37 UTC
+Last updated 2019-10-31 14:26:29 UTC
 </div>
 </div>
 <ul id="globalnav">
