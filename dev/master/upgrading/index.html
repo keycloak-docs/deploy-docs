@@ -793,6 +793,7 @@ span.image img {
 <ul class="sectlevel2">
 <li><a href="#migrating-to-8-0-0">Migrating to 8.0.0</a>
 <ul class="sectlevel3">
+<li><a href="#new-default-hostname-provider">New Default Hostname provider</a></li>
 <li><a href="#upgrade-to-wildfly-18">Upgrade to Wildfly 18</a></li>
 <li><a href="#deploying-scripts-to-the-server">Deploying Scripts to the Server</a></li>
 <li><a href="#client-credentials-in-the-javascript-adapter">Client Credentials in the JavaScript adapter</a></li>
@@ -1565,6 +1566,14 @@ to preserve compatibility with older client adapters. More details are available
 </div>
 <div class="sect2">
 <h3 id="migrating-to-8-0-0"><a class="anchor" href="#migrating-to-8-0-0"></a>Migrating to 8.0.0</h3>
+<div class="sect3">
+<h4 id="new-default-hostname-provider"><a class="anchor" href="#new-default-hostname-provider"></a>New Default Hostname provider</h4>
+<div class="paragraph">
+<p>The old request and fixed hostname providers have been replaced with a new default hostname provider. The request
+and fixed hostname providers are now deprecated and it is recommended to switch to the default hostname provider as
+soon as possible.</p>
+</div>
+</div>
 <div class="sect3">
 <h4 id="upgrade-to-wildfly-18"><a class="anchor" href="#upgrade-to-wildfly-18"></a>Upgrade to Wildfly 18</h4>
 <div class="paragraph">
@@ -2873,7 +2882,7 @@ credentials tab in the administration console.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-11-11 08:08:10 UTC
+Last updated 2019-11-11 12:31:13 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
