@@ -1985,6 +1985,9 @@ If the <code>Temporary</code> switch is on, this new password can only be used o
 logged in.</p>
 </div>
 <div class="paragraph">
+<p>If a user already has a password, it can be reset in the <code>Reset Password</code> section.</p>
+</div>
+<div class="paragraph">
 <p>Alternatively, if you have <a href="#_email">email</a> set up, you can send an email to the user that asks
 them to reset their password.  Choose <code>Update Password</code> from the <code>Reset Actions</code> list box and click <code>Send Email</code>. You can optionally
 set the validity of the e-mail link which defaults to the one preset in <code>Tokens</code> tab in the realm settings.
@@ -1998,7 +2001,7 @@ The sent email contains a link that will bring the user to the update password s
 <h4 id="creating-other-credentials"><a class="anchor" href="#creating-other-credentials"></a>Creating other credentials</h4>
 <div class="paragraph">
 <p>You cannot configure other types of credentials for a specific user within the Admin Console. This is the responsibility of the user.
-You can only delete credentials for a user on the <code>Credentials</code> tab, for example if the user has lost his OTP device, or if a credential
+You can only delete credentials for a user on the <code>Credentials</code> tab, for example if the user has lost an OTP device, or if a credential
 has been compromised.</p>
 </div>
 <div class="sect4">
@@ -13802,7 +13805,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-11-22 14:40:00 UTC
+Last updated 2019-11-28 08:37:54 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
