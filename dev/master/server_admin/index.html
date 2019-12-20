@@ -782,7 +782,7 @@ span.image img {
 <li><a href="#_create-new-user">Creating New Users</a></li>
 <li><a href="#_delete-user">Deleting Users</a></li>
 <li><a href="#user-attributes">User Attributes</a></li>
-<li><a href="#user-credentials">User Credentials</a>
+<li><a href="#_user-credentials">User Credentials</a>
 <ul class="sectlevel3">
 <li><a href="#creating-a-password-for-the-user">Creating a Password for the User</a></li>
 <li><a href="#creating-other-credentials">Creating other credentials</a></li>
@@ -1927,7 +1927,7 @@ Note that any edits you make on this page will not be stored until you hit the <
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-credentials"><a class="anchor" href="#user-credentials"></a>User Credentials</h3>
+<h3 id="_user-credentials"><a class="anchor" href="#_user-credentials"></a>User Credentials</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/credentials.adoc" target="_blank">Edit this section</a>
@@ -2903,7 +2903,7 @@ password, and then his OTP. If the user has no OTP credential, he will be asked 
 <p>It is important to note that since the WebAuthn execution is set to <em>Alternative</em> instead of <em>Required</em>, this flow will never ask the user to register a WebAuthn credential. For a user
 to have a Webauthn credential, he must have a required action added to him by an administrator. This is done first by making sure that that the <code>Webauthn Register</code>
 required action is enabled in the realm (see the <a href="#_webauthn">WebAuthn</a> documentation), and then by setting the required action by using the <code>Credential Reset</code> part of a
-user&#8217;s <a href="#user-credentials">Credentials</a> management menu.</p>
+user&#8217;s <a href="#_user-credentials">Credentials</a> management menu.</p>
 </div>
 <div class="paragraph">
 <p>Creating a more advanced flow such as this one can have some subtle side effects. For example, if you were to enable the ability to reset the password
@@ -4261,7 +4261,7 @@ the <code>WebAuthn Authenticator</code> execution:</p>
 <div class="sect4">
 <h5 id="managing-credentials"><a class="anchor" href="#managing-credentials"></a>Managing Credentials</h5>
 <div class="paragraph">
-<p>WebAuthn credentials are managed in a similar manner as other credentials, such as OTP, from the <a href="#user-credentials">User credential management</a>:</p>
+<p>WebAuthn credentials are managed in a similar manner as other credentials, such as OTP, from the <a href="#_user-credentials">User credential management</a>:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -14017,7 +14017,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-12-20 09:47:08 UTC
+Last updated 2019-12-20 10:27:27 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
