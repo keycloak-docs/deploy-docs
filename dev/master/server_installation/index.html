@@ -4716,7 +4716,7 @@ By default, there is nothing to prevent unauthorized nodes from joining the clus
 </div>
 <div class="paragraph">
 <p>This section discusses a number of things you need to configure before you can put a reverse proxy or load balancer
-in front of your clustered Keycloak deployment.  It also covers configuring the built in load balancer that
+in front of your clustered Keycloak deployment.  It also covers configuring the built-in load balancer that
 was <a href="#_clustered-domain-example">Clustered Domain Example</a>.</p>
 </div>
 <div class="sect3">
@@ -4864,7 +4864,7 @@ of endpoints for Keycloak. Make sure the endpoints starts with the address (sche
 reverse proxy or load balancer. By doing this you make sure that Keycloak is using the correct endpoint.</p>
 </div>
 <div class="paragraph">
-<p>You should also verify that Keycloak sees the correct source IP address for requests. Do check this you can
+<p>You should also verify that Keycloak sees the correct source IP address for requests. To check this, you can
 try to login to the admin console with an invalid username and/or password. This should show a warning in the server log
 something like this:</p>
 </div>
@@ -4881,7 +4881,7 @@ something like this:</p>
 <div class="sect3">
 <h4 id="using-the-built-in-load-balancer"><a class="anchor" href="#using-the-built-in-load-balancer"></a>Using the Built-In Load Balancer</h4>
 <div class="paragraph">
-<p>This section covers configuring the built in load balancer that is discussed in the
+<p>This section covers configuring the built-in load balancer that is discussed in the
 <a href="#_clustered-domain-example">Clustered Domain Example</a>.</p>
 </div>
 <div class="paragraph">
@@ -4980,9 +4980,8 @@ or specify these bind addresses on the command line as follows:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The values of <code>jboss.bind.address</code> and <code>jboss.bind.addres.management</code> pertain to the host slave&#8217;s IP address.
-The value of <code>jboss.domain.master.address</code> need to be the IP address of the domain controller which is the management address
-of the master host.</p>
+<p>The values of <code>jboss.bind.address</code> and <code>jboss.bind.address.management</code> pertain to the host slave&#8217;s IP address.
+The value of <code>jboss.domain.master.address</code> needs to be the IP address of the domain controller, which is the management address of the master host.</p>
 </div>
 </div>
 </div>
@@ -5505,7 +5504,7 @@ The cache will be cleared for all realms!
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-01-02 16:56:48 UTC
+Last updated 2020-01-07 13:05:11 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
