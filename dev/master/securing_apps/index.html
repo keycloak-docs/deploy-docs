@@ -5587,10 +5587,17 @@ you can point to any file on the file system where the client application is run
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json"><span class="key"><span class="delimiter">&quot;</span><span class="content">credentials</span><span class="delimiter">&quot;</span></span>: {
   <span class="key"><span class="delimiter">&quot;</span><span class="content">secret-jwt</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">secret</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">19666a4f-32dd-4049-b082-684c74115f28</span><span class="delimiter">&quot;</span></span>
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">secret</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">19666a4f-32dd-4049-b082-684c74115f28</span><span class="delimiter">&quot;</span></span>,
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">algorithm</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">HS512</span><span class="delimiter">&quot;</span></span>
   }
 }</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>The "algorithm" field specifies the algorithm for Signed JWT using Client Secret. It needs to be one of the following values : HS256, HS384, and HS512. For details, please refer to <a href="https://tools.ietf.org/html/rfc7518#section-3.2">JSON Web Algorithms (JWA)</a>.</p>
+</div>
+<div class="paragraph">
+<p>This "algorithm" field is optional so that HS256 is applied automatically if the "algorithm" field does not exist on the <code>keycloak.json</code> file.</p>
 </div>
 </div>
 <div class="sect4">
@@ -12375,7 +12382,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-01-15 12:30:14 UTC
+Last updated 2020-01-28 13:56:39 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
