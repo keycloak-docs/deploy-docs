@@ -8788,6 +8788,14 @@ You must define the SAML configuration options as well.  They basically describe
 <td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the URI reference corresponding to a name identifier format. Defaults to <code>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</code>.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Principal Type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies which part of the SAML assertion will be used to identify and track external user identities. Can be either Subject NameID or SAML attribute (either by name or by friendly name).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Principal Attribute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If Principal is set to either "Attribute [Name]" or "Attribute [Friendly Name]", this field will specify the name or the friendly name of the identifying attribute, respectively.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HTTP-POST Binding Response</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">When this realm responds to any SAML requests sent by the external IDP, which SAML binding should be used?  If set to <code>off</code>, then the Redirect Binding will be used.</p></td>
 </tr>
@@ -13975,7 +13983,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-02-04 13:23:23 UTC
+Last updated 2020-02-06 07:55:24 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
