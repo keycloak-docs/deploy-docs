@@ -2011,7 +2011,7 @@ has been compromised.</p>
 <h5 id="creating-an-otp"><a class="anchor" href="#creating-an-otp"></a>Creating an OTP</h5>
 <div class="paragraph">
 <p>If OTP is conditional in your realm, the user will have to go to the User Account Management service to re-configure a new
-OTP generator. A user can set up any number of OTP credentials in this manner. If OTP is required, then the user will be asked
+OTP generator. If OTP is required, then the user will be asked
 to re-configure a new OTP generator when they log in.</p>
 </div>
 <div class="paragraph">
@@ -2622,28 +2622,34 @@ flow is and does.</p>
 <p>The <code>Auth Type</code> column is the name of authentication or action that will be executed.  If an authentication is indented
 this means it is in a sub-flow and may or may not be executed depending on the behavior of its parent. The <code>Requirement</code>
 column is a set of radio buttons which define whether or not the action will execute. Let&#8217;s describe what each radio
-button means in this context:</p>
+button means in this context.</p>
 </div>
+<div class="sect4">
+<h5 id="_execution-requirements"><a class="anchor" href="#_execution-requirements"></a>Execution requirements</h5>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Required</dt>
 <dd>
-<p>This authentication execution must execute successfully. If the user doesn&#8217;t have that type of authentication mechanism
-configured and there is a required action associated with that authentication type, then a required action will be attached
-to that account.  For example, if you switch the <code>Browser - Conditional OTP</code> sub-flow to <code>Required</code>, users that don&#8217;t have an OTP generator configured
-will be asked to do so.</p>
+<p>For a flow to be evaluated as successful, all required elements in the flow must evaluate as successful. This means that all <em>Required</em> elements in the flow
+must be sequentially executed, from top to bottom, unless one of the elements causes the flow to fail. However, this is only true for the current flow.
+Any <em>Required</em> element within a sub-flow is only processed if that sub-flow is entered.</p>
 </dd>
 <dt class="hdlist1">Alternative</dt>
 <dd>
-<p>This means that at least one alternative authentication type must execute successfully at that level of the flow.</p>
+<p>When a flow contains only <em>Alternative</em> elements, only a single element must evaluate as successful for the flow to evaluate as successful.
+Because the <em>Required</em> flow elements within a flow are sufficient to mark a flow as successful, any <em>Alternative</em> flow element within a flow
+that contains <em>Required</em> flow elements will never be executed. In this case, they are functionally <em>Disabled</em>.</p>
 </dd>
 <dt class="hdlist1">Disabled</dt>
 <dd>
-<p>If disabled, the authentication type is not executed.</p>
+<p>Any <em>Disabled</em> element is not evaluated and does not count to mark a flow as successful.</p>
 </dd>
 <dt class="hdlist1">Conditional</dt>
 <dd>
-<p>This requirement type can only be set on sub-flows, indicating that it will only be executed if its condition evaluates to true.</p>
+<p>This requirement type can only be set on sub-flows. A <em>Conditional</em> sub-flow can contain a "Condition" execution. These "Condition" executions must evaluate as
+logical statements. If all "Condition" executions evaluate as <em>true</em> then the <em>Conditional</em> sub-flow acts as <em>Required</em>. If not, the <em>Conditional</em> sub-flow
+acts as <em>Disabled</em>. If no "Condition" execution is set, the <em>Conditional</em> sub-flow acts as <em>Disabled</em>. If a flow contains "Condition" executions and is not set to
+<em>Conditional</em>, the "Condition" executions are not evaluated, and can be considered functionally <em>Disabled</em>.</p>
 </dd>
 </dl>
 </div>
@@ -2687,6 +2693,7 @@ has an OTP credential set up. If he doesn&#8217;t, the user will not see an OTP 
 </ol>
 </div>
 </div>
+</div>
 <div class="sect3">
 <h4 id="creating-flows"><a class="anchor" href="#creating-flows"></a>Creating flows</h4>
 <div class="paragraph">
@@ -2695,10 +2702,18 @@ considerations when designing your own flow. A badly created flow could either l
 like, or simply result in an error.</p>
 </div>
 <div class="paragraph">
-<p>To create a flow, you can either:
-. Copy and then modify an existing flow. To do this select an existing flow (for example the <code>Browser</code> flow), and press the <code>Copy</code> button.
-  This will then ask you to set a name for the new flow, before creating it.
-. Create a new flow from scratch. To do this press the <code>New</code> button. Since this is the more general case, we will use this for our example.</p>
+<p>To create a flow, you can either:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Copy and then modify an existing flow. To do this select an existing flow (for example the <code>Browser</code> flow), and press the <code>Copy</code> button.
+This will then ask you to set a name for the new flow, before creating it.</p>
+</li>
+<li>
+<p>Create a new flow from scratch. To do this press the <code>New</code> button. Since this is the more general case, we will use this for our example.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>When creating a new flow, you will have to create a top level flow</p>
@@ -2760,34 +2775,8 @@ depending on how the executions they contain evaluate (and this includes the eva
 depends on the Requirement of each execution and sub-flow.</p>
 </div>
 <div class="paragraph">
-<p>Fully understanding this requires a more complete explanation of how requirements work when evaluating a flow, and this also applies to sub-flows:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Required</dt>
-<dd>
-<p>For a flow to be evaluated as successful, all required elements in the flow must evaluate as successful. This means that all <em>Required</em> elements in the flow
-must be sequentially executed, from top to bottom, unless one the the elements causes the flow to fail. However, this is only true for the current flow.
-Any <em>Required</em> element within a sub-flow is only processed if that sub-flow is entered.</p>
-</dd>
-<dt class="hdlist1">Alternative</dt>
-<dd>
-<p>When a flow contains only <em>Alternative</em> elements, only a single element must evaluate as successful for the flow to evaluate as successful.
-Because the <em>Required</em> flow elements within a flow are sufficient to mark a flow as successful, any <em>Alternative</em> flow element within a flow
-that contains <em>Required</em> flow elements will never be executed. In this case, they are functionally <em>Disabled</em>.</p>
-</dd>
-<dt class="hdlist1">Disabled</dt>
-<dd>
-<p>Any <em>Disabled</em> element is not evaluated and does not count to mark a flow as successful.</p>
-</dd>
-<dt class="hdlist1">Conditional</dt>
-<dd>
-<p>This requirement type can only be set on sub-flows. A <em>Conditional</em> sub-flow can contain a "Condition" execution. These "Condition" executions must evaluate as
-logical statements. If all "Condition" executions evaluate as <em>true</em> then the <em>Conditional</em> sub-flow acts as <em>Required</em>. If not, the <em>Conditional</em> sub-flow
-acts as <em>Disabled</em>. If no "Condition" execution is set, the <em>Conditional</em> sub-flow acts as <em>Disabled</em>. If a flow contains "Condition" executions and is not set to
-<em>Conditional</em>, the "Condition" executions are not evaluated, and can be considered functionally <em>Disabled</em>.</p>
-</dd>
-</dl>
+<p>Fully understanding this requires a more complete explanation of how requirements work when evaluating a flow, and this also applies to sub-flows.
+Refer to the <a href="#_execution-requirements">execution requirements section</a> above for more details.</p>
 </div>
 <div class="paragraph">
 <p>Note that after adding an execution, you should check that the Requirement is set to the correct value. Even if there is only a single possible Requirement, it
@@ -2858,7 +2847,7 @@ After pressing "Save", set its Requirement to <em>Required</em>.</p>
 </li>
 <li>
 <p>Using the <code>Actions</code> menu on the right-hand side of the "Authentication" subflow, select "Add execution". Using the drop-down select
-"Webauthn Authenticator". After pressing "Save", set its Requirement to <em>Alternative</em>.</p>
+"Webauthn Passwordless Authenticator". After pressing "Save", set its Requirement to <em>Alternative</em>.</p>
 </li>
 <li>
 <p>Using the <code>Actions</code> menu on the right-hand side of the "Authentication" subflow, select "Add flow". Choose an representative Alias, e.g. "Password with OTP".
@@ -2890,19 +2879,21 @@ After pressing "Save", set its Requirement to <em>Alternative</em>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If the user has any WebAuthn credentials recorded, he will be able to use any of them to log in directly. This is the password-less login.
-The user also has a drop-down allowing him to select "Password with OTP". He can do this because the "WebAuthn" execution and the "Password with OTP"
+<p>If the user has any WebAuthn passwordless credentials recorded, that user will be able to use any of them to log in directly. This is the password-less login.
+The user can instead select "Password with OTP". The user can do this because the "WebAuthn Passwordless" execution and the "Password with OTP"
 flow are set to <em>Alternative</em>. Were they set to <em>Required</em> the user would have to enter WebAuthn, password, and OTP.</p>
 </li>
 <li>
-<p>If the user selects the "Password with OTP" from the drop-down, or if the user doesn&#8217;t have any WebAuthn credentials, he will have to first enter his
+<p>If the user selects <code>Try another way</code> link on the screen with "WebAuthn passwordless" authentication, the user can choose between "Password" and
+"Security Key" (WebAuthn passwordless). When selecting the password, the user will need to continue and log in with the assigned OTP as well.
+If the user has no WebAuthn credentials, he will have to first enter his
 password, and then his OTP. If the user has no OTP credential, he will be asked to record one.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>It is important to note that since the WebAuthn execution is set to <em>Alternative</em> instead of <em>Required</em>, this flow will never ask the user to register a WebAuthn credential. For a user
-to have a Webauthn credential, he must have a required action added to him by an administrator. This is done first by making sure that that the <code>Webauthn Register</code>
+<p>It is important to note that since the WebAuthn Passwordless execution is set to <em>Alternative</em> instead of <em>Required</em>, this flow will never ask the user to register a WebAuthn credential. For a user
+to have a Webauthn credential, that user must have a required action added by an administrator. This is done first by making sure that the <code>Webauthn Register Passwordless</code>
 required action is enabled in the realm (see the <a href="#_webauthn">WebAuthn</a> documentation), and then by setting the required action by using the <code>Credential Reset</code> part of a
 user&#8217;s <a href="#_user-credentials">Credentials</a> management menu.</p>
 </div>
@@ -4161,18 +4152,13 @@ the <code>WebAuthn Authenticator</code> execution:</p>
 <div class="sect3">
 <h4 id="authenticate-with-webauthn-authenticator"><a class="anchor" href="#authenticate-with-webauthn-authenticator"></a>Authenticate with WebAuthn Authenticator</h4>
 <div class="paragraph">
-<p>After registering their WebAuthn authenticator, the user carries out the following operations :</p>
+<p>After registering a WebAuthn authenticator, the user carries out the following operations
+assuming that authentication flow configuration above with the conditional subflow using <code>WebAuthn Authenticator</code> was used:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Open the login form.</p>
-</li>
-<li>
-<p>Select the credential or credentials that Keycloak must accept for login. Then click <code>Save</code> and  click <code>Login</code>.</p>
-</li>
-<li>
-<p>The list of registered Webauthn Authenticators' labels appears. Click <code>Authenticate</code>.</p>
+<p>Open the login form. The user must authenticate with a username and password.</p>
 </li>
 <li>
 <p>The user&#8217;s browser asks the user to authenticate by their WebAuthn authenticator.</p>
@@ -13983,7 +13969,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-02-07 08:47:46 UTC
+Last updated 2020-02-10 10:25:23 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
