@@ -4463,6 +4463,13 @@ This is <em>REQUIRED</em> if <code>client-keystore</code> is set.</p>
 <p>Denotes proxy configurations for outgoing HTTP requests.
 See the section on <a href="#_proxymappings">Proxy Mappings for Outgoing HTTP Requests</a> for more details.</p>
 </dd>
+<dt class="hdlist1">disable-trust-manager</dt>
+<dd>
+<p>If an outgoing request requires HTTPS and this config option is set to <code>true</code> you do not have to specify a truststore.
+This setting should only be used during development and <strong>never</strong> in production as it will disable verification of SSL certificates.
+This is <em>OPTIONAL</em>.
+The default value is <code>false</code>.</p>
+</dd>
 </dl>
 </div>
 <div class="sect3">
@@ -5518,7 +5525,7 @@ The cache will be cleared for all realms!
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-02-21 13:10:36 UTC
+Last updated 2020-02-21 13:28:00 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
