@@ -9863,7 +9863,24 @@ Groups and roles are automatically registered, but not synchronized, so any chan
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>$ ipa user-add john --first=John --last=Smith --email=john@smith.com --phone=042424242 --street="Testing street" \      --city="Testing city" --state="Testing State" --postalcode=0000000000</pre>
+<pre>$ ipa user-add john --first=John --last=Smith --email=john@smith.com --phone=042424242 --street="Testing street" \      --city="Testing city" --state="Testing State" --postalcode=0000000000 --password</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To force setting the user&#8217;s password, use kinit.  Given the user john, you would enter this command:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>kinit john</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To restore normal IPA operation, you would enter these commands:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>kdestroy -A
+kinit admin</pre>
 </div>
 </div>
 </div>
@@ -14078,7 +14095,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-03-20 06:43:09 UTC
+Last updated 2020-03-20 07:18:22 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
