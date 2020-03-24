@@ -11707,6 +11707,20 @@ or <code>-Dkeycloak.profile.feature.token_exchange=enabled</code>
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In order to use token exchange you should also enable the <code>admin_fine_grained_authz</code> feature. Please, take a look at <a href="https://www.keycloak.org/docs/9.0/server_installation/#profiles">Profiles</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>In Keycloak, token exchange is the process of using a set of credentials or token to obtain an entirely different token.
 A client may want to invoke on a less trusted application so it may want to downgrade the current token it has.
@@ -12375,7 +12389,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-03-24 04:31:06 UTC
+Last updated 2020-03-24 05:11:01 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
