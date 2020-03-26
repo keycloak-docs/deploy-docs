@@ -1316,8 +1316,8 @@ you pass in an additional flag to point to the HA config file.</p>
 </div>
 <div class="paragraph">
 <p>Running a cluster in standard mode can quickly become aggravating as the cluster grows in size.  Every time you need
-to make a configuration change, you have perform it on each node in the cluster.  Domain mode solves this problem by providing
-a central place to store and publish configuration.  It can be quite complex to set up, but it is worth it in the end.
+to make a configuration change, you have to perform it on each node in the cluster.  Domain mode solves this problem by providing
+a central place to store and publish configurations.  It can be quite complex to set up, but it is worth it in the end.
 This capability is built into the WildFly Application Server which Keycloak derives from.</p>
 </div>
 <div class="admonitionblock note">
@@ -1447,7 +1447,7 @@ You&#8217;ll be configuring things here like network connections, caches, and da
 </div>
 </div>
 <div class="paragraph">
-<p>This config defines the default port mappings for various connectors that are opened with each
+<p>This configration defines the default port mappings for various connectors that are opened with each
 Keycloak server instance.  Any value that contains <code>${&#8230;&#8203;}</code> is a value that can be overridden on the command line
 with the <code>-D</code> switch, i.e.</p>
 </div>
@@ -1575,7 +1575,7 @@ operating system.  These scripts live in the <em>bin/</em> directory of the serv
 </div>
 </div>
 <div class="paragraph">
-<p>When running the boot script you will need pass in the host controlling configuration file you are going to use via the
+<p>When running the boot script you will need to pass in the host controlling configuration file you are going to use via the
 <code>--host-config</code> switch.</p>
 </div>
 </div>
@@ -1599,7 +1599,7 @@ domain is meant to run on one machine and boots up:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>To simulate running a cluster on two machines, you&#8217;ll run the <code>domain.sh</code> script twice to start two separate
+<p>To simulate running a cluster on two machines, you&#8217;ll need to run the <code>domain.sh</code> script twice to start two separate
 host controllers.  The first will be the master host controller which will start a domain controller, an HTTP load balancer, and one
 Keycloak authentication server instance.  The second will be a slave host controller that only starts
 up an authentication server instance.</p>
@@ -1660,7 +1660,7 @@ The add-user.sh does not add user to Keycloak server but to the underlying JBoss
 </table>
 </div>
 <div class="paragraph">
-<p>Now cut and paste the secret value into the <em>&#8230;&#8203;/domain/configuration/host-slave.xml</em> file as follows:</p>
+<p>Next, cut and paste the secret value into the <em>&#8230;&#8203;/domain/configuration/host-slave.xml</em> file as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5531,7 +5531,7 @@ The cache will be cleared for all realms!
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-03-25 10:32:22 UTC
+Last updated 2020-03-26 06:35:34 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
