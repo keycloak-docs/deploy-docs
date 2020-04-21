@@ -10752,7 +10752,7 @@ if the Keycloak server runs on WildFly/JBoss EAP.
 <h3 id="key-resolvers"><a class="anchor" href="#key-resolvers"></a>Key Resolvers</h3>
 <div class="paragraph">
 <p>All built-in providers support the configuration of one or more key resolvers. A key resolver essentially implements
-the algorithm or strategy for combining the realm name with the key (as obtained from the <code>${vault.key}</code> expression} into
+the algorithm or strategy for combining the realm name with the key (as obtained from the <code>${vault.key}</code> expression) into
 the final entry name that will be used to retrieve the secret from the vault. The <code>keyResolvers</code> property is used to configure
 the resolvers that are to be used by the provider. The value is a comma-separated list of resolver names. An example of
 configuration for the <code>files-plaintext</code> provider follows:</p>
@@ -10809,7 +10809,7 @@ allowing the creation of a custom key resolver by extending an existing factory 
 <p>The <code>FACTORY_PROVIDED</code> resolver provides a hook that can be used to implement a custom resolver by extending the provider
 factory of choice and overriding the <code>getFactoryResolver</code> method so it returns the custom resolver. For example, if you want
 to use the <code>elytron-cs-keystore</code> provider but none of the built-in resolvers match the format used in your keystore, you
-can extend the `ElytronCSKeystoreProvider and implement the getFactoryResolver method:</p>
+can extend the <code>ElytronCSKeystoreProvider</code> and implement the <code>getFactoryResolver</code> method:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -14095,7 +14095,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-21 07:22:11 UTC
+Last updated 2020-04-21 10:07:23 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
