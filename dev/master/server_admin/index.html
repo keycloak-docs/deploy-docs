@@ -9415,6 +9415,14 @@ There is a small window of time that is always added to the idle timeout before 
 <td class="tableblock halign-left valign-top"><p class="tableblock">For <a href="#_offline-access">offline access</a>, this is the maximum time before the corresponding offline token is revoked.  This option controls the maximum time the offline token can remain active, regardless of user activity.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Client Session Idle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the user is not active for longer than this timeout, refresh token requests will bump the idle timeout. It allows for the specification of a shorter idle timeout of refresh token than session idle timeout. And it can be overridden on individual clients. It is an optional configuration and if not set to a value bigger than 0 it uses the same idle timeout set in the SSO Session Idle configuration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Client Session Max</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum time before a refresh token is expired and invalidated. It allows for the specification of a shorter timeout of refresh token than session timeout. And it can be overridden on individual clients. It is an optional configuration and if not set to a value bigger than 0 it uses the same idle timeout set in the SSO Session Max configuration.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Access Token Lifespan</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">When an OIDC access token is created, this value affects the expiration.</p></td>
 </tr>
@@ -14123,7 +14131,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-28 13:28:02 UTC
+Last updated 2020-04-28 13:35:40 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
