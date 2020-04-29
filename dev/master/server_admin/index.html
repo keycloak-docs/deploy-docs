@@ -3551,7 +3551,7 @@ Usage of <code>Full certificate in PEM format</code> as an identity source is li
 <dl>
 <dt class="hdlist1">Enable mutual SSL in WildFly</dt>
 <dd>
-<p>See <a href="https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-EnableSSL">Enable SSL</a> and <a href="https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-%7B%7B%3Cssl%2F%3E%7D%7D">SSL</a> for the instructions how to enable SSL in WildFly.</p>
+<p>See <a href="https://docs.wildfly.org/19/Admin_Guide.html#enable-ssl">Enable SSL</a> for the instructions how to enable SSL in WildFly.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -3626,7 +3626,7 @@ Usage of <code>Full certificate in PEM format</code> as an identity source is li
 </dd>
 <dt class="hdlist1">Enable https listener</dt>
 <dd>
-<p>See <a href="https://docs.jboss.org/author/display/WFLY10/Admin+Guide#AdminGuide-HTTPSlistener">HTTPS Listener</a> for the instructions how to enable HTTPS in WildFly.</p>
+<p>See <a href="https://docs.wildfly.org/19/Admin_Guide.html#https-listener">HTTPS Listener</a> for the instructions how to enable HTTPS in WildFly.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -3956,7 +3956,7 @@ all certificates in trusted-ca-list-for-client-auth.pem must be added to <a href
 <dl>
 <dt class="hdlist1">Dumping HTTP headers</dt>
 <dd>
-<p>If you want to view what the reverse proxy is sending to Keycloak, simply activate <a href="https://mirocupak.com/logging-requests-with-undertow/">RequestDumpingHandler</a> and consult <code>server.log</code> file.</p>
+<p>If you want to view what the reverse proxy is sending to Keycloak, enable the <code>RequestDumpingHandler</code> Undertow filter and consult <code>server.log</code> file.</p>
 </dd>
 <dt class="hdlist1">Enable TRACE logging under the logging subsystem</dt>
 </dl>
@@ -14131,7 +14131,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-04-28 13:35:40 UTC
+Last updated 2020-04-29 06:56:05 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
