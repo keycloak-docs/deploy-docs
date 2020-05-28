@@ -12814,6 +12814,30 @@ $ kcadm.sh create clear-keys-cache -r demorealm -s realm=demorealm</pre>
 <pre class="nowrap">$ kcadm.sh get clients/$CID/client-secret</pre>
 </div>
 </div>
+<h4 id="generate-a-new-secret-for-a-specific-client" class="discrete">Generate a new secret for a specific client</h4>
+<div class="paragraph">
+<p>Use a client&#8217;s ID to construct an endpoint URI, such as <code class="filename">clients/ID/client-secret</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm.sh create clients/$CID/client-secret</pre>
+</div>
+</div>
+<h4 id="updating-the-current-secret-for-a-specific-client" class="discrete">Updating the current secret for a specific client</h4>
+<div class="paragraph">
+<p>Use a client&#8217;s ID to construct an endpoint URI, such as <code class="filename">clients/ID</code>.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">$ kcadm.sh update clients/$CID -s "secret=newSecret"</pre>
+</div>
+</div>
 <h4 id="getting-an-adapter-configuration-file-keycloak-json-for-a-specific-client" class="discrete">Getting an adapter configuration file (keycloak.json) for a specific client</h4>
 <div class="paragraph">
 <p>Use a client&#8217;s ID to construct an endpoint URI that targets a specific client, such as <code class="filename">clients/ID/installation/providers/keycloak-oidc-keycloak-json</code>.</p>
@@ -14165,7 +14189,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-26 15:09:59 UTC
+Last updated 2020-05-28 18:38:12 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
