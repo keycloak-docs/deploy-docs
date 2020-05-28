@@ -9787,6 +9787,28 @@ For this mapper implementation, there is always a one-to-one mapping (one LDAP a
 <p>This allows you to specify that the full name of the user, which is saved in some LDAP attribute (usually <code>cn</code> ) will be mapped to <code>firstName</code> and <code>lastname</code> attributes in the Keycloak database.
 Having <code>cn</code> to contain full name of user is a common case for some LDAP deployments.</p>
 </dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When registering new users in Keycloak and <code>Sync Registrations</code> is ON for the LDAP provider, the fullName mapper
+      allows the possibility of fallback to the username. This fallback is especially useful in case of the Microsoft Active Directory. The common
+      setup for the MSAD is to configure <code>cn</code> LDAP attribute as fullName and at the same time, the <code>cn</code> is usually used as <code>RDN LDAP Attribute</code>
+      in the configuration of the LDAP provider. With this setup, the fallback to the username will be used. For example when you create
+      Keycloak user "john123" and leave firstName and lastName empty, then fullname mapper will save "john123" as the value of the <code>cn</code> in LDAP.
+      When you later enter "John Doe" for firstName and lastName, the fullname mapper will update LDAP <code>cn</code> to the value "John Doe" as
+      fallback to the username will not be needed anymore.
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1">Hardcoded Attribute Mapper</dt>
 <dd>
 <p>This mapper adds a hardcoded attribute value to each Keycloak user linked with LDAP.
@@ -14189,7 +14211,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-05-28 18:38:12 UTC
+Last updated 2020-05-28 19:39:28 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
