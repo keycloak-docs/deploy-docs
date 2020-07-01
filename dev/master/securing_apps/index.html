@@ -782,7 +782,7 @@ span.image img {
 <li><a href="#_fuse_adapter">2.1.4. JBoss Fuse 6 Adapter</a></li>
 <li><a href="#_fuse7_adapter">2.1.5. JBoss Fuse 7 Adapter</a></li>
 <li><a href="#_spring_boot_adapter">2.1.6. Spring Boot Adapter</a></li>
-<li><a href="#_tomcat_adapter">2.1.7. Tomcat 7 and 8 Adapters</a></li>
+<li><a href="#_tomcat_adapter">2.1.7. Tomcat 7, 8 and 9 Adapters</a></li>
 <li><a href="#_jetty9_adapter">2.1.8. Jetty 9.x Adapters</a></li>
 <li><a href="#_spring_security_adapter">2.1.9. Spring Security Adapter</a></li>
 <li><a href="#_servlet_filter_adapter">2.1.10. Java Servlet Filter Adapter</a></li>
@@ -883,6 +883,7 @@ span.image img {
 <li><a href="#_mod_auth_mellon">3.2. mod_auth_mellon Apache HTTPD Module</a>
 <ul class="sectlevel3">
 <li><a href="#configuring-mod_auth_mellon-with-keycloak">3.2.1. Configuring mod_auth_mellon with Keycloak</a></li>
+<li><a href="#setting-the-samesite-value-for-the-cookie-used-by-mod_auth_mellon">3.2.2. Setting the SameSite value for the cookie used by mod_auth_mellon</a></li>
 </ul>
 </li>
 </ul>
@@ -4182,7 +4183,7 @@ If you plan to deploy your Spring Application as a WAR then you should not use t
 </div>
 </div>
 <div class="sect3">
-<h4 id="_tomcat_adapter"><a class="anchor" href="#_tomcat_adapter"></a>2.1.7. Tomcat 7 and 8 Adapters</h4>
+<h4 id="_tomcat_adapter"><a class="anchor" href="#_tomcat_adapter"></a>2.1.7. Tomcat 7, 8 and 9 Adapters</h4>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/java/tomcat-adapter.adoc" target="_blank">Edit this section</a>
@@ -10197,7 +10198,7 @@ This had to be done because SAML POST binding would eat the request input stream
 </div>
 </div>
 <div class="paragraph">
-<p>The <a href="https://github.com/UNINETT/mod_auth_mellon">mod_auth_mellon</a> module is an Apache HTTPD plugin for SAML. If your language/environment supports using Apache HTTPD as a proxy, then you can use mod_auth_mellon to secure your web application with SAML. For more details on this module see the <em>mod_auth_mellon</em> GitHub repo.</p>
+<p>The <a href="https://github.com/latchset/mod_auth_mellon">mod_auth_mellon</a> module is an Apache HTTPD plugin for SAML. If your language/environment supports using Apache HTTPD as a proxy, then you can use mod_auth_mellon to secure your web application with SAML. For more details on this module see the <em>mod_auth_mellon</em> GitHub repo.</p>
 </div>
 <div class="paragraph">
 <p>To configure mod_auth_mellon you&#8217;ll need:</p>
@@ -10363,6 +10364,29 @@ Some of the files referenced in the code above are created in later steps.
 </tr>
 </table>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-the-samesite-value-for-the-cookie-used-by-mod_auth_mellon"><a class="anchor" href="#setting-the-samesite-value-for-the-cookie-used-by-mod_auth_mellon"></a>3.2.2. Setting the SameSite value for the cookie used by mod_auth_mellon</h4>
+<div class="paragraph">
+<p>Browsers are planning to set the default value for the <code>SameSite</code> attribute for cookies to <code>Lax</code>. This setting means
+that cookies will be sent to applications only if the request originates in the same domain. This behavior can affect
+the SAML POST binding which may become non-functional. To preserve full functionality of the <em>mod_auth_mellon</em> module,
+we recommend setting the <code>SameSite</code> value to <code>None</code> for the cookie created by <em>mod_auth_mellon</em>. Not doing so may result
+in an inability to login using Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>To set the <code>SameSite</code> value to <code>None</code>, add the following configuration to <code>&lt;Location / &gt;</code> tag within your <code>mellon.conf</code>
+file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml">MellonSecureCookie On
+MellonCookieSameSite none</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The support for this configuration is available in the <em>mod_auth_mellon</em> module from version 0.16.0.</p>
 </div>
 <div class="sect4">
 <h5 id="creating-the-service-provider-metadata"><a class="anchor" href="#creating-the-service-provider-metadata"></a>Creating the Service Provider Metadata</h5>
@@ -12445,7 +12469,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-30 20:15:59 UTC
+Last updated 2020-07-01 22:17:39 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
