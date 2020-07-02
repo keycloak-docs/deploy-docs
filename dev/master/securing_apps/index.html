@@ -802,9 +802,10 @@ span.image img {
 <li><a href="#session-status-iframe">2.2.1. Session Status iframe</a></li>
 <li><a href="#_javascript_implicit_flow">2.2.2. Implicit and Hybrid Flow</a></li>
 <li><a href="#hybrid-apps-with-cordova">2.2.3. Hybrid Apps with Cordova</a></li>
-<li><a href="#earlier-browsers">2.2.4. Earlier Browsers</a></li>
-<li><a href="#_modern_browsers">2.2.5. Modern Browsers with Tracking Protection</a></li>
-<li><a href="#javascript-adapter-reference">2.2.6. JavaScript Adapter Reference</a></li>
+<li><a href="#custom-adapters">2.2.4. Custom Adapters</a></li>
+<li><a href="#earlier-browsers">2.2.5. Earlier Browsers</a></li>
+<li><a href="#_modern_browsers">2.2.6. Modern Browsers with Tracking Protection</a></li>
+<li><a href="#javascript-adapter-reference">2.2.7. JavaScript Adapter Reference</a></li>
 </ul>
 </li>
 <li><a href="#_nodejs_adapter">2.3. Node.js Adapter</a>
@@ -6233,7 +6234,54 @@ We recommend that you use universal links, combined with a fallback site with a 
 </div>
 </div>
 <div class="sect3">
-<h4 id="earlier-browsers"><a class="anchor" href="#earlier-browsers"></a>2.2.4. Earlier Browsers</h4>
+<h4 id="custom-adapters"><a class="anchor" href="#custom-adapters"></a>2.2.4. Custom Adapters</h4>
+<div class="paragraph">
+<p>Sometimes it&#8217;s necessary to run the JavaScript client in environments that are not supported by default (such as Capacitor). To make it possible to use the JavasScript client in these kind of unknown environments is possible to pass a custom adapter. For example a 3rd party library could provide such an adapter to make it possible to run the JavaScript client without issues:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript"><span class="reserved">import</span> Keycloak from <span class="string"><span class="delimiter">'</span><span class="content">keycloak-js</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> KeycloakCapacitorAdapter from <span class="string"><span class="delimiter">'</span><span class="content">keycloak-capacitor-adapter</span><span class="delimiter">'</span></span>;
+
+const keycloak = <span class="keyword">new</span> Keycloak();
+
+keycloak.init({
+    <span class="key">adapter</span>: KeycloakCapacitorAdapter,
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This specific package does not exist, but it gives a pretty good example of how such an adapter could be passed into the client.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s also possible to make your own adapter, to do so you will have to implement the methods described in the <code>KeycloakAdapter</code> interface. For example the following TypeScript code ensures that all of the methods are properly implemented:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="typescript">import Keycloak, { KeycloakAdapter } from 'keycloak-js';
+
+// Implement the 'KeycloakAdapter' interface so that all required methods are guaranteed to be present.
+const MyCustomAdapter: KeycloakAdapter = {
+    login(options) {
+        // Write your own implementation here.
+    }
+
+    // The other methods go here...
+};
+
+const keycloak = new Keycloak();
+
+keycloak.init({
+    adapter: MyCustomAdapter,
+});</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Naturally you can also do this without TypeScript by omitting the type information, but ensuring implementing the interface properly will then be left entirely up to you.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="earlier-browsers"><a class="anchor" href="#earlier-browsers"></a>2.2.5. Earlier Browsers</h4>
 <div class="paragraph">
 <p>The JavaScript adapter depends on Base64 (window.btoa and window.atob), HTML5 History API and optionally the Promise API.
 If you need to support browsers that do not have these available (for example, IE9) you need to add polyfillers.</p>
@@ -6256,7 +6304,7 @@ If you need to support browsers that do not have these available (for example, I
 </div>
 </div>
 <div class="sect3">
-<h4 id="_modern_browsers"><a class="anchor" href="#_modern_browsers"></a>2.2.5. Modern Browsers with Tracking Protection</h4>
+<h4 id="_modern_browsers"><a class="anchor" href="#_modern_browsers"></a>2.2.6. Modern Browsers with Tracking Protection</h4>
 <div class="paragraph">
 <p>In the latest versions of some browsers various cookies policies are applied to prevent tracking of the users by third-parties,
 like SameSite in Chrome or completely blocked third-party cookies. It is expected that those policies will become even
@@ -6302,7 +6350,7 @@ the iframe is used to tell whether the user is logged in, and the redirect is pe
 </div>
 </div>
 <div class="sect3">
-<h4 id="javascript-adapter-reference"><a class="anchor" href="#javascript-adapter-reference"></a>2.2.6. JavaScript Adapter Reference</h4>
+<h4 id="javascript-adapter-reference"><a class="anchor" href="#javascript-adapter-reference"></a>2.2.7. JavaScript Adapter Reference</h4>
 <div class="sect4">
 <h5 id="constructor"><a class="anchor" href="#constructor"></a>Constructor</h5>
 <div class="listingblock">
@@ -12469,7 +12517,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-01 22:17:39 UTC
+Last updated 2020-07-02 12:05:51 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
