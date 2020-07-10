@@ -5196,8 +5196,10 @@ Instead, keycloak adapters currently treat access and refresh tokens as bearer t
 </div>
 <div class="paragraph">
 <p>If you&#8217;ve set the client&#8217;s <a href="#_access-type">access type</a> to <code>confidential</code> in the client&#8217;s
-<code>Settings</code> tab, a new <code>Credentials</code> tab will show up. As part of dealing with this
-type of client you have to configure the client&#8217;s credentials.</p>
+<code>Settings</code> tab, a new <code>Credentials</code> tab will show up. Note that the <code>Credentials</code> tab only
+shows up after you&#8217;ve clicked the <code>Save</code> button at the bottom of the settings screen with a
+<code>confidential</code> access type. As part of dealing with thistype of client you have to configure
+the client&#8217;s credentials.</p>
 </div>
 <div class="paragraph">
 <div class="title">Credentials Tab</div>
@@ -11268,6 +11270,20 @@ Brute Force Detection is disabled by default. Enabling this feature is highly re
 <div class="paragraph">
 <p>There are 2 different configurations for brute force detection; permanent lockout and temporary lockout. Permanent lockout will disable a user&#8217;s account after an attack is detected; the account will be disabled until an administrator renables it. Temporary lockout will disable a user&#8217;s account for a time period after an attack is detected; the time period for which the account is disabled increases the longer the attack continues.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When user is temporarily locked and attempt to login, the default error message <code>Invalid username or password</code> is shown.
+This is the same error message as the message displayed when invalid username or invalid password is provided. This is by design as
+we do not want to reveal to the attacker that user is temporarily disabled.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><strong>Common Parameters</strong></p>
 </div>
@@ -14253,7 +14269,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-07 07:01:20 UTC
+Last updated 2020-07-10 05:31:22 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
