@@ -8996,16 +8996,19 @@ This link is an XML document describing metadata about the IDP.</p>
 <div class="sect3">
 <h4 id="_identity_broker_saml_sp_descriptor"><a class="anchor" href="#_identity_broker_saml_sp_descriptor"></a>SP Descriptor</h4>
 <div class="paragraph">
-<p>Once you create a SAML provider, there is an <code>EXPORT</code> button that appears when viewing that provider.
-Clicking this button will export a SAML SP entity descriptor which you can use to import into the external SP.</p>
+<p>If you need to access the provider&#8217;s SAML SP metadata, look for the <code>Endpoints</code> item in the identity provider configuration settings. It contains a link called
+<code>SAML 2.0 Service Provider Metadata</code> that generates the SAML entity descriptor for the Service Provider. You can either download it or copy its URL and then import it in the remote Identity Provider.</p>
 </div>
 <div class="paragraph">
-<p>This metadata is also available publicly by going to the URL.</p>
+<p>This metadata is also available publicly by going to the URL:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>http[s]://{host:port}/auth/realms/{realm-name}/broker/{broker-alias}/endpoint/descriptor</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Make sure to save any configuration changes before accessing the descriptor or they will not be reflected in the metadata.</p>
 </div>
 </div>
 <div class="sect3">
@@ -14393,7 +14396,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-21 12:57:42 UTC
+Last updated 2020-08-31 20:29:01 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
