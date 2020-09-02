@@ -7804,7 +7804,7 @@ X-Auth-Name: Beloved User</code></pre>
 <div class="sect3">
 <h4 id="limitations"><a class="anchor" href="#limitations"></a>2.4.28. Limitations</h4>
 <div class="paragraph">
-<p>Keep in mind <a href="http://browsercookielimits.squawky.net/">browser cookie limits</a> if you use access or refresh tokens in the browser cookie. Keycloak-generic-adapter divides the cookie automatically if your cookie is longer than 4093 bytes. Real size of the cookie depends on the content of the issued access token. Also, encryption might add additional bytes to the cookie size. If you have large cookies (&gt;200 KB), you might reach browser cookie limits.</p>
+<p>Keep in mind browser cookie limits if you use access or refresh tokens in the browser cookie. Keycloak-generic-adapter divides the cookie automatically if your cookie is longer than 4093 bytes. Real size of the cookie depends on the content of the issued access token. Also, encryption might add additional bytes to the cookie size. If you have large cookies (&gt;200 KB), you might reach browser cookie limits.</p>
 </div>
 <div class="paragraph">
 <p>All cookies are part of the header request, so you might find a problem with the max headers size limits in your infrastructure (some load balancers have very low this value, such as 8 KB). Be sure that all network devices have sufficient header size limits. Otherwise, your users won&#8217;t be able to obtain an access token.</p>
@@ -12551,7 +12551,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-02 12:32:08 UTC
+Last updated 2020-09-02 17:26:55 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
