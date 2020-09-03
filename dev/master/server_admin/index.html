@@ -998,6 +998,7 @@ span.image img {
 <li><a href="#_identity_broker_oidc">OpenID Connect v1.0 Identity Providers</a></li>
 <li><a href="#saml-v2-0-identity-providers">SAML v2.0 Identity Providers</a>
 <ul class="sectlevel3">
+<li><a href="#_identity_broker_saml_requested_authncontext">Requesting specific AuthnContexts</a></li>
 <li><a href="#_identity_broker_saml_sp_descriptor">SP Descriptor</a></li>
 <li><a href="#_identity_broker_saml_login_hint">Send Subject in SAML requests</a></li>
 </ul>
@@ -8994,6 +8995,42 @@ This link is an XML document describing metadata about the IDP.</p>
 <p>You can also import all this configuration data by providing a URL or XML file that points to the entity descriptor of the external SAML IDP you want to connect to.</p>
 </div>
 <div class="sect3">
+<h4 id="_identity_broker_saml_requested_authncontext"><a class="anchor" href="#_identity_broker_saml_requested_authncontext"></a>Requesting specific AuthnContexts</h4>
+<div class="paragraph">
+<p>Some Identity Providers let the clients specify particular constraints on the authentication method used to verify the user identity (e.g. asking for MFA, Kerberos authentication, security requirements, etc.). These are specified using particular AuthnContext criteria. A client can ask for one or more criteria and also specify how the Identity Provider should match the requested AuthnContext - exactly, or by satisfying same-or-better equivalents.</p>
+</div>
+<div class="paragraph">
+<p>You can list the criteria your Service Provider requires by adding one or more ClassRef or DeclRef in the Requested AuthnContext Constraints section. Usually you will need to provide either ClassRefs or DeclRefs - you should check with your Identity Provider docs which values are supported. If no ClassRefs or DeclRefs are present, the Identity Provider will not enforce additional constraints.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 4. Requested AuthnContext Constraints</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Configuration</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comparison</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The comparison method the Identity Provider should use to evaluate the context requirements. Available values are <code>Exact</code>, <code>Minimum</code>, <code>Maximum</code> or <code>Better</code>. Default value is <code>Exact</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AuthnContext ClassRefs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more AuthnContext ClassRefs that describe the required criteria.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AuthnContext DeclRefs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more AuthnContext DeclRefs that describe the required criteria.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
 <h4 id="_identity_broker_saml_sp_descriptor"><a class="anchor" href="#_identity_broker_saml_sp_descriptor"></a>SP Descriptor</h4>
 <div class="paragraph">
 <p>If you need to access the provider&#8217;s SAML SP metadata, look for the <code>Endpoints</code> item in the identity provider configuration settings. It contains a link called
@@ -14396,7 +14433,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-02 17:27:02 UTC
+Last updated 2020-09-03 19:27:25 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
