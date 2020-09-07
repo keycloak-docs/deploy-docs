@@ -6876,7 +6876,7 @@ and assign restricted access policies for managing a realm.  Things like:</p>
 <p>Limited user management.</p>
 </li>
 <li>
-<p>Fine grain impersonization control</p>
+<p>Fine grain impersonation control</p>
 </li>
 <li>
 <p>Being able to assign a specific restricted set of roles to users.</p>
@@ -6893,7 +6893,7 @@ and assign restricted access policies for managing a realm.  Things like:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>There&#8217;s some important things to note about fine grain admin permissions:</p>
+<p>There are some important things to note about fine grain admin permissions:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -6913,8 +6913,8 @@ default behavior of the built in admin roles.</p>
 <h4 id="managing-one-specific-client"><a class="anchor" href="#managing-one-specific-client"></a>Managing One Specific Client</h4>
 <div class="paragraph">
 <p>Let&#8217;s look first at allowing
-an admin to manage one client and one client only.  In our example we have a realm
-called <code>test</code> and a client called <code>sales-application</code>.  In realm <code>test</code> we will give a
+an admin to manage one client and one client only.  In our example, we have a realm
+called <code>test</code> and a client called <code>sales-application</code>.  In the realm <code>test</code> we will give a
 user in that realm permission to only manage that application.</p>
 </div>
 <div class="admonitionblock important">
@@ -6933,7 +6933,7 @@ You cannot do cross realm fine grain permissions.  Admins in the <code>master</c
 <h5 id="permission-setup"><a class="anchor" href="#permission-setup"></a>Permission Setup</h5>
 <div class="paragraph">
 <p>The first thing we must do is login to the Admin Console so we can set up permissions for that client.  We navigate to the management section
-of the client we want to define fine-grain permissions for.</p>
+of the client, we want to define fine-grain permissions for.</p>
 </div>
 <div class="paragraph">
 <div class="title">Client Management</div>
@@ -6992,7 +6992,7 @@ rules in JavaScript.  For this simple example, we&#8217;re going to create a <co
 <p><span class="image"><img src="./keycloak-images/fine-grain-client-user-policy.png" alt="fine grain client user policy"></span></p>
 </div>
 <div class="paragraph">
-<p>This policy will match a hard-coded user in the user database.  In this case it is the <code>sales-admin</code> user.  We must then go back to the
+<p>This policy will match a hard-coded user in the user database.  In this case, it is the <code>sales-admin</code> user.  We must then go back to the
 <code>sales-application</code> client&#8217;s <code>manage</code> permission page and assign the policy to the permission object.</p>
 </div>
 <div class="paragraph">
@@ -7022,7 +7022,7 @@ role tells the Admin Console that it should render client menus for the <code>sa
 <div class="sect4">
 <h5 id="testing-it-out"><a class="anchor" href="#testing-it-out"></a>Testing It Out.</h5>
 <div class="paragraph">
-<p>Next we log out of the master realm and re-login to the <a href="#_per_realm_admin_permissions">dedicated admin console</a> for the <code>test</code> realm
+<p>Next, we log out of the master realm and re-login to the <a href="#_per_realm_admin_permissions">dedicated admin console</a> for the <code>test</code> realm
 using the <code>sales-admin</code> as a username.  This is located under <code>/auth/admin/test/console</code>.</p>
 </div>
 <div class="paragraph">
@@ -7037,9 +7037,9 @@ using the <code>sales-admin</code> as a username.  This is located under <code>/
 <div class="sect3">
 <h4 id="restrict-user-role-mapping"><a class="anchor" href="#restrict-user-role-mapping"></a>Restrict User Role Mapping</h4>
 <div class="paragraph">
-<p>Another thing you might want to do is to restrict the set a roles an admin is allowed
+<p>Another thing you might want to do is to restrict the set of roles an admin is allowed
 to assign to a user.  Continuing our last example, let&#8217;s expand the permission set of the 'sales-admin'
-user so that he can also control which users are allowed to access this application.  Through fine grain permissions we can
+user so that he can also control which users are allowed to access this application.  Through fine grain permissions, we can
 enable it so that the <code>sales-admin</code> can only assign roles that grant specific access to
 the <code>sales-application</code>.  We can also restrict it so that the admin can only map roles
 and not perform any other types of user administration.</p>
@@ -7104,13 +7104,13 @@ allow the admin to view users in the realm he wants to add the <code>sales-appli
 <div class="sect4">
 <h5 id="testing-it-out-2"><a class="anchor" href="#testing-it-out-2"></a>Testing It Out.</h5>
 <div class="paragraph">
-<p>Next we log out of the master realm and re-login to the <a href="#_per_realm_admin_permissions">dedicated admin console</a> for the <code>test</code> realm
+<p>Next, we log out of the master realm and re-login to the <a href="#_per_realm_admin_permissions">dedicated admin console</a> for the <code>test</code> realm
 using the <code>sales-admin</code> as a username.  This is located under <code>/auth/admin/test/console</code>.</p>
 </div>
 <div class="paragraph">
 <p>You will see that now the <code>sales-admin</code> can view users in the system.  If you select one of the
 users you&#8217;ll see that each user detail page is read only, except for the <code>Role Mappings</code> tab.
-Going to these tab you&#8217;ll find that there are no <code>Available</code> roles for the admin to
+Going to this tab you&#8217;ll find that there are no <code>Available</code> roles for the admin to
 map to the user except when we browse the <code>sales-application</code> roles.</p>
 </div>
 <div class="paragraph">
@@ -7134,7 +7134,7 @@ by a client.  If we log back into the admin console to our master realm admin an
 <p><span class="image"><img src="./keycloak-images/fine-grain-client-permissions-tab-on.png" alt="fine grain client permissions tab on"></span></p>
 </div>
 <div class="paragraph">
-<p>If you grant access to this particular parmission to an admin, that admin will be able
+<p>If you grant access to this particular permission to an admin, that admin will be able
 map any role defined by the client.</p>
 </div>
 </div>
@@ -7164,7 +7164,7 @@ role mapping permissions.  See <a href="#_users-permissions">Users Permissions</
 <dt class="hdlist1">map-role-composite</dt>
 <dd>
 <p>Policies that decide if an admin can map this role as a composite to another role.
-An admin can define roles for a client if he has manage permissions for that client
+An admin can define roles for a client if he has to manage permissions for that client
 but he will not be able to add composites to those roles unless he has the
 <code>map-role-composite</code> privileges for the role he wants to add as a composite.</p>
 </dd>
@@ -7193,7 +7193,7 @@ permission types listed.</p>
 <dt class="hdlist1">manage</dt>
 <dd>
 <p>Policies that decide if an admin can view and manage the client&#8217;s configuration.
-There is some issues with this in that privileges could be leaked unintentionally.
+There are some issues with this in that privileges could be leaked unintentionally.
 For example, the admin could define a protocol mapper that hardcoded a role
 even if the admin does not have privileges to map the role to the client&#8217;s scope.
 This is currently the limitation of protocol mappers as they don&#8217;t have a way
@@ -7201,14 +7201,14 @@ to assign individual permissions to them like roles do.</p>
 </dd>
 <dt class="hdlist1">configure</dt>
 <dd>
-<p>Reduced set of prileges to manage the client.  Its like the <code>manage</code> scope except
+<p>Reduced set of privileges to manage the client.  It is like the <code>manage</code> scope except
 the admin is not allowed to define protocol mappers, change the client template,
 or the client&#8217;s scope.</p>
 </dd>
 <dt class="hdlist1">map-roles</dt>
 <dd>
 <p>Policies that decide if an admin can map any role defined by the client to a user.
-This is a shortcut, easy-of-use feature to avoid having to defin policies
+This is a shortcut, easy-of-use feature to avoid having to define policies
 for each and every role defined by the client.</p>
 </dd>
 <dt class="hdlist1">map-roles-composite</dt>
@@ -7243,7 +7243,7 @@ permission types listed.</p>
 <dt class="hdlist1">manage</dt>
 <dd>
 <p>Policies that decide if an admin can manage all users in the realm.  This
-permission grants the admin the privilege to perfor user role mappings, but
+permission grants the admin the privilege to perform user role mappings, but
 it does not specify which roles the admin is allowed to map.  You&#8217;ll need to
 define the privilege for each role you want the admin to be able to map.</p>
 </dd>
@@ -14433,7 +14433,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-03 19:27:25 UTC
+Last updated 2020-09-07 13:11:53 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
