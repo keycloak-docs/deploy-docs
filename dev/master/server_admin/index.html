@@ -8981,6 +8981,10 @@ You must define the SAML configuration options as well.  They basically describe
 <td class="tableblock halign-left valign-top"><p class="tableblock">The public certificate that will be used to validate the signatures of SAML requests and responses from the external IDP.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sign Service Provider Metadata</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If true, it will use the realm&#8217;s keypair to sign the <a href="#_identity_broker_saml_sp_descriptor">SAML Service Provider Metadata descriptor</a>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pass subject</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not a <code>login_hint</code> query parameter should be forwarded to the IDP. When provided, this login_hint parameter is added to AuthnRequest&#8217;s Subject. This allows destination providers to prefill their login form. When no login_hint is provided, nothing is forwarded as an AuthnRequest Subject.</p></td>
 </tr>
@@ -14433,7 +14437,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-10 14:00:46 UTC
+Last updated 2020-09-16 14:42:39 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
