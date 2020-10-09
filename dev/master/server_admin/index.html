@@ -8933,6 +8933,10 @@ You must define the SAML configuration options as well.  They basically describe
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service Provider Entity ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is a required field and specifies the SAML Entity ID that the remote Identity Provider will use to identify requests coming from this Service Provider. By default it is set to the realm base URL <code>&lt;root&gt;/auth/realms/{realm-name}</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Single Sign-On Service URL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This is a required field and specifies the SAML endpoint to start the authentication process.  If your SAML IDP publishes an IDP entity descriptor, the value of
  this field will be specified there.</p></td>
@@ -9016,10 +9020,10 @@ This link is an XML document describing metadata about the IDP.</p>
 <div class="sect3">
 <h4 id="_identity_broker_saml_requested_authncontext"><a class="anchor" href="#_identity_broker_saml_requested_authncontext"></a>Requesting specific AuthnContexts</h4>
 <div class="paragraph">
-<p>Some Identity Providers let the clients specify particular constraints on the authentication method used to verify the user identity (e.g. asking for MFA, Kerberos authentication, security requirements, etc.). These are specified using particular AuthnContext criteria. A client can ask for one or more criteria and also specify how the Identity Provider should match the requested AuthnContext - exactly, or by satisfying same-or-better equivalents.</p>
+<p>Some Identity Providers let the clients specify particular constraints on the authentication method used to verify the user identity (such as asking for MFA, Kerberos authentication, security requirements, and so on). These constraints are specified using particular AuthnContext criteria. A client can ask for one or more criteria and also specify how the Identity Provider should match the requested AuthnContext - exactly, or by satisfying same-or-better equivalents.</p>
 </div>
 <div class="paragraph">
-<p>You can list the criteria your Service Provider requires by adding one or more ClassRef or DeclRef in the Requested AuthnContext Constraints section. Usually you will need to provide either ClassRefs or DeclRefs - you should check with your Identity Provider docs which values are supported. If no ClassRefs or DeclRefs are present, the Identity Provider will not enforce additional constraints.</p>
+<p>You can list the criteria your Service Provider requires by adding one or more ClassRef or DeclRef in the Requested AuthnContext Constraints section. Usually you need to provide either ClassRefs or DeclRefs; you should check with your Identity Provider documentation which values are supported. If no ClassRefs or DeclRefs are present, the Identity Provider will not enforce additional constraints.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 4. Requested AuthnContext Constraints</caption>
@@ -14471,7 +14475,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-09 05:54:33 UTC
+Last updated 2020-10-09 20:06:00 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
