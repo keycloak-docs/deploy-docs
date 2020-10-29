@@ -4816,6 +4816,13 @@ By default, there is nothing to prevent unauthorized nodes from joining the clus
 in front of your clustered Keycloak deployment.  It also covers configuring the built-in load balancer that
 was <a href="#_clustered-domain-example">Clustered Domain Example</a>.</p>
 </div>
+<div class="paragraph">
+<p>The following diagram illustrates the use of a load balancer. In this example, the load balancer serves as a reverse proxy between three clients and a cluster of three Keycloak servers.</p>
+</div>
+<div id="load-balancer-diagram" class="paragraph">
+<div class="title">Example Load Balancer Diagram</div>
+<p><span class="image"><img src="./keycloak-images/load_balancer.png" alt="load balancer"></span></p>
+</div>
 <div class="sect3">
 <h4 id="identifying-client-ip-addresses"><a class="anchor" href="#identifying-client-ip-addresses"></a>Identifying Client IP Addresses</h4>
 <div class="paragraph">
@@ -7297,7 +7304,7 @@ keycloak-postgresql-c824c6-vv27m   1/1      Running      0           71m</code><
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-27 19:22:33 UTC
+Last updated 2020-10-29 08:46:37 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
