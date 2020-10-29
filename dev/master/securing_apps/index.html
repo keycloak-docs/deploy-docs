@@ -5926,17 +5926,24 @@ is selected for <code>Access Type</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="html"><span class="tag">&lt;head&gt;</span>
+<pre class="CodeRay highlight"><code data-lang="html"><span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
     <span class="tag">&lt;script</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">keycloak.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
     <span class="tag">&lt;script&gt;</span>
-<span class="inline">        <span class="keyword">var</span> keycloak = <span class="keyword">new</span> Keycloak();
-        keycloak.init().then(<span class="keyword">function</span>(authenticated) {
-            alert(authenticated ? <span class="string"><span class="delimiter">'</span><span class="content">authenticated</span><span class="delimiter">'</span></span> : <span class="string"><span class="delimiter">'</span><span class="content">not authenticated</span><span class="delimiter">'</span></span>);
-        }).<span class="keyword">catch</span>(<span class="keyword">function</span>() {
-            alert(<span class="string"><span class="delimiter">'</span><span class="content">failed to initialize</span><span class="delimiter">'</span></span>);
-        });</span>
+<span class="inline">        <span class="keyword">function</span> <span class="function">initKeycloak</span>() {
+            <span class="keyword">var</span> keycloak = <span class="keyword">new</span> Keycloak();
+            keycloak.init().then(<span class="keyword">function</span>(authenticated) {
+                alert(authenticated ? <span class="string"><span class="delimiter">'</span><span class="content">authenticated</span><span class="delimiter">'</span></span> : <span class="string"><span class="delimiter">'</span><span class="content">not authenticated</span><span class="delimiter">'</span></span>);
+            }).<span class="keyword">catch</span>(<span class="keyword">function</span>() {
+                alert(<span class="string"><span class="delimiter">'</span><span class="content">failed to initialize</span><span class="delimiter">'</span></span>);
+            });
+        }</span>
     <span class="tag">&lt;/script&gt;</span>
-<span class="tag">&lt;/head&gt;</span></code></pre>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body</span> <span class="attribute-name">onload</span>=<span class="string"><span class="delimiter">&quot;</span>initKeycloak()<span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="comment">&lt;!-- your page content goes here --&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -12550,7 +12557,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-29 08:46:22 UTC
+Last updated 2020-10-29 08:55:42 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
