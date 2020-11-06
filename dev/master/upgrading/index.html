@@ -796,6 +796,7 @@ span.image img {
 <ul class="sectlevel3">
 <li><a href="#skip-creation-of-user-session-for-the-docker-protocol-authentication">Skip creation of user session for the Docker protocol authentication</a></li>
 <li><a href="#upgrade-to-patternfly-4">Upgrade to PatternFly 4</a></li>
+<li><a href="#client-credentials-grant-without-refresh-token-by-default">Client Credentials Grant without refresh token by default</a></li>
 </ul>
 </li>
 <li><a href="#migrating-to-11-0-0">Migrating to 11.0.0</a>
@@ -1632,6 +1633,22 @@ The old PatternFly 3 runs simultaneously with the new one, so it&#8217;s possibl
 However, there are some changes in login theme design, so please upgrade your custom login theme despite these changes.
 There is an example with the changes in <code>keycloak/examples/themes/theme/sunrise</code> folder.
 No additional setup is required.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="client-credentials-grant-without-refresh-token-by-default"><a class="anchor" href="#client-credentials-grant-without-refresh-token-by-default"></a>Client Credentials Grant without refresh token by default</h4>
+<div class="paragraph">
+<p>From this Keycloak version, the OAuth2 Client Credentials Grant endpoint does not issue refresh tokens by default. This behavior is aligned with the OAuth2 specification.
+As a side-effect of this change, there is no user session created on the Keycloak server side after successful Client Credentials authentication, which results
+in improved performance and memory consumption. Clients that use Client Credentials Grant are encouraged to stop using
+refresh tokens and instead always authenticate at every request with <code>grant_type=client_credentials</code> instead of using <code>refresh_token</code> as grant type.
+In relation to this, Keycloak has support for revocation of access tokens in the OAuth2 Revocation Endpoint, hence clients are allowed
+to revoke individual access tokens if needed.</p>
+</div>
+<div class="paragraph">
+<p>For the backwards compatibility, there is a possibility to stick to the behavior of old versions. When this is used, the refresh token will be still issued after
+a successful authentication with the Client Credentials Grant and also the user session will be created. This can be enabled for the particular client in
+the Keycloak admin console, in client details in the section with <code>OpenID Connect Compatibility Modes</code> with the switch <code>Use Refresh Tokens For Client Credentials Grant</code>.</p>
 </div>
 </div>
 </div>
@@ -3162,7 +3179,7 @@ credentials tab in the administration console.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-05 16:46:43 UTC
+Last updated 2020-11-06 08:18:47 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
