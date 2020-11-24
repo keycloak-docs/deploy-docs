@@ -801,6 +801,8 @@ span.image img {
 </ul>
 </li>
 <li><a href="#_personal_data">Personal data collected by Keycloak</a></li>
+<li><a href="#enabling-account-deletion-by-users">Enabling account deletion by users</a></li>
+<li><a href="#deleting-a-user-in-action">Deleting a user in action</a></li>
 </ul>
 </li>
 <li><a href="#login-page-settings">Login Page Settings</a>
@@ -2316,6 +2318,74 @@ for more information on extending and creating themes.</p>
 <p>With authorization services and UMA support enabled, Keycloak can hold information about some objects for which a particular user is the owner. For example, Keycloak can track that the user <strong>john</strong> is the owner of a photoalbum <strong>album with animals</strong> and a few photos called <strong>lion picture</strong> and <strong>cow picture</strong> in this album.</p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enabling-account-deletion-by-users"><a class="anchor" href="#enabling-account-deletion-by-users"></a>Enabling account deletion by users</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/allow-user-to-delete-account.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.redhat.com/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/allow-user-to-delete-account.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>Keycloak can allow applications end users to delete their account through the Account Console. The functionality is not enabled by default. To enable it, the following steps needs be taken:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enabling the "Delete Account" Required Action</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Allowing the user to delete their account is done through an AIA (Application Initiated Action). You need first of all to enable the action from the admin console. In the Authentication menu, go to the Required Actions tab and tick the enabled checkbox for the "Delete Account" action.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./keycloak-images/enable-delete-account-action.png" alt="enable delete account action"></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Making sure the user has the "delete-account" as a client role:</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The delete account functionality is enabled on a per user basis. The second requirement to enable the delete account functionality is to make sure the user has the <code>delete-account</code> as a client role.</p>
+</div>
+<div class="paragraph">
+<p>To enable the delete account role for a user, go to the Users menu, and find the user for which the delete account functionality is to be enabled. In the "Role Mappings" Tab, select the "account" client from "Clients Role" list.</p>
+</div>
+<div class="paragraph">
+<p>Finally, select <code>delete-account</code> and click on add selected.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./keycloak-images/delete-account-client-role.png" alt="delete account client role"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-user-in-action"><a class="anchor" href="#deleting-a-user-in-action"></a>Deleting a user in action</h3>
+<div class="paragraph">
+<p>Once the functionlity is enabled, the user will see a new section named "Delete Account" appear in the bottom of the "Personal Info" page</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./keycloak-images/delete-account-landing-screen.png" alt="delete account landing screen"></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./keycloak-images/delete-account-page.png" alt="delete account page"></span></p>
+</div>
+<div class="paragraph">
+<p>As stated by the warning message, this action is irreversible, and it implies the deletion of all the user&#8217;s data in Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>Once the user clicks on Delete, he will be prompted to enter his credentials again and redirected to the final confirmation step:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./keycloak-images/delete-account-confirm.png" alt="delete account confirm"></span></p>
+</div>
+<div class="paragraph">
+<p>After confirming, the user&#8217;s account will be deleted.</p>
 </div>
 </div>
 </div>
@@ -14478,7 +14548,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-12 18:53:27 UTC
+Last updated 2020-11-24 14:52:40 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
