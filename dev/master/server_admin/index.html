@@ -2627,7 +2627,7 @@ they cannot use any stored passwords.</p>
 <dd>
 <p>This policy checks if a given password (converted to lowercase) is contained in a blacklist file, which is potentially a very large file.
 Password blacklists are UTF-8 plain-text files with Unix line endings where every line represents a blacklisted password.
-All passwords in the blacklist must be lowercased to facilitate case-insensitive comparison.
+All passwords in the blacklist must be lowercase to facilitate case-insensitive comparison.
 The file name of the blacklist file must be provided as the password policy value, e.g. <code>10_million_password_list_top_1000000.txt</code>.
 Blacklist files are resolved against <code>${jboss.server.data.dir}/password-blacklists/</code> by default.
 This path can be customized via the <code>keycloak.password.blacklists.path</code> system property,
@@ -5403,7 +5403,7 @@ Instead, keycloak adapters currently treat access and refresh tokens as bearer t
 <p>If you&#8217;ve set the client&#8217;s <a href="#_access-type">access type</a> to <code>confidential</code> in the client&#8217;s
 <code>Settings</code> tab, a new <code>Credentials</code> tab will show up. Note that the <code>Credentials</code> tab only
 shows up after you&#8217;ve clicked the <code>Save</code> button at the bottom of the settings screen with a
-<code>confidential</code> access type. As part of dealing with thistype of client you have to configure
+<code>confidential</code> access type. As part of dealing with this type of client you have to configure
 the client&#8217;s credentials.</p>
 </div>
 <div class="paragraph">
@@ -14817,7 +14817,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-11 10:09:08 UTC
+Last updated 2021-02-17 08:18:49 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>

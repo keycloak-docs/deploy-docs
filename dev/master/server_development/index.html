@@ -2702,7 +2702,7 @@ deploy all scripts directly to the server as soon as possible.</p>
 </div>
 <div class="paragraph">
 <p>The Keycloak SPI framework offers the possibility to implement or override particular built-in providers. However Keycloak
-also provides capabilities to extend it&#8217;s core functionalities and domain. This includes possibilities to:</p>
+also provides capabilities to extend its core functionalities and domain. This includes possibilities to:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -5277,7 +5277,7 @@ If you do not specify the template parameter, your provider will not function. T
 </div>
 </div>
 <div class="paragraph">
-<p>Our <code>PropertyFileUserStorageProvider</code> example is bit contrived. It is hardcoded to a property file that is embedded in the jar of the provider, which is not terribly useful. We might want to make the location of this file configurable per instance of the provider. In other words, we might want to reuse this provider mulitple times in multiple different realms and point to completely different user property files. We&#8217;ll also want to perform this configuration within the administration console UI.</p>
+<p>Our <code>PropertyFileUserStorageProvider</code> example is bit contrived. It is hardcoded to a property file that is embedded in the jar of the provider, which is not terribly useful. We might want to make the location of this file configurable per instance of the provider. In other words, we might want to reuse this provider multiple times in multiple different realms and point to completely different user property files. We&#8217;ll also want to perform this configuration within the administration console UI.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UserStorageProviderFactory</code> has additional methods you can implement that handle provider configuration. You describe the variables you want to configure per provider and the administration console automatically renders a generic input page to gather this configuration. When implemented, callback methods also validate the configuration before it is saved, when a provider is created for the first time, and when it is updated. <code>UserStorageProviderFactory</code> inherits these methods from the <code>org.keycloak.component.ComponentFactory</code> interface.</p>
@@ -6563,7 +6563,7 @@ plain byte and character arrays and buffers is preferable.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-11 10:09:13 UTC
+Last updated 2021-02-17 08:19:01 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
