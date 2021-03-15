@@ -4787,6 +4787,25 @@ of an external user, a token is created based on the metadata and permissions of
 More info together with example is in <a href="#_service_accounts">Service Accounts</a> chapter.</p>
 </div>
 </div>
+<div class="sect4">
+<h5 id="device-authorization-grant"><a class="anchor" href="#device-authorization-grant"></a>Device Authorization Grant</h5>
+<div class="paragraph">
+<p>This is used by clients running on internet-connected devices that have limited input capabilities or lack a suitable browser. Here&#8217;s a brief summary of the protocol:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The application requests Keycloak a device code and a user code. Keycloak creates a device code and a user code. Keycloak returns a response including the device code and the user code to the application.</p>
+</li>
+<li>
+<p>The application provides the user with the user code and the verification URI. The user accesses a verification URI to be authenticated by using another browser.</p>
+</li>
+<li>
+<p>The application repeatedly polls Keycloak to find out if the user completed the user authorization. If user authentication is complete, the application exchanges the device code for an <em>identity</em>, <em>access</em> and <em>refresh</em> token.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_oidc-endpoints"><a class="anchor" href="#_oidc-endpoints"></a>Keycloak Server OIDC URI Endpoints</h4>
@@ -4824,6 +4843,10 @@ Implicit Flow, Direct Grants, or Client Grants.</p>
 <dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/certs</dt>
 <dd>
 <p>This is the URL endpoint for the JSON Web Key Set (JWKS) containing the public keys used to verify any JSON Web Token (jwks_uri)</p>
+</dd>
+<dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/auth/device</dt>
+<dd>
+<p>This is the URL endpoint for Device Authorization Grant to obtain a device code and a user code.</p>
 </dd>
 </dl>
 </div>
@@ -5182,6 +5205,12 @@ If this is turned on, this application cannot participate in browser logins.</p>
 </div>
 <div class="paragraph">
 <p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Direct Access Grants</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>OAuth 2.0 Device Authorization Grant Enabled</strong></p>
+</div>
+<div class="paragraph">
+<p>If this is on, clients are allowed to use the OIDC <a href="#_oidc-auth-flows">Device Authorization Grant</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Root URL</strong></p>
@@ -14826,7 +14855,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-11 15:27:34 UTC
+Last updated 2021-03-15 13:47:01 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>

@@ -7326,6 +7326,20 @@ It can only be invoked by confidential clients.</p>
 <p>For more details on how to invoke on this endpoint, see <a href="https://tools.ietf.org/html/rfc7009">OAuth 2.0 Token Revocation specification</a>.</p>
 </div>
 </div>
+<div class="sect4">
+<h5 id="device-authorization-endpoint"><a class="anchor" href="#device-authorization-endpoint"></a>Device Authorization Endpoint</h5>
+<div class="literalblock">
+<div class="content">
+<pre>/realms/{realm-name}/protocol/openid-connect/auth/device</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The device authorization endpoint is used to obtain a device code and a user code. It can only be invoked by confidential clients.</p>
+</div>
+<div class="paragraph">
+<p>For more details on how to invoke on this endpoint, see <a href="https://tools.ietf.org/html/rfc8628">OAuth 2.0 Device Authorization Grant specification</a>.</p>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="validating-access-tokens"><a class="anchor" href="#validating-access-tokens"></a>2.5.2. Validating Access Tokens</h4>
@@ -7448,6 +7462,20 @@ for example be useful for background services that applies changes to the system
 </div>
 <div class="paragraph">
 <p>For more details refer to the <a href="https://tools.ietf.org/html/rfc6749#section-4.4">Client Credentials Grant</a> chapter in the OAuth 2.0 specification.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="device-authorization-grant"><a class="anchor" href="#device-authorization-grant"></a>Device Authorization Grant</h5>
+<div class="paragraph">
+<p>Device Authorization Grant is used by clients running on internet-connected devices that have limited input capabilities or lack a suitable browser.
+The application requests Keycloak a device code and a user code. Keycloak creates a device code and a user code.
+Keycloak returns a response including the device code and the user code to the application.
+Then the application provides the user with the user code and the verification URI. The user accesses a verification URI to be authenticated by using another browser.
+The application repeatedly polls Keycloak until Keycloak completes the user authorization.
+If user authentication is complete, the application obtains the device code. Then the application uses the device code along with its credentials to obtain an Access Token, Refresh Token and ID Token from Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>For more details refer to the <a href="https://tools.ietf.org/html/rfc8628">OAuth 2.0 Device Authorization Grant specification</a>.</p>
 </div>
 </div>
 </div>
@@ -11937,7 +11965,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-11 15:27:28 UTC
+Last updated 2021-03-15 13:46:54 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
