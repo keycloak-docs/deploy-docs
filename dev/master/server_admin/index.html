@@ -3459,7 +3459,7 @@ future versions and provide some more flexible mappings from Kerberos principals
 <p>During SSL/TLS handshake, the server and the client exchange their x.509/v3 certificates</p>
 </li>
 <li>
-<p>The container (WildFly) validates the certificate PKIX path and the certificate expiration</p>
+<p>The web container (either the reverse proxy or WildFly where Keycloak is deployed) validates the certificate PKIX path and the certificate expiration</p>
 </li>
 <li>
 <p>The x.509 client certificate authenticator validates the client certificate as follows:</p>
@@ -3500,6 +3500,22 @@ future versions and provide some more flexible mappings from Kerberos principals
 </div>
 </li>
 </ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Note that it is the responsibility of the web container to validate certificate PKIX path. X.509 authenticator on the
+Keycloak side provides just the additional support for check the certificate expiration, certificate revocation status and key usage. If you are
+using Keycloak deployed behind reverse proxy, make sure that your reverse proxy is configured to validate PKIX path. If you
+do not use reverse proxy and users directly access the WildFly, you should be fine as WildFly makes sure that PKIX path is validated as long
+as it is configured as described below.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="features-2"><a class="anchor" href="#features-2"></a>Features</h4>
@@ -14855,7 +14871,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-15 13:47:01 UTC
+Last updated 2021-03-15 16:04:21 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
