@@ -1789,26 +1789,8 @@ provider.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>By default, the locale is selected using the <code>DefaultLocaleSelectorProvider</code> which implements the <code>LocaleSelectorProvider</code> interface. English is the default language when internationalization is disabled. With internationalization enabled, the locale is resolved in the following priority:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>KEYCLOAK_LOCALE</code> cookie value</p>
-</li>
-<li>
-<p>User&#8217;s preferred locale if a user instance is available</p>
-</li>
-<li>
-<p><code>ui_locales</code> query parameter</p>
-</li>
-<li>
-<p><code>Accept-Language</code> request header</p>
-</li>
-<li>
-<p>Realm&#8217;s default language</p>
-</li>
-</ol>
+<p>By default, the locale is selected using the <code>DefaultLocaleSelectorProvider</code> which implements the <code>LocaleSelectorProvider</code> interface. English is the default language when internationalization is disabled.
+With internationalization enabled, the locale is resolved according to the logic described in the <a href="https://www.keycloak.org/docs/11.0/server_admin/#_user_locale_selection">Server Administration Guide</a>.</p>
 </div>
 <div class="paragraph">
 <p>This behaviour can be changed through the <code>LocaleSelectorSPI</code> by implementing the <code>LocaleSelectorProvider</code> and <code>LocaleSelectorProviderFactory</code>.</p>
@@ -6560,7 +6542,7 @@ plain byte and character arrays and buffers is preferable.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-15 16:04:30 UTC
+Last updated 2021-03-16 08:19:09 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
