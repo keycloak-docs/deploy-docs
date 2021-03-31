@@ -1053,9 +1053,10 @@ span.image img {
 <li><a href="#sync-of-ldap-users-to-keycloak">Sync of LDAP users to Keycloak</a></li>
 <li><a href="#_ldap_mappers">LDAP Mappers</a></li>
 <li><a href="#_ldap_password_hashing">Password Hashing</a></li>
+<li><a href="#_ldap_troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
-<li><a href="#_sssd">SSSD and FreeIPA Identity Management Integration</a>
+<li><a href="#sssd-and-freeipa-identity-management-integration">SSSD and FreeIPA Identity Management Integration</a>
 <ul class="sectlevel3">
 <li><a href="#freeipa-idm-server">FreeIPA/IdM Server</a></li>
 <li><a href="#sssd-and-d-bus">SSSD and D-Bus</a></li>
@@ -10413,9 +10414,83 @@ directory entry using <code>ldapsearch</code> and base64 decode the <code>userPa
 </table>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_ldap_troubleshooting"><a class="anchor" href="#_ldap_troubleshooting"></a>Troubleshooting</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>It is useful to increase the logging level to TRACE for the category <code>org.keycloak.storage.ldap</code>. You increase this level in the logging
+subsystem in the <code>standalone(-ha).xml</code> file. With this setting, many logging messages are sent
+to the <code>server.log</code> file in the <code>TRACE</code> level, including the logging for all queries to the LDAP server and the parameters, which were
+used to send the queries. When you are creating any LDAP question on user forum or JIRA, consider attaching the server log with
+enabled TRACE logging. If it is too big, the good alternative is to include just the snippet from server log with the messages, which were
+added to the log during the operation, which causes the issues to you.</p>
+</li>
+<li>
+<p>When you create LDAP provider, message appear in the server log in the INFO level starting with:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Creating new LDAP Store for the LDAP storage provider: ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It shows the configuration of your LDAP provider. Before you are asking the questions or reporting bugs, it will be nice to include this
+message to show your LDAP configuration. Eventually feel free to replace some config changes, which you do not want to include, with some
+placeholder values. One example is <code>bindDn=some-placeholder</code> . For <code>connectionUrl</code>, feel free to replace it as well, but it is generally
+useful to include at least the protocol, which was used (<code>ldap</code> vs <code>ldaps</code>)`. Similarly it can be useful to include the details for
+configuration of your LDAP mappers, which are displayed with the message like this at the DEBUG level:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>Mapper for provider: XXX, Mapper name: YYY, Provider: ZZZ ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note those messages are displayed just with the enabled DEBUG logging.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For tracking the performance or connection pooling issues, consider setting the value of property <code>Connection Pool Debug Level</code> of
+the LDAP provider to value <code>all</code>. This will add lots of additional messages to server log with the included logging for the LDAP connection
+pooling. This can be used to track the issues related to connection pooling or performance.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After changing the configuration of connection pooling, you may need to restart the Keycloak server to enforce re-initialization
+of the LDAP provider connection.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If no more messages appear for connection pooling even after server restart, it can indicate that connection pooling does not work
+with your LDAP server.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For the case of reporting LDAP issue, you may consider to attach some part of your LDAP tree with the target data, which causes issues
+in your environment. For example if login of some user takes lot of time, you can consider attach his LDAP entry showing count of <code>member</code> attributes
+of various "group" entries. In this case, it might be useful to add if those group entries are mapped to some Group LDAP mapper (or Role LDAP Mapper)
+in Keycloak etc.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_sssd"><a class="anchor" href="#_sssd"></a>SSSD and FreeIPA Identity Management Integration</h3>
+<h3 id="sssd-and-freeipa-identity-management-integration"><a class="anchor" href="#sssd-and-freeipa-identity-management-integration"></a>SSSD and FreeIPA Identity Management Integration</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/user-federation/sssd.adoc" target="_blank">Edit this section</a>
@@ -14877,7 +14952,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-19 08:40:20 UTC
+Last updated 2021-03-31 07:06:59 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
