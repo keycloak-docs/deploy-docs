@@ -867,6 +867,7 @@ span.image img {
 <li><a href="#conditions-in-conditional-flows">Conditions in Conditional flows</a>
 <ul class="sectlevel3">
 <li><a href="#available-conditions">Available Conditions</a></li>
+<li><a href="#explicitly-deny-allow-access-in-conditional-flows">Explicitly deny/allow access in conditional flows</a></li>
 </ul>
 </li>
 </ul>
@@ -4668,6 +4669,67 @@ In other words, the attribute should not be present.</p>
 </div>
 </dd>
 </dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="explicitly-deny-allow-access-in-conditional-flows"><a class="anchor" href="#explicitly-deny-allow-access-in-conditional-flows"></a>Explicitly deny/allow access in conditional flows</h4>
+<div class="paragraph">
+<p>You can allow or deny access to resources in a conditional flow.
+The two authenticators <code>Deny Access</code> and <code>Allow Access</code> control access to the resources by conditions.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>Allow Access</code></dt>
+<dd>
+<p>Authenticator will always successfully authenticate.
+This authenticator is not configurable.</p>
+</dd>
+<dt class="hdlist1"><code>Deny Access</code></dt>
+<dd>
+<p>Access will always be denied.
+You can define an error message, which will be shown to the user.
+You can provide these fields:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Alias</dt>
+<dd>
+<p>Describes a name of the execution, which will be shown in the authentication flow.</p>
+</dd>
+<dt class="hdlist1">Error message</dt>
+<dd>
+<p>Error message which will be shown to the user.
+The error message could be provided as a particular message or as a property in order to use it with localization.
+(i.e "<em>You do not have the role 'admin'.</em>", <em>my-property-deny</em> in messages properties)
+Leave blank for the default message defined as property <code>access-denied</code>.</p>
+</dd>
+</dl>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Here is an example how to deny access to all users who do not have the role <code>role1</code> and show an error message defined by a property <code>deny-role1</code>.
+This example includes <code>Condition - User Role</code> and <code>Deny Access</code> executions.</p>
+</div>
+<div class="paragraph">
+<div class="title">Browser flow</div>
+<p><span class="image"><img src="./images/deny-access-flow.png" alt="deny access flow"></span></p>
+</div>
+<div class="paragraph">
+<div class="title">Condition - User Role configuration</div>
+<p><span class="image"><img src="./images/deny-access-role-condition.png" alt="deny access role condition"></span></p>
+</div>
+<div class="paragraph">
+<div class="title">Configuration of the <code>Deny Access</code> is really easy. You can specify an arbitrary alias and required message like this:</div>
+<p><span class="image"><img src="./images/deny-access-execution-cond.png" alt="deny access execution cond"></span></p>
+</div>
+<div class="paragraph">
+<p>The last thing is defining the property with an error message in the login theme <code>messages_en.properties</code> (for English):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>deny-role1 = You do not have required role!</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -14956,7 +15018,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-31 12:48:21 UTC
+Last updated 2021-04-09 10:07:31 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
