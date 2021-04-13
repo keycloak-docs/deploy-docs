@@ -4907,11 +4907,12 @@ talk OIDC with the auth server.  These are all relative URLs and the root of the
 <dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/auth</dt>
 <dd>
 <p>This is the URL endpoint for obtaining a temporary code in the Authorization Code Flow or for obtaining tokens via the
-Implicit Flow, Direct Grants, or Client Grants.</p>
+Implicit Flow or Hybrid Flow.</p>
 </dd>
 <dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/token</dt>
 <dd>
-<p>This is the URL endpoint for the Authorization Code Flow to turn a temporary code into a token.</p>
+<p>This is the URL endpoint for the Authorization Code Flow to turn a temporary code into a token, or for obtaining tokens
+directly via Resource Owner Password Credentials (Direct Access Grants) or Client Credentials.</p>
 </dd>
 <dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/logout</dt>
 <dd>
@@ -15018,7 +15019,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-09 10:07:31 UTC
+Last updated 2021-04-13 14:58:27 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
