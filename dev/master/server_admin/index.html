@@ -6115,8 +6115,49 @@ If this switch is false, then Keycloak will invoke a background SAML request to 
 <dd>
 <p>Name ID Format for the subject.
 If no name ID policy is specified in the request or if the Force Name ID Format attribute is true, this value is used.
-Properties used for each of the respective formats are defined below.</p>
+Properties used for each of the respective formats are defined below.
+You can change the attribute used by the NameID Mapper.</p>
 </dd>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name ID Format</th>
+<th class="tableblock halign-left valign-top">Properties/Attributes Used</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">username (unspecified)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Username Property</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">example_user</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email Property</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:example_user@example.com">example_user@example.com</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">persistent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">saml.persistent.name.id.for.$clientId Attribute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">G-6e2a1050-0fc0-479b-bf6e-29cd3ccb373b</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transient</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">property and attribute values are not used</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">G-bfb85c10-57d7-4331-81bc-52f104599d79</p></td>
+</tr>
+</tbody>
+</table>
+<div class="dlist">
+<dl>
 <dt class="hdlist1">Root URL</dt>
 <dd>
 <p>If Keycloak uses any configured relative URLs, this value is prepended to them.</p>
@@ -15048,7 +15089,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-16 10:18:07 UTC
+Last updated 2021-04-20 11:37:49 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
