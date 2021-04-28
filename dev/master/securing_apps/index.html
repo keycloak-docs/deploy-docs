@@ -7997,6 +7997,14 @@ assigned to the principal will be <code>roleC</code>, <code>roleX</code>, <code>
 and <code>roleY</code>, <code>roleB</code> was mapped into an empty role - thus being discarded, <code>roleC</code> is used as is and finally an additional role
 was added to the <code>kc_user</code> principal (<code>roleZ</code>).</p>
 </div>
+<div class="paragraph">
+<p>Note: to use spaces in role names for mappings, use unicode replacements for space. For example, incoming 'role A' would appear as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>role\u0020A=roleX,roleY</code></pre>
+</div>
+</div>
 </div>
 <div class="sect5">
 <h6 id="adding-your-own-role-mappings-provider"><a class="anchor" href="#adding-your-own-role-mappings-provider"></a>Adding Your Own Role Mappings Provider</h6>
@@ -11965,7 +11973,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-21 06:28:29 UTC
+Last updated 2021-04-28 06:56:50 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
