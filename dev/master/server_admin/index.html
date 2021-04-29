@@ -7186,11 +7186,26 @@ If you want to see how you can send a custom value for a <code>scope</code> para
 </table>
 </div>
 <div class="sect4">
-<h5 id="generating-example-tokens"><a class="anchor" href="#generating-example-tokens"></a>Generating Example Tokens</h5>
+<h5 id="generating-example-tokens-and-user-info"><a class="anchor" href="#generating-example-tokens-and-user-info"></a>Generating Example Tokens and User Info</h5>
 <div class="paragraph">
-<p>To see an example of a real access token, generated for the particular user and issued for the particular client, with the specified
-value of <code>scope</code> parameter, select the user from the <code>Evaluate</code> screen. This will generate an example token that includes all of the
-claims and role mappings used.</p>
+<p>If you select a user in the <code>Evaluate</code> screen, the following example data is generated:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Generated Access Token: An access token that will be generated and sent to the client when the selected user is authenticated.</p>
+</li>
+<li>
+<p>Generated ID Token: An ID Token that will be generated and sent to the client when the selected user is authenticated.</p>
+</li>
+<li>
+<p>Generated User Info: The information about the user that is returned by the UserInfo Endpoint.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All examples are generated for the particular user and issued for the particular client, with the specified
+value of <code>scope</code> parameter. The examples include all of the claims and role mappings used.</p>
 </div>
 </div>
 </div>
@@ -15590,7 +15605,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-29 14:01:41 UTC
+Last updated 2021-04-29 14:54:07 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
