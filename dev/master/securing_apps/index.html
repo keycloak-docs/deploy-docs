@@ -7070,6 +7070,25 @@ for each section:</p>
     app.get( <span class="string"><span class="delimiter">'</span><span class="content">/:section/:page</span><span class="delimiter">'</span></span>, keycloak.protect( protectBySection ), sectionHandler );</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>Advanced Login Configuration:</p>
+</div>
+<div class="paragraph">
+<p>By default, all unauthorized requests will be redirected to the Keycloak login page unless your client is bearer-only.
+However, a confidential or public client may host both browsable and API endpoints. To prevent redirects on unauthenticated
+API requests and instead return an HTTP 401, you can override the redirectToLogin function.</p>
+</div>
+<div class="paragraph">
+<p>For example, this override checks if the URL contains /api/ and disables login redirects:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="javascript">    Keycloak.prototype.<span class="function">redirectToLogin</span> = <span class="keyword">function</span>(req) {
+    <span class="keyword">var</span> apiReqMatcher = <span class="regexp"><span class="delimiter">/</span><span class="content">\/</span><span class="content">api</span><span class="content">\/</span><span class="delimiter">/</span><span class="modifier">i</span></span>;
+    <span class="keyword">return</span> !apiReqMatcher.test(req.originalUrl || req.url);
+    };</code></pre>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="additional-urls"><a class="anchor" href="#additional-urls"></a>2.3.7. Additional URLs</h4>
@@ -12018,7 +12037,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-30 11:05:44 UTC
+Last updated 2021-05-03 16:22:53 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
