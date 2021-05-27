@@ -5976,13 +5976,10 @@ Instead, keycloak adapters currently treat access and refresh tokens as bearer t
 <div class="ulist">
 <ul>
 <li>
-<p>open the client&#8217;s <code>Credentials</code> tab</p>
+<p>open the client&#8217;s <code>Keys</code> tab</p>
 </li>
 <li>
-<p>select <code>Signed Jwt</code> from <code>Client Authenticator</code> pulldown menu</p>
-</li>
-<li>
-<p>set ON to <code>JWKS URL</code> switch</p>
+<p>toggle <code>JWKS URL</code> to ON</p>
 </li>
 <li>
 <p>input the client&#8217;s public key providing URL on <code>JWKS URL</code> textbox</p>
@@ -6054,9 +6051,15 @@ button allows you to recreate this secret if you want or need to.</p>
 <p><span class="image"><img src="./keycloak-images/client-credentials-jwt.png" alt="client credentials jwt"></span></p>
 </div>
 <div class="paragraph">
-<p>When choosing this credential type you will have to also generate a private key and certificate for the client.  The private key
-will be used to sign the JWT, while the certificate is used by the server to verify the signature.  Click on the
-<code>Generate new keys and certificate</code> button to start this process.</p>
+<p>When choosing this credential type you will have to also generate a private key and certificate for the client in the tab <code>Keys</code>.
+The private key will be used to sign the JWT, while the certificate is used by the server to verify the signature.</p>
+</div>
+<div class="paragraph">
+<div class="title">Keys Tab</div>
+<p><span class="image"><img src="./keycloak-images/client-oidc-keys.png" alt="client oidc keys"></span></p>
+</div>
+<div class="paragraph">
+<p>Click on the <code>Generate new keys and certificate</code> button to start this process.</p>
 </div>
 <div class="paragraph">
 <div class="title">Generate Keys</div>
@@ -6595,7 +6598,7 @@ The AES algorithm is used with a key size of 128 bits.</p>
 <dt class="hdlist1">Client Signature Required</dt>
 <dd>
 <p>Expect that documents coming from a client are signed.
-Keycloak will validate this signature using the client public key or cert set up in the <code>SAML Keys</code> tab.</p>
+Keycloak will validate this signature using the client public key or cert set up in the <code>Keys</code> tab.</p>
 </dd>
 <dt class="hdlist1">Force POST Binding</dt>
 <dd>
@@ -15605,7 +15608,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-27 12:27:16 UTC
+Last updated 2021-05-27 13:29:24 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
