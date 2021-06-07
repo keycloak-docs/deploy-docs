@@ -877,6 +877,7 @@ span.image img {
 <li><a href="#_oidc">OpenID Connect</a>
 <ul class="sectlevel3">
 <li><a href="#_oidc-auth-flows">OIDC Auth Flows</a></li>
+<li><a href="#_oidc-logout">OIDC Logout</a></li>
 <li><a href="#_oidc-endpoints">Keycloak Server OIDC URI Endpoints</a></li>
 </ul>
 </li>
@@ -5384,6 +5385,51 @@ It must be one of the following status.<br>
 </div>
 </div>
 <div class="sect3">
+<h4 id="_oidc-logout"><a class="anchor" href="#_oidc-logout"></a>OIDC Logout</h4>
+<div class="paragraph">
+<p>OIDC has three different specifications relevant to logout mechanisms, all of these are currently in draft status:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://openid.net/specs/openid-connect-session-1_0.html">Session Management</a></p>
+</li>
+<li>
+<p><a href="https://openid.net/specs/openid-connect-frontchannel-1_0.html">Front-Channel Logout</a></p>
+</li>
+<li>
+<p><a href="https://openid.net/specs/openid-connect-backchannel-1_0.html">Back-Channel Logout</a></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Again since all of this is described in the OIDC specification we will only give a brief overview here.</p>
+</div>
+<div class="sect4">
+<h5 id="session-management"><a class="anchor" href="#session-management"></a>Session Management</h5>
+<div class="paragraph">
+<p>This is a browser-based logout. The application obtains session status information from Keycloak at a regular basis.
+When the session is terminated at Keycloak the application will notice and trigger it&#8217;s own logout.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="frontchannel-logout"><a class="anchor" href="#frontchannel-logout"></a>Frontchannel Logout</h5>
+<div class="paragraph">
+<p>This is also a browser-based logout. In contrast to the Session Managment based logout approach Keycloak will send logout
+requests to the clients. Applications or clients need to have a frontchannel logout URL registered at Keycloak.
+After triggering a logout at Keycloak, it will send logout requests to these registered URLs that will terminate the client sessions.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="backchannel-logout"><a class="anchor" href="#backchannel-logout"></a>Backchannel Logout</h5>
+<div class="paragraph">
+<p>This is a non browser-based logout that uses direct backchannel communication between Keycloak and clients.
+Keycloak sends a HTTP POST request containing a logout token to all clients logged into Keycloak. These
+requests are sent to a registered backchannel logout URLs at Keycloak and are supposed to trigger a logout at client side.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_oidc-endpoints"><a class="anchor" href="#_oidc-endpoints"></a>Keycloak Server OIDC URI Endpoints</h4>
 <div class="paragraph">
 <p>Here&#8217;s a list of OIDC endpoints that the Keycloak publishes.  These URLs are useful if you are using a non-Keycloak client adapter to
@@ -5428,6 +5474,10 @@ directly via Resource Owner Password Credentials (Direct Access Grants) or Clien
 <dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/ext/ciba/auth</dt>
 <dd>
 <p>This is the URL endpoint for Client Initiated Backchannel Authentication Grant to obtain an auth_req_id that identifies the authentication request made by the client.</p>
+</dd>
+<dt class="hdlist1">/realms/{realm-name}/protocol/openid-connect/logout/backchannel-logout</dt>
+<dd>
+<p>This is the URL endpoint for performing backchannel logouts described in the OIDC specification.</p>
 </dd>
 </dl>
 </div>
@@ -5865,6 +5915,31 @@ See <a href="https://www.keycloak.org/docs/14.0/securing_apps/">Securing Applica
 <p>To fill in the <code>Web Origins</code> data, enter in a base URL and click the + sign to add.  Click the - sign next to URLs you want to remove.
 Remember that you still have to click the <code>Save</code> button!</p>
 </div>
+<div class="paragraph">
+<p><strong>Backchannel Logout URL</strong></p>
+</div>
+<div class="paragraph">
+<p>When Keycloak receives a logout request via <code>end_session_endpoint</code> it will post a backchannel logout request at this URL like described in the
+<a href="https://openid.net/specs/openid-connect-backchannel-1_0.html">OpenID Connect specification</a>.
+This causes the client to log itself out.</p>
+</div>
+<div class="paragraph">
+<p><strong>Backchannel Logout Session Required</strong></p>
+</div>
+<div class="paragraph">
+<p>If enabled, the session id is included in the logout token when a backchannel logout request is sent.
+This results in only logging out a specific session. If disabled, all sessions of the corresponding
+user will be logged out.</p>
+</div>
+<div class="paragraph">
+<p><strong>Backchannel Logout Revoke Offline Sessions</strong></p>
+</div>
+<div class="paragraph">
+<p>If enabled, a <code>revoke_offline_access</code> event is added to the logout token. This should result in also logging out offline
+sessions with a backchannel logout request. This event is not specified by the <a href="https://openid.net/specs/openid-connect-backchannel-1_0.html">OpenID Connect specification</a>
+and may have to change in the future. Keycloak itself will respect the <code>revoke_offline_access</code> in a logout token when receiving
+a backchannel logout request.</p>
+</div>
 <div class="sect3">
 <h4 id="advanced-settings"><a class="anchor" href="#advanced-settings"></a>Advanced Settings</h4>
 <div id="_mtls-client-certificate-bound-tokens" class="paragraph">
@@ -6056,7 +6131,7 @@ The private key will be used to sign the JWT, while the certificate is used by t
 </div>
 <div class="paragraph">
 <div class="title">Keys Tab</div>
-<p><span class="image"><img src="./keycloak-images/client-oidc-keys.png" alt="client oidc keys"></span></p>
+<p><span class="image"><img src="./images/client-oidc-keys.png" alt="client oidc keys"></span></p>
 </div>
 <div class="paragraph">
 <p>Click on the <code>Generate new keys and certificate</code> button to start this process.</p>
@@ -15608,7 +15683,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-31 09:21:11 UTC
+Last updated 2021-06-07 12:20:22 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
