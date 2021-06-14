@@ -803,6 +803,18 @@ span.image img {
 <li><a href="#_personal_data">Personal data collected by Keycloak</a></li>
 <li><a href="#enabling-account-deletion-by-users">Enabling account deletion by users</a></li>
 <li><a href="#deleting-a-user-in-action">Deleting a user in action</a></li>
+<li><a href="#user-profile">User Profile</a>
+<ul class="sectlevel3">
+<li><a href="#enabling-the-declarative-user-profile">Enabling the Declarative User Profile</a></li>
+<li><a href="#managing-the-user-profile">Managing the User Profile</a></li>
+<li><a href="#managing-attributes">Managing Attributes</a></li>
+<li><a href="#managing-permissions">Managing Permissions</a></li>
+<li><a href="#managing-validations">Managing Validations</a></li>
+<li><a href="#managing-annotations">Managing Annotations</a></li>
+<li><a href="#using-the-json-configuration">Using the JSON Configuration</a></li>
+<li><a href="#verifying-user-profile">Verifying User Profile</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#login-page-settings">Login Page Settings</a>
@@ -2420,6 +2432,460 @@ for more information on extending and creating themes.</p>
 </div>
 <div class="paragraph">
 <p>After confirming, the user&#8217;s account will be deleted.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-profile"><a class="anchor" href="#user-profile"></a>User Profile</h3>
+<div class="sidebarblock page-links">
+<div class="content">
+<a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/users/user-profile.adoc" target="_blank">Edit this section</a>
+<a href="https://issues.redhat.com/secure/CreateIssueDetails!init.jspa?pid=12313920&amp;components=12323375&amp;issuetype=1&amp;priority=3&amp;description=File:%20server_admin/topics/users/user-profile.adoc" target="_blank">Report an issue</a>
+</div>
+</div>
+<div class="paragraph">
+<p>In Keycloak a user is associated with a set of attributes. These attributes are used to better describe and identify users within Keycloak as well as to pass over additional information to applications about them.</p>
+</div>
+<div class="paragraph">
+<p>A user profile defines a well-defined schema for representing user attributes and how they are managed within a realm. By providing a consistent view over user information, it allows administrators to control the different aspects on how attributes are managed as well as to make a lot easier to extend Keycloak to support additional attributes.</p>
+</div>
+<div class="paragraph">
+<p>Among other capabilities, user profile enables administrators to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Define a schema for user attributes</p>
+</li>
+<li>
+<p>Define whether an attribute is required based on contextual information (e.g.: if required only for users, or admins, or both, or depending on the scope being requested.)</p>
+</li>
+<li>
+<p>Define specific permissions for viewing and editing user attributes, making possible to adhere to strong privacy requirements where some attributes can not be seen or be changed by third-parties (including administrators)</p>
+</li>
+<li>
+<p>Dynamically enforce user profile compliance so that user information is always updated and in compliance with the metadata and rules associated with attributes</p>
+</li>
+<li>
+<p>Define validation rules on a per-attribute basis by leveraging the built-in validators or writing custom ones</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The User Profile capabilities are backed by the User Profile SPI. By default, there are two providers you can choose from:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Legacy User Profile Provider (<code>legacy-user-profile</code>)</p>
+</li>
+<li>
+<p>Declarative User Profile Provider (<code>declarative-user-profile</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The legacy provider is enabled by default, and it provides a basic user profile configuration based on the user root attributes such as e-mail, first and last names.</p>
+</div>
+<div class="paragraph">
+<p>On the other hand, the declarative provider gives you a lot more flexibility to define the user profile configuration to a realm through the administration console and a well-defined JSON schema.</p>
+</div>
+<div class="paragraph">
+<p>In the next sections, we&#8217;ll be looking at how to use the declarative provider to define your own user profile configuration.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In the future, the <code>declarative-user-profile</code> provider is going to replace the legacy provider and become the default.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="enabling-the-declarative-user-profile"><a class="anchor" href="#enabling-the-declarative-user-profile"></a>Enabling the Declarative User Profile</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Declarative User Profile is <strong>Technology Preview</strong> and is not fully supported. This feature is disabled by default.</p>
+</div>
+<div class="paragraph">
+<p>To enable start the server with <code>-Dkeycloak.profile=preview</code>
+or <code>-Dkeycloak.profile.feature.declarative_user_profile=enabled</code>
+. For more details see <a href="https://www.keycloak.org/docs/14.0/server_installation/#profiles">Profiles</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In addition to enabling the <code>declarative_user_profile</code> feature, you should use the <a href="https://www.keycloak.org/docs/14.0/server_installation/#_start_cli">CLI</a> to set the <code>declarative-user-profile</code> provider as the default provider as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>$ /subsystem=keycloak-server/spi=userProfile:add(default-provider=declarative-user-profile)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After setting the default provider, make sure to restart the server.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="managing-the-user-profile"><a class="anchor" href="#managing-the-user-profile"></a>Managing the User Profile</h4>
+<div class="paragraph">
+<p>The user profile configuration is managed on a per-realm basis. For that, click on the
+<code>Realm Settings</code> link on the left side menu and then click on the <code>User Profile</code> tab.</p>
+</div>
+<div class="paragraph">
+<div class="title">User Profile Attributes</div>
+<p><span class="image"><img src="./keycloak-images/user-profile-attributes.png" alt="user profile attributes"></span></p>
+</div>
+<div class="paragraph">
+<p>In the <code>Attributes</code> sub-tab you have a list of the attributes currently associated with the user profile. By default, Keycloak uses a configuration based on the user root attributes and very similar to the configuration used by the legacy provider.</p>
+</div>
+<div class="paragraph">
+<p>In the <code>JSON Editor</code> sub-tab you can view and edit the configuration using a well-defined JSON schema.</p>
+</div>
+<div class="paragraph">
+<p>In the next section, you are going to learn how to manage the configuration from the <code>Attributes</code> sub-tab.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="managing-attributes"><a class="anchor" href="#managing-attributes"></a>Managing Attributes</h4>
+<div class="paragraph">
+<p>At the <code>Attributes</code> sub-tab you should be able to create, edit, and delete the attributes associated with the user profile.</p>
+</div>
+<div class="paragraph">
+<p>To define a new attribute and associate it with the user profile, click on the <code>Create</code> button in the top-right corner of the attribute listing.</p>
+</div>
+<div class="paragraph">
+<div class="title">Attribute Configuration</div>
+<p><span class="image"><img src="./keycloak-images/user-profile-create-attribute.png" alt="user profile create attribute"></span></p>
+</div>
+<div class="paragraph">
+<p>When configuring the attribute you should be able to define the following settings:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Name</dt>
+<dd>
+<p>The name of the attribute. This setting is required.</p>
+</dd>
+<dt class="hdlist1">Required</dt>
+<dd>
+<p>Set the attribute as required. If enabled, the attribute must be set by users and administrators. Otherwise, the attribute is optional.</p>
+</dd>
+<dt class="hdlist1">Permission</dt>
+<dd>
+<p>In this section, you can define read and write permissions for users and administrators.</p>
+</dd>
+<dt class="hdlist1">Validation</dt>
+<dd>
+<p>In this section, you can define custom validations when updating the attribute.</p>
+</dd>
+<dt class="hdlist1">Annotation</dt>
+<dd>
+<p>In this section, you can associate annotations to the attribute.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="managing-permissions"><a class="anchor" href="#managing-permissions"></a>Managing Permissions</h4>
+<div class="paragraph">
+<p>In the <code>Permission</code> section, you can define the level of access users and administrators have to read and write to an attribute.</p>
+</div>
+<div class="paragraph">
+<div class="title">Attribute Permission</div>
+<p><span class="image"><img src="./keycloak-images/user-profile-permission.png" alt="user profile permission"></span></p>
+</div>
+<div class="paragraph">
+<p>For that, you should be able to use the following settings:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Can user view?</dt>
+<dd>
+<p>If enabled, users can view the attribute. Otherwise, users don&#8217;t have access to the attribute.</p>
+</dd>
+<dt class="hdlist1">Can user edit?</dt>
+<dd>
+<p>If enabled, users can view and edit the attribute. Otherwise, users don&#8217;t have access to write to the attribute.</p>
+</dd>
+<dt class="hdlist1">Can admin view?</dt>
+<dd>
+<p>If enabled, administrators can view the attribute. Otherwise, administrators don&#8217;t have access to the attribute.</p>
+</dd>
+<dt class="hdlist1">Can admin edit?</dt>
+<dd>
+<p>If enabled, administrators can view and edit the attribute. Otherwise, administrators don&#8217;t have access to write to the attribute.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="managing-validations"><a class="anchor" href="#managing-validations"></a>Managing Validations</h4>
+<div class="paragraph">
+<p>In the <code>Validation</code> section, you can choose from different forms of validation to make sure the attribute value conforms to specific rules.</p>
+</div>
+<div class="paragraph">
+<div class="title">Attribute Validation</div>
+<p><span class="image"><img src="./keycloak-images/user-profile-validation.png" alt="user profile validation"></span></p>
+</div>
+<div class="paragraph">
+<p>Keycloak provides different validators out of the box:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not-empty</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check that input value is not empty. It means it is not null for all data types.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not-blank</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check that a string value is not empty. It means it is not null nor empty.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">length</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check the length of a string value based on a minimum and maximum length.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check if the value is an integer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">double</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check if the value is a number.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">uri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check if the value is a valid URI.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pattern</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check if the value matches a specific RegEx pattern.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check if the value has a valid e-mail format.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">local-date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check if the value has a valid format based on the realm and/or user locale.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="managing-annotations"><a class="anchor" href="#managing-annotations"></a>Managing Annotations</h4>
+<div class="paragraph">
+<p>In order to pass additional information to frontends, attributes can be decorated with
+annotations to dictate how attributes should be rendered. This capability is mainly useful when extending Keycloak themes to render pages dynamically based on the annotations associated with attributes.</p>
+</div>
+<div class="paragraph">
+<div class="title">Attribute Annotation</div>
+<p><span class="image"><img src="./keycloak-images/user-profile-annotation.png" alt="user profile annotation"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="using-the-json-configuration"><a class="anchor" href="#using-the-json-configuration"></a>Using the JSON Configuration</h4>
+<div class="paragraph">
+<p>The user profile configuration is stored using a well-defined JSON schema. You can choose from editing the user profile configuration directly by clicking on the <code>JSON Editor</code> sub-tab.</p>
+</div>
+<div class="paragraph">
+<div class="title">JSON Configuration</div>
+<p><span class="image"><img src="./keycloak-images/user-profile-json-config.png" alt="user profile json config"></span></p>
+</div>
+<div class="paragraph">
+<p>The JSON schema is defined as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "attributes": [
+    {
+      "name": "myattribute",
+      "required": {
+        "roles": [ "user", "admin" ],
+        "scopes": [ "foo", "bar" ]
+      },
+      "permissions": {
+        "view": [ "admin", "user" ],
+        "edit": [ "admin", "user" ]
+      },
+      "annotations": {
+        "myannotation": "myannotation-value"
+      }
+    }
+  ]
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The schema supports as many attributes as you need.</p>
+</div>
+<div class="paragraph">
+<p>For each attribute you should define a <code>name</code> and, optionally, the <code>required</code>, <code>permission</code>, and the <code>annotations</code> settings.</p>
+</div>
+<div class="sect4">
+<h5 id="required-property"><a class="anchor" href="#required-property"></a>Required Property</h5>
+<div class="paragraph">
+<p>The <code>required</code> setting defines whether an attribute is required. Keycloak allows you to set an attribute as required based on different conditions.</p>
+</div>
+<div class="paragraph">
+<p>When the <code>required</code> setting is defined as an empty object, the attribute is always required.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "attributes": [
+    {
+      "name": "myattribute",
+      "required": {}
+  ]
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On the other hand, you can choose to make the attribute required only for users, or administrators, or both. As well as mark the attribute as required only in case a specific scope is requested when the user is authenticating in Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>To mark an attribute as required for a user and/or administrator, set the <code>roles</code> property as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "attributes": [
+    {
+      "name": "myattribute",
+      "required": {
+        "roles": ["user"]
+      }
+  ]
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>roles</code> property expects an array whose values can be either <code>user</code> or <code>admin</code>, depending on whether the attribute should be required by the user or the administrator, respectively.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, you can choose to make the attribute required when a set of one or more scopes is requested by a client when authenticating a user. For that, you can use the <code>scopes</code> property as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "attributes": [
+    {
+      "name": "myattribute",
+      "required": {
+        "scopes": ["foo"]
+      }
+  ]
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>scopes</code> property is an array whose values can be any string representing a client scope.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="permissions-property"><a class="anchor" href="#permissions-property"></a>Permissions Property</h5>
+<div class="paragraph">
+<p>The attribute-level <code>permissions</code> property can be used to define the read and write permissions to an attribute. The permissions are set based on whether these operations can be performed on the attribute by a user, or administrator, or both.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "attributes": [
+    {
+      "name": "myattribute",
+      "permissions": {
+        "view": ["admin"],
+        "edit": ["user"]
+      }
+  ]
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Both <code>view</code> and <code>edit</code> properties expect an array whose values can be either <code>user</code> or <code>admin</code>, depending on whether the attribute is viewable or editable by the user or the administrator, respectively.</p>
+</div>
+<div class="paragraph">
+<p>When the <code>edit</code> permission is granted, the <code>view</code> permission is implicitly granted.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="annotations-property"><a class="anchor" href="#annotations-property"></a>Annotations Property</h5>
+<div class="paragraph">
+<p>The attribute-level <code>annotation</code> property can be used to associate additional metadata to attributes. Annotations are mainly useful for passing over additional information about attributes to frontends rendering user attributes based on the user profile configuration. Each annotation is a key/value pair.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "attributes": [
+    {
+      "name": "myattribute",
+      "annotations": {
+        "foo": ["foo-value"],
+        "bar": ["bar-value"]
+      }
+  ]
+}</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="verifying-user-profile"><a class="anchor" href="#verifying-user-profile"></a>Verifying User Profile</h4>
+<div class="paragraph">
+<p>In order to make sure user profiles are in compliance with the configuration, administrators may use the <code>VerifyProfile</code> required action to eventually force users to update their profiles when authenticating to Keycloak.</p>
+</div>
+<div class="paragraph">
+<p>When enabled, the <code>VerifyProfile</code> action is going to perform the following steps when the user is authenticating:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Check whether the user profile is fully compliant with the user profile configuration set to the realm.</p>
+</li>
+<li>
+<p>If not, perform an additional step during the authentication so that the user can update his/her profile.</p>
+</li>
+<li>
+<p>If the user profile is compliant with the configuration, no additional step is performed, and the user continues with the authentication process.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>VerifyProfile</code> action is similar to the <code>UpdateProfile</code>. However, it leverages all the capabilities provided by the user profile configuration to dynamically render the attributes defined in the user profile configuration.</p>
+</div>
+<div class="paragraph">
+<p>By default, the <code>VerifyProfile</code> action is disabled. To enabled it, click on the
+<code>Authentication</code> link on the left side menu and then click on the <code>Required Actions</code> tab. At this tab, click on the <code>Register</code> button and select the <code>VerifyProfile</code> action.</p>
+</div>
+<div class="paragraph">
+<div class="title">Registring the VerifyProfile Required Action</div>
+<p><span class="image"><img src="./keycloak-images/user-profile-register-verify-profile-action.png" alt="user profile register verify profile action"></span></p>
+</div>
 </div>
 </div>
 </div>
@@ -16072,7 +16538,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-10 19:11:11 UTC
+Last updated 2021-06-14 09:30:52 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
