@@ -760,6 +760,7 @@ span.image img {
 <ul class="sectlevel3">
 <li><a href="#client-policies-and-financial-grade-api-fapi-support">Client Policies and Financial-grade API (FAPI) Support</a></li>
 <li><a href="#improvements-to-user-profile-spi-and-support-for-declarative-configuration">Improvements to User Profile SPI and support for declarative configuration</a></li>
+<li><a href="#improvements-to-offline-sessions">Improvements to offline sessions</a></li>
 <li><a href="#other-improvements">Other improvements</a></li>
 </ul>
 </li>
@@ -1099,6 +1100,17 @@ details proceed to <a href="https://www.keycloak.org/docs/14.0/server_admin/#use
 </div>
 <div class="paragraph">
 <p>Thanks to the community and all the individuals involved in this effort.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="improvements-to-offline-sessions"><a class="anchor" href="#improvements-to-offline-sessions"></a>Improvements to offline sessions</h4>
+<div class="paragraph">
+<p>Offline session preloading has been improved and should be faster thanks to <a href="https://github.com/Flintholm">Peter Flintholm</a>.</p>
+</div>
+<div class="paragraph">
+<p>As a preview feature, offline session preloading can be skipped in favor of lazy loading thanks
+to <a href="https://github.com/thomasdarimont">Thomas Darimont</a>'s efforts. This feature has to be explicitly
+activated in the server configuration, see Server administration guide for details.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2310,7 +2322,7 @@ Thanks to <a href="https://github.com/looorent">loorent</a> for the contribution
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-14 09:28:42 UTC
+Last updated 2021-06-15 07:18:01 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
