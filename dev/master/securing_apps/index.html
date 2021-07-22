@@ -1306,6 +1306,9 @@ This is what one might look like:</p>
    },
 
    <span class="key"><span class="delimiter">&quot;</span><span class="content">connection-pool-size</span><span class="delimiter">&quot;</span></span> : <span class="integer">20</span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">socket-timeout-millis</span><span class="delimiter">&quot;</span></span>: <span class="integer">5000</span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">connection-timeout-millis</span><span class="delimiter">&quot;</span></span>: <span class="integer">6000</span>,
+   <span class="key"><span class="delimiter">&quot;</span><span class="content">connection-ttl-millis</span><span class="delimiter">&quot;</span></span>: <span class="integer">500</span>,
    <span class="key"><span class="delimiter">&quot;</span><span class="content">disable-trust-manager</span><span class="delimiter">&quot;</span></span>: <span class="value">false</span>,
    <span class="key"><span class="delimiter">&quot;</span><span class="content">allow-any-hostname</span><span class="delimiter">&quot;</span></span> : <span class="value">false</span>,
    <span class="key"><span class="delimiter">&quot;</span><span class="content">truststore</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">path/to/truststore.jks</span><span class="delimiter">&quot;</span></span>,
@@ -1452,6 +1455,30 @@ Currently password and jwt is supported. This is <em>REQUIRED</em> only for clie
 <p>This config option defines how many connections to the Keycloak server should be pooled.
 This is <em>OPTIONAL</em>.
 The default value is <code>20</code>.</p>
+</dd>
+<dt class="hdlist1">socket-timeout-millis</dt>
+<dd>
+<p>Timeout for socket waiting for data after establishing the connection in milliseconds.
+Maximum time of inactivity between two data packets.
+A timeout value of zero is interpreted as an infinite timeout.
+A negative value is interpreted as undefined (system default if applicable).
+The default value is <code>-1</code>.
+This is <em>OPTIONAL</em>.</p>
+</dd>
+<dt class="hdlist1">connection-timeout-millis</dt>
+<dd>
+<p>Timeout for establishing the connection with the remote host in milliseconds.
+A timeout value of zero is interpreted as an infinite timeout.
+A negative value is interpreted as undefined (system default if applicable).
+The default value is <code>-1</code>.
+This is <em>OPTIONAL</em>.</p>
+</dd>
+<dt class="hdlist1">connection-ttl-millis</dt>
+<dd>
+<p>Connection time-to-live for client in milliseconds.
+A value less than or equal to zero is interpreted as an infinite value.
+The default value is <code>-1</code>.
+This is <em>OPTIONAL</em>.</p>
 </dd>
 <dt class="hdlist1">disable-trust-manager</dt>
 <dd>
@@ -8419,7 +8446,10 @@ verification via SAML descriptor of the IDP when
             <span class="attribute-name">clientKeystorePassword</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">pwd</span><span class="delimiter">&quot;</span></span>
             <span class="attribute-name">truststore</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">classpath:truststore.jks</span><span class="delimiter">&quot;</span></span>
             <span class="attribute-name">truststorePassword</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">pwd</span><span class="delimiter">&quot;</span></span>
-            <span class="attribute-name">proxyUrl</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://proxy/</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span></code></pre>
+            <span class="attribute-name">proxyUrl</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://proxy/</span><span class="delimiter">&quot;</span></span>
+            <span class="attribute-name">socketTimeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">5000</span><span class="delimiter">&quot;</span></span>
+            <span class="attribute-name">connectionTimeout</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">6000</span><span class="delimiter">&quot;</span></span>
+            <span class="attribute-name">connectionTtl</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">500</span><span class="delimiter">&quot;</span></span> <span class="tag">/&gt;</span></code></pre>
 </div>
 </div>
 <div class="dlist">
@@ -8477,6 +8507,30 @@ This is <em>REQUIRED</em> if <code>clientKeystore</code> is set.</p>
 <dt class="hdlist1">proxyUrl</dt>
 <dd>
 <p>URL to HTTP proxy to use for HTTP connections.
+This is <em>OPTIONAL</em>.</p>
+</dd>
+<dt class="hdlist1">socketTimeout</dt>
+<dd>
+<p>Timeout for socket waiting for data after establishing the connection in milliseconds.
+Maximum time of inactivity between two data packets.
+A timeout value of zero is interpreted as an infinite timeout.
+A negative value is interpreted as undefined (system default if applicable).
+The default value is <code>-1</code>.
+This is <em>OPTIONAL</em>.</p>
+</dd>
+<dt class="hdlist1">connectionTimeout</dt>
+<dd>
+<p>Timeout for establishing the connection with the remote host in milliseconds.
+A timeout value of zero is interpreted as an infinite timeout.
+A negative value is interpreted as undefined (system default if applicable).
+The default value is <code>-1</code>.
+This is <em>OPTIONAL</em>.</p>
+</dd>
+<dt class="hdlist1">connectionTtl</dt>
+<dd>
+<p>Connection time-to-live for client in milliseconds.
+A value less than or equal to zero is interpreted as an infinite value.
+The default value is <code>-1</code>.
 This is <em>OPTIONAL</em>.</p>
 </dd>
 </dl>
@@ -12102,7 +12156,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-07-12 12:06:13 UTC
+Last updated 2021-07-22 08:56:08 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
