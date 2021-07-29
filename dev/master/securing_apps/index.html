@@ -831,7 +831,8 @@ span.image img {
 <li><a href="#_fapi-support">2.6. Financial-grade API (FAPI) Support</a>
 <ul class="sectlevel3">
 <li><a href="#fapi-client-profiles">2.6.1. FAPI client profiles</a></li>
-<li><a href="#tls-considerations">2.6.2. TLS considerations</a></li>
+<li><a href="#open-banking-brasil-financial-grade-api-security-profile">2.6.2. Open Banking Brasil Financial-grade API Security Profile</a></li>
+<li><a href="#tls-considerations">2.6.3. TLS considerations</a></li>
 </ul>
 </li>
 </ul>
@@ -7572,10 +7573,15 @@ If user authentication is complete, the application obtains the device code. The
 <p>After receiving this auth_req_id, this client repeatedly needs to poll Keycloak to obtain an Access Token, Refresh Token and ID Token from Keycloak in return for the auth_req_id until the user is authenticated.</p>
 </div>
 <div class="paragraph">
+<p>In case that client uses <code>ping</code> mode, it does not need to repeatedly poll the token endpoint, but it can wait for the notification sent by Keycloak to the specified Client Notification Endpoint.
+The Client Notification Endpoint can be configured in the Keycloak Admin Console. The details of the contract for Client Notification Endpoint are described in the CIBA specification.</p>
+</div>
+<div class="paragraph">
 <p>For more details refer to <a href="https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html">OpenID Connect Client Initiated Backchannel Authentication Flow specification</a>.</p>
 </div>
 <div class="paragraph">
-<p>Also please refer to other places of Keycloak documentation like <a href="#_backchannel_authentication_endpoint">Backchannel Authentication Endpoint of this guide</a> and <a href="https://www.keycloak.org/docs/15.0/server_admin/#_client_initiated_backchannel_authentication_grant">Client Initiated Backchannel Authentication Grant section</a> of Server Administration Guide.</p>
+<p>Also please refer to other places of Keycloak documentation like <a href="#_backchannel_authentication_endpoint">Backchannel Authentication Endpoint of this guide</a> and <a href="https://www.keycloak.org/docs/15.0/server_admin/#_client_initiated_backchannel_authentication_grant">Client Initiated Backchannel Authentication Grant section</a> of Server Administration Guide.
+For the details about FAPI CIBA compliance, please refer to the <a href="#_fapi-support">FAPI section of this guide</a>.</p>
 </div>
 </div>
 </div>
@@ -7632,9 +7638,23 @@ With this redirect uri it is also possible for a user to use a different device 
 </div>
 </div>
 <div class="paragraph">
-<p>Keycloak makes it easier for administrators to make sure that their clients are compliant with
-the <a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a>
-and <a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a>. This compliance means that the Keycloak server will verify the requirements
+<p>Keycloak makes it easier for administrators to make sure that their clients are compliant with these specifications:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://openid.net/specs/openid-financial-api-part-1-1_0.html">Financial-grade API Security Profile 1.0 - Part 1: Baseline</a></p>
+</li>
+<li>
+<p><a href="https://openid.net/specs/openid-financial-api-part-2-1_0.html">Financial-grade API Security Profile 1.0 - Part 2: Advanced</a></p>
+</li>
+<li>
+<p><a href="https://openid.net/specs/openid-financial-api-ciba-ID1.html">Financial-grade API: Client Initiated Backchannel Authentication Profile</a> (FAPI CIBA)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This compliance means that the Keycloak server will verify the requirements
 for the authorization server, which are mentioned in the specifications. Keycloak adapters do not have any specific support for the FAPI, hence the required validations on the client (application)
 side may need to be still done manually or through some other third-party solutions.</p>
 </div>
@@ -7645,9 +7665,37 @@ side may need to be still done manually or through some other third-party soluti
 and link them to the global client profiles for FAPI support, which are automatically available in each realm. You can use either <code>fapi-1-baseline</code> or <code>fapi-1-advanced</code> profile based on which FAPI
 profile you need your clients to conform with.</p>
 </div>
+<div class="paragraph">
+<p>In case you want to use <a href="https://www.keycloak.org/docs/15.0/server_admin/#_oidc_clients">Pushed Authorization Request (PAR)</a>, it is recommended that your client use
+both the <code>fapi-1-baseline</code> profile and <code>fapi-1-advanced</code> for PAR requests. Specifically, the <code>fapi-1-baseline</code> profile contains <code>pkce-enforcer</code> executor, which makes sure
+that client use PKCE with secured S256 algorithm. This is not required for FAPI Advanced clients unless they use PAR requests.</p>
+</div>
+<div class="paragraph">
+<p>In case you want to use <a href="#_backchannel_authentication_endpoint">CIBA</a> in a FAPI compliant way, make sure that your clients use both <code>fapi-1-advanced</code> and <code>fapi-ciba</code> client profiles.
+There is a need to use the <code>fapi-1-advanced</code> profile, or other client profile containing the requested executors, as the <code>fapi-ciba</code> profile contains just CIBA-specific executors.
+When enforcing the requirements of the FAPI CIBA specification, there is a need for more requirements, such as enforcement of confidential clients or certificate-bound access tokens.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="tls-considerations"><a class="anchor" href="#tls-considerations"></a>2.6.2. TLS considerations</h4>
+<h4 id="open-banking-brasil-financial-grade-api-security-profile"><a class="anchor" href="#open-banking-brasil-financial-grade-api-security-profile"></a>2.6.2. Open Banking Brasil Financial-grade API Security Profile</h4>
+<div class="paragraph">
+<p>Keycloak is compliant with the <a href="https://openbanking-brasil.github.io/specs-seguranca/open-banking-brasil-financial-api-1_ID1.html">Open Banking Brasil Financial-grade API Security Profile 1.0 Implementers Draft 1</a>.
+This one is more strict in some requirements than the <a href="#_fapi-support">FAPI 1 Advanced</a> specification and hence it may be needed to configure <a href="https://www.keycloak.org/docs/15.0/server_admin/#_client_policies">Client Policies</a>
+in the more strict way to enforce some of the requirements. Especially:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your client does not use PAR, make sure that it uses encrypted OIDC request objects. This can be achieved by using a client profile with the <code>secure-request-object</code> executor configured with <code>Encryption Required</code> enabled.</p>
+</li>
+<li>
+<p>Make sure that for JWS, the client uses the <code>PS256</code> algorithm. For JWE, the client should use the <code>RSA-OAEP</code> with <code>A256GCM</code>. This may need to be set in all the <a href="https://www.keycloak.org/docs/15.0/server_admin/#_oidc_clients">Client Settings</a> where these algorithms are applicable.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="tls-considerations"><a class="anchor" href="#tls-considerations"></a>2.6.3. TLS considerations</h4>
 <div class="paragraph">
 <p>As confidential information is being exchanged, all interactions shall be encrypted with TLS (HTTPS). Moreover, there are some requirements in the FAPI specification for
 the cipher suites and TLS protocol versions used. To match these requirements, you can consider configure allowed ciphers. This configuration can be done in the
@@ -12156,7 +12204,7 @@ credentials, and you&#8217;re only dealing with one user.  So use direct naked e
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-07-29 19:18:52 UTC
+Last updated 2021-07-29 21:42:47 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
