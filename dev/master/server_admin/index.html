@@ -1103,11 +1103,17 @@ span.image img {
 <li><a href="#admin-console-export-import">Admin console export/import</a></li>
 </ul>
 </li>
-<li><a href="#_vault-administration">Using Vault to Obtain Secrets</a>
+<li><a href="#_vault-administration">Using a Vault to Obtain Secrets</a>
 <ul class="sectlevel2">
 <li><a href="#kubernetes-openshift-files-plaintext-vault-provider">Kubernetes / OpenShift Files Plaintext Vault Provider</a></li>
 <li><a href="#elytron-credential-store-vault-provider">Elytron Credential Store Vault Provider</a></li>
 <li><a href="#key-resolvers">Key Resolvers</a></li>
+<li><a href="#sample-configuration">Sample Configuration</a>
+<ul class="sectlevel3">
+<li><a href="#configuring-the-credential-store-and-vault-without-a-mask">Configuring the credential store and vault without a mask</a></li>
+<li><a href="#masking-the-password-in-the-credential-store-and-vault">Masking the password in the credential store and vault</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_account-service">User Account Service</a>
@@ -1141,6 +1147,7 @@ span.image img {
 <li><a href="#password-database-compromised">Password database compromised</a></li>
 <li><a href="#limiting-scope">Limiting Scope</a></li>
 <li><a href="#limit-token-audience">Limit Token Audience</a></li>
+<li><a href="#_limit-authentication-sessions">Limit Authentication Sessions</a></li>
 <li><a href="#sql-injection-attacks">SQL Injection Attacks</a></li>
 </ul>
 </li>
@@ -12897,7 +12904,7 @@ Use this feature with caution, especially on a production system.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_vault-administration"><a class="anchor" href="#_vault-administration"></a>Using Vault to Obtain Secrets</h2>
+<h2 id="_vault-administration"><a class="anchor" href="#_vault-administration"></a>Using a Vault to Obtain Secrets</h2>
 <div class="sectionbody">
 <div class="sidebarblock page-links">
 <div class="content">
@@ -13179,6 +13186,216 @@ we can properly configure the custom factory in Keycloak.</p>
 <div class="paragraph">
 <p>The configuration above tells Keycloak to setup the custom Elytron provider and use the key resolver that is created by
 the custom factory.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sample-configuration"><a class="anchor" href="#sample-configuration"></a>Sample Configuration</h3>
+<div class="paragraph">
+<p>The following is an example of configuring a vault and credential store.  The procedure involves two parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating the credential store and a vault, where the credential store and vault passwords are in plain text.</p>
+</li>
+<li>
+<p>Updating the credential store and vault to have the password use a mask provided by <code>elytron-tool.sh</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In this example, the test target used is an LDAP instance with <code>BIND DN credential: secret12</code>. The target is mapped using user federation in the realm <code>ldaptest</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="configuring-the-credential-store-and-vault-without-a-mask"><a class="anchor" href="#configuring-the-credential-store-and-vault-without-a-mask"></a>Configuring the credential store and vault without a mask</h4>
+<div class="paragraph">
+<p>You create the credential store and a vault where the credential store and vault passwords are in plain text.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>A running LDAP instance has <code>BIND DN credential: secret12</code>.</p>
+</li>
+<li>
+<p>The alias uses the format &lt;realm-name&gt;_&lt; key-value&gt; when using the default key resolver. In this case, the instance is running in the realm <code>ldaptest</code> and <code>ldaptest_ldap_secret</code> is the alias that corresponds to the value <code>ldap_secret</code> in that realm.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The resolver replaces underscore characters with double underscore characters in the realm and key names. For example, for the key <code>ldaptest_ldap_secret</code>, the final key will be <code>ldaptest_ldap__secret</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create the Elytron credential store.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">[standalone@localhost:9990 /] /subsystem=elytron/credential-store=test-store:add(create=true, location=/home/test/test-store.p12, credential-reference={clear-text=testpwd1!},implementation-properties={keyStoreType=PKCS12})</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add an alias to the credential store.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">/subsystem=elytron/credential-store=test-store:add-alias(alias=ldaptest_ldap__secret,secret-value=secret12)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice how the resolver causes the key <code>ldaptest_ldap__secret</code> to use double underscores.</p>
+</div>
+</li>
+<li>
+<p>List the aliases from the credential store to inspect the contents of the keystore that is produced by Elytron.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">keytool -list -keystore /home/test/test-store.p12 -storetype PKCS12 -storepass testpwd1!
+Keystore type: PKCS12
+Keystore provider: SUN
+
+Your keystore contains 1 entries
+
+ldaptest_ldap__secret/passwordcredential/clear/, Oct 12, 2020, SecretKeyEntry,</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Configure the vault SPI in Keycloak.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">/subsystem=keycloak-server/spi=vault:add(default-provider=elytron-cs-keystore)
+
+/subsystem=keycloak-server/spi=vault/provider=elytron-cs-keystore:add(enabled=true, properties={location=&gt;/home/test/test-store.p12, secret=&gt;testpwd1!, keyStoreType=&gt;PKCS12})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>At this point, the vault and credentials store passwords are not masked.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">        &lt;spi name=&quot;vault&quot;&gt;
+                &lt;default-provider&gt;elytron-cs-keystore&lt;/default-provider&gt;
+                &lt;provider name=&quot;elytron-cs-keystore&quot; enabled=&quot;true&quot;&gt;
+                    &lt;properties&gt;
+                        &lt;property name=&quot;location&quot; value=&quot;/home/test/test-store.p12&quot;/&gt;
+                        &lt;property name=&quot;secret&quot; value=&quot;testpwd1!&quot;/&gt;
+                        &lt;property name=&quot;keyStoreType&quot; value=&quot;PKCS12&quot;/&gt;
+                    &lt;/properties&gt;
+                &lt;/provider&gt;
+            &lt;/spi&gt;
+
+         &lt;credential-stores&gt;
+                &lt;credential-store name=&quot;test-store&quot; location=&quot;/home/test/test-store.p12&quot; create=&quot;true&quot;&gt;
+                    &lt;implementation-properties&gt;
+                        &lt;property name=&quot;keyStoreType&quot; value=&quot;PKCS12&quot;/&gt;
+                    &lt;/implementation-properties&gt;
+                    &lt;credential-reference clear-text=&quot;testpwd1!&quot;/&gt;
+                &lt;/credential-store&gt;
+         &lt;/credential-stores&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the LDAP provider, replace <code>binDN credential</code> with <code>${vault.ldap_secret}</code>.</p>
+</li>
+<li>
+<p>Test your LDAP connection.</p>
+<div class="paragraph">
+<div class="title">LDAP Vault</div>
+<p><span class="image"><img src="./images/ldap-vault.png" alt="LDAP Vault"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="masking-the-password-in-the-credential-store-and-vault"><a class="anchor" href="#masking-the-password-in-the-credential-store-and-vault"></a>Masking the password in the credential store and vault</h4>
+<div class="paragraph">
+<p>You can now update the credential store and vault to have passwords that use a mask provided by <code>elytron-tool.sh</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a masked password using values for the <code>salt</code> and the <code>iteration</code> parameters:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">$ EAP_HOME/bin/elytron-tool.sh mask --salt SALT --iteration ITERATION_COUNT --secret PASSWORD</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">elytron-tool.sh mask --salt 12345678 --iteration 123 --secret testpwd1!
+MASK-3BUbFEyWu0lRAu8.fCqyUk;12345678;123</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the Elytron credential store configuration to use the masked password.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">/subsystem=elytron/credential-store=cs-store:write-attribute(name=credential-reference.clear-text,value=&quot;MASK-3BUbFEyWu0lRAu8.fCqyUk;12345678;123&quot;)</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the Keycloak vault configuration to use the masked password.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">/subsystem=keycloak-server/spi=vault/provider=elytron-cs-keystore:remove()
+/subsystem=keycloak-server/spi=vault/provider=elytron-cs-keystore:add(enabled=true, properties={location=&gt;/home/test/test-store.p12, secret=&gt;???MASK-3BUbFEyWu0lRAu8.fCqyUk;12345678;123???, keyStoreType=&gt;PKCS12})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The vault and credential store are now masked:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="bash">        &lt;spi name=&quot;vault&quot;&gt;
+                &lt;default-provider&gt;elytron-cs-keystore&lt;/default-provider&gt;
+                &lt;provider name=&quot;elytron-cs-keystore&quot; enabled=&quot;true&quot;&gt;
+                    &lt;properties&gt;
+                        &lt;property name=&quot;location&quot; value=&quot;/home/test/test-store.p12&quot;/&gt;
+                        &lt;property name=&quot;secret&quot; value=&quot;MASK-3BUbFEyWu0lRAu8.fCqyUk;12345678;123&quot;/&gt;
+                        &lt;property name=&quot;keyStoreType&quot; value=&quot;PKCS12&quot;/&gt;
+                    &lt;/properties&gt;
+                &lt;/provider&gt;
+            &lt;/spi&gt;
+         ....
+         .....
+         &lt;credential-stores&gt;
+                &lt;credential-store name=&quot;test-store&quot; location=&quot;/home/test/test-store.p12&quot; create=&quot;true&quot;&gt;
+                    &lt;implementation-properties&gt;
+                        &lt;property name=&quot;keyStoreType&quot; value=&quot;PKCS12&quot;/&gt;
+                    &lt;/implementation-properties&gt;
+                    &lt;credential-reference clear-text=&quot;MASK-3BUbFEyWu0lRAu8.fCqyUk;12345678;123&quot;/&gt;
+                &lt;/credential-store&gt;
+         &lt;/credential-stores&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>You can now test the connection to the LDAP using <code>${vault.ldap_secret}</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph _additional-resources">
+<div class="title">Additional resources</div>
+<p>For more information about the Elytron tool, see <a href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/how_to_configure_server_security/securely_storing_credentials#cred_store_elytron_client">Using Credential Stores with Elytron Client</a>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -13962,9 +14179,11 @@ Or alternatively, you can set role scope mappings at the Client Scope level and 
 <div class="paragraph">
 <p>In environments where the level of trust among services is low, it is a good practice to limit the audiences on the token. The
 motivation behind this is described in the <a href="https://datatracker.ietf.org/doc/html/rfc6819#section-5.1.5.5">OAuth2 Threat Model</a> document and
-more details are in the <a href="#_audience">Audience Support section</a>.
-=== Limit Authentication Sessions</p>
+more details are in the <a href="#_audience">Audience Support section</a>.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_limit-authentication-sessions"><a class="anchor" href="#_limit-authentication-sessions"></a>Limit Authentication Sessions</h3>
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/threat/auth-sessions-limit.adoc" target="_blank">Edit this section</a>
@@ -13972,7 +14191,10 @@ more details are in the <a href="#_audience">Audience Support section</a>.
 </div>
 </div>
 <div class="paragraph">
-<p>Keycloak creates an authentication session for each authentication request within a realm. This session is internally represented by <code>RootAuthenticationSession</code>. Each <code>RootAuthenticationSession</code> can have multiple authentication sessions for a given client. In a browser authentication flow, the browser session translates to <code>RootAuthenticationSession</code> while browser tabs translate to a collection of authentication sessions within the <code>RootAuthenticationSession</code>.</p>
+<p>When a login page is opened for the first time in a web browser, Keycloak creates an object called authentication session that stores some useful information about the request.
+Whenever a new login page is opened from a different tab in the same browser, Keycloak creates a new record called authentication sub-session that is stored within the authentication session.
+Authentication requests can come from any type of clients such as the Admin CLI. In that case, a new authentication session is also created with one authentication sub-session.
+Please note that authentication sessions can be created also in other ways than using a browser flow. The text below is applicable regardless of the source flow.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -13987,13 +14209,26 @@ This section describes deployments that use the Infinispan provider for authenti
 </table>
 </div>
 <div class="paragraph">
-<p>Higher memory usage and a network overload in a cluster may occur for deployments where there are many active <code>RootAuthenticationSession</code> with a lot of authentication sessions.</p>
+<p>Authentication session is internally stored as <code>RootAuthenticationSessionEntity</code>. Each <code>RootAuthenticationSessionEntity</code> can have multiple authentication sub-sessions stored within the
+<code>RootAuthenticationSessionEntity</code> as a collection of <code>AuthenticationSessionEntity</code> objects. Keycloak stores authentication sessions in a dedicated Infinispan cache.
+The number of <code>AuthenticationSessionEntity</code> per <code>RootAuthenticationSessionEntity</code> contributes to the size of each cache entry. Total memory footprint of authentication session cache is determined by
+the number of stored <code>RootAuthenticationSessionEntity</code> and by the number of <code>AuthenticationSessionEntity</code> within each <code>RootAuthenticationSessionEntity</code>.</p>
 </div>
 <div class="paragraph">
-<p>There is a possibility to mitigate the aforementioned threats. The maximum allowed number of <code>RootAuthenticationSession</code> should be addressed by limiting the request rate per time on the proxy or load balancer in front of Keycloak. The maximum number of authentication sessions per <code>RootAuthenticationSession</code> can be configured in <code>authenticationSessions</code> SPI by setting property <code>authSessionsLimit</code>. The default value is set to 300 authentication sessions per a <code>RootAuthenticationSession</code>. When this limit is reached, the oldest authentication session will be removed after a new authentication session request.</p>
+<p>The number of maintained <code>RootAuthenticationSessionEntity</code> objects corresponds to the number of unfinished login flows from the browser. To keep the number of <code>RootAuthenticationSessionEntity</code>
+under control, using an advanced firewall control to limit ingress network traffic is recommended.</p>
 </div>
 <div class="paragraph">
-<p>The following example shows how to limit the number of active authentication sessions per a <code>RootAuthenticationSession</code> to 100.</p>
+<p>Higher memory usage may occur for deployments where there are many active <code>RootAuthenticationSessionEntity</code> with a lot of <code>AuthenticationSessionEntity</code>.
+If the load balancer does not support or is not configured for <a href="https://www.keycloak.org/docs/15.0/server_installation/#sticky-sessions">session stickiness</a>, the load over network in a cluster can
+increase significantly. The reason for this load is that each request that lands on a node that does not own the appropriate authentication session needs to retrieve
+and update the authentication session record in the owner node which involves a separate network transmission for both the retrieval and the storage.</p>
+</div>
+<div class="paragraph">
+<p>The maximum number of <code>AuthenticationSessionEntity</code> per <code>RootAuthenticationSessionEntity</code> can be configured in <code>authenticationSessions</code> SPI by setting property <code>authSessionsLimit</code>. The default value is set to 300 <code>AuthenticationSessionEntity</code> per a <code>RootAuthenticationSessionEntity</code>. When this limit is reached, the oldest authentication sub-session will be removed after a new authentication session request.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to limit the number of active <code>AuthenticationSessionEntity</code> per a <code>RootAuthenticationSessionEntity</code> to 100.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -16616,7 +16851,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-07-28 06:42:17 UTC
+Last updated 2021-07-29 19:19:05 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
