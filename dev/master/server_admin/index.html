@@ -953,6 +953,10 @@ span.image img {
 <li><a href="#backward-compatibility">Backward Compatibility</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#roles">Roles</a>
+<ul class="sectlevel2">
 <li><a href="#realm-roles">Realm Roles</a></li>
 <li><a href="#client-roles">Client Roles</a></li>
 <li><a href="#_composite-roles">Composite Roles</a></li>
@@ -8414,9 +8418,15 @@ However, Client Registration Policies also still co-exist. This means that for e
 client registration policies are applied.</p>
 </div>
 <div class="paragraph">
-<p>The current plans are for the Client Registration Policies feature to be removed and the existing client registration policies will be migrated into new client policies automatically.
-== Roles</p>
+<p>The current plans are for the Client Registration Policies feature to be removed and the existing client registration policies will be migrated into new client policies automatically.</p>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="roles"><a class="anchor" href="#roles"></a>Roles</h2>
+<div class="sectionbody">
 <div class="sidebarblock page-links">
 <div class="content">
 <a href="https://github.com/keycloak/keycloak-documentation/blob/master/server_admin/topics/roles.adoc" target="_blank">Edit this section</a>
@@ -8430,8 +8440,6 @@ Applications often assign access and permissions to specific roles rather than i
 with users can be too fine grained and hard to manage.  For example, the Admin Console has specific roles which give permission to users
 to access parts of the Admin Console UI and perform certain actions.  There is a global namespace for roles and each client also has its own
 dedicated namespace where roles can be defined.</p>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="realm-roles"><a class="anchor" href="#realm-roles"></a>Realm Roles</h3>
@@ -17098,7 +17106,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-02 12:09:50 UTC
+Last updated 2021-08-02 12:52:25 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
