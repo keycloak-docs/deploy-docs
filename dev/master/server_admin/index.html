@@ -6793,7 +6793,7 @@ Instead, keycloak adapters currently treat access and refresh tokens as bearer t
 <p>In Key Encryption, the client generates a key pair of asymmetric cryptography. The public key is used to encrypt CEK. Keycloak generates CEK per ID token, encrypts the ID token by this generated CEK and encrypts this CEK by this client&#8217;s public key. The client decrypts this encrypted CEK by their private key, and decrypt the ID token by decrypted CEK. Therefore, any party other than the client is not able to decrypt ID token.</p>
 </div>
 <div class="paragraph">
-<p>The client needs to pass their public key for encrypting CEK onto Keycloak. Keycloak supports downloading public keys from the URL the client provides. The client needs to provide their public keys according to <a href="https://datatracker.ietf.org/doc/html/rfc7517">Json Web Keys (JWK)</a> specification. The way to do so is defined in <code>Signed JWT</code> of <a href="#_client-credentials">Confidential Client Credentials</a>. The detailed procedure is as follows:</p>
+<p>The client needs to pass their public key for encrypting CEK onto Keycloak. Keycloak supports downloading public keys from the URL the client provides. The client needs to provide their public keys according to <a href="https://datatracker.ietf.org/doc/html/rfc7517">Json Web Keys (JWK)</a> specification. The detailed procedure is as follows:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -6801,10 +6801,26 @@ Instead, keycloak adapters currently treat access and refresh tokens as bearer t
 <p>open the client&#8217;s <code>Keys</code> tab</p>
 </li>
 <li>
-<p>toggle <code>JWKS URL</code> to ON</p>
+<p>toggle <code>Use JWKS URL</code> to ON</p>
 </li>
 <li>
 <p>input the client&#8217;s public key providing URL on <code>JWKS URL</code> textbox</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Keycloak also supports inputting JWKS directly. The detailed procedure is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>open the client&#8217;s <code>Keys</code> tab</p>
+</li>
+<li>
+<p>toggle <code>Use JWKS</code> to ON</p>
+</li>
+<li>
+<p>input the client&#8217;s JWKS on <code>JWKS</code> textbox</p>
 </li>
 </ul>
 </div>
@@ -17106,7 +17122,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-08-05 14:34:41 UTC
+Last updated 2021-08-05 14:56:32 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
