@@ -4680,6 +4680,10 @@ If you use a different attribute name, you may need to add it to the list of rea
 <dd>
 <p>If set, X.509 client certificate authentication will not prompt the user to confirm the certificate identity and will automatically sign in the user upon successful authentication.</p>
 </dd>
+<dt class="hdlist1"><code>Revalidate client certificate</code></dt>
+<dd>
+<p>If set, the client certificate trust chain will be always verified at the application level using the certificates present in the configured trust store. This can be useful if the underlying web server does not enforce client certificate chain validation, for example because it is behind a non-validating load balancer or reverse proxy, or when the number of allowed CAs is too large for the mutual SSL negotiation (most browsers cap the maximum SSL negotiation packet size at 32767 bytes, which corresponds to about 200 advertised CAs). By default this option is off.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -17313,7 +17317,7 @@ $ kcadm.sh get users -r demorealm -q username=testuser</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-09-07 09:41:19 UTC
+Last updated 2021-09-13 10:15:25 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
